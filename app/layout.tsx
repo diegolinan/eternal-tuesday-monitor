@@ -1,12 +1,22 @@
 import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
-import { withBasePath } from '@/lib/site-paths';
+import { canonicalSiteUrl, withBasePath } from '@/lib/site-paths';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(canonicalSiteUrl),
   title: 'The Eternal Tuesday Monitor',
   description:
     'A dated, evidence-based monitor of observable temporal continuity behavior in current AI products.',
+  alternates: { canonical: canonicalSiteUrl },
+  openGraph: {
+    type: 'website',
+    url: canonicalSiteUrl,
+    siteName: 'The Eternal Tuesday Monitor',
+    title: 'The Eternal Tuesday Monitor',
+    description:
+      'A dated, evidence-based monitor of observable temporal continuity behavior in current AI products.',
+  },
 };
 
 export default function RootLayout({

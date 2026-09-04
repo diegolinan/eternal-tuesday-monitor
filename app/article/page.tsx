@@ -3,13 +3,25 @@ import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import type { Root, RootContent } from 'mdast';
 import type { Plugin } from 'unified';
-import { withBasePath } from '@/lib/site-paths';
+import {
+  canonicalArticleUrl,
+  canonicalSiteUrl,
+  withBasePath,
+} from '@/lib/site-paths';
 import articleMarkdown from '../../content/articles/your-ai-lives-in-an-eternal-tuesday.md?raw';
 
 export const metadata: Metadata = {
   title: 'Your AI Lives in an Eternal Tuesday',
   description:
     'What happens when the conversation continues but the world does not wait.',
+  alternates: { canonical: canonicalArticleUrl },
+  openGraph: {
+    type: 'article',
+    url: canonicalArticleUrl,
+    title: 'Your AI Lives in an Eternal Tuesday',
+    description:
+      'What happens when the conversation continues but the world does not wait.',
+  },
 };
 
 export const dynamic = 'force-static';
@@ -69,7 +81,7 @@ function plainText(node: RootContent): string {
 const remarkArticleAssets: Plugin<[], Root> = () => (tree) => {
   const visitLinks = (node: Root | RootContent) => {
     if (node.type === 'link' && node.url === 'MONITOR_URL') {
-      node.url = withBasePath('/');
+      node.url = canonicalSiteUrl;
     }
     if ('children' in node && Array.isArray(node.children)) {
       node.children.forEach((child) => visitLinks(child as RootContent));
@@ -121,7 +133,8 @@ const markdownComponents: Components = {
     );
   },
   a({ href, children }) {
-    const external = href?.startsWith('http');
+    const external =
+      href?.startsWith('http') && !href.startsWith(canonicalSiteUrl);
     return (
       <a
         href={href}

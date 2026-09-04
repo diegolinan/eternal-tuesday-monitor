@@ -57,12 +57,16 @@ The files under `data/`, `content/`, and `assets/` are authoritative. `public/da
 
 ## Publication targets
 
-The repository intentionally supports two separate publication targets:
+The canonical public production site is:
 
-- `npm run build:openai` preserves the existing OpenAI Sites prototype build and its `.openai/hosting.json` project link.
-- `npm run build:pages` creates a static GitHub Pages candidate under `dist/client`, with every internal data, asset, and route URL scoped to `/eternal-tuesday-monitor/`.
+<https://diegolinan.github.io/eternal-tuesday-monitor/>
 
-The GitHub Pages candidate is parallel infrastructure. Publishing it does not make it canonical and does not modify the OpenAI-hosted Site.
+The repository preserves two separate build targets:
+
+- `npm run build:pages` creates the canonical static GitHub Pages production artifact under `dist/client`, with every internal data, asset, and route URL scoped to `/eternal-tuesday-monitor/`.
+- `npm run build:openai` preserves the historical OpenAI Sites prototype build and its `.openai/hosting.json` project link.
+
+The historical OpenAI-hosted prototype remains available at <https://eternal-tuesday-monitor.stella-diego-9071.chatgpt.site/> as an unchanged fallback. It is intentionally not canonical, and the GitHub Pages workflows do not modify, redirect, disable, or redeploy it.
 
 The canonical article source is `content/articles/your-ai-lives-in-an-eternal-tuesday.md`. The `/article/` route parses it as Markdown AST during the static build and resolves its four editorial image placeholders to the versioned visual assets.
 
@@ -94,19 +98,19 @@ npm run build
 
 The validator checks required fields, controlled vocabularies, ID uniqueness, date precision, referential integrity, vendor-product-surface consistency, model/vendor compatibility, evidence/source links, release membership, and result/state invariants. With `--base`, it also rejects modification, deletion, or reordering of existing observation lines.
 
-The compiler creates the deliberately flattened `public/data/monitor.json` view expected by the current Site. It does not change the canonical normalized records.
+The compiler creates the deliberately flattened `public/data/monitor.json` view consumed by the production site. It does not change the canonical normalized records.
 
-## How the existing ChatGPT Site can consume this repository
+## Publication workflow
 
-The current Site already reads `/data/monitor.json`. A later GitHub Actions workflow can safely:
+The validation workflow:
 
-1. validate the normalized records, including append-only comparison with the target branch;
-2. compile the Site-facing JSON projection;
-3. fail if the generated projection differs from the committed file;
-4. build the Site; and
-5. only in a separately approved release job, save or deploy a Sites version.
+1. validates the normalized records, including append-only comparison with the target branch;
+2. compiles the Site-facing JSON projection;
+3. fails if the generated projection differs from the committed file;
+4. validates lint and the static article render; and
+5. builds the GitHub Pages production artifact.
 
-No GitHub Actions workflow, scheduled monitor, external fetcher, or deployment configuration has been added in this change. The repository is ready for those steps without performing them.
+The Pages workflow publishes that validated artifact to the canonical production URL. It does not deploy the OpenAI prototype. No scheduled monitor, discovery process, external fetcher, probe, evidence candidate generator, or other Phase 5 automation is configured.
 
 ## Initial evidence scope
 

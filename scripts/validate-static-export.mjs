@@ -5,6 +5,9 @@ import path from 'node:path';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, 'dist/client');
 const basePath = '/eternal-tuesday-monitor';
+const canonicalUrl =
+  'https://diegolinan.github.io/eternal-tuesday-monitor/';
+const openAIPrototypeHost = 'chatgpt.site';
 const failures = [];
 
 const fail = (message) => failures.push(message);
@@ -62,6 +65,10 @@ for (const relativePath of ['index.html', 'article/index.html']) {
     const html = await read(relativePath);
     if (!html.includes(`${basePath}/_next/`))
       fail(`${relativePath}: framework assets are not base-path prefixed`);
+    if (!html.includes(`rel="canonical" href="${canonicalUrl}`))
+      fail(`${relativePath}: canonical metadata does not use GitHub Pages`);
+    if (html.includes(openAIPrototypeHost))
+      fail(`${relativePath}: contains the historical OpenAI prototype host`);
     const unsafeLocalReference =
       /(?:href|src)=["']\/(?!eternal-tuesday-monitor(?:\/|["']))/g.exec(html);
     if (unsafeLocalReference)
@@ -88,7 +95,7 @@ try {
     `${basePath}/assets/same-sequence-different-time.png`,
     `${basePath}/assets/diagnostic-panel.png`,
     `${basePath}/assets/monitor-exhibit.png`,
-    `href="${basePath}/"`,
+    `href="${canonicalUrl}"`,
   ];
   for (const fragment of requiredFragments) {
     if (!article.includes(fragment))
