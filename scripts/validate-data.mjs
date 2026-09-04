@@ -60,7 +60,10 @@ function validateObservationDate(observation) {
 }
 
 async function sha256(relativePath) {
-  const bytes = await readFile(path.join(root, relativePath));
+  let bytes = await readFile(path.join(root, relativePath));
+  if (relativePath.endsWith('.md')) {
+    bytes = Buffer.from(bytes.toString('utf8').replaceAll('\r\n', '\n'), 'utf8');
+  }
   return createHash('sha256').update(bytes).digest('hex');
 }
 
