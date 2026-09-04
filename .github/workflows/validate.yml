@@ -33,6 +33,7 @@ jobs:
         run: npm run data:validate -- --base "$BASE_SHA"
       - run: npm run data:compile
       - run: git diff --exit-code -- public/data/monitor.json
+      - run: npm test
       - run: npm run lint
       - run: npm run build:pages
       - run: npm run static:validate

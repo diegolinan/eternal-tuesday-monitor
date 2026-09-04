@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.1.0",
+  "id": "release-2026-09-07",
+  "monitor_name": "The Eternal Tuesday Monitor",
+  "data_cutoff": "2026-09-03",
+  "published_on": "2026-09-07",
+  "supersedes_release_id": "release-2026-09-03",
+  "monitor_methodology_version_id": "method-etm-1-0",
+  "freshness_policy_id": "freshness-policy-1-0",
+  "article_source_id": "source-supplied-article",
+  "article_public_path": "/article/",
+  "observation_ids": [
+    "obs-cursor-agent-anchor-2026-03",
+    "obs-anthropic-claude-code-fable-elapsed-2026-07",
+    "obs-anthropic-cowork-reconciliation-2026-08-12",
+    "obs-tictoc-revalidation-2026",
+    "obs-openai-chatgpt-local-time-2026-08-21",
+    "obs-openai-dreaming-freshness-2026-06-04",
+    "obs-perplexity-brain-maintenance-2026-09-03",
+    "obs-openai-projects-sol-gap-2026-09-03",
+    "obs-openai-api-sol-gap-2026-09-03",
+    "obs-anthropic-cowork-opus5-gap-2026-09-03",
+    "obs-anthropic-code-fable51-gap-2026-09-03",
+    "obs-google-gemini38-gap-2026-09-03",
+    "obs-xai-grok46-gap-2026-09-03"
+  ]
+}

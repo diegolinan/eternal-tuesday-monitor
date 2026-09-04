@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: canonicalArticleUrl,
+    publishedTime: '2026-09-07T12:00:00Z',
     title: 'Your AI Lives in an Eternal Tuesday',
     description:
       'What happens when the conversation continues but the world does not wait.',
@@ -151,7 +152,7 @@ export default function ArticlePage() {
     <main className="article-page">
       <header className="article-masthead">
         <a href={withBasePath('/')}>← The Eternal Tuesday Monitor</a>
-        <span>Operational AI Literacy #01</span>
+        <span>Operational AI Literacy #01 · Published 07 SEP 2026</span>
       </header>
       <article className="article-body">
         <ReactMarkdown
@@ -163,7 +164,10 @@ export default function ArticlePage() {
       </article>
       <footer className="article-footer">
         <a href={withBasePath('/')}>Return to the Monitor</a>
-        <span>Evidence reviewed through September 3, 2026</span>
+        <span>
+          Published September 7, 2026 · Evidence reviewed through September 3,
+          2026
+        </span>
       </footer>
     </main>
   );

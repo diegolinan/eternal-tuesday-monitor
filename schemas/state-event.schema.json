@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/state-event.schema.json",
+  "title": "Eternal Tuesday Monitor state event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "subject_type",
+    "subject_id",
+    "event_type",
+    "effective_on",
+    "recorded_on",
+    "reason"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "id": { "type": "string", "pattern": "^event-[a-z0-9-]+$" },
+    "subject_type": {
+      "enum": ["observation", "model", "surface", "methodology", "source"]
+    },
+    "subject_id": { "type": "string", "minLength": 1 },
+    "event_type": {
+      "enum": [
+        "RETEST_REQUIRED",
+        "CURRENT_SUFFICIENCY_RESTORED",
+        "SUPERSEDED",
+        "SURFACE_DISCONTINUED",
+        "METHODOLOGY_SUPERSEDED",
+        "SOURCE_UNAVAILABLE",
+        "SOURCE_AVAILABLE"
+      ]
+    },
+    "effective_on": { "type": "string", "format": "date" },
+    "recorded_on": { "type": "string", "format": "date" },
+    "reason": { "type": "string", "minLength": 1 }
+  }
+}

@@ -1,7 +1,11 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "2.0",
   "monitorName": "The Eternal Tuesday Monitor",
+  "releaseId": "release-2026-09-07",
   "dataCutoff": "2026-09-03",
+  "publishedOn": "2026-09-07",
+  "freshnessEvaluatedOn": "2026-09-07",
+  "freshnessPolicyVersion": "freshness-policy-1-0",
   "methodologyVersion": "ETM-1.0",
   "articlePath": "/article/",
   "observations": [
@@ -12,16 +16,26 @@
       "surface": "Agent",
       "model": "UNKNOWN",
       "probe": "TEMPORAL ANCHOR",
-      "resultStatus": "OBSERVED FAILURE",
+      "observedResult": "OBSERVED FAILURE",
       "evidenceClass": "STAFF CONFIRMATION",
-      "observedDate": "MAR 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-03",
+        "precision": "month",
+        "label": "MAR 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://forum.cursor.com/t/agent-doesnt-know-what-day-it-is/154920",
       "evidenceNote": "A user reported a resumed Saturday-to-Monday conversation that continued to treat the market as closed. Cursor staff stated that current date and time were not then passed to the agent prompt. This describes the product at that time, not necessarily now.",
-      "recordState": [
-        "HISTORICAL",
-        "RETEST REQUIRED"
+      "applicability": "HISTORICAL",
+      "currentSufficiency": "RETEST_REQUIRED",
+      "sufficiencyReasons": [
+        "LEGACY_RETEST_REQUIRED"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 60,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE-SOURCE-1"
     },
     {
@@ -31,16 +45,26 @@
       "surface": "Terminal agent conversation",
       "model": "Fable 5",
       "probe": "ELAPSED",
-      "resultStatus": "OBSERVED FAILURE",
+      "observedResult": "OBSERVED FAILURE",
       "evidenceClass": "USER / PRACTITIONER REPORT",
-      "observedDate": "JUL 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-07",
+        "precision": "month",
+        "label": "JUL 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://github.com/anthropics/claude-code/issues/79731",
       "evidenceNote": "A detailed but intermittent report described a roughly 30-minute-old discussion as yesterday despite the correct current date appearing in the reported context. The transcript shows a correction after a clock check. No mechanism is established.",
-      "recordState": [
-        "HISTORICAL",
-        "RETEST REQUIRED"
+      "applicability": "HISTORICAL",
+      "currentSufficiency": "RETEST_REQUIRED",
+      "sufficiencyReasons": [
+        "LEGACY_RETEST_REQUIRED"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 60,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE-SOURCE-1"
     },
     {
@@ -50,16 +74,26 @@
       "surface": "Cowork resumed session",
       "model": "UNKNOWN",
       "probe": "STATE RECONCILIATION",
-      "resultStatus": "OBSERVED FAILURE",
+      "observedResult": "OBSERVED FAILURE",
       "evidenceClass": "USER / PRACTITIONER REPORT",
-      "observedDate": "12 AUG 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-08-12",
+        "precision": "day",
+        "label": "12 AUG 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://github.com/anthropics/claude-code/issues/86219",
       "evidenceNote": "A user reported reopening work after 83 days with the correct current environment date visible while a completed cloud-storage sync was still treated as in progress. This is historical observational evidence only. No public source reviewed connects the later memory update to this report.",
-      "recordState": [
-        "HISTORICAL",
-        "RETEST REQUIRED"
+      "applicability": "HISTORICAL",
+      "currentSufficiency": "RETEST_REQUIRED",
+      "sufficiencyReasons": [
+        "LEGACY_RETEST_REQUIRED"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 60,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE-SOURCE-1"
     },
     {
@@ -69,15 +103,26 @@
       "surface": "Synthetic multi-turn tool-use benchmark",
       "model": "18 proprietary and open-weight models",
       "probe": "REVALIDATION",
-      "resultStatus": "VERIFIED",
+      "observedResult": "VERIFIED",
       "evidenceClass": "CONTROLLED EXPERIMENT",
-      "observedDate": "2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026",
+        "precision": "year",
+        "label": "2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://aclanthology.org/2026.findings-acl.1848/",
       "evidenceNote": "In designed scenarios using human judgments about whether old tool output should be reused or refreshed, no tested model exceeded 65 percent normalized alignment when timestamps were available. This is controlled benchmark evidence, not a consumer-product score and not a test of all five probes.",
-      "recordState": [
-        "CURRENT"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 180,
+      "stateHistory": [],
       "methodologyVersion": "TicToc published protocol"
     },
     {
@@ -87,15 +132,26 @@
       "surface": "Consumer conversation",
       "model": "NOT SPECIFIED",
       "probe": "TEMPORAL ANCHOR",
-      "resultStatus": "DOCUMENTED FEATURE",
+      "observedResult": "DOCUMENTED FEATURE",
       "evidenceClass": "OFFICIAL DOCUMENTATION",
-      "observedDate": "21 AUG 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-08-21",
+        "precision": "day",
+        "label": "21 AUG 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "evidenceNote": "Release notes describe improved awareness of a user's local time for time-sensitive responses. This supports local-time grounding only. It is not evidence of per-message timestamps, elapsed-gap representation, resumption boundaries or revalidation policy.",
-      "recordState": [
-        "CURRENT"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 90,
+      "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW"
     },
     {
@@ -105,15 +161,26 @@
       "surface": "Memory system",
       "model": "NOT SPECIFIED",
       "probe": "HISTORICAL VALIDITY",
-      "resultStatus": "VENDOR-DESCRIBED",
+      "observedResult": "VENDOR-DESCRIBED",
       "evidenceClass": "VENDOR EVALUATION",
-      "observedDate": "04 JUN 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-06-04",
+        "precision": "day",
+        "label": "04 JUN 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://openai.com/index/chatgpt-memory-dreaming/",
       "evidenceNote": "OpenAI describes a production memory architecture designed around continuity, relevance and freshness, with vendor-run evaluations involving passage-of-time-sensitive answers. This is substantive vendor evidence, not independent validation of every product behavior.",
-      "recordState": [
-        "CURRENT"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 90,
+      "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW"
     },
     {
@@ -123,16 +190,26 @@
       "surface": "Research Preview",
       "model": "NOT SPECIFIED",
       "probe": "STATE RECONCILIATION",
-      "resultStatus": "VENDOR-DESCRIBED",
+      "observedResult": "VENDOR-DESCRIBED",
       "evidenceClass": "OFFICIAL DOCUMENTATION",
-      "observedDate": "03 SEP 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-09-03",
+        "precision": "day",
+        "label": "03 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://www.perplexity.ai/help-center/en/articles/19700001-what-is-brain",
       "evidenceNote": "Perplexity describes background maintenance that revisits sessions, connector updates, artifacts and corrections, updating changed information and marking stale knowledge. The product is in Research Preview. This is vendor-described architecture, not independent behavioral verification.",
-      "recordState": [
-        "CURRENT",
-        "INCONCLUSIVE"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 90,
+      "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW"
     },
     {
@@ -142,16 +219,26 @@
       "surface": "Projects",
       "model": "GPT-5.6 Sol",
       "probe": "REVALIDATION",
-      "resultStatus": "NO PUBLIC EVIDENCE",
+      "observedResult": "NO PUBLIC EVIDENCE",
       "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
-      "observedDate": "03 SEP 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-09-03",
+        "precision": "day",
+        "label": "03 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://openai.com/index/gpt-5-6/",
       "evidenceNote": "The article found no public standardized test establishing whether this specific current product, surface and model combination resolves the elapsed-time-sensitive revalidation problem. Absence of evidence is not a failure result.",
-      "recordState": [
-        "CURRENT",
-        "UNTESTED"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 30,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
@@ -161,16 +248,26 @@
       "surface": "Model API",
       "model": "GPT-5.6 Sol",
       "probe": "REVALIDATION",
-      "resultStatus": "NO PUBLIC EVIDENCE",
+      "observedResult": "NO PUBLIC EVIDENCE",
       "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
-      "observedDate": "03 SEP 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-09-03",
+        "precision": "day",
+        "label": "03 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://openai.com/index/gpt-5-6/",
       "evidenceNote": "No public standardized test was found for this specific model API on the Monitor's revalidation question. This API record remains separate from the ChatGPT Projects record.",
-      "recordState": [
-        "CURRENT",
-        "UNTESTED"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 30,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
@@ -180,16 +277,26 @@
       "surface": "Cowork",
       "model": "Claude Opus 5",
       "probe": "REVALIDATION",
-      "resultStatus": "NO PUBLIC EVIDENCE",
+      "observedResult": "NO PUBLIC EVIDENCE",
       "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
-      "observedDate": "03 SEP 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-09-03",
+        "precision": "day",
+        "label": "03 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://www.anthropic.com/system-cards",
       "evidenceNote": "The article found no public standardized test for this current product surface and model on the specific failure class. The historical Cowork report remains a separate dated observation.",
-      "recordState": [
-        "CURRENT",
-        "UNTESTED"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 30,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
@@ -199,16 +306,26 @@
       "surface": "Terminal agent",
       "model": "Fable 5.1",
       "probe": "REVALIDATION",
-      "resultStatus": "NO PUBLIC EVIDENCE",
+      "observedResult": "NO PUBLIC EVIDENCE",
       "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
-      "observedDate": "03 SEP 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-09-03",
+        "precision": "day",
+        "label": "03 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://www.anthropic.com/system-cards",
       "evidenceNote": "The article found no public standardized test for this current surface and model on elapsed-time-sensitive revalidation. The July Fable 5 report is not automatically a claim about Fable 5.1.",
-      "recordState": [
-        "CURRENT",
-        "UNTESTED"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 30,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
@@ -218,16 +335,26 @@
       "surface": "Gemini app",
       "model": "Gemini 3.8 Flash",
       "probe": "REVALIDATION",
-      "resultStatus": "NO PUBLIC EVIDENCE",
+      "observedResult": "NO PUBLIC EVIDENCE",
       "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
-      "observedDate": "03 SEP 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-09-03",
+        "precision": "day",
+        "label": "03 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
       "evidenceNote": "At the article cutoff, the model was one day old. No public standardized persistent-session evaluation was found for this specific product surface and model. This is not evidence of failure or success.",
-      "recordState": [
-        "CURRENT",
-        "UNTESTED"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 30,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
@@ -237,16 +364,26 @@
       "surface": "Long-running agents",
       "model": "Grok 4.6",
       "probe": "REVALIDATION",
-      "resultStatus": "NO PUBLIC EVIDENCE",
+      "observedResult": "NO PUBLIC EVIDENCE",
       "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
-      "observedDate": "03 SEP 2026",
-      "lastVerified": "03 SEP 2026",
+      "observedOn": {
+        "value": "2026-09-03",
+        "precision": "day",
+        "label": "03 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-03",
+      "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://x.ai/news/grok-4-6/",
       "evidenceNote": "The vendor positions Grok 4.6 for long-running agents, but the article found no public standardized temporal-grounding benchmark for this product claim. Vendor positioning is not a PASS.",
-      "recordState": [
-        "CURRENT",
-        "UNTESTED"
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
       ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 4,
+      "maxEvidenceAgeDays": 30,
+      "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     }
   ]

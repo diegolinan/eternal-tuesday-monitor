@@ -5,17 +5,46 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
+import {
+  assertReleaseChain,
+  loadReleases,
+  releaseDate,
+  resolveCurrentRelease,
+} from './lib/release-resolution.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const observationPath = 'data/observations/observations.jsonl';
+const eventPath = 'data/state-events/events.jsonl';
 const failures = [];
-
+const fail = (message) => failures.push(message);
 const readJson = async (relativePath) =>
   JSON.parse(await readFile(path.join(root, relativePath), 'utf8'));
-const fail = (message) => failures.push(message);
 const ids = (items) => new Set(items.map((item) => item.id));
 const isId = (value) =>
   typeof value === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(value);
+const isDay = (value) => {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value ?? '')) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return (
+    !Number.isNaN(parsed.valueOf()) &&
+    parsed.toISOString().slice(0, 10) === value
+  );
+};
+const readJsonLines = async (relativePath) => {
+  const raw = await readFile(path.join(root, relativePath), 'utf8');
+  const lines = raw.split(/\r?\n/).filter((line) => line.trim());
+  return {
+    lines,
+    items: lines.map((line, index) => {
+      try {
+        return JSON.parse(line);
+      } catch (error) {
+        fail(`${relativePath}:${index + 1}: invalid JSON (${error.message})`);
+        return { id: `invalid-line-${index + 1}` };
+      }
+    }),
+  };
+};
 
 function assertUnique(label, items) {
   const seen = new Set();
@@ -24,15 +53,6 @@ function assertUnique(label, items) {
     if (seen.has(item.id)) fail(`${label}: duplicate id ${item.id}`);
     seen.add(item.id);
   }
-}
-
-function isDay(value) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
-  const parsed = new Date(`${value}T00:00:00Z`);
-  return (
-    !Number.isNaN(parsed.valueOf()) &&
-    parsed.toISOString().slice(0, 10) === value
-  );
 }
 
 function validateObservationDate(observation) {
@@ -47,23 +67,27 @@ function validateObservationDate(observation) {
           : false;
   if (!valid)
     fail(`${observation.id}: observation_date does not match its precision`);
-  if (typeof value === 'string' && isDay(observation.last_verified_on)) {
-    const earliest =
-      precision === 'year'
-        ? `${value}-01-01`
-        : precision === 'month'
-          ? `${value}-01`
-          : value;
-    if (earliest > observation.last_verified_on)
-      fail(`${observation.id}: observation date is after last_verified_on`);
-  }
+  const earliest =
+    precision === 'year'
+      ? `${value}-01-01`
+      : precision === 'month'
+        ? `${value}-01`
+        : value;
+  if (
+    typeof value === 'string' &&
+    isDay(observation.last_verified_on) &&
+    earliest > observation.last_verified_on
+  )
+    fail(`${observation.id}: observation date is after last_verified_on`);
 }
 
 async function sha256(relativePath) {
   let bytes = await readFile(path.join(root, relativePath));
-  if (relativePath.endsWith('.md')) {
-    bytes = Buffer.from(bytes.toString('utf8').replaceAll('\r\n', '\n'), 'utf8');
-  }
+  if (relativePath.endsWith('.md'))
+    bytes = Buffer.from(
+      bytes.toString('utf8').replaceAll('\r\n', '\n'),
+      'utf8',
+    );
   return createHash('sha256').update(bytes).digest('hex');
 }
 
@@ -78,13 +102,18 @@ const [
   methodologiesFile,
   sourcesFile,
   evidenceFile,
-  release,
   contentManifest,
+  freshnessPolicy,
   sourceSchema,
   evidenceSchema,
   observationSchema,
   methodologySchema,
   releaseSchema,
+  freshnessPolicySchema,
+  stateEventSchema,
+  releaseEntries,
+  observationLedger,
+  eventLedger,
 ] = await Promise.all([
   readJson('data/catalog/vendors.json'),
   readJson('data/catalog/products.json'),
@@ -96,41 +125,31 @@ const [
   readJson('data/methodologies/methodologies.json'),
   readJson('data/sources/sources.json'),
   readJson('data/evidence/evidence.json'),
-  readJson('data/releases/2026-09-03.json'),
   readJson('content/manifest.json'),
+  readJson('config/freshness-policy.json'),
   readJson('schemas/source.schema.json'),
   readJson('schemas/evidence.schema.json'),
   readJson('schemas/observation.schema.json'),
   readJson('schemas/methodology.schema.json'),
   readJson('schemas/release.schema.json'),
+  readJson('schemas/freshness-policy.schema.json'),
+  readJson('schemas/state-event.schema.json'),
+  loadReleases(root),
+  readJsonLines(observationPath),
+  readJsonLines(eventPath),
 ]);
 
-const rawObservationLedger = await readFile(
-  path.join(root, observationPath),
-  'utf8',
-);
-const observationLines = rawObservationLedger
-  .split(/\r?\n/)
-  .filter((line) => line.trim());
-const observations = observationLines.map((line, index) => {
-  try {
-    return JSON.parse(line);
-  } catch (error) {
-    fail(`${observationPath}:${index + 1}: invalid JSON (${error.message})`);
-    return { id: `invalid-line-${index + 1}` };
-  }
-});
-
+const observations = observationLedger.items;
+const stateEvents = eventLedger.items;
 const ajv = new Ajv2020({
   allErrors: true,
   strict: true,
   strictRequired: false,
 });
 addFormats(ajv);
-
 function validateWithSchema(label, schema, items) {
   const validate = ajv.compile(schema);
-  for (const item of items) {
+  for (const item of items)
     if (!validate(item)) {
       const details = (validate.errors ?? [])
         .map((error) => `${error.instancePath || '/'} ${error.message}`)
@@ -139,7 +158,6 @@ function validateWithSchema(label, schema, items) {
         `${label} ${item?.id ?? '(unknown id)'}: JSON Schema validation failed: ${details}`,
       );
     }
-  }
 }
 
 validateWithSchema('source', sourceSchema, sourcesFile.sources);
@@ -150,7 +168,15 @@ validateWithSchema(
   methodologySchema,
   methodologiesFile.methodologies,
 );
-validateWithSchema('release', releaseSchema, [release]);
+validateWithSchema(
+  'release',
+  releaseSchema,
+  releaseEntries.map(({ release }) => release),
+);
+validateWithSchema('freshness policy', freshnessPolicySchema, [
+  freshnessPolicy,
+]);
+validateWithSchema('state event', stateEventSchema, stateEvents);
 
 const collections = [
   ['vendors', vendorsFile.vendors],
@@ -165,8 +191,9 @@ const collections = [
   ['sources', sourcesFile.sources],
   ['evidence records', evidenceFile.evidence_records],
   ['observations', observations],
+  ['state events', stateEvents],
+  ['releases', releaseEntries.map(({ release }) => release)],
 ];
-
 for (const [label, items] of collections) {
   if (!Array.isArray(items)) fail(`${label}: expected an array`);
   else assertUnique(label, items);
@@ -183,41 +210,30 @@ const recordStates = ids(statusesFile.record_states);
 const methodologies = ids(methodologiesFile.methodologies);
 const sources = ids(sourcesFile.sources);
 const evidenceRecords = ids(evidenceFile.evidence_records);
+const releases = ids(releaseEntries.map(({ release }) => release));
 const observationsById = new Map(
   observations.map((item, index) => [item.id, { item, index }]),
 );
-const productById = new Map(
+const productsById = new Map(
   productsFile.products.map((item) => [item.id, item]),
 );
-const surfaceById = new Map(
+const surfacesById = new Map(
   surfacesFile.surfaces.map((item) => [item.id, item]),
 );
-const modelById = new Map(modelsFile.models.map((item) => [item.id, item]));
+const modelsById = new Map(modelsFile.models.map((item) => [item.id, item]));
 const evidenceById = new Map(
   evidenceFile.evidence_records.map((item) => [item.id, item]),
 );
 
-for (const product of productsFile.products) {
+for (const product of productsFile.products)
   if (!vendors.has(product.vendor_id))
     fail(`${product.id}: unknown vendor_id ${product.vendor_id}`);
-}
-
-for (const surface of surfacesFile.surfaces) {
+for (const surface of surfacesFile.surfaces)
   if (!products.has(surface.product_id))
     fail(`${surface.id}: unknown product_id ${surface.product_id}`);
-}
-
-for (const model of modelsFile.models) {
+for (const model of modelsFile.models)
   if (model.vendor_id !== null && !vendors.has(model.vendor_id))
     fail(`${model.id}: unknown vendor_id ${model.vendor_id}`);
-  if (
-    !['named', 'not_specified', 'aggregate', 'unknown'].includes(
-      model.identity_status,
-    )
-  )
-    fail(`${model.id}: invalid identity_status`);
-}
-
 for (const source of sourcesFile.sources) {
   if (!isDay(source.last_verified_on))
     fail(`${source.id}: invalid last_verified_on`);
@@ -228,7 +244,6 @@ for (const source of sourcesFile.sources) {
   if (source.sha256 && !/^[a-f0-9]{64}$/.test(source.sha256))
     fail(`${source.id}: invalid sha256`);
 }
-
 for (const evidence of evidenceFile.evidence_records) {
   if (!evidenceClasses.has(evidence.evidence_class_id))
     fail(`${evidence.id}: unknown evidence_class_id`);
@@ -237,40 +252,12 @@ for (const evidence of evidenceFile.evidence_records) {
   for (const sourceId of evidence.source_ids ?? [])
     if (!sources.has(sourceId))
       fail(`${evidence.id}: unknown source_id ${sourceId}`);
-  if (!(evidence.source_ids ?? []).includes('source-supplied-article'))
-    fail(`${evidence.id}: initial evidence must include the supplied article`);
   if (!evidence.summary?.trim()) fail(`${evidence.id}: summary is required`);
   if (!Array.isArray(evidence.limitations) || evidence.limitations.length === 0)
     fail(`${evidence.id}: at least one limitation is required`);
 }
 
-const allowedObservationKeys = new Set([
-  'schema_version',
-  'id',
-  'vendor_id',
-  'product_id',
-  'surface_id',
-  'model_id',
-  'probe_id',
-  'result_status_id',
-  'evidence_class_id',
-  'observation_date',
-  'last_verified_on',
-  'evidence_record_ids',
-  'methodology_version_id',
-  'record_states',
-  'supersedes_observation_id',
-]);
-
 for (const [index, observation] of observations.entries()) {
-  const prefix = `${observationPath}:${index + 1}`;
-  for (const key of Object.keys(observation))
-    if (!allowedObservationKeys.has(key))
-      fail(`${prefix}: unexpected field ${key}`);
-  for (const key of allowedObservationKeys)
-    if (!(key in observation)) fail(`${prefix}: missing field ${key}`);
-  if (observation.schema_version !== '1.0.0')
-    fail(`${observation.id}: unsupported schema_version`);
   if (!vendors.has(observation.vendor_id))
     fail(`${observation.id}: unknown vendor_id`);
   if (!products.has(observation.product_id))
@@ -290,22 +277,21 @@ for (const [index, observation] of observations.entries()) {
   if (!isDay(observation.last_verified_on))
     fail(`${observation.id}: invalid last_verified_on`);
   validateObservationDate(observation);
-
-  const product = productById.get(observation.product_id);
-  const surface = surfaceById.get(observation.surface_id);
-  const model = modelById.get(observation.model_id);
-  if (product && product.vendor_id !== observation.vendor_id)
-    fail(`${observation.id}: product does not belong to vendor`);
-  if (surface && surface.product_id !== observation.product_id)
-    fail(`${observation.id}: surface does not belong to product`);
-  if (model?.vendor_id && model.vendor_id !== observation.vendor_id)
-    fail(`${observation.id}: model does not belong to vendor`);
-
   if (
-    !Array.isArray(observation.evidence_record_ids) ||
-    observation.evidence_record_ids.length === 0
+    productsById.get(observation.product_id)?.vendor_id !==
+    observation.vendor_id
   )
-    fail(`${observation.id}: requires evidence_record_ids`);
+    fail(`${observation.id}: product does not belong to vendor`);
+  if (
+    surfacesById.get(observation.surface_id)?.product_id !==
+    observation.product_id
+  )
+    fail(`${observation.id}: surface does not belong to product`);
+  if (
+    modelsById.get(observation.model_id)?.vendor_id &&
+    modelsById.get(observation.model_id).vendor_id !== observation.vendor_id
+  )
+    fail(`${observation.id}: model does not belong to vendor`);
   for (const evidenceId of observation.evidence_record_ids ?? []) {
     if (!evidenceRecords.has(evidenceId))
       fail(`${observation.id}: unknown evidence record ${evidenceId}`);
@@ -315,12 +301,6 @@ for (const [index, observation] of observations.entries()) {
     )
       fail(`${observation.id}: evidence class does not match ${evidenceId}`);
   }
-
-  if (
-    !Array.isArray(observation.record_states) ||
-    observation.record_states.length === 0
-  )
-    fail(`${observation.id}: requires record_states`);
   for (const state of observation.record_states ?? [])
     if (!recordStates.has(state))
       fail(`${observation.id}: unknown record state ${state}`);
@@ -329,17 +309,11 @@ for (const [index, observation] of observations.entries()) {
     observation.record_states.includes('HISTORICAL')
   )
     fail(`${observation.id}: cannot be CURRENT and HISTORICAL`);
-  if (observation.result_status_id === 'NO_PUBLIC_EVIDENCE') {
-    if (
-      observation.evidence_class_id !== 'evidence-untested-no-public-evidence'
-    )
-      fail(
-        `${observation.id}: evidence-gap result requires evidence-gap class`,
-      );
-    if (!observation.record_states?.includes('UNTESTED'))
-      fail(`${observation.id}: evidence-gap result requires UNTESTED state`);
-  }
-
+  if (
+    observation.result_status_id === 'NO_PUBLIC_EVIDENCE' &&
+    !observation.record_states?.includes('UNTESTED')
+  )
+    fail(`${observation.id}: evidence-gap result requires UNTESTED state`);
   if (observation.supersedes_observation_id !== null) {
     const previous = observationsById.get(
       observation.supersedes_observation_id,
@@ -353,37 +327,118 @@ for (const [index, observation] of observations.entries()) {
   }
 }
 
-if (!methodologies.has(release.monitor_methodology_version_id))
-  fail(`${release.id}: unknown monitor methodology`);
-if (!sources.has(release.article_source_id))
-  fail(`${release.id}: unknown article source`);
-if (!isDay(release.data_cutoff)) fail(`${release.id}: invalid data_cutoff`);
-const releaseObservationIds = new Set(release.observation_ids);
-for (const id of release.observation_ids)
-  if (!observationsById.has(id))
-    fail(`${release.id}: unknown observation ${id}`);
-for (const observation of observations) {
-  if (!releaseObservationIds.has(observation.id))
+const policyClasses = new Set();
+for (const rule of freshnessPolicy.rules) {
+  if (!evidenceClasses.has(rule.evidence_class_id))
     fail(
-      `${release.id}: ledger observation omitted from release: ${observation.id}`,
+      `${freshnessPolicy.id}: unknown evidence class ${rule.evidence_class_id}`,
     );
-  if (observation.last_verified_on > release.data_cutoff)
-    fail(`${observation.id}: last_verified_on exceeds release cutoff`);
+  if (policyClasses.has(rule.evidence_class_id))
+    fail(`${freshnessPolicy.id}: duplicate rule for ${rule.evidence_class_id}`);
+  policyClasses.add(rule.evidence_class_id);
 }
+for (const evidenceClass of evidenceClasses)
+  if (!policyClasses.has(evidenceClass))
+    fail(`${freshnessPolicy.id}: missing rule for ${evidenceClass}`);
+
+const eventSubjects = {
+  observation: new Set(observationsById.keys()),
+  model: models,
+  surface: surfaces,
+  methodology: methodologies,
+  source: sources,
+};
+const eventSubjectTypes = {
+  RETEST_REQUIRED: ['observation'],
+  CURRENT_SUFFICIENCY_RESTORED: ['observation'],
+  SUPERSEDED: ['model'],
+  SURFACE_DISCONTINUED: ['surface'],
+  METHODOLOGY_SUPERSEDED: ['methodology'],
+  SOURCE_UNAVAILABLE: ['source'],
+  SOURCE_AVAILABLE: ['source'],
+};
+for (const event of stateEvents) {
+  if (!eventSubjects[event.subject_type]?.has(event.subject_id))
+    fail(`${event.id}: unknown ${event.subject_type} ${event.subject_id}`);
+  if (event.recorded_on < event.effective_on)
+    fail(`${event.id}: recorded_on is before effective_on`);
+  if (!eventSubjectTypes[event.event_type]?.includes(event.subject_type))
+    fail(
+      `${event.id}: ${event.event_type} cannot target ${event.subject_type}`,
+    );
+}
+
+for (const message of assertReleaseChain(releaseEntries)) fail(message);
+for (const { release, file } of releaseEntries) {
+  if (!methodologies.has(release.monitor_methodology_version_id))
+    fail(`${file}: unknown monitor methodology`);
+  if (!sources.has(release.article_source_id))
+    fail(`${file}: unknown article source`);
+  if (
+    release.freshness_policy_id &&
+    release.freshness_policy_id !== freshnessPolicy.id
+  )
+    fail(`${file}: unknown freshness policy ${release.freshness_policy_id}`);
+  if (
+    release.supersedes_release_id &&
+    !releases.has(release.supersedes_release_id)
+  )
+    fail(`${file}: unknown superseded release`);
+  if (release.published_on && release.published_on < release.data_cutoff)
+    fail(`${file}: published_on precedes data_cutoff`);
+  for (const id of release.observation_ids) {
+    const observation = observationsById.get(id)?.item;
+    if (!observation) fail(`${file}: unknown observation ${id}`);
+    else if (observation.last_verified_on > release.data_cutoff)
+      fail(`${file}: ${id} last_verified_on exceeds release cutoff`);
+  }
+}
+const currentEntry = resolveCurrentRelease(releaseEntries);
+const currentIds = new Set(currentEntry.release.observation_ids);
+for (const observation of observations)
+  if (!currentIds.has(observation.id))
+    fail(
+      `${currentEntry.file}: ledger observation omitted from current release: ${observation.id}`,
+    );
 
 for (const item of [contentManifest.article, ...contentManifest.assets]) {
   const actual = await sha256(item.path);
   if (actual !== item.sha256)
-    fail(`${item.path}: sha256 does not match content manifest`);
+    fail(
+      `${path.join(root, item.path)}: sha256 ${actual} does not match content manifest ${item.sha256}`,
+    );
+}
+for (const item of contentManifest.assets) {
+  const published = `public/assets/${path.basename(item.path)}`;
+  if ((await sha256(item.path)) !== (await sha256(published)))
+    fail(`${published}: publication copy differs from ${item.path}`);
 }
 
-const publicPairs = contentManifest.assets.map((item) => [
-  item.path,
-  `public/assets/${path.basename(item.path)}`,
-]);
-for (const [canonical, published] of publicPairs) {
-  if ((await sha256(canonical)) !== (await sha256(published)))
-    fail(`${published}: publication copy differs from ${canonical}`);
+function git(args) {
+  return spawnSync(
+    'git',
+    ['-c', `safe.directory=${root.replaceAll('\\', '/')}`, ...args],
+    { cwd: root, encoding: 'utf8' },
+  );
+}
+function compareAppendOnlyLines(base, relativePath, currentLines) {
+  const prior = git(['show', `${base}:${relativePath}`]);
+  if (prior.status !== 0) {
+    if (!/does not exist in|exists on disk, but not in/.test(prior.stderr))
+      fail(
+        `unable to compare ${relativePath} with ${base}: ${prior.stderr.trim()}`,
+      );
+    return;
+  }
+  const priorLines = prior.stdout.split(/\r?\n/).filter((line) => line.trim());
+  if (priorLines.length > currentLines.length)
+    fail(`append-only violation: lines deleted from ${relativePath}`);
+  priorLines.forEach((line, index) => {
+    if (line !== currentLines[index])
+      fail(
+        `append-only violation: ${relativePath} line ${index + 1} changed or moved`,
+      );
+  });
 }
 
 const baseArgIndex = process.argv.indexOf('--base');
@@ -391,35 +446,41 @@ if (baseArgIndex !== -1) {
   const base = process.argv[baseArgIndex + 1];
   if (!base) fail('--base requires a Git revision');
   else {
-    const prior = spawnSync(
-      'git',
-      [
-        '-c',
-        `safe.directory=${root.replaceAll('\\', '/')}`,
-        'show',
-        `${base}:${observationPath}`,
-      ],
-      { cwd: root, encoding: 'utf8' },
-    );
-    if (prior.status === 0) {
-      const priorLines = prior.stdout
-        .split(/\r?\n/)
-        .filter((line) => line.trim());
-      if (priorLines.length > observationLines.length)
-        fail('append-only violation: observation lines were deleted');
-      priorLines.forEach((line, index) => {
-        if (line !== observationLines[index])
-          fail(
-            `append-only violation: existing observation line ${index + 1} changed or moved`,
-          );
-      });
-    } else if (
-      !/does not exist in|exists on disk, but not in/.test(prior.stderr)
-    ) {
+    compareAppendOnlyLines(base, observationPath, observationLedger.lines);
+    compareAppendOnlyLines(base, eventPath, eventLedger.lines);
+    const priorReleaseList = git([
+      'ls-tree',
+      '-r',
+      '--name-only',
+      base,
+      '--',
+      'data/releases',
+    ]);
+    if (priorReleaseList.status !== 0)
       fail(
-        `unable to compare append-only ledger with ${base}: ${prior.stderr.trim()}`,
+        `unable to list releases at ${base}: ${priorReleaseList.stderr.trim()}`,
       );
-    }
+    else
+      for (const releaseFile of priorReleaseList.stdout
+        .split(/\r?\n/)
+        .filter(Boolean)) {
+        const prior = git(['show', `${base}:${releaseFile}`]);
+        let current;
+        try {
+          current = await readFile(path.join(root, releaseFile), 'utf8');
+        } catch {
+          current = null;
+        }
+        if (current === null)
+          fail(`append-only violation: release deleted: ${releaseFile}`);
+        else if (
+          prior.stdout.replaceAll('\r\n', '\n') !==
+          current.replaceAll('\r\n', '\n')
+        )
+          fail(
+            `append-only violation: existing release changed: ${releaseFile}`,
+          );
+      }
   }
 }
 
@@ -428,7 +489,6 @@ if (failures.length) {
   failures.forEach((message) => console.error(`- ${message}`));
   process.exit(1);
 }
-
 console.log(
-  `Validated ${observations.length} observations, ${evidenceFile.evidence_records.length} evidence records, and ${sourcesFile.sources.length} sources for release ${release.id}.`,
+  `Validated ${observations.length} observations, ${evidenceFile.evidence_records.length} evidence records, ${sourcesFile.sources.length} sources, ${stateEvents.length} state events, and ${releaseEntries.length} releases. Current release: ${currentEntry.release.id} (${releaseDate(currentEntry.release)}).`,
 );

@@ -28,20 +28,40 @@ type Observation = {
   surface: string;
   model: string;
   probe: string;
-  resultStatus: string;
+  observedResult: string;
   evidenceClass: string;
-  observedDate: string;
-  lastVerified: string;
-  sourceUrl: string;
+  observedOn: { value: string; precision: string; label: string };
+  evidenceVerifiedOn: string;
+  sourceCheckedOn: string;
+  sourceUrl: string | null;
   evidenceNote: string;
-  recordState: string[];
+  applicability: 'CURRENT' | 'HISTORICAL';
+  currentSufficiency:
+    | 'SUFFICIENT'
+    | 'RETEST_REQUIRED'
+    | 'NOT_CURRENTLY_APPLICABLE'
+    | 'NO_APPLICABLE_POLICY';
+  sufficiencyReasons: string[];
+  sourceAvailability: 'AVAILABLE' | 'UNAVAILABLE' | 'UNKNOWN';
+  evidenceAgeDays: number;
+  maxEvidenceAgeDays: number | null;
+  stateHistory: Array<{
+    id: string;
+    type: string;
+    effectiveOn: string;
+    reason: string;
+  }>;
   methodologyVersion: string;
 };
 
 type MonitorData = {
   schemaVersion: string;
   monitorName: string;
+  releaseId: string;
   dataCutoff: string;
+  publishedOn: string;
+  freshnessEvaluatedOn: string;
+  freshnessPolicyVersion: string;
   methodologyVersion: string;
   articlePath: string;
   observations: Observation[];
@@ -124,11 +144,31 @@ function labelDate(date: string) {
 }
 
 function recordTone(item: Observation) {
-  if (item.recordState.includes('RETEST REQUIRED')) return 'retest';
-  if (item.resultStatus === 'NO PUBLIC EVIDENCE') return 'empty';
-  if (item.resultStatus === 'OBSERVED FAILURE') return 'failure';
+  if (item.currentSufficiency === 'RETEST_REQUIRED') return 'retest';
+  if (item.observedResult === 'NO PUBLIC EVIDENCE') return 'empty';
+  if (item.observedResult === 'OBSERVED FAILURE') return 'failure';
   if (item.evidenceClass === 'CONTROLLED EXPERIMENT') return 'controlled';
   return 'documented';
+}
+
+const reasonLabels: Record<string, string> = {
+  WITHIN_POLICY_WINDOW: 'Evidence is within the review window',
+  LEGACY_RETEST_REQUIRED: 'The preserved record already required a retest',
+  AGE_THRESHOLD_EXCEEDED: 'The evidence exceeded its review window',
+  EXPLICIT_RETEST_REQUIRED: 'A dated state event requires a retest',
+  MODEL_SUPERSEDED: 'The tested model was superseded',
+  SURFACE_DISCONTINUED: 'The tested surface was discontinued',
+  METHODOLOGY_SUPERSEDED: 'The test method was superseded',
+  SOURCE_UNAVAILABLE: 'A supporting source is unavailable',
+  HISTORICAL_RECORD: 'This record describes an earlier product state',
+  NO_APPLICABLE_POLICY: 'No freshness rule matches this evidence class',
+};
+
+function sufficiencyLabel(item: Observation) {
+  if (item.currentSufficiency === 'SUFFICIENT') return 'CURRENTLY SUFFICIENT';
+  if (item.currentSufficiency === 'NOT_CURRENTLY_APPLICABLE')
+    return 'HISTORICAL RECORD';
+  return item.currentSufficiency.replaceAll('_', ' ');
 }
 
 function ObservationCard({
@@ -142,7 +182,7 @@ function ObservationCard({
     <article className={`observation-card tone-${recordTone(item)}`}>
       <div className="status-bar">
         <span>{item.vendor}</span>
-        <strong>{item.resultStatus}</strong>
+        <strong>{item.observedResult}</strong>
       </div>
       <div className="card-core">
         <p className="scope-line">{item.product}</p>
@@ -159,10 +199,16 @@ function ObservationCard({
           <dd>{item.evidenceClass}</dd>
         </div>
         <div className="verified">
-          <dt>Last verified</dt>
-          <dd>{item.lastVerified}</dd>
+          <dt>Evidence verified</dt>
+          <dd>{labelDate(item.evidenceVerifiedOn)}</dd>
         </div>
       </dl>
+      <div
+        className={`sufficiency-strip sufficiency-${item.currentSufficiency.toLowerCase()}`}
+      >
+        <span>Current sufficiency</span>
+        <strong>{sufficiencyLabel(item)}</strong>
+      </div>
       <button
         className="inspect-button"
         type="button"
@@ -170,7 +216,7 @@ function ObservationCard({
       >
         Inspect record <Search aria-hidden="true" />
       </button>
-      {item.recordState.includes('RETEST REQUIRED') && (
+      {item.currentSufficiency === 'RETEST_REQUIRED' && (
         <span className="retest-flag">RETEST REQUIRED</span>
       )}
     </article>
@@ -242,6 +288,7 @@ export default function Home() {
   const [surface, setSurface] = useState('ALL');
   const [probe, setProbe] = useState('ALL');
   const [evidence, setEvidence] = useState('ALL');
+  const [verification, setVerification] = useState('ALL');
   const [selected, setSelected] = useState<Observation | null>(null);
 
   useEffect(() => {
@@ -278,16 +325,19 @@ export default function Home() {
         (surface === 'ALL' ||
           `${item.product} / ${item.surface}` === surface) &&
         (probe === 'ALL' || item.probe === probe) &&
-        (evidence === 'ALL' || item.evidenceClass === evidence),
+        (evidence === 'ALL' || item.evidenceClass === evidence) &&
+        (verification === 'ALL' ||
+          (verification === 'RETEST REQUIRED' &&
+            item.currentSufficiency === 'RETEST_REQUIRED')),
     );
 
   const current = applyFilters(
-    observations.filter((item) => item.recordState.includes('CURRENT')),
+    observations.filter((item) => item.applicability === 'CURRENT'),
   );
   const historical = applyFilters(
-    observations.filter((item) => item.recordState.includes('HISTORICAL')),
+    observations.filter((item) => item.applicability === 'HISTORICAL'),
   );
-  const hasFilters = [vendor, surface, probe, evidence].some(
+  const hasFilters = [vendor, surface, probe, evidence, verification].some(
     (value) => value !== 'ALL',
   );
   const resetFilters = () => {
@@ -295,12 +345,13 @@ export default function Home() {
     setSurface('ALL');
     setProbe('ALL');
     setEvidence('ALL');
+    setVerification('ALL');
   };
 
   const historyGroups = useMemo(() => {
     const groups = new Map<string, Observation[]>();
     observations
-      .filter((item) => item.recordState.includes('HISTORICAL'))
+      .filter((item) => item.applicability === 'HISTORICAL')
       .forEach((item) => {
         const key = `${item.vendor}|${item.product}|${item.surface}|${item.probe}`;
         groups.set(key, [...(groups.get(key) ?? []), item]);
@@ -340,9 +391,28 @@ export default function Home() {
             continuity in current AI products. It is dated evidence, not a
             permanent ranking.
           </p>
-          <div className="cutoff-plate">
-            <span>Current data cutoff</span>
-            <strong>{data ? labelDate(data.dataCutoff) : '03 SEP 2026'}</strong>
+          <div
+            className="date-plates"
+            aria-label="Publication and evidence dates"
+          >
+            <div className="cutoff-plate">
+              <span>Public launch</span>
+              <strong>
+                {data ? labelDate(data.publishedOn) : '07 SEP 2026'}
+              </strong>
+            </div>
+            <div className="cutoff-plate">
+              <span>Evidence reviewed</span>
+              <strong>
+                {data ? labelDate(data.dataCutoff) : '03 SEP 2026'}
+              </strong>
+            </div>
+            <div className="cutoff-plate">
+              <span>State evaluated</span>
+              <strong>
+                {data ? labelDate(data.freshnessEvaluatedOn) : '07 SEP 2026'}
+              </strong>
+            </div>
           </div>
         </div>
         <figure className="hero-visual">
@@ -399,6 +469,12 @@ export default function Home() {
               value={evidence}
               options={evidenceOptions}
               onChange={setEvidence}
+            />
+            <FilterSelect
+              label="Verification"
+              value={verification}
+              options={['RETEST REQUIRED']}
+              onChange={setVerification}
             />
             <button
               className="reset-button"
@@ -594,8 +670,8 @@ export default function Home() {
                       onClick={() => setSelected(item)}
                     >
                       <i aria-hidden="true" />
-                      <span>{item.observedDate}</span>
-                      <strong>{item.resultStatus}</strong>
+                      <span>{item.observedOn.label}</span>
+                      <strong>{item.observedResult}</strong>
                       <small>{item.evidenceClass}</small>
                     </button>
                   ))}
@@ -774,9 +850,11 @@ export default function Home() {
       <footer>
         <span>THE ETERNAL TUESDAY MONITOR</span>
         <span>
-          DATA CUTOFF · {data ? labelDate(data.dataCutoff) : '03 SEP 2026'}
+          PUBLISHED · {data ? labelDate(data.publishedOn) : '07 SEP 2026'}
         </span>
-        <span>NO OVERALL SCORE ISSUED</span>
+        <span>
+          EVIDENCE · {data ? labelDate(data.dataCutoff) : '03 SEP 2026'}
+        </span>
       </footer>
 
       <Dialog
@@ -807,10 +885,9 @@ export default function Home() {
                 </DialogDescription>
               </DialogHeader>
               <div className="record-status">
-                <span>{selected.resultStatus}</span>
-                {selected.recordState.map((state) => (
-                  <b key={state}>{state}</b>
-                ))}
+                <span>{selected.observedResult}</span>
+                <b>{selected.applicability}</b>
+                <b>{sufficiencyLabel(selected)}</b>
               </div>
               <dl className="record-fields">
                 <div>
@@ -823,29 +900,74 @@ export default function Home() {
                 </div>
                 <div>
                   <dt>Observed</dt>
-                  <dd>{selected.observedDate}</dd>
+                  <dd>{selected.observedOn.label}</dd>
                 </div>
                 <div className="dialog-verified">
-                  <dt>Last verified</dt>
-                  <dd>{selected.lastVerified}</dd>
+                  <dt>Evidence verified</dt>
+                  <dd>{labelDate(selected.evidenceVerifiedOn)}</dd>
+                </div>
+                <div>
+                  <dt>Current sufficiency</dt>
+                  <dd>{sufficiencyLabel(selected)}</dd>
+                </div>
+                <div>
+                  <dt>Why</dt>
+                  <dd>
+                    {selected.sufficiencyReasons
+                      .map((reason) => reasonLabels[reason] ?? reason)
+                      .join('; ')}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Freshness evaluated</dt>
+                  <dd>
+                    {labelDate(data?.freshnessEvaluatedOn ?? '2026-09-07')}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Source checked</dt>
+                  <dd>{labelDate(selected.sourceCheckedOn)}</dd>
                 </div>
                 <div>
                   <dt>Method / test version</dt>
                   <dd>{selected.methodologyVersion}</dd>
                 </div>
+                {selected.sourceAvailability !== 'UNKNOWN' && (
+                  <div>
+                    <dt>Source availability</dt>
+                    <dd>{selected.sourceAvailability}</dd>
+                  </div>
+                )}
               </dl>
+              {selected.stateHistory.length > 0 && (
+                <div className="state-history">
+                  <h3>Dated state history</h3>
+                  <ul>
+                    {selected.stateHistory.map((event) => (
+                      <li key={event.id}>
+                        <strong>{event.type.replaceAll('_', ' ')}</strong>
+                        <span>
+                          {labelDate(event.effectiveOn)} · {event.reason}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <div className="evidence-note">
                 <h3>Evidence note</h3>
                 <p>{selected.evidenceNote}</p>
               </div>
-              <a
-                className="source-link"
-                href={selected.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open source <ExternalLink aria-hidden="true" />
-              </a>
+              {selected.sourceUrl && (
+                <a
+                  className="source-link"
+                  href={selected.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open source <ExternalLink aria-hidden="true" />
+                </a>
+              )}
             </>
           )}
         </DialogContent>

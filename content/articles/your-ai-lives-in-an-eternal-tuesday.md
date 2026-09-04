@@ -6,6 +6,8 @@
 
 **Operational AI Literacy #01 - What happens when the conversation continues but the world doesn't wait**
 
+Published September 7, 2026.
+
 Evidence reviewed through September 3, 2026.
 
 > **Once upon a time in the future, this article was completely useless.**

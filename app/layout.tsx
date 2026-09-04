@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import type { CSSProperties } from 'react';
-import { canonicalSiteUrl, withBasePath } from '@/lib/site-paths';
+import { canonicalSiteUrl } from '@/lib/site-paths';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -9,6 +8,7 @@ export const metadata: Metadata = {
   description:
     'A dated, evidence-based monitor of observable temporal continuity behavior in current AI products.',
   alternates: { canonical: canonicalSiteUrl },
+  other: { 'release-date': '2026-09-07' },
   openGraph: {
     type: 'website',
     url: canonicalSiteUrl,
@@ -22,13 +22,9 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const bodyStyle = {
-    '--page-texture': `url("${withBasePath('/assets/diagnostic-panel.png')}")`,
-  } as CSSProperties;
-
   return (
     <html lang="en">
-      <body style={bodyStyle}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -5,8 +5,7 @@ import path from 'node:path';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, 'dist/client');
 const basePath = '/eternal-tuesday-monitor';
-const canonicalUrl =
-  'https://diegolinan.github.io/eternal-tuesday-monitor/';
+const canonicalUrl = 'https://diegolinan.github.io/eternal-tuesday-monitor/';
 const openAIPrototypeHost = 'chatgpt.site';
 const failures = [];
 
@@ -40,11 +39,14 @@ try {
   monitorData = JSON.parse(await read('data/monitor.json'));
   if (monitorData.observations?.length !== 13)
     fail('static dataset must contain exactly 13 observations');
-  const current = monitorData.observations?.filter((item) =>
-    item.recordState.includes('CURRENT'),
+  const current = monitorData.observations?.filter(
+    (item) => item.applicability === 'CURRENT',
   ).length;
-  const historical = monitorData.observations?.filter((item) =>
-    item.recordState.includes('HISTORICAL'),
+  const historical = monitorData.observations?.filter(
+    (item) => item.applicability === 'HISTORICAL',
+  ).length;
+  const retest = monitorData.observations?.filter(
+    (item) => item.currentSufficiency === 'RETEST_REQUIRED',
   ).length;
   if (current !== 10)
     fail(
@@ -54,6 +56,14 @@ try {
     fail(
       `static dataset must contain 3 historical observations, found ${historical}`,
     );
+  if (retest !== 3)
+    fail(
+      `static dataset must contain 3 retest-required records, found ${retest}`,
+    );
+  if (monitorData.publishedOn !== '2026-09-07')
+    fail('static dataset must preserve the September 7 public launch date');
+  if (monitorData.dataCutoff !== '2026-09-03')
+    fail('static dataset must preserve the September 3 evidence cutoff');
   if (monitorData.articlePath !== '/article/')
     fail('compiled articlePath must point to /article/');
 } catch (error) {
@@ -91,6 +101,8 @@ try {
     'Five questions I use to diagnose temporal continuity failures',
     'The Eternal Tuesday Monitor will track observable behavior',
     'Operational AI Literacy #01',
+    'Published September 7, 2026.',
+    'Evidence reviewed through September 3, 2026.',
     `${basePath}/assets/eternal-tuesday-banner.png`,
     `${basePath}/assets/same-sequence-different-time.png`,
     `${basePath}/assets/diagnostic-panel.png`,

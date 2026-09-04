@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "id": "freshness-policy-1-0",
+  "effective_on": "2026-09-07",
+  "description": "Editorial review cadence for deciding whether dated evidence remains sufficient for a current claim. Thresholds describe review urgency, not evidence strength.",
+  "boundary_rule": "Evidence remains sufficient when age_days is less than or equal to max_age_days. It becomes RETEST_REQUIRED when age_days is greater than max_age_days.",
+  "rules": [
+    {
+      "evidence_class_id": "evidence-controlled-experiment",
+      "max_age_days": 180
+    },
+    {
+      "evidence_class_id": "evidence-reproduced-observation",
+      "max_age_days": 120
+    },
+    {
+      "evidence_class_id": "evidence-official-documentation",
+      "max_age_days": 90
+    },
+    { "evidence_class_id": "evidence-vendor-evaluation", "max_age_days": 90 },
+    { "evidence_class_id": "evidence-staff-confirmation", "max_age_days": 60 },
+    {
+      "evidence_class_id": "evidence-user-practitioner-report",
+      "max_age_days": 60
+    },
+    { "evidence_class_id": "evidence-feature-request", "max_age_days": 60 },
+    {
+      "evidence_class_id": "evidence-untested-no-public-evidence",
+      "max_age_days": 30
+    }
+  ]
+}

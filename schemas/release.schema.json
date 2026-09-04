@@ -4,13 +4,39 @@
   "title": "Eternal Tuesday Monitor release",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "id", "monitor_name", "data_cutoff", "monitor_methodology_version_id", "article_source_id", "article_public_path", "observation_ids"],
+  "required": [
+    "schema_version",
+    "id",
+    "monitor_name",
+    "data_cutoff",
+    "monitor_methodology_version_id",
+    "article_source_id",
+    "article_public_path",
+    "observation_ids"
+  ],
   "properties": {
-    "schema_version": { "const": "1.0.0" },
-    "id": { "type": "string", "pattern": "^release-[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "schema_version": { "enum": ["1.0.0", "1.1.0"] },
+    "id": {
+      "type": "string",
+      "pattern": "^release-[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
     "monitor_name": { "type": "string", "minLength": 1 },
-    "data_cutoff": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "data_cutoff": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "published_on": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "supersedes_release_id": {
+      "type": "string",
+      "pattern": "^release-[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
     "monitor_methodology_version_id": { "type": "string", "minLength": 1 },
+    "freshness_policy_id": { "type": "string", "minLength": 1 },
     "article_source_id": { "type": "string", "minLength": 1 },
     "article_public_path": { "type": "string", "pattern": "^/" },
     "observation_ids": {
@@ -19,5 +45,20 @@
       "uniqueItems": true,
       "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "schema_version": { "const": "1.1.0" } },
+        "required": ["schema_version"]
+      },
+      "then": {
+        "required": [
+          "published_on",
+          "supersedes_release_id",
+          "freshness_policy_id"
+        ]
+      }
+    }
+  ]
 }

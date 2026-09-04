@@ -1,12 +1,41 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { evaluateObservationFreshness } from './lib/freshness.mjs';
+import {
+  loadReleases,
+  releaseDate,
+  resolveCurrentRelease,
+} from './lib/release-resolution.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
-const readJson = async (relativePath) => JSON.parse(await readFile(path.join(root, relativePath), 'utf8'));
+const readJson = async (relativePath) =>
+  JSON.parse(await readFile(path.join(root, relativePath), 'utf8'));
 const indexById = (items) => new Map(items.map((item) => [item.id, item]));
+const option = (name) => {
+  const index = process.argv.indexOf(name);
+  return index === -1 ? undefined : process.argv[index + 1];
+};
+const asOfOption = option('--as-of');
+const outputOption = option('--output');
+if (asOfOption && !/^\d{4}-\d{2}-\d{2}$/.test(asOfOption)) {
+  throw new Error('--as-of must be YYYY-MM-DD');
+}
 
-const [vendorsFile, productsFile, surfacesFile, modelsFile, probesFile, evidenceClassesFile, statusesFile, methodologiesFile, sourcesFile, evidenceFile, release] = await Promise.all([
+const [
+  vendorsFile,
+  productsFile,
+  surfacesFile,
+  modelsFile,
+  probesFile,
+  evidenceClassesFile,
+  statusesFile,
+  methodologiesFile,
+  sourcesFile,
+  evidenceFile,
+  freshnessPolicy,
+  releaseEntries,
+] = await Promise.all([
   readJson('data/catalog/vendors.json'),
   readJson('data/catalog/products.json'),
   readJson('data/catalog/surfaces.json'),
@@ -17,13 +46,25 @@ const [vendorsFile, productsFile, surfacesFile, modelsFile, probesFile, evidence
   readJson('data/methodologies/methodologies.json'),
   readJson('data/sources/sources.json'),
   readJson('data/evidence/evidence.json'),
-  readJson('data/releases/2026-09-03.json'),
+  readJson('config/freshness-policy.json'),
+  loadReleases(root),
 ]);
+const release = resolveCurrentRelease(releaseEntries).release;
+const asOf = asOfOption ?? releaseDate(release);
+if (asOf < releaseDate(release))
+  throw new Error(
+    `--as-of ${asOf} precedes current release ${releaseDate(release)}`,
+  );
 
-const observationLines = (await readFile(path.join(root, 'data/observations/observations.jsonl'), 'utf8'))
-  .split(/\r?\n/)
-  .filter((line) => line.trim());
-const observations = observationLines.map((line) => JSON.parse(line));
+const parseLines = async (relativePath) =>
+  (await readFile(path.join(root, relativePath), 'utf8'))
+    .split(/\r?\n/)
+    .filter((line) => line.trim())
+    .map((line) => JSON.parse(line));
+const [observations, stateEvents] = await Promise.all([
+  parseLines('data/observations/observations.jsonl'),
+  parseLines('data/state-events/events.jsonl'),
+]);
 
 const vendors = indexById(vendorsFile.vendors);
 const products = indexById(productsFile.products);
@@ -32,52 +73,112 @@ const models = indexById(modelsFile.models);
 const probes = indexById(probesFile.probes);
 const evidenceClasses = indexById(evidenceClassesFile.evidence_classes);
 const resultStatuses = indexById(statusesFile.result_statuses);
-const recordStates = indexById(statusesFile.record_states);
 const methodologies = indexById(methodologiesFile.methodologies);
 const sources = indexById(sourcesFile.sources);
 const evidence = indexById(evidenceFile.evidence_records);
-
-const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+const monthNames = [
+  'JAN',
+  'FEB',
+  'MAR',
+  'APR',
+  'MAY',
+  'JUN',
+  'JUL',
+  'AUG',
+  'SEP',
+  'OCT',
+  'NOV',
+  'DEC',
+];
 function displayObservationDate({ value, precision }) {
   if (precision === 'year') return value;
-  if (precision === 'month') return `${monthNames[Number(value.slice(5, 7)) - 1]} ${value.slice(0, 4)}`;
-  return `${value.slice(8, 10)} ${monthNames[Number(value.slice(5, 7)) - 1]} ${value.slice(0, 4)}`;
+  if (precision === 'month')
+    return `${monthNames[Number(value.slice(5, 7)) - 1]} ${value.slice(0, 4)}`;
+  return displayDay(value);
 }
 function displayDay(value) {
   return `${value.slice(8, 10)} ${monthNames[Number(value.slice(5, 7)) - 1]} ${value.slice(0, 4)}`;
 }
 
 const selected = new Set(release.observation_ids);
-const siteObservations = observations.filter((item) => selected.has(item.id)).map((item) => {
-  const evidenceRecord = evidence.get(item.evidence_record_ids[0]);
-  const externalSource = evidenceRecord.source_ids.map((id) => sources.get(id)).find((source) => source.url);
-  return {
-    id: item.id,
-    vendor: vendors.get(item.vendor_id).name,
-    product: products.get(item.product_id).name,
-    surface: surfaces.get(item.surface_id).name,
-    model: models.get(item.model_id).name,
-    probe: probes.get(item.probe_id).name,
-    resultStatus: resultStatuses.get(item.result_status_id).name,
-    evidenceClass: evidenceClasses.get(item.evidence_class_id).name,
-    observedDate: displayObservationDate(item.observation_date),
-    lastVerified: displayDay(item.last_verified_on),
-    sourceUrl: externalSource.url,
-    evidenceNote: [evidenceRecord.summary, ...evidenceRecord.limitations].join(' '),
-    recordState: item.record_states.map((state) => recordStates.get(state).name),
-    methodologyVersion: methodologies.get(item.methodology_version_id).version,
-  };
-});
+const siteObservations = observations
+  .filter((item) => selected.has(item.id))
+  .map((item) => {
+    const evidenceRecord = evidence.get(item.evidence_record_ids[0]);
+    const evidenceSources = evidenceRecord.source_ids.map((id) =>
+      sources.get(id),
+    );
+    const externalSource = evidenceSources.find((source) => source.url);
+    const evaluation = evaluateObservationFreshness({
+      observation: item,
+      evidenceRecord,
+      sourceIds: evidenceRecord.source_ids,
+      policy: freshnessPolicy,
+      events: stateEvents,
+      asOf,
+    });
+    const sourceCheckedOn = evidenceSources
+      .map((source) => source.last_verified_on)
+      .sort()
+      .at(-1);
+    return {
+      id: item.id,
+      vendor: vendors.get(item.vendor_id).name,
+      product: products.get(item.product_id).name,
+      surface: surfaces.get(item.surface_id).name,
+      model: models.get(item.model_id).name,
+      probe: probes.get(item.probe_id).name,
+      observedResult: resultStatuses.get(item.result_status_id).name,
+      evidenceClass: evidenceClasses.get(item.evidence_class_id).name,
+      observedOn: {
+        value: item.observation_date.value,
+        precision: item.observation_date.precision,
+        label: displayObservationDate(item.observation_date),
+      },
+      evidenceVerifiedOn: item.last_verified_on,
+      sourceCheckedOn,
+      sourceUrl: externalSource?.url ?? null,
+      evidenceNote: [
+        evidenceRecord.summary,
+        ...evidenceRecord.limitations,
+      ].join(' '),
+      applicability: item.record_states.includes('CURRENT')
+        ? 'CURRENT'
+        : 'HISTORICAL',
+      currentSufficiency: evaluation.currentSufficiency,
+      sufficiencyReasons: evaluation.sufficiencyReasons,
+      sourceAvailability: evaluation.sourceAvailability,
+      evidenceAgeDays: evaluation.ageDays,
+      maxEvidenceAgeDays: evaluation.maxAgeDays,
+      stateHistory: evaluation.stateHistory.map((event) => ({
+        id: event.id,
+        type: event.event_type,
+        effectiveOn: event.effective_on,
+        reason: event.reason,
+      })),
+      methodologyVersion: methodologies.get(item.methodology_version_id)
+        .version,
+    };
+  });
 
 const view = {
-  schemaVersion: '1.0',
+  schemaVersion: '2.0',
   monitorName: release.monitor_name,
+  releaseId: release.id,
   dataCutoff: release.data_cutoff,
-  methodologyVersion: methodologies.get(release.monitor_methodology_version_id).version,
+  publishedOn: release.published_on ?? release.data_cutoff,
+  freshnessEvaluatedOn: asOf,
+  freshnessPolicyVersion: freshnessPolicy.id,
+  methodologyVersion: methodologies.get(release.monitor_methodology_version_id)
+    .version,
   articlePath: release.article_public_path,
   observations: siteObservations,
 };
 
-const outputPath = path.join(root, 'public/data/monitor.json');
+const outputPath = outputOption
+  ? path.resolve(root, outputOption)
+  : path.join(root, 'public/data/monitor.json');
 await writeFile(outputPath, `${JSON.stringify(view, null, 2)}\n`, 'utf8');
-console.log(`Compiled ${siteObservations.length} observations to public/data/monitor.json.`);
+console.log(
+  `Compiled ${siteObservations.length} observations for ${asOf} to ${path.relative(root, outputPath)}.`,
+);
