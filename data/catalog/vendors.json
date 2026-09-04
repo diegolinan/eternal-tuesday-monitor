@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "vendors": [
+    { "id": "vendor-anthropic", "name": "Anthropic" },
+    { "id": "vendor-cursor", "name": "Cursor" },
+    { "id": "vendor-google", "name": "Google" },
+    { "id": "vendor-independent-research", "name": "Independent research" },
+    { "id": "vendor-openai", "name": "OpenAI" },
+    { "id": "vendor-perplexity", "name": "Perplexity" },
+    { "id": "vendor-xai", "name": "xAI" }
+  ]
+}

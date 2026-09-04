@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "probes": [
+    {
+      "id": "probe-temporal-anchor",
+      "number": 1,
+      "family": "TEMPORAL TESTS",
+      "name": "TEMPORAL ANCHOR",
+      "definition": "Can this specific product surface correctly establish the relevant now and reference frame when the task requires it?"
+    },
+    {
+      "id": "probe-elapsed",
+      "number": 2,
+      "family": "TEMPORAL TESTS",
+      "name": "ELAPSED",
+      "definition": "Can it correctly account for meaningful real-world time between relevant interactions or events?"
+    },
+    {
+      "id": "probe-revalidation",
+      "number": 3,
+      "family": "TEMPORAL TESTS",
+      "name": "REVALIDATION",
+      "definition": "Can it recognize when retained information may no longer be safe to reuse and obtain appropriate current evidence?"
+    },
+    {
+      "id": "probe-state-reconciliation",
+      "number": 4,
+      "family": "ADJACENT STATE TESTS",
+      "name": "STATE RECONCILIATION",
+      "definition": "When new evidence changes operative state, does the system act on the updated state rather than a superseded one?"
+    },
+    {
+      "id": "probe-historical-validity",
+      "number": 5,
+      "family": "ADJACENT STATE TESTS",
+      "name": "HISTORICAL VALIDITY",
+      "definition": "Can it preserve what was previously valid without treating it as what is valid now?"
+    }
+  ]
+}

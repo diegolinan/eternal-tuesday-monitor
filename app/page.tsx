@@ -182,11 +182,11 @@ export default function Home() {
         if (!response.ok) throw new Error('Observation data unavailable');
         return response.json();
       })
-      .then(setData)
+      .then((value) => setData(value as MonitorData))
       .catch(() => setLoadError(true));
   }, []);
 
-  const observations = data?.observations ?? [];
+  const observations = useMemo(() => data?.observations ?? [], [data]);
   const vendors = useMemo(() => [...new Set(observations.map((item) => item.vendor))].sort(), [observations]);
   const surfaces = useMemo(() => [...new Set(observations.map((item) => `${item.product} / ${item.surface}`))].sort(), [observations]);
   const probeOptions = probes.map((item) => item.name);
@@ -264,7 +264,7 @@ export default function Home() {
         {loadError ? (
           <div className="empty-state"><span>DATA FEED UNAVAILABLE</span><p>The exhibit remains intact, but the observation file could not be read.</p></div>
         ) : !data ? (
-          <div className="loading-panel" role="status"><i /><span>READING DATED RECORDS</span></div>
+          <output className="loading-panel"><i /><span>READING DATED RECORDS</span></output>
         ) : (
           <Tabs defaultValue="current" className="scope-tabs">
             <TabsList variant="line" aria-label="Observation scope">
@@ -384,7 +384,7 @@ export default function Home() {
         <div className="why-copy">
           <p className="section-code">EDITORIAL NOTE</p>
           <h2 id="why-title">Why this exists</h2>
-          <blockquote><span>The conversation continued.</span><strong>The world didn't wait.</strong></blockquote>
+          <blockquote><span>The conversation continued.</span><strong>The world didn&apos;t wait.</strong></blockquote>
           <p>Publication freezes an observation. Products do not freeze with it. The Monitor keeps dated claims inspectable while the systems beneath them change.</p>
           <p>Once upon a time in the future, this monitor was completely boring.</p>
           <p className="dry-note">That is the desired operating condition.</p>

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/methodology.schema.json",
+  "title": "Eternal Tuesday Monitor methodology",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "name", "scope"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "version": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "scope": { "type": "string", "minLength": 1 }
+  }
+}

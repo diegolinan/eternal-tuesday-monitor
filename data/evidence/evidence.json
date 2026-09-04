@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_records": [
+    {
+      "id": "evidence-cursor-agent-anchor-2026-03",
+      "evidence_class_id": "evidence-staff-confirmation",
+      "source_ids": ["source-supplied-article", "source-cursor-forum-154920"],
+      "article_locator": "Saturday survived until Monday; reference 5",
+      "summary": "A user reported a resumed Saturday-to-Monday conversation that continued to treat the market as closed. Cursor staff stated that current date and time were not then passed to the agent prompt.",
+      "limitations": ["This describes the product at that time, not necessarily now."]
+    },
+    {
+      "id": "evidence-anthropic-claude-code-fable-elapsed-2026-07",
+      "evidence_class_id": "evidence-user-practitioner-report",
+      "source_ids": ["source-supplied-article", "source-anthropic-claude-code-79731"],
+      "article_locator": "Knowing today's date does not tell you when the previous message happened; reference 8",
+      "summary": "A detailed but intermittent report described a roughly 30-minute-old discussion as yesterday despite the correct current date appearing in the reported context. The transcript shows a correction after a clock check.",
+      "limitations": ["No mechanism is established."]
+    },
+    {
+      "id": "evidence-anthropic-cowork-reconciliation-2026-08-12",
+      "evidence_class_id": "evidence-user-practitioner-report",
+      "source_ids": ["source-supplied-article", "source-anthropic-claude-code-86219"],
+      "article_locator": "The reports get stranger when conversations survive longer; reference 14",
+      "summary": "A user reported reopening work after 83 days with the correct current environment date visible while a completed cloud-storage sync was still treated as in progress.",
+      "limitations": ["This is historical observational evidence only.", "No public source reviewed connects the later memory update to this report."]
+    },
+    {
+      "id": "evidence-tictoc-revalidation-2026",
+      "evidence_class_id": "evidence-controlled-experiment",
+      "source_ids": ["source-supplied-article", "source-tictoc-acl-2026"],
+      "article_locator": "Unfortunately, part of this has a name; references 11",
+      "summary": "In designed scenarios using human judgments about whether old tool output should be reused or refreshed, no tested model exceeded 65 percent normalized alignment when timestamps were available.",
+      "limitations": ["This is controlled benchmark evidence, not a consumer-product score and not a test of all five probes."]
+    },
+    {
+      "id": "evidence-openai-chatgpt-local-time-2026-08-21",
+      "evidence_class_id": "evidence-official-documentation",
+      "source_ids": ["source-supplied-article", "source-openai-chatgpt-release-notes"],
+      "article_locator": "The strongest evidence against this article is that vendors are already fixing parts of it; reference 21",
+      "summary": "Release notes describe improved awareness of a user's local time for time-sensitive responses.",
+      "limitations": ["This supports local-time grounding only.", "It is not evidence of per-message timestamps, elapsed-gap representation, resumption boundaries or revalidation policy."]
+    },
+    {
+      "id": "evidence-openai-dreaming-freshness-2026-06-04",
+      "evidence_class_id": "evidence-vendor-evaluation",
+      "source_ids": ["source-supplied-article", "source-openai-memory-dreaming"],
+      "article_locator": "The strongest evidence against this article is that vendors are already fixing parts of it; reference 20",
+      "summary": "OpenAI describes a production memory architecture designed around continuity, relevance and freshness, with vendor-run evaluations involving passage-of-time-sensitive answers.",
+      "limitations": ["This is substantive vendor evidence, not independent validation of every product behavior."]
+    },
+    {
+      "id": "evidence-perplexity-brain-maintenance-2026-09",
+      "evidence_class_id": "evidence-official-documentation",
+      "source_ids": ["source-supplied-article", "source-perplexity-brain"],
+      "article_locator": "The strongest evidence against this article is that vendors are already fixing parts of it; reference 22",
+      "summary": "Perplexity describes background maintenance that revisits sessions, connector updates, artifacts and corrections, updating changed information and marking stale knowledge. The product is in Research Preview.",
+      "limitations": ["This is vendor-described architecture, not independent behavioral verification."]
+    },
+    {
+      "id": "evidence-openai-projects-sol-gap-2026-09",
+      "evidence_class_id": "evidence-untested-no-public-evidence",
+      "source_ids": ["source-supplied-article", "source-openai-gpt-5-6"],
+      "article_locator": "And then the frontier moved; reference 23",
+      "summary": "The article found no public standardized test establishing whether this specific current product, surface and model combination resolves the elapsed-time-sensitive revalidation problem.",
+      "limitations": ["Absence of evidence is not a failure result."]
+    },
+    {
+      "id": "evidence-openai-api-sol-gap-2026-09",
+      "evidence_class_id": "evidence-untested-no-public-evidence",
+      "source_ids": ["source-supplied-article", "source-openai-gpt-5-6"],
+      "article_locator": "And then the frontier moved; reference 23",
+      "summary": "No public standardized test was found for this specific model API on the Monitor's revalidation question.",
+      "limitations": ["This API record remains separate from the ChatGPT Projects record."]
+    },
+    {
+      "id": "evidence-anthropic-cowork-opus5-gap-2026-09",
+      "evidence_class_id": "evidence-untested-no-public-evidence",
+      "source_ids": ["source-supplied-article", "source-anthropic-system-cards"],
+      "article_locator": "And then the frontier moved; reference 24",
+      "summary": "The article found no public standardized test for this current product surface and model on the specific failure class.",
+      "limitations": ["The historical Cowork report remains a separate dated observation."]
+    },
+    {
+      "id": "evidence-anthropic-code-fable51-gap-2026-09",
+      "evidence_class_id": "evidence-untested-no-public-evidence",
+      "source_ids": ["source-supplied-article", "source-anthropic-system-cards"],
+      "article_locator": "And then the frontier moved; reference 24",
+      "summary": "The article found no public standardized test for this current surface and model on elapsed-time-sensitive revalidation.",
+      "limitations": ["The July Fable 5 report is not automatically a claim about Fable 5.1."]
+    },
+    {
+      "id": "evidence-google-gemini38-gap-2026-09",
+      "evidence_class_id": "evidence-untested-no-public-evidence",
+      "source_ids": ["source-supplied-article", "source-google-gemini-3-8-flash"],
+      "article_locator": "And then the frontier moved; reference 25",
+      "summary": "At the article cutoff, the model was one day old. No public standardized persistent-session evaluation was found for this specific product surface and model.",
+      "limitations": ["This is not evidence of failure or success."]
+    },
+    {
+      "id": "evidence-xai-grok46-gap-2026-09",
+      "evidence_class_id": "evidence-untested-no-public-evidence",
+      "source_ids": ["source-supplied-article", "source-xai-grok-4-6"],
+      "article_locator": "And then the frontier moved; reference 26",
+      "summary": "The vendor positions Grok 4.6 for long-running agents, but the article found no public standardized temporal-grounding benchmark for this product claim.",
+      "limitations": ["Vendor positioning is not a PASS."]
+    }
+  ]
+}

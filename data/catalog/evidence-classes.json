@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_classes": [
+    { "id": "evidence-controlled-experiment", "name": "CONTROLLED EXPERIMENT", "group": "DIRECTLY OBSERVED" },
+    { "id": "evidence-reproduced-observation", "name": "REPRODUCED OBSERVATION", "group": "DIRECTLY OBSERVED" },
+    { "id": "evidence-official-documentation", "name": "OFFICIAL DOCUMENTATION", "group": "PROVIDER-SUPPLIED" },
+    { "id": "evidence-vendor-evaluation", "name": "VENDOR EVALUATION", "group": "PROVIDER-SUPPLIED" },
+    { "id": "evidence-staff-confirmation", "name": "STAFF CONFIRMATION", "group": "PROVIDER-SUPPLIED" },
+    { "id": "evidence-user-practitioner-report", "name": "USER / PRACTITIONER REPORT", "group": "REPORTED OR REQUESTED" },
+    { "id": "evidence-feature-request", "name": "FEATURE REQUEST", "group": "REPORTED OR REQUESTED" },
+    { "id": "evidence-untested-no-public-evidence", "name": "UNTESTED / NO PUBLIC EVIDENCE", "group": "EVIDENCE GAP" }
+  ]
+}

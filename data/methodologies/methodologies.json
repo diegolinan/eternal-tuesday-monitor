@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "methodologies": [
+    {
+      "id": "method-etm-1-0",
+      "version": "ETM-1.0",
+      "name": "Eternal Tuesday Monitor methodology",
+      "scope": "Observable product behavior recorded at a vendor, product, surface, model, probe, date and evidence-class coordinate; no internal mechanism or overall product score is inferred."
+    },
+    {
+      "id": "method-article-source-1",
+      "version": "ARTICLE-SOURCE-1",
+      "name": "Supplied article observation extraction",
+      "scope": "Admits only claims explicitly represented in the supplied article and its source notes."
+    },
+    {
+      "id": "method-tictoc-published-protocol",
+      "version": "TicToc published protocol",
+      "name": "TicToc published protocol",
+      "scope": "Controlled synthetic multi-turn tool-use benchmark as described by the cited Findings of ACL 2026 paper."
+    },
+    {
+      "id": "method-document-review-1",
+      "version": "DOCUMENT REVIEW",
+      "name": "Dated document review",
+      "scope": "Records what a cited provider document says at the release cutoff without converting the provider statement into independent behavioral verification."
+    },
+    {
+      "id": "method-article-search-cutoff-2026-09-03",
+      "version": "ARTICLE SEARCH CUTOFF",
+      "name": "Article evidence-gap search cutoff",
+      "scope": "Records that the supplied article found no qualifying public standardized evidence for the named coordinate by 2026-09-03; absence is not a failure result."
+    }
+  ]
+}

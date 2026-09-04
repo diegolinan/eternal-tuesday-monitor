@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "products": [
+    { "id": "product-brain", "vendor_id": "vendor-perplexity", "name": "Brain" },
+    { "id": "product-chatgpt", "vendor_id": "vendor-openai", "name": "ChatGPT" },
+    { "id": "product-claude", "vendor_id": "vendor-anthropic", "name": "Claude" },
+    { "id": "product-claude-code", "vendor_id": "vendor-anthropic", "name": "Claude Code" },
+    { "id": "product-cursor", "vendor_id": "vendor-cursor", "name": "Cursor" },
+    { "id": "product-gemini", "vendor_id": "vendor-google", "name": "Gemini" },
+    { "id": "product-grok", "vendor_id": "vendor-xai", "name": "Grok" },
+    { "id": "product-openai-api", "vendor_id": "vendor-openai", "name": "API" },
+    { "id": "product-tictoc", "vendor_id": "vendor-independent-research", "name": "TicToc" }
+  ]
+}

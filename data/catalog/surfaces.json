@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "surfaces": [
+    { "id": "surface-chatgpt-consumer-conversation", "product_id": "product-chatgpt", "name": "Consumer conversation" },
+    { "id": "surface-chatgpt-memory-system", "product_id": "product-chatgpt", "name": "Memory system" },
+    { "id": "surface-chatgpt-projects", "product_id": "product-chatgpt", "name": "Projects" },
+    { "id": "surface-claude-code-terminal-agent", "product_id": "product-claude-code", "name": "Terminal agent" },
+    { "id": "surface-claude-code-terminal-agent-conversation", "product_id": "product-claude-code", "name": "Terminal agent conversation" },
+    { "id": "surface-claude-cowork", "product_id": "product-claude", "name": "Cowork" },
+    { "id": "surface-claude-cowork-resumed-session", "product_id": "product-claude", "name": "Cowork resumed session" },
+    { "id": "surface-cursor-agent", "product_id": "product-cursor", "name": "Agent" },
+    { "id": "surface-gemini-app", "product_id": "product-gemini", "name": "Gemini app" },
+    { "id": "surface-grok-long-running-agents", "product_id": "product-grok", "name": "Long-running agents" },
+    { "id": "surface-openai-model-api", "product_id": "product-openai-api", "name": "Model API" },
+    { "id": "surface-perplexity-brain-research-preview", "product_id": "product-brain", "name": "Research Preview" },
+    { "id": "surface-tictoc-synthetic-tool-use", "product_id": "product-tictoc", "name": "Synthetic multi-turn tool-use benchmark" }
+  ]
+}

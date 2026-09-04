@@ -3,10 +3,10 @@
   "monitorName": "The Eternal Tuesday Monitor",
   "dataCutoff": "2026-09-03",
   "methodologyVersion": "ETM-1.0",
-  "articlePath": "/Eternal_Tuesday_LinkedIn_Ready_with_inline_links.md",
+  "articlePath": "/content/articles/your-ai-lives-in-an-eternal-tuesday.md",
   "observations": [
     {
-      "id": "cursor-agent-anchor-2026-03",
+      "id": "obs-cursor-agent-anchor-2026-03",
       "vendor": "Cursor",
       "product": "Cursor",
       "surface": "Agent",
@@ -18,11 +18,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://forum.cursor.com/t/agent-doesnt-know-what-day-it-is/154920",
       "evidenceNote": "A user reported a resumed Saturday-to-Monday conversation that continued to treat the market as closed. Cursor staff stated that current date and time were not then passed to the agent prompt. This describes the product at that time, not necessarily now.",
-      "recordState": ["HISTORICAL", "RETEST REQUIRED"],
+      "recordState": [
+        "HISTORICAL",
+        "RETEST REQUIRED"
+      ],
       "methodologyVersion": "ARTICLE-SOURCE-1"
     },
     {
-      "id": "anthropic-claude-code-fable-elapsed-2026-07",
+      "id": "obs-anthropic-claude-code-fable-elapsed-2026-07",
       "vendor": "Anthropic",
       "product": "Claude Code",
       "surface": "Terminal agent conversation",
@@ -34,11 +37,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://github.com/anthropics/claude-code/issues/79731",
       "evidenceNote": "A detailed but intermittent report described a roughly 30-minute-old discussion as yesterday despite the correct current date appearing in the reported context. The transcript shows a correction after a clock check. No mechanism is established.",
-      "recordState": ["HISTORICAL", "RETEST REQUIRED"],
+      "recordState": [
+        "HISTORICAL",
+        "RETEST REQUIRED"
+      ],
       "methodologyVersion": "ARTICLE-SOURCE-1"
     },
     {
-      "id": "anthropic-cowork-reconciliation-2026-08-12",
+      "id": "obs-anthropic-cowork-reconciliation-2026-08-12",
       "vendor": "Anthropic",
       "product": "Claude",
       "surface": "Cowork resumed session",
@@ -50,11 +56,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://github.com/anthropics/claude-code/issues/86219",
       "evidenceNote": "A user reported reopening work after 83 days with the correct current environment date visible while a completed cloud-storage sync was still treated as in progress. This is historical observational evidence only. No public source reviewed connects the later memory update to this report.",
-      "recordState": ["HISTORICAL", "RETEST REQUIRED"],
+      "recordState": [
+        "HISTORICAL",
+        "RETEST REQUIRED"
+      ],
       "methodologyVersion": "ARTICLE-SOURCE-1"
     },
     {
-      "id": "tictoc-revalidation-2026",
+      "id": "obs-tictoc-revalidation-2026",
       "vendor": "Independent research",
       "product": "TicToc",
       "surface": "Synthetic multi-turn tool-use benchmark",
@@ -66,11 +75,13 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://aclanthology.org/2026.findings-acl.1848/",
       "evidenceNote": "In designed scenarios using human judgments about whether old tool output should be reused or refreshed, no tested model exceeded 65 percent normalized alignment when timestamps were available. This is controlled benchmark evidence, not a consumer-product score and not a test of all five probes.",
-      "recordState": ["CURRENT"],
+      "recordState": [
+        "CURRENT"
+      ],
       "methodologyVersion": "TicToc published protocol"
     },
     {
-      "id": "openai-chatgpt-local-time-2026-08-21",
+      "id": "obs-openai-chatgpt-local-time-2026-08-21",
       "vendor": "OpenAI",
       "product": "ChatGPT",
       "surface": "Consumer conversation",
@@ -82,11 +93,13 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "evidenceNote": "Release notes describe improved awareness of a user's local time for time-sensitive responses. This supports local-time grounding only. It is not evidence of per-message timestamps, elapsed-gap representation, resumption boundaries or revalidation policy.",
-      "recordState": ["CURRENT"],
+      "recordState": [
+        "CURRENT"
+      ],
       "methodologyVersion": "DOCUMENT REVIEW"
     },
     {
-      "id": "openai-dreaming-freshness-2026-06-04",
+      "id": "obs-openai-dreaming-freshness-2026-06-04",
       "vendor": "OpenAI",
       "product": "ChatGPT",
       "surface": "Memory system",
@@ -98,11 +111,13 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://openai.com/index/chatgpt-memory-dreaming/",
       "evidenceNote": "OpenAI describes a production memory architecture designed around continuity, relevance and freshness, with vendor-run evaluations involving passage-of-time-sensitive answers. This is substantive vendor evidence, not independent validation of every product behavior.",
-      "recordState": ["CURRENT"],
+      "recordState": [
+        "CURRENT"
+      ],
       "methodologyVersion": "DOCUMENT REVIEW"
     },
     {
-      "id": "perplexity-brain-maintenance-2026-09",
+      "id": "obs-perplexity-brain-maintenance-2026-09-03",
       "vendor": "Perplexity",
       "product": "Brain",
       "surface": "Research Preview",
@@ -114,11 +129,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://www.perplexity.ai/help-center/en/articles/19700001-what-is-brain",
       "evidenceNote": "Perplexity describes background maintenance that revisits sessions, connector updates, artifacts and corrections, updating changed information and marking stale knowledge. The product is in Research Preview. This is vendor-described architecture, not independent behavioral verification.",
-      "recordState": ["CURRENT", "INCONCLUSIVE"],
+      "recordState": [
+        "CURRENT",
+        "INCONCLUSIVE"
+      ],
       "methodologyVersion": "DOCUMENT REVIEW"
     },
     {
-      "id": "openai-projects-sol-standardized-test-2026-09",
+      "id": "obs-openai-projects-sol-gap-2026-09-03",
       "vendor": "OpenAI",
       "product": "ChatGPT",
       "surface": "Projects",
@@ -130,11 +148,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://openai.com/index/gpt-5-6/",
       "evidenceNote": "The article found no public standardized test establishing whether this specific current product, surface and model combination resolves the elapsed-time-sensitive revalidation problem. Absence of evidence is not a failure result.",
-      "recordState": ["CURRENT", "UNTESTED"],
+      "recordState": [
+        "CURRENT",
+        "UNTESTED"
+      ],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
-      "id": "openai-api-sol-standardized-test-2026-09",
+      "id": "obs-openai-api-sol-gap-2026-09-03",
       "vendor": "OpenAI",
       "product": "API",
       "surface": "Model API",
@@ -146,11 +167,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://openai.com/index/gpt-5-6/",
       "evidenceNote": "No public standardized test was found for this specific model API on the Monitor's revalidation question. This API record remains separate from the ChatGPT Projects record.",
-      "recordState": ["CURRENT", "UNTESTED"],
+      "recordState": [
+        "CURRENT",
+        "UNTESTED"
+      ],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
-      "id": "anthropic-cowork-opus5-standardized-test-2026-09",
+      "id": "obs-anthropic-cowork-opus5-gap-2026-09-03",
       "vendor": "Anthropic",
       "product": "Claude",
       "surface": "Cowork",
@@ -162,11 +186,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://www.anthropic.com/system-cards",
       "evidenceNote": "The article found no public standardized test for this current product surface and model on the specific failure class. The historical Cowork report remains a separate dated observation.",
-      "recordState": ["CURRENT", "UNTESTED"],
+      "recordState": [
+        "CURRENT",
+        "UNTESTED"
+      ],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
-      "id": "anthropic-code-fable51-standardized-test-2026-09",
+      "id": "obs-anthropic-code-fable51-gap-2026-09-03",
       "vendor": "Anthropic",
       "product": "Claude Code",
       "surface": "Terminal agent",
@@ -178,11 +205,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://www.anthropic.com/system-cards",
       "evidenceNote": "The article found no public standardized test for this current surface and model on elapsed-time-sensitive revalidation. The July Fable 5 report is not automatically a claim about Fable 5.1.",
-      "recordState": ["CURRENT", "UNTESTED"],
+      "recordState": [
+        "CURRENT",
+        "UNTESTED"
+      ],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
-      "id": "google-gemini38-standardized-test-2026-09",
+      "id": "obs-google-gemini38-gap-2026-09-03",
       "vendor": "Google",
       "product": "Gemini",
       "surface": "Gemini app",
@@ -194,11 +224,14 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
       "evidenceNote": "At the article cutoff, the model was one day old. No public standardized persistent-session evaluation was found for this specific product surface and model. This is not evidence of failure or success.",
-      "recordState": ["CURRENT", "UNTESTED"],
+      "recordState": [
+        "CURRENT",
+        "UNTESTED"
+      ],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     },
     {
-      "id": "xai-grok46-standardized-test-2026-09",
+      "id": "obs-xai-grok46-gap-2026-09-03",
       "vendor": "xAI",
       "product": "Grok",
       "surface": "Long-running agents",
@@ -210,7 +243,10 @@
       "lastVerified": "03 SEP 2026",
       "sourceUrl": "https://x.ai/news/grok-4-6/",
       "evidenceNote": "The vendor positions Grok 4.6 for long-running agents, but the article found no public standardized temporal-grounding benchmark for this product claim. Vendor positioning is not a PASS.",
-      "recordState": ["CURRENT", "UNTESTED"],
+      "recordState": [
+        "CURRENT",
+        "UNTESTED"
+      ],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     }
   ]

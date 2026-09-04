@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "provenance": "Supplied with The Eternal Tuesday Monitor Site version 1",
+  "article": {
+    "path": "content/articles/your-ai-lives-in-an-eternal-tuesday.md",
+    "sha256": "565faceec16796ccb1e0ec2425588b0589478978b50d8529b9f5f3a8c50ca249"
+  },
+  "assets": [
+    {
+      "path": "assets/monitor/diagnostic-panel.png",
+      "sha256": "c1dec246ef261d1bebf4e4f92db4be856172cb0856a82e86ddd55e3045a8153c"
+    },
+    {
+      "path": "assets/monitor/eternal-tuesday-banner.png",
+      "sha256": "927194d1aa0ffba2d29a08f4453353f0bcffa1c818b4516ef218b97d7b150b82"
+    },
+    {
+      "path": "assets/monitor/monitor-exhibit.png",
+      "sha256": "2760b6f95ad54a4cb0fc1a7e2c2c3eba505b563c68750df00b29d766db417511"
+    },
+    {
+      "path": "assets/monitor/same-sequence-different-time.png",
+      "sha256": "a26440295a21fa11672dab1312aa9e884d8aa21fbae78895937f52d346f4fc69"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "result_statuses": [
+    { "id": "DOCUMENTED_FEATURE", "name": "DOCUMENTED FEATURE" },
+    { "id": "NO_PUBLIC_EVIDENCE", "name": "NO PUBLIC EVIDENCE" },
+    { "id": "OBSERVED_FAILURE", "name": "OBSERVED FAILURE" },
+    { "id": "VENDOR_DESCRIBED", "name": "VENDOR-DESCRIBED" },
+    { "id": "VERIFIED", "name": "VERIFIED" }
+  ],
+  "record_states": [
+    { "id": "CURRENT", "name": "CURRENT" },
+    { "id": "HISTORICAL", "name": "HISTORICAL" },
+    { "id": "INCONCLUSIVE", "name": "INCONCLUSIVE" },
+    { "id": "RETEST_REQUIRED", "name": "RETEST REQUIRED" },
+    { "id": "UNTESTED", "name": "UNTESTED" }
+  ]
+}

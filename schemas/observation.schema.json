@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/observation.schema.json",
+  "title": "Eternal Tuesday Monitor observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "vendor_id",
+    "product_id",
+    "surface_id",
+    "model_id",
+    "probe_id",
+    "result_status_id",
+    "evidence_class_id",
+    "observation_date",
+    "last_verified_on",
+    "evidence_record_ids",
+    "methodology_version_id",
+    "record_states",
+    "supersedes_observation_id"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "id": { "$ref": "#/$defs/id" },
+    "vendor_id": { "$ref": "#/$defs/id" },
+    "product_id": { "$ref": "#/$defs/id" },
+    "surface_id": { "$ref": "#/$defs/id" },
+    "model_id": { "$ref": "#/$defs/id" },
+    "probe_id": { "$ref": "#/$defs/id" },
+    "result_status_id": { "$ref": "#/$defs/id" },
+    "evidence_class_id": { "$ref": "#/$defs/id" },
+    "observation_date": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "precision"],
+          "properties": {
+            "value": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+            "precision": { "const": "day" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "precision"],
+          "properties": {
+            "value": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
+            "precision": { "const": "month" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "precision"],
+          "properties": {
+            "value": { "type": "string", "pattern": "^[0-9]{4}$" },
+            "precision": { "const": "year" }
+          }
+        }
+      ]
+    },
+    "last_verified_on": { "$ref": "#/$defs/date" },
+    "evidence_record_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "methodology_version_id": { "$ref": "#/$defs/id" },
+    "record_states": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "supersedes_observation_id": {
+      "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$" },
+    "date": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+  }
+}

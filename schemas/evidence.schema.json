@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/evidence.schema.json",
+  "title": "Eternal Tuesday Monitor evidence record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "evidence_class_id", "source_ids", "article_locator", "summary", "limitations"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "evidence_class_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "source_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
+    },
+    "article_locator": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

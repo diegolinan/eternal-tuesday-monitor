@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "id": "source-supplied-article",
+      "title": "Your AI Lives in an Eternal Tuesday",
+      "publisher": "Supplied project content",
+      "source_type": "supplied_article",
+      "repository_path": "content/articles/your-ai-lives-in-an-eternal-tuesday.md",
+      "sha256": "565faceec16796ccb1e0ec2425588b0589478978b50d8529b9f5f3a8c50ca249",
+      "last_verified_on": "2026-09-03",
+      "notes": "Conceptual and evidentiary admission basis for the initial Monitor release."
+    },
+    {
+      "id": "source-cursor-forum-154920",
+      "title": "Agent doesn't know what day it is",
+      "publisher": "Cursor Community",
+      "source_type": "staff_forum_response",
+      "url": "https://forum.cursor.com/t/agent-doesnt-know-what-day-it-is/154920",
+      "article_reference_numbers": [5],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-anthropic-claude-code-79731",
+      "title": "Claude Code issue #79731",
+      "publisher": "GitHub / anthropics/claude-code",
+      "source_type": "user_issue_report",
+      "url": "https://github.com/anthropics/claude-code/issues/79731",
+      "article_reference_numbers": [8],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-anthropic-claude-code-86219",
+      "title": "Claude Code issue #86219",
+      "publisher": "GitHub / anthropics/claude-code",
+      "source_type": "user_issue_report",
+      "url": "https://github.com/anthropics/claude-code/issues/86219",
+      "article_reference_numbers": [14],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-tictoc-acl-2026",
+      "title": "Your LLM Agents are Temporally Blind: The Misalignment Between Tool Use Decisions and Human Time Perception",
+      "publisher": "Findings of ACL 2026",
+      "source_type": "peer_reviewed_paper",
+      "url": "https://aclanthology.org/2026.findings-acl.1848/",
+      "article_reference_numbers": [11],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-openai-chatgpt-release-notes",
+      "title": "ChatGPT Release Notes",
+      "publisher": "OpenAI",
+      "source_type": "official_documentation",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "article_reference_numbers": [21],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-openai-memory-dreaming",
+      "title": "Dreaming: Better memory for a more helpful ChatGPT",
+      "publisher": "OpenAI",
+      "source_type": "vendor_evaluation",
+      "url": "https://openai.com/index/chatgpt-memory-dreaming/",
+      "article_reference_numbers": [20],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-perplexity-brain",
+      "title": "What is Brain?",
+      "publisher": "Perplexity",
+      "source_type": "official_documentation",
+      "url": "https://www.perplexity.ai/help-center/en/articles/19700001-what-is-brain",
+      "article_reference_numbers": [22],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-openai-gpt-5-6",
+      "title": "GPT-5.6",
+      "publisher": "OpenAI",
+      "source_type": "vendor_announcement",
+      "url": "https://openai.com/index/gpt-5-6/",
+      "article_reference_numbers": [23],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-anthropic-system-cards",
+      "title": "System cards",
+      "publisher": "Anthropic",
+      "source_type": "system_card_index",
+      "url": "https://www.anthropic.com/system-cards",
+      "article_reference_numbers": [24],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-google-gemini-3-8-flash",
+      "title": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "publisher": "Google",
+      "source_type": "vendor_announcement",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "article_reference_numbers": [25],
+      "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-xai-grok-4-6",
+      "title": "Grok 4.6",
+      "publisher": "xAI",
+      "source_type": "vendor_announcement",
+      "url": "https://x.ai/news/grok-4-6/",
+      "article_reference_numbers": [26],
+      "last_verified_on": "2026-09-03"
+    }
+  ]
+}

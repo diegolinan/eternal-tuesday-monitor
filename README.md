@@ -1,0 +1,102 @@
+# The Eternal Tuesday Monitor
+
+This repository is the versioned source of truth for **The Eternal Tuesday Monitor**, a dated, evidence-governed record of observable temporal-continuity behavior in AI products.
+
+The first release is derived strictly from the supplied article, *Your AI Lives in an Eternal Tuesday*, and its cited source notes. It does not add new product tests, infer hidden mechanisms, or turn an evidence gap into a failure result.
+
+## Data contract
+
+An observation is a dated claim at a precise coordinate. These fields are intentionally separate:
+
+| Coordinate | Contract |
+| --- | --- |
+| Vendor | Organization responsible for the product or research artifact. |
+| Product | Named product or benchmark; always references one vendor. |
+| Surface | Specific interaction or runtime surface; always references one product. |
+| Model | Model identity when known, or an explicit `unknown` / `not-specified` sentinel. |
+| Probe | One of the Monitor's defined black-box diagnostic questions. |
+| Evidence class | What kind of support the observation has; it is not the result status. |
+| Observation date | When the behavior, document, report, or evidence gap applies. Precision is explicit (`day`, `month`, or `year`). |
+| Last verified date | The full date on which the supporting material was last checked for this release. |
+| Source | A separately versioned source record. Sources do not themselves become observations. |
+| Methodology version | The procedure under which the observation was admitted. |
+
+The joins are explicit:
+
+```text
+vendor -> product -> surface
+              model
+
+probe + evidence class + observation date + last verified date
+  + methodology version + evidence record -> source record(s)
+  = observation
+```
+
+No overall product score is part of the contract.
+
+## Repository layout
+
+```text
+assets/monitor/                 Canonical supplied visual assets
+content/articles/               Canonical supplied article
+content/manifest.json           Byte hashes and provenance for supplied content
+data/catalog/                   Vendors, products, surfaces, models, probes and statuses
+data/methodologies/             Versioned admission and review methods
+data/sources/                   Source records, including the supplied article
+data/evidence/                  Evidence records connecting claims to sources
+data/observations/              Append-only observation ledger (JSON Lines)
+data/releases/                  Dated release manifests and cutoffs
+schemas/                        JSON Schemas for core record types
+scripts/validate-data.mjs       Contract, relationship and chronology validation
+scripts/compile-monitor-view.mjs  Deterministic Site-facing projection
+public/                         Current Site runtime assets and generated data view
+app/                            Existing ChatGPT Site source
+```
+
+The files under `data/`, `content/`, and `assets/` are authoritative. `public/data/monitor.json` and the copies under `public/content/` and `public/assets/` are publication views for the existing Site.
+
+## Append-only observation history
+
+`data/observations/observations.jsonl` is an append-only ledger.
+
+- Never edit, delete, or reorder an existing observation line after it has been committed.
+- Correct or supersede an observation by appending a new record with `supersedes_observation_id` set to the earlier record's ID.
+- Historical records remain addressable. A later result changes operative state; it does not erase what was observed before.
+- `CURRENT`, `HISTORICAL`, `RETEST_REQUIRED`, `INCONCLUSIVE`, and `UNTESTED` are record states, not evidence classes.
+- `NO_PUBLIC_EVIDENCE` means the article found no qualifying public result by its cutoff. It is not a failed probe.
+
+Run the validator against a Git base to enforce the ledger rule in future pull requests:
+
+```powershell
+npm run data:validate -- --base origin/main
+```
+
+When the base branch predates the normalized ledger, the comparison is intentionally skipped; all other validation still runs.
+
+## Local validation and Site projection
+
+```powershell
+npm run data:validate
+npm run data:compile
+npm run build
+```
+
+The validator checks required fields, controlled vocabularies, ID uniqueness, date precision, referential integrity, vendor-product-surface consistency, model/vendor compatibility, evidence/source links, release membership, and result/state invariants. With `--base`, it also rejects modification, deletion, or reordering of existing observation lines.
+
+The compiler creates the deliberately flattened `public/data/monitor.json` view expected by the current Site. It does not change the canonical normalized records.
+
+## How the existing ChatGPT Site can consume this repository
+
+The current Site already reads `/data/monitor.json`. A later GitHub Actions workflow can safely:
+
+1. validate the normalized records, including append-only comparison with the target branch;
+2. compile the Site-facing JSON projection;
+3. fail if the generated projection differs from the committed file;
+4. build the Site; and
+5. only in a separately approved release job, save or deploy a Sites version.
+
+No GitHub Actions workflow, scheduled monitor, external fetcher, or deployment configuration has been added in this change. The repository is ready for those steps without performing them.
+
+## Initial evidence scope
+
+Release `2026-09-03` contains the observations already represented in the supplied article and original Site dataset. The article is the admission basis for every initial evidence record; cited public sources are recorded as supporting sources where the article identifies them. The repository does not claim those sources were independently re-tested during this conversion.
