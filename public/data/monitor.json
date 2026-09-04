@@ -3,7 +3,7 @@
   "monitorName": "The Eternal Tuesday Monitor",
   "dataCutoff": "2026-09-03",
   "methodologyVersion": "ETM-1.0",
-  "articlePath": "/content/articles/your-ai-lives-in-an-eternal-tuesday.md",
+  "articlePath": "/article/",
   "observations": [
     {
       "id": "obs-cursor-agent-anchor-2026-03",

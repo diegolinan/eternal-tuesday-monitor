@@ -5,7 +5,7 @@
   "data_cutoff": "2026-09-03",
   "monitor_methodology_version_id": "method-etm-1-0",
   "article_source_id": "source-supplied-article",
-  "article_public_path": "/content/articles/your-ai-lives-in-an-eternal-tuesday.md",
+  "article_public_path": "/article/",
   "observation_ids": [
     "obs-cursor-agent-anchor-2026-03",
     "obs-anthropic-claude-code-fable-elapsed-2026-07",

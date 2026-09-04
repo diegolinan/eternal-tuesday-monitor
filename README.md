@@ -2,24 +2,24 @@
 
 This repository is the versioned source of truth for **The Eternal Tuesday Monitor**, a dated, evidence-governed record of observable temporal-continuity behavior in AI products.
 
-The first release is derived strictly from the supplied article, *Your AI Lives in an Eternal Tuesday*, and its cited source notes. It does not add new product tests, infer hidden mechanisms, or turn an evidence gap into a failure result.
+The first release is derived strictly from the supplied article, _Your AI Lives in an Eternal Tuesday_, and its cited source notes. It does not add new product tests, infer hidden mechanisms, or turn an evidence gap into a failure result.
 
 ## Data contract
 
 An observation is a dated claim at a precise coordinate. These fields are intentionally separate:
 
-| Coordinate | Contract |
-| --- | --- |
-| Vendor | Organization responsible for the product or research artifact. |
-| Product | Named product or benchmark; always references one vendor. |
-| Surface | Specific interaction or runtime surface; always references one product. |
-| Model | Model identity when known, or an explicit `unknown` / `not-specified` sentinel. |
-| Probe | One of the Monitor's defined black-box diagnostic questions. |
-| Evidence class | What kind of support the observation has; it is not the result status. |
-| Observation date | When the behavior, document, report, or evidence gap applies. Precision is explicit (`day`, `month`, or `year`). |
-| Last verified date | The full date on which the supporting material was last checked for this release. |
-| Source | A separately versioned source record. Sources do not themselves become observations. |
-| Methodology version | The procedure under which the observation was admitted. |
+| Coordinate          | Contract                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Vendor              | Organization responsible for the product or research artifact.                                                   |
+| Product             | Named product or benchmark; always references one vendor.                                                        |
+| Surface             | Specific interaction or runtime surface; always references one product.                                          |
+| Model               | Model identity when known, or an explicit `unknown` / `not-specified` sentinel.                                  |
+| Probe               | One of the Monitor's defined black-box diagnostic questions.                                                     |
+| Evidence class      | What kind of support the observation has; it is not the result status.                                           |
+| Observation date    | When the behavior, document, report, or evidence gap applies. Precision is explicit (`day`, `month`, or `year`). |
+| Last verified date  | The full date on which the supporting material was last checked for this release.                                |
+| Source              | A separately versioned source record. Sources do not themselves become observations.                             |
+| Methodology version | The procedure under which the observation was admitted.                                                          |
 
 The joins are explicit:
 
@@ -53,7 +53,18 @@ public/                         Current Site runtime assets and generated data v
 app/                            Existing ChatGPT Site source
 ```
 
-The files under `data/`, `content/`, and `assets/` are authoritative. `public/data/monitor.json` and the copies under `public/content/` and `public/assets/` are publication views for the existing Site.
+The files under `data/`, `content/`, and `assets/` are authoritative. `public/data/monitor.json` and the copies under `public/assets/` are generated or publication views. The article is rendered directly from its canonical Markdown source at build time; there is no second public Markdown copy.
+
+## Publication targets
+
+The repository intentionally supports two separate publication targets:
+
+- `npm run build:openai` preserves the existing OpenAI Sites prototype build and its `.openai/hosting.json` project link.
+- `npm run build:pages` creates a static GitHub Pages candidate under `dist/client`, with every internal data, asset, and route URL scoped to `/eternal-tuesday-monitor/`.
+
+The GitHub Pages candidate is parallel infrastructure. Publishing it does not make it canonical and does not modify the OpenAI-hosted Site.
+
+The canonical article source is `content/articles/your-ai-lives-in-an-eternal-tuesday.md`. The `/article/` route parses it as Markdown AST during the static build and resolves its four editorial image placeholders to the versioned visual assets.
 
 ## Append-only observation history
 
