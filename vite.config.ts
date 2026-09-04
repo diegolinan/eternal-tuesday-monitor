@@ -21,7 +21,7 @@ export default defineConfig(async () => {
       await Promise.all([
         import('@openai/sites-vite-plugin'),
         import('@cloudflare/vite-plugin'),
-        import('./.openai/hosting.json'),
+        import('./.openai/hosting.json', { with: { type: 'json' } }),
       ]);
     const { d1, r2 } = hostingConfig;
     const placeholderDatabaseId = '00000000-0000-4000-8000-000000000000';

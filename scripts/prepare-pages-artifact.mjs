@@ -18,8 +18,8 @@ await cp(
   path.join(output, 'article/index.html'),
 );
 await cp(
-  path.join(output, 'article.rsc'),
-  path.join(output, 'article/index.rsc'),
+  path.join(output, 'article.txt'),
+  path.join(output, 'article/index.txt'),
 );
 
 console.log('Prepared dist/client as the GitHub Pages artifact root.');

@@ -22,6 +22,7 @@ async function requireFile(relativePath) {
 await Promise.all([
   requireFile('index.html'),
   requireFile('article/index.html'),
+  requireFile('article/index.txt'),
   requireFile('_next/static'),
   requireFile('.nojekyll'),
   requireFile('data/monitor.json'),
