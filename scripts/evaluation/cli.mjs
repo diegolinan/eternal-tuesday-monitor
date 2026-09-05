@@ -29,6 +29,12 @@ const policy = await readJson('config/model-evaluation-policy.json');
 const catalog = (await readJson('data/catalog/models.json')).models;
 const probes = (await readJson('data/catalog/probes.json')).probes;
 const observations = await readLines('data/observations/observations.jsonl');
+let evaluationResults = [];
+try {
+  evaluationResults = await readLines('data/model-evaluation/results.jsonl');
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
 const sourceConfig = (await readJson('config/model-discovery.json')).sources;
 let previous = { records: [] };
 try {
@@ -43,6 +49,7 @@ const adoption = buildAdoptionRegister({
   policy,
   probes,
   observations,
+  evaluationResults,
   sourceOutcomes: report.outcomes,
   sourceConfig,
   asOf,

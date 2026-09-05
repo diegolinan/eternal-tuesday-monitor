@@ -82,6 +82,7 @@ function assessProbe(model, availability, profile, policy) {
     methodology_version_id: profile.methodology_version_id,
     endpoint: profile.endpoint,
     evaluator_version: profile.evaluator_version,
+    testability: profile.testability ?? 'NOT_API_TESTABLE',
   };
   if (model.review_reasons.length)
     return {
@@ -143,6 +144,7 @@ export function assessModelAdoption({
   policy,
   probes,
   observations,
+  evaluationResults = [],
   sourceOutcomes,
   sourceConfig,
   asOf,
@@ -189,20 +191,34 @@ export function assessModelAdoption({
         'evidence-reproduced-observation',
       ].includes(observation.evidence_class_id),
   );
+  const allApiResults = evaluationResults.filter((result) => result.model_id === model.id);
+  const apiResults = allApiResults.filter((result) => result.status !== 'OPERATIONAL_ERROR');
+  const operationalResults = allApiResults.filter((result) => result.status === 'OPERATIONAL_ERROR');
+  const automatic = policy.execution.automatic_frontier;
+  const frontierAuthorized =
+    automatic.enabled &&
+    model.discovered_on > automatic.after_discovered_on &&
+    automatic.vendor_ids.includes(model.vendor_id);
   const executionAuthorized =
     policy.execution_enabled &&
-    policy.eligible_api_ids.includes(model.api_model_id) &&
+    (policy.eligible_api_ids.includes(model.api_model_id) || frontierAuthorized) &&
     !policy.manual_only_api_ids.includes(model.api_model_id) &&
     !policy.denied_api_ids.includes(model.api_model_id) &&
     policy.limits.max_scheduled_requests_per_day > 0 &&
     policy.limits.max_scheduled_spend_usd_per_day > 0 &&
     policy.limits.max_runs_per_model_per_day > 0;
-  const queue = empirical.length
+  const queue = empirical.length || apiResults.length
     ? {
         state: 'ALREADY_TESTED',
         reasons: ['FRESHNESS_POLICY_CONTROLS_RETEST'],
         execution_authorized: false,
       }
+    : operationalResults.length
+      ? {
+          state: 'RETEST_POLICY',
+          reasons: ['OPERATIONAL_ERROR_COOLDOWN_ACTIVE'],
+          execution_authorized: false,
+        }
     : eligible.length
       ? {
           state: 'ELIGIBILITY_READY',
@@ -230,6 +246,7 @@ export function assessModelAdoption({
     testability_state: testabilityState,
     testability_reasons: unique(probeRecords.flatMap((item) => item.reasons)),
     probes: probeRecords,
+    execution_state: apiResults.length ? 'COMPLETED' : operationalResults.length ? 'OPERATIONAL_ERROR' : 'NOT_RUN',
     queue,
   };
   if (prior) {
@@ -249,6 +266,7 @@ export function buildAdoptionRegister({
   policy,
   probes,
   observations,
+  evaluationResults = [],
   sourceOutcomes = [],
   sourceConfig = [],
   asOf,
@@ -276,6 +294,7 @@ export function buildAdoptionRegister({
           policy,
           probes,
           observations,
+          evaluationResults,
           sourceOutcomes,
           sourceConfig,
           asOf,

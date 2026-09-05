@@ -15,6 +15,12 @@ type ProbeCoverage = {
     | 'NOT_IN_SCOPE';
   eligibilityReasons: string[];
   methodologyVersionId: string | null;
+  testability: 'API_TESTABLE' | 'PARTIALLY_API_TESTABLE' | 'NOT_API_TESTABLE';
+  empiricalResult: 'MATCH' | 'MISMATCH' | 'INCONCLUSIVE' | 'OPERATIONAL_ERROR' | null;
+  evidenceClass: string | null;
+  verifiedOn: string | null;
+  limitations: string[];
+  requestCount: number;
 };
 
 export type DiscoveredModel = {
@@ -61,6 +67,7 @@ export type DiscoveredModel = {
     | 'ALREADY_TESTED'
     | 'RETEST_POLICY';
   queueReasons: string[];
+  executionState: 'NOT_RUN' | 'COMPLETED' | 'OPERATIONAL_ERROR' | 'EXECUTION_BLOCKED_COST_POLICY';
   probeCoverage: ProbeCoverage[];
   surfaces: Array<{
     id: string;
@@ -149,6 +156,10 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
             <dd>{label(model.queueState)}</dd>
           </div>
           <div>
+            <dt>Execution state</dt>
+            <dd>{label(model.executionState)}</dd>
+          </div>
+          <div>
             <dt>Reviewed relevance</dt>
             <dd>{label(model.relevanceState)}</dd>
           </div>
@@ -161,7 +172,7 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
             <div key={probe.id}>
               <span>{probe.name}</span>
               <b>{label(probe.eligibilityState)}</b>
-              <small>{label(probe.state)}</small>
+              <small>{probe.empiricalResult ? `API result: ${label(probe.empiricalResult)}` : label(probe.state)}</small>
             </div>
           ))}
         </div>
@@ -195,6 +206,9 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
                 {probe.name}: {label(probe.eligibilityState)}
                 {probe.eligibilityReasons.length
                   ? ` · ${explainReasons(probe.eligibilityReasons)}`
+                  : ''}
+                {probe.empiricalResult
+                  ? ` · empirical OpenAI API result ${label(probe.empiricalResult)} · ${probe.evidenceClass} · verified ${probe.verifiedOn} · methodology ${probe.methodologyVersionId} · ${probe.requestCount} request(s)${probe.limitations.length ? ` · ${probe.limitations.join(' ')}` : ''}`
                   : ''}
               </li>
             ))}

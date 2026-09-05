@@ -15,6 +15,7 @@
     "manual_only_api_ids",
     "denied_api_ids",
     "harness_capabilities",
+    "execution",
     "limits",
     "probe_profiles",
     "scheduling",
@@ -46,6 +47,36 @@
     "manual_only_api_ids": { "$ref": "#/$defs/stringSet" },
     "denied_api_ids": { "$ref": "#/$defs/stringSet" },
     "harness_capabilities": { "$ref": "#/$defs/nonEmptyStringSet" },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["probe_allowlist", "automatic_frontier", "request_body_max_bytes", "max_output_tokens_per_request", "cost_preflight"],
+      "properties": {
+        "probe_allowlist": { "$ref": "#/$defs/nonEmptyStringSet" },
+        "automatic_frontier": {
+          "type": "object", "additionalProperties": false,
+          "required": ["enabled", "after_discovered_on", "max_new_models_per_day", "required_relevance_state", "vendor_ids"],
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "after_discovered_on": { "type": "string", "format": "date" },
+            "max_new_models_per_day": { "type": "integer", "minimum": 0, "maximum": 1 },
+            "required_relevance_state": { "const": "DISCOVERED_RELEVANT" },
+            "vendor_ids": { "$ref": "#/$defs/nonEmptyStringSet" }
+          }
+        },
+        "request_body_max_bytes": { "type": "integer", "minimum": 1 },
+        "max_output_tokens_per_request": { "type": "integer", "minimum": 1 },
+        "cost_preflight": {
+          "type": "object", "additionalProperties": false,
+          "required": ["input_usd_per_million_ceiling", "output_usd_per_million_ceiling", "pricing_basis"],
+          "properties": {
+            "input_usd_per_million_ceiling": { "type": "number", "minimum": 0 },
+            "output_usd_per_million_ceiling": { "type": "number", "minimum": 0 },
+            "pricing_basis": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
     "limits": {
       "type": "object",
       "additionalProperties": false,
@@ -54,6 +85,7 @@
         "max_scheduled_spend_usd_per_day",
         "max_runs_per_model_per_day",
         "max_requests_per_run",
+        "max_provider_requests_per_run",
         "max_retries",
         "cooldown_hours",
         "max_concurrency"
@@ -63,6 +95,7 @@
         "max_scheduled_spend_usd_per_day": { "type": "number", "minimum": 0 },
         "max_runs_per_model_per_day": { "type": "integer", "minimum": 0 },
         "max_requests_per_run": { "type": "integer", "minimum": 1 },
+        "max_provider_requests_per_run": { "type": "integer", "minimum": 1 },
         "max_retries": { "type": "integer", "minimum": 0 },
         "cooldown_hours": { "type": "integer", "minimum": 0 },
         "max_concurrency": { "type": "integer", "minimum": 1 }
@@ -78,6 +111,7 @@
         "required": [
           "probe_id",
           "status",
+          "testability",
           "methodology_version_id",
           "provider_id",
           "endpoint",
@@ -88,6 +122,7 @@
         "properties": {
           "probe_id": { "type": "string", "minLength": 1 },
           "status": { "enum": ["APPROVED", "REVIEW_REQUIRED"] },
+          "testability": { "enum": ["API_TESTABLE", "PARTIALLY_API_TESTABLE", "NOT_API_TESTABLE"] },
           "methodology_version_id": { "$ref": "#/$defs/nullableString" },
           "provider_id": { "$ref": "#/$defs/nullableString" },
           "endpoint": { "$ref": "#/$defs/nullableString" },

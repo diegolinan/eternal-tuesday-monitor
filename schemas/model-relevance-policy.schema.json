@@ -36,7 +36,7 @@
         "require_exact_api_id": { "const": true },
         "require_unique_identity": { "const": true },
         "require_zero_review_reasons": { "const": true },
-        "allow_metadata_updates": { "const": false },
+        "allow_metadata_updates": { "type": "boolean" },
         "allow_relationship_updates": { "const": false }
       }
     },

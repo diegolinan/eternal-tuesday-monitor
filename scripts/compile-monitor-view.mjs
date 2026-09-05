@@ -70,6 +70,12 @@ const [observations, stateEvents] = await Promise.all([
   parseLines('data/observations/observations.jsonl'),
   parseLines('data/state-events/events.jsonl'),
 ]);
+let evaluationResults = [];
+try {
+  evaluationResults = await parseLines('data/model-evaluation/results.jsonl');
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
 
 const vendors = indexById(vendorsFile.vendors);
 const products = indexById(productsFile.products);
@@ -197,6 +203,7 @@ const view = {
       adoptionRecords: new Map(
         adoptionRegister.records.map((record) => [record.model_id, record]),
       ),
+      evaluationResults,
     },
   ),
 };

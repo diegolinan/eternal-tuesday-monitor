@@ -42,6 +42,30 @@
       "version": "API-TEMPORAL-ANCHOR-1",
       "name": "Provider API explicit-offset temporal anchor",
       "scope": "Three independently scored provider-API requests using an exact model identifier, supplied UTC instant and fixed offset, structured output, raw request and response retention, and deterministic date/weekday comparison. Results apply only to the named API surface and exact returned model identifier."
+    },
+    {
+      "id": "method-api-elapsed-represented-1",
+      "version": "API-ELAPSED-REPRESENTED-1",
+      "name": "Provider API represented elapsed interval",
+      "scope": "One deterministic structured-output request measures elapsed-time reasoning over two supplied timestamps. It does not test autonomous sensing of a real idle interval."
+    },
+    {
+      "id": "method-api-revalidation-controlled-tool-1",
+      "version": "API-REVALIDATION-CONTROLLED-TOOL-1",
+      "name": "Provider API controlled-state revalidation",
+      "scope": "A stale cached state and a deterministic authoritative function are supplied; the model must request the fresh state and use it. No arbitrary live-web truth or consumer-product behavior is inferred."
+    },
+    {
+      "id": "method-api-state-reconciliation-1",
+      "version": "API-STATE-RECONCILIATION-1",
+      "name": "Provider API controlled state reconciliation",
+      "scope": "One structured-output request presents an old state and a newer authoritative state, then deterministically checks which state governs the response."
+    },
+    {
+      "id": "method-api-historical-validity-1",
+      "version": "API-HISTORICAL-VALIDITY-1",
+      "name": "Provider API controlled historical validity",
+      "scope": "One structured-output request checks the distinction between a claim that was true at an earlier date and the current authoritative state. Broader semantic judgment remains outside this partial API test."
     }
   ]
 }

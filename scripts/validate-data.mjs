@@ -16,6 +16,7 @@ import {
 const root = fileURLToPath(new URL('..', import.meta.url));
 const observationPath = 'data/observations/observations.jsonl';
 const eventPath = 'data/state-events/events.jsonl';
+const evaluationResultPath = 'data/model-evaluation/results.jsonl';
 const failures = [];
 failures.push(...(await validateDiscovery(root)));
 const fail = (message) => failures.push(message);
@@ -46,6 +47,10 @@ const readJsonLines = async (relativePath) => {
       }
     }),
   };
+};
+const readOptionalJsonLines = async (relativePath) => {
+  try { return await readJsonLines(relativePath); }
+  catch (error) { if (error.code === 'ENOENT') return { lines: [], items: [] }; throw error; }
 };
 
 function assertUnique(label, items) {
@@ -122,9 +127,11 @@ const [
   modelCatalogSchema,
   modelLifecycleSchema,
   stateEventSchema,
+  evaluationResultSchema,
   releaseEntries,
   observationLedger,
   eventLedger,
+  evaluationResultLedger,
 ] = await Promise.all([
   readJson('data/catalog/vendors.json'),
   readJson('data/catalog/products.json'),
@@ -154,13 +161,16 @@ const [
   readJson('schemas/model-catalog.schema.json'),
   readJson('schemas/model-lifecycle.schema.json'),
   readJson('schemas/state-event.schema.json'),
+  readJson('schemas/model-evaluation-result.schema.json'),
   loadReleases(root),
   readJsonLines(observationPath),
   readJsonLines(eventPath),
+  readOptionalJsonLines(evaluationResultPath),
 ]);
 
 const observations = observationLedger.items;
 const stateEvents = eventLedger.items;
+const evaluationResults = evaluationResultLedger.items;
 const ajv = new Ajv2020({
   allErrors: true,
   strict: true,
@@ -212,6 +222,7 @@ validateWithSchema(
   monitorView.models,
 );
 validateWithSchema('state event', stateEventSchema, stateEvents);
+validateWithSchema('model evaluation result', evaluationResultSchema, evaluationResults);
 
 const collections = [
   ['vendors', vendorsFile.vendors],
@@ -227,6 +238,7 @@ const collections = [
   ['evidence records', evidenceFile.evidence_records],
   ['observations', observations],
   ['state events', stateEvents],
+  ['model evaluation results', evaluationResults],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -333,6 +345,14 @@ for (const record of adoptionRegister.records) {
     )
       fail(`adoption: unknown methodology ${probe.methodology_version_id}`);
   }
+}
+for (const result of evaluationResults) {
+  if (!models.has(result.model_id)) fail(`model evaluation result: unknown model ${result.model_id}`);
+  if (!vendors.has(result.vendor_id)) fail(`model evaluation result: unknown vendor ${result.vendor_id}`);
+  if (!surfaces.has(result.surface_id)) fail(`model evaluation result: unknown surface ${result.surface_id}`);
+  if (!probes.has(result.probe_id)) fail(`model evaluation result: unknown probe ${result.probe_id}`);
+  if (!methodologies.has(result.methodology_version_id)) fail(`model evaluation result: unknown methodology ${result.methodology_version_id}`);
+  if (!evidenceClasses.has(result.evidence_class_id)) fail(`model evaluation result: unknown evidence class ${result.evidence_class_id}`);
 }
 
 for (const product of productsFile.products)
@@ -561,6 +581,7 @@ if (baseArgIndex !== -1) {
   else {
     compareAppendOnlyLines(base, observationPath, observationLedger.lines);
     compareAppendOnlyLines(base, eventPath, eventLedger.lines);
+    compareAppendOnlyLines(base, evaluationResultPath, evaluationResultLedger.lines);
     compareAppendOnlyLines(
       base,
       'data/model-discovery/events.jsonl',

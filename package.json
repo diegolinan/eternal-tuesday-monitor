@@ -17,6 +17,7 @@
     "models:stage": "node scripts/discovery/stage.mjs",
     "models:targets": "node scripts/discovery/targets.mjs",
     "models:adopt": "node scripts/evaluation/cli.mjs",
+    "models:evaluate": "node scripts/evaluation/run-cli.mjs",
     "models:catalog:sync": "node scripts/sync-model-catalog.mjs",
     "models:relevance:sync": "node scripts/sync-model-relevance.mjs",
     "probes:plan": "node scripts/probes/cli.mjs",

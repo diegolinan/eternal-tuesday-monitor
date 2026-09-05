@@ -81,18 +81,16 @@ test('missing provider credentials block an otherwise compatible exact model wit
     record.probes[0].methodology_version_id,
     'method-api-temporal-anchor-1',
   );
-  assert.ok(
-    record.probes.slice(1).every((item) => item.state === 'REVIEW_REQUIRED'),
-  );
+  assert.ok(record.probes.every((item) => item.state === 'BLOCKED'));
   assert.equal(record.queue.state, 'BLOCKED');
   assert.equal(record.queue.execution_authorized, false);
   assert.equal('verdict' in record, false);
   assert.equal('result_status_id' in record, false);
 });
 
-test('account-visible model becomes eligible but zero budget prevents execution', () => {
+test('account-visible allowlisted model becomes eligible under bounded execution policy', () => {
   const available = {
-    ...model(),
+    ...model('model-fixture', 'gpt-6-astra'),
     api_state: 'API_AVAILABLE',
     account_access: 'ACCESS_CONFIRMED',
   };
@@ -109,10 +107,8 @@ test('account-visible model becomes eligible but zero budget prevents execution'
   assert.equal(record.api_availability.state, 'AVAILABLE');
   assert.equal(record.probes[0].state, 'ELIGIBLE');
   assert.equal(record.queue.state, 'ELIGIBILITY_READY');
-  assert.equal(record.queue.execution_authorized, false);
-  assert.ok(
-    record.queue.reasons.includes('EXECUTION_POLICY_DISABLED_OR_ZERO_BUDGET'),
-  );
+  assert.equal(record.queue.execution_authorized, true);
+  assert.ok(record.queue.reasons.includes('INITIAL_BASELINE_READY'));
 });
 
 test('transport failures remain operational UNKNOWN and never become behavioral FAIL', () => {
@@ -190,9 +186,11 @@ test('unchanged eligibility preserves its original assessment date and cannot cr
   });
   assert.equal(second.assessed_on, '2026-09-05');
   assert.equal(policy.scheduling.rerun_unchanged_models, false);
-  assert.equal(policy.execution_enabled, false);
-  assert.equal(policy.limits.max_scheduled_requests_per_day, 0);
-  assert.equal(policy.limits.max_scheduled_spend_usd_per_day, 0);
+  assert.equal(policy.execution_enabled, true);
+  assert.equal(policy.limits.max_scheduled_requests_per_day, 8);
+  assert.equal(policy.limits.max_scheduled_spend_usd_per_day, 0.5);
+  assert.equal(policy.limits.max_retries, 0);
+  assert.equal(policy.limits.max_concurrency, 1);
 });
 
 test('raw provenance policy is complete and operational errors cannot be behavioral failures', () => {

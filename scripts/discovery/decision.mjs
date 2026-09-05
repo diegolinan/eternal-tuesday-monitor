@@ -49,7 +49,17 @@ export function classifyDiscoveryEvent(
   )
     reasons.push('SOURCE_NOT_AUTOMATICALLY_TRUSTED');
   if (model.supersedes_model_id) reasons.push('RELATIONSHIP_REQUIRES_REVIEW');
-  if (prior) reasons.push('METADATA_CHANGE_REQUIRES_REVIEW');
+  if (
+    prior &&
+    !(
+      event.type === 'MODEL_METADATA_CHANGED' &&
+      relevancePolicy.automatic_acceptance.allow_metadata_updates &&
+      prior.vendor_id === model.vendor_id &&
+      prior.api_model_id === model.api_model_id &&
+      !model.supersedes_model_id
+    )
+  )
+    reasons.push('METADATA_CHANGE_REQUIRES_REVIEW');
   if (!prior && catalog.some((item) => item.id === model.id))
     reasons.push('EXISTING_CATALOG_IDENTITY_REQUIRES_REVIEW');
   if (relevance.state === 'REVIEW_REQUIRED')
@@ -57,7 +67,7 @@ export function classifyDiscoveryEvent(
   const uniqueReasons = [...new Set(reasons)].sort((left, right) =>
     left.localeCompare(right),
   );
-  const automatic = !prior && uniqueReasons.length === 0;
+  const automatic = uniqueReasons.length === 0;
   return {
     event,
     decision: automatic ? 'AUTO_ACCEPT' : 'REVIEW_REQUIRED',

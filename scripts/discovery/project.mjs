@@ -57,6 +57,9 @@ export function projectModels(
         pending: relevanceState === 'REVIEW_REQUIRED',
       });
       const adoption = options.adoptionRecords?.get(model.id) ?? null;
+      const apiResults = (options.evaluationResults ?? []).filter(
+        (result) => result.model_id === model.id,
+      );
       const probeCoverage = lifecycle.probeCoverage.map((probe) => {
         const assessed = adoption?.probes.find(
           (item) => item.probe_id === probe.id,
@@ -66,10 +69,18 @@ export function projectModels(
           eligibilityState: assessed?.state ?? 'NOT_IN_SCOPE',
           eligibilityReasons: assessed?.reasons ?? [],
           methodologyVersionId: assessed?.methodology_version_id ?? null,
+          testability: assessed?.testability ?? 'NOT_API_TESTABLE',
+          empiricalResult: apiResults.find((result) => result.probe_id === probe.id)?.status ?? null,
+          evidenceClass: apiResults.find((result) => result.probe_id === probe.id)?.evidence_class_id ?? null,
+          verifiedOn: apiResults.find((result) => result.probe_id === probe.id)?.verified_on ?? null,
+          limitations: apiResults.find((result) => result.probe_id === probe.id)?.limitations ?? [],
+          requestCount: apiResults.find((result) => result.probe_id === probe.id)?.request_count ?? 0,
         };
       });
-      const lifecycleState = lifecycle.empiricalObservations.length
-        ? lifecycle.lifecycleState
+      const lifecycleState = lifecycle.empiricalObservations.length || apiResults.length
+        ? apiResults.length && !lifecycle.empiricalObservations.length
+          ? 'TESTED'
+          : lifecycle.lifecycleState
         : adoption
           ? adoption.probes.some((item) => item.state === 'ELIGIBLE')
             ? 'EVALUATION_AVAILABLE'
@@ -77,10 +88,12 @@ export function projectModels(
               ? 'EVALUATION_NOT_POSSIBLE'
               : 'EVALUATION_PENDING'
           : lifecycle.lifecycleState;
-      const dates = lifecycle.empiricalObservations
-        .filter((o) => o.observation_date.precision === 'day')
-        .map((o) => o.observation_date.value)
-        .sort();
+      const dates = [
+        ...lifecycle.empiricalObservations
+          .filter((o) => o.observation_date.precision === 'day')
+          .map((o) => o.observation_date.value),
+        ...apiResults.map((result) => result.verified_on),
+      ].sort((left, right) => left.localeCompare(right));
       const surfaces = [
         ...new Map(
           lifecycle.empiricalObservations.map((observation) => {
@@ -103,6 +116,11 @@ export function projectModels(
           }),
         ).values(),
       ];
+      if (apiResults.length && !surfaces.some((surface) => surface.id === 'surface-openai-model-api')) {
+        const surface = options.surfaces?.get('surface-openai-model-api');
+        const product = surface ? options.products?.get(surface.product_id) : null;
+        surfaces.push({ id: 'surface-openai-model-api', product: product?.name ?? 'OpenAI API', name: surface?.name ?? 'OpenAI model API', kind: 'PROVIDER_API' });
+      }
       return {
         id: model.id,
         vendor: vendors.get(model.vendor_id)?.name ?? 'Not established',
@@ -129,6 +147,7 @@ export function projectModels(
         adoptionAssessedOn: adoption?.assessed_on ?? null,
         queueState: adoption?.queue.state ?? 'NOT_QUEUED',
         queueReasons: adoption?.queue.reasons ?? [],
+        executionState: adoption?.execution_state ?? (apiResults.length ? 'COMPLETED' : 'NOT_RUN'),
         probeCoverage,
         surfaces,
         sources: [...new Set(model.provenance.map((p) => p.url))],

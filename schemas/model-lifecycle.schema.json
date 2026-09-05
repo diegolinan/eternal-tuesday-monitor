@@ -26,6 +26,7 @@
     "adoptionAssessedOn",
     "queueState",
     "queueReasons",
+    "executionState",
     "probeCoverage",
     "surfaces",
     "sources",
@@ -131,6 +132,7 @@
       "uniqueItems": true,
       "items": { "type": "string", "minLength": 1 }
     },
+    "executionState": { "enum": ["NOT_RUN", "COMPLETED", "OPERATIONAL_ERROR", "EXECUTION_BLOCKED_COST_POLICY"] },
     "probeCoverage": {
       "type": "array",
       "minItems": 5,
@@ -145,6 +147,7 @@
           "eligibilityState",
           "eligibilityReasons",
           "methodologyVersionId"
+          ,"testability", "empiricalResult", "evidenceClass", "verifiedOn", "limitations", "requestCount"
         ],
         "properties": {
           "id": { "type": "string", "minLength": 1 },
@@ -166,7 +169,13 @@
           },
           "methodologyVersionId": {
             "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
-          }
+          },
+          "testability": { "enum": ["API_TESTABLE", "PARTIALLY_API_TESTABLE", "NOT_API_TESTABLE"] },
+          "empiricalResult": { "type": ["string", "null"], "enum": ["MATCH", "MISMATCH", "INCONCLUSIVE", "OPERATIONAL_ERROR", null] },
+          "evidenceClass": { "type": ["string", "null"] },
+          "verifiedOn": { "type": ["string", "null"], "format": "date" },
+          "limitations": { "type": "array", "items": { "type": "string" } },
+          "requestCount": { "type": "integer", "minimum": 0 }
         }
       }
     },

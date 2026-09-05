@@ -35,6 +35,7 @@
         "testability_state",
         "testability_reasons",
         "probes",
+        "execution_state",
         "queue"
       ],
       "properties": {
@@ -69,6 +70,7 @@
           ]
         },
         "testability_reasons": { "$ref": "#/$defs/reasonSet" },
+        "execution_state": { "enum": ["NOT_RUN", "COMPLETED", "OPERATIONAL_ERROR", "EXECUTION_BLOCKED_COST_POLICY"] },
         "probes": {
           "type": "array",
           "minItems": 5,
@@ -83,6 +85,7 @@
               "methodology_version_id",
               "endpoint",
               "evaluator_version"
+              ,"testability"
             ],
             "properties": {
               "probe_id": { "type": "string", "minLength": 1 },
@@ -98,6 +101,7 @@
               "methodology_version_id": { "$ref": "#/$defs/nullableString" },
               "endpoint": { "$ref": "#/$defs/nullableString" },
               "evaluator_version": { "$ref": "#/$defs/nullableString" }
+              ,"testability": { "enum": ["API_TESTABLE", "PARTIALLY_API_TESTABLE", "NOT_API_TESTABLE"] }
             }
           }
         },
