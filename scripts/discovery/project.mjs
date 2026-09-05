@@ -67,17 +67,20 @@ export function projectModels(
         const assessed = adoption?.probes.find(
           (item) => item.probe_id === probe.id,
         );
+        const latestApiResult = apiResults.findLast(
+          (result) => result.probe_id === probe.id,
+        );
         return {
           ...probe,
           eligibilityState: assessed?.state ?? 'NOT_IN_SCOPE',
           eligibilityReasons: assessed?.reasons ?? [],
           methodologyVersionId: assessed?.methodology_version_id ?? null,
           testability: assessed?.testability ?? 'NOT_API_TESTABLE',
-          empiricalResult: apiResults.find((result) => result.probe_id === probe.id)?.status ?? null,
-          evidenceClass: apiResults.find((result) => result.probe_id === probe.id)?.evidence_class_id ?? null,
-          verifiedOn: apiResults.find((result) => result.probe_id === probe.id)?.verified_on ?? null,
-          limitations: apiResults.find((result) => result.probe_id === probe.id)?.limitations ?? [],
-          requestCount: apiResults.find((result) => result.probe_id === probe.id)?.request_count ?? 0,
+          empiricalResult: latestApiResult?.status ?? null,
+          evidenceClass: latestApiResult?.evidence_class_id ?? null,
+          verifiedOn: latestApiResult?.verified_on ?? null,
+          limitations: latestApiResult?.limitations ?? [],
+          requestCount: latestApiResult?.request_count ?? 0,
         };
       });
       const lifecycleState = lifecycle.empiricalObservations.length || behavioralApiResults.length
