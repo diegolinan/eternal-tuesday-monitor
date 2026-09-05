@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
+import { validateDiscovery } from './discovery/validate.mjs';
 import {
   assertReleaseChain,
   loadReleases,
@@ -16,6 +17,7 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const observationPath = 'data/observations/observations.jsonl';
 const eventPath = 'data/state-events/events.jsonl';
 const failures = [];
+failures.push(...(await validateDiscovery(root)));
 const fail = (message) => failures.push(message);
 const readJson = async (relativePath) =>
   JSON.parse(await readFile(path.join(root, relativePath), 'utf8'));
@@ -451,6 +453,18 @@ if (baseArgIndex !== -1) {
   else {
     compareAppendOnlyLines(base, observationPath, observationLedger.lines);
     compareAppendOnlyLines(base, eventPath, eventLedger.lines);
+    compareAppendOnlyLines(
+      base,
+      'data/model-discovery/events.jsonl',
+      (
+        await readFile(
+          path.join(root, 'data/model-discovery/events.jsonl'),
+          'utf8',
+        )
+      )
+        .split(/\r?\n/)
+        .filter(Boolean),
+    );
     const priorReleaseList = git([
       'ls-tree',
       '-r',

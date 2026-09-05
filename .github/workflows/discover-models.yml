@@ -1,0 +1,93 @@
+name: Discover official model changes
+
+on:
+  schedule:
+    - cron: '43 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: model-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run data:validate
+      - name: Preserve first discovery dates from the pending data-only proposal
+        shell: bash
+        run: |
+          mkdir -p .discovery
+          if git ls-remote --exit-code origin refs/heads/automation/model-discovery >/dev/null; then
+            git fetch origin automation/model-discovery
+            git show FETCH_HEAD:data/model-discovery/events.jsonl > .discovery/pending-events.jsonl
+          fi
+      - name: Read official sources only
+        run: npm run models:discover
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-model-candidates
+          path: .discovery/run.json
+          include-hidden-files: true
+          retention-days: 90
+
+  propose:
+    needs: discover
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/download-artifact@v4
+        with:
+          name: official-model-candidates
+          path: .discovery
+      - run: npm ci
+      - run: npm run models:stage
+      - run: npm run data:validate -- --base HEAD
+      - run: npm run data:compile
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build:pages
+      - run: npm run static:validate
+      - name: Summarize source status and proposed changes
+        run: cat .discovery/pr-body.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Propose catalog changes, never merge
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/model-discovery
+          title: 'Review official model discoveries'
+          commit-message: 'Propose official model catalog metadata'
+          body-path: .discovery/pr-body.md
+          draft: true
+          add-paths: |
+            data/catalog/models.json
+            data/model-discovery/events.jsonl
+            data/state-events/events.jsonl
+            public/data/monitor.json

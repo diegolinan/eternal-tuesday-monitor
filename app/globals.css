@@ -343,9 +343,20 @@ h1 {
 body::before {
   opacity: 0.2;
   background-image:
-    radial-gradient(circle at 1px 1px, rgb(29 43 40 / 13%) 1px, transparent 1.2px),
-    linear-gradient(115deg, transparent 0 48%, rgb(29 43 40 / 2.5%) 48% 52%, transparent 52% 100%);
-  background-size: 17px 17px, 71px 71px;
+    radial-gradient(
+      circle at 1px 1px,
+      rgb(29 43 40 / 13%) 1px,
+      transparent 1.2px
+    ),
+    linear-gradient(
+      115deg,
+      transparent 0 48%,
+      rgb(29 43 40 / 2.5%) 48% 52%,
+      transparent 52% 100%
+    );
+  background-size:
+    17px 17px,
+    71px 71px;
   mix-blend-mode: multiply;
   filter: none;
 }
@@ -484,8 +495,14 @@ body::before {
   background-color: var(--paper-light);
   background-image:
     linear-gradient(rgb(25 44 42 / 4%) 1px, transparent 1px),
-    radial-gradient(circle at 2px 2px, rgb(25 44 42 / 8%) 1px, transparent 1.2px);
-  background-size: 100% 34px, 23px 23px;
+    radial-gradient(
+      circle at 2px 2px,
+      rgb(25 44 42 / 8%) 1px,
+      transparent 1.2px
+    );
+  background-size:
+    100% 34px,
+    23px 23px;
 }
 
 .article-body {
@@ -574,7 +591,9 @@ body::before {
 @media (max-width: 680px) {
   body::before {
     opacity: 0.15;
-    background-size: 17px 17px, 71px 71px;
+    background-size:
+      17px 17px,
+      71px 71px;
   }
 
   .hero-copy {
@@ -1998,9 +2017,20 @@ footer {
 body::before {
   opacity: 0.2;
   background-image:
-    radial-gradient(circle at 1px 1px, rgb(29 43 40 / 13%) 1px, transparent 1.2px),
-    linear-gradient(115deg, transparent 0 48%, rgb(29 43 40 / 2.5%) 48% 52%, transparent 52% 100%);
-  background-size: 17px 17px, 71px 71px;
+    radial-gradient(
+      circle at 1px 1px,
+      rgb(29 43 40 / 13%) 1px,
+      transparent 1.2px
+    ),
+    linear-gradient(
+      115deg,
+      transparent 0 48%,
+      rgb(29 43 40 / 2.5%) 48% 52%,
+      transparent 52% 100%
+    );
+  background-size:
+    17px 17px,
+    71px 71px;
   mix-blend-mode: multiply;
   filter: none;
 }
@@ -2056,8 +2086,14 @@ body::before {
   background-color: var(--paper-light);
   background-image:
     linear-gradient(rgb(25 44 42 / 4%) 1px, transparent 1px),
-    radial-gradient(circle at 2px 2px, rgb(25 44 42 / 8%) 1px, transparent 1.2px);
-  background-size: 100% 34px, 23px 23px;
+    radial-gradient(
+      circle at 2px 2px,
+      rgb(25 44 42 / 8%) 1px,
+      transparent 1.2px
+    );
+  background-size:
+    100% 34px,
+    23px 23px;
 }
 
 .article-body {
@@ -2133,7 +2169,9 @@ body::before {
 @media (max-width: 680px) {
   body::before {
     opacity: 0.15;
-    background-size: 17px 17px, 71px 71px;
+    background-size:
+      17px 17px,
+      71px 71px;
   }
   .hero-copy {
     padding: 42px 18px 46px;
@@ -2160,4 +2198,48 @@ body::before {
     width: calc(100vw - 16px);
     max-height: calc(100dvh - 16px);
   }
+}
+/* Model identity and readiness are separate from observation verdicts. */
+.model-vendor {
+  border-top: 2px solid var(--ink, #292a28);
+  margin-top: 1rem;
+  padding-top: 0.7rem;
+}
+.model-vendor summary {
+  cursor: pointer;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+}
+.model-register-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.model-register-card {
+  border: 1px solid #77766c;
+  padding: 1.2rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.model-register-card h3 {
+  font-size: 1.35rem;
+}
+.model-register-card p,
+.model-register-card li,
+.model-register-card dd {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.model-register-card dl {
+  display: grid;
+  gap: 0.25rem;
+}
+.model-register-card dt {
+  font-size: 0.875rem;
+  margin-top: 0.7rem;
+  font-weight: 700;
+}
+.model-register-card dd {
+  margin: 0;
 }

@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "recorded_on", "type", "model"],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "recorded_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "type": {
+      "const": "MODEL_METADATA_RECORDED"
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "vendor_id",
+        "display_name",
+        "api_model_id",
+        "family",
+        "version",
+        "channel",
+        "released_on",
+        "discovered_on",
+        "api_available_on",
+        "account_checked_on",
+        "first_tested_on",
+        "last_tested_on",
+        "release_state",
+        "api_state",
+        "account_access",
+        "endpoints",
+        "capabilities",
+        "supported_parameters",
+        "aliases",
+        "supersedes_model_id",
+        "provenance",
+        "review_reasons"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "vendor_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "api_model_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "family": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "channel": {
+          "enum": ["UNKNOWN", "PREVIEW", "STABLE"]
+        },
+        "released_on": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "discovered_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "api_available_on": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "account_checked_on": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "first_tested_on": {
+          "type": "null"
+        },
+        "last_tested_on": {
+          "type": "null"
+        },
+        "release_state": {
+          "enum": [
+            "DISCOVERED",
+            "RELEASED",
+            "DEPRECATED",
+            "RETIRED",
+            "SUPERSEDED"
+          ]
+        },
+        "api_state": {
+          "enum": ["API_UNKNOWN", "API_PENDING", "API_AVAILABLE"]
+        },
+        "account_access": {
+          "enum": ["UNKNOWN", "ACCESS_CONFIRMED", "ACCESS_DENIED", "ERROR"]
+        },
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "uniqueItems": true,
+          "maxItems": 200
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "uniqueItems": true,
+          "maxItems": 200
+        },
+        "supported_parameters": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "uniqueItems": true,
+          "maxItems": 200
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "uniqueItems": true,
+          "maxItems": 200
+        },
+        "supersedes_model_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_id",
+              "url",
+              "checked_on",
+              "sha256",
+              "parser_version"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "checked_on": {
+                "type": "string",
+                "format": "date"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "parser_version": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "review_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "uniqueItems": true,
+          "maxItems": 200
+        }
+      }
+    }
+  }
+}

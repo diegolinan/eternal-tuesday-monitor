@@ -1,5 +1,62 @@
 # The Eternal Tuesday Monitor
 
+## Model discovery and reviewed adoption (Phase 6)
+
+The public model register and the observation table answer different questions. A model can exist, have a documented API identifier, be listed for an account, be compatible with an approved API protocol, and have accepted behavioral evidence. None of those claims implies the next one. No discovered model automatically receives a PASS/FAIL, and no API record updates ChatGPT, Claude, Codex, Cursor or another consumer surface.
+
+`config/model-discovery.json` is the curated discovery source registry. Every source specifies its vendor, adapter/version, authority, URL, enabled flag, cadence, identity pattern, allowed domains and availability semantics. The supported strategies are:
+
+| Vendor    | Public discovery                                                                                                                                                            | Optional authenticated GET                                                                                                       |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| OpenAI    | [Official model index](https://developers.openai.com/api/docs/models/all), then same-domain model pages; exact IDs must occur in documented snapshots, not just a URL slug. | `/v1/models`; listing alone does not expose all endpoint/capability constraints.                                                 |
+| Anthropic | [Model comparison](https://platform.claude.com/docs/en/models/overview), reading the Claude API ID row rather than Bedrock IDs.                                             | [Models API](https://platform.claude.com/docs/en/api/models/list), including pagination and explicit capabilities where exposed. |
+| Google    | [Gemini model tables](https://ai.google.dev/gemini-api/docs/models?hl=en), reading exact endpoint cells.                                                                    | [Models API](https://ai.google.dev/api/models), including pagination and supported generation methods.                           |
+| xAI       | [Model index](https://docs.x.ai/developers/models), then same-domain pages; exact identifiers must be present in page content.                                              | [Model listing](https://docs.x.ai/developers/rest-api-reference/inference/models).                                               |
+
+HTML adapters use parse5, never execute downloaded scripts, and fail visibly when expected structures disappear. This is bounded official-document retrieval, not arbitrary crawling. Public documentation confirms only what it says; the system does not infer a release date from a model name, URL, crawl timestamp or API `created` timestamp. Unknown family, version, release date and alias relationships remain null/empty. Documentation can establish an exact ID while API usability remains UNKNOWN or PENDING. Only a successful authenticated listing establishes account-visible API availability, not successful generation.
+
+### Lifecycle and identity
+
+The separate append-only ledger `data/model-discovery/events.jsonl` records snapshots of reviewed metadata with `discovered_on`, `released_on`, `api_available_on`, account-check date, source URLs, retrieval dates, content hashes and parser versions. Initial events reach canonical data only after a maintainer merges the generated PR. First discovery dates from an open proposal are retained by reading its data file without executing its branch code. Existing model records and prior metadata events are never deleted.
+
+- Release state: DISCOVERED means official identity found; RELEASED requires additional release/listing evidence; DEPRECATED/RETIRED require an explicit vendor statement; SUPERSEDED requires an explicit relationship. Absence from a later listing is not retirement.
+- API state: API_UNKNOWN, API_PENDING or API_AVAILABLE. A documented ID can coexist with UNKNOWN/PENDING. Account access is separate: UNKNOWN, ACCESS_CONFIRMED, ACCESS_DENIED or ERROR. A denied request is never global nonexistence.
+- Readiness: PROBE_ELIGIBLE requires approved provider/methodology, a non-denied exact ID, sufficiently recent account access, and every required endpoint, capability and parameter established. HARNESS_UNSUPPORTED identifies an available API model lacking a compatible approved contract; otherwise readiness is NOT_YET_TESTABLE.
+- Evidence: NOT_YET_TESTED or TEST_PENDING never implies failure. TESTED and first/last test dates are derived only from accepted observations for that exact model, approved methodology and explicitly mapped API surface. Metadata events cannot contain fabricated test dates.
+
+Identity resolution first uses vendor plus exact API ID (or explicit alias), then an unambiguous identical display name when one side lacks an API ID. It never synthesizes an API ID. IDs are stable hashes or reuse an exact existing catalog match. Different exact IDs with an identical display name are kept separate and flagged, not silently declared aliases. Possible overlap with an existing abbreviated catalog name also requires review. Conflicting metadata is preserved as a review requirement and blocks probe eligibility. Ambiguous mappings must be resolved before merging a proposal; routine unambiguous additions need no manual JSON plumbing.
+
+Supersession propagates RETEST_REQUIRED only through a reviewed, same-vendor `supersedes_model_id` and the explicit execution-policy switch. Adapters do not infer supersession from a newer version number. Existing immutable observations keep their results. Current-family claims need their own reviewed model/surface mapping.
+
+### Daily workflow and review boundary
+
+`.github/workflows/discover-models.yml` runs daily at 12:43 UTC (09:43 Argentina) and supports `workflow_dispatch`. Once daily is sufficient for release discovery; execution may be delayed by GitHub. The read-only discovery job has no repository write token. The proposal job receives data only, validates it, runs tests and a static build, then opens/updates the draft `automation/model-discovery` PR. It never merges or publishes external facts directly. Changes are restricted to the model catalog, discovery ledger, explicit state events and compiled view. No change means no new commit/PR; source outcomes remain in the run summary/artifact. Reports are retained for 90 days in Actions; accepted discovery provenance is retained permanently in Git.
+
+GitHub must allow Actions to create pull requests (repository Settings > Actions > General > Workflow permissions). The workflow requests contents-write and pull-requests-write only for the proposal job. Default GITHUB_TOKEN-created PRs do not trigger ordinary PR CI automatically, so validation, tests and the Pages build run inside the proposal workflow before PR creation. A maintainer merge triggers normal main CI/Pages. There is no auto-merge configuration. Future automation could accept exact, non-conflicting metadata after demonstrated adapter reliability, but identities, methodology changes, supersession and behavioral conclusions should retain review.
+
+Local commands:
+
+```powershell
+npm run models:discover -- --as-of 2026-09-04
+# Inspect .discovery/run.json. On a proposal branch only:
+npm run models:stage
+npm run data:validate -- --base main
+npm run data:compile
+npm run models:targets -- --as-of 2026-09-07
+```
+
+Discovery itself writes only ignored `.discovery/` outputs. `models:stage` prepares the proposed catalog/ledger changes; it is not an acceptance action. `models:targets` regenerates eligible target configuration from accepted data, with no per-model code changes. The Pages pipeline also generates that target artifact after merges.
+
+### Execution and failure policy
+
+`config/probe-execution-policy.json` is separate from discovery. Paid execution is disabled, maximum runs and tokens are zero, and no executable API methodology is approved. This repository previously had probe descriptions and article/document-review methodologies, not an approved API harness. This phase does not relabel those descriptions as executable tests. Eligibility mechanics are tested with clearly isolated fixtures; the production target list stays empty until a real protocol/runner is reviewed.
+
+Optional credentials are OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY and XAI_API_KEY in GitHub Secrets. Missing credentials skip authenticated listing, without disabling public discovery. GET requests have timeout, response-size, redirect, pagination and detail-count limits. HTTPS host allowlists are checked at every redirect; authenticated redirects cannot cross origins. Credentials are never placed in URLs, source files, PR text or artifacts. No generative endpoint is called.
+
+A failed source creates an adapter outcome, not catalog deletions. Authenticated errors can propose an account-access ERROR/ACCESS_DENIED snapshot while retaining prior identity and availability provenance. Fresh account confirmations are cached for at most seven days to avoid daily renewal-only PRs; failure checks invalidate readiness. Before any future paid runner, require a fresh account/endpoint preflight, approved parameters, actual enforced token/spend limits, provider controls and acceptance policy. This phase deliberately contains no executor that could bypass the kill switch.
+
+Known limits: official HTML formats can change; comparisons can disagree with cached documentation; release dates/aliases/supersession are only populated when explicitly established. Source capabilities are not inferred from model families. Metadata approval is not evidence acceptance. Pending catalog models are linked for review, not displayed as accepted public facts.
+
 This repository is the versioned source of truth for **The Eternal Tuesday Monitor**, a dated, evidence-governed record of observable temporal-continuity behavior in AI products.
 
 The first release is derived strictly from the supplied article, _Your AI Lives in an Eternal Tuesday_, and its cited source notes. It does not add new product tests, infer hidden mechanisms, or turn an evidence gap into a failure result.

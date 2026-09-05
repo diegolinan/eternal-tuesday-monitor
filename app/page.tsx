@@ -18,6 +18,10 @@ import {
 } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { withBasePath } from '@/lib/site-paths';
+import {
+  ModelInventory,
+  type DiscoveredModel,
+} from '@/components/model-inventory';
 
 export const dynamic = 'force-static';
 
@@ -66,6 +70,7 @@ type MonitorData = {
   methodologyVersion: string;
   articlePath: string;
   observations: Observation[];
+  models?: DiscoveredModel[];
 };
 
 const probes = [
@@ -376,6 +381,7 @@ export default function Home() {
         </a>
         <nav aria-label="Primary navigation">
           <a href="#observations">Observations</a>
+          <a href="#models">Models</a>
           <a href="#probes">Five probes</a>
           <a href="#history">History</a>
           <a href="#evidence">Evidence</a>
@@ -432,6 +438,8 @@ export default function Home() {
           <figcaption>OBSERVABLE PROBES - NOT INTERNAL ARCHITECTURE</figcaption>
         </figure>
       </section>
+
+      <ModelInventory models={data?.models ?? []} />
 
       <section
         className="monitor-section"

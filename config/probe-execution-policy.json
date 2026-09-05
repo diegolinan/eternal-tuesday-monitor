@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "execution_enabled": false,
+  "max_runs_per_day": 0,
+  "max_total_tokens_per_day": 0,
+  "max_concurrency": 1,
+  "max_access_check_age_days": 7,
+  "providers": [
+    "vendor-openai",
+    "vendor-anthropic",
+    "vendor-google",
+    "vendor-xai"
+  ],
+  "denied_api_ids": [],
+  "methodologies": [],
+  "supersession_retest_enabled": true,
+  "notes": "No executable API probe methodology has been approved in this repository. Discovery performs GET requests only. No inference runner is enabled by this policy. Approval must specify endpoint, parameters, required capabilities, implementation and acceptance policy before adding a methodology."
+}

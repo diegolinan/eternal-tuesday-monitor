@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { evaluateObservationFreshness } from './lib/freshness.mjs';
+import { projectModels } from './discovery/project.mjs';
 import {
   loadReleases,
   releaseDate,
@@ -175,6 +176,13 @@ const view = {
     .version,
   articlePath: release.article_public_path,
   observations: siteObservations,
+  models: projectModels(
+    await parseLines('data/model-discovery/events.jsonl'),
+    observations.filter((item) => selected.has(item.id)),
+    await readJson('config/probe-execution-policy.json'),
+    vendors,
+    asOf,
+  ),
 };
 
 const outputPath = outputOption
