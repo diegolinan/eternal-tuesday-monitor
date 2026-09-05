@@ -194,6 +194,12 @@ export function assessModelAdoption({
   const allApiResults = evaluationResults.filter((result) => result.model_id === model.id);
   const apiResults = allApiResults.filter((result) => result.status !== 'OPERATIONAL_ERROR');
   const operationalResults = allApiResults.filter((result) => result.status === 'OPERATIONAL_ERROR');
+  const latestOperational = operationalResults
+    .map((result) => result.executed_at)
+    .sort((left, right) => right.localeCompare(left))[0];
+  const operationalCooldownActive = latestOperational
+    ? (Date.parse(`${asOf}T23:59:59Z`) - Date.parse(latestOperational)) / 3_600_000 < policy.limits.cooldown_hours
+    : false;
   const automatic = policy.execution.automatic_frontier;
   const frontierAuthorized =
     automatic.enabled &&
@@ -213,7 +219,7 @@ export function assessModelAdoption({
         reasons: ['FRESHNESS_POLICY_CONTROLS_RETEST'],
         execution_authorized: false,
       }
-    : operationalResults.length
+    : operationalCooldownActive
       ? {
           state: 'RETEST_POLICY',
           reasons: ['OPERATIONAL_ERROR_COOLDOWN_ACTIVE'],

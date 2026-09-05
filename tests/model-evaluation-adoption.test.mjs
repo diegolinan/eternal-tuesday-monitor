@@ -219,3 +219,16 @@ test('raw provenance policy is complete and operational errors cannot be behavio
     false,
   );
 });
+
+test('operational failures cool down and become retryable without becoming behavioral evidence', () => {
+  const available = { ...model('model-fixture', 'gpt-6-astra'), api_state: 'API_AVAILABLE', account_access: 'ACCESS_CONFIRMED' };
+  const result = { model_id: available.id, status: 'OPERATIONAL_ERROR', executed_at: '2026-09-05T12:00:00Z' };
+  const args = { model: available, eventId: 'discovery-fixture', policy, probes, observations: [], evaluationResults: [result], sourceOutcomes: [{ source_id: 'discovery-openai-api', status: 'OK' }], sourceConfig };
+  const cooling = assessModelAdoption({ ...args, asOf: '2026-09-05' });
+  assert.equal(cooling.queue.state, 'RETEST_POLICY');
+  assert.equal(cooling.queue.execution_authorized, false);
+  const retryable = assessModelAdoption({ ...args, asOf: '2026-09-13' });
+  assert.equal(retryable.queue.state, 'ELIGIBILITY_READY');
+  assert.equal(retryable.queue.execution_authorized, true);
+  assert.equal(retryable.execution_state, 'OPERATIONAL_ERROR');
+});
