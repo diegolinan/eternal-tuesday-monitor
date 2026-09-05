@@ -12,7 +12,7 @@
       "type": "official-model-index",
       "url": "https://developers.openai.com/api/docs/models/all",
       "adapter": "openai-docs",
-      "parser_version": "1",
+      "parser_version": "2",
       "authority": "vendor",
       "enabled": true,
       "cadence": "daily",
