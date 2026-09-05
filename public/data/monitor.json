@@ -428,8 +428,8 @@
         "label": "05 SEP 2026"
       },
       "evidenceVerifiedOn": "2026-09-05",
-      "sourceCheckedOn": null,
-      "sourceUrl": null,
+      "sourceCheckedOn": "2026-09-05",
+      "sourceUrl": "https://github.com/diegolinan/eternal-tuesday-monitor/blob/be67c0489128a77c9e2d95eca87f328651e08b7d/data/evidence/codex-luna-low-2026-09-05.json",
       "evidenceNote": "Three fresh Codex CLI sessions authenticated with ChatGPT and using gpt-5.6-luna at low effort returned exact structured answers for supplied UTC instants at offsets 0, +14 and -12. This tests supplied temporal context only; it does not establish autonomous clock awareness or provider-side model identity. Workspace credits and monetary cost were not reported and remain unknown.",
       "observationQualifiers": [],
       "applicability": "CURRENT",

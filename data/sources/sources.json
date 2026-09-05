@@ -6,6 +6,7 @@
       "title": "Manual Codex CLI temporal anchor pilot, Luna low",
       "publisher": "Local Codex execution record",
       "source_type": "reproduced_observation",
+      "url": "https://github.com/diegolinan/eternal-tuesday-monitor/blob/be67c0489128a77c9e2d95eca87f328651e08b7d/data/evidence/codex-luna-low-2026-09-05.json",
       "repository_path": "data/evidence/codex-luna-low-2026-09-05.json",
       "sha256": "2ea2a1a61047a4b59e4d8b361ae5f14e0a189cfda3291059eca804972b8d5234",
       "last_verified_on": "2026-09-05",
