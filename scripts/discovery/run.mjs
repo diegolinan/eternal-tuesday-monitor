@@ -14,10 +14,7 @@ import {
   normalizeDiscoveries,
   proposeEvents,
 } from './lifecycle.mjs';
-import {
-  classifyDiscoveryEvents,
-  evaluateRelevance,
-} from './decision.mjs';
+import { classifyDiscoveryEvents } from './decision.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const read = async (file) =>
@@ -42,7 +39,10 @@ const canonicalEvents = (
 let priorSourceChecks = [];
 try {
   priorSourceChecks = (
-    await readFile(path.join(root, 'data/model-discovery/source-checks.jsonl'), 'utf8')
+    await readFile(
+      path.join(root, 'data/model-discovery/source-checks.jsonl'),
+      'utf8',
+    )
   )
     .split(/\r?\n/)
     .filter(Boolean)
@@ -54,26 +54,7 @@ const priorCheckByUrl = new Map();
 for (const check of priorSourceChecks)
   if (check.content_sha256)
     priorCheckByUrl.set(`${check.source_id}|${check.url}`, check);
-let pendingEvents = [];
-try {
-  pendingEvents = (
-    await readFile(path.join(root, '.discovery/pending-events.jsonl'), 'utf8')
-  )
-    .split(/\r?\n/)
-    .filter(Boolean)
-    .map(JSON.parse);
-} catch (error) {
-  if (error.code !== 'ENOENT') throw error;
-}
-const activeSourceIds = new Set(config.sources.map((source) => source.id));
-pendingEvents = pendingEvents.filter((event) =>
-  (event.model?.provenance ?? []).every((item) =>
-    activeSourceIds.has(item.source_id),
-  ),
-);
-const priorIds = new Set(canonicalEvents.map((e) => e.id));
-pendingEvents = pendingEvents.filter((e) => !priorIds.has(e.id));
-const previous = latestModels([...canonicalEvents, ...pendingEvents]);
+const previous = latestModels(canonicalEvents);
 const adapters = {
   'openai-docs': openai,
   'anthropic-docs': anthropic,
@@ -92,8 +73,7 @@ const sourceCommit = (() => {
   }).stdout.trim();
 })();
 async function snapshot(source, response) {
-  const extension =
-    source.type === 'research-feed' ? 'xml' : 'html';
+  const extension = source.type === 'research-feed' ? 'xml' : 'html';
   const relative = `${source.id}/${response.sha256}.${extension}.gz`;
   const destination = path.join(root, '.discovery/snapshots', relative);
   await mkdir(path.dirname(destination), { recursive: true });
@@ -116,7 +96,8 @@ async function snapshot(source, response) {
     content_sha256: response.sha256,
     previous_content_sha256: previous?.content_sha256 ?? null,
     meaningful_change:
-      Boolean(previous?.content_sha256) && previous.content_sha256 !== response.sha256,
+      Boolean(previous?.content_sha256) &&
+      previous.content_sha256 !== response.sha256,
     entities_extracted: 0,
     normalized_identifiers: [],
     adapter: source.adapter,
@@ -150,7 +131,12 @@ function provenance(source, response) {
 }
 const safeError = (error) =>
   /^(?:[A-Z][A-Z0-9_]+)$/.test(error.message) ? error.message : 'ADAPTER_ERROR';
-function failureCheck(source, url, status, checkedAt = new Date().toISOString()) {
+function failureCheck(
+  source,
+  url,
+  status,
+  checkedAt = new Date().toISOString(),
+) {
   return {
     schema_version: '1.0.0',
     id: `source-check-${createHash('sha256').update(`${source.id}|${url}|${checkedAt}|${status}`).digest('hex').slice(0, 24)}`,
@@ -214,11 +200,14 @@ if (config.enabled)
                   provenance(source, detail),
                 ],
               });
-              detailSnapshot.record.entities_extracted = model.api_model_id ? 1 : 0;
+              detailSnapshot.record.entities_extracted = model.api_model_id
+                ? 1
+                : 0;
               detailSnapshot.record.normalized_identifiers = model.api_model_id
                 ? [model.api_model_id]
                 : [];
-              detailSnapshot.record.publication_date = model.released_on ?? null;
+              detailSnapshot.record.publication_date =
+                model.released_on ?? null;
             } catch (error) {
               const status = safeError(error);
               if (detailSnapshot) {
@@ -241,7 +230,9 @@ if (config.enabled)
           );
         indexSnapshot.record.entities_extracted = sourceFacts.length;
         indexSnapshot.record.normalized_identifiers = [
-          ...new Set(sourceFacts.map((model) => model.api_model_id).filter(Boolean)),
+          ...new Set(
+            sourceFacts.map((model) => model.api_model_id).filter(Boolean),
+          ),
         ].sort((left, right) => left.localeCompare(right));
       } else {
         const response = await readOfficial(source.url, source, config);
@@ -269,24 +260,14 @@ if (config.enabled)
   }
 const models = normalizeDiscoveries(facts, previous, catalog, asOf);
 const proposed = proposeEvents(models, previous, asOf);
-const pendingDecisions = pendingEvents.map((event) => ({
-  event,
-  decision: 'REVIEW_REQUIRED',
-  changeType: event.type,
-  relevance: evaluateRelevance(event.model, relevancePolicy),
-  reasons: ['PENDING_REVIEW_BRANCH'],
-}));
-const decisions = [
-  ...pendingDecisions,
-  ...classifyDiscoveryEvents(
+const decisions = classifyDiscoveryEvents(
   proposed,
   previous,
   config.sources,
   relevancePolicy,
   catalog,
-  ),
-];
-const events = [...pendingEvents, ...proposed];
+);
+const events = proposed;
 const report = {
   schema_version: '1.0.0',
   evaluated_on: asOf,

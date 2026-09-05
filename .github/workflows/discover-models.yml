@@ -31,14 +31,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run data:validate
-      - name: Preserve pending review identities
-        shell: bash
-        run: |
-          mkdir -p .discovery
-          if git ls-remote --exit-code origin refs/heads/automation/model-discovery >/dev/null; then
-            git fetch origin automation/model-discovery
-            git show FETCH_HEAD:data/model-discovery/events.jsonl > .discovery/pending-events.jsonl
-          fi
       - name: Read approved official sources only
         run: npm run models:discover
       - name: Preserve raw source snapshots and normalized report
