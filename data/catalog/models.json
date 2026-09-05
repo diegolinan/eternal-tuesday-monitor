@@ -83,7 +83,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-codex",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -100,32 +100,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5-codex",
           "checked_on": "2026-09-05",
           "sha256": "4e39a785586fff0d602581994e87c6fcdd2b44e59c6309de66d6744106339e4f",
-          "fetched_at": "2026-09-05T15:46:36.023Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/4e39a785586fff0d602581994e87c6fcdd2b44e59c6309de66d6744106339e4f.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -137,7 +119,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-1.5",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -154,32 +136,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime-1.5",
           "checked_on": "2026-09-05",
           "sha256": "22aa2ab020d51244e4a2c100269e4c35a9246094c3e2a2d5fde9c97b30b49c82",
-          "fetched_at": "2026-09-05T15:46:09.054Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/22aa2ab020d51244e4a2c100269e4c35a9246094c3e2a2d5fde9c97b30b49c82.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -191,7 +155,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -208,32 +172,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.4",
           "checked_on": "2026-09-05",
           "sha256": "314fc760a1589d99ea118d6a4d71a47e917ae076b004588321fc0ac07de5db7f",
-          "fetched_at": "2026-09-05T15:46:15.535Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/314fc760a1589d99ea118d6a4d71a47e917ae076b004588321fc0ac07de5db7f.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -245,7 +191,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-transcribe-diarize",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -262,32 +208,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-transcribe-diarize",
           "checked_on": "2026-09-05",
           "sha256": "55e5b6f731d24f327a3cb96fcfff7c4130c6ec5b48595ae9c994caed653affd8",
-          "fetched_at": "2026-09-05T15:46:11.346Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/55e5b6f731d24f327a3cb96fcfff7c4130c6ec5b48595ae9c994caed653affd8.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -375,7 +303,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "chatgpt-image-latest",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -392,32 +320,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/chatgpt-image-latest",
           "checked_on": "2026-09-05",
           "sha256": "e00f9a84230167658589ba196d8f556ea702430fe1546ec944305eb1a13d0dcc",
-          "fetched_at": "2026-09-05T15:46:25.254Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/e00f9a84230167658589ba196d8f556ea702430fe1546ec944305eb1a13d0dcc.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -429,7 +339,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-nano",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -446,32 +356,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5-nano",
           "checked_on": "2026-09-05",
           "sha256": "57205db4e1e0a3798a52246a21eaae842d2240f459ca0f960877f08c63f76549",
-          "fetched_at": "2026-09-05T15:46:19.378Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/57205db4e1e0a3798a52246a21eaae842d2240f459ca0f960877f08c63f76549.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -483,7 +375,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4-pro",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -500,32 +392,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.4-pro",
           "checked_on": "2026-09-05",
           "sha256": "720581fd19ce4c068bd3f6346577ea00583844eda85c6a97727d3d50118cb616",
-          "fetched_at": "2026-09-05T15:46:16.036Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/720581fd19ce4c068bd3f6346577ea00583844eda85c6a97727d3d50118cb616.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -554,32 +428,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o3-pro",
           "checked_on": "2026-09-05",
           "sha256": "97fe40ce782d632db061713c718cfa5bcae0ffb3c408dbf57056757cd2f9145c",
-          "fetched_at": "2026-09-05T15:46:20.506Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/97fe40ce782d632db061713c718cfa5bcae0ffb3c408dbf57056757cd2f9145c.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -629,7 +485,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-transcribe",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -646,32 +502,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-transcribe",
           "checked_on": "2026-09-05",
           "sha256": "5d61a9db0e0793c7cc40e021c5798965d528b1e38e25e59aefee6236d4f173a9",
-          "fetched_at": "2026-09-05T15:46:09.903Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/5d61a9db0e0793c7cc40e021c5798965d528b1e38e25e59aefee6236d4f173a9.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -683,7 +521,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-audio-1.5",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -700,32 +538,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-audio-1.5",
           "checked_on": "2026-09-05",
           "sha256": "ed3a77057b549843ee8cf7e16523e2da1dfad05085e5a1e5d08cb5a5499b6eac",
-          "fetched_at": "2026-09-05T15:46:09.411Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/ed3a77057b549843ee8cf7e16523e2da1dfad05085e5a1e5d08cb5a5499b6eac.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -792,32 +612,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-audio-preview",
           "checked_on": "2026-09-05",
           "sha256": "877018c35b8edc7e2255e5a5af19ebcea6d514e7296ef9d8d6efb2bc288fa1f6",
-          "fetched_at": "2026-09-05T15:46:32.292Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/877018c35b8edc7e2255e5a5af19ebcea6d514e7296ef9d8d6efb2bc288fa1f6.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -829,7 +631,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2-codex",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -846,32 +648,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.2-codex",
           "checked_on": "2026-09-05",
           "sha256": "d8ec733fbbda73e6a7021d93db00c01bf41538d203cc2efe2086f075ed8b855d",
-          "fetched_at": "2026-09-05T15:46:24.497Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/d8ec733fbbda73e6a7021d93db00c01bf41538d203cc2efe2086f075ed8b855d.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -883,7 +667,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-1",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -900,32 +684,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-image-1",
           "checked_on": "2026-09-05",
           "sha256": "a9e3bbaa07240d933e244808f870a99bf09e17cb9fb0595a2b2059a1310e3dc5",
-          "fetched_at": "2026-09-05T15:46:26.224Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/a9e3bbaa07240d933e244808f870a99bf09e17cb9fb0595a2b2059a1310e3dc5.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -937,7 +703,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "o3-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -954,32 +720,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o3-mini",
           "checked_on": "2026-09-05",
           "sha256": "96ae5c43e3d243991b1bfb0c6031ab42ebe10a095a6ed000173a3733c0250097",
-          "fetched_at": "2026-09-05T15:46:30.580Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/96ae5c43e3d243991b1bfb0c6031ab42ebe10a095a6ed000173a3733c0250097.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1046,32 +794,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o1-mini",
           "checked_on": "2026-09-05",
           "sha256": "93ab03f37f075be20e8368b9e718190d1208a6fbf8c87efd2d085330efe3fcf5",
-          "fetched_at": "2026-09-05T15:46:31.336Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/93ab03f37f075be20e8368b9e718190d1208a6fbf8c87efd2d085330efe3fcf5.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1083,7 +813,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2-chat-latest",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1100,32 +830,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest",
           "checked_on": "2026-09-05",
           "sha256": "0ac4fba3d1f2c398784e8dd0da6fcc917283acdd58a9dec6af740f2b4df6048a",
-          "fetched_at": "2026-09-05T15:46:24.088Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/0ac4fba3d1f2c398784e8dd0da6fcc917283acdd58a9dec6af740f2b4df6048a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1137,7 +849,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-pro",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1154,32 +866,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5-pro",
           "checked_on": "2026-09-05",
           "sha256": "845f36f1b00f382b82bdc708cb8cb72f1f510f5d3560d7813bffa06e9712392b",
-          "fetched_at": "2026-09-05T15:46:20.140Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/845f36f1b00f382b82bdc708cb8cb72f1f510f5d3560d7813bffa06e9712392b.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1208,32 +902,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini-audio-preview",
           "checked_on": "2026-09-05",
           "sha256": "3b9a98ef4200a424379e737c5db960606a175616880fb256c9d4d63af5b13ed4",
-          "fetched_at": "2026-09-05T15:46:32.641Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/3b9a98ef4200a424379e737c5db960606a175616880fb256c9d4d63af5b13ed4.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1262,32 +938,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/codex-mini-latest",
           "checked_on": "2026-09-05",
           "sha256": "13864c94947f6c19452896d9ead990aa8a8bc78a791ec5ae8744a266c5d8af46",
-          "fetched_at": "2026-09-05T15:46:36.264Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/13864c94947f6c19452896d9ead990aa8a8bc78a791ec5ae8744a266c5d8af46.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1299,7 +957,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1316,32 +974,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5-mini",
           "checked_on": "2026-09-05",
           "sha256": "9b73bfc62ac8615c75c74a4862a4acb554e527272fc103cbd3ee789965308103",
-          "fetched_at": "2026-09-05T15:46:19.110Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/9b73bfc62ac8615c75c74a4862a4acb554e527272fc103cbd3ee789965308103.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1467,7 +1107,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini-transcribe",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1484,32 +1124,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe",
           "checked_on": "2026-09-05",
           "sha256": "991d70ea153e31115a4a8894951ddf09b44cc693450c096f281ef9d8557c1735",
-          "fetched_at": "2026-09-05T15:46:10.839Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/991d70ea153e31115a4a8894951ddf09b44cc693450c096f281ef9d8557c1735.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1559,7 +1181,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-1.5",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1576,32 +1198,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-image-1.5",
           "checked_on": "2026-09-05",
           "sha256": "09345a607f91758d7be5257aa1c78d8a41135a29ae23fa3615de243ad398c39c",
-          "fetched_at": "2026-09-05T15:46:24.741Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/09345a607f91758d7be5257aa1c78d8a41135a29ae23fa3615de243ad398c39c.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1651,7 +1255,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4-nano",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1668,32 +1272,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.4-nano",
           "checked_on": "2026-09-05",
           "sha256": "d3c6649a89fe94e17bdacf3dd4534c5c9054421ec73fc60b9efb7d7af71b0ac3",
-          "fetched_at": "2026-09-05T15:46:16.677Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/d3c6649a89fe94e17bdacf3dd4534c5c9054421ec73fc60b9efb7d7af71b0ac3.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1722,32 +1308,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o4-mini-deep-research",
           "checked_on": "2026-09-05",
           "sha256": "4addb497af2e59a5f3c22acc66074dd9bbc7e3301896f97f138f4261e4cbb010",
-          "fetched_at": "2026-09-05T15:46:26.833Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/4addb497af2e59a5f3c22acc66074dd9bbc7e3301896f97f138f4261e4cbb010.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1759,7 +1327,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-2.1-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1776,32 +1344,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime-2.1-mini",
           "checked_on": "2026-09-05",
           "sha256": "61fc788d0a93d700907ec80a448008723dab9a0435a9effca6e0fa8548c60d37",
-          "fetched_at": "2026-09-05T15:46:06.897Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/61fc788d0a93d700907ec80a448008723dab9a0435a9effca6e0fa8548c60d37.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1813,7 +1363,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-chat-latest",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1830,32 +1380,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.1-chat-latest",
           "checked_on": "2026-09-05",
           "sha256": "b35d3ff69c4a9b42a55cacbc8337621bb2ac3d17207dcea906423fb79f72fa32",
-          "fetched_at": "2026-09-05T15:46:38.064Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/b35d3ff69c4a9b42a55cacbc8337621bb2ac3d17207dcea906423fb79f72fa32.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1867,7 +1399,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1884,32 +1416,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime",
           "checked_on": "2026-09-05",
           "sha256": "5453267a4bcb2db8a80006ebecab86a3c0183843fde267da8ab59b1982ce8191",
-          "fetched_at": "2026-09-05T15:46:22.951Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/5453267a4bcb2db8a80006ebecab86a3c0183843fde267da8ab59b1982ce8191.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -1921,7 +1435,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.5-pro",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1938,32 +1452,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.5-pro",
           "checked_on": "2026-09-05",
           "sha256": "c957acebf11f31a43132ee796d2d7679eb2e5a9061e9dac6b1f65efbede29a2a",
-          "fetched_at": "2026-09-05T15:46:15.044Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/c957acebf11f31a43132ee796d2d7679eb2e5a9061e9dac6b1f65efbede29a2a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2089,7 +1585,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-codex-max",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2106,32 +1602,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.1-codex-max",
           "checked_on": "2026-09-05",
           "sha256": "fb773ce32630f422fe952e96ef97365bc4adc3fd642a02de0fdc6b2214fa48f6",
-          "fetched_at": "2026-09-05T15:46:35.072Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/fb773ce32630f422fe952e96ef97365bc4adc3fd642a02de0fdc6b2214fa48f6.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2253,7 +1731,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2270,32 +1748,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
           "checked_on": "2026-09-05",
           "sha256": "e6bfd427d86dda5ca34a12ecfbd03d638625d866fa88f6e6644c7e3e1de73844",
-          "fetched_at": "2026-09-05T15:46:16.305Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/e6bfd427d86dda5ca34a12ecfbd03d638625d866fa88f6e6644c7e3e1de73844.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2307,7 +1767,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2-pro",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2324,32 +1784,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.2-pro",
           "checked_on": "2026-09-05",
           "sha256": "1af6c951118e22147056bf4ff2d47d97bc2b236375367af74559f32d7b80c4d9",
-          "fetched_at": "2026-09-05T15:46:17.850Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1af6c951118e22147056bf4ff2d47d97bc2b236375367af74559f32d7b80c4d9.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2378,32 +1820,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o1-preview",
           "checked_on": "2026-09-05",
           "sha256": "7d127b0a71324ae11dda42043d7bc9a4cc474fa34e4ba24dfba81f1c86e3917a",
-          "fetched_at": "2026-09-05T15:46:31.807Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/7d127b0a71324ae11dda42043d7bc9a4cc474fa34e4ba24dfba81f1c86e3917a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2432,32 +1856,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4",
           "checked_on": "2026-09-05",
           "sha256": "9287c0d1781cf4fae25a435b90a7efa707ff43b58a3a3ce6c25742f212da6cca",
-          "fetched_at": "2026-09-05T15:46:37.296Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/9287c0d1781cf4fae25a435b90a7efa707ff43b58a3a3ce6c25742f212da6cca.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2469,7 +1875,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "o4-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2486,32 +1892,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o4-mini",
           "checked_on": "2026-09-05",
           "sha256": "54b7ac189d9389858391aa15c868faaf913de8689f4765c0e4e87876db5a184f",
-          "fetched_at": "2026-09-05T15:46:27.552Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/54b7ac189d9389858391aa15c868faaf913de8689f4765c0e4e87876db5a184f.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2523,7 +1911,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-2.1",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2540,32 +1928,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime-2.1",
           "checked_on": "2026-09-05",
           "sha256": "0ba247eab619e3f836aa6ef0d42e07c22ea89a79e146c553732ebcbf29635eb1",
-          "fetched_at": "2026-09-05T15:46:06.407Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/0ba247eab619e3f836aa6ef0d42e07c22ea89a79e146c553732ebcbf29635eb1.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2577,7 +1947,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-chat-latest",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2594,32 +1964,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5-chat-latest",
           "checked_on": "2026-09-05",
           "sha256": "67b94671c9658d6cab8dac6d131f7bb896756061530af562320ec51609843323",
-          "fetched_at": "2026-09-05T15:46:38.543Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/67b94671c9658d6cab8dac6d131f7bb896756061530af562320ec51609843323.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2631,7 +1983,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.5",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2648,32 +2000,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.5",
           "checked_on": "2026-09-05",
           "sha256": "87dee8f6eed3ed60958693a6004d93c4f33c6dd4c1c34629d274b38342df26e3",
-          "fetched_at": "2026-09-05T15:46:14.573Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/87dee8f6eed3ed60958693a6004d93c4f33c6dd4c1c34629d274b38342df26e3.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2723,7 +2057,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.3-chat-latest",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2740,32 +2074,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest",
           "checked_on": "2026-09-05",
           "sha256": "dab7f3836af28228977953162979d72b8c221efdc692eed75f6e537284ff37bc",
-          "fetched_at": "2026-09-05T15:46:23.688Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/dab7f3836af28228977953162979d72b8c221efdc692eed75f6e537284ff37bc.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2777,7 +2093,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2794,32 +2110,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime-mini",
           "checked_on": "2026-09-05",
           "sha256": "aa0998551471df5492997dc579b843342d692447c42f4ca13a3d216daa387479",
-          "fetched_at": "2026-09-05T15:46:28.520Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/aa0998551471df5492997dc579b843342d692447c42f4ca13a3d216daa387479.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2869,7 +2167,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-audio-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2886,32 +2184,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-audio-mini",
           "checked_on": "2026-09-05",
           "sha256": "c9d21a7de6418383671806fc6088f96c5ec79ffec0d609a3f565fb71968e35b8",
-          "fetched_at": "2026-09-05T15:46:28.883Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/c9d21a7de6418383671806fc6088f96c5ec79ffec0d609a3f565fb71968e35b8.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -2961,7 +2241,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.6-terra",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2978,32 +2258,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra",
           "checked_on": "2026-09-05",
           "sha256": "34b3bb18aad3590f833ca80a2964723ceecd61ba288b8a1e243d9dabe4fbff95",
-          "fetched_at": "2026-09-05T15:46:05.062Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/34b3bb18aad3590f833ca80a2964723ceecd61ba288b8a1e243d9dabe4fbff95.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3091,7 +2353,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3108,32 +2370,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini",
           "checked_on": "2026-09-05",
           "sha256": "fbb316c5267ebcb7da2cec90cfe78f585ce7ad143b8a9f6e105033ccc5a325b8",
-          "fetched_at": "2026-09-05T15:46:21.932Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/fbb316c5267ebcb7da2cec90cfe78f585ce7ad143b8a9f6e105033ccc5a325b8.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3162,32 +2406,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini-realtime-preview",
           "checked_on": "2026-09-05",
           "sha256": "8c33c2d6a640b4a8d0cb244b8b8e603ebaa4e5ef0fa934bbfef9b12c660f3ba4",
-          "fetched_at": "2026-09-05T15:46:33.012Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/8c33c2d6a640b4a8d0cb244b8b8e603ebaa4e5ef0fa934bbfef9b12c660f3ba4.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3199,7 +2425,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-codex",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3216,32 +2442,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.1-codex",
           "checked_on": "2026-09-05",
           "sha256": "8b62f58cd0b96def27755c76c57e9dbdb345d7c44aa17dfde62053d872ee10ac",
-          "fetched_at": "2026-09-05T15:46:34.716Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/8b62f58cd0b96def27755c76c57e9dbdb345d7c44aa17dfde62053d872ee10ac.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3253,7 +2461,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3270,32 +2478,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.2",
           "checked_on": "2026-09-05",
           "sha256": "fd8e682b09d9feb994d9d42e782bb8b431213271a983fa0a0b229acf54ff0e30",
-          "fetched_at": "2026-09-05T15:46:17.585Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/fd8e682b09d9feb994d9d42e782bb8b431213271a983fa0a0b229acf54ff0e30.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3307,7 +2497,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3324,32 +2514,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5",
           "checked_on": "2026-09-05",
           "sha256": "9f685b46c22f88fe5a84e71f3fd5ff6bb5f6129016074ae7520e70d179fdd728",
-          "fetched_at": "2026-09-05T15:46:18.832Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/9f685b46c22f88fe5a84e71f3fd5ff6bb5f6129016074ae7520e70d179fdd728.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3361,7 +2533,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.3-codex",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3378,32 +2550,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.3-codex",
           "checked_on": "2026-09-05",
           "sha256": "239a40a5ec61e06568e48b3419f6e2ae97f6cc83dece0e1d8629b8dd14ac813c",
-          "fetched_at": "2026-09-05T15:46:17.158Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/239a40a5ec61e06568e48b3419f6e2ae97f6cc83dece0e1d8629b8dd14ac813c.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3415,7 +2569,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-audio",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3432,32 +2586,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-audio",
           "checked_on": "2026-09-05",
           "sha256": "73f7bf062d0abb4207486f1f80282fecf60230e2e49090ee4235c9380c18ff78",
-          "fetched_at": "2026-09-05T15:46:23.216Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/73f7bf062d0abb4207486f1f80282fecf60230e2e49090ee4235c9380c18ff78.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3486,32 +2622,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.6-cyber",
           "checked_on": "2026-09-05",
           "sha256": "44f13cd30177f876ac3a61b2ed329e689603534f59c3d5175c3aefe037d89adb",
-          "fetched_at": "2026-09-05T15:46:12.194Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/44f13cd30177f876ac3a61b2ed329e689603534f59c3d5175c3aefe037d89adb.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3552,7 +2670,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-codex-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3569,32 +2687,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini",
           "checked_on": "2026-09-05",
           "sha256": "2625785f974539ca80311072d4bd5b5e502efe4f4e4fd3b3ba1d396b1aef2c19",
-          "fetched_at": "2026-09-05T15:46:35.552Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/2625785f974539ca80311072d4bd5b5e502efe4f4e4fd3b3ba1d396b1aef2c19.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3644,7 +2744,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4.1-nano",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3661,32 +2761,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4.1-nano",
           "checked_on": "2026-09-05",
           "sha256": "d5e30e19c084d23ada8be5a619f7f09bf14345933e2248a8f19da607f07be62a",
-          "fetched_at": "2026-09-05T15:46:27.204Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/d5e30e19c084d23ada8be5a619f7f09bf14345933e2248a8f19da607f07be62a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3734,7 +2816,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4.1-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3751,32 +2833,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
           "checked_on": "2026-09-05",
           "sha256": "e6d1ac4fba0b4df31dbcc62ab540c9e3f83cc12046b1906cbdbad874ce6633d1",
-          "fetched_at": "2026-09-05T15:46:21.440Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/e6d1ac4fba0b4df31dbcc62ab540c9e3f83cc12046b1906cbdbad874ce6633d1.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3805,32 +2869,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4.5-preview",
           "checked_on": "2026-09-05",
           "sha256": "e3d7e5cfe99d265e19397d9e1846cfcabe742739ca6dd76fea17ae3d16ba4a05",
-          "fetched_at": "2026-09-05T15:46:30.052Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/e3d7e5cfe99d265e19397d9e1846cfcabe742739ca6dd76fea17ae3d16ba4a05.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3880,7 +2926,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-2",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3897,32 +2943,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-image-2",
           "checked_on": "2026-09-05",
           "sha256": "c6b992576b360b23130ca720fc137a242238bcd4139406efe763e3cac2cca14b",
-          "fetched_at": "2026-09-05T15:46:05.925Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/c6b992576b360b23130ca720fc137a242238bcd4139406efe763e3cac2cca14b.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -3989,32 +3017,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o1-pro",
           "checked_on": "2026-09-05",
           "sha256": "648a87535f8e7c2d4a57f31be188560bf5d3d62b5913f39dcee377e2d35a37a9",
-          "fetched_at": "2026-09-05T15:46:28.043Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/648a87535f8e7c2d4a57f31be188560bf5d3d62b5913f39dcee377e2d35a37a9.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4026,7 +3036,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-search-preview",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4043,32 +3053,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-search-preview",
           "checked_on": "2026-09-05",
           "sha256": "7de0c4c110235c5cc1f711b576081c6a7fc9c4c472c5b96a1ef2dbb7b04a0a3b",
-          "fetched_at": "2026-09-05T15:46:29.665Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/7de0c4c110235c5cc1f711b576081c6a7fc9c4c472c5b96a1ef2dbb7b04a0a3b.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4171,32 +3163,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4-turbo",
           "checked_on": "2026-09-05",
           "sha256": "308ceb279a2338cab7d7072a1fd8e6b61c07a3aaceb3dbaba9154249f400b8d6",
-          "fetched_at": "2026-09-05T15:46:33.860Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/308ceb279a2338cab7d7072a1fd8e6b61c07a3aaceb3dbaba9154249f400b8d6.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4208,7 +3182,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini-tts",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4225,32 +3199,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini-tts",
           "checked_on": "2026-09-05",
           "sha256": "e7c723d13486bb4fa9d52cee86a8e318fd8651a15fba4ba64c34ba234ecaad0f",
-          "fetched_at": "2026-09-05T15:46:11.828Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/e7c723d13486bb4fa9d52cee86a8e318fd8651a15fba4ba64c34ba234ecaad0f.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4262,7 +3218,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-1-mini",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4279,32 +3235,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-image-1-mini",
           "checked_on": "2026-09-05",
           "sha256": "7d2c1ad9269ffa87a54417bea30419e8a61076f3990bc5d9bbbd881a0e5bebe2",
-          "fetched_at": "2026-09-05T15:46:25.739Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/7d2c1ad9269ffa87a54417bea30419e8a61076f3990bc5d9bbbd881a0e5bebe2.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4316,7 +3254,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini-search-preview",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4333,32 +3271,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini-search-preview",
           "checked_on": "2026-09-05",
           "sha256": "48a6d5fb5252f4cd123e4871b098df83caed2e4a1a7b8add93c2065d49f93e7f",
-          "fetched_at": "2026-09-05T15:46:29.388Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/48a6d5fb5252f4cd123e4871b098df83caed2e4a1a7b8add93c2065d49f93e7f.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4370,7 +3290,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4387,32 +3307,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o",
           "checked_on": "2026-09-05",
           "sha256": "bf7666a84c89a295b296b5ff3a112c4b46a65c701a65a7069236fdfe16740cf2",
-          "fetched_at": "2026-09-05T15:46:22.472Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/bf7666a84c89a295b296b5ff3a112c4b46a65c701a65a7069236fdfe16740cf2.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4424,7 +3326,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-transcribe",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4441,32 +3343,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-transcribe",
           "checked_on": "2026-09-05",
           "sha256": "76b6585cd8782bebf18697ac50d6579437a5c88eb8ffbcbbab7bf9d3874124e4",
-          "fetched_at": "2026-09-05T15:46:10.369Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/76b6585cd8782bebf18697ac50d6579437a5c88eb8ffbcbbab7bf9d3874124e4.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4478,7 +3362,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4495,32 +3379,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.1",
           "checked_on": "2026-09-05",
           "sha256": "55bebe6901b3a2fdcfa6953d3365203bd92eca4f1d2ba42688935378b0d6a46b",
-          "fetched_at": "2026-09-05T15:46:18.348Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/55bebe6901b3a2fdcfa6953d3365203bd92eca4f1d2ba42688935378b0d6a46b.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4608,7 +3474,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.6-luna",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4625,32 +3491,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
           "checked_on": "2026-09-05",
           "sha256": "5361316966b44ebd9b51671236273e58f1a77bcbf5c9c799a6ef7f0e8b987dd4",
-          "fetched_at": "2026-09-05T15:46:05.650Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/5361316966b44ebd9b51671236273e58f1a77bcbf5c9c799a6ef7f0e8b987dd4.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4662,7 +3510,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-2",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4679,32 +3527,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime-2",
           "checked_on": "2026-09-05",
           "sha256": "330429ff6952fe1122dee2d050654cb752f205ac044cc917fd4e9f2f53f61e81",
-          "fetched_at": "2026-09-05T15:46:07.391Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/330429ff6952fe1122dee2d050654cb752f205ac044cc917fd4e9f2f53f61e81.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4716,7 +3546,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4.1",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4733,32 +3563,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4.1",
           "checked_on": "2026-09-05",
           "sha256": "96d5b3c89a020c51591d64bb2e7930dd35be9aa66e4efa02e8cfebe9d3f9c43f",
-          "fetched_at": "2026-09-05T15:46:20.970Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/96d5b3c89a020c51591d64bb2e7930dd35be9aa66e4efa02e8cfebe9d3f9c43f.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4770,7 +3582,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-6-astra",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4787,32 +3599,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
           "checked_on": "2026-09-05",
           "sha256": "97df526d260c4c9c25f78069f5d98d564e8222264e02a67b14c3752b55010e42",
-          "fetched_at": "2026-09-05T15:46:04.025Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/97df526d260c4c9c25f78069f5d98d564e8222264e02a67b14c3752b55010e42.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4841,32 +3635,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/o3-deep-research",
           "checked_on": "2026-09-05",
           "sha256": "1d21611085fc50583b85bf52decf4b69ba3389ae8bbfdc344398a9e043df2e56",
-          "fetched_at": "2026-09-05T15:46:26.587Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1d21611085fc50583b85bf52decf4b69ba3389ae8bbfdc344398a9e043df2e56.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4878,7 +3654,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-live-transcribe",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -4895,32 +3671,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-live-transcribe",
           "checked_on": "2026-09-05",
           "sha256": "6f9dcd23c31c84f6beaf7001532fd573039aac685a410b964ae2207de1854e67",
-          "fetched_at": "2026-09-05T15:46:08.235Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/6f9dcd23c31c84f6beaf7001532fd573039aac685a410b964ae2207de1854e67.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -4987,32 +3745,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4-turbo-preview",
           "checked_on": "2026-09-05",
           "sha256": "6c0a04815d57488b27dedc07ed2da99ca576efca218a79e00608c99c5094ed0b",
-          "fetched_at": "2026-09-05T15:46:37.775Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/6c0a04815d57488b27dedc07ed2da99ca576efca218a79e00608c99c5094ed0b.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -5024,7 +3764,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-translate",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -5041,32 +3781,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime-translate",
           "checked_on": "2026-09-05",
           "sha256": "2ad19aeea521c414cdab0c4a1f5ff8cf1a53b6b195c78cdca80ab8ad68b389e8",
-          "fetched_at": "2026-09-05T15:46:07.748Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/2ad19aeea521c414cdab0c4a1f5ff8cf1a53b6b195c78cdca80ab8ad68b389e8.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -5154,7 +3876,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-whisper",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -5171,32 +3893,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-realtime-whisper",
           "checked_on": "2026-09-05",
           "sha256": "5d2bc5a238070372aca0faf05a574770628314162efba955d65c3eebaf647c59",
-          "fetched_at": "2026-09-05T15:46:08.596Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/5d2bc5a238070372aca0faf05a574770628314162efba955d65c3eebaf647c59.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -5263,32 +3967,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-4o-realtime-preview",
           "checked_on": "2026-09-05",
           "sha256": "31f3312b8dd6241430b70dffefae9f41d0fe9cdac8d16d98a24316388476ec4a",
-          "fetched_at": "2026-09-05T15:46:33.380Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/31f3312b8dd6241430b70dffefae9f41d0fe9cdac8d16d98a24316388476ec4a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
@@ -5458,7 +4144,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.6-sol",
       "aliases": [],
-      "release_state": "RELEASED",
+      "release_state": "DISCOVERED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -5475,32 +4161,14 @@
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
           "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "fetched_at": "2026-09-05T15:46:03.488Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
           "checked_on": "2026-09-05",
           "sha256": "efe9f80ac9d134cbe22af399b79759ec54a8d56bf5978a46b054382151ef5ea2",
-          "fetched_at": "2026-09-05T15:46:04.656Z",
-          "etag": null,
-          "last_modified": null,
-          "adapter": "openai-docs",
-          "adapter_version": "1",
-          "parser_version": "3",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
-          "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-openai-docs/efe9f80ac9d134cbe22af399b79759ec54a8d56bf5978a46b054382151ef5ea2.html.gz",
-          "raw_snapshot_retention_days": 90
+          "parser_version": "1"
         }
       ]
     },
