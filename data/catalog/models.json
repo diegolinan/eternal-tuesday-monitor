@@ -63,15 +63,33 @@
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
-          "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "parser_version": "1"
+          "sha256": "a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4",
+          "fetched_at": "2026-09-05T16:35:23.287Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4.html.gz",
+          "raw_snapshot_retention_days": 90
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-daybreak-red-latest",
           "checked_on": "2026-09-05",
-          "sha256": "4f176d51839a1c0535f43e59221ed6b7be4a0e387111be32ae2e4b5c9c27b33c",
-          "parser_version": "1"
+          "sha256": "c72c749c4e71d75ccd3804e11cf73508c461ce7e58d53603cd80c8511e13d1ff",
+          "fetched_at": "2026-09-05T16:35:29.751Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/c72c749c4e71d75ccd3804e11cf73508c461ce7e58d53603cd80c8511e13d1ff.html.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2159,15 +2177,33 @@
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
-          "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "parser_version": "1"
+          "sha256": "a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4",
+          "fetched_at": "2026-09-05T16:35:23.287Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4.html.gz",
+          "raw_snapshot_retention_days": 90
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-daybreak-blue-latest",
           "checked_on": "2026-09-05",
-          "sha256": "4e2e025739801ede98889d40dea62abea9ac1270b6ee782d467754a2f747ee6a",
-          "parser_version": "1"
+          "sha256": "f88096f8ff6032b3ed7119d573621c87da84d6ffc03e8cc7ba9ba75ec5e36abc",
+          "fetched_at": "2026-09-05T16:35:30.037Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/f88096f8ff6032b3ed7119d573621c87da84d6ffc03e8cc7ba9ba75ec5e36abc.html.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2233,15 +2269,33 @@
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
-          "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "parser_version": "1"
+          "sha256": "a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4",
+          "fetched_at": "2026-09-05T16:35:23.287Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4.html.gz",
+          "raw_snapshot_retention_days": 90
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-oss-120b",
           "checked_on": "2026-09-05",
-          "sha256": "73c00ed246efbaac9f004ffc5bb8405dab98b76b43bad3631d08b78f0102abf3",
-          "parser_version": "1"
+          "sha256": "d13b3e2d1ca1f104daeec9cb7de87d8fbe1bd29e5927bde67e3bde906ac702e4",
+          "fetched_at": "2026-09-05T16:35:30.334Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/d13b3e2d1ca1f104daeec9cb7de87d8fbe1bd29e5927bde67e3bde906ac702e4.html.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3714,15 +3768,33 @@
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
-          "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "parser_version": "1"
+          "sha256": "a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4",
+          "fetched_at": "2026-09-05T16:35:23.287Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4.html.gz",
+          "raw_snapshot_retention_days": 90
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-oss-20b",
           "checked_on": "2026-09-05",
-          "sha256": "6bc177d0d9ebc0af12e34197f2096d8f5481293af5df08d148557f40b6e607d1",
-          "parser_version": "1"
+          "sha256": "dc01bbf3cf4043be3e5776647f569214569f09dee991ec233b4145c42e603465",
+          "fetched_at": "2026-09-05T16:35:30.666Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/dc01bbf3cf4043be3e5776647f569214569f09dee991ec233b4145c42e603465.html.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -4096,15 +4168,33 @@
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/all",
           "checked_on": "2026-09-05",
-          "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "parser_version": "1"
+          "sha256": "a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4",
+          "fetched_at": "2026-09-05T16:35:23.287Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/a2924cf62ffe80567320e803d718753894f4b94a9fce87b1371de98fef0761b4.html.gz",
+          "raw_snapshot_retention_days": 90
         },
         {
           "source_id": "discovery-openai-docs",
           "url": "https://developers.openai.com/api/docs/models/gpt-3.5-turbo",
           "checked_on": "2026-09-05",
-          "sha256": "eff5b375ccac676bed7ac604dd7eef47cd86893103c8207ecf3db71f9c3b4f11",
-          "parser_version": "1"
+          "sha256": "6d6be65eb9e8bc7f116ab15aea88f7c4bc7cc2b3dd31e08aa80be2b3f0032b8e",
+          "fetched_at": "2026-09-05T16:35:45.091Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/6d6be65eb9e8bc7f116ab15aea88f7c4bc7cc2b3dd31e08aa80be2b3f0032b8e.html.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
