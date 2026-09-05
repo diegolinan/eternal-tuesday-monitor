@@ -446,11 +446,65 @@
   ],
   "models": [
     {
+      "id": "model-fable-5",
+      "vendor": "Anthropic",
+      "name": "Fable 5",
+      "apiModelId": null,
+      "releaseState": "UNKNOWN",
+      "relevanceState": "UNCLASSIFIED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": null,
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
+      "sources": [],
+      "reviewReasons": []
+    },
+    {
       "id": "model-fable-5-1",
       "vendor": "Anthropic",
       "name": "Claude Fable 5.1",
       "apiModelId": "claude-fable-5-1",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -458,14 +512,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -477,6 +559,7 @@
       "name": "Claude Haiku 4.5",
       "apiModelId": "claude-haiku-4-5-20251001",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -484,14 +567,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -503,6 +614,7 @@
       "name": "Claude Opus 5",
       "apiModelId": "claude-opus-5",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -510,14 +622,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -529,6 +669,7 @@
       "name": "Claude Sonnet 5",
       "apiModelId": "claude-sonnet-5",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -536,14 +677,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -555,6 +724,7 @@
       "name": "Computer Use",
       "apiModelId": "gemini-2.5-computer-use-preview-10-2025",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -562,14 +732,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -581,6 +779,7 @@
       "name": "Gemini 2.0 Flash",
       "apiModelId": "gemini-2.0-flash",
       "releaseState": "RETIRED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -588,15 +787,43 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
+      "evaluationReasons": [
         "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -608,6 +835,7 @@
       "name": "Gemini 2.0 Flash-Lite",
       "apiModelId": "gemini-2.0-flash-lite",
       "releaseState": "RETIRED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -615,15 +843,43 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
+      "evaluationReasons": [
         "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -635,6 +891,7 @@
       "name": "Gemini 2.5 Flash",
       "apiModelId": "gemini-2.5-flash",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -642,14 +899,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -661,6 +946,7 @@
       "name": "Gemini 2.5 Flash Live",
       "apiModelId": "gemini-2.5-flash-native-audio-preview-12-2025",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -668,14 +954,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -687,6 +1001,7 @@
       "name": "Gemini 2.5 Flash TTS",
       "apiModelId": "gemini-2.5-flash-preview-tts",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -694,14 +1009,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -713,6 +1056,7 @@
       "name": "Gemini 2.5 Flash-Lite",
       "apiModelId": "gemini-2.5-flash-lite",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -720,14 +1064,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -739,6 +1111,7 @@
       "name": "Gemini 2.5 Pro",
       "apiModelId": "gemini-2.5-pro",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -746,14 +1119,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -765,6 +1166,7 @@
       "name": "Gemini 2.5 Pro TTS",
       "apiModelId": "gemini-2.5-pro-preview-tts",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -772,14 +1174,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -791,6 +1221,7 @@
       "name": "Gemini 3 Flash",
       "apiModelId": "gemini-3-flash-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -798,14 +1229,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -817,6 +1276,7 @@
       "name": "Gemini 3 Pro Preview",
       "apiModelId": "gemini-3-pro-preview",
       "releaseState": "RETIRED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -824,15 +1284,43 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
+      "evaluationReasons": [
         "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -844,6 +1332,7 @@
       "name": "Gemini 3.1 Flash Live",
       "apiModelId": "gemini-3.1-flash-live-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -851,14 +1340,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -870,6 +1387,7 @@
       "name": "Gemini 3.1 Flash TTS",
       "apiModelId": "gemini-3.1-flash-tts-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -877,14 +1395,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -896,6 +1442,7 @@
       "name": "Gemini 3.1 Flash-Lite",
       "apiModelId": "gemini-3.1-flash-lite",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -903,14 +1450,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -922,6 +1497,7 @@
       "name": "Gemini 3.1 Flash-Lite Preview",
       "apiModelId": "gemini-3.1-flash-lite-preview",
       "releaseState": "RETIRED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -929,15 +1505,43 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
+      "evaluationReasons": [
         "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -949,6 +1553,7 @@
       "name": "Gemini 3.1 Pro",
       "apiModelId": "gemini-3.1-pro-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -956,14 +1561,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -975,6 +1608,7 @@
       "name": "Gemini 3.5 Flash",
       "apiModelId": "gemini-3.5-flash",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -982,14 +1616,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1001,6 +1663,7 @@
       "name": "Gemini 3.5 Flash-Lite",
       "apiModelId": "gemini-3.5-flash-lite",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1008,14 +1671,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1027,6 +1718,7 @@
       "name": "Gemini 3.5 Live Translate",
       "apiModelId": "gemini-3.5-live-translate-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1034,14 +1726,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1053,6 +1773,7 @@
       "name": "Gemini 3.6 Flash",
       "apiModelId": "gemini-3.6-flash",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1060,14 +1781,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1079,6 +1828,7 @@
       "name": "Gemini 3.7 Flash",
       "apiModelId": "gemini-3.7-flash",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1086,14 +1836,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1105,6 +1883,7 @@
       "name": "Gemini 3.8 Flash",
       "apiModelId": "gemini-3.8-flash",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1112,14 +1891,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1131,6 +1938,7 @@
       "name": "Gemini Embedding",
       "apiModelId": "gemini-embedding-001",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1138,14 +1946,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1157,6 +1993,7 @@
       "name": "Gemini Embedding 2",
       "apiModelId": "gemini-embedding-2-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1164,14 +2001,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1183,6 +2048,7 @@
       "name": "Gemini Omni Flash",
       "apiModelId": "gemini-omni-1.1-flash",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1190,14 +2056,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1209,6 +2103,7 @@
       "name": "Gemini Robotics ER 1.6",
       "apiModelId": "gemini-robotics-er-1.6-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1216,14 +2111,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1235,6 +2158,7 @@
       "name": "Gemini Robotics ER 2",
       "apiModelId": "gemini-robotics-er-2-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1242,14 +2166,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1261,6 +2213,7 @@
       "name": "Nano Banana",
       "apiModelId": "gemini-2.5-flash-image",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1268,14 +2221,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1287,6 +2268,7 @@
       "name": "Nano Banana 2",
       "apiModelId": "gemini-3.1-flash-image",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1294,14 +2276,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1313,6 +2323,7 @@
       "name": "Nano Banana 2 Lite",
       "apiModelId": "gemini-3.1-flash-lite-image",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1320,14 +2331,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1339,6 +2378,7 @@
       "name": "Nano Banana Pro",
       "apiModelId": "gemini-3-pro-image",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1346,14 +2386,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1365,6 +2433,7 @@
       "name": "chatgpt-image-latest",
       "apiModelId": "chatgpt-image-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1372,14 +2441,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/chatgpt-image-latest"
@@ -1392,6 +2489,7 @@
       "name": "codex-mini-latest",
       "apiModelId": "codex-mini-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1399,14 +2497,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/codex-mini-latest"
@@ -1419,6 +2545,7 @@
       "name": "Daybreak Blue",
       "apiModelId": "gpt-daybreak-blue-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1426,14 +2553,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-daybreak-blue-latest"
@@ -1446,6 +2601,7 @@
       "name": "Daybreak Red",
       "apiModelId": "gpt-daybreak-red-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1453,14 +2609,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-daybreak-red-latest"
@@ -1473,6 +2657,7 @@
       "name": "GPT-3.5 Turbo",
       "apiModelId": "gpt-3.5-turbo",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1480,14 +2665,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-3.5-turbo"
@@ -1500,6 +2713,7 @@
       "name": "GPT-4",
       "apiModelId": "gpt-4",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1507,14 +2721,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4"
@@ -1527,6 +2769,7 @@
       "name": "GPT-4 Turbo",
       "apiModelId": "gpt-4-turbo",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1534,14 +2777,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4-turbo"
@@ -1554,6 +2825,7 @@
       "name": "GPT-4 Turbo Preview",
       "apiModelId": "gpt-4-turbo-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1561,14 +2833,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4-turbo-preview"
@@ -1581,6 +2881,7 @@
       "name": "GPT-4.1",
       "apiModelId": "gpt-4.1",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1588,14 +2889,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.1"
@@ -1608,6 +2937,7 @@
       "name": "GPT-4.1 Mini",
       "apiModelId": "gpt-4.1-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1615,14 +2945,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.1-mini"
@@ -1635,6 +2993,7 @@
       "name": "GPT-4.1 nano",
       "apiModelId": "gpt-4.1-nano",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1642,14 +3001,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.1-nano"
@@ -1662,6 +3049,7 @@
       "name": "GPT-4.5 Preview",
       "apiModelId": "gpt-4.5-preview",
       "releaseState": "DEPRECATED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1669,15 +3057,43 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
+      "evaluationReasons": [
         "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.5-preview"
@@ -1690,6 +3106,7 @@
       "name": "GPT-4o",
       "apiModelId": "gpt-4o",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1697,14 +3114,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o"
@@ -1717,6 +3162,7 @@
       "name": "GPT-4o Audio",
       "apiModelId": "gpt-4o-audio-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1724,14 +3170,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-audio-preview"
@@ -1744,6 +3218,7 @@
       "name": "GPT-4o Mini",
       "apiModelId": "gpt-4o-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1751,14 +3226,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini"
@@ -1771,6 +3274,7 @@
       "name": "GPT-4o Mini Audio",
       "apiModelId": "gpt-4o-mini-audio-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1778,14 +3282,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-audio-preview"
@@ -1798,6 +3330,7 @@
       "name": "GPT-4o Mini Realtime",
       "apiModelId": "gpt-4o-mini-realtime-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1805,14 +3338,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-realtime-preview"
@@ -1825,6 +3386,7 @@
       "name": "GPT-4o Mini Search Preview",
       "apiModelId": "gpt-4o-mini-search-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1832,14 +3394,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-search-preview"
@@ -1852,6 +3442,7 @@
       "name": "GPT-4o Mini Transcribe",
       "apiModelId": "gpt-4o-mini-transcribe",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1859,14 +3450,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe"
@@ -1879,6 +3498,7 @@
       "name": "GPT-4o Mini TTS",
       "apiModelId": "gpt-4o-mini-tts",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1886,14 +3506,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-tts"
@@ -1906,6 +3554,7 @@
       "name": "GPT-4o Realtime",
       "apiModelId": "gpt-4o-realtime-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1913,14 +3562,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-realtime-preview"
@@ -1933,6 +3610,7 @@
       "name": "GPT-4o Search Preview",
       "apiModelId": "gpt-4o-search-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1940,14 +3618,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-search-preview"
@@ -1960,6 +3666,7 @@
       "name": "GPT-4o Transcribe",
       "apiModelId": "gpt-4o-transcribe",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1967,14 +3674,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-transcribe"
@@ -1987,6 +3722,7 @@
       "name": "GPT-4o Transcribe Diarize",
       "apiModelId": "gpt-4o-transcribe-diarize",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -1994,14 +3730,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-transcribe-diarize"
@@ -2014,6 +3778,7 @@
       "name": "GPT-5",
       "apiModelId": "gpt-5",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2021,14 +3786,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5"
@@ -2041,6 +3834,7 @@
       "name": "GPT-5 Chat",
       "apiModelId": "gpt-5-chat-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2048,14 +3842,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-chat-latest"
@@ -2068,6 +3890,7 @@
       "name": "GPT-5 Mini",
       "apiModelId": "gpt-5-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2075,14 +3898,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-mini"
@@ -2095,6 +3946,7 @@
       "name": "GPT-5 nano",
       "apiModelId": "gpt-5-nano",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2102,14 +3954,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-nano"
@@ -2122,6 +4002,7 @@
       "name": "GPT-5 Pro",
       "apiModelId": "gpt-5-pro",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2129,14 +4010,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-pro"
@@ -2149,6 +4058,7 @@
       "name": "GPT-5-Codex",
       "apiModelId": "gpt-5-codex",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2156,14 +4066,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-codex"
@@ -2176,6 +4114,7 @@
       "name": "GPT-5.1",
       "apiModelId": "gpt-5.1",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2183,14 +4122,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1"
@@ -2203,6 +4170,7 @@
       "name": "GPT-5.1 Chat",
       "apiModelId": "gpt-5.1-chat-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2210,14 +4178,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-chat-latest"
@@ -2230,6 +4226,7 @@
       "name": "GPT-5.1-Codex",
       "apiModelId": "gpt-5.1-codex",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2237,14 +4234,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-codex"
@@ -2257,6 +4282,7 @@
       "name": "GPT-5.1-Codex Mini",
       "apiModelId": "gpt-5.1-codex-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2264,14 +4290,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini"
@@ -2284,6 +4338,7 @@
       "name": "GPT-5.1-Codex-Max",
       "apiModelId": "gpt-5.1-codex-max",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2291,14 +4346,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-codex-max"
@@ -2311,6 +4394,7 @@
       "name": "GPT-5.2",
       "apiModelId": "gpt-5.2",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2318,14 +4402,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2"
@@ -2338,6 +4450,7 @@
       "name": "GPT-5.2 Chat",
       "apiModelId": "gpt-5.2-chat-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2345,14 +4458,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest"
@@ -2365,6 +4506,7 @@
       "name": "GPT-5.2 Pro",
       "apiModelId": "gpt-5.2-pro",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2372,14 +4514,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2-pro"
@@ -2392,6 +4562,7 @@
       "name": "GPT-5.2-Codex",
       "apiModelId": "gpt-5.2-codex",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2399,14 +4570,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2-codex"
@@ -2419,6 +4618,7 @@
       "name": "GPT-5.3 Chat",
       "apiModelId": "gpt-5.3-chat-latest",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2426,14 +4626,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest"
@@ -2446,6 +4674,7 @@
       "name": "GPT-5.3-Codex",
       "apiModelId": "gpt-5.3-codex",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2453,14 +4682,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.3-codex"
@@ -2473,6 +4730,7 @@
       "name": "GPT-5.4",
       "apiModelId": "gpt-5.4",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2480,14 +4738,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4"
@@ -2500,6 +4786,7 @@
       "name": "GPT-5.4 Mini",
       "apiModelId": "gpt-5.4-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2507,14 +4794,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4-mini"
@@ -2527,6 +4842,7 @@
       "name": "GPT-5.4 nano",
       "apiModelId": "gpt-5.4-nano",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2534,14 +4850,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4-nano"
@@ -2554,6 +4898,7 @@
       "name": "GPT-5.4 Pro",
       "apiModelId": "gpt-5.4-pro",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2561,14 +4906,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4-pro"
@@ -2581,6 +4954,7 @@
       "name": "GPT-5.5",
       "apiModelId": "gpt-5.5",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2588,14 +4962,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.5"
@@ -2608,6 +5010,7 @@
       "name": "GPT-5.5 Pro",
       "apiModelId": "gpt-5.5-pro",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2615,14 +5018,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.5-pro"
@@ -2635,6 +5066,7 @@
       "name": "GPT-5.6 Cyber",
       "apiModelId": "gpt-5.6-cyber",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2642,14 +5074,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.6-cyber"
@@ -2662,21 +5122,57 @@
       "name": "GPT-5.6 Luna",
       "apiModelId": "gpt-5.6-luna",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
       "discoveredOn": "2026-09-05",
       "releasedOn": null,
-      "firstTestedOn": null,
-      "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "firstTestedOn": "2026-09-05",
+      "lastTestedOn": "2026-09-05",
+      "lifecycleState": "TESTED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [
+        {
+          "id": "surface-codex-cli-chatgpt-local",
+          "product": "ChatGPT",
+          "name": "Codex CLI with ChatGPT authentication",
+          "kind": "CONSUMER_PRODUCT_SURFACE"
+        }
+      ],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
@@ -2689,6 +5185,7 @@
       "name": "GPT-5.6 Sol",
       "apiModelId": "gpt-5.6-sol",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2696,14 +5193,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
@@ -2716,6 +5241,7 @@
       "name": "GPT-5.6 Terra",
       "apiModelId": "gpt-5.6-terra",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2723,14 +5249,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
@@ -2743,6 +5297,7 @@
       "name": "GPT-6 Astra",
       "apiModelId": "gpt-6-astra",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2750,14 +5305,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-6-astra"
@@ -2770,6 +5353,7 @@
       "name": "GPT-Audio",
       "apiModelId": "gpt-audio",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2777,14 +5361,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-audio"
@@ -2797,6 +5409,7 @@
       "name": "GPT-Audio Mini",
       "apiModelId": "gpt-audio-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2804,14 +5417,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-audio-mini"
@@ -2824,6 +5465,7 @@
       "name": "GPT-Audio-1.5",
       "apiModelId": "gpt-audio-1.5",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2831,14 +5473,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-audio-1.5"
@@ -2851,6 +5521,7 @@
       "name": "GPT-Image-1",
       "apiModelId": "gpt-image-1",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2858,14 +5529,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-1"
@@ -2878,6 +5577,7 @@
       "name": "GPT-Image-1 Mini",
       "apiModelId": "gpt-image-1-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2885,14 +5585,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-1-mini"
@@ -2905,6 +5633,7 @@
       "name": "GPT-Image-1.5",
       "apiModelId": "gpt-image-1.5",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2912,14 +5641,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-1.5"
@@ -2932,6 +5689,7 @@
       "name": "GPT-Image-2",
       "apiModelId": "gpt-image-2",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2939,14 +5697,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-2"
@@ -2959,6 +5745,7 @@
       "name": "GPT-Live-Transcribe",
       "apiModelId": "gpt-live-transcribe",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2966,14 +5753,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-live-transcribe"
@@ -2986,6 +5801,7 @@
       "name": "gpt-oss-120b",
       "apiModelId": "gpt-oss-120b",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -2993,14 +5809,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-oss-120b"
@@ -3013,6 +5857,7 @@
       "name": "gpt-oss-20b",
       "apiModelId": "gpt-oss-20b",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3020,14 +5865,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-oss-20b"
@@ -3040,6 +5913,7 @@
       "name": "GPT-Realtime",
       "apiModelId": "gpt-realtime",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3047,14 +5921,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime"
@@ -3067,6 +5969,7 @@
       "name": "GPT-Realtime Mini",
       "apiModelId": "gpt-realtime-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3074,14 +5977,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-mini"
@@ -3094,6 +6025,7 @@
       "name": "GPT-Realtime-1.5",
       "apiModelId": "gpt-realtime-1.5",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3101,14 +6033,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-1.5"
@@ -3121,6 +6081,7 @@
       "name": "GPT-Realtime-2",
       "apiModelId": "gpt-realtime-2",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3128,14 +6089,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-2"
@@ -3148,6 +6137,7 @@
       "name": "GPT-Realtime-2.1",
       "apiModelId": "gpt-realtime-2.1",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3155,14 +6145,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-2.1"
@@ -3175,6 +6193,7 @@
       "name": "GPT-Realtime-2.1 Mini",
       "apiModelId": "gpt-realtime-2.1-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3182,14 +6201,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-2.1-mini"
@@ -3202,6 +6249,7 @@
       "name": "GPT-Realtime-Translate",
       "apiModelId": "gpt-realtime-translate",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3209,14 +6257,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-translate"
@@ -3229,6 +6305,7 @@
       "name": "GPT-Realtime-Whisper",
       "apiModelId": "gpt-realtime-whisper",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3236,14 +6313,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-whisper"
@@ -3256,6 +6361,7 @@
       "name": "GPT-Transcribe",
       "apiModelId": "gpt-transcribe",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3263,14 +6369,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-transcribe"
@@ -3283,6 +6417,7 @@
       "name": "o1 Preview",
       "apiModelId": "o1-preview",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3290,14 +6425,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o1-preview"
@@ -3310,6 +6473,7 @@
       "name": "o1-mini",
       "apiModelId": "o1-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3317,14 +6481,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o1-mini"
@@ -3337,6 +6529,7 @@
       "name": "o1-pro",
       "apiModelId": "o1-pro",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3344,14 +6537,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o1-pro"
@@ -3364,6 +6585,7 @@
       "name": "o3-deep-research",
       "apiModelId": "o3-deep-research",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3371,14 +6593,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o3-deep-research"
@@ -3391,6 +6641,7 @@
       "name": "o3-mini",
       "apiModelId": "o3-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3398,14 +6649,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o3-mini"
@@ -3418,6 +6697,7 @@
       "name": "o3-pro",
       "apiModelId": "o3-pro",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3425,14 +6705,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o3-pro"
@@ -3445,6 +6753,7 @@
       "name": "o4-mini",
       "apiModelId": "o4-mini",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3452,14 +6761,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o4-mini"
@@ -3472,6 +6809,7 @@
       "name": "o4-mini-deep-research",
       "apiModelId": "o4-mini-deep-research",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3479,14 +6817,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o4-mini-deep-research"
@@ -3499,6 +6865,7 @@
       "name": "Grok 4.6",
       "apiModelId": "grok-4.6",
       "releaseState": "DISCOVERED",
+      "relevanceState": "UNCLASSIFIED",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
@@ -3506,14 +6873,42 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "eligibility": "NOT_YET_TESTABLE",
-      "eligibilityReasons": [
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
         "NO_APPROVED_EXECUTABLE_METHODOLOGY"
       ],
-      "testing": "NOT_YET_TESTED",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED"
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED"
+        }
+      ],
+      "surfaces": [],
       "sources": [
         "https://docs.x.ai/developers/models",
         "https://docs.x.ai/developers/models/grok-4.6"

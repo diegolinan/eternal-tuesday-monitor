@@ -107,7 +107,7 @@ const [
   contentManifest,
   freshnessPolicy,
   automatedProbePolicy,
-  scheduledCodexPolicy,
+  monitorView,
   sourceSchema,
   evidenceSchema,
   observationSchema,
@@ -115,7 +115,8 @@ const [
   releaseSchema,
   freshnessPolicySchema,
   automatedProbePolicySchema,
-  scheduledCodexPolicySchema,
+  modelCatalogSchema,
+  modelLifecycleSchema,
   stateEventSchema,
   releaseEntries,
   observationLedger,
@@ -134,7 +135,7 @@ const [
   readJson('content/manifest.json'),
   readJson('config/freshness-policy.json'),
   readJson('config/automated-probe-candidate.json'),
-  readJson('config/codex-scheduled-probe.json'),
+  readJson('public/data/monitor.json'),
   readJson('schemas/source.schema.json'),
   readJson('schemas/evidence.schema.json'),
   readJson('schemas/observation.schema.json'),
@@ -142,7 +143,8 @@ const [
   readJson('schemas/release.schema.json'),
   readJson('schemas/freshness-policy.schema.json'),
   readJson('schemas/automated-probe-policy.schema.json'),
-  readJson('schemas/codex-scheduled-policy.schema.json'),
+  readJson('schemas/model-catalog.schema.json'),
+  readJson('schemas/model-lifecycle.schema.json'),
   readJson('schemas/state-event.schema.json'),
   loadReleases(root),
   readJsonLines(observationPath),
@@ -189,9 +191,12 @@ validateWithSchema('freshness policy', freshnessPolicySchema, [
 validateWithSchema('automated probe policy', automatedProbePolicySchema, [
   automatedProbePolicy,
 ]);
-validateWithSchema('scheduled Codex policy', scheduledCodexPolicySchema, [
-  scheduledCodexPolicy,
-]);
+validateWithSchema('model catalog', modelCatalogSchema, [modelsFile]);
+validateWithSchema(
+  'public model lifecycle',
+  modelLifecycleSchema,
+  monitorView.models,
+);
 validateWithSchema('state event', stateEventSchema, stateEvents);
 
 const collections = [

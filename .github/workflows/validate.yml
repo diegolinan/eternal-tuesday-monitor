@@ -21,6 +21,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run data:validate
+      - run: npm run models:catalog:sync
+      - run: git diff --exit-code -- data/catalog/models.json
       - name: Enforce append-only observation ledger on pull requests
         if: github.event_name == 'pull_request'
         env:

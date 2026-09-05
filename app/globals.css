@@ -2200,46 +2200,258 @@ body::before {
   }
 }
 /* Model identity and readiness are separate from observation verdicts. */
-.model-vendor {
-  border-top: 2px solid var(--ink, #292a28);
-  margin-top: 1rem;
-  padding-top: 0.7rem;
+.model-inventory {
+  background: var(--paper-deep);
+  border-bottom: 8px solid var(--ink);
 }
-.model-vendor summary {
+.coverage-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 32px;
+  border: 3px solid var(--ink);
+}
+.coverage-summary div {
+  min-height: 112px;
+  padding: 16px 18px;
+  border-right: 2px solid var(--ink);
+  background: var(--paper-light);
+}
+.coverage-summary div:last-child {
+  border-right: 0;
+}
+.coverage-summary strong,
+.coverage-summary span {
+  display: block;
+}
+.coverage-summary strong {
+  color: var(--signal);
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.coverage-summary span,
+.coverage-controls label > span,
+.coverage-result-count,
+.coverage-explainer {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+.coverage-controls {
+  display: grid;
+  grid-template-columns: auto minmax(260px, 1fr) minmax(180px, 0.35fr);
+  gap: 16px;
+  margin-top: 26px;
+  align-items: end;
+}
+.coverage-scope {
+  display: flex;
+  border: 3px solid var(--ink);
+}
+.coverage-scope button {
+  min-height: 48px;
+  padding: 9px 14px;
+  border: 0;
+  border-right: 2px solid var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
   cursor: pointer;
-  padding: 0.6rem 0;
-  font-size: 1rem;
+}
+.coverage-scope button:last-child {
+  border-right: 0;
+}
+.coverage-scope button[aria-pressed='true'] {
+  background: var(--petroleum);
+  color: var(--paper-light);
+}
+.coverage-search > span,
+.coverage-vendor > span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.75rem;
+}
+.coverage-search > div {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  border: 3px solid var(--ink);
+  background: var(--paper-light);
+}
+.coverage-search svg {
+  width: 19px;
+}
+.coverage-search input,
+.coverage-vendor select {
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+.coverage-vendor select {
+  min-height: 48px;
+  padding: 0 10px;
+  border: 3px solid var(--ink);
+  background: var(--paper-light);
+}
+.coverage-explainer {
+  margin: 18px 0 0;
+  max-width: 1000px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.coverage-result-count {
+  margin: 30px 0 0;
+  color: var(--signal);
+  font-size: 0.82rem;
 }
 .model-register-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 12px 0 0;
 }
-.model-register-card {
-  border: 1px solid #77766c;
-  padding: 1.2rem;
+.coverage-card {
+  border: 3px solid var(--ink);
+  background: var(--paper-light);
+  box-shadow: 5px 5px 0 var(--teal);
   min-width: 0;
   overflow-wrap: anywhere;
 }
-.model-register-card h3 {
-  font-size: 1.35rem;
+.coverage-card > header {
+  min-height: 48px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--petroleum);
+  color: var(--paper-light);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
-.model-register-card p,
-.model-register-card li,
-.model-register-card dd {
+.coverage-card.state-retest_required > header {
+  background: var(--signal);
+}
+.coverage-card-body {
+  padding: 18px;
+}
+.coverage-card h3 {
+  margin: 0;
+  min-height: 52px;
+  font-size: 1.45rem;
+}
+.coverage-verdict {
+  margin: 7px 0 17px;
+  color: var(--signal);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.coverage-card p,
+.coverage-card li,
+.coverage-card dd {
   font-size: 1rem;
   line-height: 1.5;
 }
-.model-register-card dl {
-  display: grid;
-  gap: 0.25rem;
+.coverage-card dl {
+  margin: 0;
+  border-top: 2px solid var(--ink);
 }
-.model-register-card dt {
+.coverage-card dl div {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--ink);
+}
+.coverage-card dt {
   font-size: 0.875rem;
-  margin-top: 0.7rem;
   font-weight: 700;
 }
-.model-register-card dd {
+.coverage-card dd {
   margin: 0;
+  font-weight: 800;
+}
+.probe-coverage {
+  margin-top: 16px;
+  border: 2px solid var(--ink);
+}
+.probe-coverage div {
+  min-height: 38px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.035em;
+}
+.probe-coverage div:last-child {
+  border-bottom: 0;
+}
+.probe-coverage b {
+  color: var(--signal);
+  text-align: right;
+}
+.coverage-card details {
+  margin-top: 15px;
+  border-top: 2px solid var(--ink);
+}
+.coverage-card summary {
+  padding: 11px 0 5px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.coverage-card ul {
+  padding-left: 20px;
+}
+
+@media (max-width: 1050px) {
+  .coverage-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+  .coverage-scope {
+    grid-column: span 2;
+  }
+  .model-register-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .coverage-summary,
+  .coverage-controls,
+  .model-register-grid {
+    grid-template-columns: 1fr;
+  }
+  .coverage-summary div {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+  .coverage-summary div:last-child {
+    border-bottom: 0;
+  }
+  .coverage-scope {
+    grid-column: auto;
+    flex-direction: column;
+  }
+  .coverage-scope button {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+  .coverage-scope button:last-child {
+    border-bottom: 0;
+  }
 }

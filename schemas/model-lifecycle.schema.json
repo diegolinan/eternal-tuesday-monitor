@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/model-lifecycle.schema.json",
+  "title": "Public model coverage lifecycle record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "vendor", "name", "apiModelId", "releaseState", "relevanceState",
+    "apiState", "accountAccess", "accountCheckedOn", "discoveredOn", "releasedOn",
+    "firstTestedOn", "lastTestedOn", "lifecycleState", "testabilityState",
+    "evaluationReasons", "probeCoverage", "surfaces", "sources", "reviewReasons"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "vendor": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "apiModelId": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
+    "releaseState": { "enum": ["UNKNOWN", "DISCOVERED", "RELEASED", "DEPRECATED", "RETIRED", "SUPERSEDED"] },
+    "relevanceState": { "enum": ["UNCLASSIFIED", "ACTIVE", "FRONTIER", "HISTORICAL", "SUPERSEDED"] },
+    "apiState": { "enum": ["API_UNKNOWN", "API_PENDING", "API_AVAILABLE"] },
+    "accountAccess": { "enum": ["UNKNOWN", "ACCESS_CONFIRMED", "ACCESS_DENIED", "ERROR"] },
+    "accountCheckedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "discoveredOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "releasedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "firstTestedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "lastTestedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "lifecycleState": { "enum": ["DISCOVERED", "EVALUATION_PENDING", "EVALUATION_AVAILABLE", "EVALUATION_NOT_POSSIBLE", "TESTED", "RETEST_REQUIRED"] },
+    "testabilityState": { "enum": ["AVAILABLE", "NOT_CURRENTLY_AVAILABLE", "UNKNOWN_REVIEW_REQUIRED"] },
+    "evaluationReasons": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "probeCoverage": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "state"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "state": { "enum": ["NOT_TESTED", "TESTED", "RETEST_REQUIRED"] }
+        }
+      }
+    },
+    "surfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "product", "name", "kind"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "product": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["PROVIDER_API", "CONSUMER_PRODUCT_SURFACE"] }
+        }
+      }
+    },
+    "sources": { "type": "array", "uniqueItems": true, "items": { "type": "string", "format": "uri" } },
+    "reviewReasons": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+  }
+}

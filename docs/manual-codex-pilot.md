@@ -86,10 +86,9 @@ when archiving a live run; later changes invalidate verification against current
 Temporary working directories are not automatically deleted and contain no copied
 credentials. They can be reviewed and removed separately.
 
-The recurring wrapper is documented separately in
-`docs/scheduled-codex-candidates.md`. It creates a fresh isolated run root and
-one UTC-day receipt for every authorized weekly attempt; it never removes or
-reuses the original manual receipt.
+The former recurring wrapper was retired from the canonical architecture. This
+manual protocol and the accepted 2026-09-05 receipt remain for historical
+reproduction and provenance only.
 
 ## Documentation basis
 

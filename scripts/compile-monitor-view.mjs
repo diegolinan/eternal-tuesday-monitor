@@ -182,6 +182,13 @@ const view = {
     await readJson('config/probe-execution-policy.json'),
     vendors,
     asOf,
+    {
+      catalog: modelsFile.models,
+      probes: probesFile.probes,
+      surfaces,
+      products,
+      projectedObservations: siteObservations,
+    },
   ),
 };
 

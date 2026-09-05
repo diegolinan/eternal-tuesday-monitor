@@ -1,132 +1,232 @@
+'use client';
+
+import { useState } from 'react';
+import { Search } from 'lucide-react';
+
+type ProbeCoverage = {
+  id: string;
+  name: string;
+  state: 'NOT_TESTED' | 'TESTED' | 'RETEST_REQUIRED';
+};
+
 export type DiscoveredModel = {
   id: string;
   name: string;
   vendor: string;
   apiModelId: string | null;
   releaseState: string;
+  relevanceState: string;
   apiState: string;
   accountAccess: string;
   accountCheckedOn: string | null;
-  discoveredOn: string;
+  discoveredOn: string | null;
   releasedOn: string | null;
   firstTestedOn: string | null;
   lastTestedOn: string | null;
-  eligibility: string;
-  eligibilityReasons: string[];
-  testing: string;
+  lifecycleState:
+    | 'DISCOVERED'
+    | 'EVALUATION_PENDING'
+    | 'EVALUATION_AVAILABLE'
+    | 'EVALUATION_NOT_POSSIBLE'
+    | 'TESTED'
+    | 'RETEST_REQUIRED';
+  testabilityState:
+    | 'AVAILABLE'
+    | 'NOT_CURRENTLY_AVAILABLE'
+    | 'UNKNOWN_REVIEW_REQUIRED';
+  evaluationReasons: string[];
+  probeCoverage: ProbeCoverage[];
+  surfaces: Array<{
+    id: string;
+    product: string;
+    name: string;
+    kind: 'PROVIDER_API' | 'CONSUMER_PRODUCT_SURFACE';
+  }>;
   sources: string[];
   reviewReasons: string[];
 };
+
 const label = (value: string) => value.replaceAll('_', ' ');
-export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
-  const vendors = [...new Set(models.map((model) => model.vendor))].sort();
+const focusStates = new Set([
+  'TESTED',
+  'RETEST_REQUIRED',
+  'EVALUATION_AVAILABLE',
+  'EVALUATION_PENDING',
+]);
+const reasonLabels: Record<string, string> = {
+  API_UNKNOWN: 'API availability has not been established',
+  API_PENDING: 'The provider documents API access as pending',
+  ACCOUNT_ACCESS_NOT_CONFIRMED: 'Account access has not been confirmed',
+  ACCOUNT_ACCESS_CHECK_STALE: 'The latest account access check is stale',
+  NO_APPROVED_EXECUTABLE_METHODOLOGY:
+    'No provider methodology is approved for automatic execution',
+  IDENTITY_OR_SOURCE_REVIEW_REQUIRED:
+    'Identity or source metadata requires review',
+  MODEL_LIFECYCLE_BLOCKED: 'The official model lifecycle blocks evaluation',
+  ENDPOINT_OR_PARAMETERS_UNSUPPORTED:
+    'The approved harness is incompatible with the documented API surface',
+  ACCESS_DENIED: 'The configured account does not have access',
+  ERROR: 'The latest access check failed',
+};
+
+function LifecycleCard({ model }: { model: DiscoveredModel }) {
   return (
-    <section
-      className="monitor-section model-inventory"
-      id="models"
-      aria-labelledby="models-title"
-    >
+    <article className={`coverage-card state-${model.lifecycleState.toLowerCase()}`}>
+      <header>
+        <span>{model.vendor}</span>
+        <strong>{label(model.lifecycleState)}</strong>
+      </header>
+      <div className="coverage-card-body">
+        <h3>{model.name}</h3>
+        <p className="coverage-verdict">NO VERDICT IMPLIED</p>
+        <dl>
+          <div>
+            <dt>Canonical API ID</dt>
+            <dd>{model.apiModelId ?? 'Not established'}</dd>
+          </div>
+          <div>
+            <dt>Discovered</dt>
+            <dd>{model.discoveredOn ?? 'Not established'}</dd>
+          </div>
+          <div>
+            <dt>API availability</dt>
+            <dd>{label(model.apiState)}</dd>
+          </div>
+          <div>
+            <dt>Testability</dt>
+            <dd>{label(model.testabilityState)}</dd>
+          </div>
+          <div>
+            <dt>Reviewed relevance</dt>
+            <dd>{label(model.relevanceState)}</dd>
+          </div>
+        </dl>
+        <div className="probe-coverage" aria-label={`${model.name} probe coverage`}>
+          {model.probeCoverage.map((probe) => (
+            <div key={probe.id}>
+              <span>{probe.name}</span>
+              <b>{label(probe.state)}</b>
+            </div>
+          ))}
+        </div>
+        <details>
+          <summary>Evidence boundary and provenance</summary>
+          <p>
+            {model.evaluationReasons.length
+              ? model.evaluationReasons
+                  .map((reason) => reasonLabels[reason] ?? label(reason))
+                  .join('. ')
+              : 'No mechanical blocker is currently recorded.'}
+          </p>
+          {model.surfaces.length ? (
+            <ul>
+              {model.surfaces.map((surface) => (
+                <li key={surface.id}>
+                  {surface.product} / {surface.name} · {label(surface.kind)}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No product surface is inferred from catalog or API metadata.</p>
+          )}
+          {model.sources.length ? (
+            <ul>
+              {model.sources.map((url, index) => (
+                <li key={url}>
+                  <a href={url} target="_blank" rel="noreferrer">
+                    Official discovery source {index + 1}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>This manually curated identity has no discovery-event source.</p>
+          )}
+        </details>
+      </div>
+    </article>
+  );
+}
+
+export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
+  const [scope, setScope] = useState<'focus' | 'all'>('focus');
+  const [query, setQuery] = useState('');
+  const [vendor, setVendor] = useState('ALL');
+  const vendors = [...new Set(models.map((model) => model.vendor))].sort();
+  const counts = models.reduce<Record<string, number>>((result, model) => {
+    result[model.lifecycleState] = (result[model.lifecycleState] ?? 0) + 1;
+    return result;
+  }, {});
+  const visible = (() => {
+    const needle = query.trim().toLowerCase();
+    return models.filter((model) => {
+      const focused =
+        focusStates.has(model.lifecycleState) ||
+        ['ACTIVE', 'FRONTIER'].includes(model.relevanceState);
+      const matchesText =
+        !needle ||
+        `${model.name} ${model.vendor} ${model.apiModelId ?? ''}`
+          .toLowerCase()
+          .includes(needle);
+      return (
+        (scope === 'all' || focused || Boolean(needle)) &&
+        (vendor === 'ALL' || model.vendor === vendor) &&
+        matchesText
+      );
+    });
+  })();
+  const displayed = visible.slice(0, 24);
+
+  return (
+    <section className="monitor-section model-inventory" id="models" aria-labelledby="models-title">
       <div className="section-heading">
         <div>
-          <p className="section-code">MODEL REGISTER</p>
-          <h2 id="models-title">Discovered models</h2>
+          <p className="section-code">MODEL COVERAGE</p>
+          <h2 id="models-title">What the Monitor knows</h2>
         </div>
         <p>
-          Model existence is separate from temporal evidence. API metadata does
-          not describe a consumer product. Absence from this register does not
-          establish that a model does not exist.
+          Catalog existence and empirical evidence are different records. An API
+          identity never proves behavior in ChatGPT or another consumer product.
         </p>
       </div>
-      <p>
-        {models.length} reviewed model entries ·{' '}
-        {models.filter((m) => m.testing !== 'TESTED').length} not yet tested by
-        an approved API protocol.
+
+      <div className="coverage-summary" aria-label="Model lifecycle counts">
+        <div><strong>{models.length}</strong><span>Known named models</span></div>
+        <div><strong>{counts.TESTED ?? 0}</strong><span>Tested</span></div>
+        <div><strong>{counts.RETEST_REQUIRED ?? 0}</strong><span>Retest required</span></div>
+        <div><strong>{models.filter((model) => !['TESTED', 'RETEST_REQUIRED'].includes(model.lifecycleState)).length}</strong><span>Not yet tested</span></div>
+      </div>
+
+      <div className="coverage-controls">
+        <div className="coverage-scope" aria-label="Model coverage scope">
+          <button type="button" aria-pressed={scope === 'focus'} onClick={() => setScope('focus')}>Evidence focus</button>
+          <button type="button" aria-pressed={scope === 'all'} onClick={() => setScope('all')}>All known models</button>
+        </div>
+        <label className="coverage-search">
+          <span>Find a model or API ID</span>
+          <div><Search aria-hidden="true" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search the accepted catalog" /></div>
+        </label>
+        <label className="coverage-vendor">
+          <span>Vendor</span>
+          <select value={vendor} onChange={(event) => setVendor(event.target.value)}>
+            <option value="ALL">All vendors</option>
+            {vendors.map((item) => <option key={item} value={item}>{item}</option>)}
+          </select>
+        </label>
+      </div>
+      <p className="coverage-explainer">
+        Evidence focus shows tested, retest, evaluation-ready, pending, or explicitly reviewed active/frontier models. The full accepted catalog remains searchable; relevance is never guessed from a name or version.
       </p>
-      {!models.length && (
-        <p>
-          Discovery candidates are awaiting catalog review. The dated
-          observations below remain unchanged.
-        </p>
+      <p className="coverage-result-count">
+        Showing {displayed.length} of {visible.length} matching models.
+      </p>
+      {displayed.length ? (
+        <div className="model-register-grid">
+          {displayed.map((model) => <LifecycleCard key={model.id} model={model} />)}
+        </div>
+      ) : (
+        <div className="empty-state"><span>NO MATCHING MODEL</span><p>Try the full catalog, another vendor, or a model/API identifier.</p></div>
       )}
-      <p>
-        <a href="https://github.com/diegolinan/eternal-tuesday-monitor/pulls">
-          Review proposed catalog additions
-        </a>
-      </p>
-      {vendors.map((vendor) => (
-        <details key={vendor} className="model-vendor">
-          <summary>
-            {vendor} · {models.filter((m) => m.vendor === vendor).length} model
-            entries
-          </summary>
-          <div className="model-register-grid">
-            {models
-              .filter((m) => m.vendor === vendor)
-              .map((model) => (
-                <article key={model.id} className="model-register-card">
-                  <h3>{model.name}</h3>
-                  <p>
-                    {label(model.releaseState)} · {label(model.testing)}
-                  </p>
-                  <dl>
-                    <dt>API identity</dt>
-                    <dd>{model.apiModelId ?? 'Not established'}</dd>
-                    <dt>API status</dt>
-                    <dd>{label(model.apiState)}</dd>
-                    <dt>Account access, last check</dt>
-                    <dd>
-                      {label(model.accountAccess)}
-                      {model.accountCheckedOn
-                        ? ` · ${model.accountCheckedOn}`
-                        : ''}
-                    </dd>
-                    <dt>Probe readiness</dt>
-                    <dd>{label(model.eligibility)}</dd>
-                    <dt>Discovered</dt>
-                    <dd>{model.discoveredOn}</dd>
-                    <dt>Vendor release date</dt>
-                    <dd>{model.releasedOn ?? 'Not established'}</dd>
-                    {model.firstTestedOn && (
-                      <>
-                        <dt>First accepted API test</dt>
-                        <dd>{model.firstTestedOn}</dd>
-                      </>
-                    )}
-                  </dl>
-                  {model.testing !== 'TESTED' && (
-                    <p>
-                      No accepted temporal probe evidence for this API identity.
-                      No PASS or FAIL is assigned.
-                    </p>
-                  )}
-                  <details>
-                    <summary>Provenance and readiness</summary>
-                    {model.reviewReasons.length > 0 && (
-                      <p>
-                        Identity/source review:{' '}
-                        {model.reviewReasons.map(label).join('; ')}
-                      </p>
-                    )}
-                    <ul>
-                      {model.eligibilityReasons.map((reason) => (
-                        <li key={reason}>{label(reason)}</li>
-                      ))}
-                    </ul>
-                    <ul>
-                      {model.sources.map((url, i) => (
-                        <li key={url}>
-                          <a href={url} target="_blank" rel="noreferrer">
-                            Official source {i + 1}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                </article>
-              ))}
-          </div>
-        </details>
-      ))}
     </section>
   );
 }

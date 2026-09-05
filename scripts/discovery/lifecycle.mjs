@@ -74,6 +74,96 @@ export function eligibility(model, policy, asOf) {
   };
 }
 
+const EMPIRICAL_EVIDENCE = new Set([
+  'evidence-controlled-experiment',
+  'evidence-reproduced-observation',
+]);
+
+export function assessTestability(model, policy, asOf) {
+  const assessment = eligibility(model, policy, asOf);
+  if (assessment.targets.length)
+    return {
+      state: 'AVAILABLE',
+      reasons: assessment.reasons,
+      targets: assessment.targets,
+    };
+  const determinateBlockers = new Set([
+    'PROVIDER_DISABLED',
+    'MODEL_DENIED',
+    'MODEL_LIFECYCLE_BLOCKED',
+    'API_PENDING',
+    'ACCESS_DENIED',
+    'ERROR',
+    'ENDPOINT_OR_PARAMETERS_UNSUPPORTED',
+  ]);
+  const knownApiWithoutMethod =
+    model.api_state === 'API_AVAILABLE' &&
+    model.account_access === 'ACCESS_CONFIRMED' &&
+    assessment.reasons.includes('NO_APPROVED_EXECUTABLE_METHODOLOGY');
+  return {
+    state:
+      knownApiWithoutMethod ||
+      assessment.reasons.some((reason) => determinateBlockers.has(reason))
+        ? 'NOT_CURRENTLY_AVAILABLE'
+        : 'UNKNOWN_REVIEW_REQUIRED',
+    reasons: assessment.reasons,
+    targets: [],
+  };
+}
+
+export function evaluationLifecycle({
+  model,
+  observations,
+  policy,
+  probes,
+  asOf,
+  pending = false,
+}) {
+  const empirical = observations.filter(
+    (observation) =>
+      observation.model_id === model.id &&
+      EMPIRICAL_EVIDENCE.has(observation.evidence_class_id),
+  );
+  const testability = assessTestability(model, policy, asOf);
+  const probeCoverage = probes.map((probe) => {
+    const records = empirical.filter(
+      (observation) => observation.probe_id === probe.id,
+    );
+    return {
+      id: probe.id,
+      name: probe.name,
+      state: records.some(
+        (observation) =>
+          observation.currentSufficiency === 'RETEST_REQUIRED',
+      )
+        ? 'RETEST_REQUIRED'
+        : records.length
+          ? 'TESTED'
+          : 'NOT_TESTED',
+    };
+  });
+  const retestRequired = probeCoverage.some(
+    (probe) => probe.state === 'RETEST_REQUIRED',
+  );
+  const lifecycleState = retestRequired
+    ? 'RETEST_REQUIRED'
+    : empirical.length
+      ? 'TESTED'
+      : pending
+        ? 'EVALUATION_PENDING'
+        : testability.state === 'AVAILABLE'
+          ? 'EVALUATION_AVAILABLE'
+          : testability.state === 'NOT_CURRENTLY_AVAILABLE'
+            ? 'EVALUATION_NOT_POSSIBLE'
+            : 'DISCOVERED';
+  return {
+    lifecycleState,
+    testability,
+    probeCoverage,
+    empiricalObservations: empirical,
+  };
+}
+
 export function normalizeDiscoveries(facts, previous, catalog, asOf) {
   const models = structuredClone(previous);
   const touched = new Set();
@@ -321,6 +411,12 @@ export function supersessionEvents(models, catalog, policy, asOf) {
       (m) =>
         m.supersedes_model_id &&
         !m.review_reasons.length &&
+        catalog.some(
+          (entry) =>
+            entry.id === m.id &&
+            entry.supersedes_model_id === m.supersedes_model_id &&
+            entry.supersession_review?.status === 'REVIEWED_ACCEPTED',
+        ) &&
         catalog.some(
           (old) =>
             old.id === m.supersedes_model_id && old.vendor_id === m.vendor_id,

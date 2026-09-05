@@ -1,0 +1,40 @@
+{
+  "quality": "PARSER_REPLAY_NORMALIZED_FACT",
+  "authentic_raw_snapshot_available": false,
+  "note": "The repository preserved accepted source URLs and hashes but not the raw HTTP bodies. This fixture copies the normalized accepted fact and must not be described as a raw historical-source replay.",
+  "as_of": "2026-09-05",
+  "expected_id": "model-discovered-e8ec7ed4b30b4efbaf48",
+  "fact": {
+    "vendor_id": "vendor-openai",
+    "display_name": "GPT-6 Astra",
+    "api_model_id": "gpt-6-astra",
+    "family": null,
+    "version": null,
+    "channel": "UNKNOWN",
+    "released_on": null,
+    "api_state": "API_UNKNOWN",
+    "account_access": "UNKNOWN",
+    "release_state": "DISCOVERED",
+    "endpoints": [],
+    "capabilities": [],
+    "supported_parameters": [],
+    "aliases": [],
+    "supersedes_model_id": null,
+    "provenance": [
+      {
+        "source_id": "discovery-openai-docs",
+        "url": "https://developers.openai.com/api/docs/models/all",
+        "checked_on": "2026-09-05",
+        "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
+        "parser_version": "1"
+      },
+      {
+        "source_id": "discovery-openai-docs",
+        "url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "checked_on": "2026-09-05",
+        "sha256": "97df526d260c4c9c25f78069f5d98d564e8222264e02a67b14c3752b55010e42",
+        "parser_version": "1"
+      }
+    ]
+  }
+}

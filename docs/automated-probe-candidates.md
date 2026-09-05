@@ -17,7 +17,7 @@ Changes to the runner, its schemas or its policy trigger the workflow on `main`,
 
 `config/automated-probe-candidate.json` is the reviewed switch and contract. `execution_enabled` is currently `false`. In that state, the workflow writes a disabled run report and stops before credential validation or any network request. The local `.env.local` key is not uploaded; a future live GitHub Actions run requires an `OPENAI_API_KEY` repository secret and active API billing.
 
-Live execution also refuses to start if the protocol's pricing check is more than seven days old. Enabling the switch therefore requires reviewing current pricing and updating its dated source, not merely changing a Boolean. The active recurring path instead uses the separately documented Codex/Business workspace flow.
+Live execution also refuses to start if the protocol's pricing check is more than seven days old. Enabling the switch therefore requires reviewing current pricing and updating its dated source, not merely changing a Boolean. There is no active recurring inference path; the former Luna-specific Codex/Business scheduler was retired.
 
 ## Review boundary
 

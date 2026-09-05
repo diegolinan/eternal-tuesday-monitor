@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run data:validate
+      - run: npm run models:catalog:sync
+      - run: git diff --exit-code -- data/catalog/models.json
       - run: npm run data:compile
       - run: git diff --exit-code -- public/data/monitor.json
       - run: npm test

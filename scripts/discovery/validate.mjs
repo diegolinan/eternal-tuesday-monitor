@@ -22,6 +22,7 @@ export async function validateDiscovery(root) {
   for (const [schema, items] of [
     ['model-discovery-config', [config]],
     ['model-discovery-event', events],
+    ['model-catalog', [{ schema_version: '2.0.0', models: catalog }]],
   ]) {
     const validate = ajv.compile(await json(`schemas/${schema}.schema.json`));
     for (const item of items)
@@ -44,6 +45,33 @@ export async function validateDiscovery(root) {
   const ids = new Set();
   const known = new Map();
   const apiIds = new Map();
+  const canonicalNames = new Map();
+  for (const model of catalog) {
+    const nameKey = `${model.vendor_id}|${model.name.trim().toLowerCase().replace(/\s+/g, ' ')}`;
+    if (
+      model.identity_status === 'named' &&
+      canonicalNames.has(nameKey) &&
+      canonicalNames.get(nameKey) !== model.id
+    )
+      errors.push(`duplicate canonical identity ${nameKey}`);
+    canonicalNames.set(nameKey, model.id);
+    for (const identity of [model.api_model_id, ...(model.aliases ?? [])].filter(Boolean)) {
+      const key = `${model.vendor_id}|${identity}`;
+      if (apiIds.has(key) && apiIds.get(key) !== model.id)
+        errors.push(`duplicate catalog API identity or alias ${key}`);
+      apiIds.set(key, model.id);
+    }
+    if (model.api_model_id && model.aliases?.includes(model.api_model_id))
+      errors.push(`canonical API ID repeated as alias ${model.id}`);
+    if (model.supersedes_model_id) {
+      const prior = catalog.find((entry) => entry.id === model.supersedes_model_id);
+      if (!prior || prior.id === model.id || prior.vendor_id !== model.vendor_id)
+        errors.push(`invalid reviewed catalog supersession ${model.id}`);
+      if (model.supersession_review?.status !== 'REVIEWED_ACCEPTED')
+        errors.push(`unreviewed catalog supersession ${model.id}`);
+    }
+  }
+  apiIds.clear();
   for (const event of events) {
     if (ids.has(event.id)) errors.push(`duplicate discovery event ${event.id}`);
     ids.add(event.id);
@@ -95,6 +123,23 @@ export async function validateDiscovery(root) {
     }
     known.set(model.id, model);
   }
+  for (const model of latestModelsForValidation(events)) {
+    const entry = catalog.find((item) => item.id === model.id);
+    if (!entry) continue;
+    for (const [catalogField, eventField] of [
+      ['api_model_id', 'api_model_id'],
+      ['release_state', 'release_state'],
+    ])
+      if (entry[catalogField] !== model[eventField])
+        errors.push(`catalog snapshot mismatch ${model.id}.${catalogField}`);
+    if (JSON.stringify(entry.aliases) !== JSON.stringify(model.aliases))
+      errors.push(`catalog snapshot mismatch ${model.id}.aliases`);
+    if (
+      JSON.stringify(entry.discovery_provenance) !==
+      JSON.stringify(model.provenance)
+    )
+      errors.push(`catalog snapshot mismatch ${model.id}.discovery_provenance`);
+  }
   const policy = await json('config/probe-execution-policy.json');
   if (
     policy.execution_enabled !== false ||
@@ -136,4 +181,10 @@ export async function validateDiscovery(root) {
     }
   }
   return errors;
+}
+
+function latestModelsForValidation(events) {
+  const models = new Map();
+  for (const event of events) models.set(event.model.id, event.model);
+  return [...models.values()];
 }

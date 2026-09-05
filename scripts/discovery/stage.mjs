@@ -46,13 +46,31 @@ for (const event of additions) {
 }
 for (const event of additions) {
   const m = event.model;
-  if (!catalog.models.some((old) => old.id === m.id))
+  const existing = catalog.models.find((old) => old.id === m.id);
+  if (!existing)
     catalog.models.push({
       id: m.id,
       vendor_id: m.vendor_id,
       name: m.display_name,
       identity_status: 'named',
+      catalog_status: 'ACCEPTED_DISCOVERY',
+      api_model_id: m.api_model_id,
+      aliases: m.aliases,
+      release_state: m.release_state,
+      relevance_state: 'UNCLASSIFIED',
+      relevance_review: null,
+      supersedes_model_id: m.supersedes_model_id,
+      supersession_review: null,
+      discovery_provenance: m.provenance,
     });
+  else {
+    existing.name = m.display_name;
+    existing.catalog_status = 'ACCEPTED_DISCOVERY';
+    existing.api_model_id = m.api_model_id;
+    existing.aliases = m.aliases;
+    existing.release_state = m.release_state;
+    existing.discovery_provenance = m.provenance;
+  }
 }
 const escape = (value) =>
   String(value ?? 'UNKNOWN')

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { fact } from '../scripts/discovery/adapters/common.mjs';
 import * as openai from '../scripts/discovery/adapters/openai.mjs';
@@ -12,6 +13,7 @@ import {
   eligibility,
   supersessionEvents,
   applyAvailabilityFailures,
+  evaluationLifecycle,
 } from '../scripts/discovery/lifecycle.mjs';
 import { evaluateObservationFreshness } from '../scripts/lib/freshness.mjs';
 import { projectModels } from '../scripts/discovery/project.mjs';
@@ -222,8 +224,9 @@ test('new API models cannot mark consumer-product observations as API tests', ()
     new Map([['vendor-openai', { name: 'OpenAI' }]]),
     '2026-09-04',
   );
-  assert.equal(view[0].testing, 'TEST_PENDING');
-  assert.equal(view[0].firstTestedOn, null);
+  assert.equal(view[0].lifecycleState, 'TESTED');
+  assert.equal(view[0].surfaces.length, 1);
+  assert.equal(view[0].surfaces[0].kind, 'CONSUMER_PRODUCT_SURFACE');
   assert.deepEqual(observations, before);
 });
 test('deprecated model remains in history and cannot become a target', () => {
@@ -239,7 +242,15 @@ test('only explicit same-vendor supersession propagates a retest', () => {
   const model = { ...callable(), supersedes_model_id: 'model-old' };
   const events = supersessionEvents(
     [model],
-    [{ id: 'model-old', vendor_id: 'vendor-openai' }],
+    [
+      { id: 'model-old', vendor_id: 'vendor-openai' },
+      {
+        id: model.id,
+        vendor_id: 'vendor-openai',
+        supersedes_model_id: 'model-old',
+        supersession_review: { status: 'REVIEWED_ACCEPTED' },
+      },
+    ],
     policy,
     '2026-09-04',
   );
@@ -383,6 +394,111 @@ test('official fetch rejects redirected foreign hosts and excessive responses', 
         async () => new Response('oversized'),
       ),
     /TOO_LARGE/,
+  );
+});
+
+test('Astra parser replay is deterministic, deduplicated and creates no observation or verdict', async () => {
+  const root = new URL('./fixtures/model-discovery/', import.meta.url);
+  const catalog = JSON.parse(
+    await readFile(new URL('pre-pr-1-catalog.json', root), 'utf8'),
+  );
+  const replay = JSON.parse(
+    await readFile(new URL('astra-parser-replay.json', root), 'utf8'),
+  );
+  assert.equal(replay.quality, 'PARSER_REPLAY_NORMALIZED_FACT');
+  assert.equal(
+    catalog.models.some((model) => model.id === replay.expected_id),
+    false,
+  );
+  const first = normalizeDiscoveries(
+    [replay.fact],
+    [],
+    catalog.models,
+    replay.as_of,
+  );
+  assert.equal(first.length, 1);
+  assert.equal(first[0].id, replay.expected_id);
+  assert.equal(first[0].provenance.length, 2);
+  const events = proposeEvents(first, [], replay.as_of);
+  assert.equal(events.length, 1);
+  assert.equal('observedResult' in events[0], false);
+  assert.equal('observation' in events[0], false);
+  const second = normalizeDiscoveries(
+    [replay.fact],
+    first,
+    [...catalog.models, { id: first[0].id, vendor_id: first[0].vendor_id, name: first[0].display_name }],
+    replay.as_of,
+  );
+  assert.equal(proposeEvents(second, first, replay.as_of).length, 0);
+  const parser = await readFile(
+    new URL('../scripts/discovery/adapters/openai.mjs', import.meta.url),
+    'utf8',
+  );
+  assert.equal(parser.toLowerCase().includes('astra'), false);
+});
+
+test('arbitrary model follows the same lifecycle without a special case', () => {
+  const arbitrary = sample({
+    display_name: 'Arbitrary Horizon Model',
+    api_model_id: 'gpt-arbitrary-horizon',
+  });
+  const [model] = normalize([arbitrary]);
+  const first = proposeEvents([model], [], '2026-09-04');
+  assert.equal(first.length, 1);
+  const lifecycle = evaluationLifecycle({
+    model,
+    observations: [],
+    policy: { ...policy, methodologies: [] },
+    probes: [
+      { id: 'p1', name: 'A' },
+      { id: 'p2', name: 'B' },
+      { id: 'p3', name: 'C' },
+      { id: 'p4', name: 'D' },
+      { id: 'p5', name: 'E' },
+    ],
+    asOf: '2026-09-04',
+  });
+  assert.equal(lifecycle.lifecycleState, 'DISCOVERED');
+  assert.deepEqual(
+    lifecycle.probeCoverage.map((probe) => probe.state),
+    Array(5).fill('NOT_TESTED'),
+  );
+});
+
+test('all public lifecycle states are produced from explicit fixture conditions', () => {
+  const probes = [1, 2, 3, 4, 5].map((number) => ({
+    id: `p${number}`,
+    name: `Probe ${number}`,
+  }));
+  const model = callable();
+  const base = { model, observations: [], policy, probes, asOf: '2026-09-04' };
+  assert.equal(evaluationLifecycle(base).lifecycleState, 'EVALUATION_AVAILABLE');
+  assert.equal(
+    evaluationLifecycle({ ...base, pending: true }).lifecycleState,
+    'EVALUATION_PENDING',
+  );
+  assert.equal(
+    evaluationLifecycle({ ...base, model: { ...model, api_state: 'API_PENDING' } }).lifecycleState,
+    'EVALUATION_NOT_POSSIBLE',
+  );
+  const tested = {
+    id: 'obs-fixture',
+    model_id: model.id,
+    probe_id: 'p1',
+    evidence_class_id: 'evidence-controlled-experiment',
+    observation_date: { value: '2026-09-04', precision: 'day' },
+    currentSufficiency: 'SUFFICIENT',
+  };
+  assert.equal(
+    evaluationLifecycle({ ...base, observations: [tested] }).lifecycleState,
+    'TESTED',
+  );
+  assert.equal(
+    evaluationLifecycle({
+      ...base,
+      observations: [{ ...tested, currentSufficiency: 'RETEST_REQUIRED' }],
+    }).lifecycleState,
+    'RETEST_REQUIRED',
   );
 });
 test('model listing is GET-only and credentials never enter URL or returned artifacts', async () => {
