@@ -3,7 +3,7 @@
   "policy_id": "official-model-relevance-v1",
   "automatic_acceptance": {
     "source_authority": "vendor",
-    "source_types": ["official-model-index", "authenticated-model-list"],
+    "source_types": ["official-model-index"],
     "require_exact_api_id": true,
     "require_unique_identity": true,
     "require_zero_review_reasons": true,

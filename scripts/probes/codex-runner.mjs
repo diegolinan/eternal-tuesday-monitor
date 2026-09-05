@@ -12,7 +12,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import { makeCases, sha256 } from './protocol.mjs';
+import { makeCases, sha256 } from './time-cases.mjs';
 import {
   codexProtocol as protocol,
   answerSchema,
@@ -25,7 +25,7 @@ import {
 } from './codex-protocol.mjs';
 
 const files = [
-  'scripts/probes/protocol.mjs',
+  'scripts/probes/time-cases.mjs',
   'scripts/probes/codex-protocol.mjs',
   'scripts/probes/codex-runner.mjs',
   'scripts/probes/codex-cli.mjs',

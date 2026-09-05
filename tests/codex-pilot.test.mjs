@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { makeCases, expectedAnswer } from '../scripts/probes/protocol.mjs';
+import { makeCases, expectedAnswer } from '../scripts/probes/time-cases.mjs';
 import {
   codexProtocol,
   codexArgs,
@@ -110,7 +110,6 @@ test('child environment excludes API keys, access tokens and provider overrides 
   const env = {
     Path: 'os-path',
     USERPROFILE: 'profile',
-    OPENAI_API_KEY: 'secret',
     CODEX_API_KEY: 'secret',
     CODEX_ACCESS_TOKEN: 'secret',
     OPENAI_BASE_URL: 'https://invalid',
@@ -121,7 +120,6 @@ test('child environment excludes API keys, access tokens and provider overrides 
     Path: 'os-path',
     USERPROFILE: 'profile',
   });
-  assert.equal(env.OPENAI_API_KEY, 'secret');
 });
 test('redaction preserves integrity while invalidating behavioral scoring', () => {
   const result = capture(

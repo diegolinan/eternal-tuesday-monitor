@@ -65,7 +65,8 @@ export type DiscoveredModel = {
     | 'ELIGIBILITY_READY'
     | 'BLOCKED'
     | 'ALREADY_TESTED'
-    | 'RETEST_POLICY';
+    | 'RETEST_POLICY'
+    | 'TEST_REQUIRED';
   queueReasons: string[];
   executionState: 'NOT_RUN' | 'COMPLETED' | 'OPERATIONAL_ERROR' | 'EXECUTION_BLOCKED_COST_POLICY';
   probeCoverage: ProbeCoverage[];
@@ -97,6 +98,10 @@ const reasonLabels: Record<string, string> = {
   ERROR: 'The latest access check failed',
   PROVIDER_CREDENTIAL_NOT_CONFIGURED:
     'API verification requires configured provider credentials',
+  PUBLIC_SOURCE_IDENTITY_ONLY:
+    'The official public source establishes identity, not account access or behavior',
+  NO_CURRENT_BEHAVIORAL_EVIDENCE:
+    'No current behavioral evidence has been established for this model',
   NO_APPROVED_METHODOLOGY: 'This probe needs a reviewed executable methodology',
   PROVIDER_SEMANTICS_REQUIRE_REVIEW:
     'Provider semantics require human review before this methodology can be reused',
@@ -129,14 +134,14 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
     >
       <header>
         <span>{model.vendor}</span>
-        <strong>{label(model.lifecycleState)}</strong>
+        <strong>{model.lifecycleState === 'DISCOVERED' || model.lifecycleState === 'EVALUATION_PENDING' ? 'NEW / CURRENT' : label(model.lifecycleState)}</strong>
       </header>
       <div className="coverage-card-body">
         <h3>{model.name}</h3>
         <p className="coverage-verdict">NO VERDICT IMPLIED</p>
         <dl>
           <div>
-            <dt>Canonical API ID</dt>
+            <dt>Official model ID</dt>
             <dd>{model.apiModelId ?? 'Not established'}</dd>
           </div>
           <div>
@@ -144,20 +149,20 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
             <dd>{model.discoveredOn ?? 'Not established'}</dd>
           </div>
           <div>
-            <dt>API availability</dt>
-            <dd>{label(model.apiAvailabilityState)}</dd>
+            <dt>Official source detected</dt>
+            <dd>{model.discoveredOn ?? 'Not established'}</dd>
           </div>
           <div>
-            <dt>Probe compatibility</dt>
-            <dd>{label(model.testabilityState)}</dd>
+            <dt>Behavioral evidence</dt>
+            <dd>{model.probeCoverage.some((probe) => probe.empiricalResult || probe.state === 'TESTED') ? 'CURRENT EVIDENCE AVAILABLE' : 'NOT YET TESTED'}</dd>
           </div>
           <div>
             <dt>Evaluation queue</dt>
             <dd>{label(model.queueState)}</dd>
           </div>
           <div>
-            <dt>Execution state</dt>
-            <dd>{label(model.executionState)}</dd>
+            <dt>Evaluation status</dt>
+            <dd>{model.queueState === 'TEST_REQUIRED' ? 'TEST REQUIRED' : label(model.queueState)}</dd>
           </div>
           <div>
             <dt>Reviewed relevance</dt>
@@ -171,15 +176,15 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
           {model.probeCoverage.map((probe) => (
             <div key={probe.id}>
               <span>{probe.name}</span>
-              <b>{label(probe.eligibilityState)}</b>
-              <small>{probe.empiricalResult ? `API result: ${label(probe.empiricalResult)}` : label(probe.state)}</small>
+              <b>{probe.empiricalResult ? label(probe.empiricalResult) : 'NO CURRENT EVIDENCE'}</b>
+              <small>{label(probe.state)}</small>
             </div>
           ))}
         </div>
         {(model.apiAvailabilityReasons.length > 0 ||
           model.queueReasons.length > 0) && (
           <div className="coverage-blocker" role="note">
-            <strong>What prevents the next step</strong>
+            <strong>Evidence boundary</strong>
             <p>
               {explainReasons([
                 ...new Set([
@@ -289,9 +294,9 @@ export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
           <h2 id="models-title">What the Monitor knows</h2>
         </div>
         <p>
-          Discovery, API availability, probe compatibility, and empirical
-          evidence are separate records. An API identity or API result never
-          proves behavior in ChatGPT or another consumer product.
+          Entity discovery, vendor source evidence, and behavioral observation
+          are separate records. A public model identity never proves behavior
+          or adoption by ChatGPT or another consumer product.
         </p>
       </div>
 

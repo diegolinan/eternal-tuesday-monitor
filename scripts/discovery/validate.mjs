@@ -9,6 +9,9 @@ export async function validateDiscovery(root) {
     JSON.parse(await readFile(path.join(root, file), 'utf8'));
   const config = await json('config/model-discovery.json');
   const relevancePolicy = await json('config/model-relevance-policy.json');
+  const retiredSources = new Set(
+    (await json('config/retired-discovery-sources.json')).retired_source_ids,
+  );
   const events = (
     await readFile(path.join(root, 'data/model-discovery/events.jsonl'), 'utf8')
   )
@@ -120,7 +123,11 @@ export async function validateDiscovery(root) {
     if (ids.has(event.id)) errors.push(`duplicate discovery event ${event.id}`);
     ids.add(event.id);
     const model = event.model;
+    const historicalOnly = model.provenance.every((item) =>
+      retiredSources.has(item.source_id),
+    );
     if (
+      !historicalOnly &&
       !catalog.some((m) => m.id === model.id && m.vendor_id === model.vendor_id)
     )
       errors.push(`model absent from catalog ${model.id}`);
@@ -159,6 +166,7 @@ export async function validateDiscovery(root) {
         (s) => s.id === provenance.source_id && s.vendor_id === model.vendor_id,
       );
       try {
+        if (!source && retiredSources.has(provenance.source_id)) continue;
         if (!source) throw new Error();
         allowedUrl(provenance.url, source);
       } catch {

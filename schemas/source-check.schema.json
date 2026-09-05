@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/source-check.schema.json",
+  "title": "Auditable public source check",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "id", "source_id", "vendor_id", "source_class", "url",
+    "checked_at", "result_status", "http_status", "publication_date", "etag",
+    "last_modified", "content_sha256", "previous_content_sha256", "meaningful_change",
+    "entities_extracted", "normalized_identifiers", "adapter", "adapter_version",
+    "parser_version", "commit_sha", "workflow_run", "parser_error", "raw_snapshot_path"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "id": { "type": "string", "pattern": "^source-check-[a-f0-9]{24}$" },
+    "source_id": { "type": "string", "minLength": 1 },
+    "vendor_id": { "type": "string", "minLength": 1 },
+    "source_class": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "format": "uri" },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "result_status": { "type": "string", "minLength": 1 },
+    "http_status": { "oneOf": [{ "type": "integer", "minimum": 100, "maximum": 599 }, { "type": "null" }] },
+    "publication_date": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "etag": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "last_modified": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "content_sha256": { "oneOf": [{ "type": "string", "pattern": "^[a-f0-9]{64}$" }, { "type": "null" }] },
+    "previous_content_sha256": { "oneOf": [{ "type": "string", "pattern": "^[a-f0-9]{64}$" }, { "type": "null" }] },
+    "meaningful_change": { "type": "boolean" },
+    "entities_extracted": { "type": "integer", "minimum": 0 },
+    "normalized_identifiers": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "adapter": { "type": "string", "minLength": 1 },
+    "adapter_version": { "type": "string", "minLength": 1 },
+    "parser_version": { "type": "string", "minLength": 1 },
+    "commit_sha": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "workflow_run": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
+    "parser_error": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
+    "raw_snapshot_path": { "oneOf": [{ "type": "string", "pattern": "^[a-zA-Z0-9._-]+/[a-f0-9]{64}\\.(?:html|xml)\\.gz$" }, { "type": "null" }] }
+  }
+}

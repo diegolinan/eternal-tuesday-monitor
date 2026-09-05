@@ -14,31 +14,21 @@ export function allowedUrl(value, source) {
   return url;
 }
 
-// No generation, no arbitrary crawling, no credentials in URLs or artifacts.
+// Public GET-only retrieval. No generation, arbitrary crawling, or provider credentials.
 export async function readOfficial(
   url,
   source,
   config,
   fetcher = fetch,
-  credentials = process.env,
 ) {
   let current = allowedUrl(url, source);
   const headers = {
     Accept:
-      source.type === 'authenticated-model-list'
-        ? 'application/json'
+      source.type === 'research-feed'
+        ? 'application/atom+xml, application/xml, text/xml'
         : 'text/html',
     'Accept-Language': 'en',
   };
-  if (source.credential_env) {
-    const key = credentials[source.credential_env];
-    if (!key) throw new Error('CREDENTIAL_NOT_CONFIGURED');
-    if (source.adapter === 'anthropic-api') {
-      headers['x-api-key'] = key;
-      headers['anthropic-version'] = '2023-06-01';
-    } else if (source.adapter === 'google-api') headers['x-goog-api-key'] = key;
-    else headers.Authorization = `Bearer ${key}`;
-  }
   for (let redirects = 0; redirects <= 3; redirects++) {
     const response = await fetcher(current.href, {
       method: 'GET',
@@ -51,8 +41,6 @@ export async function readOfficial(
         new URL(response.headers.get('location'), current).href,
         source,
       );
-      if (source.credential_env && target.origin !== current.origin)
-        throw new Error('AUTH_REDIRECT_BLOCKED');
       current = target;
       continue;
     }
@@ -84,6 +72,7 @@ export async function readOfficial(
       etag: response.headers.get('etag'),
       last_modified: response.headers.get('last-modified'),
       content_type: response.headers.get('content-type'),
+      http_status: response.status,
     };
   }
   throw new Error('REDIRECT_LIMIT');

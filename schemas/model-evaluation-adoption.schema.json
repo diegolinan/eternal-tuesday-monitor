@@ -117,6 +117,7 @@
                 "BLOCKED",
                 "ALREADY_TESTED",
                 "RETEST_POLICY"
+                ,"TEST_REQUIRED"
               ]
             },
             "reasons": { "$ref": "#/$defs/reasonSet" },

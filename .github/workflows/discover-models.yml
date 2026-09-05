@@ -41,11 +41,6 @@ jobs:
           fi
       - name: Read approved official sources only
         run: npm run models:discover
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
       - name: Preserve raw source snapshots and normalized report
         uses: actions/upload-artifact@v4
         with:
@@ -57,16 +52,10 @@ jobs:
         run: npm run models:stage -- --mode automatic
       - name: Resolve model evaluation adoption eligibility
         run: npm run models:adopt -- --report .discovery/run.json
-      - name: Run controlled model API evaluations
-        run: npm run models:evaluate
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      - name: Reconcile adoption state with append-only API observations
-        run: npm run models:adopt -- --report .discovery/run.json
-      - name: Preserve private raw evaluation provenance
+      - name: Preserve non-executing evaluation requirements
         uses: actions/upload-artifact@v4
         with:
-          name: model-evaluation-runs
+          name: model-evaluation-adoption
           path: .evaluation
           include-hidden-files: true
           retention-days: 90
@@ -82,7 +71,7 @@ jobs:
         id: automatic
         shell: bash
         run: |
-          if git diff --quiet -- data/catalog/models.json data/model-discovery/events.jsonl data/model-evaluation/adoption.json data/model-evaluation/results.jsonl data/state-events/events.jsonl public/data/monitor.json; then
+          if git diff --quiet -- data/catalog/models.json data/model-discovery/events.jsonl data/model-discovery/source-checks.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl public/data/monitor.json; then
             echo "deploy=false" >> "$GITHUB_OUTPUT"
           else
             echo "deploy=true" >> "$GITHUB_OUTPUT"
@@ -101,10 +90,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/catalog/models.json data/model-discovery/events.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl public/data/monitor.json
-          if [ -f data/model-evaluation/results.jsonl ]; then
-            git add data/model-evaluation/results.jsonl
-          fi
+          git add data/catalog/models.json data/model-discovery/events.jsonl data/model-discovery/source-checks.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl public/data/monitor.json
           git commit -m "Update official model discovery and adoption state"
           git push origin HEAD:main
       - name: Stage review-required changes separately

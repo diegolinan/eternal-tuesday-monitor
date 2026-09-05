@@ -65,13 +65,10 @@ accepted evidence, or a behavior verdict.
 
 There are zero approved executable provider methodologies in
 `config/probe-execution-policy.json`, so no newly discovered model can run
-automatically. The separate dormant API-candidate prototype remains disabled and
-fixed to OpenAI `gpt-5.4-mini`, the Model API surface, one Temporal Anchor run,
-three invocations, no retries, up to 16,384 input and 256 output tokens per
-invocation, at most one run per day, and a conservative USD 1 run guard. It would
-require `OPENAI_API_KEY`, active API billing, a fresh reviewed price record, and
-explicit activation. The guard is not a provider invoice cap. This phase proposes
-and enables zero paid calls.
+automatically. Provider-inference target generation and execution are absent from
+the scheduled discovery and Pages workflows. A future behavioral test would
+require a separate reviewed implementation and explicit approval. This phase
+proposes and enables zero paid calls.
 
 ## Replay evidence quality
 

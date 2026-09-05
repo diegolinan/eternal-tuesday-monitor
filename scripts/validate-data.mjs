@@ -17,6 +17,7 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const observationPath = 'data/observations/observations.jsonl';
 const eventPath = 'data/state-events/events.jsonl';
 const evaluationResultPath = 'data/model-evaluation/results.jsonl';
+const sourceCheckPath = 'data/model-discovery/source-checks.jsonl';
 const failures = [];
 failures.push(...(await validateDiscovery(root)));
 const fail = (message) => failures.push(message);
@@ -111,7 +112,6 @@ const [
   evidenceFile,
   contentManifest,
   freshnessPolicy,
-  automatedProbePolicy,
   evaluationPolicy,
   adoptionRegister,
   monitorView,
@@ -121,17 +121,18 @@ const [
   methodologySchema,
   releaseSchema,
   freshnessPolicySchema,
-  automatedProbePolicySchema,
   evaluationPolicySchema,
   adoptionSchema,
   modelCatalogSchema,
   modelLifecycleSchema,
   stateEventSchema,
   evaluationResultSchema,
+  sourceCheckSchema,
   releaseEntries,
   observationLedger,
   eventLedger,
   evaluationResultLedger,
+  sourceCheckLedger,
 ] = await Promise.all([
   readJson('data/catalog/vendors.json'),
   readJson('data/catalog/products.json'),
@@ -145,7 +146,6 @@ const [
   readJson('data/evidence/evidence.json'),
   readJson('content/manifest.json'),
   readJson('config/freshness-policy.json'),
-  readJson('config/automated-probe-candidate.json'),
   readJson('config/model-evaluation-policy.json'),
   readJson('data/model-evaluation/adoption.json'),
   readJson('public/data/monitor.json'),
@@ -155,22 +155,24 @@ const [
   readJson('schemas/methodology.schema.json'),
   readJson('schemas/release.schema.json'),
   readJson('schemas/freshness-policy.schema.json'),
-  readJson('schemas/automated-probe-policy.schema.json'),
   readJson('schemas/model-evaluation-policy.schema.json'),
   readJson('schemas/model-evaluation-adoption.schema.json'),
   readJson('schemas/model-catalog.schema.json'),
   readJson('schemas/model-lifecycle.schema.json'),
   readJson('schemas/state-event.schema.json'),
   readJson('schemas/model-evaluation-result.schema.json'),
+  readJson('schemas/source-check.schema.json'),
   loadReleases(root),
   readJsonLines(observationPath),
   readJsonLines(eventPath),
   readOptionalJsonLines(evaluationResultPath),
+  readOptionalJsonLines(sourceCheckPath),
 ]);
 
 const observations = observationLedger.items;
 const stateEvents = eventLedger.items;
 const evaluationResults = evaluationResultLedger.items;
+const sourceChecks = sourceCheckLedger.items;
 const ajv = new Ajv2020({
   allErrors: true,
   strict: true,
@@ -206,9 +208,6 @@ validateWithSchema(
 validateWithSchema('freshness policy', freshnessPolicySchema, [
   freshnessPolicy,
 ]);
-validateWithSchema('automated probe policy', automatedProbePolicySchema, [
-  automatedProbePolicy,
-]);
 validateWithSchema('model evaluation policy', evaluationPolicySchema, [
   evaluationPolicy,
 ]);
@@ -223,6 +222,7 @@ validateWithSchema(
 );
 validateWithSchema('state event', stateEventSchema, stateEvents);
 validateWithSchema('model evaluation result', evaluationResultSchema, evaluationResults);
+validateWithSchema('public source check', sourceCheckSchema, sourceChecks);
 
 const collections = [
   ['vendors', vendorsFile.vendors],
@@ -239,6 +239,7 @@ const collections = [
   ['observations', observations],
   ['state events', stateEvents],
   ['model evaluation results', evaluationResults],
+  ['public source checks', sourceChecks],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -277,16 +278,12 @@ if (evaluationPolicy.surface_id && !surfaces.has(evaluationPolicy.surface_id))
     `${evaluationPolicy.policy_id}: unknown surface ${evaluationPolicy.surface_id}`,
   );
 const configuredProviders = new Set();
-for (const provider of evaluationPolicy.providers) {
-  if (!vendors.has(provider.vendor_id))
-    fail(
-      `${evaluationPolicy.policy_id}: unknown provider ${provider.vendor_id}`,
-    );
-  if (configuredProviders.has(provider.vendor_id))
-    fail(
-      `${evaluationPolicy.policy_id}: duplicate provider ${provider.vendor_id}`,
-    );
-  configuredProviders.add(provider.vendor_id);
+for (const providerId of evaluationPolicy.providers) {
+  if (!vendors.has(providerId))
+    fail(`${evaluationPolicy.policy_id}: unknown provider ${providerId}`);
+  if (configuredProviders.has(providerId))
+    fail(`${evaluationPolicy.policy_id}: duplicate provider ${providerId}`);
+  configuredProviders.add(providerId);
 }
 const configuredProbeProfiles = new Set();
 for (const profile of evaluationPolicy.probe_profiles) {
@@ -297,27 +294,6 @@ for (const profile of evaluationPolicy.probe_profiles) {
       `${evaluationPolicy.policy_id}: duplicate probe profile ${profile.probe_id}`,
     );
   configuredProbeProfiles.add(profile.probe_id);
-  if (profile.provider_id && !vendors.has(profile.provider_id))
-    fail(
-      `${evaluationPolicy.policy_id}: unknown profile provider ${profile.provider_id}`,
-    );
-  if (
-    profile.methodology_version_id &&
-    !methodologies.has(profile.methodology_version_id)
-  )
-    fail(
-      `${evaluationPolicy.policy_id}: unknown methodology ${profile.methodology_version_id}`,
-    );
-  if (
-    profile.status === 'APPROVED' &&
-    (!profile.provider_id ||
-      !profile.methodology_version_id ||
-      !profile.endpoint ||
-      !profile.evaluator_version)
-  )
-    fail(
-      `${evaluationPolicy.policy_id}: approved profile ${profile.probe_id} is incomplete`,
-    );
 }
 for (const probeId of probes)
   if (!configuredProbeProfiles.has(probeId))
@@ -582,6 +558,7 @@ if (baseArgIndex !== -1) {
     compareAppendOnlyLines(base, observationPath, observationLedger.lines);
     compareAppendOnlyLines(base, eventPath, eventLedger.lines);
     compareAppendOnlyLines(base, evaluationResultPath, evaluationResultLedger.lines);
+    compareAppendOnlyLines(base, sourceCheckPath, sourceCheckLedger.lines);
     compareAppendOnlyLines(
       base,
       'data/model-discovery/events.jsonl',

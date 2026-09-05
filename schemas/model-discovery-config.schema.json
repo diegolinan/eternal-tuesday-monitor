@@ -13,7 +13,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "enabled": {
       "type": "boolean"
@@ -47,6 +47,7 @@
           "id",
           "vendor_id",
           "type",
+          "source_class",
           "url",
           "adapter",
           "adapter_version",
@@ -76,7 +77,10 @@
             "maxLength": 240
           },
           "type": {
-            "enum": ["official-model-index", "authenticated-model-list"]
+            "enum": ["official-model-index", "official-product-changelog", "research-feed"]
+          },
+          "source_class": {
+            "enum": ["official_model_documentation", "official_release_notes", "official_release_source", "research_publication_feed"]
           },
           "url": {
             "type": "string",
@@ -88,10 +92,8 @@
               "anthropic-docs",
               "google-docs",
               "xai-docs",
-              "openai-api",
-              "anthropic-api",
-              "google-api",
-              "xai-api"
+              "change-detection-html",
+              "change-detection-feed"
             ]
           },
           "adapter_version": {
@@ -105,10 +107,10 @@
             "maxLength": 240
           },
           "authority": {
-            "const": "vendor"
+            "enum": ["vendor", "research-index"]
           },
           "source_role": {
-            "enum": ["canonical-identity", "account-visible-identity"]
+            "enum": ["canonical-identity", "evidence-candidate"]
           },
           "structure": {
             "type": "string",
@@ -157,14 +159,6 @@
           "availability_semantics": {
             "type": "string",
             "maxLength": 500
-          },
-          "credential_env": {
-            "enum": [
-              "OPENAI_API_KEY",
-              "ANTHROPIC_API_KEY",
-              "GEMINI_API_KEY",
-              "XAI_API_KEY"
-            ]
           }
         }
       },

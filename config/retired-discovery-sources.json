@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "retired_source_ids": [
+    "discovery-openai-api",
+    "discovery-anthropic-api",
+    "discovery-google-api",
+    "discovery-xai-api"
+  ],
+  "reason": "Historical authenticated metadata checks are retained only to validate the append-only audit ledger. They are not active sources and cannot contribute to current catalog or public state."
+}

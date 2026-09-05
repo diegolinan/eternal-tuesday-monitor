@@ -30,7 +30,7 @@
           "type": "array",
           "uniqueItems": true,
           "items": {
-            "enum": ["official-model-index", "authenticated-model-list"]
+            "const": "official-model-index"
           }
         },
         "require_exact_api_id": { "const": true },

@@ -238,11 +238,17 @@ export function normalizeDiscoveries(facts, previous, catalog, asOf) {
       models.push(model);
     }
     if (!touched.has(model.id)) {
-      // Compatibility facts must be established in this successful discovery batch,
-      // not accumulated forever after a provider removes a capability.
+      // Current metadata must be re-established by this public-source batch.
+      // Historical authenticated checks remain in the append-only event ledger,
+      // but never leak into the current public interpretation.
       model.endpoints = [];
       model.capabilities = [];
       model.supported_parameters = [];
+      model.provenance = [];
+      model.api_state = 'API_UNKNOWN';
+      model.account_access = 'UNKNOWN';
+      model.account_checked_on = null;
+      model.api_available_on = null;
     }
     touched.add(model.id);
     freshProvenance.set(model.id, [
@@ -355,56 +361,24 @@ export function normalizeDiscoveries(facts, previous, catalog, asOf) {
     .sort((a, b) => a.id.localeCompare(b.id));
 }
 
-export function applyAvailabilityFailures(
-  models,
-  previous,
-  outcomes,
-  sources,
-  asOf,
-) {
-  const result = structuredClone(models);
-  for (const outcome of outcomes.filter(
-    (o) => o.status !== 'OK' && o.status !== 'CREDENTIAL_NOT_CONFIGURED',
-  )) {
-    const source = sources.find(
-      (s) =>
-        s.id === outcome.source_id && s.type === 'authenticated-model-list',
-    );
-    if (!source) continue;
-    for (const known of [...previous, ...models].filter(
-      (m) => m.vendor_id === source.vendor_id,
-    )) {
-      let current = result.find((m) => m.id === known.id);
-      if (!current) {
-        current = structuredClone(known);
-        result.push(current);
-      }
-      current.account_access =
-        outcome.status === 'ACCOUNT_ACCESS_DENIED' ? 'ACCESS_DENIED' : 'ERROR';
-      current.account_checked_on = asOf;
-    }
-  }
-  return result.sort((a, b) => a.id.localeCompare(b.id));
-}
-
 export function proposeEvents(models, previous, asOf) {
+  const semanticModel = (model) => ({
+    ...model,
+    provenance: model.provenance
+      .map((item) => ({ source_id: item.source_id, url: item.url }))
+      .sort((left, right) =>
+        `${left.source_id}|${left.url}`.localeCompare(`${right.source_id}|${right.url}`),
+      ),
+  });
   return models
     .filter(
       (model) =>
-        JSON.stringify(model) !==
-        JSON.stringify(previous.find((old) => old.id === model.id)),
+        JSON.stringify(semanticModel(model)) !==
+        JSON.stringify(semanticModel(previous.find((old) => old.id === model.id) ?? { ...model, id: '__missing__' })),
     )
     .map((model) => {
       const prior = previous.find((old) => old.id === model.id);
-      const semantic = {
-        ...model,
-        provenance: model.provenance.map((item) => ({
-          source_id: item.source_id,
-          url: item.url,
-          sha256: item.sha256,
-          parser_version: item.parser_version,
-        })),
-      };
+      const semantic = semanticModel(model);
       const type = !prior
         ? 'MODEL_DISCOVERED'
         : prior.supersedes_model_id !== model.supersedes_model_id

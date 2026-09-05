@@ -1,4 +1,4 @@
-import { expectedAnswer, sha256 } from './protocol.mjs';
+import { expectedAnswer, sha256 } from './time-cases.mjs';
 
 export const codexProtocol = Object.freeze({
   id: 'codex-cli-explicit-offset-manual-1',

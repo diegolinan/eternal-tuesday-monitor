@@ -1,32 +1,32 @@
 # The Eternal Tuesday Monitor
 
-## Official model discovery V1
+## GitHub-native public-source discovery
 
-The public model register and the observation table answer different questions. A model can exist, have a documented API identifier, be listed for an account, be compatible with an approved API protocol, and have accepted behavioral evidence. None of those claims implies the next one. No discovered model automatically receives a PASS/FAIL, and no API record updates ChatGPT, Claude, Codex, Cursor or another consumer surface.
+The public model register and the observation table answer different questions. Entity discovery, vendor source evidence, and behavioral observation are separate layers. No discovered model automatically receives a PASS/FAIL, and no model identity implies adoption by ChatGPT, Claude, Gemini, Grok, Cursor, or another product surface.
 
-`config/model-discovery.json` is the curated discovery source registry. Every source specifies its vendor, adapter/version, authority, URL, enabled flag, cadence, identity pattern, allowed domains and availability semantics. The supported strategies are:
+`config/model-discovery.json` is the versioned curated source registry. It contains public official model documentation for OpenAI, Anthropic, Google, and xAI; official product/release sources for those vendors and Cursor; and a bounded public research feed. Every source declares its class, adapter/version, authority, URL, cadence, allowlisted domains, semantics, and limitations.
 
-| Vendor    | Public discovery                                                                                                                                                            | Optional authenticated GET                                                                                                       |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| OpenAI    | [Official model index](https://developers.openai.com/api/docs/models/all), then same-domain model pages; exact IDs must occur in documented snapshots, not just a URL slug. | `/v1/models`; listing alone does not expose all endpoint/capability constraints.                                                 |
-| Anthropic | [Model comparison](https://platform.claude.com/docs/en/models/overview), reading the Claude API ID row rather than Bedrock IDs.                                             | [Models API](https://platform.claude.com/docs/en/api/models/list), including pagination and explicit capabilities where exposed. |
-| Google    | [Gemini model tables](https://ai.google.dev/gemini-api/docs/models?hl=en), reading exact endpoint cells.                                                                    | [Models API](https://ai.google.dev/api/models), including pagination and supported generation methods.                           |
-| xAI       | [Model index](https://docs.x.ai/developers/models), then same-domain pages; exact identifiers must be present in page content.                                              | [Model listing](https://docs.x.ai/developers/rest-api-reference/inference/models).                                               |
+| Layer | Automatic input | Automatic output |
+| --- | --- | --- |
+| Entity discovery | Official public model documentation | Exact normalized model identity and immutable discovery event |
+| Product/source discovery | Official release notes, changelogs, and system cards | Auditable source check/change signal for review |
+| Research discovery | Curated public publication feed | Auditable research candidate signal for review |
+| Behavioral observation | Separately reviewed evidence only | Never produced by discovery |
 
-HTML adapters use parse5, never execute downloaded scripts, and fail visibly when expected structures disappear. This is bounded official-document retrieval, not arbitrary crawling. Public documentation confirms only what it says; the system does not infer a release date from a model name, URL, crawl timestamp or API `created` timestamp. Unknown family, version, release date and alias relationships remain null/empty. Documentation can establish an exact ID while API usability remains UNKNOWN or PENDING. Only a successful authenticated listing establishes account-visible API availability, not successful generation.
+HTML adapters use parse5, never execute downloaded scripts, and fail visibly when expected structures disappear. This is bounded authoritative-source retrieval, not arbitrary crawling or search-result scraping. Public documentation confirms only what it says; unknown release dates, aliases, product mappings, and behavioral claims remain unknown.
 
 ### Lifecycle and identity
 
-The separate append-only ledger `data/model-discovery/events.jsonl` records snapshots with `discovered_on`, `released_on`, `api_available_on`, account-check date, source URLs, retrieval times, ETag/Last-Modified when supplied, content hashes, adapter/parser versions and the source Git commit. Exact, collision-free new identities covered by the reviewed deterministic relevance policy may enter automatically. Interpretive changes remain draft PRs. First discovery dates from an open proposal are retained by reading its data file without executing its branch code. Existing model records and prior metadata events are never deleted.
+The append-only ledger `data/model-discovery/events.jsonl` records normalized semantic model changes. `data/model-discovery/source-checks.jsonl` records every source check with URL, source class, adapter/parser versions, timestamp, result/HTTP status, ETag/Last-Modified, current and previous hashes, change flag, extracted identifiers, commit/workflow identity, and parser error. Raw compressed snapshots are short-lived Actions artifacts; metadata and hashes remain versioned.
 
 - Release state: DISCOVERED means official identity found; RELEASED requires additional release/listing evidence; DEPRECATED/RETIRED require an explicit vendor statement; SUPERSEDED requires an explicit relationship. Absence from a later listing is not retirement.
-- API state: API_UNKNOWN, API_PENDING or API_AVAILABLE. A documented ID can coexist with UNKNOWN/PENDING. Account access is separate: UNKNOWN, ACCESS_CONFIRMED, ACCESS_DENIED or ERROR. A denied request is never global nonexistence.
-- Readiness: PROBE_ELIGIBLE requires approved provider/methodology, a non-denied exact ID, sufficiently recent account access, and every required endpoint, capability and parameter established. HARNESS_UNSUPPORTED identifies an available API model lacking a compatible approved contract; otherwise readiness is NOT_YET_TESTABLE.
+- Public identity never requires an account, provider key, billing account, or successful generation.
+- Evaluation status is derived from accepted behavioral observations. A relevant model with no such observation is TEST_REQUIRED and shows NO CURRENT EVIDENCE for every probe.
 - Evidence: NOT_YET_TESTED or TEST_PENDING never implies failure. TESTED and first/last test dates are derived only from accepted observations for that exact model, approved methodology and explicitly mapped API surface. Metadata events cannot contain fabricated test dates.
 
 Identity resolution first uses vendor plus exact API ID (or explicit alias), then an unambiguous identical display name when one side lacks an API ID. It never synthesizes an API ID. IDs are stable hashes or reuse an exact existing catalog match. Different exact IDs with an identical display name are kept separate and flagged, not silently declared aliases. Possible overlap with an existing abbreviated catalog name also requires review. Conflicting metadata is preserved as a review requirement and blocks probe eligibility. Ambiguous mappings must be resolved before merging a proposal; routine unambiguous additions need no manual JSON plumbing.
 
-Supersession propagates RETEST_REQUIRED only through a reviewed, same-vendor `supersedes_model_id` and the explicit execution-policy switch. Adapters do not infer supersession from a newer version number. Existing immutable observations keep their results. Current-family claims need their own reviewed model/surface mapping.
+Supersession propagates RETEST_REQUIRED only through a reviewed, same-vendor `supersedes_model_id`. Adapters do not infer supersession from a newer version number. Existing immutable observations keep their results. Current-family claims need their own reviewed model/surface mapping.
 
 ### Daily workflow and review boundary
 
@@ -44,30 +44,25 @@ npm run models:stage -- --mode review
 npm run models:adopt -- --report .discovery/run.json --as-of 2026-09-05
 npm run data:validate -- --base main
 npm run data:compile
-npm run models:targets -- --as-of 2026-09-07
 ```
 
-Discovery itself writes only ignored `.discovery/` outputs. `models:stage -- --mode automatic` is restricted to GitHub Actions (or a non-main branch) and applies only policy-qualified new identities. Review mode prepares the proposal path. `models:targets` regenerates eligible target configuration from accepted data, with no per-model code changes.
+Discovery itself writes only ignored `.discovery/` outputs. `models:stage -- --mode automatic` is restricted to GitHub Actions (or a non-main branch) and applies only policy-qualified new identities. Review mode prepares the proposal path.
 
 Accepted discoveries are projected into the public [model lifecycle](docs/model-lifecycle.md) even when no observation exists. The canonical model catalog has its own JSON Schema and keeps API identity, aliases, discovery provenance, reviewed relevance and reviewed supersession explicit. Lifecycle coverage never creates an observation or behavior verdict.
 
-### Execution and failure policy
+### Evaluation and failure boundary
 
-[`config/model-evaluation-policy.json`](config/model-evaluation-policy.json) is the versioned Model Evaluation Adoption V1 boundary. It resolves official API availability separately from per-probe compatibility, attaches an approved methodology only when its endpoint, model capabilities and harness capabilities all match, and records the result in `data/model-evaluation/adoption.json`. The daily discovery run evaluates newly relevant models immediately, but does not rerun unchanged models. A newly compatible baseline may become `ELIGIBILITY_READY`; that state is not execution authorization.
+[`config/model-evaluation-policy.json`](config/model-evaluation-policy.json) is a non-executing boundary: discovery cannot create behavioral verdicts. Newly discovered relevant models enter `data/model-evaluation/adoption.json` as TEST_REQUIRED until separately reviewed evidence exists.
 
-Paid inference remains disabled. The scheduled request budget, scheduled spend budget and runs per model are all zero, and no exact API model is execution-allowlisted. Provider keys may exist only as GitHub Actions secrets. Operational/auth/rate-limit errors are retained as operational outcomes and can never become behavioral FAILs. The complete bridge, per-probe state model and raw-run provenance contract are documented in [`docs/model-evaluation-adoption-v1.md`](docs/model-evaluation-adoption-v1.md).
+Discovery performs zero provider inference calls and uses no provider credentials. Historical operational test errors remain in the append-only evaluation ledger with zero evidentiary weight and are excluded from the public model state.
 
-`config/probe-execution-policy.json` remains the legacy general target policy used by the earlier discovery lifecycle projection. It does not authorize paid execution or automatic evidence acceptance. The separate [manual OpenAI pilot](docs/manual-openai-pilot.md) requires a one-use human approval and saves private, pending-review evidence only. It does not relabel article-derived observations as newly tested.
+`config/probe-execution-policy.json` remains legacy methodology metadata used by lifecycle projection. It is not called by the scheduled workflow and does not authorize inference or automatic evidence acceptance.
 
 The separate [manual Codex pilot](docs/manual-codex-pilot.md) uses local ChatGPT authentication and its own experimental surface, approval and one-use receipt. `npm run probes:codex:plan` is offline by default. Codex usage is not billed or bounded like the API pilot: a live run requires explicit acceptance that dollar/credit caps cannot be enforced here. One reviewed GPT-5.6 Luna result from that adapter was accepted in release `2026-09-08`; this does not schedule Codex execution or automatically accept future evidence.
 
-The [review-gated API candidate flow](docs/automated-probe-candidates.md) is deliberately narrower than general probe execution: one OpenAI API model, one temporal-anchor protocol and three invocations. It is retained as a manual experiment only. Paid execution is disabled in `config/automated-probe-candidate.json`, so dispatches stop before reading the key or making a network request.
-
 The former Luna-specific recurring candidate path has been retired. The one reviewed GPT-5.6 Luna observation, its evidence receipt, release manifest and manual reproduction notes remain immutable historical evidence; they no longer imply an active scheduler. GitHub Actions remains the Monitor's only clock.
 
-Optional discovery credentials are OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY and XAI_API_KEY in GitHub Secrets. Missing credentials skip authenticated listing, without disabling public discovery. GET requests have timeout, response-size, redirect, pagination and detail-count limits. HTTPS host allowlists are checked at every redirect; authenticated redirects cannot cross origins. Credentials are never placed in URLs, source files, PR text or artifacts. Discovery never calls a generative endpoint.
-
-A failed source creates an adapter outcome, not catalog deletions. Authenticated errors can propose an account-access ERROR/ACCESS_DENIED snapshot while retaining prior identity and availability provenance. Fresh account confirmations are cached for at most seven days to avoid daily renewal-only PRs; failure checks invalidate readiness. The manual API pilot checks account availability, binds approval to exact code/parameters, limits calls and output tokens, reserves estimated spend, and respects its own kill switch. The API candidate harness is fixture-tested but its paid execution gate remains disabled; automatic evidence acceptance is not implemented.
+A failed source creates an explicit source-check error and never deletes accepted catalog state. Other sources continue. Unchanged checks append audit history without duplicating semantic events. Ambiguous metadata and all epistemic interpretations remain reviewable through GitHub pull requests.
 
 The complete acceptance, relevance and failure contract is in [`docs/model-discovery-v1.md`](docs/model-discovery-v1.md).
 
@@ -227,7 +222,7 @@ The validation workflow:
 
 The Pages workflow publishes that validated artifact to the canonical production URL. A separate minimal workflow runs every Monday at 12:17 UTC, 09:17 Argentina time. It supplies an explicit date, reevaluates only local versioned state, rebuilds, and redeploys Pages. It does not fetch sources, change evidence verification dates, modify historical records, or commit derived files. Neither workflow deploys the OpenAI prototype.
 
-Daily official model discovery and display-freshness refresh are configured as described above. The OpenAI API candidate workflow is manual-only and execution-disabled. No local ChatGPT/Codex scheduler participates in the canonical path. Automated evidence acceptance is not configured.
+Daily official model discovery and display-freshness refresh are configured as described above. The production workflows contain no provider-inference or API-target step. No local ChatGPT/Codex scheduler participates in the canonical path. Automated evidence acceptance is not configured.
 
 ## Initial evidence scope
 

@@ -36,12 +36,6 @@ jobs:
           today="$(date -u +%F)"
           as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
           npm run data:compile -- --as-of "$as_of"
-          npm run models:targets -- --as-of "$as_of"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: reviewed-model-probe-targets
-          path: .discovery/probe-targets.json
-          include-hidden-files: true
       - run: npm run build:pages
       - run: npm run static:validate
       - uses: actions/configure-pages@v5

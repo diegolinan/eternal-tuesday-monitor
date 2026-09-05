@@ -1,19 +1,8 @@
 const unique = (items) =>
   [...new Set(items)].sort((left, right) => left.localeCompare(right));
 
-export function resolveApiAvailability(model, sourceOutcomes, sourceConfig) {
-  const authenticated = sourceConfig.find(
-    (source) =>
-      source.vendor_id === model.vendor_id &&
-      source.type === 'authenticated-model-list',
-  );
-  const outcome = authenticated
-    ? sourceOutcomes.find((item) => item.source_id === authenticated.id)
-    : null;
-  const sourceIds = unique([
-    ...model.provenance.map((item) => item.source_id),
-    ...(authenticated ? [authenticated.id] : []),
-  ]);
+export function resolveApiAvailability(model) {
+  const sourceIds = unique(model.provenance.map((item) => item.source_id));
   if (!model.api_model_id)
     return {
       state: 'UNKNOWN',
@@ -32,57 +21,20 @@ export function resolveApiAvailability(model, sourceOutcomes, sourceConfig) {
       reasons: ['API_DOCUMENTED_AS_PENDING'],
       source_ids: sourceIds,
     };
-  if (model.account_access === 'ACCESS_CONFIRMED')
-    return {
-      state: 'AVAILABLE',
-      reasons: ['EXACT_ID_VISIBLE_TO_CONFIGURED_ACCOUNT'],
-      source_ids: sourceIds,
-    };
-  if (outcome?.status === 'CREDENTIAL_NOT_CONFIGURED')
-    return {
-      state: 'AUTH_REQUIRED_TO_VERIFY',
-      reasons: ['PROVIDER_CREDENTIAL_NOT_CONFIGURED'],
-      source_ids: sourceIds,
-    };
-  if (outcome?.status === 'OK')
-    return {
-      state: 'UNAVAILABLE',
-      reasons: ['EXACT_ID_NOT_VISIBLE_TO_CONFIGURED_ACCOUNT'],
-      source_ids: sourceIds,
-    };
-  if (
-    outcome?.status === 'ACCOUNT_ACCESS_DENIED' ||
-    model.account_access === 'ACCESS_DENIED'
-  )
-    return {
-      state: 'UNKNOWN',
-      reasons: ['CONFIGURED_ACCOUNT_ACCESS_DENIED'],
-      source_ids: sourceIds,
-    };
-  if (outcome && outcome.status !== 'OK')
-    return {
-      state: 'UNKNOWN',
-      reasons: [`API_CHECK_${outcome.status}`],
-      source_ids: sourceIds,
-    };
   return {
     state: 'UNKNOWN',
-    reasons: [
-      authenticated
-        ? 'API_AVAILABILITY_NOT_CHECKED_YET'
-        : 'PROVIDER_METADATA_INSUFFICIENT',
-    ],
+    reasons: ['PUBLIC_SOURCE_IDENTITY_ONLY'],
     source_ids: sourceIds,
   };
 }
 
-function assessProbe(model, availability, profile, policy) {
+function assessProbe(model, _availability, profile, _policy) {
   const base = {
     probe_id: profile.probe_id,
-    methodology_version_id: profile.methodology_version_id,
-    endpoint: profile.endpoint,
-    evaluator_version: profile.evaluator_version,
-    testability: profile.testability ?? 'NOT_API_TESTABLE',
+    methodology_version_id: null,
+    endpoint: null,
+    evaluator_version: null,
+    testability: 'NOT_API_TESTABLE',
   };
   if (model.review_reasons.length)
     return {
@@ -90,51 +42,10 @@ function assessProbe(model, availability, profile, policy) {
       state: 'REVIEW_REQUIRED',
       reasons: ['IDENTITY_OR_SOURCE_REVIEW_REQUIRED'],
     };
-  if (profile.status !== 'APPROVED')
-    return {
-      ...base,
-      state: 'REVIEW_REQUIRED',
-      reasons: ['NO_APPROVED_METHODOLOGY'],
-    };
-  if (profile.provider_id !== model.vendor_id)
-    return {
-      ...base,
-      state: 'REVIEW_REQUIRED',
-      reasons: ['PROVIDER_SEMANTICS_REQUIRE_REVIEW'],
-    };
-  const missingHarness = profile.required_harness_capabilities.filter(
-    (item) => !policy.harness_capabilities.includes(item),
-  );
-  if (missingHarness.length)
-    return {
-      ...base,
-      state: 'REVIEW_REQUIRED',
-      reasons: missingHarness.map(
-        (item) => `HARNESS_MISSING_${item.toUpperCase()}`,
-      ),
-    };
-  const missing = profile.required_model_capabilities.filter(
-    (item) => !model.capabilities.includes(item),
-  );
-  const endpointMissing =
-    profile.endpoint && !model.endpoints.includes(profile.endpoint);
-  if (endpointMissing || missing.length)
-    return {
-      ...base,
-      state: 'NOT_TESTABLE',
-      reasons: unique([
-        ...(endpointMissing ? ['REQUIRED_ENDPOINT_NOT_DOCUMENTED'] : []),
-        ...missing.map(
-          (item) => `CAPABILITY_NOT_DOCUMENTED_${item.toUpperCase()}`,
-        ),
-      ]),
-    };
-  if (availability.state !== 'AVAILABLE')
-    return { ...base, state: 'BLOCKED', reasons: availability.reasons };
   return {
     ...base,
-    state: 'ELIGIBLE',
-    reasons: ['APPROVED_PROFILE_COMPATIBLE'],
+    state: 'REVIEW_REQUIRED',
+    reasons: ['NO_CURRENT_BEHAVIORAL_EVIDENCE'],
   };
 }
 
@@ -144,7 +55,7 @@ export function assessModelAdoption({
   policy,
   probes,
   observations,
-  evaluationResults = [],
+  evaluationResults: _evaluationResults = [],
   sourceOutcomes,
   sourceConfig,
   asOf,
@@ -191,57 +102,17 @@ export function assessModelAdoption({
         'evidence-reproduced-observation',
       ].includes(observation.evidence_class_id),
   );
-  const allApiResults = evaluationResults.filter((result) => result.model_id === model.id);
-  const apiResults = allApiResults.filter((result) => result.status !== 'OPERATIONAL_ERROR');
-  const operationalResults = allApiResults.filter((result) => result.status === 'OPERATIONAL_ERROR');
-  const latestOperational = operationalResults
-    .map((result) => result.executed_at)
-    .sort((left, right) => right.localeCompare(left))[0];
-  const operationalCooldownActive = latestOperational
-    ? (Date.parse(`${asOf}T23:59:59Z`) - Date.parse(latestOperational)) / 3_600_000 < policy.limits.cooldown_hours
-    : false;
-  const automatic = policy.execution.automatic_frontier;
-  const frontierAuthorized =
-    automatic.enabled &&
-    model.discovered_on > automatic.after_discovered_on &&
-    automatic.vendor_ids.includes(model.vendor_id);
-  const executionAuthorized =
-    policy.execution_enabled &&
-    (policy.eligible_api_ids.includes(model.api_model_id) || frontierAuthorized) &&
-    !policy.manual_only_api_ids.includes(model.api_model_id) &&
-    !policy.denied_api_ids.includes(model.api_model_id) &&
-    policy.limits.max_scheduled_requests_per_day > 0 &&
-    policy.limits.max_scheduled_spend_usd_per_day > 0 &&
-    policy.limits.max_runs_per_model_per_day > 0;
-  const queue = empirical.length || apiResults.length
+  const queue = empirical.length
     ? {
         state: 'ALREADY_TESTED',
         reasons: ['FRESHNESS_POLICY_CONTROLS_RETEST'],
         execution_authorized: false,
       }
-    : operationalCooldownActive
-      ? {
-          state: 'RETEST_POLICY',
-          reasons: ['OPERATIONAL_ERROR_COOLDOWN_ACTIVE'],
+    : {
+          state: 'TEST_REQUIRED',
+          reasons: ['NO_CURRENT_BEHAVIORAL_EVIDENCE'],
           execution_authorized: false,
-        }
-    : eligible.length
-      ? {
-          state: 'ELIGIBILITY_READY',
-          reasons: executionAuthorized
-            ? ['INITIAL_BASELINE_READY']
-            : ['EXECUTION_POLICY_DISABLED_OR_ZERO_BUDGET'],
-          execution_authorized: executionAuthorized,
-        }
-      : {
-          state: 'BLOCKED',
-          reasons: unique(
-            compatible.length
-              ? availability.reasons
-              : probeRecords.flatMap((item) => item.reasons),
-          ),
-          execution_authorized: false,
-        };
+      };
   const record = {
     model_id: model.id,
     vendor_id: model.vendor_id,
@@ -252,7 +123,7 @@ export function assessModelAdoption({
     testability_state: testabilityState,
     testability_reasons: unique(probeRecords.flatMap((item) => item.reasons)),
     probes: probeRecords,
-    execution_state: apiResults.length ? 'COMPLETED' : operationalResults.length ? 'OPERATIONAL_ERROR' : 'NOT_RUN',
+    execution_state: 'NOT_RUN',
     queue,
   };
   if (prior) {

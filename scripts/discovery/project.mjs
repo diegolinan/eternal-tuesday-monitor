@@ -33,7 +33,10 @@ export function projectModels(
     if (entry.identity_status === 'named' && !byId.has(entry.id))
       byId.set(entry.id, fallbackModel(entry));
   const projectedObservations = options.projectedObservations ?? observations;
+  const catalogIds = new Set((options.catalog ?? []).map((entry) => entry.id));
+  const observedModelIds = new Set(observations.map((item) => item.model_id));
   return [...byId.values()]
+    .filter((model) => catalogIds.has(model.id) || observedModelIds.has(model.id))
     .map((model) => {
       const catalogEntry = (options.catalog ?? []).find(
         (entry) => entry.id === model.id,
@@ -67,7 +70,7 @@ export function projectModels(
         const assessed = adoption?.probes.find(
           (item) => item.probe_id === probe.id,
         );
-        const latestApiResult = apiResults.findLast(
+        const latestApiResult = behavioralApiResults.findLast(
           (result) => result.probe_id === probe.id,
         );
         return {
@@ -122,7 +125,7 @@ export function projectModels(
           }),
         ).values(),
       ];
-      if (apiResults.length && !surfaces.some((surface) => surface.id === 'surface-openai-model-api')) {
+      if (behavioralApiResults.length && !surfaces.some((surface) => surface.id === 'surface-openai-model-api')) {
         const surface = options.surfaces?.get('surface-openai-model-api');
         const product = surface ? options.products?.get(surface.product_id) : null;
         surfaces.push({ id: 'surface-openai-model-api', product: product?.name ?? 'OpenAI API', name: surface?.name ?? 'OpenAI model API', kind: 'PROVIDER_API' });
@@ -153,7 +156,7 @@ export function projectModels(
         adoptionAssessedOn: adoption?.assessed_on ?? null,
         queueState: adoption?.queue.state ?? 'NOT_QUEUED',
         queueReasons: adoption?.queue.reasons ?? [],
-        executionState: adoption?.execution_state ?? (apiResults.length ? 'COMPLETED' : 'NOT_RUN'),
+        executionState: adoption?.execution_state ?? (behavioralApiResults.length ? 'COMPLETED' : 'NOT_RUN'),
         probeCoverage,
         surfaces,
         sources: [...new Set(model.provenance.map((p) => p.url))],

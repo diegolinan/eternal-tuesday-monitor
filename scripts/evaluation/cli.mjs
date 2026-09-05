@@ -29,12 +29,6 @@ const policy = await readJson('config/model-evaluation-policy.json');
 const catalog = (await readJson('data/catalog/models.json')).models;
 const probes = (await readJson('data/catalog/probes.json')).probes;
 const observations = await readLines('data/observations/observations.jsonl');
-let evaluationResults = [];
-try {
-  evaluationResults = await readLines('data/model-evaluation/results.jsonl');
-} catch (error) {
-  if (error.code !== 'ENOENT') throw error;
-}
 const sourceConfig = (await readJson('config/model-discovery.json')).sources;
 let previous = { records: [] };
 try {
@@ -49,7 +43,6 @@ const adoption = buildAdoptionRegister({
   policy,
   probes,
   observations,
-  evaluationResults,
   sourceOutcomes: report.outcomes,
   sourceConfig,
   asOf,
@@ -80,8 +73,6 @@ await writeFile(
       evaluated_on: asOf,
       policy_id: policy.policy_id,
       execution_enabled: policy.execution_enabled,
-      scheduled_request_budget: policy.limits.max_scheduled_requests_per_day,
-      scheduled_spend_budget_usd: policy.limits.max_scheduled_spend_usd_per_day,
       targets,
     },
     null,
@@ -93,17 +84,11 @@ console.log(
     {
       evaluated_on: asOf,
       relevant_models: adoption.records.length,
-      api_available: adoption.records.filter(
-        (item) => item.api_availability.state === 'AVAILABLE',
+      test_required: adoption.records.filter(
+        (item) => item.queue.state === 'TEST_REQUIRED',
       ).length,
-      auth_required: adoption.records.filter(
-        (item) => item.api_availability.state === 'AUTH_REQUIRED_TO_VERIFY',
-      ).length,
-      eligible_probe_targets: targets.length,
-      authorized_probe_targets: targets.filter(
-        (item) => item.execution_authorized,
-      ).length,
-      paid_inference: policy.execution_enabled ? 'POLICY_GATED' : 'DISABLED',
+      behavioral_verdicts_created: 0,
+      provider_inference: 'NOT_PART_OF_DISCOVERY',
     },
     null,
     2,

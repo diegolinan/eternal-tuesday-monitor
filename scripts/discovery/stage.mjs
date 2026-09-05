@@ -4,7 +4,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import { supersessionEvents, eligibility, latestModels } from './lifecycle.mjs';
+import { supersessionEvents } from './lifecycle.mjs';
 import { allowedUrl } from './fetch.mjs';
 import { catalogEntryForDecision } from './decision.mjs';
 
@@ -43,6 +43,7 @@ addFormats(ajv);
 const validate = ajv.compile(
   await json('schemas/model-discovery-event.schema.json'),
 );
+const validateSourceCheck = ajv.compile(await json('schemas/source-check.schema.json'));
 for (const { event } of additions) {
   if (!validate(event)) throw new Error(ajv.errorsText(validate.errors));
   for (const provenance of event.model.provenance) {
@@ -54,6 +55,22 @@ for (const { event } of additions) {
     if (!source) throw new Error('Unknown provenance source');
     allowedUrl(provenance.url, source);
   }
+}
+
+if (mode === 'automatic') {
+  const checkPath = 'data/model-discovery/source-checks.jsonl';
+  const checkRaw = await read(checkPath);
+  const priorChecks = checkRaw.split(/\r?\n/).filter(Boolean).map(JSON.parse);
+  const priorCheckIds = new Set(priorChecks.map((check) => check.id));
+  const newChecks = report.source_checks.filter((check) => !priorCheckIds.has(check.id));
+  for (const check of newChecks)
+    if (!validateSourceCheck(check))
+      throw new Error(ajv.errorsText(validateSourceCheck.errors));
+  if (newChecks.length)
+    await writeFile(
+      path.join(root, checkPath),
+      checkRaw.trimEnd() + (priorChecks.length ? '\n' : '') + newChecks.map((check) => JSON.stringify(check)).join('\n') + '\n',
+    );
 }
 
 for (const decision of additions) {
@@ -77,19 +94,36 @@ for (const decision of additions) {
   }
 }
 
-if (additions.length) {
+const publicIdentitySources = new Set(
+  config.sources
+    .filter((source) => source.enabled && source.type === 'official-model-index')
+    .map((source) => source.id),
+);
+const catalogCountBefore = catalog.models.length;
+if (mode === 'automatic')
+  catalog.models = catalog.models.filter(
+    (model) =>
+      model.catalog_status !== 'ACCEPTED_DISCOVERY' ||
+      (model.discovery_provenance ?? []).some((item) =>
+        publicIdentitySources.has(item.source_id),
+      ),
+  );
+const catalogChanged = catalog.models.length !== catalogCountBefore || additions.length > 0;
+
+if (catalogChanged) {
   catalog.models.sort((left, right) => left.id.localeCompare(right.id));
   await writeFile(
     path.join(root, 'data/catalog/models.json'),
     `${JSON.stringify(catalog, null, 2)}\n`,
   );
-  await writeFile(
-    path.join(root, ledgerPath),
-    raw.trimEnd() +
-      (prior.length ? '\n' : '') +
-      additions.map(({ event }) => JSON.stringify(event)).join('\n') +
-      '\n',
-  );
+  if (additions.length)
+    await writeFile(
+      path.join(root, ledgerPath),
+      raw.trimEnd() +
+        (prior.length ? '\n' : '') +
+        additions.map(({ event }) => JSON.stringify(event)).join('\n') +
+        '\n',
+    );
   const statePath = 'data/state-events/events.jsonl';
   const stateRaw = await read(statePath);
   const existingStates = stateRaw
@@ -113,19 +147,6 @@ if (additions.length) {
         '\n',
     );
 }
-
-const targets = latestModels([
-  ...prior,
-  ...additions.map(({ event }) => event),
-]).flatMap((model) => eligibility(model, policy, report.evaluated_on).targets);
-await writeFile(
-  path.join(root, '.discovery/probe-targets.json'),
-  `${JSON.stringify(
-    { evaluated_on: report.evaluated_on, execution_enabled: false, targets },
-    null,
-    2,
-  )}\n`,
-);
 
 const escape = (value) =>
   String(value ?? 'UNKNOWN')
@@ -152,8 +173,7 @@ const summary = [
       `- ${escape(outcome.source_id)}: ${escape(outcome.status)}${outcome.models == null ? '' : ` (${outcome.models} normalized identities)`}${outcome.url ? ` — ${escape(outcome.url)}` : ''}`,
   ),
   `- Raw source checks preserved: ${report.source_checks.length}`,
-  '',
-  `Probe targets: ${targets.length}; execution remains disabled.`,
+  '- Provider inference and probe-target generation are outside this workflow.',
 ].join('\n');
 await writeFile(
   path.join(root, `.discovery/${mode}-summary.md`),
@@ -166,5 +186,5 @@ if (mode === 'review')
   );
 
 console.log(
-  `Prepared ${additions.length} ${mode} catalog event(s); ${targets.length} eligible targets; probe execution disabled.`,
+  `Prepared ${additions.length} ${mode} catalog event(s); provider inference is not part of discovery.`,
 );

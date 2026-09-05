@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { gzipSync } from 'node:zlib';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -8,13 +9,10 @@ import * as openai from './adapters/openai.mjs';
 import * as anthropic from './adapters/anthropic.mjs';
 import * as google from './adapters/google.mjs';
 import * as xai from './adapters/xai.mjs';
-import { parseListing } from './adapters/api.mjs';
 import {
   latestModels,
   normalizeDiscoveries,
   proposeEvents,
-  eligibility,
-  applyAvailabilityFailures,
 } from './lifecycle.mjs';
 import {
   classifyDiscoveryEvents,
@@ -34,7 +32,6 @@ if (
   throw new Error('Invalid --as-of date');
 const config = await read('config/model-discovery.json');
 const relevancePolicy = await read('config/model-relevance-policy.json');
-const policy = await read('config/probe-execution-policy.json');
 const catalog = (await read('data/catalog/models.json')).models;
 const canonicalEvents = (
   await readFile(path.join(root, 'data/model-discovery/events.jsonl'), 'utf8')
@@ -42,6 +39,21 @@ const canonicalEvents = (
   .split(/\r?\n/)
   .filter(Boolean)
   .map(JSON.parse);
+let priorSourceChecks = [];
+try {
+  priorSourceChecks = (
+    await readFile(path.join(root, 'data/model-discovery/source-checks.jsonl'), 'utf8')
+  )
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .map(JSON.parse);
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
+const priorCheckByUrl = new Map();
+for (const check of priorSourceChecks)
+  if (check.content_sha256)
+    priorCheckByUrl.set(`${check.source_id}|${check.url}`, check);
 let pendingEvents = [];
 try {
   pendingEvents = (
@@ -75,27 +87,42 @@ const sourceCommit = (() => {
 })();
 async function snapshot(source, response) {
   const extension =
-    source.type === 'authenticated-model-list' ? 'json' : 'html';
+    source.type === 'research-feed' ? 'xml' : 'html';
   const relative = `${source.id}/${response.sha256}.${extension}.gz`;
   const destination = path.join(root, '.discovery/snapshots', relative);
   await mkdir(path.dirname(destination), { recursive: true });
   await writeFile(destination, gzipSync(Buffer.from(response.body)));
   const normalizedPath = relative.replaceAll('\\', '/');
-  sourceChecks.push({
+  const previous = priorCheckByUrl.get(`${source.id}|${response.url}`);
+  const record = {
+    schema_version: '1.0.0',
+    id: `source-check-${createHash('sha256').update(`${source.id}|${response.url}|${response.fetched_at}|${response.sha256}`).digest('hex').slice(0, 24)}`,
     source_id: source.id,
     vendor_id: source.vendor_id,
+    source_class: source.source_class,
     url: response.url,
-    fetched_at: response.fetched_at,
+    checked_at: response.fetched_at,
+    result_status: 'OK',
+    http_status: response.http_status,
+    publication_date: null,
     etag: response.etag,
     last_modified: response.last_modified,
-    sha256: response.sha256,
+    content_sha256: response.sha256,
+    previous_content_sha256: previous?.content_sha256 ?? null,
+    meaningful_change:
+      Boolean(previous?.content_sha256) && previous.content_sha256 !== response.sha256,
+    entities_extracted: 0,
+    normalized_identifiers: [],
     adapter: source.adapter,
     adapter_version: source.adapter_version,
     parser_version: source.parser_version,
-    checked_from_commit: sourceCommit,
+    commit_sha: sourceCommit,
+    workflow_run: process.env.GITHUB_RUN_ID ?? null,
+    parser_error: null,
     raw_snapshot_path: normalizedPath,
-  });
-  return normalizedPath;
+  };
+  sourceChecks.push(record);
+  return { path: normalizedPath, record };
 }
 function provenance(source, response) {
   return {
@@ -117,32 +144,43 @@ function provenance(source, response) {
 }
 const safeError = (error) =>
   /^(?:[A-Z][A-Z0-9_]+)$/.test(error.message) ? error.message : 'ADAPTER_ERROR';
+function failureCheck(source, url, status, checkedAt = new Date().toISOString()) {
+  return {
+    schema_version: '1.0.0',
+    id: `source-check-${createHash('sha256').update(`${source.id}|${url}|${checkedAt}|${status}`).digest('hex').slice(0, 24)}`,
+    source_id: source.id,
+    vendor_id: source.vendor_id,
+    source_class: source.source_class,
+    url,
+    checked_at: checkedAt,
+    result_status: status,
+    http_status: /^HTTP_(\d+)$/.test(status) ? Number(status.slice(5)) : null,
+    publication_date: null,
+    etag: null,
+    last_modified: null,
+    content_sha256: null,
+    previous_content_sha256:
+      priorCheckByUrl.get(`${source.id}|${url}`)?.content_sha256 ?? null,
+    meaningful_change: false,
+    entities_extracted: 0,
+    normalized_identifiers: [],
+    adapter: source.adapter,
+    adapter_version: source.adapter_version,
+    parser_version: source.parser_version,
+    commit_sha: sourceCommit,
+    workflow_run: process.env.GITHUB_RUN_ID ?? null,
+    parser_error: status,
+    raw_snapshot_path: null,
+  };
+}
 if (config.enabled)
   for (const source of config.sources.filter((s) => s.enabled)) {
     const sourceFacts = [];
     try {
-      if (source.type === 'authenticated-model-list') {
-        let next = source.url;
-        const seen = new Set();
-        let pages = 0;
-        while (next) {
-          if (++pages > config.max_pages_per_source || seen.has(next))
-            throw new Error('PAGINATION_LIMIT');
-          seen.add(next);
-          const response = await readOfficial(next, source, config);
-          response.snapshot_path = await snapshot(source, response);
-          const parsed = parseListing(response.body, source);
-          sourceFacts.push(
-            ...parsed.models.map((m) => ({
-              ...m,
-              provenance: [provenance(source, response)],
-            })),
-          );
-          next = parsed.next;
-        }
-      } else {
+      if (source.type === 'official-model-index') {
         const response = await readOfficial(source.url, source, config);
-        response.snapshot_path = await snapshot(source, response);
+        const indexSnapshot = await snapshot(source, response);
+        response.snapshot_path = indexSnapshot.path;
         const adapter = adapters[source.adapter];
         if (!adapter) throw new Error('ADAPTER_NOT_REGISTERED');
         const discovered = adapter.index(response.body, source);
@@ -152,9 +190,11 @@ if (config.enabled)
             throw new Error('DETAIL_LIMIT_REQUIRES_REVIEW');
           // Bounded requests; individual page failures do not erase successful discoveries.
           for (const url of discovered) {
+            let detailSnapshot = null;
             try {
               const detail = await readOfficial(url, source, config);
-              detail.snapshot_path = await snapshot(source, detail);
+              detailSnapshot = await snapshot(source, detail);
+              detail.snapshot_path = detailSnapshot.path;
               const model = adapter.detail(detail.body, source, detail.url);
               if (
                 model.api_model_id &&
@@ -168,11 +208,21 @@ if (config.enabled)
                   provenance(source, detail),
                 ],
               });
+              detailSnapshot.record.entities_extracted = model.api_model_id ? 1 : 0;
+              detailSnapshot.record.normalized_identifiers = model.api_model_id
+                ? [model.api_model_id]
+                : [];
+              detailSnapshot.record.publication_date = model.released_on ?? null;
             } catch (error) {
+              const status = safeError(error);
+              if (detailSnapshot) {
+                detailSnapshot.record.result_status = status;
+                detailSnapshot.record.parser_error = status;
+              } else sourceChecks.push(failureCheck(source, url, status));
               outcomes.push({
                 source_id: source.id,
                 url,
-                status: safeError(error),
+                status,
               });
             }
           }
@@ -183,6 +233,13 @@ if (config.enabled)
               provenance: [provenance(source, response)],
             })),
           );
+        indexSnapshot.record.entities_extracted = sourceFacts.length;
+        indexSnapshot.record.normalized_identifiers = [
+          ...new Set(sourceFacts.map((model) => model.api_model_id).filter(Boolean)),
+        ].sort((left, right) => left.localeCompare(right));
+      } else {
+        const response = await readOfficial(source.url, source, config);
+        await snapshot(source, response);
       }
       facts.push(...sourceFacts);
       outcomes.push({
@@ -193,22 +250,18 @@ if (config.enabled)
         models: sourceFacts.length,
       });
     } catch (error) {
-      // Discard incomplete paginated listings. Missing credentials are not non-existence.
+      const status = safeError(error);
+      sourceChecks.push(failureCheck(source, source.url, status));
+      // A failed source never removes or mutates previously accepted models.
       outcomes.push({
         source_id: source.id,
         vendor_id: source.vendor_id,
         source_url: source.url,
-        status: safeError(error),
+        status,
       });
     }
   }
-const models = applyAvailabilityFailures(
-  normalizeDiscoveries(facts, previous, catalog, asOf),
-  previous,
-  outcomes,
-  config.sources,
-  asOf,
-);
+const models = normalizeDiscoveries(facts, previous, catalog, asOf);
 const proposed = proposeEvents(models, previous, asOf);
 const pendingDecisions = pendingEvents.map((event) => ({
   event,
@@ -235,10 +288,7 @@ const report = {
   source_checks: sourceChecks,
   events,
   decisions,
-  models: models.map((m) => ({
-    ...m,
-    eligibility: eligibility(m, policy, asOf),
-  })),
+  models,
   execution: 'DISABLED_NO_INFERENCE_REQUESTS',
   review_required: decisions.some(
     (item) => item.decision === 'REVIEW_REQUIRED',
