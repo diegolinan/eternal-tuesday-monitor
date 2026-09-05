@@ -2,8 +2,8 @@
 
 Status: one explicitly authorized live pilot completed on 2026-09-05 and was
 manually reviewed for release. The three trials matched their deterministic
-expected answers. No scheduling, discovery-readiness update or automatic
-evidence acceptance was enabled.
+expected answers. A separate recurring wrapper now reuses this protocol for
+weekly pending-review candidates; automatic evidence acceptance remains disabled.
 
 This is a separate experimental surface, `experimental-codex-cli-chatgpt-local`,
 not `surface-openai-model-api` or the consumer ChatGPT UI. Its accepted result is
@@ -85,6 +85,11 @@ reconstruction, capture hashes and replayed scoring. Keep the matching implement
 when archiving a live run; later changes invalidate verification against current code.
 Temporary working directories are not automatically deleted and contain no copied
 credentials. They can be reviewed and removed separately.
+
+The recurring wrapper is documented separately in
+`docs/scheduled-codex-candidates.md`. It creates a fresh isolated run root and
+one UTC-day receipt for every authorized weekly attempt; it never removes or
+reuses the original manual receipt.
 
 ## Documentation basis
 

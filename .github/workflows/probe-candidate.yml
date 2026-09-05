@@ -8,8 +8,6 @@ on:
       - 'config/automated-probe-candidate.json'
       - 'schemas/automated-probe-*.schema.json'
       - 'scripts/probes/automated*.mjs'
-  schedule:
-    - cron: '17 14 * * 2'
   workflow_dispatch:
 
 permissions:

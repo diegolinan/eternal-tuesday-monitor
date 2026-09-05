@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "execution_enabled",
+    "model",
+    "reasoning_effort",
+    "protocol",
+    "limits",
+    "authorization",
+    "review"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "execution_enabled": { "const": true },
+    "model": { "const": "gpt-5.6-luna" },
+    "reasoning_effort": { "const": "low" },
+    "protocol": { "const": "codex-cli-explicit-offset-manual-1" },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_runs_per_utc_day",
+        "max_invocations_per_run",
+        "timeout_ms_per_invocation",
+        "stop_after_input_tokens_per_invocation",
+        "stop_after_output_tokens_per_invocation",
+        "monetary_cap_enforced"
+      ],
+      "properties": {
+        "max_runs_per_utc_day": { "const": 1 },
+        "max_invocations_per_run": { "const": 3 },
+        "timeout_ms_per_invocation": { "const": 60000 },
+        "stop_after_input_tokens_per_invocation": { "const": 32000 },
+        "stop_after_output_tokens_per_invocation": { "const": 512 },
+        "monetary_cap_enforced": { "const": false }
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "accept_uncapped_workspace_usage",
+        "authorized_on",
+        "scope"
+      ],
+      "properties": {
+        "channel": { "const": "CHATGPT_WORKSPACE" },
+        "accept_uncapped_workspace_usage": { "const": true },
+        "authorized_on": { "type": "string", "format": "date" },
+        "scope": { "const": "Recurring weekly evidence candidates only" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_only",
+        "draft_pull_request",
+        "automatic_acceptance",
+        "automatic_merge",
+        "automatic_publication"
+      ],
+      "properties": {
+        "candidate_only": { "const": true },
+        "draft_pull_request": { "const": true },
+        "automatic_acceptance": { "const": false },
+        "automatic_merge": { "const": false },
+        "automatic_publication": { "const": false }
+      }
+    }
+  }
+}

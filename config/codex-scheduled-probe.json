@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "execution_enabled": true,
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "low",
+  "protocol": "codex-cli-explicit-offset-manual-1",
+  "limits": {
+    "max_runs_per_utc_day": 1,
+    "max_invocations_per_run": 3,
+    "timeout_ms_per_invocation": 60000,
+    "stop_after_input_tokens_per_invocation": 32000,
+    "stop_after_output_tokens_per_invocation": 512,
+    "monetary_cap_enforced": false
+  },
+  "authorization": {
+    "channel": "CHATGPT_WORKSPACE",
+    "accept_uncapped_workspace_usage": true,
+    "authorized_on": "2026-09-05",
+    "scope": "Recurring weekly evidence candidates only"
+  },
+  "review": {
+    "candidate_only": true,
+    "draft_pull_request": true,
+    "automatic_acceptance": false,
+    "automatic_merge": false,
+    "automatic_publication": false
+  }
+}

@@ -11,13 +11,13 @@ This workflow closes the mechanical gap between a bounded API test and a human-r
 - Three invocations per run, no retries.
 - Maximum 16,384 input tokens and 256 output tokens per invocation.
 - Maximum estimated run cost: USD 1. The estimate is a guard, not an invoice or guaranteed provider-side spend cap.
-- At most one scheduled run per day; the installed cadence is weekly on Tuesday at 14:17 UTC and manual dispatch is also available.
+- At most one run per day. The GitHub workflow is manual-only while this API path remains dormant.
 
-Changes to the runner, its schemas or its policy also trigger the workflow on `main`, so the disabled gate and any future reviewed activation are verified immediately.
+Changes to the runner, its schemas or its policy trigger the workflow on `main`, so the disabled gate and any future reviewed activation are verified immediately.
 
 `config/automated-probe-candidate.json` is the reviewed switch and contract. `execution_enabled` is currently `false`. In that state, the workflow writes a disabled run report and stops before credential validation or any network request. The local `.env.local` key is not uploaded; a future live GitHub Actions run requires an `OPENAI_API_KEY` repository secret and active API billing.
 
-Live execution also refuses to start if the protocol's pricing check is more than seven days old. Enabling the switch therefore requires reviewing current pricing and updating its dated source, not merely changing a Boolean.
+Live execution also refuses to start if the protocol's pricing check is more than seven days old. Enabling the switch therefore requires reviewing current pricing and updating its dated source, not merely changing a Boolean. The active recurring path instead uses the separately documented Codex/Business workspace flow.
 
 ## Review boundary
 

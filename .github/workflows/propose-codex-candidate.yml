@@ -1,0 +1,43 @@
+name: Propose scheduled Codex candidate
+
+on:
+  push:
+    branches:
+      - 'automation/codex-probe-candidate-*'
+    paths:
+      - 'data/evidence-candidates/scheduled-codex-luna-*.json'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run probes:codex:scheduled:verify -- data/evidence-candidates
+      - run: npm run data:validate -- --base origin/main
+      - run: npm run data:compile
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build:pages
+      - run: npm run static:validate
+      - name: Open a draft review PR, never merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_BRANCH: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          if ! gh pr view "$HEAD_BRANCH" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$HEAD_BRANCH" --draft --title "Review scheduled Codex Luna evidence candidate" --body "Automated Codex/Business candidate only. No evidence has been accepted, no observation or release has changed, and this workflow never merges or publishes."
+          fi
