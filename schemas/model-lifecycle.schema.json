@@ -5,28 +5,98 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "id", "vendor", "name", "apiModelId", "releaseState", "relevanceState",
-    "apiState", "accountAccess", "accountCheckedOn", "discoveredOn", "releasedOn",
-    "firstTestedOn", "lastTestedOn", "lifecycleState", "testabilityState",
-    "evaluationReasons", "probeCoverage", "surfaces", "sources", "reviewReasons"
+    "id",
+    "vendor",
+    "name",
+    "apiModelId",
+    "releaseState",
+    "relevanceState",
+    "apiState",
+    "accountAccess",
+    "accountCheckedOn",
+    "discoveredOn",
+    "releasedOn",
+    "firstTestedOn",
+    "lastTestedOn",
+    "lifecycleState",
+    "testabilityState",
+    "evaluationReasons",
+    "probeCoverage",
+    "surfaces",
+    "sources",
+    "reviewReasons",
+    "defaultProminence"
   ],
   "properties": {
     "id": { "type": "string", "minLength": 1 },
     "vendor": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
-    "apiModelId": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
-    "releaseState": { "enum": ["UNKNOWN", "DISCOVERED", "RELEASED", "DEPRECATED", "RETIRED", "SUPERSEDED"] },
-    "relevanceState": { "enum": ["UNCLASSIFIED", "ACTIVE", "FRONTIER", "HISTORICAL", "SUPERSEDED"] },
+    "apiModelId": {
+      "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+    },
+    "releaseState": {
+      "enum": [
+        "UNKNOWN",
+        "DISCOVERED",
+        "RELEASED",
+        "DEPRECATED",
+        "RETIRED",
+        "SUPERSEDED"
+      ]
+    },
+    "relevanceState": {
+      "enum": [
+        "UNCLASSIFIED",
+        "DISCOVERED_RELEVANT",
+        "REVIEW_REQUIRED",
+        "CATALOG_ONLY",
+        "ACTIVE",
+        "FRONTIER",
+        "HISTORICAL",
+        "SUPERSEDED"
+      ]
+    },
     "apiState": { "enum": ["API_UNKNOWN", "API_PENDING", "API_AVAILABLE"] },
-    "accountAccess": { "enum": ["UNKNOWN", "ACCESS_CONFIRMED", "ACCESS_DENIED", "ERROR"] },
-    "accountCheckedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
-    "discoveredOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
-    "releasedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
-    "firstTestedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
-    "lastTestedOn": { "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
-    "lifecycleState": { "enum": ["DISCOVERED", "EVALUATION_PENDING", "EVALUATION_AVAILABLE", "EVALUATION_NOT_POSSIBLE", "TESTED", "RETEST_REQUIRED"] },
-    "testabilityState": { "enum": ["AVAILABLE", "NOT_CURRENTLY_AVAILABLE", "UNKNOWN_REVIEW_REQUIRED"] },
-    "evaluationReasons": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "accountAccess": {
+      "enum": ["UNKNOWN", "ACCESS_CONFIRMED", "ACCESS_DENIED", "ERROR"]
+    },
+    "accountCheckedOn": {
+      "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+    },
+    "discoveredOn": {
+      "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+    },
+    "releasedOn": {
+      "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+    },
+    "firstTestedOn": {
+      "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+    },
+    "lastTestedOn": {
+      "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+    },
+    "lifecycleState": {
+      "enum": [
+        "DISCOVERED",
+        "EVALUATION_PENDING",
+        "EVALUATION_AVAILABLE",
+        "EVALUATION_NOT_POSSIBLE",
+        "TESTED",
+        "RETEST_REQUIRED"
+      ]
+    },
+    "testabilityState": {
+      "enum": [
+        "AVAILABLE",
+        "NOT_CURRENTLY_AVAILABLE",
+        "UNKNOWN_REVIEW_REQUIRED"
+      ]
+    },
+    "evaluationReasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
     "probeCoverage": {
       "type": "array",
       "minItems": 5,
@@ -56,7 +126,16 @@
         }
       }
     },
-    "sources": { "type": "array", "uniqueItems": true, "items": { "type": "string", "format": "uri" } },
-    "reviewReasons": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+    "sources": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "format": "uri" }
+    },
+    "reviewReasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "defaultProminence": { "type": "boolean" }
   }
 }

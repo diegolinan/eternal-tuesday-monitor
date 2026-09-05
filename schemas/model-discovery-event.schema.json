@@ -17,7 +17,12 @@
       "format": "date"
     },
     "type": {
-      "const": "MODEL_METADATA_RECORDED"
+      "enum": [
+        "MODEL_METADATA_RECORDED",
+        "MODEL_DISCOVERED",
+        "MODEL_METADATA_CHANGED",
+        "MODEL_RELATIONSHIP_CHANGED"
+      ]
     },
     "model": {
       "type": "object",
@@ -246,6 +251,48 @@
                 "type": "string",
                 "minLength": 1,
                 "maxLength": 240
+              },
+              "fetched_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "etag": {
+                "anyOf": [
+                  { "type": "string", "maxLength": 1000 },
+                  { "type": "null" }
+                ]
+              },
+              "last_modified": {
+                "anyOf": [
+                  { "type": "string", "maxLength": 1000 },
+                  { "type": "null" }
+                ]
+              },
+              "adapter": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "adapter_version": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "checked_from_commit": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              "raw_snapshot_artifact": {
+                "const": "official-model-discovery-sources"
+              },
+              "raw_snapshot_path": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9._-]+/[a-f0-9]{64}\\.(?:html|json)\\.gz$"
+              },
+              "raw_snapshot_retention_days": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 365
               }
             }
           },

@@ -1,6 +1,6 @@
 # The Eternal Tuesday Monitor
 
-## Model discovery and reviewed adoption (Phase 6)
+## Official model discovery V1
 
 The public model register and the observation table answer different questions. A model can exist, have a documented API identifier, be listed for an account, be compatible with an approved API protocol, and have accepted behavioral evidence. None of those claims implies the next one. No discovered model automatically receives a PASS/FAIL, and no API record updates ChatGPT, Claude, Codex, Cursor or another consumer surface.
 
@@ -17,7 +17,7 @@ HTML adapters use parse5, never execute downloaded scripts, and fail visibly whe
 
 ### Lifecycle and identity
 
-The separate append-only ledger `data/model-discovery/events.jsonl` records snapshots of reviewed metadata with `discovered_on`, `released_on`, `api_available_on`, account-check date, source URLs, retrieval dates, content hashes and parser versions. Initial events reach canonical data only after a maintainer merges the generated PR. First discovery dates from an open proposal are retained by reading its data file without executing its branch code. Existing model records and prior metadata events are never deleted.
+The separate append-only ledger `data/model-discovery/events.jsonl` records snapshots with `discovered_on`, `released_on`, `api_available_on`, account-check date, source URLs, retrieval times, ETag/Last-Modified when supplied, content hashes, adapter/parser versions and the source Git commit. Exact, collision-free new identities covered by the reviewed deterministic relevance policy may enter automatically. Interpretive changes remain draft PRs. First discovery dates from an open proposal are retained by reading its data file without executing its branch code. Existing model records and prior metadata events are never deleted.
 
 - Release state: DISCOVERED means official identity found; RELEASED requires additional release/listing evidence; DEPRECATED/RETIRED require an explicit vendor statement; SUPERSEDED requires an explicit relationship. Absence from a later listing is not retirement.
 - API state: API_UNKNOWN, API_PENDING or API_AVAILABLE. A documented ID can coexist with UNKNOWN/PENDING. Account access is separate: UNKNOWN, ACCESS_CONFIRMED, ACCESS_DENIED or ERROR. A denied request is never global nonexistence.
@@ -30,22 +30,23 @@ Supersession propagates RETEST_REQUIRED only through a reviewed, same-vendor `su
 
 ### Daily workflow and review boundary
 
-`.github/workflows/discover-models.yml` runs daily at 12:43 UTC (09:43 Argentina) and supports `workflow_dispatch`. Once daily is sufficient for release discovery; execution may be delayed by GitHub. The read-only discovery job has no repository write token. The proposal job receives data only, validates it, runs tests and a static build, then opens/updates the draft `automation/model-discovery` PR. It never merges or publishes external facts directly. Changes are restricted to the model catalog, discovery ledger, explicit state events and compiled view. No change means no new commit/PR; source outcomes remain in the run summary/artifact. Reports are retained for 90 days in Actions; accepted discovery provenance is retained permanently in Git.
+`.github/workflows/discover-models.yml` runs daily at 12:43 UTC (09:43 Argentina) and supports `workflow_dispatch`. Once daily is sufficient for model catalogs. Each vendor source fails independently. After full validation, qualifying deterministic discoveries are committed to `main` and the same run rebuilds/deploys Pages; this is necessary because a normal workflow-token push does not start a second workflow. Ambiguous identities, metadata changes, suspected relationships and unclassified relevance instead open/update the draft `automation/model-discovery` PR. No change means no commit or deployment. Source outcomes and raw compressed snapshots are retained for 90 days in Actions; accepted hashes and normalized provenance remain permanently in Git.
 
-GitHub must allow Actions to create pull requests (repository Settings > Actions > General > Workflow permissions). The workflow requests contents-write and pull-requests-write only for the proposal job. Default GITHUB_TOKEN-created PRs do not trigger ordinary PR CI automatically, so validation, tests and the Pages build run inside the proposal workflow before PR creation. A maintainer merge triggers normal main CI/Pages. There is no auto-merge configuration. Future automation could accept exact, non-conflicting metadata after demonstrated adapter reliability, but identities, methodology changes, supersession and behavioral conclusions should retain review.
+GitHub must allow Actions to create pull requests for the review-required path. There is no auto-merge configuration. Automatic acceptance is limited to a brand-new exact official identity with no collision, relationship, interpretation or unresolved relevance. Existing metadata, aliases, renames, supersession, product adoption, methodologies and behavioral conclusions retain review.
 
 Local commands:
 
 ```powershell
-npm run models:discover -- --as-of 2026-09-04
-# Inspect .discovery/run.json. On a proposal branch only:
-npm run models:stage
+npm run models:discover -- --as-of 2026-09-05
+# Inspect .discovery/run.json. GitHub Actions stages automatic changes;
+# a local proposal branch may stage review-required changes:
+npm run models:stage -- --mode review
 npm run data:validate -- --base main
 npm run data:compile
 npm run models:targets -- --as-of 2026-09-07
 ```
 
-Discovery itself writes only ignored `.discovery/` outputs. `models:stage` prepares the proposed catalog/ledger changes; it is not an acceptance action. `models:targets` regenerates eligible target configuration from accepted data, with no per-model code changes. The Pages pipeline also generates that target artifact after merges.
+Discovery itself writes only ignored `.discovery/` outputs. `models:stage -- --mode automatic` is restricted to GitHub Actions (or a non-main branch) and applies only policy-qualified new identities. Review mode prepares the proposal path. `models:targets` regenerates eligible target configuration from accepted data, with no per-model code changes.
 
 Accepted discoveries are projected into the public [model lifecycle](docs/model-lifecycle.md) even when no observation exists. The canonical model catalog has its own JSON Schema and keeps API identity, aliases, discovery provenance, reviewed relevance and reviewed supersession explicit. Lifecycle coverage never creates an observation or behavior verdict.
 
@@ -62,6 +63,8 @@ The former Luna-specific recurring candidate path has been retired. The one revi
 Optional discovery credentials are OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY and XAI_API_KEY in GitHub Secrets. Missing credentials skip authenticated listing, without disabling public discovery. GET requests have timeout, response-size, redirect, pagination and detail-count limits. HTTPS host allowlists are checked at every redirect; authenticated redirects cannot cross origins. Credentials are never placed in URLs, source files, PR text or artifacts. Discovery never calls a generative endpoint.
 
 A failed source creates an adapter outcome, not catalog deletions. Authenticated errors can propose an account-access ERROR/ACCESS_DENIED snapshot while retaining prior identity and availability provenance. Fresh account confirmations are cached for at most seven days to avoid daily renewal-only PRs; failure checks invalidate readiness. The manual API pilot checks account availability, binds approval to exact code/parameters, limits calls and output tokens, reserves estimated spend, and respects its own kill switch. The API candidate harness is fixture-tested but its paid execution gate remains disabled; automatic evidence acceptance is not implemented.
+
+The complete acceptance, relevance and failure contract is in [`docs/model-discovery-v1.md`](docs/model-discovery-v1.md).
 
 Known limits: official HTML formats can change; comparisons can disagree with cached documentation; release dates/aliases/supersession are only populated when explicitly established. Source capabilities are not inferred from model families. Metadata approval is not evidence acceptance. Pending catalog models are linked for review, not displayed as accepted public facts.
 
@@ -219,7 +222,7 @@ The validation workflow:
 
 The Pages workflow publishes that validated artifact to the canonical production URL. A separate minimal workflow runs every Monday at 12:17 UTC, 09:17 Argentina time. It supplies an explicit date, reevaluates only local versioned state, rebuilds, and redeploys Pages. It does not fetch sources, change evidence verification dates, modify historical records, or commit derived files. Neither workflow deploys the OpenAI prototype.
 
-Daily model discovery and display-freshness refresh are configured as described above. The OpenAI API candidate workflow is manual-only and execution-disabled. A weekly local Codex/Business task may produce a sanitized draft PR for review. Automated evidence acceptance is not configured.
+Daily official model discovery and display-freshness refresh are configured as described above. The OpenAI API candidate workflow is manual-only and execution-disabled. No local ChatGPT/Codex scheduler participates in the canonical path. Automated evidence acceptance is not configured.
 
 ## Initial evidence scope
 

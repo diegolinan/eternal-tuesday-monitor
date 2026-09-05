@@ -18,6 +18,11 @@ import {
 import { evaluateObservationFreshness } from '../scripts/lib/freshness.mjs';
 import { projectModels } from '../scripts/discovery/project.mjs';
 import { readOfficial } from '../scripts/discovery/fetch.mjs';
+import {
+  classifyDiscoveryEvent,
+  catalogEntryForDecision,
+  evaluateRelevance,
+} from '../scripts/discovery/decision.mjs';
 
 const source = {
   id: 'fixture-source',
@@ -62,6 +67,35 @@ const policy = {
       required_parameters: ['max_output_tokens'],
     },
   ],
+};
+const relevancePolicy = {
+  policy_id: 'fixture-relevance-v1',
+  automatic_acceptance: {
+    source_authority: 'vendor',
+    source_types: ['official-model-index'],
+  },
+  rules: [
+    {
+      id: 'specialized',
+      result: 'CATALOG_ONLY',
+      api_id_pattern: '(?:^|-)image(?:$|-)',
+      reason: 'Specialized fixture model.',
+    },
+    {
+      id: 'openai-general',
+      vendor_id: 'vendor-openai',
+      result: 'DISCOVERED_RELEVANT',
+      api_id_pattern: '^gpt-',
+      reason: 'General fixture model.',
+    },
+  ],
+  fallback: { result: 'REVIEW_REQUIRED', reason: 'Fixture review.' },
+};
+const trustedSource = {
+  ...source,
+  authority: 'vendor',
+  enabled: true,
+  automatic_identity_acceptance: true,
 };
 const callable = () =>
   normalize([
@@ -229,6 +263,91 @@ test('new API models cannot mark consumer-product observations as API tests', ()
   assert.equal(view[0].surfaces[0].kind, 'CONSUMER_PRODUCT_SURFACE');
   assert.deepEqual(observations, before);
 });
+test('unknown exact official model is accepted only as catalog metadata', () => {
+  const [model] = normalize([sample()]);
+  const [event] = proposeEvents([model], [], '2026-09-04');
+  const decision = classifyDiscoveryEvent(
+    event,
+    [],
+    [trustedSource],
+    relevancePolicy,
+  );
+  assert.equal(event.type, 'MODEL_DISCOVERED');
+  assert.equal(decision.decision, 'AUTO_ACCEPT');
+  assert.equal(decision.relevance.state, 'DISCOVERED_RELEVANT');
+  const entry = catalogEntryForDecision(
+    decision,
+    '2026-09-04',
+    relevancePolicy.policy_id,
+  );
+  assert.equal(entry.catalog_status, 'ACCEPTED_DISCOVERY');
+  assert.equal(entry.relevance_state, 'DISCOVERED_RELEVANT');
+  assert.equal(entry.supersedes_model_id, null);
+  const view = projectModels(
+    [event],
+    [],
+    { ...policy, methodologies: [] },
+    new Map([['vendor-openai', { name: 'OpenAI' }]]),
+    '2026-09-04',
+    {
+      catalog: [entry],
+      probes: [1, 2, 3, 4, 5].map((id) => ({
+        id: `p${id}`,
+        name: `Probe ${id}`,
+      })),
+    },
+  );
+  assert.equal(view[0].lifecycleState, 'DISCOVERED');
+  assert.equal(view[0].testabilityState, 'UNKNOWN_REVIEW_REQUIRED');
+  assert.equal(view[0].defaultProminence, true);
+  assert.equal(view[0].surfaces.length, 0);
+  assert.deepEqual(
+    view[0].probeCoverage.map((probe) => probe.state),
+    Array(5).fill('NOT_TESTED'),
+  );
+  assert.equal('observation' in decision, false);
+  assert.equal('verdict' in decision, false);
+});
+test('metadata and relationship changes are separate review-required events', () => {
+  const [first] = normalize([sample()]);
+  const [metadata] = normalizeDiscoveries(
+    [sample({ channel: 'PREVIEW' })],
+    [first],
+    [],
+    '2026-09-05',
+  );
+  const [metadataEvent] = proposeEvents([metadata], [first], '2026-09-05');
+  assert.equal(metadataEvent.type, 'MODEL_METADATA_CHANGED');
+  assert.equal(
+    classifyDiscoveryEvent(
+      metadataEvent,
+      [first],
+      [trustedSource],
+      relevancePolicy,
+    ).decision,
+    'REVIEW_REQUIRED',
+  );
+  const [relationship] = normalizeDiscoveries(
+    [sample({ supersedes_model_id: 'model-old' })],
+    [first],
+    [],
+    '2026-09-05',
+  );
+  const [relationshipEvent] = proposeEvents(
+    [relationship],
+    [first],
+    '2026-09-05',
+  );
+  const decision = classifyDiscoveryEvent(
+    relationshipEvent,
+    [first],
+    [trustedSource],
+    relevancePolicy,
+  );
+  assert.equal(relationshipEvent.type, 'MODEL_RELATIONSHIP_CHANGED');
+  assert.equal(decision.decision, 'REVIEW_REQUIRED');
+  assert.ok(decision.reasons.includes('RELATIONSHIP_REQUIRES_REVIEW'));
+});
 test('deprecated model remains in history and cannot become a target', () => {
   const first = callable();
   const events = proposeEvents([first], [], '2026-09-04');
@@ -348,8 +467,13 @@ test('Gemini endpoint table and Claude API row, not marketing names, establish I
 });
 
 test('OpenAI endpoint navigation is not a supported endpoint claim', () => {
-  const html = '<meta property="og:title" content="GPT Example Model | OpenAI API"><main>Endpoints v1/responses Unsupported Snapshots gpt-example Rate limits</main>';
-  const model = openai.detail(html, source, 'https://official.example/api/docs/models/gpt-example');
+  const html =
+    '<meta property="og:title" content="GPT Example Model | OpenAI API"><main>Endpoints v1/responses Unsupported Snapshots gpt-example Rate limits</main>';
+  const model = openai.detail(
+    html,
+    source,
+    'https://official.example/api/docs/models/gpt-example',
+  );
   assert.deepEqual(model.endpoints, []);
 });
 
@@ -396,6 +520,12 @@ test('official fetch rejects redirected foreign hosts and excessive responses', 
     /TOO_LARGE/,
   );
 });
+test('a failed vendor source produces no event and cannot mutate the catalog', () => {
+  const catalog = [{ id: 'model-existing', name: 'Existing' }];
+  const before = structuredClone(catalog);
+  assert.deepEqual(proposeEvents(normalize([], []), [], '2026-09-04'), []);
+  assert.deepEqual(catalog, before);
+});
 
 test('Astra parser replay is deterministic, deduplicated and creates no observation or verdict', async () => {
   const root = new URL('./fixtures/model-discovery/', import.meta.url);
@@ -423,10 +553,33 @@ test('Astra parser replay is deterministic, deduplicated and creates no observat
   assert.equal(events.length, 1);
   assert.equal('observedResult' in events[0], false);
   assert.equal('observation' in events[0], false);
+  const actualConfig = JSON.parse(
+    await readFile(new URL('../config/model-discovery.json', import.meta.url)),
+  );
+  const actualPolicy = JSON.parse(
+    await readFile(
+      new URL('../config/model-relevance-policy.json', import.meta.url),
+    ),
+  );
+  const astraDecision = classifyDiscoveryEvent(
+    events[0],
+    [],
+    actualConfig.sources,
+    actualPolicy,
+  );
+  assert.equal(astraDecision.decision, 'AUTO_ACCEPT');
+  assert.equal(astraDecision.relevance.state, 'DISCOVERED_RELEVANT');
   const second = normalizeDiscoveries(
     [replay.fact],
     first,
-    [...catalog.models, { id: first[0].id, vendor_id: first[0].vendor_id, name: first[0].display_name }],
+    [
+      ...catalog.models,
+      {
+        id: first[0].id,
+        vendor_id: first[0].vendor_id,
+        name: first[0].display_name,
+      },
+    ],
     replay.as_of,
   );
   assert.equal(proposeEvents(second, first, replay.as_of).length, 0);
@@ -437,6 +590,57 @@ test('Astra parser replay is deterministic, deduplicated and creates no observat
   assert.equal(parser.toLowerCase().includes('astra'), false);
 });
 
+test('Astra traverses the current official-source adapter without production special-casing', async () => {
+  const fixture = JSON.parse(
+    await readFile(
+      new URL(
+        './fixtures/model-discovery/astra-official-structure.json',
+        import.meta.url,
+      ),
+    ),
+  );
+  assert.equal(fixture.quality, 'SANITIZED_OFFICIAL_STRUCTURE_FIXTURE');
+  const actualConfig = JSON.parse(
+    await readFile(new URL('../config/model-discovery.json', import.meta.url)),
+  );
+  const actualPolicy = JSON.parse(
+    await readFile(
+      new URL('../config/model-relevance-policy.json', import.meta.url),
+    ),
+  );
+  const official = actualConfig.sources.find(
+    (item) => item.adapter === 'openai-docs',
+  );
+  const urls = openai.index(fixture.index_html, official);
+  assert.deepEqual(urls, [fixture.detail_url]);
+  const parsed = openai.detail(
+    fixture.detail_html,
+    official,
+    fixture.detail_url,
+  );
+  parsed.provenance = [
+    {
+      source_id: official.id,
+      url: fixture.detail_url,
+      checked_on: '2026-09-05',
+      sha256: 'b'.repeat(64),
+      parser_version: official.parser_version,
+    },
+  ];
+  const [model] = normalizeDiscoveries([parsed], [], [], '2026-09-05');
+  assert.equal(model.display_name, fixture.expected_name);
+  assert.equal(model.api_model_id, fixture.expected_api_id);
+  const [event] = proposeEvents([model], [], '2026-09-05');
+  const decision = classifyDiscoveryEvent(
+    event,
+    [],
+    actualConfig.sources,
+    actualPolicy,
+  );
+  assert.equal(decision.decision, 'AUTO_ACCEPT');
+  assert.equal(decision.relevance.state, 'DISCOVERED_RELEVANT');
+});
+
 test('arbitrary model follows the same lifecycle without a special case', () => {
   const arbitrary = sample({
     display_name: 'Arbitrary Horizon Model',
@@ -445,6 +649,11 @@ test('arbitrary model follows the same lifecycle without a special case', () => 
   const [model] = normalize([arbitrary]);
   const first = proposeEvents([model], [], '2026-09-04');
   assert.equal(first.length, 1);
+  assert.equal(
+    classifyDiscoveryEvent(first[0], [], [trustedSource], relevancePolicy)
+      .decision,
+    'AUTO_ACCEPT',
+  );
   const lifecycle = evaluationLifecycle({
     model,
     observations: [],
@@ -464,6 +673,40 @@ test('arbitrary model follows the same lifecycle without a special case', () => 
     Array(5).fill('NOT_TESTED'),
   );
 });
+test('low-relevance official models remain searchable but not prominent', () => {
+  const specialized = sample({
+    display_name: 'GPT Image Future',
+    api_model_id: 'gpt-image-future',
+  });
+  const [model] = normalize([specialized]);
+  const relevance = evaluateRelevance(model, relevancePolicy);
+  assert.equal(relevance.state, 'CATALOG_ONLY');
+  const view = projectModels(
+    proposeEvents([model], [], '2026-09-04'),
+    [],
+    { ...policy, methodologies: [] },
+    new Map([['vendor-openai', { name: 'OpenAI' }]]),
+    '2026-09-04',
+    {
+      probes: [1, 2, 3, 4, 5].map((id) => ({
+        id: `p${id}`,
+        name: `Probe ${id}`,
+      })),
+      catalog: [
+        {
+          id: model.id,
+          identity_status: 'named',
+          relevance_state: 'CATALOG_ONLY',
+        },
+      ],
+    },
+  );
+  assert.equal(view[0].defaultProminence, false);
+  assert.deepEqual(
+    view[0].probeCoverage.map((probe) => probe.state),
+    Array(5).fill('NOT_TESTED'),
+  );
+});
 
 test('all public lifecycle states are produced from explicit fixture conditions', () => {
   const probes = [1, 2, 3, 4, 5].map((number) => ({
@@ -472,13 +715,19 @@ test('all public lifecycle states are produced from explicit fixture conditions'
   }));
   const model = callable();
   const base = { model, observations: [], policy, probes, asOf: '2026-09-04' };
-  assert.equal(evaluationLifecycle(base).lifecycleState, 'EVALUATION_AVAILABLE');
+  assert.equal(
+    evaluationLifecycle(base).lifecycleState,
+    'EVALUATION_AVAILABLE',
+  );
   assert.equal(
     evaluationLifecycle({ ...base, pending: true }).lifecycleState,
     'EVALUATION_PENDING',
   );
   assert.equal(
-    evaluationLifecycle({ ...base, model: { ...model, api_state: 'API_PENDING' } }).lifecycleState,
+    evaluationLifecycle({
+      ...base,
+      model: { ...model, api_state: 'API_PENDING' },
+    }).lifecycleState,
     'EVALUATION_NOT_POSSIBLE',
   );
   const tested = {
@@ -521,4 +770,6 @@ test('model listing is GET-only and credentials never enter URL or returned arti
     { OPENAI_API_KEY: 'fixture-secret' },
   );
   assert.ok(!JSON.stringify(result).includes('fixture-secret'));
+  assert.match(result.fetched_at, /^20\d\d-/);
+  assert.equal(result.etag, null);
 });

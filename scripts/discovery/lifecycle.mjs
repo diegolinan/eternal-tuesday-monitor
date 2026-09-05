@@ -133,8 +133,7 @@ export function evaluationLifecycle({
       id: probe.id,
       name: probe.name,
       state: records.some(
-        (observation) =>
-          observation.currentSufficiency === 'RETEST_REQUIRED',
+        (observation) => observation.currentSufficiency === 'RETEST_REQUIRED',
       )
         ? 'RETEST_REQUIRED'
         : records.length
@@ -395,13 +394,30 @@ export function proposeEvents(models, previous, asOf) {
         JSON.stringify(model) !==
         JSON.stringify(previous.find((old) => old.id === model.id)),
     )
-    .map((model) => ({
-      schema_version: '1.0.0',
-      id: `discovery-${hash(JSON.stringify(model)).slice(0, 24)}`,
-      recorded_on: asOf,
-      type: 'MODEL_METADATA_RECORDED',
-      model,
-    }));
+    .map((model) => {
+      const prior = previous.find((old) => old.id === model.id);
+      const semantic = {
+        ...model,
+        provenance: model.provenance.map((item) => ({
+          source_id: item.source_id,
+          url: item.url,
+          sha256: item.sha256,
+          parser_version: item.parser_version,
+        })),
+      };
+      const type = !prior
+        ? 'MODEL_DISCOVERED'
+        : prior.supersedes_model_id !== model.supersedes_model_id
+          ? 'MODEL_RELATIONSHIP_CHANGED'
+          : 'MODEL_METADATA_CHANGED';
+      return {
+        schema_version: '1.0.0',
+        id: `discovery-${hash(`${type}|${JSON.stringify(semantic)}`).slice(0, 24)}`,
+        recorded_on: asOf,
+        type,
+        model,
+      };
+    });
 }
 
 export function supersessionEvents(models, catalog, policy, asOf) {

@@ -21,13 +21,52 @@
     "provenance": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_id", "url", "checked_on", "sha256", "parser_version"],
+      "required": [
+        "source_id",
+        "url",
+        "checked_on",
+        "sha256",
+        "parser_version"
+      ],
       "properties": {
         "source_id": { "$ref": "#/$defs/id" },
         "url": { "type": "string", "format": "uri", "pattern": "^https://" },
         "checked_on": { "type": "string", "format": "date" },
         "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-        "parser_version": { "type": "string", "minLength": 1, "maxLength": 240 }
+        "parser_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "fetched_at": { "type": "string", "format": "date-time" },
+        "etag": {
+          "oneOf": [{ "type": "string", "maxLength": 1000 }, { "type": "null" }]
+        },
+        "last_modified": {
+          "oneOf": [{ "type": "string", "maxLength": 1000 }, { "type": "null" }]
+        },
+        "adapter": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "adapter_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "checked_from_commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "raw_snapshot_artifact": {
+          "const": "official-model-discovery-sources"
+        },
+        "raw_snapshot_path": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9._-]+/[a-f0-9]{64}\\.(?:html|json)\\.gz$"
+        },
+        "raw_snapshot_retention_days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 365
+        }
       }
     },
     "review": {
@@ -35,10 +74,24 @@
       "additionalProperties": false,
       "required": ["status", "reviewed_on", "reason"],
       "properties": {
-        "status": { "const": "REVIEWED_ACCEPTED" },
+        "status": {
+          "enum": ["REVIEWED_ACCEPTED", "POLICY_CLASSIFIED", "REVIEW_REQUIRED"]
+        },
         "reviewed_on": { "type": "string", "format": "date" },
-        "reason": { "type": "string", "minLength": 1, "maxLength": 1000 }
-      }
+        "reason": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "policy_id": { "$ref": "#/$defs/id" },
+        "rule_id": { "$ref": "#/$defs/id" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": { "enum": ["POLICY_CLASSIFIED", "REVIEW_REQUIRED"] }
+            }
+          },
+          "then": { "required": ["policy_id", "rule_id"] }
+        }
+      ]
     },
     "model": {
       "type": "object",
@@ -60,22 +113,59 @@
       ],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
-        "vendor_id": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "vendor_id": {
+          "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
         "name": { "type": "string", "minLength": 1, "maxLength": 240 },
-        "identity_status": { "enum": ["named", "not_specified", "aggregate", "unknown"] },
-        "catalog_status": { "enum": ["ACCEPTED_DISCOVERY", "MANUALLY_CURATED", "REFERENCE_ONLY"] },
-        "api_model_id": { "oneOf": [{ "type": "string", "minLength": 1, "maxLength": 240 }, { "type": "null" }] },
+        "identity_status": {
+          "enum": ["named", "not_specified", "aggregate", "unknown"]
+        },
+        "catalog_status": {
+          "enum": ["ACCEPTED_DISCOVERY", "MANUALLY_CURATED", "REFERENCE_ONLY"]
+        },
+        "api_model_id": {
+          "oneOf": [
+            { "type": "string", "minLength": 1, "maxLength": 240 },
+            { "type": "null" }
+          ]
+        },
         "aliases": {
           "type": "array",
           "uniqueItems": true,
           "maxItems": 200,
           "items": { "type": "string", "minLength": 1, "maxLength": 240 }
         },
-        "release_state": { "enum": ["UNKNOWN", "DISCOVERED", "RELEASED", "DEPRECATED", "RETIRED", "SUPERSEDED"] },
-        "relevance_state": { "enum": ["UNCLASSIFIED", "ACTIVE", "FRONTIER", "HISTORICAL", "SUPERSEDED"] },
-        "relevance_review": { "oneOf": [{ "$ref": "#/$defs/review" }, { "type": "null" }] },
-        "supersedes_model_id": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
-        "supersession_review": { "oneOf": [{ "$ref": "#/$defs/review" }, { "type": "null" }] },
+        "release_state": {
+          "enum": [
+            "UNKNOWN",
+            "DISCOVERED",
+            "RELEASED",
+            "DEPRECATED",
+            "RETIRED",
+            "SUPERSEDED"
+          ]
+        },
+        "relevance_state": {
+          "enum": [
+            "UNCLASSIFIED",
+            "DISCOVERED_RELEVANT",
+            "REVIEW_REQUIRED",
+            "CATALOG_ONLY",
+            "ACTIVE",
+            "FRONTIER",
+            "HISTORICAL",
+            "SUPERSEDED"
+          ]
+        },
+        "relevance_review": {
+          "oneOf": [{ "$ref": "#/$defs/review" }, { "type": "null" }]
+        },
+        "supersedes_model_id": {
+          "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
+        "supersession_review": {
+          "oneOf": [{ "$ref": "#/$defs/review" }, { "type": "null" }]
+        },
         "discovery_provenance": {
           "type": "array",
           "maxItems": 100,
@@ -84,7 +174,11 @@
       },
       "allOf": [
         {
-          "if": { "properties": { "catalog_status": { "const": "ACCEPTED_DISCOVERY" } } },
+          "if": {
+            "properties": {
+              "catalog_status": { "const": "ACCEPTED_DISCOVERY" }
+            }
+          },
           "then": {
             "properties": {
               "vendor_id": { "$ref": "#/$defs/id" },
@@ -93,12 +187,32 @@
           }
         },
         {
-          "if": { "properties": { "relevance_state": { "not": { "const": "UNCLASSIFIED" } } } },
-          "then": { "properties": { "relevance_review": { "$ref": "#/$defs/review" } } }
+          "if": {
+            "properties": {
+              "relevance_state": { "not": { "const": "UNCLASSIFIED" } }
+            }
+          },
+          "then": {
+            "properties": { "relevance_review": { "$ref": "#/$defs/review" } }
+          }
         },
         {
-          "if": { "properties": { "supersedes_model_id": { "type": "string" } } },
-          "then": { "properties": { "supersession_review": { "$ref": "#/$defs/review" } } }
+          "if": {
+            "properties": { "supersedes_model_id": { "type": "string" } }
+          },
+          "then": {
+            "properties": {
+              "supersession_review": {
+                "allOf": [
+                  { "$ref": "#/$defs/review" },
+                  {
+                    "type": "object",
+                    "properties": { "status": { "const": "REVIEWED_ACCEPTED" } }
+                  }
+                ]
+              }
+            }
+          }
         }
       ]
     }

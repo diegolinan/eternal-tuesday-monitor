@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "policy_id",
+    "automatic_acceptance",
+    "rules",
+    "fallback"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "policy_id": { "$ref": "#/$defs/id" },
+    "automatic_acceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_authority",
+        "source_types",
+        "require_exact_api_id",
+        "require_unique_identity",
+        "require_zero_review_reasons",
+        "allow_metadata_updates",
+        "allow_relationship_updates"
+      ],
+      "properties": {
+        "source_authority": { "const": "vendor" },
+        "source_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["official-model-index", "authenticated-model-list"]
+          }
+        },
+        "require_exact_api_id": { "const": true },
+        "require_unique_identity": { "const": true },
+        "require_zero_review_reasons": { "const": true },
+        "allow_metadata_updates": { "const": false },
+        "allow_relationship_updates": { "const": false }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "result", "api_id_pattern", "reason"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "vendor_id": { "$ref": "#/$defs/id" },
+          "result": { "enum": ["DISCOVERED_RELEVANT", "CATALOG_ONLY"] },
+          "api_id_pattern": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "reason": { "type": "string", "minLength": 1, "maxLength": 1000 }
+        }
+      }
+    },
+    "fallback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result", "reason"],
+      "properties": {
+        "result": { "const": "REVIEW_REQUIRED" },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 1000 }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+      "maxLength": 240
+    }
+  }
+}

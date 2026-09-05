@@ -8,6 +8,7 @@ export async function validateDiscovery(root) {
   const json = async (file) =>
     JSON.parse(await readFile(path.join(root, file), 'utf8'));
   const config = await json('config/model-discovery.json');
+  const relevancePolicy = await json('config/model-relevance-policy.json');
   const events = (
     await readFile(path.join(root, 'data/model-discovery/events.jsonl'), 'utf8')
   )
@@ -21,6 +22,7 @@ export async function validateDiscovery(root) {
   const errors = [];
   for (const [schema, items] of [
     ['model-discovery-config', [config]],
+    ['model-relevance-policy', [relevancePolicy]],
     ['model-discovery-event', events],
     ['model-catalog', [{ schema_version: '2.0.0', models: catalog }]],
   ]) {
@@ -42,6 +44,22 @@ export async function validateDiscovery(root) {
       errors.push(`invalid source ${source.id}`);
     }
   }
+  const relevanceRuleIds = new Set();
+  for (const rule of relevancePolicy.rules) {
+    if (relevanceRuleIds.has(rule.id))
+      errors.push(`duplicate relevance rule ${rule.id}`);
+    relevanceRuleIds.add(rule.id);
+    if (
+      rule.vendor_id &&
+      !vendors.some((vendor) => vendor.id === rule.vendor_id)
+    )
+      errors.push(`unknown relevance vendor ${rule.vendor_id}`);
+    try {
+      new RegExp(rule.api_id_pattern, 'i');
+    } catch {
+      errors.push(`invalid relevance pattern ${rule.id}`);
+    }
+  }
   const ids = new Set();
   const known = new Map();
   const apiIds = new Map();
@@ -55,7 +73,10 @@ export async function validateDiscovery(root) {
     )
       errors.push(`duplicate canonical identity ${nameKey}`);
     canonicalNames.set(nameKey, model.id);
-    for (const identity of [model.api_model_id, ...(model.aliases ?? [])].filter(Boolean)) {
+    for (const identity of [
+      model.api_model_id,
+      ...(model.aliases ?? []),
+    ].filter(Boolean)) {
       const key = `${model.vendor_id}|${identity}`;
       if (apiIds.has(key) && apiIds.get(key) !== model.id)
         errors.push(`duplicate catalog API identity or alias ${key}`);
@@ -63,9 +84,32 @@ export async function validateDiscovery(root) {
     }
     if (model.api_model_id && model.aliases?.includes(model.api_model_id))
       errors.push(`canonical API ID repeated as alias ${model.id}`);
+    if (
+      model.catalog_status === 'ACCEPTED_DISCOVERY' &&
+      model.relevance_state === 'UNCLASSIFIED'
+    )
+      errors.push(`accepted discovery lacks relevance decision ${model.id}`);
+    if (
+      ['POLICY_CLASSIFIED', 'REVIEW_REQUIRED'].includes(
+        model.relevance_review?.status,
+      ) &&
+      (model.relevance_review.policy_id !== relevancePolicy.policy_id ||
+        ![
+          ...relevanceRuleIds,
+          'exact-api-id-required',
+          'fallback-review',
+        ].includes(model.relevance_review.rule_id))
+    )
+      errors.push(`invalid relevance policy decision ${model.id}`);
     if (model.supersedes_model_id) {
-      const prior = catalog.find((entry) => entry.id === model.supersedes_model_id);
-      if (!prior || prior.id === model.id || prior.vendor_id !== model.vendor_id)
+      const prior = catalog.find(
+        (entry) => entry.id === model.supersedes_model_id,
+      );
+      if (
+        !prior ||
+        prior.id === model.id ||
+        prior.vendor_id !== model.vendor_id
+      )
         errors.push(`invalid reviewed catalog supersession ${model.id}`);
       if (model.supersession_review?.status !== 'REVIEWED_ACCEPTED')
         errors.push(`unreviewed catalog supersession ${model.id}`);

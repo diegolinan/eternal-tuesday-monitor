@@ -80,6 +80,10 @@ export async function readOfficial(
       url: current.href,
       body: bytes.toString('utf8'),
       sha256: createHash('sha256').update(bytes).digest('hex'),
+      fetched_at: new Date().toISOString(),
+      etag: response.headers.get('etag'),
+      last_modified: response.headers.get('last-modified'),
+      content_type: response.headers.get('content-type'),
     };
   }
   throw new Error('REDIRECT_LIMIT');

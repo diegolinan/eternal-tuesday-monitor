@@ -1,4 +1,5 @@
 import { latestModels, evaluationLifecycle } from './lifecycle.mjs';
+import { isPubliclyProminent } from './decision.mjs';
 
 const fallbackModel = (entry) => ({
   id: entry.id,
@@ -34,6 +35,10 @@ export function projectModels(
   const projectedObservations = options.projectedObservations ?? observations;
   return [...byId.values()]
     .map((model) => {
+      const catalogEntry = (options.catalog ?? []).find(
+        (entry) => entry.id === model.id,
+      );
+      const relevanceState = catalogEntry?.relevance_state ?? 'UNCLASSIFIED';
       const enriched = observations.map((observation) => {
         const projected = projectedObservations.find(
           (item) => item.id === observation.id,
@@ -49,14 +54,12 @@ export function projectModels(
         policy,
         probes: options.probes ?? [],
         asOf,
+        pending: relevanceState === 'REVIEW_REQUIRED',
       });
       const dates = lifecycle.empiricalObservations
         .filter((o) => o.observation_date.precision === 'day')
         .map((o) => o.observation_date.value)
         .sort();
-      const catalogEntry = (options.catalog ?? []).find(
-        (entry) => entry.id === model.id,
-      );
       const surfaces = [
         ...new Map(
           lifecycle.empiricalObservations.map((observation) => {
@@ -85,7 +88,7 @@ export function projectModels(
         name: model.display_name,
         apiModelId: model.api_model_id,
         releaseState: model.release_state,
-        relevanceState: catalogEntry?.relevance_state ?? 'UNCLASSIFIED',
+        relevanceState,
         apiState: model.api_state,
         accountAccess: model.account_access,
         accountCheckedOn: model.account_checked_on,
@@ -100,6 +103,10 @@ export function projectModels(
         surfaces,
         sources: [...new Set(model.provenance.map((p) => p.url))],
         reviewReasons: model.review_reasons,
+        defaultProminence: isPubliclyProminent({
+          lifecycleState: lifecycle.lifecycleState,
+          relevanceState,
+        }),
       };
     })
     .sort(

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "official-model-relevance-v1",
+  "automatic_acceptance": {
+    "source_authority": "vendor",
+    "source_types": ["official-model-index", "authenticated-model-list"],
+    "require_exact_api_id": true,
+    "require_unique_identity": true,
+    "require_zero_review_reasons": true,
+    "allow_metadata_updates": false,
+    "allow_relationship_updates": false
+  },
+  "rules": [
+    {
+      "id": "specialized-modality-catalog-only",
+      "result": "CATALOG_ONLY",
+      "api_id_pattern": "(?:^|[-.])(audio|realtime|image|tts|transcribe|embedding|robotics|computer-use|live|translate|search)(?:$|[-.])",
+      "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus."
+    },
+    {
+      "id": "openai-general-or-agentic",
+      "vendor_id": "vendor-openai",
+      "result": "DISCOVERED_RELEVANT",
+      "api_id_pattern": "^(?:gpt-(?:[4-9]|[1-9][0-9])|o[1-9]|codex-)",
+      "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families."
+    },
+    {
+      "id": "anthropic-general-or-agentic",
+      "vendor_id": "vendor-anthropic",
+      "result": "DISCOVERED_RELEVANT",
+      "api_id_pattern": "^claude-(?:opus|sonnet|haiku)-",
+      "reason": "The reviewed policy tracks Claude general-purpose model families."
+    },
+    {
+      "id": "google-general-or-agentic",
+      "vendor_id": "vendor-google",
+      "result": "DISCOVERED_RELEVANT",
+      "api_id_pattern": "^gemini-[0-9]",
+      "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first."
+    },
+    {
+      "id": "xai-general-or-agentic",
+      "vendor_id": "vendor-xai",
+      "result": "DISCOVERED_RELEVANT",
+      "api_id_pattern": "^grok-[0-9]",
+      "reason": "The reviewed policy tracks numbered Grok general-purpose model families unless a specialized rule matches first."
+    }
+  ],
+  "fallback": {
+    "result": "REVIEW_REQUIRED",
+    "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule."
+  }
+}

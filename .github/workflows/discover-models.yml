@@ -6,7 +6,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: model-discovery
@@ -15,11 +18,12 @@ concurrency:
 jobs:
   discover:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
+    outputs:
+      deploy: ${{ steps.automatic.outputs.deploy }}
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
@@ -27,7 +31,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run data:validate
-      - name: Preserve first discovery dates from the pending data-only proposal
+      - name: Preserve pending review identities
         shell: bash
         run: |
           mkdir -p .discovery
@@ -35,55 +39,74 @@ jobs:
             git fetch origin automation/model-discovery
             git show FETCH_HEAD:data/model-discovery/events.jsonl > .discovery/pending-events.jsonl
           fi
-      - name: Read official sources only
+      - name: Read approved official sources only
         run: npm run models:discover
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-      - uses: actions/upload-artifact@v4
+      - name: Preserve raw source snapshots and normalized report
+        uses: actions/upload-artifact@v4
         with:
-          name: official-model-candidates
-          path: .discovery/run.json
+          name: official-model-discovery-sources
+          path: .discovery
           include-hidden-files: true
           retention-days: 90
-
-  propose:
-    needs: discover
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v4
+      - name: Stage deterministic automatic acceptances
+        run: npm run models:stage -- --mode automatic
+      - name: Validate deterministic result
+        run: |
+          npm run data:validate -- --base HEAD
+          npm run data:compile
+          npm test
+          npm run lint
+          npm run build:pages
+          npm run static:validate
+      - name: Detect automatic changes
+        id: automatic
+        shell: bash
+        run: |
+          if git diff --quiet -- data/catalog/models.json data/model-discovery/events.jsonl data/state-events/events.jsonl public/data/monitor.json; then
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Configure Pages deployment
+        if: steps.automatic.outputs.deploy == 'true'
+        uses: actions/configure-pages@v5
+      - name: Package rebuilt public Monitor
+        if: steps.automatic.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - uses: actions/download-artifact@v4
-        with:
-          name: official-model-candidates
-          path: .discovery
-      - run: npm ci
-      - run: npm run models:stage
-      - run: npm run data:validate -- --base HEAD
-      - run: npm run data:compile
-      - run: npm test
-      - run: npm run lint
-      - run: npm run build:pages
-      - run: npm run static:validate
-      - name: Summarize source status and proposed changes
-        run: cat .discovery/pr-body.md >> "$GITHUB_STEP_SUMMARY"
-      - name: Propose catalog changes, never merge
+          path: dist/client
+      - name: Commit deterministic catalog discoveries to main
+        if: steps.automatic.outputs.deploy == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/catalog/models.json data/model-discovery/events.jsonl data/state-events/events.jsonl public/data/monitor.json
+          git commit -m "Accept deterministic official model discoveries"
+          git push origin HEAD:main
+      - name: Stage review-required changes separately
+        run: npm run models:stage -- --mode review
+      - name: Validate review proposal when present
+        run: |
+          npm run data:validate -- --base HEAD
+          npm run data:compile
+      - name: Add workflow summary
+        shell: bash
+        run: |
+          cat .discovery/automatic-summary.md >> "$GITHUB_STEP_SUMMARY"
+          printf '\n' >> "$GITHUB_STEP_SUMMARY"
+          cat .discovery/review-summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Propose ambiguous or interpretive changes for review
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
           branch: automation/model-discovery
-          title: 'Review official model discoveries'
-          commit-message: 'Propose official model catalog metadata'
+          title: 'Review official model discovery candidates'
+          commit-message: 'Propose review-required official model metadata'
           body-path: .discovery/pr-body.md
           draft: true
           add-paths: |
@@ -91,3 +114,18 @@ jobs:
             data/model-discovery/events.jsonl
             data/state-events/events.jsonl
             public/data/monitor.json
+
+  deploy:
+    if: needs.discover.outputs.deploy == 'true'
+    needs: discover
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy rebuilt Monitor
+        id: deployment
+        uses: actions/deploy-pages@v4

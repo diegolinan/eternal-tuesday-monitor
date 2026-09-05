@@ -10,8 +10,14 @@
       "api_model_id": "claude-opus-5",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks Claude general-purpose model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "anthropic-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -48,8 +54,14 @@
       "api_model_id": "claude-fable-5-1",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -71,8 +83,14 @@
       "api_model_id": "gemini-3.8-flash",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -94,8 +112,14 @@
       "api_model_id": "gpt-5.6-sol",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -124,8 +148,14 @@
       "api_model_id": "grok-4.6",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Grok general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "xai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -199,8 +229,14 @@
       "api_model_id": "gpt-daybreak-red-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -229,8 +265,14 @@
       "api_model_id": "gpt-5-codex",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -259,8 +301,14 @@
       "api_model_id": "gpt-realtime-1.5",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -289,8 +337,14 @@
       "api_model_id": "gpt-5.4",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -319,8 +373,14 @@
       "api_model_id": "gpt-4o-transcribe-diarize",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -349,8 +409,14 @@
       "api_model_id": "gemini-2.0-flash-lite",
       "aliases": [],
       "release_state": "RETIRED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -372,8 +438,14 @@
       "api_model_id": "gemini-2.5-computer-use-preview-10-2025",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -395,8 +467,14 @@
       "api_model_id": "chatgpt-image-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -425,8 +503,14 @@
       "api_model_id": "gpt-5-nano",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -455,8 +539,14 @@
       "api_model_id": "gpt-5.4-pro",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -485,8 +575,14 @@
       "api_model_id": "o3-pro",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -515,8 +611,14 @@
       "api_model_id": "gemini-2.5-flash-preview-tts",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -538,8 +640,14 @@
       "api_model_id": "gpt-transcribe",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -568,8 +676,14 @@
       "api_model_id": "gpt-audio-1.5",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -598,8 +712,14 @@
       "api_model_id": "gemini-2.0-flash",
       "aliases": [],
       "release_state": "RETIRED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -621,8 +741,14 @@
       "api_model_id": "gpt-4o-audio-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -651,8 +777,14 @@
       "api_model_id": "gpt-5.2-codex",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -681,8 +813,14 @@
       "api_model_id": "gpt-image-1",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -711,8 +849,14 @@
       "api_model_id": "o3-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -741,8 +885,14 @@
       "api_model_id": "gemini-robotics-er-1.6-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -764,8 +914,14 @@
       "api_model_id": "o1-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -794,8 +950,14 @@
       "api_model_id": "gpt-5.2-chat-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -824,8 +986,14 @@
       "api_model_id": "gpt-5-pro",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -854,8 +1022,14 @@
       "api_model_id": "gpt-4o-mini-audio-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -884,8 +1058,14 @@
       "api_model_id": "codex-mini-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -914,8 +1094,14 @@
       "api_model_id": "gpt-5-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -944,8 +1130,14 @@
       "api_model_id": "gemini-robotics-er-2-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -967,8 +1159,14 @@
       "api_model_id": "claude-sonnet-5",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks Claude general-purpose model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "anthropic-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -990,8 +1188,14 @@
       "api_model_id": "gemini-3.1-flash-lite-preview",
       "aliases": [],
       "release_state": "RETIRED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1013,8 +1217,14 @@
       "api_model_id": "gpt-4o-mini-transcribe",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1043,8 +1253,14 @@
       "api_model_id": "gemini-3.5-live-translate-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1066,8 +1282,14 @@
       "api_model_id": "gpt-image-1.5",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1096,8 +1318,14 @@
       "api_model_id": "gemini-2.5-flash-native-audio-preview-12-2025",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1119,8 +1347,14 @@
       "api_model_id": "gpt-5.4-nano",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1149,8 +1383,14 @@
       "api_model_id": "o4-mini-deep-research",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1179,8 +1419,14 @@
       "api_model_id": "gpt-realtime-2.1-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1209,8 +1455,14 @@
       "api_model_id": "gpt-5.1-chat-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1239,8 +1491,14 @@
       "api_model_id": "gpt-realtime",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1269,8 +1527,14 @@
       "api_model_id": "gpt-5.5-pro",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1299,8 +1563,14 @@
       "api_model_id": "claude-haiku-4-5-20251001",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks Claude general-purpose model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "anthropic-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1322,8 +1592,14 @@
       "api_model_id": "gemini-3.1-flash-image",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1345,8 +1621,14 @@
       "api_model_id": "gemini-3-pro-image",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1368,8 +1650,14 @@
       "api_model_id": "gpt-5.1-codex-max",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1398,8 +1686,14 @@
       "api_model_id": "gpt-daybreak-blue-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1428,8 +1722,14 @@
       "api_model_id": "gemini-2.5-flash-image",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1451,8 +1751,14 @@
       "api_model_id": "gpt-oss-120b",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1481,8 +1787,14 @@
       "api_model_id": "gpt-5.4-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1511,8 +1823,14 @@
       "api_model_id": "gpt-5.2-pro",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1541,8 +1859,14 @@
       "api_model_id": "o1-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1571,8 +1895,14 @@
       "api_model_id": "gpt-4",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1601,8 +1931,14 @@
       "api_model_id": "o4-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1631,8 +1967,14 @@
       "api_model_id": "gpt-realtime-2.1",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1661,8 +2003,14 @@
       "api_model_id": "gpt-5-chat-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1691,8 +2039,14 @@
       "api_model_id": "gpt-5.5",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1721,8 +2075,14 @@
       "api_model_id": "gemini-embedding-2-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1744,8 +2104,14 @@
       "api_model_id": "gpt-5.3-chat-latest",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1774,8 +2140,14 @@
       "api_model_id": "gpt-realtime-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1804,8 +2176,14 @@
       "api_model_id": "gemini-2.5-flash-lite",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1827,8 +2205,14 @@
       "api_model_id": "gpt-audio-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1857,8 +2241,14 @@
       "api_model_id": "gemini-3.6-flash",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1880,8 +2270,14 @@
       "api_model_id": "gpt-5.6-terra",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1910,8 +2306,14 @@
       "api_model_id": "gemini-3.1-flash-lite",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1933,8 +2335,14 @@
       "api_model_id": "gemini-3.5-flash-lite",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1956,8 +2364,14 @@
       "api_model_id": "gpt-4o-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -1986,8 +2400,14 @@
       "api_model_id": "gpt-4o-mini-realtime-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2016,8 +2436,14 @@
       "api_model_id": "gpt-5.1-codex",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2046,8 +2472,14 @@
       "api_model_id": "gpt-5.2",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2076,8 +2508,14 @@
       "api_model_id": "gpt-5",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2106,8 +2544,14 @@
       "api_model_id": "gpt-5.3-codex",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2136,8 +2580,14 @@
       "api_model_id": "gpt-audio",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2166,8 +2616,14 @@
       "api_model_id": "gpt-5.6-cyber",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2196,8 +2652,14 @@
       "api_model_id": "gemini-omni-1.1-flash",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2219,8 +2681,14 @@
       "api_model_id": "gpt-5.1-codex-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2249,8 +2717,14 @@
       "api_model_id": "gemini-2.5-pro",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2272,8 +2746,14 @@
       "api_model_id": "gpt-4.1-nano",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2302,8 +2782,14 @@
       "api_model_id": "gpt-oss-20b",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2332,8 +2818,14 @@
       "api_model_id": "gpt-4.1-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2362,8 +2854,14 @@
       "api_model_id": "gpt-4.5-preview",
       "aliases": [],
       "release_state": "DEPRECATED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2392,8 +2890,14 @@
       "api_model_id": "gemini-3-pro-preview",
       "aliases": [],
       "release_state": "RETIRED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2415,8 +2919,14 @@
       "api_model_id": "gpt-image-2",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2445,8 +2955,14 @@
       "api_model_id": "gemini-2.5-flash",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2468,8 +2984,14 @@
       "api_model_id": "o1-pro",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2498,8 +3020,14 @@
       "api_model_id": "gpt-4o-search-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2528,8 +3056,14 @@
       "api_model_id": "gpt-3.5-turbo",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2558,8 +3092,14 @@
       "api_model_id": "gemini-3.1-flash-live-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2581,8 +3121,14 @@
       "api_model_id": "gpt-4-turbo",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2611,8 +3157,14 @@
       "api_model_id": "gpt-4o-mini-tts",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2641,8 +3193,14 @@
       "api_model_id": "gpt-image-1-mini",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2671,8 +3229,14 @@
       "api_model_id": "gpt-4o-mini-search-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2701,8 +3265,14 @@
       "api_model_id": "gpt-4o",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2731,8 +3301,14 @@
       "api_model_id": "gpt-4o-transcribe",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2761,8 +3337,14 @@
       "api_model_id": "gpt-5.1",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2791,8 +3373,14 @@
       "api_model_id": "gemini-3.1-flash-tts-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2814,8 +3402,14 @@
       "api_model_id": "gemini-embedding-001",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2837,8 +3431,14 @@
       "api_model_id": "gpt-5.6-luna",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2867,8 +3467,14 @@
       "api_model_id": "gpt-realtime-2",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2897,8 +3503,14 @@
       "api_model_id": "gpt-4.1",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2927,8 +3539,14 @@
       "api_model_id": "gpt-6-astra",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2957,8 +3575,14 @@
       "api_model_id": "o3-deep-research",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -2987,8 +3611,14 @@
       "api_model_id": "gpt-live-transcribe",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3017,8 +3647,14 @@
       "api_model_id": "gemini-3.1-flash-lite-image",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3040,8 +3676,14 @@
       "api_model_id": "gpt-4-turbo-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3070,8 +3712,14 @@
       "api_model_id": "gpt-realtime-translate",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3100,8 +3748,14 @@
       "api_model_id": "gemini-3.5-flash",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3123,8 +3777,14 @@
       "api_model_id": "gemini-3.7-flash",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3146,8 +3806,14 @@
       "api_model_id": "gpt-realtime-whisper",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3176,8 +3842,14 @@
       "api_model_id": "gemini-2.5-pro-preview-tts",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3199,8 +3871,14 @@
       "api_model_id": "gpt-4o-realtime-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3229,8 +3907,14 @@
       "api_model_id": "gemini-3-flash-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [
@@ -3252,8 +3936,14 @@
       "api_model_id": "gemini-3.1-pro-preview",
       "aliases": [],
       "release_state": "DISCOVERED",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
       "supersedes_model_id": null,
       "supersession_review": null,
       "discovery_provenance": [

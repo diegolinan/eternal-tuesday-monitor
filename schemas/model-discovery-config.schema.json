@@ -49,8 +49,15 @@
           "type",
           "url",
           "adapter",
+          "adapter_version",
           "parser_version",
           "authority",
+          "source_role",
+          "structure",
+          "discovery_semantics",
+          "limitations",
+          "expected_instability",
+          "automatic_identity_acceptance",
           "enabled",
           "cadence",
           "allowed_domains",
@@ -87,6 +94,11 @@
               "xai-api"
             ]
           },
+          "adapter_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
           "parser_version": {
             "type": "string",
             "minLength": 1,
@@ -94,6 +106,32 @@
           },
           "authority": {
             "const": "vendor"
+          },
+          "source_role": {
+            "enum": ["canonical-identity", "account-visible-identity"]
+          },
+          "structure": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "discovery_semantics": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "limitations": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "expected_instability": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "automatic_identity_acceptance": {
+            "type": "boolean"
           },
           "enabled": {
             "type": "boolean"

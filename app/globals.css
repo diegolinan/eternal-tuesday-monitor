@@ -2229,6 +2229,13 @@ body::before {
   font-size: 2.5rem;
   line-height: 1;
 }
+.coverage-summary .coverage-known {
+  background: color-mix(in srgb, var(--paper-light) 72%, var(--paper-deep));
+}
+.coverage-summary .coverage-known strong {
+  color: var(--ink-muted);
+  font-size: 2rem;
+}
 .coverage-summary span,
 .coverage-controls label > span,
 .coverage-result-count,
