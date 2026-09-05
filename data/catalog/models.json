@@ -31,196 +31,6 @@
       ]
     },
     {
-      "id": "model-fable-5",
-      "vendor_id": "vendor-anthropic",
-      "name": "Fable 5",
-      "identity_status": "named",
-      "catalog_status": "MANUALLY_CURATED",
-      "api_model_id": null,
-      "aliases": [],
-      "release_state": "UNKNOWN",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": []
-    },
-    {
-      "id": "model-fable-5-1",
-      "vendor_id": "vendor-anthropic",
-      "name": "Fable 5.1",
-      "identity_status": "named",
-      "catalog_status": "ACCEPTED_DISCOVERY",
-      "api_model_id": "claude-fable-5-1",
-      "aliases": [],
-      "release_state": "DISCOVERED",
-      "relevance_state": "REVIEW_REQUIRED",
-      "relevance_review": {
-        "status": "REVIEW_REQUIRED",
-        "reviewed_on": "2026-09-05",
-        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
-        "policy_id": "official-model-relevance-v1",
-        "rule_id": "fallback-review"
-      },
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": [
-        {
-          "source_id": "discovery-anthropic-docs",
-          "url": "https://platform.claude.com/docs/en/models/overview",
-          "checked_on": "2026-09-05",
-          "sha256": "d1e573867108bd0b8d591a66eb736538c4f187e30d37157a0beb6386d4f74ce8",
-          "parser_version": "1"
-        }
-      ]
-    },
-    {
-      "id": "model-gemini-3-8-flash",
-      "vendor_id": "vendor-google",
-      "name": "Gemini 3.8 Flash",
-      "identity_status": "named",
-      "catalog_status": "ACCEPTED_DISCOVERY",
-      "api_model_id": "gemini-3.8-flash",
-      "aliases": [],
-      "release_state": "DISCOVERED",
-      "relevance_state": "DISCOVERED_RELEVANT",
-      "relevance_review": {
-        "status": "POLICY_CLASSIFIED",
-        "reviewed_on": "2026-09-05",
-        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
-        "policy_id": "official-model-relevance-v1",
-        "rule_id": "google-general-or-agentic"
-      },
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": [
-        {
-          "source_id": "discovery-google-docs",
-          "url": "https://ai.google.dev/gemini-api/docs/models?hl=en",
-          "checked_on": "2026-09-05",
-          "sha256": "24f6e17241d2c09a1826799efdf98fcd32f139d5f52b30fa510e37474f9f780a",
-          "parser_version": "1"
-        }
-      ]
-    },
-    {
-      "id": "model-gpt-5-6-sol",
-      "vendor_id": "vendor-openai",
-      "name": "GPT-5.6 Sol",
-      "identity_status": "named",
-      "catalog_status": "ACCEPTED_DISCOVERY",
-      "api_model_id": "gpt-5.6-sol",
-      "aliases": [],
-      "release_state": "DISCOVERED",
-      "relevance_state": "DISCOVERED_RELEVANT",
-      "relevance_review": {
-        "status": "POLICY_CLASSIFIED",
-        "reviewed_on": "2026-09-05",
-        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
-        "policy_id": "official-model-relevance-v1",
-        "rule_id": "openai-general-or-agentic"
-      },
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": [
-        {
-          "source_id": "discovery-openai-docs",
-          "url": "https://developers.openai.com/api/docs/models/all",
-          "checked_on": "2026-09-05",
-          "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
-          "parser_version": "1"
-        },
-        {
-          "source_id": "discovery-openai-docs",
-          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-          "checked_on": "2026-09-05",
-          "sha256": "efe9f80ac9d134cbe22af399b79759ec54a8d56bf5978a46b054382151ef5ea2",
-          "parser_version": "1"
-        }
-      ]
-    },
-    {
-      "id": "model-grok-4-6",
-      "vendor_id": "vendor-xai",
-      "name": "Grok 4.6",
-      "identity_status": "named",
-      "catalog_status": "ACCEPTED_DISCOVERY",
-      "api_model_id": "grok-4.6",
-      "aliases": [],
-      "release_state": "DISCOVERED",
-      "relevance_state": "DISCOVERED_RELEVANT",
-      "relevance_review": {
-        "status": "POLICY_CLASSIFIED",
-        "reviewed_on": "2026-09-05",
-        "reason": "The reviewed policy tracks numbered Grok general-purpose model families unless a specialized rule matches first.",
-        "policy_id": "official-model-relevance-v1",
-        "rule_id": "xai-general-or-agentic"
-      },
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": [
-        {
-          "source_id": "discovery-xai-docs",
-          "url": "https://docs.x.ai/developers/models",
-          "checked_on": "2026-09-05",
-          "sha256": "ce8f193b7025345570c12f826daed8c44da7fe8761b2786bb1929af4c9445269",
-          "parser_version": "1"
-        },
-        {
-          "source_id": "discovery-xai-docs",
-          "url": "https://docs.x.ai/developers/models/grok-4.6",
-          "checked_on": "2026-09-05",
-          "sha256": "0cce68a26f49e72767abbf49e530c5b2164ca5479aaa22d0a03349363b09e0f7",
-          "parser_version": "1"
-        }
-      ]
-    },
-    {
-      "id": "model-not-specified",
-      "vendor_id": null,
-      "name": "NOT SPECIFIED",
-      "identity_status": "not_specified",
-      "catalog_status": "REFERENCE_ONLY",
-      "api_model_id": null,
-      "aliases": [],
-      "release_state": "UNKNOWN",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": []
-    },
-    {
-      "id": "model-tictoc-18-models",
-      "vendor_id": null,
-      "name": "18 proprietary and open-weight models",
-      "identity_status": "aggregate",
-      "catalog_status": "REFERENCE_ONLY",
-      "api_model_id": null,
-      "aliases": [],
-      "release_state": "UNKNOWN",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": []
-    },
-    {
-      "id": "model-unknown",
-      "vendor_id": null,
-      "name": "UNKNOWN",
-      "identity_status": "unknown",
-      "catalog_status": "REFERENCE_ONLY",
-      "api_model_id": null,
-      "aliases": [],
-      "release_state": "UNKNOWN",
-      "relevance_state": "UNCLASSIFIED",
-      "relevance_review": null,
-      "supersedes_model_id": null,
-      "supersession_review": null,
-      "discovery_provenance": []
-    },
-    {
       "id": "model-discovered-01433a49c5cc60e7428c",
       "vendor_id": "vendor-openai",
       "name": "Daybreak Red",
@@ -264,7 +74,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-codex",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -289,6 +99,98 @@
           "checked_on": "2026-09-05",
           "sha256": "4e39a785586fff0d602581994e87c6fcdd2b44e59c6309de66d6744106339e4f",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-06f17ee64f4e1f975c38",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.5-pro-2026-04-23",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.5-pro-2026-04-23",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-092aad60c2961ddf0d71",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-mini-transcribe-2025-03-20",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-mini-transcribe-2025-03-20",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -300,7 +202,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-1.5",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -325,6 +227,22 @@
           "checked_on": "2026-09-05",
           "sha256": "22aa2ab020d51244e4a2c100269e4c35a9246094c3e2a2d5fde9c97b30b49c82",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -336,7 +254,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -361,6 +279,22 @@
           "checked_on": "2026-09-05",
           "sha256": "314fc760a1589d99ea118d6a4d71a47e917ae076b004588321fc0ac07de5db7f",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -372,7 +306,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-transcribe-diarize",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -397,6 +331,22 @@
           "checked_on": "2026-09-05",
           "sha256": "55e5b6f731d24f327a3cb96fcfff7c4130c6ec5b48595ae9c994caed653affd8",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -459,6 +409,44 @@
       ]
     },
     {
+      "id": "model-discovered-1819ed4ab00fb6984053",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-mini-tts-2025-03-20",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-mini-tts-2025-03-20",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-1b05544a1e38815ba050",
       "vendor_id": "vendor-openai",
       "name": "chatgpt-image-latest",
@@ -466,7 +454,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "chatgpt-image-latest",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -491,6 +479,22 @@
           "checked_on": "2026-09-05",
           "sha256": "e00f9a84230167658589ba196d8f556ea702430fe1546ec944305eb1a13d0dcc",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -502,7 +506,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-nano",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -527,6 +531,22 @@
           "checked_on": "2026-09-05",
           "sha256": "57205db4e1e0a3798a52246a21eaae842d2240f459ca0f960877f08c63f76549",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -538,7 +558,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4-pro",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -563,6 +583,22 @@
           "checked_on": "2026-09-05",
           "sha256": "720581fd19ce4c068bd3f6346577ea00583844eda85c6a97727d3d50118cb616",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -639,7 +675,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-transcribe",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -664,6 +700,22 @@
           "checked_on": "2026-09-05",
           "sha256": "5d61a9db0e0793c7cc40e021c5798965d528b1e38e25e59aefee6236d4f173a9",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -675,7 +727,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-audio-1.5",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -700,6 +752,22 @@
           "checked_on": "2026-09-05",
           "sha256": "ed3a77057b549843ee8cf7e16523e2da1dfad05085e5a1e5d08cb5a5499b6eac",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -776,7 +844,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2-codex",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -801,6 +869,22 @@
           "checked_on": "2026-09-05",
           "sha256": "d8ec733fbbda73e6a7021d93db00c01bf41538d203cc2efe2086f075ed8b855d",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -812,7 +896,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-1",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -837,6 +921,136 @@
           "checked_on": "2026-09-05",
           "sha256": "a9e3bbaa07240d933e244808f870a99bf09e17cb9fb0595a2b2059a1310e3dc5",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-2e6a7235fc11afdc4192",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5-mini-2025-08-07",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5-mini-2025-08-07",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-31da434481f31edf2f72",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5-pro-2025-10-06",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5-pro-2025-10-06",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-3515885155ca0095e78b",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-audio-mini-2025-10-06",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-audio-mini-2025-10-06",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -848,7 +1062,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "o3-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -873,6 +1087,98 @@
           "checked_on": "2026-09-05",
           "sha256": "96ae5c43e3d243991b1bfb0c6031ab42ebe10a095a6ed000173a3733c0250097",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-372a2a50d7141def3d9e",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.4-pro-2026-03-05",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.4-pro-2026-03-05",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-38c9c65dc8804d09abf3",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.5-2026-04-23",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.5-2026-04-23",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -949,7 +1255,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2-chat-latest",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -974,6 +1280,60 @@
           "checked_on": "2026-09-05",
           "sha256": "0ac4fba3d1f2c398784e8dd0da6fcc917283acdd58a9dec6af740f2b4df6048a",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-3e8b636eb20cc5c92b28",
+      "vendor_id": "vendor-openai",
+      "name": "o1-2024-12-17",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "o1-2024-12-17",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -985,7 +1345,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-pro",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1010,6 +1370,98 @@
           "checked_on": "2026-09-05",
           "sha256": "845f36f1b00f382b82bdc708cb8cb72f1f510f5d3560d7813bffa06e9712392b",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-3f2955b89aaf86ff2af8",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4.1-mini-2025-04-14",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4.1-mini-2025-04-14",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-3fb2bca1893a435f0767",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-2024-08-06",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-2024-08-06",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1093,7 +1545,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1118,6 +1570,22 @@
           "checked_on": "2026-09-05",
           "sha256": "9b73bfc62ac8615c75c74a4862a4acb554e527272fc103cbd3ee789965308103",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1209,6 +1677,44 @@
       ]
     },
     {
+      "id": "model-discovered-4947d4fc1be3e35fe853",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.1-2025-11-13",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.1-2025-11-13",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-4b8ecb4f05c5a4a79952",
       "vendor_id": "vendor-openai",
       "name": "GPT-4o Mini Transcribe",
@@ -1216,7 +1722,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini-transcribe",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1241,6 +1747,22 @@
           "checked_on": "2026-09-05",
           "sha256": "991d70ea153e31115a4a8894951ddf09b44cc693450c096f281ef9d8557c1735",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1281,7 +1803,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-1.5",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1306,6 +1828,22 @@
           "checked_on": "2026-09-05",
           "sha256": "09345a607f91758d7be5257aa1c78d8a41135a29ae23fa3615de243ad398c39c",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1346,7 +1884,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4-nano",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1371,6 +1909,22 @@
           "checked_on": "2026-09-05",
           "sha256": "d3c6649a89fe94e17bdacf3dd4534c5c9054421ec73fc60b9efb7d7af71b0ac3",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1418,7 +1972,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-2.1-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1443,6 +1997,22 @@
           "checked_on": "2026-09-05",
           "sha256": "61fc788d0a93d700907ec80a448008723dab9a0435a9effca6e0fa8548c60d37",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1454,7 +2024,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-chat-latest",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1479,6 +2049,22 @@
           "checked_on": "2026-09-05",
           "sha256": "b35d3ff69c4a9b42a55cacbc8337621bb2ac3d17207dcea906423fb79f72fa32",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1490,7 +2076,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1515,6 +2101,60 @@
           "checked_on": "2026-09-05",
           "sha256": "5453267a4bcb2db8a80006ebecab86a3c0183843fde267da8ab59b1982ce8191",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-58034265550dc61b83ce",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-mini-transcribe-2025-12-15",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-mini-transcribe-2025-12-15",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1526,7 +2166,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.5-pro",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1551,6 +2191,22 @@
           "checked_on": "2026-09-05",
           "sha256": "c957acebf11f31a43132ee796d2d7679eb2e5a9061e9dac6b1f65efbede29a2a",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1613,6 +2269,82 @@
       ]
     },
     {
+      "id": "model-discovered-5ae956cbd4aebb0680b3",
+      "vendor_id": "vendor-openai",
+      "name": "o3-2025-04-16",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "o3-2025-04-16",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-5b3a86ac7d70e01f0a26",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-realtime-2025-08-28",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-realtime-2025-08-28",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-5f80092f5e85cef40c36",
       "vendor_id": "vendor-google",
       "name": "Nano Banana Pro",
@@ -1642,6 +2374,44 @@
       ]
     },
     {
+      "id": "model-discovered-670196c78718296c12c8",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.4-2026-03-05",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.4-2026-03-05",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-698a39834857c5ed27bb",
       "vendor_id": "vendor-openai",
       "name": "GPT-5.1-Codex-Max",
@@ -1649,7 +2419,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-codex-max",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1674,6 +2444,22 @@
           "checked_on": "2026-09-05",
           "sha256": "fb773ce32630f422fe952e96ef97365bc4adc3fd642a02de0fdc6b2214fa48f6",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1786,7 +2572,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.4-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1811,6 +2597,22 @@
           "checked_on": "2026-09-05",
           "sha256": "e6bfd427d86dda5ca34a12ecfbd03d638625d866fa88f6e6644c7e3e1de73844",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1822,7 +2624,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2-pro",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1847,6 +2649,22 @@
           "checked_on": "2026-09-05",
           "sha256": "1af6c951118e22147056bf4ff2d47d97bc2b236375367af74559f32d7b80c4d9",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1930,7 +2748,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "o4-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1955,6 +2773,22 @@
           "checked_on": "2026-09-05",
           "sha256": "54b7ac189d9389858391aa15c868faaf913de8689f4765c0e4e87876db5a184f",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -1966,7 +2800,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-2.1",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -1991,6 +2825,22 @@
           "checked_on": "2026-09-05",
           "sha256": "0ba247eab619e3f836aa6ef0d42e07c22ea89a79e146c553732ebcbf29635eb1",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2002,7 +2852,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5-chat-latest",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2027,6 +2877,60 @@
           "checked_on": "2026-09-05",
           "sha256": "67b94671c9658d6cab8dac6d131f7bb896756061530af562320ec51609843323",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-7703694e692af0633629",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-realtime-mini-2025-12-15",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-realtime-mini-2025-12-15",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2038,7 +2942,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.5",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2063,6 +2967,22 @@
           "checked_on": "2026-09-05",
           "sha256": "87dee8f6eed3ed60958693a6004d93c4f33c6dd4c1c34629d274b38342df26e3",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2103,7 +3023,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.3-chat-latest",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2128,6 +3048,22 @@
           "checked_on": "2026-09-05",
           "sha256": "dab7f3836af28228977953162979d72b8c221efdc692eed75f6e537284ff37bc",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2139,7 +3075,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2164,6 +3100,98 @@
           "checked_on": "2026-09-05",
           "sha256": "aa0998551471df5492997dc579b843342d692447c42f4ca13a3d216daa387479",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-7dedc2c09fbecacb9ef4",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-2024-05-13",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-2024-05-13",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-7ea5f482eb69df40181d",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-2024-11-20",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-2024-11-20",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2204,7 +3232,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-audio-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2229,6 +3257,136 @@
           "checked_on": "2026-09-05",
           "sha256": "c9d21a7de6418383671806fc6088f96c5ec79ffec0d609a3f565fb71968e35b8",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-82b7518197bc525ea785",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-image-2-2026-04-21",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-image-2-2026-04-21",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-844d2855dafe09f47f05",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-mini-2024-07-18",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-mini-2024-07-18",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-8540f5b7c5faeab3743a",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4.1-2025-04-14",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4.1-2025-04-14",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2262,6 +3420,44 @@
       ]
     },
     {
+      "id": "model-discovered-87f1a6f2fdf5c2340f73",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-mini-search-preview-2025-03-11",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-mini-search-preview-2025-03-11",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-88b38a0be53dd343689c",
       "vendor_id": "vendor-openai",
       "name": "GPT-5.6 Terra",
@@ -2269,7 +3465,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.6-terra",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2294,6 +3490,60 @@
           "checked_on": "2026-09-05",
           "sha256": "34b3bb18aad3590f833ca80a2964723ceecd61ba288b8a1e243d9dabe4fbff95",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-897eb3e865235ab94e7c",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4.1-nano-2025-04-14",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4.1-nano-2025-04-14",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2363,7 +3613,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2388,6 +3638,22 @@
           "checked_on": "2026-09-05",
           "sha256": "fbb316c5267ebcb7da2cec90cfe78f585ce7ad143b8a9f6e105033ccc5a325b8",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2435,7 +3701,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-codex",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2460,6 +3726,136 @@
           "checked_on": "2026-09-05",
           "sha256": "8b62f58cd0b96def27755c76c57e9dbdb345d7c44aa17dfde62053d872ee10ac",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-974ceac8c86a108b9c24",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.4-mini-2026-03-17",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.4-mini-2026-03-17",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-981112d25ba064b1c288",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.2-2025-12-11",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.2-2025-12-11",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-9cb11a25437b2b14fca9",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5-search-api-2025-10-14",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5-search-api-2025-10-14",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2471,7 +3867,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.2",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2496,6 +3892,22 @@
           "checked_on": "2026-09-05",
           "sha256": "fd8e682b09d9feb994d9d42e782bb8b431213271a983fa0a0b229acf54ff0e30",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2507,7 +3919,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2532,6 +3944,22 @@
           "checked_on": "2026-09-05",
           "sha256": "9f685b46c22f88fe5a84e71f3fd5ff6bb5f6129016074ae7520e70d179fdd728",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2543,7 +3971,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.3-codex",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2568,6 +3996,22 @@
           "checked_on": "2026-09-05",
           "sha256": "239a40a5ec61e06568e48b3419f6e2ae97f6cc83dece0e1d8629b8dd14ac813c",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2579,7 +4023,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-audio",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2604,6 +4048,22 @@
           "checked_on": "2026-09-05",
           "sha256": "73f7bf062d0abb4207486f1f80282fecf60230e2e49090ee4235c9380c18ff78",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2644,6 +4104,44 @@
       ]
     },
     {
+      "id": "model-discovered-aae163bae96974ae1a24",
+      "vendor_id": "vendor-openai",
+      "name": "o4-mini-2025-04-16",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "o4-mini-2025-04-16",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-ac152d2e8d24eb4c3232",
       "vendor_id": "vendor-google",
       "name": "Gemini Omni Flash",
@@ -2680,7 +4178,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1-codex-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2705,6 +4203,22 @@
           "checked_on": "2026-09-05",
           "sha256": "2625785f974539ca80311072d4bd5b5e502efe4f4e4fd3b3ba1d396b1aef2c19",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2745,7 +4259,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4.1-nano",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2770,6 +4284,22 @@
           "checked_on": "2026-09-05",
           "sha256": "d5e30e19c084d23ada8be5a619f7f09bf14345933e2248a8f19da607f07be62a",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2810,6 +4340,44 @@
       ]
     },
     {
+      "id": "model-discovered-b84115b2a38c6fe39487",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-mini-tts-2025-12-15",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-mini-tts-2025-12-15",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-b9257ac7a2c8eaca2b5a",
       "vendor_id": "vendor-openai",
       "name": "GPT-4.1 Mini",
@@ -2817,7 +4385,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4.1-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2842,6 +4410,22 @@
           "checked_on": "2026-09-05",
           "sha256": "e6d1ac4fba0b4df31dbcc62ab540c9e3f83cc12046b1906cbdbad874ce6633d1",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -2918,7 +4502,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-2",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -2943,6 +4527,60 @@
           "checked_on": "2026-09-05",
           "sha256": "c6b992576b360b23130ca720fc137a242238bcd4139406efe763e3cac2cca14b",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-bd10b61a9d1dfa67c39f",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-audio-2025-08-28",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-audio-2025-08-28",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3019,7 +4657,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-search-preview",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3044,6 +4682,22 @@
           "checked_on": "2026-09-05",
           "sha256": "7de0c4c110235c5cc1f711b576081c6a7fc9c4c472c5b96a1ef2dbb7b04a0a3b",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3156,7 +4810,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini-tts",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3181,6 +4835,22 @@
           "checked_on": "2026-09-05",
           "sha256": "e7c723d13486bb4fa9d52cee86a8e318fd8651a15fba4ba64c34ba234ecaad0f",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3192,7 +4862,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-image-1-mini",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3217,6 +4887,22 @@
           "checked_on": "2026-09-05",
           "sha256": "7d2c1ad9269ffa87a54417bea30419e8a61076f3990bc5d9bbbd881a0e5bebe2",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3228,7 +4914,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-mini-search-preview",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3253,6 +4939,22 @@
           "checked_on": "2026-09-05",
           "sha256": "48a6d5fb5252f4cd123e4871b098df83caed2e4a1a7b8add93c2065d49f93e7f",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3264,7 +4966,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3289,6 +4991,22 @@
           "checked_on": "2026-09-05",
           "sha256": "bf7666a84c89a295b296b5ff3a112c4b46a65c701a65a7069236fdfe16740cf2",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3300,7 +5018,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4o-transcribe",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3325,6 +5043,22 @@
           "checked_on": "2026-09-05",
           "sha256": "76b6585cd8782bebf18697ac50d6579437a5c88eb8ffbcbbab7bf9d3874124e4",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3336,7 +5070,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.1",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3361,6 +5095,60 @@
           "checked_on": "2026-09-05",
           "sha256": "55bebe6901b3a2fdcfa6953d3365203bd92eca4f1d2ba42688935378b0d6a46b",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-e2763ffd18057d50ea82",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.2-pro-2025-12-11",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.2-pro-2025-12-11",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3390,6 +5178,44 @@
           "checked_on": "2026-09-05",
           "sha256": "24f6e17241d2c09a1826799efdf98fcd32f139d5f52b30fa510e37474f9f780a",
           "parser_version": "1"
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-e3a5eee72dac835594a6",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5-2025-08-07",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5-2025-08-07",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3430,7 +5256,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-5.6-luna",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3455,6 +5281,60 @@
           "checked_on": "2026-09-05",
           "sha256": "5361316966b44ebd9b51671236273e58f1a77bcbf5c9c799a6ef7f0e8b987dd4",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-e6787a2941d361e48ef6",
+      "vendor_id": "vendor-openai",
+      "name": "o3-mini-2025-01-31",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "o3-mini-2025-01-31",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3466,7 +5346,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-2",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3491,6 +5371,22 @@
           "checked_on": "2026-09-05",
           "sha256": "330429ff6952fe1122dee2d050654cb752f205ac044cc917fd4e9f2f53f61e81",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3502,7 +5398,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-4.1",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3527,6 +5423,22 @@
           "checked_on": "2026-09-05",
           "sha256": "96d5b3c89a020c51591d64bb2e7930dd35be9aa66e4efa02e8cfebe9d3f9c43f",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3538,7 +5450,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-6-astra",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "DISCOVERED_RELEVANT",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3563,6 +5475,22 @@
           "checked_on": "2026-09-05",
           "sha256": "97df526d260c4c9c25f78069f5d98d564e8222264e02a67b14c3752b55010e42",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3610,7 +5538,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-live-transcribe",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3635,6 +5563,60 @@
           "checked_on": "2026-09-05",
           "sha256": "6f9dcd23c31c84f6beaf7001532fd573039aac685a410b964ae2207de1854e67",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-edd87e012b73f8b99746",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-audio-mini-2025-12-15",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-audio-mini-2025-12-15",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3704,6 +5686,44 @@
       ]
     },
     {
+      "id": "model-discovered-efeb617ee0b3b59c6907",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5.4-nano-2026-03-17",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.4-nano-2026-03-17",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-f0e3cd07004a27ba5e00",
       "vendor_id": "vendor-openai",
       "name": "GPT-Realtime-Translate",
@@ -3711,7 +5731,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-translate",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3736,6 +5756,60 @@
           "checked_on": "2026-09-05",
           "sha256": "2ad19aeea521c414cdab0c4a1f5ff8cf1a53b6b195c78cdca80ab8ad68b389e8",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-f1bafd32d9afc3bbc8e0",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-4o-search-preview-2025-03-11",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-4o-search-preview-2025-03-11",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3805,7 +5879,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gpt-realtime-whisper",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RELEASED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -3830,6 +5904,60 @@
           "checked_on": "2026-09-05",
           "sha256": "5d2bc5a238070372aca0faf05a574770628314162efba955d65c3eebaf647c59",
           "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-f7252efd57d74a1ddbc7",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5-search-api",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5-search-api",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
         }
       ]
     },
@@ -3899,6 +6027,44 @@
       ]
     },
     {
+      "id": "model-discovered-fc879b07525600f2646e",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-5-nano-2025-08-07",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5-nano-2025-08-07",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-fc973b7c5cd91319493b",
       "vendor_id": "vendor-google",
       "name": "Gemini 3 Flash",
@@ -3955,6 +6121,212 @@
           "parser_version": "1"
         }
       ]
+    },
+    {
+      "id": "model-fable-5",
+      "vendor_id": "vendor-anthropic",
+      "name": "Fable 5",
+      "identity_status": "named",
+      "catalog_status": "MANUALLY_CURATED",
+      "api_model_id": null,
+      "aliases": [],
+      "release_state": "UNKNOWN",
+      "relevance_state": "UNCLASSIFIED",
+      "relevance_review": null,
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": []
+    },
+    {
+      "id": "model-fable-5-1",
+      "vendor_id": "vendor-anthropic",
+      "name": "Fable 5.1",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "claude-fable-5-1",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The official identity is valid, but relevance is not covered by a deterministic reviewed rule.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-anthropic-docs",
+          "url": "https://platform.claude.com/docs/en/models/overview",
+          "checked_on": "2026-09-05",
+          "sha256": "d1e573867108bd0b8d591a66eb736538c4f187e30d37157a0beb6386d4f74ce8",
+          "parser_version": "1"
+        }
+      ]
+    },
+    {
+      "id": "model-gemini-3-8-flash",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.8 Flash",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gemini-3.8-flash",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Gemini general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "google-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-google-docs",
+          "url": "https://ai.google.dev/gemini-api/docs/models?hl=en",
+          "checked_on": "2026-09-05",
+          "sha256": "24f6e17241d2c09a1826799efdf98fcd32f139d5f52b30fa510e37474f9f780a",
+          "parser_version": "1"
+        }
+      ]
+    },
+    {
+      "id": "model-gpt-5-6-sol",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.6 Sol",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-5.6-sol",
+      "aliases": [],
+      "release_state": "RELEASED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-05",
+          "sha256": "1e5b8668c9e627c49780196ec0270584a959c670f41986f8c192e03bf724ef9a",
+          "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "checked_on": "2026-09-05",
+          "sha256": "efe9f80ac9d134cbe22af399b79759ec54a8d56bf5978a46b054382151ef5ea2",
+          "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-openai-api",
+          "url": "https://api.openai.com/v1/models",
+          "checked_on": "2026-09-05",
+          "sha256": "46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325",
+          "fetched_at": "2026-09-05T14:34:57.727Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-api",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "2f3c59dd17129935e10e836e4b771f6bcb439ab4",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-api/46370433b999ca6d76be9dc10e36d004f877e87ef5511d60979203dcb7088325.json.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-grok-4-6",
+      "vendor_id": "vendor-xai",
+      "name": "Grok 4.6",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "grok-4.6",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-05",
+        "reason": "The reviewed policy tracks numbered Grok general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "xai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models",
+          "checked_on": "2026-09-05",
+          "sha256": "ce8f193b7025345570c12f826daed8c44da7fe8761b2786bb1929af4c9445269",
+          "parser_version": "1"
+        },
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models/grok-4.6",
+          "checked_on": "2026-09-05",
+          "sha256": "0cce68a26f49e72767abbf49e530c5b2164ca5479aaa22d0a03349363b09e0f7",
+          "parser_version": "1"
+        }
+      ]
+    },
+    {
+      "id": "model-not-specified",
+      "vendor_id": null,
+      "name": "NOT SPECIFIED",
+      "identity_status": "not_specified",
+      "catalog_status": "REFERENCE_ONLY",
+      "api_model_id": null,
+      "aliases": [],
+      "release_state": "UNKNOWN",
+      "relevance_state": "UNCLASSIFIED",
+      "relevance_review": null,
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": []
+    },
+    {
+      "id": "model-tictoc-18-models",
+      "vendor_id": null,
+      "name": "18 proprietary and open-weight models",
+      "identity_status": "aggregate",
+      "catalog_status": "REFERENCE_ONLY",
+      "api_model_id": null,
+      "aliases": [],
+      "release_state": "UNKNOWN",
+      "relevance_state": "UNCLASSIFIED",
+      "relevance_review": null,
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": []
+    },
+    {
+      "id": "model-unknown",
+      "vendor_id": null,
+      "name": "UNKNOWN",
+      "identity_status": "unknown",
+      "catalog_status": "REFERENCE_ONLY",
+      "api_model_id": null,
+      "aliases": [],
+      "release_state": "UNKNOWN",
+      "relevance_state": "UNCLASSIFIED",
+      "relevance_review": null,
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": []
     }
   ]
 }
