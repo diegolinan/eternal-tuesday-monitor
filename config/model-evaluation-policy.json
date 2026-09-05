@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "model-evaluation-adoption-v1",
+  "eligibility_enabled": true,
+  "execution_enabled": false,
+  "surface_id": "surface-openai-model-api",
+  "providers": [
+    {
+      "vendor_id": "vendor-openai",
+      "enabled": true,
+      "credential_env": "OPENAI_API_KEY"
+    },
+    {
+      "vendor_id": "vendor-anthropic",
+      "enabled": true,
+      "credential_env": "ANTHROPIC_API_KEY"
+    },
+    {
+      "vendor_id": "vendor-google",
+      "enabled": true,
+      "credential_env": "GEMINI_API_KEY"
+    },
+    {
+      "vendor_id": "vendor-xai",
+      "enabled": true,
+      "credential_env": "XAI_API_KEY"
+    }
+  ],
+  "eligible_api_ids": [],
+  "manual_only_api_ids": [],
+  "denied_api_ids": [],
+  "harness_capabilities": [
+    "exact_model_request",
+    "raw_request_capture",
+    "raw_response_capture",
+    "operational_error_capture",
+    "deterministic_evaluator"
+  ],
+  "limits": {
+    "max_scheduled_requests_per_day": 0,
+    "max_scheduled_spend_usd_per_day": 0,
+    "max_runs_per_model_per_day": 0,
+    "max_requests_per_run": 3,
+    "max_retries": 0,
+    "cooldown_hours": 168,
+    "max_concurrency": 1
+  },
+  "probe_profiles": [
+    {
+      "probe_id": "probe-temporal-anchor",
+      "status": "APPROVED",
+      "methodology_version_id": "method-api-temporal-anchor-1",
+      "provider_id": "vendor-openai",
+      "endpoint": "responses",
+      "required_model_capabilities": [
+        "text_input_output",
+        "structured_outputs",
+        "snapshot_pinning"
+      ],
+      "required_harness_capabilities": [
+        "exact_model_request",
+        "raw_request_capture",
+        "raw_response_capture",
+        "operational_error_capture",
+        "deterministic_evaluator"
+      ],
+      "evaluator_version": "temporal-anchor-explicit-offset-pilot-1"
+    },
+    {
+      "probe_id": "probe-elapsed",
+      "status": "REVIEW_REQUIRED",
+      "methodology_version_id": null,
+      "provider_id": null,
+      "endpoint": null,
+      "required_model_capabilities": ["multi_turn_messages"],
+      "required_harness_capabilities": [],
+      "evaluator_version": null
+    },
+    {
+      "probe_id": "probe-revalidation",
+      "status": "REVIEW_REQUIRED",
+      "methodology_version_id": null,
+      "provider_id": null,
+      "endpoint": null,
+      "required_model_capabilities": ["function_calling"],
+      "required_harness_capabilities": [],
+      "evaluator_version": null
+    },
+    {
+      "probe_id": "probe-state-reconciliation",
+      "status": "REVIEW_REQUIRED",
+      "methodology_version_id": null,
+      "provider_id": null,
+      "endpoint": null,
+      "required_model_capabilities": ["multi_turn_messages"],
+      "required_harness_capabilities": [],
+      "evaluator_version": null
+    },
+    {
+      "probe_id": "probe-historical-validity",
+      "status": "REVIEW_REQUIRED",
+      "methodology_version_id": null,
+      "provider_id": null,
+      "endpoint": null,
+      "required_model_capabilities": ["multi_turn_messages"],
+      "required_harness_capabilities": [],
+      "evaluator_version": null
+    }
+  ],
+  "scheduling": {
+    "evaluate_new_relevant_models_immediately": true,
+    "queue_initial_baseline_when_newly_testable": true,
+    "rerun_unchanged_models": false,
+    "tested_models_follow_freshness_policy": true
+  },
+  "provenance_contract": {
+    "raw_runs_are_private_action_artifacts": true,
+    "raw_artifact_retention_days": 90,
+    "required_fields": [
+      "provider_id",
+      "requested_model_id",
+      "returned_model_id",
+      "surface_id",
+      "endpoint",
+      "executed_at",
+      "methodology_version_id",
+      "messages",
+      "parameters",
+      "tool_definitions",
+      "raw_response",
+      "normalized_evaluation",
+      "evaluator_version",
+      "originating_discovery_event_id",
+      "commit_sha",
+      "operational_errors"
+    ],
+    "operational_errors_are_behavioral_failures": false
+  },
+  "notes": "This policy enables deterministic eligibility assessment only. Paid inference remains disabled, no model is execution-allowlisted, and scheduled request and spend budgets are zero. API observations must never be projected onto consumer-product surfaces."
+}

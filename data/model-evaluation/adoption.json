@@ -1,0 +1,5302 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "model-evaluation-adoption-v1",
+  "records": [
+    {
+      "model_id": "model-claude-opus-5",
+      "vendor_id": "vendor-anthropic",
+      "api_model_id": "claude-opus-5",
+      "originating_discovery_event_id": "discovery-ab4acbcae66f2497bf17eadf",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-anthropic-api",
+          "discovery-anthropic-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-023f4743226707f70c92",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5-codex",
+      "originating_discovery_event_id": "discovery-a904835a478fdb7fcf061cb8",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-0ec90986ddf2d16fa90e",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.4",
+      "originating_discovery_event_id": "discovery-e204f4102121716f1a903eb0",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-15b029fc02435f4e7373",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-2.0-flash-lite",
+      "originating_discovery_event_id": "discovery-0fbe7d8ce003bb33a9eb2d23",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "UNAVAILABLE",
+        "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-1e9a4f1a438a4bfd5fd7",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5-nano",
+      "originating_discovery_event_id": "discovery-fd85b03bcf65bc67b85dbba8",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-1fb968dfc97a50a275ea",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.4-pro",
+      "originating_discovery_event_id": "discovery-368773a9b22c06207815e287",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-1fd19c9c66c35da1b8ec",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o3-pro",
+      "originating_discovery_event_id": "discovery-e1e9875c8a2bee4e8065810e",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-29705db1c67f0fadf65e",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-2.0-flash",
+      "originating_discovery_event_id": "discovery-943efe40724834ede3f04520",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "UNAVAILABLE",
+        "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-2a1c4b7a96497390d63a",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.2-codex",
+      "originating_discovery_event_id": "discovery-2501a55b60b2e2ff7a522f40",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-368039b89b2d9e7f3dad",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o3-mini",
+      "originating_discovery_event_id": "discovery-871028ddcc6ebfc31c91fce2",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-3d24101d58fa0b07db6b",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o1-mini",
+      "originating_discovery_event_id": "discovery-baaa243ad50ef9488d784a8a",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY",
+        "REQUIRED_ENDPOINT_NOT_DOCUMENTED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+            "REQUIRED_ENDPOINT_NOT_DOCUMENTED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY",
+          "REQUIRED_ENDPOINT_NOT_DOCUMENTED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-3e5d717e80573cf8d2f6",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.2-chat-latest",
+      "originating_discovery_event_id": "discovery-426bede725a0d9296618db0e",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-3e9e5798a0fcafec17d8",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5-pro",
+      "originating_discovery_event_id": "discovery-3349cef01801f2ffe54ae76a",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-43e4ff83a595f03273e8",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "codex-mini-latest",
+      "originating_discovery_event_id": "discovery-1d5f749c9361f09f382c1d48",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-454d972053e3035f992c",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5-mini",
+      "originating_discovery_event_id": "discovery-427014732b66cd9023be55d9",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-473d2baac36d5968b9d0",
+      "vendor_id": "vendor-anthropic",
+      "api_model_id": "claude-sonnet-5",
+      "originating_discovery_event_id": "discovery-ceac32aaa7b8f5b9c0e0828a",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-anthropic-api",
+          "discovery-anthropic-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-4882e78c90fbf11b8297",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.1-flash-lite-preview",
+      "originating_discovery_event_id": "discovery-779a85dbaae79d9785e04472",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "UNAVAILABLE",
+        "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-5129934552dd2286e897",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.4-nano",
+      "originating_discovery_event_id": "discovery-3904e239c10d5763d01df5a5",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-51d7e9ccbf0079432f1b",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o4-mini-deep-research",
+      "originating_discovery_event_id": "discovery-cec8e25d28b94a0f2cac384f",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-53da97192b53c9fb9cd4",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.1-chat-latest",
+      "originating_discovery_event_id": "discovery-233e4ec51700b72a2c74e18b",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-5813b29ae4f9cdf7224a",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.5-pro",
+      "originating_discovery_event_id": "discovery-76d6f3c3b39e16e2ef0d8913",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-58ae42fa2da27922842c",
+      "vendor_id": "vendor-anthropic",
+      "api_model_id": "claude-haiku-4-5-20251001",
+      "originating_discovery_event_id": "discovery-2ed64424665129ce46445d4d",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-anthropic-api",
+          "discovery-anthropic-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-698a39834857c5ed27bb",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.1-codex-max",
+      "originating_discovery_event_id": "discovery-f546c6fe9f286d145b94d24a",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-70c3ac4805a382e7499d",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.4-mini",
+      "originating_discovery_event_id": "discovery-e35bcd6c9cfcb18e444cc873",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-71a2a8fdc338e5099bd5",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.2-pro",
+      "originating_discovery_event_id": "discovery-d77b525779a22e0bea38bebb",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-726dd1e6cbcf8f3e2436",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o1-preview",
+      "originating_discovery_event_id": "discovery-84e8a70a6077c3218da59ee5",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "REQUIRED_ENDPOINT_NOT_DOCUMENTED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "REQUIRED_ENDPOINT_NOT_DOCUMENTED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "REQUIRED_ENDPOINT_NOT_DOCUMENTED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-731392d07973ec4dd374",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4",
+      "originating_discovery_event_id": "discovery-737fcca8584a3eed9b6980d0",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-738b169f6dadce123772",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o4-mini",
+      "originating_discovery_event_id": "discovery-68ccae1ff68e99ed2877f0af",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-76ac3061d43cbea99683",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5-chat-latest",
+      "originating_discovery_event_id": "discovery-38a18671210044cc6005f29b",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-7ae0b7ff37a648b21f2e",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.5",
+      "originating_discovery_event_id": "discovery-8c7019a39ee69bd76530ef59",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-7c76ed0b3a985bb4f0ae",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.3-chat-latest",
+      "originating_discovery_event_id": "discovery-b2743498067b3c183ecaa0cc",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-8117798ae58404fd4297",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-2.5-flash-lite",
+      "originating_discovery_event_id": "discovery-b7abbaa3a00e6a6eddb41c1f",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-85d1ba853a1ef46be5bd",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.6-flash",
+      "originating_discovery_event_id": "discovery-2d2b85f7e3c5aa71fc7952e9",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-88b38a0be53dd343689c",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.6-terra",
+      "originating_discovery_event_id": "discovery-767050818b18bd03479ab27d",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-8ab5c52cb1cd5cf88e26",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.1-flash-lite",
+      "originating_discovery_event_id": "discovery-b9bc5d71ceb338a3380816c1",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-8cd3db89db51e350e528",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.5-flash-lite",
+      "originating_discovery_event_id": "discovery-3ef77a89d4c8f0bfffb618a4",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-8d6b0f1b6faadb07b615",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4o-mini",
+      "originating_discovery_event_id": "discovery-d38bd00cd094d98c7b528ad7",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-96b3d6a8812d1bff8280",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.1-codex",
+      "originating_discovery_event_id": "discovery-63d5b3e8a7b75b696a7f2a54",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-a4d62a7cf5e798457d76",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.2",
+      "originating_discovery_event_id": "discovery-e31ff6a15e7146efd57714e3",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-a631362df6539c375a1f",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5",
+      "originating_discovery_event_id": "discovery-bf9a6ac66bf66cbc2514a180",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-a74c2e9d0a00080b78c4",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.3-codex",
+      "originating_discovery_event_id": "discovery-4f5176580d12ab3d96789182",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-aa82e1844a4aa3932879",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.6-cyber",
+      "originating_discovery_event_id": "discovery-4ee8b71f9094cf5839f1fd0a",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-ac268b9c9424fa0d96c6",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.1-codex-mini",
+      "originating_discovery_event_id": "discovery-e7a62c7bae1d1e1a25b87bce",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-b41c55e3ff71ff33d32b",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-2.5-pro",
+      "originating_discovery_event_id": "discovery-2de1aa7c45a735e6edde613c",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-b422818c6300cfc29362",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4.1-nano",
+      "originating_discovery_event_id": "discovery-ad3b9c36b1ec562fdc5f2cf0",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-b9257ac7a2c8eaca2b5a",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4.1-mini",
+      "originating_discovery_event_id": "discovery-2522f12cdd4552a880af56fa",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-b9917ad913a137839464",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4.5-preview",
+      "originating_discovery_event_id": "discovery-b281cd534b8c3f7c794d6450",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "UNAVAILABLE",
+        "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "MODEL_LIFECYCLE_BLOCKED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-bba8e7fdaaa5feb26728",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3-pro-preview",
+      "originating_discovery_event_id": "discovery-9980659695f43b71e1d325fa",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "UNAVAILABLE",
+        "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-bd4c8bf27af648d3330a",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-2.5-flash",
+      "originating_discovery_event_id": "discovery-1104c9775efb59653a8952cf",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-c0466cbac6d887384649",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o1-pro",
+      "originating_discovery_event_id": "discovery-502f37d1b8027a02c88e06d9",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-d59d6ddd57ee9a1e8d3f",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4-turbo",
+      "originating_discovery_event_id": "discovery-535b99a9b6b30fd8f6c7dc4e",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-dcc1382081671253d9b5",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4o",
+      "originating_discovery_event_id": "discovery-07f59add3ea6deed61a8ac82",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-e19c519e25aaefa93b0f",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.1",
+      "originating_discovery_event_id": "discovery-633e9f08cd8da7fe63a97e3f",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-e65fdbebbfed99349ec2",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.6-luna",
+      "originating_discovery_event_id": "discovery-3638b9377e2b853881a0ee2b",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "ALREADY_TESTED",
+        "reasons": [
+          "FRESHNESS_POLICY_CONTROLS_RETEST"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-e7ad5bd7e714b6fbe0c3",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4.1",
+      "originating_discovery_event_id": "discovery-da6b0c1790cf7caa53c29dd2",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-e8ec7ed4b30b4efbaf48",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-6-astra",
+      "originating_discovery_event_id": "discovery-3d775291c8f296848c921b26",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-ea3b61e7225f020a5b7e",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "o3-deep-research",
+      "originating_discovery_event_id": "discovery-58d6878d8df77c8959e3a2af",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-ee7fbd4ea5b036d8c4d8",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-4-turbo-preview",
+      "originating_discovery_event_id": "discovery-d85a2b469690412c6de32eb9",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+        "NO_APPROVED_METHODOLOGY"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "NOT_TESTABLE",
+          "reasons": [
+            "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "CAPABILITY_NOT_DOCUMENTED_STRUCTURED_OUTPUTS",
+          "NO_APPROVED_METHODOLOGY"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-f29bc63c04163f5b021c",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.5-flash",
+      "originating_discovery_event_id": "discovery-e9e1f311ddff7c5f2c2d4d60",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-f3ee403332f490da7638",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.7-flash",
+      "originating_discovery_event_id": "discovery-b4401829cdd6628580ac35c0",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-fc973b7c5cd91319493b",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3-flash-preview",
+      "originating_discovery_event_id": "discovery-d55dc276f2ffa07ed012082d",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-discovered-fd0c815a6942fe9646f0",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.1-pro-preview",
+      "originating_discovery_event_id": "discovery-7e824d86dc3b2e60223eb6c9",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-gemini-3-8-flash",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-3.8-flash",
+      "originating_discovery_event_id": "discovery-80f086a5fed5973a4ddda8fa",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-google-api",
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-gpt-5-6-sol",
+      "vendor_id": "vendor-openai",
+      "api_model_id": "gpt-5.6-sol",
+      "originating_discovery_event_id": "discovery-40fb4751ffa0060f94008adc",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-openai-api",
+          "discovery-openai-docs"
+        ]
+      },
+      "testability_state": "PARTIALLY_TESTABLE",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "BLOCKED",
+          "reasons": [
+            "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
+      "model_id": "model-grok-4-6",
+      "vendor_id": "vendor-xai",
+      "api_model_id": "grok-4.6",
+      "originating_discovery_event_id": "discovery-1e88ecea9fd455be6ac4971f",
+      "assessed_on": "2026-09-05",
+      "api_availability": {
+        "state": "AUTH_REQUIRED_TO_VERIFY",
+        "reasons": [
+          "PROVIDER_CREDENTIAL_NOT_CONFIGURED"
+        ],
+        "source_ids": [
+          "discovery-xai-api",
+          "discovery-xai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "NO_APPROVED_METHODOLOGY",
+        "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": "method-api-temporal-anchor-1",
+          "endpoint": "responses",
+          "evaluator_version": "temporal-anchor-explicit-offset-pilot-1",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "NO_APPROVED_METHODOLOGY"
+          ]
+        }
+      ],
+      "queue": {
+        "state": "BLOCKED",
+        "reasons": [
+          "NO_APPROVED_METHODOLOGY",
+          "PROVIDER_SEMANTICS_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    }
+  ]
+}

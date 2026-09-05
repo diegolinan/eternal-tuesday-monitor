@@ -56,6 +56,27 @@ export function projectModels(
         asOf,
         pending: relevanceState === 'REVIEW_REQUIRED',
       });
+      const adoption = options.adoptionRecords?.get(model.id) ?? null;
+      const probeCoverage = lifecycle.probeCoverage.map((probe) => {
+        const assessed = adoption?.probes.find(
+          (item) => item.probe_id === probe.id,
+        );
+        return {
+          ...probe,
+          eligibilityState: assessed?.state ?? 'NOT_IN_SCOPE',
+          eligibilityReasons: assessed?.reasons ?? [],
+          methodologyVersionId: assessed?.methodology_version_id ?? null,
+        };
+      });
+      const lifecycleState = lifecycle.empiricalObservations.length
+        ? lifecycle.lifecycleState
+        : adoption
+          ? adoption.probes.some((item) => item.state === 'ELIGIBLE')
+            ? 'EVALUATION_AVAILABLE'
+            : adoption.probes.every((item) => item.state === 'NOT_TESTABLE')
+              ? 'EVALUATION_NOT_POSSIBLE'
+              : 'EVALUATION_PENDING'
+          : lifecycle.lifecycleState;
       const dates = lifecycle.empiricalObservations
         .filter((o) => o.observation_date.precision === 'day')
         .map((o) => o.observation_date.value)
@@ -96,15 +117,24 @@ export function projectModels(
         releasedOn: model.released_on,
         firstTestedOn: dates[0] ?? null,
         lastTestedOn: dates.at(-1) ?? null,
-        lifecycleState: lifecycle.lifecycleState,
-        testabilityState: lifecycle.testability.state,
-        evaluationReasons: lifecycle.testability.reasons,
-        probeCoverage: lifecycle.probeCoverage,
+        lifecycleState,
+        testabilityState:
+          adoption?.testability_state ?? lifecycle.testability.state,
+        evaluationReasons:
+          adoption?.testability_reasons ?? lifecycle.testability.reasons,
+        apiAvailabilityState: adoption?.api_availability.state ?? 'UNKNOWN',
+        apiAvailabilityReasons: adoption?.api_availability.reasons ?? [
+          'MODEL_NOT_IN_ADOPTION_SCOPE',
+        ],
+        adoptionAssessedOn: adoption?.assessed_on ?? null,
+        queueState: adoption?.queue.state ?? 'NOT_QUEUED',
+        queueReasons: adoption?.queue.reasons ?? [],
+        probeCoverage,
         surfaces,
         sources: [...new Set(model.provenance.map((p) => p.url))],
         reviewReasons: model.review_reasons,
         defaultProminence: isPubliclyProminent({
-          lifecycleState: lifecycle.lifecycleState,
+          lifecycleState,
           relevanceState,
         }),
       };

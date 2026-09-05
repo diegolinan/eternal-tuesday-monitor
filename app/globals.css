@@ -2410,6 +2410,27 @@ body::before {
   color: var(--signal);
   text-align: right;
 }
+.probe-coverage small {
+  color: var(--ink-soft);
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-align: right;
+}
+.coverage-blocker {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 2px solid var(--signal);
+  background: color-mix(in srgb, var(--signal) 8%, var(--paper-light));
+}
+.coverage-blocker strong {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.coverage-blocker p {
+  margin: 4px 0 0;
+}
 .coverage-card details {
   margin-top: 15px;
   border-top: 2px solid var(--ink);

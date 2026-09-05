@@ -630,6 +630,14 @@ test('Astra traverses the current official-source adapter without production spe
   const [model] = normalizeDiscoveries([parsed], [], [], '2026-09-05');
   assert.equal(model.display_name, fixture.expected_name);
   assert.equal(model.api_model_id, fixture.expected_api_id);
+  assert.deepEqual(model.endpoints, ['responses']);
+  assert.deepEqual(model.capabilities, [
+    'function_calling',
+    'snapshot_pinning',
+    'streaming',
+    'structured_outputs',
+    'text_input_output',
+  ]);
   const [event] = proposeEvents([model], [], '2026-09-05');
   const decision = classifyDiscoveryEvent(
     event,

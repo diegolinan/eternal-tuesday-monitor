@@ -7,6 +7,14 @@ type ProbeCoverage = {
   id: string;
   name: string;
   state: 'NOT_TESTED' | 'TESTED' | 'RETEST_REQUIRED';
+  eligibilityState:
+    | 'ELIGIBLE'
+    | 'BLOCKED'
+    | 'NOT_TESTABLE'
+    | 'REVIEW_REQUIRED'
+    | 'NOT_IN_SCOPE';
+  eligibilityReasons: string[];
+  methodologyVersionId: string | null;
 };
 
 export type DiscoveredModel = {
@@ -33,8 +41,26 @@ export type DiscoveredModel = {
   testabilityState:
     | 'AVAILABLE'
     | 'NOT_CURRENTLY_AVAILABLE'
-    | 'UNKNOWN_REVIEW_REQUIRED';
+    | 'UNKNOWN_REVIEW_REQUIRED'
+    | 'EVALUATABLE'
+    | 'PARTIALLY_TESTABLE'
+    | 'NOT_TESTABLE'
+    | 'REVIEW_REQUIRED';
   evaluationReasons: string[];
+  apiAvailabilityState:
+    | 'AVAILABLE'
+    | 'UNAVAILABLE'
+    | 'UNKNOWN'
+    | 'AUTH_REQUIRED_TO_VERIFY';
+  apiAvailabilityReasons: string[];
+  adoptionAssessedOn: string | null;
+  queueState:
+    | 'NOT_QUEUED'
+    | 'ELIGIBILITY_READY'
+    | 'BLOCKED'
+    | 'ALREADY_TESTED'
+    | 'RETEST_POLICY';
+  queueReasons: string[];
   probeCoverage: ProbeCoverage[];
   surfaces: Array<{
     id: string;
@@ -62,7 +88,32 @@ const reasonLabels: Record<string, string> = {
     'The approved harness is incompatible with the documented API surface',
   ACCESS_DENIED: 'The configured account does not have access',
   ERROR: 'The latest access check failed',
+  PROVIDER_CREDENTIAL_NOT_CONFIGURED:
+    'API verification requires configured provider credentials',
+  NO_APPROVED_METHODOLOGY: 'This probe needs a reviewed executable methodology',
+  PROVIDER_SEMANTICS_REQUIRE_REVIEW:
+    'Provider semantics require human review before this methodology can be reused',
+  REQUIRED_ENDPOINT_NOT_DOCUMENTED:
+    'The required endpoint is not documented as supported',
+  EXECUTION_POLICY_DISABLED_OR_ZERO_BUDGET:
+    'Paid execution is disabled or has a zero scheduled budget',
+  MODEL_NOT_IN_ADOPTION_SCOPE:
+    'This catalog identity is not in the reviewed relevant-model adoption scope',
+  EXACT_ID_NOT_VISIBLE_TO_CONFIGURED_ACCOUNT:
+    'The exact model ID is not visible to the configured API account',
+  API_AVAILABILITY_NOT_CHECKED_YET: 'API availability has not been checked yet',
 };
+
+const explainReasons = (reasons: string[]) =>
+  reasons
+    .map(
+      (reason) =>
+        reasonLabels[reason] ??
+        (reason.startsWith('CAPABILITY_NOT_DOCUMENTED_')
+          ? `Required capability not documented: ${label(reason.slice(26))}`
+          : label(reason)),
+    )
+    .join('. ');
 
 function LifecycleCard({ model }: { model: DiscoveredModel }) {
   return (
@@ -87,11 +138,15 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
           </div>
           <div>
             <dt>API availability</dt>
-            <dd>{label(model.apiState)}</dd>
+            <dd>{label(model.apiAvailabilityState)}</dd>
           </div>
           <div>
-            <dt>Testability</dt>
+            <dt>Probe compatibility</dt>
             <dd>{label(model.testabilityState)}</dd>
+          </div>
+          <div>
+            <dt>Evaluation queue</dt>
+            <dd>{label(model.queueState)}</dd>
           </div>
           <div>
             <dt>Reviewed relevance</dt>
@@ -105,19 +160,45 @@ function LifecycleCard({ model }: { model: DiscoveredModel }) {
           {model.probeCoverage.map((probe) => (
             <div key={probe.id}>
               <span>{probe.name}</span>
-              <b>{label(probe.state)}</b>
+              <b>{label(probe.eligibilityState)}</b>
+              <small>{label(probe.state)}</small>
             </div>
           ))}
         </div>
+        {(model.apiAvailabilityReasons.length > 0 ||
+          model.queueReasons.length > 0) && (
+          <div className="coverage-blocker" role="note">
+            <strong>What prevents the next step</strong>
+            <p>
+              {explainReasons([
+                ...new Set([
+                  ...model.apiAvailabilityReasons,
+                  ...model.queueReasons,
+                ]),
+              ])}
+            </p>
+          </div>
+        )}
         <details>
           <summary>Evidence boundary and provenance</summary>
           <p>
             {model.evaluationReasons.length
-              ? model.evaluationReasons
-                  .map((reason) => reasonLabels[reason] ?? label(reason))
-                  .join('. ')
+              ? explainReasons(model.evaluationReasons)
               : 'No mechanical blocker is currently recorded.'}
           </p>
+          {model.adoptionAssessedOn && (
+            <p>Adoption eligibility assessed {model.adoptionAssessedOn}.</p>
+          )}
+          <ul>
+            {model.probeCoverage.map((probe) => (
+              <li key={`${probe.id}-eligibility`}>
+                {probe.name}: {label(probe.eligibilityState)}
+                {probe.eligibilityReasons.length
+                  ? ` · ${explainReasons(probe.eligibilityReasons)}`
+                  : ''}
+              </li>
+            ))}
+          </ul>
           {model.surfaces.length ? (
             <ul>
               {model.surfaces.map((surface) => (
@@ -194,8 +275,9 @@ export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
           <h2 id="models-title">What the Monitor knows</h2>
         </div>
         <p>
-          Catalog existence and empirical evidence are different records. An API
-          identity never proves behavior in ChatGPT or another consumer product.
+          Discovery, API availability, probe compatibility, and empirical
+          evidence are separate records. An API identity or API result never
+          proves behavior in ChatGPT or another consumer product.
         </p>
       </div>
 

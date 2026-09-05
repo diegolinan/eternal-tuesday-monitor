@@ -35,6 +35,8 @@ const [
   sourcesFile,
   evidenceFile,
   freshnessPolicy,
+  evaluationPolicy,
+  adoptionRegister,
   releaseEntries,
 ] = await Promise.all([
   readJson('data/catalog/vendors.json'),
@@ -48,6 +50,8 @@ const [
   readJson('data/sources/sources.json'),
   readJson('data/evidence/evidence.json'),
   readJson('config/freshness-policy.json'),
+  readJson('config/model-evaluation-policy.json'),
+  readJson('data/model-evaluation/adoption.json'),
   loadReleases(root),
 ]);
 const release = resolveCurrentRelease(releaseEntries).release;
@@ -172,6 +176,7 @@ const view = {
   publishedOn: release.published_on ?? release.data_cutoff,
   freshnessEvaluatedOn: asOf,
   freshnessPolicyVersion: freshnessPolicy.id,
+  modelEvaluationPolicyVersion: evaluationPolicy.policy_id,
   methodologyVersion: methodologies.get(release.monitor_methodology_version_id)
     .version,
   articlePath: release.article_public_path,
@@ -188,6 +193,10 @@ const view = {
       surfaces,
       products,
       projectedObservations: siteObservations,
+      evaluationPolicy,
+      adoptionRecords: new Map(
+        adoptionRegister.records.map((record) => [record.model_id, record]),
+      ),
     },
   ),
 };

@@ -37,5 +37,6 @@ next-env.d.ts
 /outputs/
 /work/
 /.discovery/
+/.evaluation/
 /.probes/
 /.probe-candidates/

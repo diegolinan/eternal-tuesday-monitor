@@ -107,6 +107,8 @@ const [
   contentManifest,
   freshnessPolicy,
   automatedProbePolicy,
+  evaluationPolicy,
+  adoptionRegister,
   monitorView,
   sourceSchema,
   evidenceSchema,
@@ -115,6 +117,8 @@ const [
   releaseSchema,
   freshnessPolicySchema,
   automatedProbePolicySchema,
+  evaluationPolicySchema,
+  adoptionSchema,
   modelCatalogSchema,
   modelLifecycleSchema,
   stateEventSchema,
@@ -135,6 +139,8 @@ const [
   readJson('content/manifest.json'),
   readJson('config/freshness-policy.json'),
   readJson('config/automated-probe-candidate.json'),
+  readJson('config/model-evaluation-policy.json'),
+  readJson('data/model-evaluation/adoption.json'),
   readJson('public/data/monitor.json'),
   readJson('schemas/source.schema.json'),
   readJson('schemas/evidence.schema.json'),
@@ -143,6 +149,8 @@ const [
   readJson('schemas/release.schema.json'),
   readJson('schemas/freshness-policy.schema.json'),
   readJson('schemas/automated-probe-policy.schema.json'),
+  readJson('schemas/model-evaluation-policy.schema.json'),
+  readJson('schemas/model-evaluation-adoption.schema.json'),
   readJson('schemas/model-catalog.schema.json'),
   readJson('schemas/model-lifecycle.schema.json'),
   readJson('schemas/state-event.schema.json'),
@@ -190,6 +198,12 @@ validateWithSchema('freshness policy', freshnessPolicySchema, [
 ]);
 validateWithSchema('automated probe policy', automatedProbePolicySchema, [
   automatedProbePolicy,
+]);
+validateWithSchema('model evaluation policy', evaluationPolicySchema, [
+  evaluationPolicy,
+]);
+validateWithSchema('model evaluation adoption', adoptionSchema, [
+  adoptionRegister,
 ]);
 validateWithSchema('model catalog', modelCatalogSchema, [modelsFile]);
 validateWithSchema(
@@ -245,6 +259,81 @@ const modelsById = new Map(modelsFile.models.map((item) => [item.id, item]));
 const evidenceById = new Map(
   evidenceFile.evidence_records.map((item) => [item.id, item]),
 );
+
+if (evaluationPolicy.surface_id && !surfaces.has(evaluationPolicy.surface_id))
+  fail(
+    `${evaluationPolicy.policy_id}: unknown surface ${evaluationPolicy.surface_id}`,
+  );
+const configuredProviders = new Set();
+for (const provider of evaluationPolicy.providers) {
+  if (!vendors.has(provider.vendor_id))
+    fail(
+      `${evaluationPolicy.policy_id}: unknown provider ${provider.vendor_id}`,
+    );
+  if (configuredProviders.has(provider.vendor_id))
+    fail(
+      `${evaluationPolicy.policy_id}: duplicate provider ${provider.vendor_id}`,
+    );
+  configuredProviders.add(provider.vendor_id);
+}
+const configuredProbeProfiles = new Set();
+for (const profile of evaluationPolicy.probe_profiles) {
+  if (!probes.has(profile.probe_id))
+    fail(`${evaluationPolicy.policy_id}: unknown probe ${profile.probe_id}`);
+  if (configuredProbeProfiles.has(profile.probe_id))
+    fail(
+      `${evaluationPolicy.policy_id}: duplicate probe profile ${profile.probe_id}`,
+    );
+  configuredProbeProfiles.add(profile.probe_id);
+  if (profile.provider_id && !vendors.has(profile.provider_id))
+    fail(
+      `${evaluationPolicy.policy_id}: unknown profile provider ${profile.provider_id}`,
+    );
+  if (
+    profile.methodology_version_id &&
+    !methodologies.has(profile.methodology_version_id)
+  )
+    fail(
+      `${evaluationPolicy.policy_id}: unknown methodology ${profile.methodology_version_id}`,
+    );
+  if (
+    profile.status === 'APPROVED' &&
+    (!profile.provider_id ||
+      !profile.methodology_version_id ||
+      !profile.endpoint ||
+      !profile.evaluator_version)
+  )
+    fail(
+      `${evaluationPolicy.policy_id}: approved profile ${profile.probe_id} is incomplete`,
+    );
+}
+for (const probeId of probes)
+  if (!configuredProbeProfiles.has(probeId))
+    fail(`${evaluationPolicy.policy_id}: missing probe profile ${probeId}`);
+const adoptionModels = new Set();
+for (const record of adoptionRegister.records) {
+  if (!models.has(record.model_id))
+    fail(`adoption: unknown model ${record.model_id}`);
+  if (!vendors.has(record.vendor_id))
+    fail(`adoption: unknown vendor ${record.vendor_id}`);
+  if (adoptionModels.has(record.model_id))
+    fail(`adoption: duplicate model ${record.model_id}`);
+  adoptionModels.add(record.model_id);
+  if (
+    modelsById.get(record.model_id)?.vendor_id &&
+    modelsById.get(record.model_id).vendor_id !== record.vendor_id
+  )
+    fail(`adoption: ${record.model_id} vendor mismatch`);
+  for (const probe of record.probes) {
+    if (!probes.has(probe.probe_id))
+      fail(`adoption: unknown probe ${probe.probe_id}`);
+    if (
+      probe.methodology_version_id &&
+      !methodologies.has(probe.methodology_version_id)
+    )
+      fail(`adoption: unknown methodology ${probe.methodology_version_id}`);
+  }
+}
 
 for (const product of productsFile.products)
   if (!vendors.has(product.vendor_id))

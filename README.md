@@ -41,6 +41,7 @@ npm run models:discover -- --as-of 2026-09-05
 # Inspect .discovery/run.json. GitHub Actions stages automatic changes;
 # a local proposal branch may stage review-required changes:
 npm run models:stage -- --mode review
+npm run models:adopt -- --report .discovery/run.json --as-of 2026-09-05
 npm run data:validate -- --base main
 npm run data:compile
 npm run models:targets -- --as-of 2026-09-07
@@ -52,7 +53,11 @@ Accepted discoveries are projected into the public [model lifecycle](docs/model-
 
 ### Execution and failure policy
 
-`config/probe-execution-policy.json` is separate from discovery. General automated paid execution is disabled, maximum runs and tokens are zero, and no API methodology is approved for automatic evidence acceptance. The separate [manual OpenAI pilot](docs/manual-openai-pilot.md) requires a one-use human approval and saves private, pending-review evidence only. It does not enable the production target list or relabel article-derived observations as newly tested.
+[`config/model-evaluation-policy.json`](config/model-evaluation-policy.json) is the versioned Model Evaluation Adoption V1 boundary. It resolves official API availability separately from per-probe compatibility, attaches an approved methodology only when its endpoint, model capabilities and harness capabilities all match, and records the result in `data/model-evaluation/adoption.json`. The daily discovery run evaluates newly relevant models immediately, but does not rerun unchanged models. A newly compatible baseline may become `ELIGIBILITY_READY`; that state is not execution authorization.
+
+Paid inference remains disabled. The scheduled request budget, scheduled spend budget and runs per model are all zero, and no exact API model is execution-allowlisted. Provider keys may exist only as GitHub Actions secrets. Operational/auth/rate-limit errors are retained as operational outcomes and can never become behavioral FAILs. The complete bridge, per-probe state model and raw-run provenance contract are documented in [`docs/model-evaluation-adoption-v1.md`](docs/model-evaluation-adoption-v1.md).
+
+`config/probe-execution-policy.json` remains the legacy general target policy used by the earlier discovery lifecycle projection. It does not authorize paid execution or automatic evidence acceptance. The separate [manual OpenAI pilot](docs/manual-openai-pilot.md) requires a one-use human approval and saves private, pending-review evidence only. It does not relabel article-derived observations as newly tested.
 
 The separate [manual Codex pilot](docs/manual-codex-pilot.md) uses local ChatGPT authentication and its own experimental surface, approval and one-use receipt. `npm run probes:codex:plan` is offline by default. Codex usage is not billed or bounded like the API pilot: a live run requires explicit acceptance that dollar/credit caps cannot be enforced here. One reviewed GPT-5.6 Luna result from that adapter was accepted in release `2026-09-08`; this does not schedule Codex execution or automatically accept future evidence.
 

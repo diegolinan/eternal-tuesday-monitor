@@ -36,6 +36,12 @@
       "version": "CODEX-CLI-TEMPORAL-ANCHOR-1",
       "name": "Manual Codex CLI explicit-offset pilot",
       "scope": "Three fresh local Codex CLI sessions with ChatGPT authentication and fixed offsets; scores supplied-context interpretation only."
+    },
+    {
+      "id": "method-api-temporal-anchor-1",
+      "version": "API-TEMPORAL-ANCHOR-1",
+      "name": "Provider API explicit-offset temporal anchor",
+      "scope": "Three independently scored provider-API requests using an exact model identifier, supplied UTC instant and fixed offset, structured output, raw request and response retention, and deterministic date/weekday comparison. Results apply only to the named API surface and exact returned model identifier."
     }
   ]
 }

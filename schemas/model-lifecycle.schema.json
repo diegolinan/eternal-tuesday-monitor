@@ -21,6 +21,11 @@
     "lifecycleState",
     "testabilityState",
     "evaluationReasons",
+    "apiAvailabilityState",
+    "apiAvailabilityReasons",
+    "adoptionAssessedOn",
+    "queueState",
+    "queueReasons",
     "probeCoverage",
     "surfaces",
     "sources",
@@ -89,10 +94,39 @@
       "enum": [
         "AVAILABLE",
         "NOT_CURRENTLY_AVAILABLE",
-        "UNKNOWN_REVIEW_REQUIRED"
+        "UNKNOWN_REVIEW_REQUIRED",
+        "EVALUATABLE",
+        "PARTIALLY_TESTABLE",
+        "NOT_TESTABLE",
+        "REVIEW_REQUIRED"
       ]
     },
     "evaluationReasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "apiAvailabilityState": {
+      "enum": ["AVAILABLE", "UNAVAILABLE", "UNKNOWN", "AUTH_REQUIRED_TO_VERIFY"]
+    },
+    "apiAvailabilityReasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "adoptionAssessedOn": {
+      "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+    },
+    "queueState": {
+      "enum": [
+        "NOT_QUEUED",
+        "ELIGIBILITY_READY",
+        "BLOCKED",
+        "ALREADY_TESTED",
+        "RETEST_POLICY"
+      ]
+    },
+    "queueReasons": {
       "type": "array",
       "uniqueItems": true,
       "items": { "type": "string", "minLength": 1 }
@@ -104,11 +138,35 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "name", "state"],
+        "required": [
+          "id",
+          "name",
+          "state",
+          "eligibilityState",
+          "eligibilityReasons",
+          "methodologyVersionId"
+        ],
         "properties": {
           "id": { "type": "string", "minLength": 1 },
           "name": { "type": "string", "minLength": 1 },
-          "state": { "enum": ["NOT_TESTED", "TESTED", "RETEST_REQUIRED"] }
+          "state": { "enum": ["NOT_TESTED", "TESTED", "RETEST_REQUIRED"] },
+          "eligibilityState": {
+            "enum": [
+              "ELIGIBLE",
+              "BLOCKED",
+              "NOT_TESTABLE",
+              "REVIEW_REQUIRED",
+              "NOT_IN_SCOPE"
+            ]
+          },
+          "eligibilityReasons": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "methodologyVersionId": {
+            "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+          }
         }
       }
     },

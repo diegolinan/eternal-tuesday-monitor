@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/model-evaluation-adoption.schema.json",
+  "title": "Model evaluation adoption register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "policy_id", "records"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "policy_id": { "const": "model-evaluation-adoption-v1" },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/record" }
+    }
+  },
+  "$defs": {
+    "reasonSet": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "nullableString": {
+      "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_id",
+        "vendor_id",
+        "api_model_id",
+        "originating_discovery_event_id",
+        "assessed_on",
+        "api_availability",
+        "testability_state",
+        "testability_reasons",
+        "probes",
+        "queue"
+      ],
+      "properties": {
+        "model_id": { "type": "string", "minLength": 1 },
+        "vendor_id": { "type": "string", "minLength": 1 },
+        "api_model_id": { "$ref": "#/$defs/nullableString" },
+        "originating_discovery_event_id": { "$ref": "#/$defs/nullableString" },
+        "assessed_on": { "type": "string", "format": "date" },
+        "api_availability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "reasons", "source_ids"],
+          "properties": {
+            "state": {
+              "enum": [
+                "AVAILABLE",
+                "UNAVAILABLE",
+                "UNKNOWN",
+                "AUTH_REQUIRED_TO_VERIFY"
+              ]
+            },
+            "reasons": { "$ref": "#/$defs/reasonSet" },
+            "source_ids": { "$ref": "#/$defs/reasonSet" }
+          }
+        },
+        "testability_state": {
+          "enum": [
+            "EVALUATABLE",
+            "PARTIALLY_TESTABLE",
+            "NOT_TESTABLE",
+            "REVIEW_REQUIRED"
+          ]
+        },
+        "testability_reasons": { "$ref": "#/$defs/reasonSet" },
+        "probes": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "probe_id",
+              "state",
+              "reasons",
+              "methodology_version_id",
+              "endpoint",
+              "evaluator_version"
+            ],
+            "properties": {
+              "probe_id": { "type": "string", "minLength": 1 },
+              "state": {
+                "enum": [
+                  "ELIGIBLE",
+                  "BLOCKED",
+                  "NOT_TESTABLE",
+                  "REVIEW_REQUIRED"
+                ]
+              },
+              "reasons": { "$ref": "#/$defs/reasonSet" },
+              "methodology_version_id": { "$ref": "#/$defs/nullableString" },
+              "endpoint": { "$ref": "#/$defs/nullableString" },
+              "evaluator_version": { "$ref": "#/$defs/nullableString" }
+            }
+          }
+        },
+        "queue": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "reasons", "execution_authorized"],
+          "properties": {
+            "state": {
+              "enum": [
+                "NOT_QUEUED",
+                "ELIGIBILITY_READY",
+                "BLOCKED",
+                "ALREADY_TESTED",
+                "RETEST_POLICY"
+              ]
+            },
+            "reasons": { "$ref": "#/$defs/reasonSet" },
+            "execution_authorized": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}
