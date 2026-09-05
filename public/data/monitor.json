@@ -27,6 +27,7 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://forum.cursor.com/t/agent-doesnt-know-what-day-it-is/154920",
       "evidenceNote": "A user reported a resumed Saturday-to-Monday conversation that continued to treat the market as closed. Cursor staff stated that current date and time were not then passed to the agent prompt. This describes the product at that time, not necessarily now.",
+      "observationQualifiers": [],
       "applicability": "HISTORICAL",
       "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
@@ -56,6 +57,7 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://github.com/anthropics/claude-code/issues/79731",
       "evidenceNote": "A detailed but intermittent report described a roughly 30-minute-old discussion as yesterday despite the correct current date appearing in the reported context. The transcript shows a correction after a clock check. No mechanism is established.",
+      "observationQualifiers": [],
       "applicability": "HISTORICAL",
       "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
@@ -85,6 +87,7 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://github.com/anthropics/claude-code/issues/86219",
       "evidenceNote": "A user reported reopening work after 83 days with the correct current environment date visible while a completed cloud-storage sync was still treated as in progress. This is historical observational evidence only. No public source reviewed connects the later memory update to this report.",
+      "observationQualifiers": [],
       "applicability": "HISTORICAL",
       "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
@@ -114,6 +117,7 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://aclanthology.org/2026.findings-acl.1848/",
       "evidenceNote": "In designed scenarios using human judgments about whether old tool output should be reused or refreshed, no tested model exceeded 65 percent normalized alignment when timestamps were available. This is controlled benchmark evidence, not a consumer-product score and not a test of all five probes.",
+      "observationQualifiers": [],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -143,6 +147,7 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "evidenceNote": "Release notes describe improved awareness of a user's local time for time-sensitive responses. This supports local-time grounding only. It is not evidence of per-message timestamps, elapsed-gap representation, resumption boundaries or revalidation policy.",
+      "observationQualifiers": [],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -172,6 +177,7 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://openai.com/index/chatgpt-memory-dreaming/",
       "evidenceNote": "OpenAI describes a production memory architecture designed around continuity, relevance and freshness, with vendor-run evaluations involving passage-of-time-sensitive answers. This is substantive vendor evidence, not independent validation of every product behavior.",
+      "observationQualifiers": [],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -201,6 +207,9 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://www.perplexity.ai/help-center/en/articles/19700001-what-is-brain",
       "evidenceNote": "Perplexity describes background maintenance that revisits sessions, connector updates, artifacts and corrections, updating changed information and marking stale knowledge. The product is in Research Preview. This is vendor-described architecture, not independent behavioral verification.",
+      "observationQualifiers": [
+        "INCONCLUSIVE"
+      ],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -230,6 +239,9 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://openai.com/index/gpt-5-6/",
       "evidenceNote": "The article found no public standardized test establishing whether this specific current product, surface and model combination resolves the elapsed-time-sensitive revalidation problem. Absence of evidence is not a failure result.",
+      "observationQualifiers": [
+        "UNTESTED"
+      ],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -259,6 +271,9 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://openai.com/index/gpt-5-6/",
       "evidenceNote": "No public standardized test was found for this specific model API on the Monitor's revalidation question. This API record remains separate from the ChatGPT Projects record.",
+      "observationQualifiers": [
+        "UNTESTED"
+      ],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -288,6 +303,9 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://www.anthropic.com/system-cards",
       "evidenceNote": "The article found no public standardized test for this current product surface and model on the specific failure class. The historical Cowork report remains a separate dated observation.",
+      "observationQualifiers": [
+        "UNTESTED"
+      ],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -317,6 +335,9 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://www.anthropic.com/system-cards",
       "evidenceNote": "The article found no public standardized test for this current surface and model on elapsed-time-sensitive revalidation. The July Fable 5 report is not automatically a claim about Fable 5.1.",
+      "observationQualifiers": [
+        "UNTESTED"
+      ],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -346,6 +367,9 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
       "evidenceNote": "At the article cutoff, the model was one day old. No public standardized persistent-session evaluation was found for this specific product surface and model. This is not evidence of failure or success.",
+      "observationQualifiers": [
+        "UNTESTED"
+      ],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [
@@ -375,6 +399,9 @@
       "sourceCheckedOn": "2026-09-03",
       "sourceUrl": "https://x.ai/news/grok-4-6/",
       "evidenceNote": "The vendor positions Grok 4.6 for long-running agents, but the article found no public standardized temporal-grounding benchmark for this product claim. Vendor positioning is not a PASS.",
+      "observationQualifiers": [
+        "UNTESTED"
+      ],
       "applicability": "CURRENT",
       "currentSufficiency": "SUFFICIENT",
       "sufficiencyReasons": [

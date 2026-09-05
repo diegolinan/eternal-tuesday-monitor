@@ -17,10 +17,10 @@ An observation is a dated claim at a precise coordinate. These fields are intent
 | Probe               | One of the Monitor's defined black-box diagnostic questions.                                                     |
 | Evidence class      | What kind of support the observation has; it is not the result status.                                           |
 | Observation date    | When the behavior, document, report, or evidence gap applies. Precision is explicit (`day`, `month`, or `year`). |
-| Evidence verified   | The date on which the evidence supporting the observed result was actually verified.                              |
-| Source checked      | The date on which a source record was checked. This never implies that product behavior was retested.              |
-| Freshness evaluated | The explicit date used to derive current evidentiary sufficiency from policy and state events.                     |
-| Published           | The public release or article publication date. It does not rewrite evidence provenance.                          |
+| Evidence verified   | The date on which the evidence supporting the observed result was actually verified.                             |
+| Source checked      | The date on which a source record was checked. This never implies that product behavior was retested.            |
+| Freshness evaluated | The explicit date used to derive current evidentiary sufficiency from policy and state events.                   |
+| Published           | The public release or article publication date. It does not rewrite evidence provenance.                         |
 | Source              | A separately versioned source record. Sources do not themselves become observations.                             |
 | Methodology version | The procedure under which the observation was admitted.                                                          |
 
@@ -86,6 +86,10 @@ The canonical article source is `content/articles/your-ai-lives-in-an-eternal-tu
 - `NO_PUBLIC_EVIDENCE` means the article found no qualifying public result by its cutoff. It is not a failed probe.
 
 `data/state-events/events.jsonl` is a separate append-only ledger. It can record a retest requirement, superseded model or methodology, discontinued surface, unavailable source, or restoration of sufficiency without rewriting an observed PASS, FAIL, or evidence gap. Release manifests are also immutable after publication. The current release is resolved deterministically from all manifests by `published_on`, falling back to `data_cutoff`, and then by release ID.
+
+An appended observation with `supersedes_observation_id` makes its predecessor HISTORICAL once the successor's verification date is reached; aging alone never changes applicability. Events apply only when both their effective and recorded dates are at or before the supplied evaluation date. Restoration can clear an explicit or inherited retest flag, but cannot bypass an age, unavailable-source, or lifecycle blocker or rewrite verification dates. A missing verification date is represented as null and requires review, never an invented date. INCONCLUSIVE and UNTESTED qualifiers remain explicit in the public projection.
+
+All linked evidence records contribute notes and supporting sources to the evaluation. The public `sourceCheckedOn` describes the primary linked source only, not an aggregate claim about all sources. Availability is AVAILABLE only when every supporting source has an applicable availability event; an unchecked source remains UNKNOWN. Source checks are not performed by the freshness workflow.
 
 Run the validator against a Git base to enforce the ledger rule in future pull requests:
 

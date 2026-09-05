@@ -274,7 +274,10 @@ for (const [index, observation] of observations.entries()) {
     fail(`${observation.id}: unknown evidence_class_id`);
   if (!methodologies.has(observation.methodology_version_id))
     fail(`${observation.id}: unknown methodology_version_id`);
-  if (!isDay(observation.last_verified_on))
+  if (
+    observation.last_verified_on !== null &&
+    !isDay(observation.last_verified_on)
+  )
     fail(`${observation.id}: invalid last_verified_on`);
   validateObservationDate(observation);
   if (

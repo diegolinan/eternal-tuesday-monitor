@@ -31,8 +31,9 @@ type Observation = {
   observedResult: string;
   evidenceClass: string;
   observedOn: { value: string; precision: string; label: string };
-  evidenceVerifiedOn: string;
-  sourceCheckedOn: string;
+  evidenceVerifiedOn: string | null;
+  sourceCheckedOn: string | null;
+  observationQualifiers: string[];
   sourceUrl: string | null;
   evidenceNote: string;
   applicability: 'CURRENT' | 'HISTORICAL';
@@ -43,7 +44,7 @@ type Observation = {
     | 'NO_APPLICABLE_POLICY';
   sufficiencyReasons: string[];
   sourceAvailability: 'AVAILABLE' | 'UNAVAILABLE' | 'UNKNOWN';
-  evidenceAgeDays: number;
+  evidenceAgeDays: number | null;
   maxEvidenceAgeDays: number | null;
   stateHistory: Array<{
     id: string;
@@ -132,7 +133,8 @@ const evidenceGroups = [
   },
 ];
 
-function labelDate(date: string) {
+function labelDate(date: string | null) {
+  if (date === null) return 'NOT ESTABLISHED';
   return new Date(`${date}T00:00:00Z`)
     .toLocaleDateString('en-GB', {
       day: '2-digit',
@@ -162,9 +164,16 @@ const reasonLabels: Record<string, string> = {
   SOURCE_UNAVAILABLE: 'A supporting source is unavailable',
   HISTORICAL_RECORD: 'This record describes an earlier product state',
   NO_APPLICABLE_POLICY: 'No freshness rule matches this evidence class',
+  VERIFICATION_DATE_UNKNOWN:
+    'The evidence verification date is not established',
 };
 
 function sufficiencyLabel(item: Observation) {
+  if (
+    item.currentSufficiency === 'SUFFICIENT' &&
+    item.observedResult === 'NO PUBLIC EVIDENCE'
+  )
+    return 'GAP REVIEW WITHIN WINDOW';
   if (item.currentSufficiency === 'SUFFICIENT') return 'CURRENTLY SUFFICIENT';
   if (item.currentSufficiency === 'NOT_CURRENTLY_APPLICABLE')
     return 'HISTORICAL RECORD';
@@ -408,7 +417,7 @@ export default function Home() {
               </strong>
             </div>
             <div className="cutoff-plate">
-              <span>State evaluated</span>
+              <span>Evaluated as of</span>
               <strong>
                 {data ? labelDate(data.freshnessEvaluatedOn) : '07 SEP 2026'}
               </strong>
@@ -777,8 +786,10 @@ export default function Home() {
               <div>
                 <h3>Check the age</h3>
                 <p>
-                  LAST VERIFIED is part of the result. A stale observation
-                  becomes RETEST REQUIRED rather than quietly remaining current.
+                  Evidence verification and freshness evaluation are separate
+                  dates. An applicable record remains visible in CURRENT when
+                  its evidence requires retesting. The observed result stays
+                  intact.
                 </p>
               </div>
             </li>
@@ -887,6 +898,9 @@ export default function Home() {
               <div className="record-status">
                 <span>{selected.observedResult}</span>
                 <b>{selected.applicability}</b>
+                {(selected.observationQualifiers ?? []).map((qualifier) => (
+                  <b key={qualifier}>{qualifier}</b>
+                ))}
                 <b>{sufficiencyLabel(selected)}</b>
               </div>
               <dl className="record-fields">

@@ -104,23 +104,25 @@ const selected = new Set(release.observation_ids);
 const siteObservations = observations
   .filter((item) => selected.has(item.id))
   .map((item) => {
-    const evidenceRecord = evidence.get(item.evidence_record_ids[0]);
-    const evidenceSources = evidenceRecord.source_ids.map((id) =>
-      sources.get(id),
+    const evidenceRecords = item.evidence_record_ids.map((id) =>
+      evidence.get(id),
     );
+    const evidenceRecord = evidenceRecords[0];
+    const sourceIds = [
+      ...new Set(evidenceRecords.flatMap((record) => record.source_ids)),
+    ];
+    const evidenceSources = sourceIds.map((id) => sources.get(id));
     const externalSource = evidenceSources.find((source) => source.url);
     const evaluation = evaluateObservationFreshness({
       observation: item,
       evidenceRecord,
-      sourceIds: evidenceRecord.source_ids,
+      sourceIds,
       policy: freshnessPolicy,
       events: stateEvents,
       asOf,
+      observations: observations.filter((record) => selected.has(record.id)),
     });
-    const sourceCheckedOn = evidenceSources
-      .map((source) => source.last_verified_on)
-      .sort()
-      .at(-1);
+    const sourceCheckedOn = externalSource?.last_verified_on ?? null;
     return {
       id: item.id,
       vendor: vendors.get(item.vendor_id).name,
@@ -138,13 +140,13 @@ const siteObservations = observations
       evidenceVerifiedOn: item.last_verified_on,
       sourceCheckedOn,
       sourceUrl: externalSource?.url ?? null,
-      evidenceNote: [
-        evidenceRecord.summary,
-        ...evidenceRecord.limitations,
-      ].join(' '),
-      applicability: item.record_states.includes('CURRENT')
-        ? 'CURRENT'
-        : 'HISTORICAL',
+      evidenceNote: evidenceRecords
+        .flatMap((record) => [record.summary, ...record.limitations])
+        .join(' '),
+      observationQualifiers: item.record_states.filter((state) =>
+        ['INCONCLUSIVE', 'UNTESTED'].includes(state),
+      ),
+      applicability: evaluation.applicability,
       currentSufficiency: evaluation.currentSufficiency,
       sufficiencyReasons: evaluation.sufficiencyReasons,
       sourceAvailability: evaluation.sourceAvailability,

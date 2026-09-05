@@ -1,6 +1,7 @@
 const DAY_MS = 86_400_000;
 
 export function dayAge(earlier, later) {
+  if (earlier === null) return null;
   const start = Date.parse(`${earlier}T00:00:00Z`);
   const end = Date.parse(`${later}T00:00:00Z`);
   return Math.floor((end - start) / DAY_MS);
@@ -23,9 +24,22 @@ export function evaluateObservationFreshness({
   policy,
   events,
   asOf,
+  observations = [],
 }) {
+  const successors = observations.filter(
+    (item) =>
+      item.supersedes_observation_id === observation.id &&
+      item.last_verified_on !== null &&
+      item.last_verified_on <= asOf,
+  );
+  const applicability =
+    successors.length > 0
+      ? 'HISTORICAL'
+      : observation.record_states.includes('CURRENT')
+        ? 'CURRENT'
+        : 'HISTORICAL';
   const applicableEvents = events
-    .filter((event) => event.effective_on <= asOf)
+    .filter((event) => event.effective_on <= asOf && event.recorded_on <= asOf)
     .filter(
       (event) =>
         (event.subject_type === 'observation' &&
@@ -51,10 +65,6 @@ export function evaluateObservationFreshness({
   const ageDays = dayAge(observation.last_verified_on, asOf);
   const reasons = [];
 
-  if (observation.record_states.includes('RETEST_REQUIRED')) {
-    reasons.push('LEGACY_RETEST_REQUIRED');
-  }
-
   const observationEvents = applicableEvents.filter(
     (event) => event.subject_type === 'observation',
   );
@@ -62,6 +72,12 @@ export function evaluateObservationFreshness({
     'RETEST_REQUIRED',
     'CURRENT_SUFFICIENCY_RESTORED',
   ]);
+  if (
+    observation.record_states.includes('RETEST_REQUIRED') &&
+    explicitState?.event_type !== 'CURRENT_SUFFICIENCY_RESTORED'
+  ) {
+    reasons.push('LEGACY_RETEST_REQUIRED');
+  }
   if (explicitState?.event_type === 'RETEST_REQUIRED') {
     reasons.push('EXPLICIT_RETEST_REQUIRED');
   }
@@ -106,9 +122,11 @@ export function evaluateObservationFreshness({
       )?.event_type === 'SOURCE_UNAVAILABLE',
   );
   if (unavailableSources.length > 0) reasons.push('SOURCE_UNAVAILABLE');
+  if (ageDays === null) reasons.push('VERIFICATION_DATE_UNKNOWN');
 
   if (!rule) {
     return {
+      applicability,
       currentSufficiency: 'NO_APPLICABLE_POLICY',
       sufficiencyReasons: ['NO_APPLICABLE_POLICY', ...reasons],
       ageDays,
@@ -125,20 +143,28 @@ export function evaluateObservationFreshness({
   const currentSufficiency =
     reasons.length > 0
       ? 'RETEST_REQUIRED'
-      : observation.record_states.includes('CURRENT')
+      : applicability === 'CURRENT'
         ? 'SUFFICIENT'
         : 'NOT_CURRENTLY_APPLICABLE';
 
   const sourceAvailability =
     unavailableSources.length > 0
       ? 'UNAVAILABLE'
-      : sourceStateEvents.some(
-            (event) => event.event_type === 'SOURCE_AVAILABLE',
+      : sourceIds.length > 0 &&
+          sourceIds.every(
+            (sourceId) =>
+              latestEvent(
+                sourceStateEvents.filter(
+                  (event) => event.subject_id === sourceId,
+                ),
+                ['SOURCE_UNAVAILABLE', 'SOURCE_AVAILABLE'],
+              )?.event_type === 'SOURCE_AVAILABLE',
           )
         ? 'AVAILABLE'
         : 'UNKNOWN';
 
   return {
+    applicability,
     currentSufficiency,
     sufficiencyReasons:
       reasons.length > 0

@@ -39,22 +39,6 @@ await Promise.all([
 let monitorData;
 try {
   monitorData = JSON.parse(await read('data/monitor.json'));
-  if (monitorData.observations?.length !== 13)
-    fail('static dataset must contain exactly 13 observations');
-  const current = monitorData.observations?.filter(
-    (item) => item.applicability === 'CURRENT',
-  ).length;
-  const historical = monitorData.observations?.filter(
-    (item) => item.applicability === 'HISTORICAL',
-  ).length;
-  if (current !== 10)
-    fail(
-      `static dataset must contain 10 current observations, found ${current}`,
-    );
-  if (historical !== 3)
-    fail(
-      `static dataset must contain 3 historical observations, found ${historical}`,
-    );
   // The maintenance count must be allowed to change as evidence ages.
   // Recompile for the artifact's date and compare every field instead.
   const comparisonDirectory = await mkdtemp(path.join(tmpdir(), 'etm-export-'));
@@ -81,10 +65,6 @@ try {
     fail(
       'static dataset differs from canonical evidence evaluated at its declared date',
     );
-  if (monitorData.publishedOn !== '2026-09-07')
-    fail('static dataset must preserve the September 7 public launch date');
-  if (monitorData.dataCutoff !== '2026-09-03')
-    fail('static dataset must preserve the September 3 evidence cutoff');
   if (monitorData.articlePath !== '/article/')
     fail('compiled articlePath must point to /article/');
 } catch (error) {
@@ -155,5 +135,5 @@ if (failures.length) {
 }
 
 console.log(
-  'Validated GitHub Pages export: 13 observations, HTML article, four figures, captions, and repository-prefixed internal assets.',
+  `Validated GitHub Pages export: ${monitorData.observations.length} observations matching canonical data, HTML article, four figures, captions, and repository-prefixed internal assets.`,
 );

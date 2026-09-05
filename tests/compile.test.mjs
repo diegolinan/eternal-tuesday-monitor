@@ -30,6 +30,33 @@ test('the public dataset compiles deterministically without rewriting results', 
   const secondText = await readFile(second, 'utf8');
   assert.equal(firstText, secondText);
   const data = JSON.parse(firstText);
+  const ledger = (
+    await readFile(
+      path.join(root, 'data/observations/observations.jsonl'),
+      'utf8',
+    )
+  )
+    .trim()
+    .split(/\r?\n/)
+    .map(JSON.parse);
+  const statuses = JSON.parse(
+    await readFile(path.join(root, 'data/catalog/statuses.json'), 'utf8'),
+  ).result_statuses;
+  for (const original of ledger) {
+    const projected = data.observations.find((item) => item.id === original.id);
+    assert.ok(projected, original.id);
+    assert.equal(
+      projected.observedResult,
+      statuses.find((status) => status.id === original.result_status_id).name,
+    );
+    assert.equal(projected.evidenceVerifiedOn, original.last_verified_on);
+    assert.deepEqual(
+      projected.observationQualifiers,
+      original.record_states.filter((state) =>
+        ['INCONCLUSIVE', 'UNTESTED'].includes(state),
+      ),
+    );
+  }
   assert.equal(data.observations.length, 13);
   assert.equal(
     data.observations.filter((item) => item.applicability === 'CURRENT').length,

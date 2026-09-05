@@ -38,7 +38,10 @@
           "additionalProperties": false,
           "required": ["value", "precision"],
           "properties": {
-            "value": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+            "value": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
             "precision": { "const": "day" }
           }
         },
@@ -62,7 +65,9 @@
         }
       ]
     },
-    "last_verified_on": { "$ref": "#/$defs/date" },
+    "last_verified_on": {
+      "oneOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }]
+    },
     "evidence_record_ids": {
       "type": "array",
       "minItems": 1,
@@ -82,6 +87,10 @@
   },
   "$defs": {
     "id": { "type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$" },
-    "date": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
   }
 }

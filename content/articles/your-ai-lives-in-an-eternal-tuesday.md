@@ -1141,7 +1141,7 @@ And Gemini 3.8 is literally one day old as I write this.
 
 So rather than silently rewriting the article until it becomes impossible to tell what was ever true, I am building **The Eternal Tuesday Monitor**.
 
-[The Eternal Tuesday Monitor](MONITOR_URL)
+[The Eternal Tuesday Monitor](https://diegolinan.github.io/eternal-tuesday-monitor/)
 
 Not a leaderboard.
 

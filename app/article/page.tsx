@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: canonicalArticleUrl,
-    publishedTime: '2026-09-07T12:00:00Z',
+    publishedTime: '2026-09-07',
     title: 'Your AI Lives in an Eternal Tuesday',
     description:
       'What happens when the conversation continues but the world does not wait.',
