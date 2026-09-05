@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "execution_enabled": false,
+  "target": {
+    "vendor_id": "vendor-openai",
+    "surface_id": "surface-openai-model-api",
+    "model": "gpt-5.4-mini",
+    "protocol": "temporal-anchor-explicit-offset-pilot-1"
+  },
+  "limits": {
+    "max_runs_per_day": 1,
+    "max_invocations_per_run": 3,
+    "max_input_tokens_per_invocation": 16384,
+    "max_output_tokens_per_invocation": 256,
+    "max_estimated_usd_per_run": 1
+  },
+  "review": {
+    "candidate_only": true,
+    "draft_pull_request": true,
+    "automatic_acceptance": false,
+    "automatic_merge": false,
+    "automatic_publication": false
+  },
+  "notes": "The review-gated runner is implemented, but paid execution remains disabled until API billing and an explicit policy change are approved. A completed run can only propose a sanitized evidence candidate in a draft pull request."
+}

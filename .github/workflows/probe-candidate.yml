@@ -1,0 +1,87 @@
+name: Propose bounded OpenAI probe candidate
+
+on:
+  schedule:
+    - cron: '17 14 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-openai-probe-candidate
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      candidate_ready: ${{ steps.readiness.outputs.candidate_ready }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run one policy-gated protocol
+        run: npm run probes:auto:run
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - name: Verify and expose only candidate readiness
+        id: readiness
+        shell: bash
+        run: |
+          npm run probes:auto:verify -- .probe-candidates/run.json
+          node -e "const c=require('./.probe-candidates/run.json'); console.log('candidate_ready='+c.candidateReady)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sanitized-openai-probe-candidate
+          path: .probe-candidates/run.json
+          include-hidden-files: true
+          retention-days: 90
+
+  propose:
+    needs: probe
+    if: needs.probe.outputs.candidate_ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/download-artifact@v4
+        with:
+          name: sanitized-openai-probe-candidate
+          path: .probe-candidates
+      - run: npm ci
+      - run: npm run probes:auto:verify -- .probe-candidates/run.json
+      - run: npm run probes:auto:stage -- .probe-candidates/run.json
+      - run: npm run data:validate -- --base HEAD
+      - run: npm run data:compile
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build:pages
+      - run: npm run static:validate
+      - name: Summarize review boundary
+        run: cat .probe-candidates/pr-body.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Open a draft candidate PR, never merge
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/openai-probe-candidate
+          title: 'Review bounded OpenAI probe candidate'
+          commit-message: 'Propose bounded OpenAI probe evidence candidate'
+          body-path: .probe-candidates/pr-body.md
+          draft: true
+          add-paths: |
+            data/evidence-candidates/*.json

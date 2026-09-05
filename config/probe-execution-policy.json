@@ -14,5 +14,5 @@
   "denied_api_ids": [],
   "methodologies": [],
   "supersession_retest_enabled": true,
-  "notes": "Automated inference and evidence acceptance remain disabled. Discovery performs GET requests only. The separate manual pilot requires one-use local human approval and produces private pending-review evidence; it is not enabled by this policy. Approval must specify endpoint, parameters, required capabilities, implementation and acceptance policy before adding an automated methodology."
+  "notes": "General automated inference and all automatic evidence acceptance remain disabled. Discovery performs GET requests only. The manual pilot requires one-use local human approval. The separate bounded automated-candidate policy defines one review-only harness but remains execution-disabled and cannot promote evidence."
 }

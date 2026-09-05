@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "execution_enabled",
+    "target",
+    "limits",
+    "review",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "execution_enabled": { "type": "boolean" },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vendor_id", "surface_id", "model", "protocol"],
+      "properties": {
+        "vendor_id": { "const": "vendor-openai" },
+        "surface_id": { "const": "surface-openai-model-api" },
+        "model": { "const": "gpt-5.4-mini" },
+        "protocol": { "const": "temporal-anchor-explicit-offset-pilot-1" }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_runs_per_day",
+        "max_invocations_per_run",
+        "max_input_tokens_per_invocation",
+        "max_output_tokens_per_invocation",
+        "max_estimated_usd_per_run"
+      ],
+      "properties": {
+        "max_runs_per_day": { "const": 1 },
+        "max_invocations_per_run": { "const": 3 },
+        "max_input_tokens_per_invocation": { "const": 16384 },
+        "max_output_tokens_per_invocation": { "const": 256 },
+        "max_estimated_usd_per_run": { "const": 1 }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_only",
+        "draft_pull_request",
+        "automatic_acceptance",
+        "automatic_merge",
+        "automatic_publication"
+      ],
+      "properties": {
+        "candidate_only": { "const": true },
+        "draft_pull_request": { "const": true },
+        "automatic_acceptance": { "const": false },
+        "automatic_merge": { "const": false },
+        "automatic_publication": { "const": false }
+      }
+    },
+    "notes": { "type": "string", "minLength": 1 }
+  }
+}

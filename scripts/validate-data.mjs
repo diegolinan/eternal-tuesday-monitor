@@ -106,12 +106,14 @@ const [
   evidenceFile,
   contentManifest,
   freshnessPolicy,
+  automatedProbePolicy,
   sourceSchema,
   evidenceSchema,
   observationSchema,
   methodologySchema,
   releaseSchema,
   freshnessPolicySchema,
+  automatedProbePolicySchema,
   stateEventSchema,
   releaseEntries,
   observationLedger,
@@ -129,12 +131,14 @@ const [
   readJson('data/evidence/evidence.json'),
   readJson('content/manifest.json'),
   readJson('config/freshness-policy.json'),
+  readJson('config/automated-probe-candidate.json'),
   readJson('schemas/source.schema.json'),
   readJson('schemas/evidence.schema.json'),
   readJson('schemas/observation.schema.json'),
   readJson('schemas/methodology.schema.json'),
   readJson('schemas/release.schema.json'),
   readJson('schemas/freshness-policy.schema.json'),
+  readJson('schemas/automated-probe-policy.schema.json'),
   readJson('schemas/state-event.schema.json'),
   loadReleases(root),
   readJsonLines(observationPath),
@@ -177,6 +181,9 @@ validateWithSchema(
 );
 validateWithSchema('freshness policy', freshnessPolicySchema, [
   freshnessPolicy,
+]);
+validateWithSchema('automated probe policy', automatedProbePolicySchema, [
+  automatedProbePolicy,
 ]);
 validateWithSchema('state event', stateEventSchema, stateEvents);
 
