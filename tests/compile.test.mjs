@@ -49,4 +49,61 @@ test('the public dataset compiles deterministically without rewriting results', 
   assert.ok(
     data.observations.every((item) => typeof item.observedResult === 'string'),
   );
+
+  const futurePath = path.join(directory, 'future.json');
+  const futureRun = spawnSync(
+    process.execPath,
+    [
+      'scripts/compile-monitor-view.mjs',
+      '--as-of',
+      '2026-10-14',
+      '--output',
+      futurePath,
+    ],
+    { cwd: root, encoding: 'utf8' },
+  );
+  assert.equal(futureRun.status, 0, futureRun.stderr);
+  const future = JSON.parse(await readFile(futurePath, 'utf8'));
+  assert.equal(
+    future.observations.filter(
+      (item) => item.currentSufficiency === 'RETEST_REQUIRED',
+    ).length,
+    9,
+  );
+  assert.deepEqual(
+    future.observations.map(
+      ({
+        id,
+        observedResult,
+        observedOn,
+        evidenceVerifiedOn,
+        sourceCheckedOn,
+        applicability,
+      }) => ({
+        id,
+        observedResult,
+        observedOn,
+        evidenceVerifiedOn,
+        sourceCheckedOn,
+        applicability,
+      }),
+    ),
+    data.observations.map(
+      ({
+        id,
+        observedResult,
+        observedOn,
+        evidenceVerifiedOn,
+        sourceCheckedOn,
+        applicability,
+      }) => ({
+        id,
+        observedResult,
+        observedOn,
+        evidenceVerifiedOn,
+        sourceCheckedOn,
+        applicability,
+      }),
+    ),
+  );
 });

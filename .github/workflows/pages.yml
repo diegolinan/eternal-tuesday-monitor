@@ -28,6 +28,12 @@ jobs:
       - run: npm run data:compile
       - run: git diff --exit-code -- public/data/monitor.json
       - run: npm test
+      - name: Evaluate freshness for the deployment date
+        shell: bash
+        run: |
+          today="$(date -u +%F)"
+          as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
+          npm run data:compile -- --as-of "$as_of"
       - run: npm run build:pages
       - run: npm run static:validate
       - uses: actions/configure-pages@v5

@@ -1,4 +1,6 @@
-import { access, readFile } from 'node:fs/promises';
+import { access, readFile, mkdtemp } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -45,9 +47,6 @@ try {
   const historical = monitorData.observations?.filter(
     (item) => item.applicability === 'HISTORICAL',
   ).length;
-  const retest = monitorData.observations?.filter(
-    (item) => item.currentSufficiency === 'RETEST_REQUIRED',
-  ).length;
   if (current !== 10)
     fail(
       `static dataset must contain 10 current observations, found ${current}`,
@@ -56,9 +55,31 @@ try {
     fail(
       `static dataset must contain 3 historical observations, found ${historical}`,
     );
-  if (retest !== 3)
+  // The maintenance count must be allowed to change as evidence ages.
+  // Recompile for the artifact's date and compare every field instead.
+  const comparisonDirectory = await mkdtemp(path.join(tmpdir(), 'etm-export-'));
+  const expectedPath = path.join(comparisonDirectory, 'expected.json');
+  const compilation = spawnSync(
+    process.execPath,
+    [
+      'scripts/compile-monitor-view.mjs',
+      '--as-of',
+      monitorData.freshnessEvaluatedOn,
+      '--output',
+      expectedPath,
+    ],
+    { cwd: root, encoding: 'utf8' },
+  );
+  if (compilation.status !== 0)
     fail(
-      `static dataset must contain 3 retest-required records, found ${retest}`,
+      `artifact evaluation date cannot be reproduced: ${compilation.stderr}`,
+    );
+  else if (
+    JSON.stringify(monitorData) !==
+    JSON.stringify(JSON.parse(await readFile(expectedPath, 'utf8')))
+  )
+    fail(
+      'static dataset differs from canonical evidence evaluated at its declared date',
     );
   if (monitorData.publishedOn !== '2026-09-07')
     fail('static dataset must preserve the September 7 public launch date');
