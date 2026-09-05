@@ -60,6 +60,9 @@ export function projectModels(
       const apiResults = (options.evaluationResults ?? []).filter(
         (result) => result.model_id === model.id,
       );
+      const behavioralApiResults = apiResults.filter(
+        (result) => result.status !== 'OPERATIONAL_ERROR',
+      );
       const probeCoverage = lifecycle.probeCoverage.map((probe) => {
         const assessed = adoption?.probes.find(
           (item) => item.probe_id === probe.id,
@@ -77,8 +80,8 @@ export function projectModels(
           requestCount: apiResults.find((result) => result.probe_id === probe.id)?.request_count ?? 0,
         };
       });
-      const lifecycleState = lifecycle.empiricalObservations.length || apiResults.length
-        ? apiResults.length && !lifecycle.empiricalObservations.length
+      const lifecycleState = lifecycle.empiricalObservations.length || behavioralApiResults.length
+        ? behavioralApiResults.length && !lifecycle.empiricalObservations.length
           ? 'TESTED'
           : lifecycle.lifecycleState
         : adoption
@@ -92,7 +95,7 @@ export function projectModels(
         ...lifecycle.empiricalObservations
           .filter((o) => o.observation_date.precision === 'day')
           .map((o) => o.observation_date.value),
-        ...apiResults.map((result) => result.verified_on),
+        ...behavioralApiResults.map((result) => result.verified_on),
       ].sort((left, right) => left.localeCompare(right));
       const surfaces = [
         ...new Map(

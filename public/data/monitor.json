@@ -14123,9 +14123,9 @@
       "accountCheckedOn": "2026-09-05",
       "discoveredOn": "2026-09-05",
       "releasedOn": null,
-      "firstTestedOn": "2026-09-05",
-      "lastTestedOn": "2026-09-05",
-      "lifecycleState": "TESTED",
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "EVALUATION_AVAILABLE",
       "testabilityState": "EVALUATABLE",
       "evaluationReasons": [
         "APPROVED_PROFILE_COMPATIBLE"
