@@ -2,6 +2,14 @@
   "schema_version": "1.0.0",
   "evidence_records": [
     {
+      "id": "evidence-codex-cli-luna-low-2026-09-05",
+      "evidence_class_id": "evidence-reproduced-observation",
+      "source_ids": ["source-codex-cli-pilot-luna-low-2026-09-05"],
+      "article_locator": "Manual Codex pilot candidate codex-luna-low-2026-09-05",
+      "summary": "Three fresh Codex CLI sessions authenticated with ChatGPT and using gpt-5.6-luna at low effort returned exact structured answers for supplied UTC instants at offsets 0, +14 and -12.",
+      "limitations": ["This tests supplied temporal context only; it does not establish autonomous clock awareness or provider-side model identity.", "Workspace credits and monetary cost were not reported and remain unknown."]
+    },
+    {
       "id": "evidence-cursor-agent-anchor-2026-03",
       "evidence_class_id": "evidence-staff-confirmation",
       "source_ids": ["source-supplied-article", "source-cursor-forum-154920"],

@@ -30,6 +30,12 @@
       "version": "ARTICLE SEARCH CUTOFF",
       "name": "Article evidence-gap search cutoff",
       "scope": "Records that the supplied article found no qualifying public standardized evidence for the named coordinate by 2026-09-03; absence is not a failure result."
+    },
+    {
+      "id": "method-codex-cli-temporal-anchor-1",
+      "version": "CODEX-CLI-TEMPORAL-ANCHOR-1",
+      "name": "Manual Codex CLI explicit-offset pilot",
+      "scope": "Three fresh local Codex CLI sessions with ChatGPT authentication and fixed offsets; scores supplied-context interpretation only."
     }
   ]
 }

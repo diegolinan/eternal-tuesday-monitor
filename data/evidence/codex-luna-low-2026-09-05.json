@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_id": "evidence-codex-cli-luna-low-2026-09-05",
+  "review_status": "REVIEWED_ACCEPTED",
+  "reviewed_on": "2026-09-05",
+  "protocol": "codex-cli-explicit-offset-manual-1",
+  "surface": "experimental-codex-cli-chatgpt-local",
+  "mode": "LIVE",
+  "requested_model": "gpt-5.6-luna",
+  "returned_model": null,
+  "reasoning_effort": "low",
+  "started_at": "2026-09-05T04:35:07.086Z",
+  "finished_at": "2026-09-05T04:35:36.577Z",
+  "result": "3_OF_3_MATCH",
+  "trials": [
+    {
+      "id": "anchor-1",
+      "reference_utc": "2026-09-05T04:35:07.086Z",
+      "offset_hours": 0,
+      "expected": { "date": "2026-09-05", "weekday": "Saturday" },
+      "actual": { "date": "2026-09-05", "weekday": "Saturday" },
+      "verdict": "MATCH",
+      "usage": { "input_tokens": 7711, "output_tokens": 135 },
+      "capture_sha256": "47544632934f996877c3dd4d17bf960f6a45c8177daed9641f90520bc6d86d0a"
+    },
+    {
+      "id": "anchor-2",
+      "reference_utc": "2026-09-05T04:35:07.086Z",
+      "offset_hours": 14,
+      "expected": { "date": "2026-09-05", "weekday": "Saturday" },
+      "actual": { "date": "2026-09-05", "weekday": "Saturday" },
+      "verdict": "MATCH",
+      "usage": { "input_tokens": 7711, "output_tokens": 160 },
+      "capture_sha256": "9c188eaa18bbefba60f81f839f78cc3f3bb74539207d515eb9d6c8be2247160f"
+    },
+    {
+      "id": "anchor-3",
+      "reference_utc": "2026-09-05T04:35:07.086Z",
+      "offset_hours": -12,
+      "expected": { "date": "2026-09-04", "weekday": "Friday" },
+      "actual": { "date": "2026-09-04", "weekday": "Friday" },
+      "verdict": "MATCH",
+      "usage": { "input_tokens": 7711, "output_tokens": 69 },
+      "capture_sha256": "99d91510cda44ac8a0d8672effb6e5ab6d95eb816af1ffca6f99d4b6495769b7"
+    }
+  ],
+  "aggregate_usage": { "input_tokens": 23133, "output_tokens": 364 },
+  "billing": {
+    "channel": "CHATGPT_WORKSPACE",
+    "cost_usd": null,
+    "credits_charged": null,
+    "monetary_cap_enforced": false
+  },
+  "private_candidate_sha256": "0df8fca25c7cbb3e7e187089bb494fb09d26d80f21815b0f3549e00cb9468a93",
+  "limitations": [
+    "This tests interpretation of a supplied reference instant and fixed UTC offset, not autonomous clock awareness.",
+    "The CLI did not report provider-side model identity; returned_model remains null.",
+    "Workspace credits and monetary cost were not reported and remain unknown.",
+    "Raw captures and local thread identifiers remain private and are represented only by hashes."
+  ]
+}

@@ -11,16 +11,16 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 
 test('the current release is resolved from versioned manifests', async () => {
   const entries = await loadReleases(root);
-  assert.equal(resolveCurrentRelease(entries).release.id, 'release-2026-09-07');
+  assert.equal(resolveCurrentRelease(entries).release.id, 'release-2026-09-08');
   assert.deepEqual(assertReleaseChain(entries), []);
 });
 
-test('the launch release preserves the evidence cutoff and all observations', async () => {
+test('the current release includes the reviewed Codex pilot observation', async () => {
   const entries = await loadReleases(root);
   const release = resolveCurrentRelease(entries).release;
-  assert.equal(release.published_on, '2026-09-07');
-  assert.equal(release.data_cutoff, '2026-09-03');
-  assert.equal(release.observation_ids.length, 13);
+  assert.equal(release.published_on, '2026-09-08');
+  assert.equal(release.data_cutoff, '2026-09-05');
+  assert.equal(release.observation_ids.length, 14);
 });
 
 test('the September 3 release remains an unchanged provenance manifest', async () => {

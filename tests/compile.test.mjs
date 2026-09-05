@@ -18,7 +18,7 @@ test('the public dataset compiles deterministically without rewriting results', 
       [
         'scripts/compile-monitor-view.mjs',
         '--as-of',
-        '2026-09-07',
+        '2026-09-08',
         '--output',
         output,
       ],
@@ -57,10 +57,10 @@ test('the public dataset compiles deterministically without rewriting results', 
       ),
     );
   }
-  assert.equal(data.observations.length, 13);
+  assert.equal(data.observations.length, 14);
   assert.equal(
     data.observations.filter((item) => item.applicability === 'CURRENT').length,
-    10,
+    11,
   );
   assert.equal(
     data.observations.filter((item) => item.applicability === 'HISTORICAL')

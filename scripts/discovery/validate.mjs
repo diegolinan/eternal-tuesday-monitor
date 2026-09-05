@@ -102,7 +102,7 @@ export async function validateDiscovery(root) {
     policy.max_total_tokens_per_day !== 0
   )
     errors.push(
-      'Paid execution is outside this phase and must remain disabled',
+      'Automated paid execution must remain disabled; manual pilot approval is separate',
     );
   for (const method of policy.methodologies) {
     if (

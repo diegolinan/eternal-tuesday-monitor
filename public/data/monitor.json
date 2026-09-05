@@ -1,10 +1,10 @@
 {
   "schemaVersion": "2.0",
   "monitorName": "The Eternal Tuesday Monitor",
-  "releaseId": "release-2026-09-07",
-  "dataCutoff": "2026-09-03",
-  "publishedOn": "2026-09-07",
-  "freshnessEvaluatedOn": "2026-09-07",
+  "releaseId": "release-2026-09-08",
+  "dataCutoff": "2026-09-05",
+  "publishedOn": "2026-09-08",
+  "freshnessEvaluatedOn": "2026-09-08",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "methodologyVersion": "ETM-1.0",
   "articlePath": "/article/",
@@ -34,7 +34,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE-SOURCE-1"
@@ -64,7 +64,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE-SOURCE-1"
@@ -94,7 +94,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE-SOURCE-1"
@@ -124,7 +124,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol"
@@ -154,7 +154,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW"
@@ -184,7 +184,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW"
@@ -216,7 +216,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW"
@@ -248,7 +248,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
@@ -280,7 +280,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
@@ -312,7 +312,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
@@ -344,7 +344,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
@@ -376,7 +376,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
@@ -408,10 +408,40 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
+    },
+    {
+      "id": "obs-openai-codex-cli-luna-anchor-2026-09-05",
+      "vendor": "OpenAI",
+      "product": "ChatGPT",
+      "surface": "Codex CLI with ChatGPT authentication",
+      "model": "GPT-5.6 Luna",
+      "probe": "TEMPORAL ANCHOR",
+      "observedResult": "VERIFIED",
+      "evidenceClass": "REPRODUCED OBSERVATION",
+      "observedOn": {
+        "value": "2026-09-05",
+        "precision": "day",
+        "label": "05 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-05",
+      "sourceCheckedOn": null,
+      "sourceUrl": null,
+      "evidenceNote": "Three fresh Codex CLI sessions authenticated with ChatGPT and using gpt-5.6-luna at low effort returned exact structured answers for supplied UTC instants at offsets 0, +14 and -12. This tests supplied temporal context only; it does not establish autonomous clock awareness or provider-side model identity. Workspace credits and monetary cost were not reported and remain unknown.",
+      "observationQualifiers": [],
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
+      ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 3,
+      "maxEvidenceAgeDays": 120,
+      "stateHistory": [],
+      "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1"
     }
   ],
   "models": [

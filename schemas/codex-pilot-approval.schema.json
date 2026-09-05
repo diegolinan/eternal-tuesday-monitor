@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "protocol",
+    "implementationSha256",
+    "model",
+    "binarySha256",
+    "cliVersion",
+    "issuedAt",
+    "expiresAt",
+    "maxInvocations",
+    "acceptUncappedWorkspaceUsage"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,79}$" },
+    "protocol": { "const": "codex-cli-explicit-offset-manual-1" },
+    "implementationSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "model": { "type": "string", "pattern": "^gpt-[a-z0-9][a-z0-9.-]{0,79}$" },
+    "binarySha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "cliVersion": {
+      "type": "string",
+      "pattern": "^codex-cli [0-9][a-zA-Z0-9.+-]{0,79}$"
+    },
+    "issuedAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "maxInvocations": { "const": 3 },
+    "acceptUncappedWorkspaceUsage": { "const": true }
+  }
+}

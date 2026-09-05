@@ -2,6 +2,16 @@
   "schema_version": "1.0.0",
   "sources": [
     {
+      "id": "source-codex-cli-pilot-luna-low-2026-09-05",
+      "title": "Manual Codex CLI temporal anchor pilot, Luna low",
+      "publisher": "Local Codex execution record",
+      "source_type": "reproduced_observation",
+      "repository_path": "data/evidence/codex-luna-low-2026-09-05.json",
+      "sha256": "2ea2a1a61047a4b59e4d8b361ae5f14e0a189cfda3291059eca804972b8d5234",
+      "last_verified_on": "2026-09-05",
+      "notes": "Reviewed, sanitized evidence receipt. Raw captures and local identifiers remain private; their hashes and the private candidate hash are preserved in this receipt."
+    },
+    {
       "id": "source-supplied-article",
       "title": "Your AI Lives in an Eternal Tuesday",
       "publisher": "Supplied project content",

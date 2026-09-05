@@ -12,6 +12,7 @@
     { "id": "surface-gemini-app", "product_id": "product-gemini", "name": "Gemini app" },
     { "id": "surface-grok-long-running-agents", "product_id": "product-grok", "name": "Long-running agents" },
     { "id": "surface-openai-model-api", "product_id": "product-openai-api", "name": "Model API" },
+    { "id": "surface-codex-cli-chatgpt-local", "product_id": "product-chatgpt", "name": "Codex CLI with ChatGPT authentication" },
     { "id": "surface-perplexity-brain-research-preview", "product_id": "product-brain", "name": "Research Preview" },
     { "id": "surface-tictoc-synthetic-tool-use", "product_id": "product-tictoc", "name": "Synthetic multi-turn tool-use benchmark" }
   ]

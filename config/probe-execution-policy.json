@@ -14,5 +14,5 @@
   "denied_api_ids": [],
   "methodologies": [],
   "supersession_retest_enabled": true,
-  "notes": "No executable API probe methodology has been approved in this repository. Discovery performs GET requests only. No inference runner is enabled by this policy. Approval must specify endpoint, parameters, required capabilities, implementation and acceptance policy before adding a methodology."
+  "notes": "Automated inference and evidence acceptance remain disabled. Discovery performs GET requests only. The separate manual pilot requires one-use local human approval and produces private pending-review evidence; it is not enabled by this policy. Approval must specify endpoint, parameters, required capabilities, implementation and acceptance policy before adding an automated methodology."
 }
