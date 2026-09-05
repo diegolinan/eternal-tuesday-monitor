@@ -414,5 +414,3084 @@
       "methodologyVersion": "ARTICLE SEARCH CUTOFF"
     }
   ],
-  "models": []
+  "models": [
+    {
+      "id": "model-discovered-d3514020ec953fbf4893",
+      "vendor": "Anthropic",
+      "name": "Claude Fable 5.1",
+      "apiModelId": "claude-fable-5-1",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "IDENTITY_OR_SOURCE_REVIEW_REQUIRED",
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://platform.claude.com/docs/en/models/overview"
+      ],
+      "reviewReasons": [
+        "POSSIBLE_EXISTING_CATALOG_IDENTITY"
+      ]
+    },
+    {
+      "id": "model-discovered-58ae42fa2da27922842c",
+      "vendor": "Anthropic",
+      "name": "Claude Haiku 4.5",
+      "apiModelId": "claude-haiku-4-5-20251001",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://platform.claude.com/docs/en/models/overview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-claude-opus-5",
+      "vendor": "Anthropic",
+      "name": "Claude Opus 5",
+      "apiModelId": "claude-opus-5",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://platform.claude.com/docs/en/models/overview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-473d2baac36d5968b9d0",
+      "vendor": "Anthropic",
+      "name": "Claude Sonnet 5",
+      "apiModelId": "claude-sonnet-5",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://platform.claude.com/docs/en/models/overview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-176fb23288af2af4493e",
+      "vendor": "Google",
+      "name": "Computer Use",
+      "apiModelId": "gemini-2.5-computer-use-preview-10-2025",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-29705db1c67f0fadf65e",
+      "vendor": "Google",
+      "name": "Gemini 2.0 Flash",
+      "apiModelId": "gemini-2.0-flash",
+      "releaseState": "RETIRED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-15b029fc02435f4e7373",
+      "vendor": "Google",
+      "name": "Gemini 2.0 Flash-Lite",
+      "apiModelId": "gemini-2.0-flash-lite",
+      "releaseState": "RETIRED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-bd4c8bf27af648d3330a",
+      "vendor": "Google",
+      "name": "Gemini 2.5 Flash",
+      "apiModelId": "gemini-2.5-flash",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-4f4b5da7ada2d9de5083",
+      "vendor": "Google",
+      "name": "Gemini 2.5 Flash Live",
+      "apiModelId": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-2157bb2b07e6a87cc2a8",
+      "vendor": "Google",
+      "name": "Gemini 2.5 Flash TTS",
+      "apiModelId": "gemini-2.5-flash-preview-tts",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-8117798ae58404fd4297",
+      "vendor": "Google",
+      "name": "Gemini 2.5 Flash-Lite",
+      "apiModelId": "gemini-2.5-flash-lite",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-b41c55e3ff71ff33d32b",
+      "vendor": "Google",
+      "name": "Gemini 2.5 Pro",
+      "apiModelId": "gemini-2.5-pro",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-f76d13c3ede266d7e1e4",
+      "vendor": "Google",
+      "name": "Gemini 2.5 Pro TTS",
+      "apiModelId": "gemini-2.5-pro-preview-tts",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-fc973b7c5cd91319493b",
+      "vendor": "Google",
+      "name": "Gemini 3 Flash",
+      "apiModelId": "gemini-3-flash-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-bba8e7fdaaa5feb26728",
+      "vendor": "Google",
+      "name": "Gemini 3 Pro Preview",
+      "apiModelId": "gemini-3-pro-preview",
+      "releaseState": "RETIRED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-cb00673f4eb5f1b0f47c",
+      "vendor": "Google",
+      "name": "Gemini 3.1 Flash Live",
+      "apiModelId": "gemini-3.1-flash-live-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-e286634f954d5e40b670",
+      "vendor": "Google",
+      "name": "Gemini 3.1 Flash TTS",
+      "apiModelId": "gemini-3.1-flash-tts-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-8ab5c52cb1cd5cf88e26",
+      "vendor": "Google",
+      "name": "Gemini 3.1 Flash-Lite",
+      "apiModelId": "gemini-3.1-flash-lite",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-4882e78c90fbf11b8297",
+      "vendor": "Google",
+      "name": "Gemini 3.1 Flash-Lite Preview",
+      "apiModelId": "gemini-3.1-flash-lite-preview",
+      "releaseState": "RETIRED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-fd0c815a6942fe9646f0",
+      "vendor": "Google",
+      "name": "Gemini 3.1 Pro",
+      "apiModelId": "gemini-3.1-pro-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-f29bc63c04163f5b021c",
+      "vendor": "Google",
+      "name": "Gemini 3.5 Flash",
+      "apiModelId": "gemini-3.5-flash",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-8cd3db89db51e350e528",
+      "vendor": "Google",
+      "name": "Gemini 3.5 Flash-Lite",
+      "apiModelId": "gemini-3.5-flash-lite",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-4c46e3ea2ea387fc6782",
+      "vendor": "Google",
+      "name": "Gemini 3.5 Live Translate",
+      "apiModelId": "gemini-3.5-live-translate-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-85d1ba853a1ef46be5bd",
+      "vendor": "Google",
+      "name": "Gemini 3.6 Flash",
+      "apiModelId": "gemini-3.6-flash",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-f3ee403332f490da7638",
+      "vendor": "Google",
+      "name": "Gemini 3.7 Flash",
+      "apiModelId": "gemini-3.7-flash",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-gemini-3-8-flash",
+      "vendor": "Google",
+      "name": "Gemini 3.8 Flash",
+      "apiModelId": "gemini-3.8-flash",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-e4cad8ba5d5bc779408a",
+      "vendor": "Google",
+      "name": "Gemini Embedding",
+      "apiModelId": "gemini-embedding-001",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-7bdbf966c27ba583d26a",
+      "vendor": "Google",
+      "name": "Gemini Embedding 2",
+      "apiModelId": "gemini-embedding-2-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-ac152d2e8d24eb4c3232",
+      "vendor": "Google",
+      "name": "Gemini Omni Flash",
+      "apiModelId": "gemini-omni-1.1-flash",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-3c31be2eeda4bcd851d7",
+      "vendor": "Google",
+      "name": "Gemini Robotics ER 1.6",
+      "apiModelId": "gemini-robotics-er-1.6-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-468b94523288b17c49bd",
+      "vendor": "Google",
+      "name": "Gemini Robotics ER 2",
+      "apiModelId": "gemini-robotics-er-2-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-6a9ccf4ad79b1e8dd304",
+      "vendor": "Google",
+      "name": "Nano Banana",
+      "apiModelId": "gemini-2.5-flash-image",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-59f0f72683377111d7bc",
+      "vendor": "Google",
+      "name": "Nano Banana 2",
+      "apiModelId": "gemini-3.1-flash-image",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-ee0a631bc7a1c2147ca6",
+      "vendor": "Google",
+      "name": "Nano Banana 2 Lite",
+      "apiModelId": "gemini-3.1-flash-lite-image",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-5f80092f5e85cef40c36",
+      "vendor": "Google",
+      "name": "Nano Banana Pro",
+      "apiModelId": "gemini-3-pro-image",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-1b05544a1e38815ba050",
+      "vendor": "OpenAI",
+      "name": "chatgpt-image-latest",
+      "apiModelId": "chatgpt-image-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/chatgpt-image-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-43e4ff83a595f03273e8",
+      "vendor": "OpenAI",
+      "name": "codex-mini-latest",
+      "apiModelId": "codex-mini-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/codex-mini-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-6a30c69a24a2ba7616e7",
+      "vendor": "OpenAI",
+      "name": "Daybreak Blue",
+      "apiModelId": "gpt-daybreak-blue-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-daybreak-blue-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-01433a49c5cc60e7428c",
+      "vendor": "OpenAI",
+      "name": "Daybreak Red",
+      "apiModelId": "gpt-daybreak-red-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-daybreak-red-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-c221dc89c0adc7bf58c9",
+      "vendor": "OpenAI",
+      "name": "GPT-3.5 Turbo",
+      "apiModelId": "gpt-3.5-turbo",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-3.5-turbo"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-731392d07973ec4dd374",
+      "vendor": "OpenAI",
+      "name": "GPT-4",
+      "apiModelId": "gpt-4",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-d59d6ddd57ee9a1e8d3f",
+      "vendor": "OpenAI",
+      "name": "GPT-4 Turbo",
+      "apiModelId": "gpt-4-turbo",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4-turbo"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-ee7fbd4ea5b036d8c4d8",
+      "vendor": "OpenAI",
+      "name": "GPT-4 Turbo Preview",
+      "apiModelId": "gpt-4-turbo-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4-turbo-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-e7ad5bd7e714b6fbe0c3",
+      "vendor": "OpenAI",
+      "name": "GPT-4.1",
+      "apiModelId": "gpt-4.1",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4.1"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-b9257ac7a2c8eaca2b5a",
+      "vendor": "OpenAI",
+      "name": "GPT-4.1 Mini",
+      "apiModelId": "gpt-4.1-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4.1-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-b422818c6300cfc29362",
+      "vendor": "OpenAI",
+      "name": "GPT-4.1 nano",
+      "apiModelId": "gpt-4.1-nano",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4.1-nano"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-b9917ad913a137839464",
+      "vendor": "OpenAI",
+      "name": "GPT-4.5 Preview",
+      "apiModelId": "gpt-4.5-preview",
+      "releaseState": "DEPRECATED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4.5-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-dcc1382081671253d9b5",
+      "vendor": "OpenAI",
+      "name": "GPT-4o",
+      "apiModelId": "gpt-4o",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-29fbee76cd37a78d0990",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Audio",
+      "apiModelId": "gpt-4o-audio-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-audio-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-8d6b0f1b6faadb07b615",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Mini",
+      "apiModelId": "gpt-4o-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-436161bb8ac5f5490821",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Mini Audio",
+      "apiModelId": "gpt-4o-mini-audio-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-mini-audio-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-8e9c857a7ff8235ea836",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Mini Realtime",
+      "apiModelId": "gpt-4o-mini-realtime-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-mini-realtime-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-da4390555129f7b96ace",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Mini Search Preview",
+      "apiModelId": "gpt-4o-mini-search-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-mini-search-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-4b8ecb4f05c5a4a79952",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Mini Transcribe",
+      "apiModelId": "gpt-4o-mini-transcribe",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-d6570eab7b1ee4f3f30b",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Mini TTS",
+      "apiModelId": "gpt-4o-mini-tts",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-mini-tts"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-fa3ab9de6f363cec61d6",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Realtime",
+      "apiModelId": "gpt-4o-realtime-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-realtime-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-c1f11abb445a94e20a49",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Search Preview",
+      "apiModelId": "gpt-4o-search-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-search-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-de551bae2539edcc71a7",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Transcribe",
+      "apiModelId": "gpt-4o-transcribe",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-transcribe"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-12c98d85d99fbc80d244",
+      "vendor": "OpenAI",
+      "name": "GPT-4o Transcribe Diarize",
+      "apiModelId": "gpt-4o-transcribe-diarize",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-4o-transcribe-diarize"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-a631362df6539c375a1f",
+      "vendor": "OpenAI",
+      "name": "GPT-5",
+      "apiModelId": "gpt-5",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-76ac3061d43cbea99683",
+      "vendor": "OpenAI",
+      "name": "GPT-5 Chat",
+      "apiModelId": "gpt-5-chat-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5-chat-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-454d972053e3035f992c",
+      "vendor": "OpenAI",
+      "name": "GPT-5 Mini",
+      "apiModelId": "gpt-5-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-1e9a4f1a438a4bfd5fd7",
+      "vendor": "OpenAI",
+      "name": "GPT-5 nano",
+      "apiModelId": "gpt-5-nano",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5-nano"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-3e9e5798a0fcafec17d8",
+      "vendor": "OpenAI",
+      "name": "GPT-5 Pro",
+      "apiModelId": "gpt-5-pro",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5-pro"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-023f4743226707f70c92",
+      "vendor": "OpenAI",
+      "name": "GPT-5-Codex",
+      "apiModelId": "gpt-5-codex",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5-codex"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-e19c519e25aaefa93b0f",
+      "vendor": "OpenAI",
+      "name": "GPT-5.1",
+      "apiModelId": "gpt-5.1",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.1"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-53da97192b53c9fb9cd4",
+      "vendor": "OpenAI",
+      "name": "GPT-5.1 Chat",
+      "apiModelId": "gpt-5.1-chat-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.1-chat-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-96b3d6a8812d1bff8280",
+      "vendor": "OpenAI",
+      "name": "GPT-5.1-Codex",
+      "apiModelId": "gpt-5.1-codex",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.1-codex"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-ac268b9c9424fa0d96c6",
+      "vendor": "OpenAI",
+      "name": "GPT-5.1-Codex Mini",
+      "apiModelId": "gpt-5.1-codex-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-698a39834857c5ed27bb",
+      "vendor": "OpenAI",
+      "name": "GPT-5.1-Codex-Max",
+      "apiModelId": "gpt-5.1-codex-max",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.1-codex-max"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-a4d62a7cf5e798457d76",
+      "vendor": "OpenAI",
+      "name": "GPT-5.2",
+      "apiModelId": "gpt-5.2",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.2"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-3e5d717e80573cf8d2f6",
+      "vendor": "OpenAI",
+      "name": "GPT-5.2 Chat",
+      "apiModelId": "gpt-5.2-chat-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-71a2a8fdc338e5099bd5",
+      "vendor": "OpenAI",
+      "name": "GPT-5.2 Pro",
+      "apiModelId": "gpt-5.2-pro",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.2-pro"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-2a1c4b7a96497390d63a",
+      "vendor": "OpenAI",
+      "name": "GPT-5.2-Codex",
+      "apiModelId": "gpt-5.2-codex",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.2-codex"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-7c76ed0b3a985bb4f0ae",
+      "vendor": "OpenAI",
+      "name": "GPT-5.3 Chat",
+      "apiModelId": "gpt-5.3-chat-latest",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-a74c2e9d0a00080b78c4",
+      "vendor": "OpenAI",
+      "name": "GPT-5.3-Codex",
+      "apiModelId": "gpt-5.3-codex",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.3-codex"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-0ec90986ddf2d16fa90e",
+      "vendor": "OpenAI",
+      "name": "GPT-5.4",
+      "apiModelId": "gpt-5.4",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.4"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-70c3ac4805a382e7499d",
+      "vendor": "OpenAI",
+      "name": "GPT-5.4 Mini",
+      "apiModelId": "gpt-5.4-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.4-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-5129934552dd2286e897",
+      "vendor": "OpenAI",
+      "name": "GPT-5.4 nano",
+      "apiModelId": "gpt-5.4-nano",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.4-nano"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-1fb968dfc97a50a275ea",
+      "vendor": "OpenAI",
+      "name": "GPT-5.4 Pro",
+      "apiModelId": "gpt-5.4-pro",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.4-pro"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-7ae0b7ff37a648b21f2e",
+      "vendor": "OpenAI",
+      "name": "GPT-5.5",
+      "apiModelId": "gpt-5.5",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.5"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-5813b29ae4f9cdf7224a",
+      "vendor": "OpenAI",
+      "name": "GPT-5.5 Pro",
+      "apiModelId": "gpt-5.5-pro",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.5-pro"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-aa82e1844a4aa3932879",
+      "vendor": "OpenAI",
+      "name": "GPT-5.6 Cyber",
+      "apiModelId": "gpt-5.6-cyber",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.6-cyber"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-e65fdbebbfed99349ec2",
+      "vendor": "OpenAI",
+      "name": "GPT-5.6 Luna",
+      "apiModelId": "gpt-5.6-luna",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-gpt-5-6-sol",
+      "vendor": "OpenAI",
+      "name": "GPT-5.6 Sol",
+      "apiModelId": "gpt-5.6-sol",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-88b38a0be53dd343689c",
+      "vendor": "OpenAI",
+      "name": "GPT-5.6 Terra",
+      "apiModelId": "gpt-5.6-terra",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-e8ec7ed4b30b4efbaf48",
+      "vendor": "OpenAI",
+      "name": "GPT-6 Astra",
+      "apiModelId": "gpt-6-astra",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-6-astra"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-a7b8efc666342264a603",
+      "vendor": "OpenAI",
+      "name": "GPT-Audio",
+      "apiModelId": "gpt-audio",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-audio"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-81592b8b318be516dac4",
+      "vendor": "OpenAI",
+      "name": "GPT-Audio Mini",
+      "apiModelId": "gpt-audio-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-audio-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-295b656c3e83b017a71f",
+      "vendor": "OpenAI",
+      "name": "GPT-Audio-1.5",
+      "apiModelId": "gpt-audio-1.5",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-audio-1.5"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-2cac746ef1a55cb5ac89",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-1",
+      "apiModelId": "gpt-image-1",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-1"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-d86884237412b2ed62cc",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-1 Mini",
+      "apiModelId": "gpt-image-1-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-1-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-4c927f8246106837b3d7",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-1.5",
+      "apiModelId": "gpt-image-1.5",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-1.5"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-bd0e51b349b405705836",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-2",
+      "apiModelId": "gpt-image-2",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-2"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-ecfe55f8a422ccdff7ed",
+      "vendor": "OpenAI",
+      "name": "GPT-Live-Transcribe",
+      "apiModelId": "gpt-live-transcribe",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-live-transcribe"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-6c8c926518e94df93aed",
+      "vendor": "OpenAI",
+      "name": "gpt-oss-120b",
+      "apiModelId": "gpt-oss-120b",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-oss-120b"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-b57640270d77a39ad172",
+      "vendor": "OpenAI",
+      "name": "gpt-oss-20b",
+      "apiModelId": "gpt-oss-20b",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-oss-20b"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-54b047be8ad11af0a08a",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime",
+      "apiModelId": "gpt-realtime",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-7c9ed0fdee8d576ec2c8",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime Mini",
+      "apiModelId": "gpt-realtime-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-0e29cdb1a9068369cdfd",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime-1.5",
+      "apiModelId": "gpt-realtime-1.5",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime-1.5"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-e76102c0aeab37be7be8",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime-2",
+      "apiModelId": "gpt-realtime-2",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime-2"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-7633f7280401e4fe7015",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime-2.1",
+      "apiModelId": "gpt-realtime-2.1",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime-2.1"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-5308f96edde33db43d93",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime-2.1 Mini",
+      "apiModelId": "gpt-realtime-2.1-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime-2.1-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-f0e3cd07004a27ba5e00",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime-Translate",
+      "apiModelId": "gpt-realtime-translate",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime-translate"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-f463fdf1af5e8e009dcc",
+      "vendor": "OpenAI",
+      "name": "GPT-Realtime-Whisper",
+      "apiModelId": "gpt-realtime-whisper",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-realtime-whisper"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-21e9947fc3d539478a0d",
+      "vendor": "OpenAI",
+      "name": "GPT-Transcribe",
+      "apiModelId": "gpt-transcribe",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-transcribe"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-726dd1e6cbcf8f3e2436",
+      "vendor": "OpenAI",
+      "name": "o1 Preview",
+      "apiModelId": "o1-preview",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o1-preview"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-3d24101d58fa0b07db6b",
+      "vendor": "OpenAI",
+      "name": "o1-mini",
+      "apiModelId": "o1-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o1-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-c0466cbac6d887384649",
+      "vendor": "OpenAI",
+      "name": "o1-pro",
+      "apiModelId": "o1-pro",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o1-pro"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-ea3b61e7225f020a5b7e",
+      "vendor": "OpenAI",
+      "name": "o3-deep-research",
+      "apiModelId": "o3-deep-research",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o3-deep-research"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-368039b89b2d9e7f3dad",
+      "vendor": "OpenAI",
+      "name": "o3-mini",
+      "apiModelId": "o3-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o3-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-1fd19c9c66c35da1b8ec",
+      "vendor": "OpenAI",
+      "name": "o3-pro",
+      "apiModelId": "o3-pro",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o3-pro"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-738b169f6dadce123772",
+      "vendor": "OpenAI",
+      "name": "o4-mini",
+      "apiModelId": "o4-mini",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o4-mini"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-discovered-51d7e9ccbf0079432f1b",
+      "vendor": "OpenAI",
+      "name": "o4-mini-deep-research",
+      "apiModelId": "o4-mini-deep-research",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/o4-mini-deep-research"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "id": "model-grok-4-6",
+      "vendor": "xAI",
+      "name": "Grok 4.6",
+      "apiModelId": "grok-4.6",
+      "releaseState": "DISCOVERED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "eligibility": "NOT_YET_TESTABLE",
+      "eligibilityReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "testing": "NOT_YET_TESTED",
+      "sources": [
+        "https://docs.x.ai/developers/models",
+        "https://docs.x.ai/developers/models/grok-4.6"
+      ],
+      "reviewReasons": []
+    }
+  ]
 }

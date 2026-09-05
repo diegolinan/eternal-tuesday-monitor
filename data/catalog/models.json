@@ -1,14 +1,725 @@
 {
   "schema_version": "1.0.0",
   "models": [
-    { "id": "model-claude-opus-5", "vendor_id": "vendor-anthropic", "name": "Claude Opus 5", "identity_status": "named" },
-    { "id": "model-fable-5", "vendor_id": "vendor-anthropic", "name": "Fable 5", "identity_status": "named" },
-    { "id": "model-fable-5-1", "vendor_id": "vendor-anthropic", "name": "Fable 5.1", "identity_status": "named" },
-    { "id": "model-gemini-3-8-flash", "vendor_id": "vendor-google", "name": "Gemini 3.8 Flash", "identity_status": "named" },
-    { "id": "model-gpt-5-6-sol", "vendor_id": "vendor-openai", "name": "GPT-5.6 Sol", "identity_status": "named" },
-    { "id": "model-grok-4-6", "vendor_id": "vendor-xai", "name": "Grok 4.6", "identity_status": "named" },
-    { "id": "model-not-specified", "vendor_id": null, "name": "NOT SPECIFIED", "identity_status": "not_specified" },
-    { "id": "model-tictoc-18-models", "vendor_id": null, "name": "18 proprietary and open-weight models", "identity_status": "aggregate" },
-    { "id": "model-unknown", "vendor_id": null, "name": "UNKNOWN", "identity_status": "unknown" }
+    {
+      "id": "model-claude-opus-5",
+      "vendor_id": "vendor-anthropic",
+      "name": "Claude Opus 5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-fable-5",
+      "vendor_id": "vendor-anthropic",
+      "name": "Fable 5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-fable-5-1",
+      "vendor_id": "vendor-anthropic",
+      "name": "Fable 5.1",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-gemini-3-8-flash",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.8 Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-gpt-5-6-sol",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.6 Sol",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-grok-4-6",
+      "vendor_id": "vendor-xai",
+      "name": "Grok 4.6",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-not-specified",
+      "vendor_id": null,
+      "name": "NOT SPECIFIED",
+      "identity_status": "not_specified"
+    },
+    {
+      "id": "model-tictoc-18-models",
+      "vendor_id": null,
+      "name": "18 proprietary and open-weight models",
+      "identity_status": "aggregate"
+    },
+    {
+      "id": "model-unknown",
+      "vendor_id": null,
+      "name": "UNKNOWN",
+      "identity_status": "unknown"
+    },
+    {
+      "id": "model-discovered-01433a49c5cc60e7428c",
+      "vendor_id": "vendor-openai",
+      "name": "Daybreak Red",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-023f4743226707f70c92",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5-Codex",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-0e29cdb1a9068369cdfd",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime-1.5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-0ec90986ddf2d16fa90e",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.4",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-12c98d85d99fbc80d244",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Transcribe Diarize",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-15b029fc02435f4e7373",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.0 Flash-Lite",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-176fb23288af2af4493e",
+      "vendor_id": "vendor-google",
+      "name": "Computer Use",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-1b05544a1e38815ba050",
+      "vendor_id": "vendor-openai",
+      "name": "chatgpt-image-latest",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-1e9a4f1a438a4bfd5fd7",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5 nano",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-1fb968dfc97a50a275ea",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.4 Pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-1fd19c9c66c35da1b8ec",
+      "vendor_id": "vendor-openai",
+      "name": "o3-pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-2157bb2b07e6a87cc2a8",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.5 Flash TTS",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-21e9947fc3d539478a0d",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Transcribe",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-295b656c3e83b017a71f",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Audio-1.5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-29705db1c67f0fadf65e",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.0 Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-29fbee76cd37a78d0990",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Audio",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-2a1c4b7a96497390d63a",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.2-Codex",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-2cac746ef1a55cb5ac89",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-1",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-368039b89b2d9e7f3dad",
+      "vendor_id": "vendor-openai",
+      "name": "o3-mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-3c31be2eeda4bcd851d7",
+      "vendor_id": "vendor-google",
+      "name": "Gemini Robotics ER 1.6",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-3d24101d58fa0b07db6b",
+      "vendor_id": "vendor-openai",
+      "name": "o1-mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-3e5d717e80573cf8d2f6",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.2 Chat",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-3e9e5798a0fcafec17d8",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5 Pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-436161bb8ac5f5490821",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Mini Audio",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-43e4ff83a595f03273e8",
+      "vendor_id": "vendor-openai",
+      "name": "codex-mini-latest",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-454d972053e3035f992c",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5 Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-468b94523288b17c49bd",
+      "vendor_id": "vendor-google",
+      "name": "Gemini Robotics ER 2",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-473d2baac36d5968b9d0",
+      "vendor_id": "vendor-anthropic",
+      "name": "Claude Sonnet 5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-4882e78c90fbf11b8297",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.1 Flash-Lite Preview",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-4b8ecb4f05c5a4a79952",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Mini Transcribe",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-4c46e3ea2ea387fc6782",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.5 Live Translate",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-4c927f8246106837b3d7",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-1.5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-4f4b5da7ada2d9de5083",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.5 Flash Live",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-5129934552dd2286e897",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.4 nano",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-51d7e9ccbf0079432f1b",
+      "vendor_id": "vendor-openai",
+      "name": "o4-mini-deep-research",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-5308f96edde33db43d93",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime-2.1 Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-53da97192b53c9fb9cd4",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.1 Chat",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-54b047be8ad11af0a08a",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-5813b29ae4f9cdf7224a",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.5 Pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-58ae42fa2da27922842c",
+      "vendor_id": "vendor-anthropic",
+      "name": "Claude Haiku 4.5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-59f0f72683377111d7bc",
+      "vendor_id": "vendor-google",
+      "name": "Nano Banana 2",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-5f80092f5e85cef40c36",
+      "vendor_id": "vendor-google",
+      "name": "Nano Banana Pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-698a39834857c5ed27bb",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.1-Codex-Max",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-6a30c69a24a2ba7616e7",
+      "vendor_id": "vendor-openai",
+      "name": "Daybreak Blue",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-6a9ccf4ad79b1e8dd304",
+      "vendor_id": "vendor-google",
+      "name": "Nano Banana",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-6c8c926518e94df93aed",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-oss-120b",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-70c3ac4805a382e7499d",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.4 Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-71a2a8fdc338e5099bd5",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.2 Pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-726dd1e6cbcf8f3e2436",
+      "vendor_id": "vendor-openai",
+      "name": "o1 Preview",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-731392d07973ec4dd374",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-738b169f6dadce123772",
+      "vendor_id": "vendor-openai",
+      "name": "o4-mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-7633f7280401e4fe7015",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime-2.1",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-76ac3061d43cbea99683",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5 Chat",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-7ae0b7ff37a648b21f2e",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-7bdbf966c27ba583d26a",
+      "vendor_id": "vendor-google",
+      "name": "Gemini Embedding 2",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-7c76ed0b3a985bb4f0ae",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.3 Chat",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-7c9ed0fdee8d576ec2c8",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-8117798ae58404fd4297",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.5 Flash-Lite",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-81592b8b318be516dac4",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Audio Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-85d1ba853a1ef46be5bd",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.6 Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-88b38a0be53dd343689c",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.6 Terra",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-8ab5c52cb1cd5cf88e26",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.1 Flash-Lite",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-8cd3db89db51e350e528",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.5 Flash-Lite",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-8d6b0f1b6faadb07b615",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-8e9c857a7ff8235ea836",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Mini Realtime",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-96b3d6a8812d1bff8280",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.1-Codex",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-a4d62a7cf5e798457d76",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.2",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-a631362df6539c375a1f",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-a74c2e9d0a00080b78c4",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.3-Codex",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-a7b8efc666342264a603",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Audio",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-aa82e1844a4aa3932879",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.6 Cyber",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-ac152d2e8d24eb4c3232",
+      "vendor_id": "vendor-google",
+      "name": "Gemini Omni Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-ac268b9c9424fa0d96c6",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.1-Codex Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-b41c55e3ff71ff33d32b",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.5 Pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-b422818c6300cfc29362",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4.1 nano",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-b57640270d77a39ad172",
+      "vendor_id": "vendor-openai",
+      "name": "gpt-oss-20b",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-b9257ac7a2c8eaca2b5a",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4.1 Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-b9917ad913a137839464",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4.5 Preview",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-bba8e7fdaaa5feb26728",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3 Pro Preview",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-bd0e51b349b405705836",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-2",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-bd4c8bf27af648d3330a",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.5 Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-c0466cbac6d887384649",
+      "vendor_id": "vendor-openai",
+      "name": "o1-pro",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-c1f11abb445a94e20a49",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Search Preview",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-c221dc89c0adc7bf58c9",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-3.5 Turbo",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-cb00673f4eb5f1b0f47c",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.1 Flash Live",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-d3514020ec953fbf4893",
+      "vendor_id": "vendor-anthropic",
+      "name": "Claude Fable 5.1",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-d59d6ddd57ee9a1e8d3f",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4 Turbo",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-d6570eab7b1ee4f3f30b",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Mini TTS",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-d86884237412b2ed62cc",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-1 Mini",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-da4390555129f7b96ace",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Mini Search Preview",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-dcc1382081671253d9b5",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-de551bae2539edcc71a7",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Transcribe",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-e19c519e25aaefa93b0f",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.1",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-e286634f954d5e40b670",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.1 Flash TTS",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-e4cad8ba5d5bc779408a",
+      "vendor_id": "vendor-google",
+      "name": "Gemini Embedding",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-e65fdbebbfed99349ec2",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-5.6 Luna",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-e76102c0aeab37be7be8",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime-2",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-e7ad5bd7e714b6fbe0c3",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4.1",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-e8ec7ed4b30b4efbaf48",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6 Astra",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-ea3b61e7225f020a5b7e",
+      "vendor_id": "vendor-openai",
+      "name": "o3-deep-research",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-ecfe55f8a422ccdff7ed",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Live-Transcribe",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-ee0a631bc7a1c2147ca6",
+      "vendor_id": "vendor-google",
+      "name": "Nano Banana 2 Lite",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-ee7fbd4ea5b036d8c4d8",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4 Turbo Preview",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-f0e3cd07004a27ba5e00",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime-Translate",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-f29bc63c04163f5b021c",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.5 Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-f3ee403332f490da7638",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.7 Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-f463fdf1af5e8e009dcc",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Realtime-Whisper",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-f76d13c3ede266d7e1e4",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 2.5 Pro TTS",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-fa3ab9de6f363cec61d6",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-4o Realtime",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-fc973b7c5cd91319493b",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3 Flash",
+      "identity_status": "named"
+    },
+    {
+      "id": "model-discovered-fd0c815a6942fe9646f0",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.1 Pro",
+      "identity_status": "named"
+    }
   ]
 }
