@@ -335,6 +335,26 @@ test('Gemini endpoint table and Claude API row, not marketing names, establish I
   );
   assert.equal(a[0].api_model_id, 'claude-new');
 });
+
+test('OpenAI endpoint navigation is not a supported endpoint claim', () => {
+  const html = '<meta property="og:title" content="GPT Example Model | OpenAI API"><main>Endpoints v1/responses Unsupported Snapshots gpt-example Rate limits</main>';
+  const model = openai.detail(html, source, 'https://official.example/api/docs/models/gpt-example');
+  assert.deepEqual(model.endpoints, []);
+});
+
+test('reviewed exact API identity reuses the original abbreviated catalog ID', () => {
+  const [reviewed] = normalize([sample({ display_name: 'GPT Future Model' })]);
+  reviewed.id = 'model-prior';
+  const next = normalizeDiscoveries(
+    [sample({ display_name: 'GPT Future Model' })],
+    [reviewed],
+    [{ id: 'model-prior', vendor_id: 'vendor-openai', name: 'Future Model' }],
+    '2026-09-05',
+  );
+  assert.equal(next.length, 1);
+  assert.equal(next[0].id, 'model-prior');
+  assert.deepEqual(next[0].review_reasons, []);
+});
 test('official fetch rejects redirected foreign hosts and excessive responses', async () => {
   let calls = 0;
   await assert.rejects(

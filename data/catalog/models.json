@@ -566,12 +566,6 @@
       "identity_status": "named"
     },
     {
-      "id": "model-discovered-d3514020ec953fbf4893",
-      "vendor_id": "vendor-anthropic",
-      "name": "Claude Fable 5.1",
-      "identity_status": "named"
-    },
-    {
       "id": "model-discovered-d59d6ddd57ee9a1e8d3f",
       "vendor_id": "vendor-openai",
       "name": "GPT-4 Turbo",

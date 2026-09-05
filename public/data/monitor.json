@@ -416,7 +416,7 @@
   ],
   "models": [
     {
-      "id": "model-discovered-d3514020ec953fbf4893",
+      "id": "model-fable-5-1",
       "vendor": "Anthropic",
       "name": "Claude Fable 5.1",
       "apiModelId": "claude-fable-5-1",
@@ -430,7 +430,6 @@
       "lastTestedOn": null,
       "eligibility": "NOT_YET_TESTABLE",
       "eligibilityReasons": [
-        "IDENTITY_OR_SOURCE_REVIEW_REQUIRED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -440,9 +439,7 @@
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
-      "reviewReasons": [
-        "POSSIBLE_EXISTING_CATALOG_IDENTITY"
-      ]
+      "reviewReasons": []
     },
     {
       "id": "model-discovered-58ae42fa2da27922842c",

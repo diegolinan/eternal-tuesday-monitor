@@ -21,7 +21,9 @@ export function detail(body, source, url) {
     api_model_id:
       documented && new RegExp(source.id_pattern).test(slug) ? slug : null,
     ...lifecycle(content),
-    endpoints: content.includes('v1/responses') ? ['responses'] : [],
+    // The documentation lists unsupported endpoints too. Plain occurrence is
+    // not a compatibility claim; leave unknown until support is structured.
+    endpoints: [],
     identity_url: url,
   });
 }
