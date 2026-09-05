@@ -6,6 +6,7 @@
   "additionalProperties": false,
   "required": [
     "id",
+    "vendorId",
     "vendor",
     "name",
     "apiModelId",
@@ -35,6 +36,7 @@
   ],
   "properties": {
     "id": { "type": "string", "minLength": 1 },
+    "vendorId": { "type": "string", "pattern": "^vendor-[a-z0-9-]+$" },
     "vendor": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
     "apiModelId": {
@@ -124,8 +126,8 @@
         "ELIGIBILITY_READY",
         "BLOCKED",
         "ALREADY_TESTED",
-        "RETEST_POLICY"
-        ,"TEST_REQUIRED"
+        "RETEST_POLICY",
+        "TEST_REQUIRED"
       ]
     },
     "queueReasons": {
@@ -133,7 +135,14 @@
       "uniqueItems": true,
       "items": { "type": "string", "minLength": 1 }
     },
-    "executionState": { "enum": ["NOT_RUN", "COMPLETED", "OPERATIONAL_ERROR", "EXECUTION_BLOCKED_COST_POLICY"] },
+    "executionState": {
+      "enum": [
+        "NOT_RUN",
+        "COMPLETED",
+        "OPERATIONAL_ERROR",
+        "EXECUTION_BLOCKED_COST_POLICY"
+      ]
+    },
     "probeCoverage": {
       "type": "array",
       "minItems": 5,
@@ -147,8 +156,13 @@
           "state",
           "eligibilityState",
           "eligibilityReasons",
-          "methodologyVersionId"
-          ,"testability", "empiricalResult", "evidenceClass", "verifiedOn", "limitations", "requestCount"
+          "methodologyVersionId",
+          "testability",
+          "empiricalResult",
+          "evidenceClass",
+          "verifiedOn",
+          "limitations",
+          "requestCount"
         ],
         "properties": {
           "id": { "type": "string", "minLength": 1 },
@@ -171,8 +185,23 @@
           "methodologyVersionId": {
             "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
           },
-          "testability": { "enum": ["API_TESTABLE", "PARTIALLY_API_TESTABLE", "NOT_API_TESTABLE"] },
-          "empiricalResult": { "type": ["string", "null"], "enum": ["MATCH", "MISMATCH", "INCONCLUSIVE", "OPERATIONAL_ERROR", null] },
+          "testability": {
+            "enum": [
+              "API_TESTABLE",
+              "PARTIALLY_API_TESTABLE",
+              "NOT_API_TESTABLE"
+            ]
+          },
+          "empiricalResult": {
+            "type": ["string", "null"],
+            "enum": [
+              "MATCH",
+              "MISMATCH",
+              "INCONCLUSIVE",
+              "OPERATIONAL_ERROR",
+              null
+            ]
+          },
           "evidenceClass": { "type": ["string", "null"] },
           "verifiedOn": { "type": ["string", "null"], "format": "date" },
           "limitations": { "type": "array", "items": { "type": "string" } },

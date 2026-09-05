@@ -7,6 +7,7 @@ import {
   loadReleases,
   releaseDate,
   resolveCurrentRelease,
+  resolveReleaseAsOf,
 } from './lib/release-resolution.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
@@ -54,12 +55,12 @@ const [
   readJson('data/model-evaluation/adoption.json'),
   loadReleases(root),
 ]);
-const release = resolveCurrentRelease(releaseEntries).release;
+const release = (
+  asOfOption
+    ? resolveReleaseAsOf(releaseEntries, asOfOption)
+    : resolveCurrentRelease(releaseEntries)
+).release;
 const asOf = asOfOption ?? releaseDate(release);
-if (asOf < releaseDate(release))
-  throw new Error(
-    `--as-of ${asOf} precedes current release ${releaseDate(release)}`,
-  );
 
 const parseLines = async (relativePath) =>
   (await readFile(path.join(root, relativePath), 'utf8'))
@@ -112,6 +113,11 @@ function displayDay(value) {
 }
 
 const selected = new Set(release.observation_ids);
+const supersededBy = new Map(
+  observations
+    .filter((item) => item.supersedes_observation_id)
+    .map((item) => [item.supersedes_observation_id, item.id]),
+);
 const siteObservations = observations
   .filter((item) => selected.has(item.id))
   .map((item) => {
@@ -136,6 +142,7 @@ const siteObservations = observations
     const sourceCheckedOn = externalSource?.last_verified_on ?? null;
     return {
       id: item.id,
+      vendorId: item.vendor_id,
       vendor: vendors.get(item.vendor_id).name,
       product: products.get(item.product_id).name,
       surface: surfaces.get(item.surface_id).name,
@@ -171,6 +178,8 @@ const siteObservations = observations
       })),
       methodologyVersion: methodologies.get(item.methodology_version_id)
         .version,
+      supersedesObservationId: item.supersedes_observation_id,
+      supersededByObservationId: supersededBy.get(item.id) ?? null,
     };
   });
 

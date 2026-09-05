@@ -77,6 +77,33 @@ test('the public dataset compiles deterministically without rewriting results', 
     data.observations.every((item) => typeof item.observedResult === 'string'),
   );
 
+  const beforePublicationPath = path.join(directory, 'before-publication.json');
+  const beforePublicationRun = spawnSync(
+    process.execPath,
+    [
+      'scripts/compile-monitor-view.mjs',
+      '--as-of',
+      '2026-09-05',
+      '--output',
+      beforePublicationPath,
+    ],
+    { cwd: root, encoding: 'utf8' },
+  );
+  assert.equal(beforePublicationRun.status, 0, beforePublicationRun.stderr);
+  const beforePublication = JSON.parse(
+    await readFile(beforePublicationPath, 'utf8'),
+  );
+  assert.equal(beforePublication.releaseId, 'release-2026-09-03');
+  assert.equal(beforePublication.publishedOn, '2026-09-03');
+  assert.equal(beforePublication.freshnessEvaluatedOn, '2026-09-05');
+  assert.equal(beforePublication.observations.length, 13);
+  assert.equal(
+    beforePublication.observations.filter(
+      (item) => item.applicability === 'CURRENT',
+    ).length,
+    10,
+  );
+
   const futurePath = path.join(directory, 'future.json');
   const futureRun = spawnSync(
     process.execPath,

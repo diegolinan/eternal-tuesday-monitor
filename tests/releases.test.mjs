@@ -5,6 +5,7 @@ import {
   assertReleaseChain,
   loadReleases,
   resolveCurrentRelease,
+  resolveReleaseAsOf,
 } from '../scripts/lib/release-resolution.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
@@ -21,6 +22,22 @@ test('the current release includes the reviewed Codex pilot observation', async 
   assert.equal(release.published_on, '2026-09-08');
   assert.equal(release.data_cutoff, '2026-09-05');
   assert.equal(release.observation_ids.length, 14);
+});
+
+test('future-dated releases remain stored but are not published early', async () => {
+  const entries = await loadReleases(root);
+  assert.equal(
+    resolveReleaseAsOf(entries, '2026-09-05').release.id,
+    'release-2026-09-03',
+  );
+  assert.equal(
+    resolveReleaseAsOf(entries, '2026-09-07').release.id,
+    'release-2026-09-07',
+  );
+  assert.equal(
+    resolveReleaseAsOf(entries, '2026-09-08').release.id,
+    'release-2026-09-08',
+  );
 });
 
 test('the September 3 release remains an unchanged provenance manifest', async () => {

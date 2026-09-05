@@ -28,6 +28,15 @@ export function resolveCurrentRelease(entries) {
   })[0];
 }
 
+export function resolveReleaseAsOf(entries, asOf) {
+  const eligible = entries.filter(
+    ({ release }) => releaseDate(release) <= asOf,
+  );
+  if (eligible.length === 0)
+    throw new Error(`No release is published on or before ${asOf}`);
+  return resolveCurrentRelease(eligible);
+}
+
 export function assertReleaseChain(entries) {
   const byId = new Map(entries.map((entry) => [entry.release.id, entry]));
   const successors = new Map();

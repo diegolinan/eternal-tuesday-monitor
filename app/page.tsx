@@ -23,11 +23,14 @@ import {
   type DiscoveredModel,
 } from '@/components/model-inventory';
 import { AutomationStatus } from '@/components/automation-status';
+import { StatusEmblem } from '@/components/status-emblem';
+import { VendorMark } from '@/components/vendor-mark';
 
 export const dynamic = 'force-static';
 
 type Observation = {
   id: string;
+  vendorId: string;
   vendor: string;
   product: string;
   surface: string;
@@ -58,6 +61,8 @@ type Observation = {
     reason: string;
   }>;
   methodologyVersion: string;
+  supersedesObservationId: string | null;
+  supersededByObservationId: string | null;
 };
 
 type MonitorData = {
@@ -195,8 +200,8 @@ function ObservationCard({
   return (
     <article className={`observation-card tone-${recordTone(item)}`}>
       <div className="status-bar">
-        <span>{item.vendor}</span>
-        <strong>{item.observedResult}</strong>
+        <VendorMark vendor={item.vendor} vendorId={item.vendorId} />
+        <StatusEmblem compact value={item.observedResult} />
       </div>
       <div className="card-core">
         <p className="scope-line">{item.product}</p>
@@ -206,11 +211,15 @@ function ObservationCard({
       <dl>
         <div>
           <dt>Probe</dt>
-          <dd>{item.probe}</dd>
+          <dd>
+            <StatusEmblem compact value={item.probe} />
+          </dd>
         </div>
         <div>
           <dt>Evidence class</dt>
-          <dd>{item.evidenceClass}</dd>
+          <dd>
+            <StatusEmblem compact value={item.evidenceClass} />
+          </dd>
         </div>
         <div className="verified">
           <dt>Evidence verified</dt>
@@ -221,7 +230,7 @@ function ObservationCard({
         className={`sufficiency-strip sufficiency-${item.currentSufficiency.toLowerCase()}`}
       >
         <span>Current sufficiency</span>
-        <strong>{sufficiencyLabel(item)}</strong>
+        <StatusEmblem compact value={sufficiencyLabel(item)} />
       </div>
       <button
         className="inspect-button"
@@ -295,6 +304,144 @@ function FilterSelect({
   );
 }
 
+type SurfaceNode = {
+  name: string;
+  models: string[];
+  current: number;
+  historical: number;
+};
+
+type ProductNode = {
+  name: string;
+  surfaces: SurfaceNode[];
+};
+
+function SurfaceMap({
+  items,
+  onSelect,
+}: {
+  items: Observation[];
+  onSelect: (
+    vendor: string,
+    surface: string,
+    scope: 'current' | 'historical',
+  ) => void;
+}) {
+  const vendors = useMemo(() => {
+    const vendorMap = new Map<
+      string,
+      {
+        name: string;
+        products: Map<
+          string,
+          Map<
+            string,
+            { models: Set<string>; current: number; historical: number }
+          >
+        >;
+      }
+    >();
+    for (const item of items) {
+      const vendor = vendorMap.get(item.vendorId) ?? {
+        name: item.vendor,
+        products: new Map(),
+      };
+      const products = vendor.products;
+      const surfaces = products.get(item.product) ?? new Map();
+      const current = surfaces.get(item.surface) ?? {
+        models: new Set<string>(),
+        current: 0,
+        historical: 0,
+      };
+      if (item.model !== 'Not specified' && item.model !== 'Unknown')
+        current.models.add(item.model);
+      if (item.applicability === 'CURRENT') current.current += 1;
+      else current.historical += 1;
+      surfaces.set(item.surface, current);
+      products.set(item.product, surfaces);
+      vendorMap.set(item.vendorId, vendor);
+    }
+    return [...vendorMap.entries()]
+      .sort(([, left], [, right]) => left.name.localeCompare(right.name))
+      .map(([vendorId, vendor]) => ({
+        vendorId,
+        vendor: vendor.name,
+        products: [...vendor.products.entries()]
+          .sort(([left], [right]) => left.localeCompare(right))
+          .map(
+            ([name, surfaces]): ProductNode => ({
+              name,
+              surfaces: [...surfaces.entries()]
+                .sort(([left], [right]) => left.localeCompare(right))
+                .map(([surface, summary]) => ({
+                  name: surface,
+                  models: [...summary.models].sort(),
+                  current: summary.current,
+                  historical: summary.historical,
+                })),
+            }),
+          ),
+      }));
+  }, [items]);
+
+  return (
+    <div className="surface-map" aria-label="Observed product and surface map">
+      {vendors.map(({ vendorId, vendor, products }) => {
+        const surfaceCount = products.reduce(
+          (sum, product) => sum + product.surfaces.length,
+          0,
+        );
+        return (
+          <details className="surface-vendor" key={vendor}>
+            <summary>
+              <VendorMark vendor={vendor} vendorId={vendorId} />
+              <span>
+                {products.length} PRODUCTS · {surfaceCount} SURFACES
+              </span>
+            </summary>
+            <div className="surface-products">
+              {products.map((product) => (
+                <section key={`${vendor}-${product.name}`}>
+                  <h3>{product.name}</h3>
+                  <div className="surface-rows">
+                    {product.surfaces.map((surface) => (
+                      <button
+                        type="button"
+                        key={`${vendor}-${product.name}-${surface.name}`}
+                        aria-label={`Show observations for ${vendor} ${product.name} ${surface.name}`}
+                        onClick={() =>
+                          onSelect(
+                            vendor,
+                            `${product.name} / ${surface.name}`,
+                            surface.current > 0 ? 'current' : 'historical',
+                          )
+                        }
+                      >
+                        <span>
+                          <strong>{surface.name}</strong>
+                          <small>
+                            {surface.models.length
+                              ? surface.models.join(' · ')
+                              : 'MODEL NOT ESTABLISHED'}
+                          </small>
+                        </span>
+                        <span className="surface-counts">
+                          <b>{surface.current} CURRENT</b>
+                          <b>{surface.historical} HISTORICAL</b>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Home() {
   const [data, setData] = useState<MonitorData | null>(null);
   const [loadError, setLoadError] = useState(false);
@@ -303,6 +450,7 @@ export default function Home() {
   const [probe, setProbe] = useState('ALL');
   const [evidence, setEvidence] = useState('ALL');
   const [verification, setVerification] = useState('ALL');
+  const [scope, setScope] = useState<'current' | 'historical'>('current');
   const [selected, setSelected] = useState<Observation | null>(null);
 
   useEffect(() => {
@@ -361,6 +509,27 @@ export default function Home() {
     setEvidence('ALL');
     setVerification('ALL');
   };
+
+  const focusSurface = (
+    nextVendor: string,
+    nextSurface: string,
+    nextScope: 'current' | 'historical',
+  ) => {
+    setVendor(nextVendor);
+    setSurface(nextSurface);
+    setProbe('ALL');
+    setEvidence('ALL');
+    setVerification('ALL');
+    setScope(nextScope);
+    window.requestAnimationFrame(() =>
+      document.getElementById('observations')?.scrollIntoView(),
+    );
+  };
+
+  const observationsById = useMemo(
+    () => new Map(observations.map((item) => [item.id, item])),
+    [observations],
+  );
 
   const historyGroups = useMemo(() => {
     const groups = new Map<string, Observation[]>();
@@ -442,8 +611,6 @@ export default function Home() {
 
       <AutomationStatus />
 
-      <ModelInventory models={data?.models ?? []} />
-
       <section
         className="monitor-section"
         id="observations"
@@ -514,6 +681,15 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="status-legend" aria-label="Observation status legend">
+          <span>Signal legend</span>
+          <StatusEmblem compact value="VERIFIED" />
+          <StatusEmblem compact value="DOCUMENTED FEATURE" />
+          <StatusEmblem compact value="NO PUBLIC EVIDENCE" />
+          <StatusEmblem compact value="OBSERVED FAILURE" />
+          <StatusEmblem compact value="RETEST REQUIRED" />
+        </div>
+
         {loadError ? (
           <div className="empty-state">
             <span>DATA FEED UNAVAILABLE</span>
@@ -528,7 +704,13 @@ export default function Home() {
             <span>READING DATED RECORDS</span>
           </output>
         ) : (
-          <Tabs defaultValue="current" className="scope-tabs">
+          <Tabs
+            value={scope}
+            onValueChange={(value) =>
+              setScope(value as 'current' | 'historical')
+            }
+            className="scope-tabs"
+          >
             <TabsList variant="line" aria-label="Observation scope">
               <TabsTrigger value="current">
                 CURRENT · {current.length}
@@ -546,6 +728,8 @@ export default function Home() {
           </Tabs>
         )}
       </section>
+
+      <ModelInventory models={data?.models ?? []} />
 
       <section
         className="probe-section"
@@ -616,37 +800,15 @@ export default function Home() {
             <h2 id="products-title">Product / surface view</h2>
           </div>
           <p>
-            Vendor, product, surface and model remain separate coordinates.
-            Unknown fields remain unknown.
+            Vendor, product, surface and model remain separate coordinates. This
+            map is built only from accepted observations; unknown fields remain
+            unknown.
           </p>
         </div>
-        <div
-          className="coordinate-diagram"
-          aria-label="Product record field separation"
-        >
-          <div>
-            <span>VENDOR</span>
-            <strong>OPENAI</strong>
-          </div>
-          <i aria-hidden="true">→</i>
-          <div>
-            <span>PRODUCT</span>
-            <strong>CHATGPT</strong>
-          </div>
-          <i aria-hidden="true">→</i>
-          <div>
-            <span>SURFACE</span>
-            <strong>PROJECTS</strong>
-          </div>
-          <i aria-hidden="true">→</i>
-          <div>
-            <span>MODEL</span>
-            <strong>GPT-5.6 SOL</strong>
-          </div>
-        </div>
+        <SurfaceMap items={observations} onSelect={focusSurface} />
         <p className="separation-note">
-          This record is not interchangeable with OPENAI / API / MODEL API /
-          GPT-5.6 SOL.
+          Selecting a surface filters its accepted records. A catalog identity
+          never creates a product association by itself.
         </p>
       </section>
 
@@ -675,29 +837,42 @@ export default function Home() {
             return (
               <article className="timeline-group" key={key}>
                 <header>
-                  <span>{first.vendor}</span>
+                  <VendorMark vendor={first.vendor} vendorId={first.vendorId} />
                   <h3>
                     {first.product} / {first.surface}
                   </h3>
                   <b>{first.probe}</b>
                 </header>
                 <div className="timeline-track">
-                  {items.map((item) => (
-                    <button
-                      type="button"
-                      className="timeline-stop"
-                      key={item.id}
-                      onClick={() => setSelected(item)}
-                    >
-                      <i aria-hidden="true" />
-                      <span>{item.observedOn.label}</span>
-                      <strong>{item.observedResult}</strong>
-                      <small>{item.evidenceClass}</small>
-                    </button>
-                  ))}
+                  {items.map((item) => {
+                    const lastEvent = item.stateHistory.at(-1);
+                    const successor = item.supersededByObservationId
+                      ? observationsById.get(item.supersededByObservationId)
+                      : null;
+                    return (
+                      <button
+                        type="button"
+                        className="timeline-stop"
+                        key={item.id}
+                        onClick={() => setSelected(item)}
+                      >
+                        <i aria-hidden="true" />
+                        <span>{item.observedOn.label}</span>
+                        <StatusEmblem compact value={item.observedResult} />
+                        <small>{item.evidenceClass}</small>
+                        <em>
+                          {successor
+                            ? `SUPERSEDED BY ${successor.product} / ${successor.surface}`
+                            : lastEvent
+                              ? `${lastEvent.type.replaceAll('_', ' ')} · ${lastEvent.reason}`
+                              : 'PRESERVED HISTORICAL RECORD'}
+                        </em>
+                      </button>
+                    );
+                  })}
                   <div className="timeline-open-end">
                     <span>NEXT VALID RETEST</span>
-                    <strong>UNKNOWN</strong>
+                    <strong>NOT SCHEDULED</strong>
                   </div>
                 </div>
               </article>
@@ -879,25 +1054,33 @@ export default function Home() {
                   {selected.product} / {selected.surface}
                 </DialogTitle>
                 <DialogDescription>
-                  {selected.vendor} · {selected.model}
+                  <VendorMark
+                    vendor={selected.vendor}
+                    vendorId={selected.vendorId}
+                  />{' '}
+                  · {selected.model}
                 </DialogDescription>
               </DialogHeader>
               <div className="record-status">
-                <span>{selected.observedResult}</span>
-                <b>{selected.applicability}</b>
+                <StatusEmblem value={selected.observedResult} />
+                <StatusEmblem value={selected.applicability} />
                 {(selected.observationQualifiers ?? []).map((qualifier) => (
-                  <b key={qualifier}>{qualifier}</b>
+                  <StatusEmblem key={qualifier} value={qualifier} />
                 ))}
-                <b>{sufficiencyLabel(selected)}</b>
+                <StatusEmblem value={sufficiencyLabel(selected)} />
               </div>
               <dl className="record-fields">
                 <div>
                   <dt>Probe</dt>
-                  <dd>{selected.probe}</dd>
+                  <dd>
+                    <StatusEmblem compact value={selected.probe} />
+                  </dd>
                 </div>
                 <div>
                   <dt>Evidence class</dt>
-                  <dd>{selected.evidenceClass}</dd>
+                  <dd>
+                    <StatusEmblem compact value={selected.evidenceClass} />
+                  </dd>
                 </div>
                 <div>
                   <dt>Observed</dt>

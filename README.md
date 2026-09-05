@@ -6,12 +6,12 @@ The public model register and the observation table answer different questions. 
 
 `config/model-discovery.json` is the versioned curated source registry. It contains public official model documentation for OpenAI, Anthropic, Google, and xAI; official product/release sources for those vendors and Cursor; and a bounded public research feed. Every source declares its class, adapter/version, authority, URL, cadence, allowlisted domains, semantics, and limitations.
 
-| Layer | Automatic input | Automatic output |
-| --- | --- | --- |
-| Entity discovery | Official public model documentation | Exact normalized model identity and immutable discovery event |
-| Product/source discovery | Official release notes, changelogs, and system cards | Auditable source check/change signal for review |
-| Research discovery | Curated public publication feed | Auditable research candidate signal for review |
-| Behavioral observation | Separately reviewed evidence only | Never produced by discovery |
+| Layer                    | Automatic input                                      | Automatic output                                              |
+| ------------------------ | ---------------------------------------------------- | ------------------------------------------------------------- |
+| Entity discovery         | Official public model documentation                  | Exact normalized model identity and immutable discovery event |
+| Product/source discovery | Official release notes, changelogs, and system cards | Auditable source check/change signal for review               |
+| Research discovery       | Curated public publication feed                      | Auditable research candidate signal for review                |
+| Behavioral observation   | Separately reviewed evidence only                    | Never produced by discovery                                   |
 
 HTML adapters use parse5, never execute downloaded scripts, and fail visibly when expected structures disappear. This is bounded authoritative-source retrieval, not arbitrary crawling or search-result scraping. Public documentation confirms only what it says; unknown release dates, aliases, product mappings, and behavioral claims remain unknown.
 
@@ -57,6 +57,16 @@ A failed source creates an explicit source-check error and never deletes accepte
 The complete acceptance, relevance and failure contract is in [`docs/model-discovery-v1.md`](docs/model-discovery-v1.md).
 
 The end-to-end notification, manual probe, review and publication cycle is documented in [`docs/operations.md`](docs/operations.md).
+
+The public site exposes read-only automation status only. Repository run links and manual evaluation controls deliberately remain in the operator documentation and GitHub Actions interface, never in the public monitor.
+
+### Public interface and vendor marks
+
+The model registry is grouped by vendor, review/evaluation state, and exact model identity. Groups are collapsed by default; search expands only matching branches. Product/surface coverage is derived exclusively from accepted observations and never inferred from a vendor catalog identity.
+
+Known vendor marks are mapped from the canonical `vendor_id` to bundled, build-time assets. Anthropic, Cursor, Google, and Perplexity use the CC0 Simple Icons set. Vendors without a verified bundled brand asset use a neutral local mark or monogram. Discovery never downloads, hotlinks, or accepts a logo from matched source content.
+
+Release manifests remain immutable and may be prepared ahead of publication. Deployment resolves the latest release whose publication date is not later than the deployment date, so a future manifest is preserved without appearing publicly early.
 
 Known limits: official HTML formats can change; comparisons can disagree with cached documentation; release dates/aliases/supersession are only populated when explicitly established. Source capabilities are not inferred from model families. Metadata approval is not evidence acceptance. Pending catalog models are linked for review, not displayed as accepted public facts.
 

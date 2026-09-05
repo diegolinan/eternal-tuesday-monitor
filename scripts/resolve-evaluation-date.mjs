@@ -1,9 +1,5 @@
 import { fileURLToPath } from 'node:url';
-import {
-  loadReleases,
-  releaseDate,
-  resolveCurrentRelease,
-} from './lib/release-resolution.mjs';
+import { loadReleases, resolveReleaseAsOf } from './lib/release-resolution.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const todayIndex = process.argv.indexOf('--today');
@@ -15,5 +11,5 @@ if (!/^\d{4}-\d{2}-\d{2}$/.test(today ?? '')) {
   console.error('--today must be YYYY-MM-DD');
   process.exit(1);
 }
-const current = resolveCurrentRelease(await loadReleases(root)).release;
-console.log(today < releaseDate(current) ? releaseDate(current) : today);
+resolveReleaseAsOf(await loadReleases(root), today);
+console.log(today);

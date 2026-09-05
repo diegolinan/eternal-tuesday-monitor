@@ -11,6 +11,7 @@
   "observations": [
     {
       "id": "obs-cursor-agent-anchor-2026-03",
+      "vendorId": "vendor-cursor",
       "vendor": "Cursor",
       "product": "Cursor",
       "surface": "Agent",
@@ -37,10 +38,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE-SOURCE-1"
+      "methodologyVersion": "ARTICLE-SOURCE-1",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-anthropic-claude-code-fable-elapsed-2026-07",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "product": "Claude Code",
       "surface": "Terminal agent conversation",
@@ -67,10 +71,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE-SOURCE-1"
+      "methodologyVersion": "ARTICLE-SOURCE-1",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-anthropic-cowork-reconciliation-2026-08-12",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "product": "Claude",
       "surface": "Cowork resumed session",
@@ -97,10 +104,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE-SOURCE-1"
+      "methodologyVersion": "ARTICLE-SOURCE-1",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-tictoc-revalidation-2026",
+      "vendorId": "vendor-independent-research",
       "vendor": "Independent research",
       "product": "TicToc",
       "surface": "Synthetic multi-turn tool-use benchmark",
@@ -127,10 +137,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
-      "methodologyVersion": "TicToc published protocol"
+      "methodologyVersion": "TicToc published protocol",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-openai-chatgpt-local-time-2026-08-21",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "product": "ChatGPT",
       "surface": "Consumer conversation",
@@ -157,10 +170,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
-      "methodologyVersion": "DOCUMENT REVIEW"
+      "methodologyVersion": "DOCUMENT REVIEW",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-openai-dreaming-freshness-2026-06-04",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "product": "ChatGPT",
       "surface": "Memory system",
@@ -187,10 +203,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
-      "methodologyVersion": "DOCUMENT REVIEW"
+      "methodologyVersion": "DOCUMENT REVIEW",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-perplexity-brain-maintenance-2026-09-03",
+      "vendorId": "vendor-perplexity",
       "vendor": "Perplexity",
       "product": "Brain",
       "surface": "Research Preview",
@@ -219,10 +238,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
-      "methodologyVersion": "DOCUMENT REVIEW"
+      "methodologyVersion": "DOCUMENT REVIEW",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-openai-projects-sol-gap-2026-09-03",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "product": "ChatGPT",
       "surface": "Projects",
@@ -251,10 +273,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE SEARCH CUTOFF"
+      "methodologyVersion": "ARTICLE SEARCH CUTOFF",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-openai-api-sol-gap-2026-09-03",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "product": "API",
       "surface": "Model API",
@@ -283,10 +308,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE SEARCH CUTOFF"
+      "methodologyVersion": "ARTICLE SEARCH CUTOFF",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-anthropic-cowork-opus5-gap-2026-09-03",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "product": "Claude",
       "surface": "Cowork",
@@ -315,10 +343,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE SEARCH CUTOFF"
+      "methodologyVersion": "ARTICLE SEARCH CUTOFF",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-anthropic-code-fable51-gap-2026-09-03",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "product": "Claude Code",
       "surface": "Terminal agent",
@@ -347,10 +378,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE SEARCH CUTOFF"
+      "methodologyVersion": "ARTICLE SEARCH CUTOFF",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-google-gemini38-gap-2026-09-03",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "product": "Gemini",
       "surface": "Gemini app",
@@ -379,10 +413,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE SEARCH CUTOFF"
+      "methodologyVersion": "ARTICLE SEARCH CUTOFF",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-xai-grok46-gap-2026-09-03",
+      "vendorId": "vendor-xai",
       "vendor": "xAI",
       "product": "Grok",
       "surface": "Long-running agents",
@@ -411,10 +448,13 @@
       "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
-      "methodologyVersion": "ARTICLE SEARCH CUTOFF"
+      "methodologyVersion": "ARTICLE SEARCH CUTOFF",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     },
     {
       "id": "obs-openai-codex-cli-luna-anchor-2026-09-05",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "product": "ChatGPT",
       "surface": "Codex CLI with ChatGPT authentication",
@@ -441,12 +481,15 @@
       "evidenceAgeDays": 3,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
-      "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1"
+      "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     }
   ],
   "models": [
     {
       "id": "model-fable-5",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "name": "Fable 5",
       "apiModelId": null,
@@ -554,6 +597,7 @@
     },
     {
       "id": "model-fable-5-1",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "name": "Claude Fable 5.1",
       "apiModelId": "claude-fable-5-1",
@@ -663,6 +707,7 @@
     },
     {
       "id": "model-discovered-58ae42fa2da27922842c",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "name": "Claude Haiku 4.5",
       "apiModelId": "claude-haiku-4-5-20251001",
@@ -781,6 +826,7 @@
     },
     {
       "id": "model-claude-opus-5",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "name": "Claude Opus 5",
       "apiModelId": "claude-opus-5",
@@ -899,6 +945,7 @@
     },
     {
       "id": "model-discovered-473d2baac36d5968b9d0",
+      "vendorId": "vendor-anthropic",
       "vendor": "Anthropic",
       "name": "Claude Sonnet 5",
       "apiModelId": "claude-sonnet-5",
@@ -1017,6 +1064,7 @@
     },
     {
       "id": "model-discovered-176fb23288af2af4493e",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Computer Use",
       "apiModelId": "gemini-2.5-computer-use-preview-10-2025",
@@ -1126,6 +1174,7 @@
     },
     {
       "id": "model-discovered-29705db1c67f0fadf65e",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.0 Flash",
       "apiModelId": "gemini-2.0-flash",
@@ -1244,6 +1293,7 @@
     },
     {
       "id": "model-discovered-15b029fc02435f4e7373",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.0 Flash-Lite",
       "apiModelId": "gemini-2.0-flash-lite",
@@ -1362,6 +1412,7 @@
     },
     {
       "id": "model-discovered-bd4c8bf27af648d3330a",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.5 Flash",
       "apiModelId": "gemini-2.5-flash",
@@ -1480,6 +1531,7 @@
     },
     {
       "id": "model-discovered-4f4b5da7ada2d9de5083",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.5 Flash Live",
       "apiModelId": "gemini-2.5-flash-native-audio-preview-12-2025",
@@ -1589,6 +1641,7 @@
     },
     {
       "id": "model-discovered-2157bb2b07e6a87cc2a8",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.5 Flash TTS",
       "apiModelId": "gemini-2.5-flash-preview-tts",
@@ -1698,6 +1751,7 @@
     },
     {
       "id": "model-discovered-8117798ae58404fd4297",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.5 Flash-Lite",
       "apiModelId": "gemini-2.5-flash-lite",
@@ -1816,6 +1870,7 @@
     },
     {
       "id": "model-discovered-b41c55e3ff71ff33d32b",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.5 Pro",
       "apiModelId": "gemini-2.5-pro",
@@ -1934,6 +1989,7 @@
     },
     {
       "id": "model-discovered-f76d13c3ede266d7e1e4",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 2.5 Pro TTS",
       "apiModelId": "gemini-2.5-pro-preview-tts",
@@ -2043,6 +2099,7 @@
     },
     {
       "id": "model-discovered-fc973b7c5cd91319493b",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3 Flash",
       "apiModelId": "gemini-3-flash-preview",
@@ -2161,6 +2218,7 @@
     },
     {
       "id": "model-discovered-bba8e7fdaaa5feb26728",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3 Pro Preview",
       "apiModelId": "gemini-3-pro-preview",
@@ -2279,6 +2337,7 @@
     },
     {
       "id": "model-discovered-cb00673f4eb5f1b0f47c",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.1 Flash Live",
       "apiModelId": "gemini-3.1-flash-live-preview",
@@ -2388,6 +2447,7 @@
     },
     {
       "id": "model-discovered-e286634f954d5e40b670",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.1 Flash TTS",
       "apiModelId": "gemini-3.1-flash-tts-preview",
@@ -2497,6 +2557,7 @@
     },
     {
       "id": "model-discovered-8ab5c52cb1cd5cf88e26",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.1 Flash-Lite",
       "apiModelId": "gemini-3.1-flash-lite",
@@ -2615,6 +2676,7 @@
     },
     {
       "id": "model-discovered-4882e78c90fbf11b8297",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.1 Flash-Lite Preview",
       "apiModelId": "gemini-3.1-flash-lite-preview",
@@ -2733,6 +2795,7 @@
     },
     {
       "id": "model-discovered-fd0c815a6942fe9646f0",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.1 Pro",
       "apiModelId": "gemini-3.1-pro-preview",
@@ -2851,6 +2914,7 @@
     },
     {
       "id": "model-discovered-f29bc63c04163f5b021c",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.5 Flash",
       "apiModelId": "gemini-3.5-flash",
@@ -2969,6 +3033,7 @@
     },
     {
       "id": "model-discovered-8cd3db89db51e350e528",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.5 Flash-Lite",
       "apiModelId": "gemini-3.5-flash-lite",
@@ -3087,6 +3152,7 @@
     },
     {
       "id": "model-discovered-4c46e3ea2ea387fc6782",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.5 Live Translate",
       "apiModelId": "gemini-3.5-live-translate-preview",
@@ -3196,6 +3262,7 @@
     },
     {
       "id": "model-discovered-85d1ba853a1ef46be5bd",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.6 Flash",
       "apiModelId": "gemini-3.6-flash",
@@ -3314,6 +3381,7 @@
     },
     {
       "id": "model-discovered-f3ee403332f490da7638",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.7 Flash",
       "apiModelId": "gemini-3.7-flash",
@@ -3432,6 +3500,7 @@
     },
     {
       "id": "model-gemini-3-8-flash",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini 3.8 Flash",
       "apiModelId": "gemini-3.8-flash",
@@ -3550,6 +3619,7 @@
     },
     {
       "id": "model-discovered-e4cad8ba5d5bc779408a",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini Embedding",
       "apiModelId": "gemini-embedding-001",
@@ -3659,6 +3729,7 @@
     },
     {
       "id": "model-discovered-7bdbf966c27ba583d26a",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini Embedding 2",
       "apiModelId": "gemini-embedding-2-preview",
@@ -3768,6 +3839,7 @@
     },
     {
       "id": "model-discovered-ac152d2e8d24eb4c3232",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini Omni Flash",
       "apiModelId": "gemini-omni-1.1-flash",
@@ -3877,6 +3949,7 @@
     },
     {
       "id": "model-discovered-3c31be2eeda4bcd851d7",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini Robotics ER 1.6",
       "apiModelId": "gemini-robotics-er-1.6-preview",
@@ -3986,6 +4059,7 @@
     },
     {
       "id": "model-discovered-468b94523288b17c49bd",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Gemini Robotics ER 2",
       "apiModelId": "gemini-robotics-er-2-preview",
@@ -4095,6 +4169,7 @@
     },
     {
       "id": "model-discovered-6a9ccf4ad79b1e8dd304",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Nano Banana",
       "apiModelId": "gemini-2.5-flash-image",
@@ -4204,6 +4279,7 @@
     },
     {
       "id": "model-discovered-59f0f72683377111d7bc",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Nano Banana 2",
       "apiModelId": "gemini-3.1-flash-image",
@@ -4313,6 +4389,7 @@
     },
     {
       "id": "model-discovered-ee0a631bc7a1c2147ca6",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Nano Banana 2 Lite",
       "apiModelId": "gemini-3.1-flash-lite-image",
@@ -4422,6 +4499,7 @@
     },
     {
       "id": "model-discovered-5f80092f5e85cef40c36",
+      "vendorId": "vendor-google",
       "vendor": "Google",
       "name": "Nano Banana Pro",
       "apiModelId": "gemini-3-pro-image",
@@ -4531,6 +4609,7 @@
     },
     {
       "id": "model-discovered-1b05544a1e38815ba050",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "chatgpt-image-latest",
       "apiModelId": "chatgpt-image-latest",
@@ -4641,6 +4720,7 @@
     },
     {
       "id": "model-discovered-43e4ff83a595f03273e8",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "codex-mini-latest",
       "apiModelId": "codex-mini-latest",
@@ -4760,6 +4840,7 @@
     },
     {
       "id": "model-discovered-6a30c69a24a2ba7616e7",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "Daybreak Blue",
       "apiModelId": "gpt-daybreak-blue-latest",
@@ -4870,6 +4951,7 @@
     },
     {
       "id": "model-discovered-01433a49c5cc60e7428c",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "Daybreak Red",
       "apiModelId": "gpt-daybreak-red-latest",
@@ -4980,6 +5062,7 @@
     },
     {
       "id": "model-discovered-c221dc89c0adc7bf58c9",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-3.5 Turbo",
       "apiModelId": "gpt-3.5-turbo",
@@ -5090,6 +5173,7 @@
     },
     {
       "id": "model-discovered-731392d07973ec4dd374",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4",
       "apiModelId": "gpt-4",
@@ -5209,6 +5293,7 @@
     },
     {
       "id": "model-discovered-d59d6ddd57ee9a1e8d3f",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4 Turbo",
       "apiModelId": "gpt-4-turbo",
@@ -5328,6 +5413,7 @@
     },
     {
       "id": "model-discovered-ee7fbd4ea5b036d8c4d8",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4 Turbo Preview",
       "apiModelId": "gpt-4-turbo-preview",
@@ -5447,6 +5533,7 @@
     },
     {
       "id": "model-discovered-e7ad5bd7e714b6fbe0c3",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4.1",
       "apiModelId": "gpt-4.1",
@@ -5566,6 +5653,7 @@
     },
     {
       "id": "model-discovered-b9257ac7a2c8eaca2b5a",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4.1 Mini",
       "apiModelId": "gpt-4.1-mini",
@@ -5685,6 +5773,7 @@
     },
     {
       "id": "model-discovered-b422818c6300cfc29362",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4.1 nano",
       "apiModelId": "gpt-4.1-nano",
@@ -5804,6 +5893,7 @@
     },
     {
       "id": "model-discovered-b9917ad913a137839464",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4.5 Preview",
       "apiModelId": "gpt-4.5-preview",
@@ -5923,6 +6013,7 @@
     },
     {
       "id": "model-discovered-dcc1382081671253d9b5",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o",
       "apiModelId": "gpt-4o",
@@ -6042,6 +6133,7 @@
     },
     {
       "id": "model-discovered-29fbee76cd37a78d0990",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Audio",
       "apiModelId": "gpt-4o-audio-preview",
@@ -6152,6 +6244,7 @@
     },
     {
       "id": "model-discovered-8d6b0f1b6faadb07b615",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Mini",
       "apiModelId": "gpt-4o-mini",
@@ -6271,6 +6364,7 @@
     },
     {
       "id": "model-discovered-436161bb8ac5f5490821",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Mini Audio",
       "apiModelId": "gpt-4o-mini-audio-preview",
@@ -6381,6 +6475,7 @@
     },
     {
       "id": "model-discovered-8e9c857a7ff8235ea836",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Mini Realtime",
       "apiModelId": "gpt-4o-mini-realtime-preview",
@@ -6491,6 +6586,7 @@
     },
     {
       "id": "model-discovered-da4390555129f7b96ace",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Mini Search Preview",
       "apiModelId": "gpt-4o-mini-search-preview",
@@ -6601,6 +6697,7 @@
     },
     {
       "id": "model-discovered-4b8ecb4f05c5a4a79952",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Mini Transcribe",
       "apiModelId": "gpt-4o-mini-transcribe",
@@ -6711,6 +6808,7 @@
     },
     {
       "id": "model-discovered-d6570eab7b1ee4f3f30b",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Mini TTS",
       "apiModelId": "gpt-4o-mini-tts",
@@ -6821,6 +6919,7 @@
     },
     {
       "id": "model-discovered-fa3ab9de6f363cec61d6",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Realtime",
       "apiModelId": "gpt-4o-realtime-preview",
@@ -6931,6 +7030,7 @@
     },
     {
       "id": "model-discovered-c1f11abb445a94e20a49",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Search Preview",
       "apiModelId": "gpt-4o-search-preview",
@@ -7041,6 +7141,7 @@
     },
     {
       "id": "model-discovered-de551bae2539edcc71a7",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Transcribe",
       "apiModelId": "gpt-4o-transcribe",
@@ -7151,6 +7252,7 @@
     },
     {
       "id": "model-discovered-12c98d85d99fbc80d244",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-4o Transcribe Diarize",
       "apiModelId": "gpt-4o-transcribe-diarize",
@@ -7261,6 +7363,7 @@
     },
     {
       "id": "model-discovered-a631362df6539c375a1f",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5",
       "apiModelId": "gpt-5",
@@ -7380,6 +7483,7 @@
     },
     {
       "id": "model-discovered-76ac3061d43cbea99683",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5 Chat",
       "apiModelId": "gpt-5-chat-latest",
@@ -7499,6 +7603,7 @@
     },
     {
       "id": "model-discovered-454d972053e3035f992c",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5 Mini",
       "apiModelId": "gpt-5-mini",
@@ -7618,6 +7723,7 @@
     },
     {
       "id": "model-discovered-1e9a4f1a438a4bfd5fd7",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5 nano",
       "apiModelId": "gpt-5-nano",
@@ -7737,6 +7843,7 @@
     },
     {
       "id": "model-discovered-3e9e5798a0fcafec17d8",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5 Pro",
       "apiModelId": "gpt-5-pro",
@@ -7856,6 +7963,7 @@
     },
     {
       "id": "model-discovered-023f4743226707f70c92",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5-Codex",
       "apiModelId": "gpt-5-codex",
@@ -7975,6 +8083,7 @@
     },
     {
       "id": "model-discovered-e19c519e25aaefa93b0f",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.1",
       "apiModelId": "gpt-5.1",
@@ -8094,6 +8203,7 @@
     },
     {
       "id": "model-discovered-53da97192b53c9fb9cd4",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.1 Chat",
       "apiModelId": "gpt-5.1-chat-latest",
@@ -8213,6 +8323,7 @@
     },
     {
       "id": "model-discovered-96b3d6a8812d1bff8280",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.1-Codex",
       "apiModelId": "gpt-5.1-codex",
@@ -8332,6 +8443,7 @@
     },
     {
       "id": "model-discovered-ac268b9c9424fa0d96c6",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.1-Codex Mini",
       "apiModelId": "gpt-5.1-codex-mini",
@@ -8451,6 +8563,7 @@
     },
     {
       "id": "model-discovered-698a39834857c5ed27bb",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.1-Codex-Max",
       "apiModelId": "gpt-5.1-codex-max",
@@ -8570,6 +8683,7 @@
     },
     {
       "id": "model-discovered-a4d62a7cf5e798457d76",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.2",
       "apiModelId": "gpt-5.2",
@@ -8689,6 +8803,7 @@
     },
     {
       "id": "model-discovered-3e5d717e80573cf8d2f6",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.2 Chat",
       "apiModelId": "gpt-5.2-chat-latest",
@@ -8808,6 +8923,7 @@
     },
     {
       "id": "model-discovered-71a2a8fdc338e5099bd5",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.2 Pro",
       "apiModelId": "gpt-5.2-pro",
@@ -8927,6 +9043,7 @@
     },
     {
       "id": "model-discovered-2a1c4b7a96497390d63a",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.2-Codex",
       "apiModelId": "gpt-5.2-codex",
@@ -9046,6 +9163,7 @@
     },
     {
       "id": "model-discovered-7c76ed0b3a985bb4f0ae",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.3 Chat",
       "apiModelId": "gpt-5.3-chat-latest",
@@ -9165,6 +9283,7 @@
     },
     {
       "id": "model-discovered-a74c2e9d0a00080b78c4",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.3-Codex",
       "apiModelId": "gpt-5.3-codex",
@@ -9284,6 +9403,7 @@
     },
     {
       "id": "model-discovered-0ec90986ddf2d16fa90e",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.4",
       "apiModelId": "gpt-5.4",
@@ -9403,6 +9523,7 @@
     },
     {
       "id": "model-discovered-70c3ac4805a382e7499d",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.4 Mini",
       "apiModelId": "gpt-5.4-mini",
@@ -9522,6 +9643,7 @@
     },
     {
       "id": "model-discovered-5129934552dd2286e897",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.4 nano",
       "apiModelId": "gpt-5.4-nano",
@@ -9641,6 +9763,7 @@
     },
     {
       "id": "model-discovered-1fb968dfc97a50a275ea",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.4 Pro",
       "apiModelId": "gpt-5.4-pro",
@@ -9760,6 +9883,7 @@
     },
     {
       "id": "model-discovered-7ae0b7ff37a648b21f2e",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.5",
       "apiModelId": "gpt-5.5",
@@ -9879,6 +10003,7 @@
     },
     {
       "id": "model-discovered-5813b29ae4f9cdf7224a",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.5 Pro",
       "apiModelId": "gpt-5.5-pro",
@@ -9998,6 +10123,7 @@
     },
     {
       "id": "model-discovered-aa82e1844a4aa3932879",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.6 Cyber",
       "apiModelId": "gpt-5.6-cyber",
@@ -10117,6 +10243,7 @@
     },
     {
       "id": "model-discovered-e65fdbebbfed99349ec2",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.6 Luna",
       "apiModelId": "gpt-5.6-luna",
@@ -10243,6 +10370,7 @@
     },
     {
       "id": "model-gpt-5-6-sol",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.6 Sol",
       "apiModelId": "gpt-5.6-sol",
@@ -10362,6 +10490,7 @@
     },
     {
       "id": "model-discovered-88b38a0be53dd343689c",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-5.6 Terra",
       "apiModelId": "gpt-5.6-terra",
@@ -10481,6 +10610,7 @@
     },
     {
       "id": "model-discovered-e8ec7ed4b30b4efbaf48",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-6 Astra",
       "apiModelId": "gpt-6-astra",
@@ -10600,6 +10730,7 @@
     },
     {
       "id": "model-discovered-a7b8efc666342264a603",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Audio",
       "apiModelId": "gpt-audio",
@@ -10710,6 +10841,7 @@
     },
     {
       "id": "model-discovered-81592b8b318be516dac4",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Audio Mini",
       "apiModelId": "gpt-audio-mini",
@@ -10820,6 +10952,7 @@
     },
     {
       "id": "model-discovered-295b656c3e83b017a71f",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Audio-1.5",
       "apiModelId": "gpt-audio-1.5",
@@ -10930,6 +11063,7 @@
     },
     {
       "id": "model-discovered-2cac746ef1a55cb5ac89",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Image-1",
       "apiModelId": "gpt-image-1",
@@ -11040,6 +11174,7 @@
     },
     {
       "id": "model-discovered-d86884237412b2ed62cc",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Image-1 Mini",
       "apiModelId": "gpt-image-1-mini",
@@ -11150,6 +11285,7 @@
     },
     {
       "id": "model-discovered-4c927f8246106837b3d7",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Image-1.5",
       "apiModelId": "gpt-image-1.5",
@@ -11260,6 +11396,7 @@
     },
     {
       "id": "model-discovered-bd0e51b349b405705836",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Image-2",
       "apiModelId": "gpt-image-2",
@@ -11370,6 +11507,7 @@
     },
     {
       "id": "model-discovered-ecfe55f8a422ccdff7ed",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Live-Transcribe",
       "apiModelId": "gpt-live-transcribe",
@@ -11480,6 +11618,7 @@
     },
     {
       "id": "model-discovered-6c8c926518e94df93aed",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "gpt-oss-120b",
       "apiModelId": "gpt-oss-120b",
@@ -11590,6 +11729,7 @@
     },
     {
       "id": "model-discovered-b57640270d77a39ad172",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "gpt-oss-20b",
       "apiModelId": "gpt-oss-20b",
@@ -11700,6 +11840,7 @@
     },
     {
       "id": "model-discovered-54b047be8ad11af0a08a",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime",
       "apiModelId": "gpt-realtime",
@@ -11810,6 +11951,7 @@
     },
     {
       "id": "model-discovered-7c9ed0fdee8d576ec2c8",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime Mini",
       "apiModelId": "gpt-realtime-mini",
@@ -11920,6 +12062,7 @@
     },
     {
       "id": "model-discovered-0e29cdb1a9068369cdfd",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime-1.5",
       "apiModelId": "gpt-realtime-1.5",
@@ -12030,6 +12173,7 @@
     },
     {
       "id": "model-discovered-e76102c0aeab37be7be8",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime-2",
       "apiModelId": "gpt-realtime-2",
@@ -12140,6 +12284,7 @@
     },
     {
       "id": "model-discovered-7633f7280401e4fe7015",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime-2.1",
       "apiModelId": "gpt-realtime-2.1",
@@ -12250,6 +12395,7 @@
     },
     {
       "id": "model-discovered-5308f96edde33db43d93",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime-2.1 Mini",
       "apiModelId": "gpt-realtime-2.1-mini",
@@ -12360,6 +12506,7 @@
     },
     {
       "id": "model-discovered-f0e3cd07004a27ba5e00",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime-Translate",
       "apiModelId": "gpt-realtime-translate",
@@ -12470,6 +12617,7 @@
     },
     {
       "id": "model-discovered-f463fdf1af5e8e009dcc",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Realtime-Whisper",
       "apiModelId": "gpt-realtime-whisper",
@@ -12580,6 +12728,7 @@
     },
     {
       "id": "model-discovered-21e9947fc3d539478a0d",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "GPT-Transcribe",
       "apiModelId": "gpt-transcribe",
@@ -12690,6 +12839,7 @@
     },
     {
       "id": "model-discovered-726dd1e6cbcf8f3e2436",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o1 Preview",
       "apiModelId": "o1-preview",
@@ -12809,6 +12959,7 @@
     },
     {
       "id": "model-discovered-3d24101d58fa0b07db6b",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o1-mini",
       "apiModelId": "o1-mini",
@@ -12928,6 +13079,7 @@
     },
     {
       "id": "model-discovered-c0466cbac6d887384649",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o1-pro",
       "apiModelId": "o1-pro",
@@ -13047,6 +13199,7 @@
     },
     {
       "id": "model-discovered-ea3b61e7225f020a5b7e",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o3-deep-research",
       "apiModelId": "o3-deep-research",
@@ -13166,6 +13319,7 @@
     },
     {
       "id": "model-discovered-368039b89b2d9e7f3dad",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o3-mini",
       "apiModelId": "o3-mini",
@@ -13285,6 +13439,7 @@
     },
     {
       "id": "model-discovered-1fd19c9c66c35da1b8ec",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o3-pro",
       "apiModelId": "o3-pro",
@@ -13404,6 +13559,7 @@
     },
     {
       "id": "model-discovered-738b169f6dadce123772",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o4-mini",
       "apiModelId": "o4-mini",
@@ -13523,6 +13679,7 @@
     },
     {
       "id": "model-discovered-51d7e9ccbf0079432f1b",
+      "vendorId": "vendor-openai",
       "vendor": "OpenAI",
       "name": "o4-mini-deep-research",
       "apiModelId": "o4-mini-deep-research",
@@ -13642,6 +13799,7 @@
     },
     {
       "id": "model-grok-4-6",
+      "vendorId": "vendor-xai",
       "vendor": "xAI",
       "name": "Grok 4.6",
       "apiModelId": "grok-4.6",

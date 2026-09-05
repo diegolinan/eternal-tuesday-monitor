@@ -31,6 +31,8 @@ await Promise.all([
   requireFile('.nojekyll'),
   requireFile('data/monitor.json'),
   requireFile('data/changelog.json'),
+  requireFile('favicon.svg'),
+  requireFile('favicon-32.png'),
   requireFile('assets/eternal-tuesday-banner.png'),
   requireFile('assets/diagnostic-panel.png'),
   requireFile('assets/monitor-exhibit.png'),
@@ -77,8 +79,15 @@ for (const relativePath of ['index.html', 'changelog/index.html']) {
       fail(`${relativePath}: framework assets are not base-path prefixed`);
     if (!html.includes(`rel="canonical" href="${canonicalUrl}`))
       fail(`${relativePath}: canonical metadata does not use GitHub Pages`);
+    if (relativePath === 'index.html' && !html.includes(`${basePath}/favicon`))
+      fail('index.html: favicon is not repository-prefix aware');
     if (html.includes(openAIPrototypeHost))
       fail(`${relativePath}: contains the historical OpenAI prototype host`);
+    if (
+      html.includes('Inspect discovery runs') ||
+      html.includes('Run five probes manually')
+    )
+      fail(`${relativePath}: contains a public administrative action`);
     const unsafeLocalReference =
       /(?:href|src)=["']\/(?!eternal-tuesday-monitor(?:\/|["']))/g.exec(html);
     if (unsafeLocalReference)

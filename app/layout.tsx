@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { canonicalSiteUrl } from '@/lib/site-paths';
+import { canonicalSiteUrl, withBasePath } from '@/lib/site-paths';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -8,7 +8,17 @@ export const metadata: Metadata = {
   description:
     'A dated, evidence-based monitor of observable temporal continuity behavior in current AI products.',
   alternates: { canonical: canonicalSiteUrl },
-  other: { 'release-date': '2026-09-07' },
+  icons: {
+    icon: [
+      { url: withBasePath('/favicon.svg'), type: 'image/svg+xml' },
+      {
+        url: withBasePath('/favicon-32.png'),
+        type: 'image/png',
+        sizes: '32x32',
+      },
+    ],
+    shortcut: withBasePath('/favicon-32.png'),
+  },
   openGraph: {
     type: 'website',
     url: canonicalSiteUrl,

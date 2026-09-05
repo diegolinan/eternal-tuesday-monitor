@@ -36,7 +36,9 @@ export function projectModels(
   const catalogIds = new Set((options.catalog ?? []).map((entry) => entry.id));
   const observedModelIds = new Set(observations.map((item) => item.model_id));
   return [...byId.values()]
-    .filter((model) => catalogIds.has(model.id) || observedModelIds.has(model.id))
+    .filter(
+      (model) => catalogIds.has(model.id) || observedModelIds.has(model.id),
+    )
     .map((model) => {
       const catalogEntry = (options.catalog ?? []).find(
         (entry) => entry.id === model.id,
@@ -86,17 +88,19 @@ export function projectModels(
           requestCount: latestApiResult?.request_count ?? 0,
         };
       });
-      const lifecycleState = lifecycle.empiricalObservations.length || behavioralApiResults.length
-        ? behavioralApiResults.length && !lifecycle.empiricalObservations.length
-          ? 'TESTED'
-          : lifecycle.lifecycleState
-        : adoption
-          ? adoption.probes.some((item) => item.state === 'ELIGIBLE')
-            ? 'EVALUATION_AVAILABLE'
-            : adoption.probes.every((item) => item.state === 'NOT_TESTABLE')
-              ? 'EVALUATION_NOT_POSSIBLE'
-              : 'EVALUATION_PENDING'
-          : lifecycle.lifecycleState;
+      const lifecycleState =
+        lifecycle.empiricalObservations.length || behavioralApiResults.length
+          ? behavioralApiResults.length &&
+            !lifecycle.empiricalObservations.length
+            ? 'TESTED'
+            : lifecycle.lifecycleState
+          : adoption
+            ? adoption.probes.some((item) => item.state === 'ELIGIBLE')
+              ? 'EVALUATION_AVAILABLE'
+              : adoption.probes.every((item) => item.state === 'NOT_TESTABLE')
+                ? 'EVALUATION_NOT_POSSIBLE'
+                : 'EVALUATION_PENDING'
+            : lifecycle.lifecycleState;
       const dates = [
         ...lifecycle.empiricalObservations
           .filter((o) => o.observation_date.precision === 'day')
@@ -125,13 +129,24 @@ export function projectModels(
           }),
         ).values(),
       ];
-      if (behavioralApiResults.length && !surfaces.some((surface) => surface.id === 'surface-openai-model-api')) {
+      if (
+        behavioralApiResults.length &&
+        !surfaces.some((surface) => surface.id === 'surface-openai-model-api')
+      ) {
         const surface = options.surfaces?.get('surface-openai-model-api');
-        const product = surface ? options.products?.get(surface.product_id) : null;
-        surfaces.push({ id: 'surface-openai-model-api', product: product?.name ?? 'OpenAI API', name: surface?.name ?? 'OpenAI model API', kind: 'PROVIDER_API' });
+        const product = surface
+          ? options.products?.get(surface.product_id)
+          : null;
+        surfaces.push({
+          id: 'surface-openai-model-api',
+          product: product?.name ?? 'OpenAI API',
+          name: surface?.name ?? 'OpenAI model API',
+          kind: 'PROVIDER_API',
+        });
       }
       return {
         id: model.id,
+        vendorId: model.vendor_id,
         vendor: vendors.get(model.vendor_id)?.name ?? 'Not established',
         name: model.display_name,
         apiModelId: model.api_model_id,

@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Search } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { ChevronRight, Search } from 'lucide-react';
+import { StatusEmblem } from '@/components/status-emblem';
+import { VendorMark } from '@/components/vendor-mark';
 
 type ProbeCoverage = {
   id: string;
@@ -16,7 +18,14 @@ type ProbeCoverage = {
   eligibilityReasons: string[];
   methodologyVersionId: string | null;
   testability: 'API_TESTABLE' | 'PARTIALLY_API_TESTABLE' | 'NOT_API_TESTABLE';
-  empiricalResult: 'PASS' | 'FAIL' | 'MATCH' | 'MISMATCH' | 'INCONCLUSIVE' | 'OPERATIONAL_ERROR' | null;
+  empiricalResult:
+    | 'PASS'
+    | 'FAIL'
+    | 'MATCH'
+    | 'MISMATCH'
+    | 'INCONCLUSIVE'
+    | 'OPERATIONAL_ERROR'
+    | null;
   evidenceClass: string | null;
   verifiedOn: string | null;
   limitations: string[];
@@ -25,6 +34,7 @@ type ProbeCoverage = {
 
 export type DiscoveredModel = {
   id: string;
+  vendorId: string;
   name: string;
   vendor: string;
   apiModelId: string | null;
@@ -68,7 +78,11 @@ export type DiscoveredModel = {
     | 'RETEST_POLICY'
     | 'TEST_REQUIRED';
   queueReasons: string[];
-  executionState: 'NOT_RUN' | 'COMPLETED' | 'OPERATIONAL_ERROR' | 'EXECUTION_BLOCKED_COST_POLICY';
+  executionState:
+    | 'NOT_RUN'
+    | 'COMPLETED'
+    | 'OPERATIONAL_ERROR'
+    | 'EXECUTION_BLOCKED_COST_POLICY';
   probeCoverage: ProbeCoverage[];
   surfaces: Array<{
     id: string;
@@ -80,6 +94,23 @@ export type DiscoveredModel = {
   reviewReasons: string[];
   defaultProminence: boolean;
 };
+
+type RegistryGroup =
+  | 'TESTED'
+  | 'RETEST_REQUIRED'
+  | 'TEST_REQUIRED'
+  | 'EVALUATION_BLOCKED'
+  | 'REVIEW_REQUIRED'
+  | 'CATALOG_ONLY';
+
+const groupOrder: RegistryGroup[] = [
+  'TESTED',
+  'RETEST_REQUIRED',
+  'TEST_REQUIRED',
+  'EVALUATION_BLOCKED',
+  'REVIEW_REQUIRED',
+  'CATALOG_ONLY',
+];
 
 const label = (value: string) => value.replaceAll('_', ' ');
 const reasonLabels: Record<string, string> = {
@@ -127,160 +158,208 @@ const explainReasons = (reasons: string[]) =>
     )
     .join('. ');
 
-function LifecycleCard({ model }: { model: DiscoveredModel }) {
+function registryGroup(model: DiscoveredModel): RegistryGroup {
+  if (model.lifecycleState === 'TESTED') return 'TESTED';
+  if (model.lifecycleState === 'RETEST_REQUIRED') return 'RETEST_REQUIRED';
+  if (model.queueState === 'TEST_REQUIRED') return 'TEST_REQUIRED';
+  if (
+    model.queueState === 'BLOCKED' ||
+    model.lifecycleState === 'EVALUATION_NOT_POSSIBLE'
+  )
+    return 'EVALUATION_BLOCKED';
+  if (
+    model.relevanceState === 'REVIEW_REQUIRED' ||
+    model.reviewReasons.length > 0
+  )
+    return 'REVIEW_REQUIRED';
+  return 'CATALOG_ONLY';
+}
+
+function ModelDetail({ model }: { model: DiscoveredModel }) {
+  const boundaryReasons = [
+    ...new Set([...model.apiAvailabilityReasons, ...model.queueReasons]),
+  ];
   return (
-    <article
-      className={`coverage-card state-${model.lifecycleState.toLowerCase()}`}
-    >
-      <header>
-        <span>{model.vendor}</span>
-        <strong>{model.lifecycleState === 'DISCOVERED' || model.lifecycleState === 'EVALUATION_PENDING' ? 'NEW / CURRENT' : label(model.lifecycleState)}</strong>
-      </header>
-      <div className="coverage-card-body">
-        <h3>{model.name}</h3>
-        <p className="coverage-verdict">NO VERDICT IMPLIED</p>
-        <dl>
-          <div>
-            <dt>Official model ID</dt>
-            <dd>{model.apiModelId ?? 'Not established'}</dd>
-          </div>
-          <div>
-            <dt>Discovered</dt>
-            <dd>{model.discoveredOn ?? 'Not established'}</dd>
-          </div>
-          <div>
-            <dt>Official source detected</dt>
-            <dd>{model.discoveredOn ?? 'Not established'}</dd>
-          </div>
-          <div>
-            <dt>Behavioral evidence</dt>
-            <dd>{model.probeCoverage.some((probe) => probe.empiricalResult || probe.state === 'TESTED') ? 'CURRENT EVIDENCE AVAILABLE' : 'NOT YET TESTED'}</dd>
-          </div>
-          <div>
-            <dt>Evaluation queue</dt>
-            <dd>{label(model.queueState)}</dd>
-          </div>
-          <div>
-            <dt>Evaluation status</dt>
-            <dd>{model.queueState === 'TEST_REQUIRED' ? 'TEST REQUIRED' : label(model.queueState)}</dd>
-          </div>
-          <div>
-            <dt>Reviewed relevance</dt>
-            <dd>{label(model.relevanceState)}</dd>
-          </div>
-        </dl>
-        <div
-          className="probe-coverage"
-          aria-label={`${model.name} probe coverage`}
-        >
-          {model.probeCoverage.map((probe) => (
-            <div key={probe.id}>
-              <span>{probe.name}</span>
-              <b>{probe.empiricalResult ? label(probe.empiricalResult) : 'NO CURRENT EVIDENCE'}</b>
-              <small>{label(probe.state)}</small>
-            </div>
-          ))}
+    <div className="model-row-detail">
+      <dl className="model-facts">
+        <div>
+          <dt>Official model ID</dt>
+          <dd>{model.apiModelId ?? 'Not established'}</dd>
         </div>
-        {(model.apiAvailabilityReasons.length > 0 ||
-          model.queueReasons.length > 0) && (
-          <div className="coverage-blocker" role="note">
-            <strong>Evidence boundary</strong>
-            <p>
-              {explainReasons([
-                ...new Set([
-                  ...model.apiAvailabilityReasons,
-                  ...model.queueReasons,
-                ]),
-              ])}
-            </p>
+        <div>
+          <dt>Official source detected</dt>
+          <dd>{model.discoveredOn ?? 'Not established'}</dd>
+        </div>
+        <div>
+          <dt>Release state</dt>
+          <dd>{label(model.releaseState)}</dd>
+        </div>
+        <div>
+          <dt>Reviewed relevance</dt>
+          <dd>{label(model.relevanceState)}</dd>
+        </div>
+      </dl>
+
+      <div
+        className="probe-coverage"
+        aria-label={`${model.name} probe coverage`}
+      >
+        {model.probeCoverage.map((probe) => (
+          <div key={probe.id}>
+            <span>{probe.name}</span>
+            <StatusEmblem
+              compact
+              value={probe.empiricalResult ?? 'NO CURRENT EVIDENCE'}
+            />
+            <small>{label(probe.state)}</small>
           </div>
+        ))}
+      </div>
+
+      {boundaryReasons.length > 0 && (
+        <div className="coverage-blocker" role="note">
+          <strong>Evidence boundary</strong>
+          <p>{explainReasons(boundaryReasons)}</p>
+        </div>
+      )}
+
+      <div className="model-provenance">
+        <h4>Eligibility and provenance</h4>
+        <p>
+          {model.evaluationReasons.length
+            ? explainReasons(model.evaluationReasons)
+            : 'No mechanical blocker is currently recorded.'}
+        </p>
+        {model.adoptionAssessedOn && (
+          <p>Adoption eligibility assessed {model.adoptionAssessedOn}.</p>
         )}
-        <details>
-          <summary>Evidence boundary and provenance</summary>
-          <p>
-            {model.evaluationReasons.length
-              ? explainReasons(model.evaluationReasons)
-              : 'No mechanical blocker is currently recorded.'}
-          </p>
-          {model.adoptionAssessedOn && (
-            <p>Adoption eligibility assessed {model.adoptionAssessedOn}.</p>
-          )}
+        <ul>
+          {model.probeCoverage.map((probe) => (
+            <li key={`${probe.id}-eligibility`}>
+              {probe.name}: {label(probe.eligibilityState)}
+              {probe.eligibilityReasons.length
+                ? ` · ${explainReasons(probe.eligibilityReasons)}`
+                : ''}
+              {probe.empiricalResult
+                ? ` · empirical result ${label(probe.empiricalResult)} · ${probe.evidenceClass} · verified ${probe.verifiedOn} · methodology ${probe.methodologyVersionId} · ${probe.requestCount} request(s)${probe.limitations.length ? ` · ${probe.limitations.join(' ')}` : ''}`
+                : ''}
+            </li>
+          ))}
+        </ul>
+        {model.surfaces.length ? (
           <ul>
-            {model.probeCoverage.map((probe) => (
-              <li key={`${probe.id}-eligibility`}>
-                {probe.name}: {label(probe.eligibilityState)}
-                {probe.eligibilityReasons.length
-                  ? ` · ${explainReasons(probe.eligibilityReasons)}`
-                  : ''}
-                {probe.empiricalResult
-                  ? ` · empirical OpenAI API result ${label(probe.empiricalResult)} · ${probe.evidenceClass} · verified ${probe.verifiedOn} · methodology ${probe.methodologyVersionId} · ${probe.requestCount} request(s)${probe.limitations.length ? ` · ${probe.limitations.join(' ')}` : ''}`
-                  : ''}
+            {model.surfaces.map((surface) => (
+              <li key={surface.id}>
+                {surface.product} / {surface.name} · {label(surface.kind)}
               </li>
             ))}
           </ul>
-          {model.surfaces.length ? (
-            <ul>
-              {model.surfaces.map((surface) => (
-                <li key={surface.id}>
-                  {surface.product} / {surface.name} · {label(surface.kind)}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No product surface is inferred from catalog or API metadata.</p>
-          )}
-          {model.sources.length ? (
-            <ul>
-              {model.sources.map((url, index) => (
-                <li key={url}>
-                  <a href={url} target="_blank" rel="noreferrer">
-                    Official discovery source {index + 1}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>This manually curated identity has no discovery-event source.</p>
-          )}
-        </details>
+        ) : (
+          <p>No product surface is inferred from catalog or API metadata.</p>
+        )}
+        {model.sources.length ? (
+          <ul>
+            {model.sources.map((url, index) => (
+              <li key={url}>
+                <a href={url} target="_blank" rel="noreferrer">
+                  Official discovery source {index + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>This manually curated identity has no discovery-event source.</p>
+        )}
       </div>
-    </article>
+    </div>
   );
+}
+
+function ModelRow({ model }: { model: DiscoveredModel }) {
+  const group = registryGroup(model);
+  const tested = model.probeCoverage.filter(
+    (probe) => probe.empiricalResult || probe.state === 'TESTED',
+  ).length;
+  return (
+    <details className="model-row">
+      <summary>
+        <ChevronRight aria-hidden="true" />
+        <span className="model-row-name">
+          <strong>{model.name}</strong>
+          <small>{model.apiModelId ?? 'OFFICIAL ID NOT ESTABLISHED'}</small>
+        </span>
+        <StatusEmblem compact value={group} />
+        <span className="model-probe-count">
+          {tested}/5 PROBES WITH EVIDENCE
+        </span>
+      </summary>
+      <ModelDetail model={model} />
+    </details>
+  );
+}
+
+function updateOpenSet(current: Set<string>, key: string, isOpen: boolean) {
+  const next = new Set(current);
+  if (isOpen) next.add(key);
+  else next.delete(key);
+  return next;
 }
 
 export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
   const [scope, setScope] = useState<'focus' | 'all'>('focus');
   const [query, setQuery] = useState('');
-  const [vendor, setVendor] = useState('ALL');
-  const vendors = [...new Set(models.map((model) => model.vendor))].sort();
+  const [openVendors, setOpenVendors] = useState(new Set<string>());
+  const [openGroups, setOpenGroups] = useState(new Set<string>());
+  const needle = query.trim().toLowerCase();
+
+  const visible = useMemo(
+    () =>
+      models.filter((model) => {
+        const matchesText =
+          !needle ||
+          `${model.name} ${model.vendor} ${model.apiModelId ?? ''}`
+            .toLowerCase()
+            .includes(needle);
+        return (
+          (scope === 'all' || model.defaultProminence || Boolean(needle)) &&
+          matchesText
+        );
+      }),
+    [models, needle, scope],
+  );
+
+  const vendors = useMemo(() => {
+    const byVendor = new Map<string, Map<RegistryGroup, DiscoveredModel[]>>();
+    for (const model of visible) {
+      const groups = byVendor.get(model.vendor) ?? new Map();
+      const group = registryGroup(model);
+      groups.set(group, [...(groups.get(group) ?? []), model]);
+      byVendor.set(model.vendor, groups);
+    }
+    return [...byVendor.entries()]
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([vendor, groups]) => ({
+        vendor,
+        total: [...groups.values()].reduce(
+          (sum, items) => sum + items.length,
+          0,
+        ),
+        groups: groupOrder
+          .filter((name) => groups.has(name))
+          .map((name) => ({
+            name,
+            models: [...(groups.get(name) ?? [])].sort((left, right) =>
+              left.name.localeCompare(right.name),
+            ),
+          })),
+      }));
+  }, [visible]);
+
   const counts = models.reduce<Record<string, number>>((result, model) => {
-    result[model.lifecycleState] = (result[model.lifecycleState] ?? 0) + 1;
+    const group = registryGroup(model);
+    result[group] = (result[group] ?? 0) + 1;
     return result;
   }, {});
-  const visible = (() => {
-    const needle = query.trim().toLowerCase();
-    return models.filter((model) => {
-      const focused = model.defaultProminence;
-      const matchesText =
-        !needle ||
-        `${model.name} ${model.vendor} ${model.apiModelId ?? ''}`
-          .toLowerCase()
-          .includes(needle);
-      return (
-        (scope === 'all' || focused || Boolean(needle)) &&
-        (vendor === 'ALL' || model.vendor === vendor) &&
-        matchesText
-      );
-    });
-  })();
-  const displayed = visible.slice(0, 24);
-  const newOrPending = models.filter(
-    (model) =>
-      model.defaultProminence &&
-      ['DISCOVERED', 'EVALUATION_PENDING', 'EVALUATION_AVAILABLE'].includes(
-        model.lifecycleState,
-      ),
-  ).length;
 
   return (
     <section
@@ -294,28 +373,28 @@ export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
           <h2 id="models-title">What the Monitor knows</h2>
         </div>
         <p>
-          Entity discovery, vendor source evidence, and behavioral observation
-          are separate records. A public model identity never proves behavior
-          or adoption by ChatGPT or another consumer product.
+          Verified identity, review state and behavioral evidence remain
+          separate. Open a vendor, then a status group, to inspect one exact
+          model.
         </p>
       </div>
 
-      <div className="coverage-summary" aria-label="Model lifecycle counts">
+      <div className="coverage-summary" aria-label="Model registry summary">
         <div>
           <strong>{counts.TESTED ?? 0}</strong>
           <span>Tested</span>
         </div>
         <div>
-          <strong>{newOrPending}</strong>
-          <span>New / evaluation pending</span>
+          <strong>{counts.TEST_REQUIRED ?? 0}</strong>
+          <span>Test required</span>
         </div>
         <div>
-          <strong>{counts.RETEST_REQUIRED ?? 0}</strong>
-          <span>Retest required</span>
+          <strong>{counts.REVIEW_REQUIRED ?? 0}</strong>
+          <span>Review required</span>
         </div>
         <div className="coverage-known">
           <strong>{models.length}</strong>
-          <span>Known catalog identities</span>
+          <span>Catalog identities</span>
         </div>
       </div>
 
@@ -347,42 +426,83 @@ export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
             />
           </div>
         </label>
-        <label className="coverage-vendor">
-          <span>Vendor</span>
-          <select
-            value={vendor}
-            onChange={(event) => setVendor(event.target.value)}
-          >
-            <option value="ALL">All vendors</option>
-            {vendors.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </label>
       </div>
+
       <p className="coverage-explainer">
-        Evidence focus shows tested, retest, evaluation-ready, or explicitly
-        policy-classified relevant models. Catalog-only variants remain
-        searchable without dominating the default view. Frontier status is never
-        guessed from a name or version.
+        Evidence focus shows reviewed or actionable identities. The complete
+        catalog remains available without implying availability or behavior.
       </p>
       <p className="coverage-result-count">
-        Showing {displayed.length} of {visible.length} matching models.
+        {visible.length} matching models in {vendors.length} vendor groups.
       </p>
-      {displayed.length ? (
-        <div className="model-register-grid">
-          {displayed.map((model) => (
-            <LifecycleCard key={model.id} model={model} />
-          ))}
+
+      {vendors.length ? (
+        <div className="vendor-register">
+          {vendors.map(({ vendor, total, groups }) => {
+            const vendorOpen = Boolean(needle) || openVendors.has(vendor);
+            return (
+              <details
+                className="vendor-register-group"
+                key={vendor}
+                open={vendorOpen}
+                onToggle={(event) => {
+                  if (!needle) {
+                    const isOpen = event.currentTarget.open;
+                    setOpenVendors((current) =>
+                      updateOpenSet(current, vendor, isOpen),
+                    );
+                  }
+                }}
+              >
+                <summary>
+                  <ChevronRight aria-hidden="true" />
+                  <VendorMark
+                    vendor={vendor}
+                    vendorId={groups[0]?.models[0]?.vendorId}
+                  />
+                  <strong>{total} MODELS</strong>
+                </summary>
+                <div className="registry-status-groups">
+                  {groups.map((group) => {
+                    const groupKey = `${vendor}:${group.name}`;
+                    const groupOpen =
+                      Boolean(needle) || openGroups.has(groupKey);
+                    return (
+                      <details
+                        className="registry-status-group"
+                        key={groupKey}
+                        open={groupOpen}
+                        onToggle={(event) => {
+                          if (!needle) {
+                            const isOpen = event.currentTarget.open;
+                            setOpenGroups((current) =>
+                              updateOpenSet(current, groupKey, isOpen),
+                            );
+                          }
+                        }}
+                      >
+                        <summary>
+                          <ChevronRight aria-hidden="true" />
+                          <StatusEmblem compact value={group.name} />
+                          <strong>{group.models.length}</strong>
+                        </summary>
+                        <div className="model-rows">
+                          {group.models.map((model) => (
+                            <ModelRow key={model.id} model={model} />
+                          ))}
+                        </div>
+                      </details>
+                    );
+                  })}
+                </div>
+              </details>
+            );
+          })}
         </div>
       ) : (
         <div className="empty-state">
           <span>NO MATCHING MODEL</span>
-          <p>
-            Try the full catalog, another vendor, or a model/API identifier.
-          </p>
+          <p>Try the complete catalog or another model/API identifier.</p>
         </div>
       )}
     </section>
