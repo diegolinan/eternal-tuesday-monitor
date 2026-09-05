@@ -65,6 +65,12 @@ try {
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
 }
+const activeSourceIds = new Set(config.sources.map((source) => source.id));
+pendingEvents = pendingEvents.filter((event) =>
+  (event.model?.provenance ?? []).every((item) =>
+    activeSourceIds.has(item.source_id),
+  ),
+);
 const priorIds = new Set(canonicalEvents.map((e) => e.id));
 pendingEvents = pendingEvents.filter((e) => !priorIds.has(e.id));
 const previous = latestModels([...canonicalEvents, ...pendingEvents]);
