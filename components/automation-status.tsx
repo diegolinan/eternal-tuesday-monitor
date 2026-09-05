@@ -52,7 +52,7 @@ export function AutomationStatus() {
     const read = () => fetch(API, { headers: { Accept: 'application/vnd.github+json' } })
       .then((response) => {
         if (!response.ok) throw new Error('GitHub workflow status unavailable');
-        return response.json();
+        return response.json() as Promise<{ workflow_runs?: WorkflowRun[] }>;
       })
       .then((payload) => setRuns(payload.workflow_runs ?? []))
       .finally(() => setLoaded(true));

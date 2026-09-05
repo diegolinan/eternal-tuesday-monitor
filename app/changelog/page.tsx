@@ -28,7 +28,7 @@ export default function ChangelogPage() {
     fetch(withBasePath('/data/changelog.json'))
       .then((response) => {
         if (!response.ok) throw new Error('Changelog unavailable');
-        return response.json();
+        return response.json() as Promise<{ events: ChangeEvent[] }>;
       })
       .then((data) => setEvents(data.events))
       .catch(() => setEvents([]));
