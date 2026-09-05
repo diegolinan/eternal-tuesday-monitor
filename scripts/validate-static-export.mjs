@@ -25,11 +25,12 @@ async function requireFile(relativePath) {
 
 await Promise.all([
   requireFile('index.html'),
-  requireFile('article/index.html'),
-  requireFile('article/index.txt'),
+  requireFile('changelog/index.html'),
+  requireFile('changelog/index.txt'),
   requireFile('_next/static'),
   requireFile('.nojekyll'),
   requireFile('data/monitor.json'),
+  requireFile('data/changelog.json'),
   requireFile('assets/eternal-tuesday-banner.png'),
   requireFile('assets/diagnostic-panel.png'),
   requireFile('assets/monitor-exhibit.png'),
@@ -65,13 +66,11 @@ try {
     fail(
       'static dataset differs from canonical evidence evaluated at its declared date',
     );
-  if (monitorData.articlePath !== '/article/')
-    fail('compiled articlePath must point to /article/');
 } catch (error) {
   fail(`unable to validate static dataset: ${error.message}`);
 }
 
-for (const relativePath of ['index.html', 'article/index.html']) {
+for (const relativePath of ['index.html', 'changelog/index.html']) {
   try {
     const html = await read(relativePath);
     if (!html.includes(`${basePath}/_next/`))
@@ -92,38 +91,14 @@ for (const relativePath of ['index.html', 'article/index.html']) {
 }
 
 try {
-  const article = await read('article/index.html');
-  const requiredFragments = [
-    '<h1',
-    '<blockquote',
-    '<pre',
-    '¹',
-    'Conversation order preserves sequence.',
-    'Five questions I use to diagnose temporal continuity failures',
-    'The Eternal Tuesday Monitor will track observable behavior',
-    'Operational AI Literacy #01',
-    'Published September 7, 2026.',
-    'Evidence reviewed through September 3, 2026.',
-    `${basePath}/assets/eternal-tuesday-banner.png`,
-    `${basePath}/assets/same-sequence-different-time.png`,
-    `${basePath}/assets/diagnostic-panel.png`,
-    `${basePath}/assets/monitor-exhibit.png`,
-    `href="${canonicalUrl}"`,
-  ];
-  for (const fragment of requiredFragments) {
-    if (!article.includes(fragment))
-      fail(`article HTML is missing ${JSON.stringify(fragment)}`);
-  }
-  if (article.includes('MONITOR_URL'))
-    fail('article HTML contains unresolved MONITOR_URL');
-  if (
-    article.includes('[INSERT IMAGE:') ||
-    article.includes('[INSERT BANNER:')
-  ) {
-    fail('article HTML contains unresolved image placeholders');
-  }
+  const changelog = await read('changelog/index.html');
+  if (!changelog.includes('Monitor changelog'))
+    fail('changelog HTML is missing its public heading');
+  const publicChanges = JSON.parse(await read('data/changelog.json'));
+  if (!Array.isArray(publicChanges.events) || publicChanges.events.length === 0)
+    fail('compiled changelog contains no domain events');
 } catch (error) {
-  fail(`unable to validate rendered article: ${error.message}`);
+  fail(`unable to validate rendered changelog: ${error.message}`);
 }
 
 if (failures.length) {
@@ -135,5 +110,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Validated GitHub Pages export: ${monitorData.observations.length} observations matching canonical data, HTML article, four figures, captions, and repository-prefixed internal assets.`,
+  `Validated GitHub Pages export: ${monitorData.observations.length} observations matching canonical data, public domain changelog, four figures, and repository-prefixed internal assets.`,
 );

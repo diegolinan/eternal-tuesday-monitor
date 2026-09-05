@@ -30,23 +30,11 @@ Supersession propagates RETEST_REQUIRED only through a reviewed, same-vendor `su
 
 ### Daily workflow and review boundary
 
-`.github/workflows/discover-models.yml` runs daily at 12:43 UTC (09:43 Argentina) and supports `workflow_dispatch`. Once daily is sufficient for model catalogs. Each vendor source fails independently. After full validation, qualifying deterministic discoveries are committed to `main` and the same run rebuilds/deploys Pages; this is necessary because a normal workflow-token push does not start a second workflow. Ambiguous identities, metadata changes, suspected relationships and unclassified relevance instead open/update the draft `automation/model-discovery` PR. No change means no commit or deployment. Source outcomes and raw compressed snapshots are retained for 90 days in Actions; accepted hashes and normalized provenance remain permanently in Git.
+`.github/workflows/discover-models.yml` runs daily at 12:43 UTC (09:43 Argentina) and supports `workflow_dispatch`. Once daily is sufficient for model catalogs. Each vendor source fails independently. A source audit without a semantic domain change produces only the retained Actions artifact: it does not commit or redeploy. Qualifying deterministic discoveries are committed to `main` and deployed by the same run. Ambiguous identities, metadata changes, suspected relationships and unclassified relevance open or update a normal `automation/model-discovery` pull request and request review from `diegolinan`. There is no auto-merge. Source outcomes and raw compressed snapshots are retained for 90 days in Actions; accepted hashes and normalized provenance remain permanently in Git.
 
 GitHub must allow Actions to create pull requests for the review-required path. There is no auto-merge configuration. Automatic acceptance is limited to a brand-new exact official identity with no collision, relationship, interpretation or unresolved relevance. Existing metadata, aliases, renames, supersession, product adoption, methodologies and behavioral conclusions retain review.
 
-Local commands:
-
-```powershell
-npm run models:discover -- --as-of 2026-09-05
-# Inspect .discovery/run.json. GitHub Actions stages automatic changes;
-# a local proposal branch may stage review-required changes:
-npm run models:stage -- --mode review
-npm run models:adopt -- --report .discovery/run.json --as-of 2026-09-05
-npm run data:validate -- --base main
-npm run data:compile
-```
-
-Discovery itself writes only ignored `.discovery/` outputs. `models:stage -- --mode automatic` is restricted to GitHub Actions (or a non-main branch) and applies only policy-qualified new identities. Review mode prepares the proposal path.
+Discovery, evaluation, validation and publication execute in GitHub Actions. This repository does not depend on a local Codex or ChatGPT scheduler. `models:stage -- --mode automatic` is restricted to GitHub Actions (or a non-main proposal branch) and applies only policy-qualified new identities.
 
 Accepted discoveries are projected into the public [model lifecycle](docs/model-lifecycle.md) even when no observation exists. The canonical model catalog has its own JSON Schema and keeps API identity, aliases, discovery provenance, reviewed relevance and reviewed supersession explicit. Lifecycle coverage never creates an observation or behavior verdict.
 
@@ -58,7 +46,9 @@ Discovery performs zero provider inference calls and uses no provider credential
 
 `config/probe-execution-policy.json` remains legacy methodology metadata used by lifecycle projection. It is not called by the scheduled workflow and does not authorize inference or automatic evidence acceptance.
 
-The separate [manual Codex pilot](docs/manual-codex-pilot.md) uses local ChatGPT authentication and its own experimental surface, approval and one-use receipt. `npm run probes:codex:plan` is offline by default. Codex usage is not billed or bounded like the API pilot: a live run requires explicit acceptance that dollar/credit caps cannot be enforced here. One reviewed GPT-5.6 Luna result from that adapter was accepted in release `2026-09-08`; this does not schedule Codex execution or automatically accept future evidence.
+The preserved [manual Codex pilot](docs/manual-codex-pilot.md) is historical evidence only. One reviewed GPT-5.6 Luna result from that adapter was accepted in release `2026-09-08`; it does not schedule Codex execution or automatically accept future evidence.
+
+The supported five-probe path is the manual-only `Run five probes for one model` GitHub Actions workflow described in [the V1 protocol](docs/probe-evaluation-v1.md). It currently supports the OpenAI API surface only, requires exact catalog and API IDs, two typed confirmations, the protected `model-evaluation` environment, an API secret and a cost estimate at or below USD 0.50. It opens a normal PR assigned for review and never auto-merges. Other providers remain visibly evaluation-required until a provider-specific protocol is reviewed.
 
 The former Luna-specific recurring candidate path has been retired. The one reviewed GPT-5.6 Luna observation, its evidence receipt, release manifest and manual reproduction notes remain immutable historical evidence; they no longer imply an active scheduler. GitHub Actions remains the Monitor's only clock.
 
@@ -66,11 +56,13 @@ A failed source creates an explicit source-check error and never deletes accepte
 
 The complete acceptance, relevance and failure contract is in [`docs/model-discovery-v1.md`](docs/model-discovery-v1.md).
 
+The end-to-end notification, manual probe, review and publication cycle is documented in [`docs/operations.md`](docs/operations.md).
+
 Known limits: official HTML formats can change; comparisons can disagree with cached documentation; release dates/aliases/supersession are only populated when explicitly established. Source capabilities are not inferred from model families. Metadata approval is not evidence acceptance. Pending catalog models are linked for review, not displayed as accepted public facts.
 
 This repository is the versioned source of truth for **The Eternal Tuesday Monitor**, a dated, evidence-governed record of observable temporal-continuity behavior in AI products.
 
-The first release is derived strictly from the supplied article, _Your AI Lives in an Eternal Tuesday_, and its cited source notes. It does not add new product tests, infer hidden mechanisms, or turn an evidence gap into a failure result.
+The first release is derived strictly from archived launch-source material and its cited source notes. It does not add new product tests, infer hidden mechanisms, or turn an evidence gap into a failure result.
 
 ## Data contract
 
@@ -88,7 +80,7 @@ An observation is a dated claim at a precise coordinate. These fields are intent
 | Evidence verified   | The date on which the evidence supporting the observed result was actually verified.                             |
 | Source checked      | The date on which a source record was checked. This never implies that product behavior was retested.            |
 | Freshness evaluated | The explicit date used to derive current evidentiary sufficiency from policy and state events.                   |
-| Published           | The public release or article publication date. It does not rewrite evidence provenance.                         |
+| Published           | The public release date. It does not rewrite evidence provenance.                                                |
 | Source              | A separately versioned source record. Sources do not themselves become observations.                             |
 | Methodology version | The procedure under which the observation was admitted.                                                          |
 
@@ -109,11 +101,11 @@ No overall product score is part of the contract.
 
 ```text
 assets/monitor/                 Canonical supplied visual assets
-content/articles/               Canonical supplied article
-content/manifest.json           Byte hashes and provenance for supplied content
+content/articles/               Archived launch-source material (not publicly routed)
+content/manifest.json           Byte hashes and historical provenance for supplied content
 data/catalog/                   Vendors, products, surfaces, models, probes and statuses
 data/methodologies/             Versioned admission and review methods
-data/sources/                   Source records, including the supplied article
+data/sources/                   Versioned source records, including archived launch provenance
 data/evidence/                  Evidence records connecting claims to sources
 data/observations/              Append-only observation ledger (JSON Lines)
 data/state-events/              Append-only operational state-event ledger
@@ -126,7 +118,7 @@ public/                         Current Site runtime assets and generated data v
 app/                            Existing ChatGPT Site source
 ```
 
-The files under `data/`, `content/`, and `assets/` are authoritative. `public/data/monitor.json` and the copies under `public/assets/` are generated or publication views. The article is rendered directly from its canonical Markdown source at build time; there is no second public Markdown copy.
+The files under `data/`, `content/`, and `assets/` are authoritative. `public/data/monitor.json`, `public/data/changelog.json`, and the copies under `public/assets/` are generated or publication views. Launch-source material remains in the repository solely to preserve the provenance of immutable early records; it has no public route or site link.
 
 ## Publication targets
 
@@ -141,7 +133,7 @@ The repository preserves two separate build targets:
 
 The historical OpenAI-hosted prototype remains available at <https://eternal-tuesday-monitor.stella-diego-9071.chatgpt.site/> as an unchanged fallback. It is intentionally not canonical, and the GitHub Pages workflows do not modify, redirect, disable, or redeploy it.
 
-The canonical article source is `content/articles/your-ai-lives-in-an-eternal-tuesday.md`. The `/article/` route parses it as Markdown AST during the static build and resolves its four editorial image placeholders to the versioned visual assets.
+There is deliberately no public long-form article route. The archived launch source and historical release fields are retained because deleting or rewriting them would break the provenance of already-published evidence.
 
 ## Append-only history and release resolution
 
@@ -151,7 +143,7 @@ The canonical article source is `content/articles/your-ai-lives-in-an-eternal-tu
 - Correct or supersede an observation by appending a new record with `supersedes_observation_id` set to the earlier record's ID.
 - Historical records remain addressable. A later result changes operative state; it does not erase what was observed before.
 - `CURRENT`, `HISTORICAL`, `RETEST_REQUIRED`, `INCONCLUSIVE`, and `UNTESTED` are record states, not evidence classes.
-- `NO_PUBLIC_EVIDENCE` means the article found no qualifying public result by its cutoff. It is not a failed probe.
+- `NO_PUBLIC_EVIDENCE` means the archived launch review found no qualifying public result by its cutoff. It is not a failed probe.
 
 `data/state-events/events.jsonl` is a separate append-only ledger. It can record a retest requirement, superseded model or methodology, discontinued surface, unavailable source, or restoration of sufficiency without rewriting an observed PASS, FAIL, or evidence gap. Release manifests are also immutable after publication. The current release is resolved deterministically from all manifests by `published_on`, falling back to `data_cutoff`, and then by release ID.
 
@@ -167,15 +159,9 @@ npm run data:validate -- --base origin/main
 
 When the base branch predates the normalized ledger, the comparison is intentionally skipped; all other validation still runs.
 
-## Local validation and Site projection
+## Validation and Site projection
 
-```powershell
-npm run data:validate
-npm run data:compile
-npm test
-npm run build:pages
-npm run build:openai
-```
+All validation and builds run in GitHub Actions. No recurring job or probe depends on this Codex task or a local machine.
 
 The validator checks required fields, controlled vocabularies, ID uniqueness, date precision, referential integrity, vendor-product-surface consistency, model/vendor compatibility, evidence/source links, release membership, and result/state invariants. With `--base`, it also rejects modification, deletion, or reordering of existing observation lines.
 
@@ -216,7 +202,7 @@ The validation workflow:
 1. validates the normalized records, including append-only comparison with the target branch;
 2. compiles the Site-facing JSON projection;
 3. fails if the generated projection differs from the committed file;
-4. validates lint and the static article render; and
+4. validates lint and the static changelog render; and
 5. runs deterministic state tests; and
 6. builds the GitHub Pages production artifact.
 
@@ -226,4 +212,4 @@ Daily official model discovery and display-freshness refresh are configured as d
 
 ## Initial evidence scope
 
-Release `2026-09-03` remains the immutable initial evidence release. Release `2026-09-07` is the public launch manifest and intentionally preserves the September 3 evidence cutoff and the same 13 article-derived observations. Release `2026-09-08` adds one separately reviewed, reproduced observation from the manual Codex CLI Luna pilot, bringing the Monitor to 14 observations with a September 5 data cutoff. The supplied article remains unchanged and keeps its September 3 evidence scope; the new result appears in the versioned Monitor dataset rather than being inserted into that historical article.
+Release `2026-09-03` remains the immutable initial evidence release. Release `2026-09-07` is the public launch manifest and intentionally preserves the September 3 evidence cutoff and the same 13 launch-source-derived observations. Release `2026-09-08` adds one separately reviewed, reproduced observation from the manual Codex CLI Luna pilot, bringing the Monitor to 14 observations with a September 5 data cutoff. Archived launch-source material remains unchanged; new results belong in the versioned Monitor dataset and public changelog.

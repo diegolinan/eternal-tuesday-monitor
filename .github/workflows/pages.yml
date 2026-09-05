@@ -28,7 +28,7 @@ jobs:
       - run: npm run models:catalog:sync
       - run: git diff --exit-code -- data/catalog/models.json
       - run: npm run data:compile
-      - run: git diff --exit-code -- public/data/monitor.json
+      - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json
       - run: npm test
       - name: Evaluate freshness for the deployment date
         shell: bash

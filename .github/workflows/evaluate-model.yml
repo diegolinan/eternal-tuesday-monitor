@@ -1,0 +1,96 @@
+name: Run five probes for one model
+
+on:
+  workflow_dispatch:
+    inputs:
+      model_id:
+        description: 'Exact catalog model ID (for example model-discovered-e8ec7ed4b30b4efbaf48)'
+        required: true
+        type: string
+      api_model_id:
+        description: 'Exact OpenAI API model ID already recorded in the catalog'
+        required: true
+        type: string
+      scope_confirmation:
+        description: 'Type PROVIDER_API_ONLY to confirm that this does not test ChatGPT or Codex'
+        required: true
+        type: string
+      run_confirmation:
+        description: 'Type RUN_FIVE_PROBES to authorize eight inference requests'
+        required: true
+        type: string
+      max_cost_usd:
+        description: 'Accepted estimated cost ceiling in USD (maximum 0.50; not a provider-side hard cap)'
+        required: true
+        default: '0.50'
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: manual-model-evaluation
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: model-evaluation
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Confirm manual scope and bounded cost
+        shell: bash
+        env:
+          SCOPE_CONFIRMATION: ${{ inputs.scope_confirmation }}
+          RUN_CONFIRMATION: ${{ inputs.run_confirmation }}
+          ACCEPTED_MAX_COST_USD: ${{ inputs.max_cost_usd }}
+        run: |
+          test "$SCOPE_CONFIRMATION" = "PROVIDER_API_ONLY"
+          test "$RUN_CONFIRMATION" = "RUN_FIVE_PROBES"
+          node -e "const n=Number(process.argv[1]); if(!Number.isFinite(n)||n<=0||n>0.5) process.exit(1)" "$ACCEPTED_MAX_COST_USD"
+      - name: Run all five controlled probes
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          EVALUATION_MODEL_ID: ${{ inputs.model_id }}
+          EVALUATION_API_MODEL_ID: ${{ inputs.api_model_id }}
+          EVALUATION_MAX_COST_USD: ${{ inputs.max_cost_usd }}
+        run: npm run models:evaluate:manual
+      - name: Preserve raw requests and responses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-model-evaluation-${{ github.run_id }}
+          path: .evaluation
+          include-hidden-files: true
+          retention-days: 90
+      - name: Validate proposed evidence and public projection
+        run: |
+          npm run data:validate -- --base HEAD
+          npm run data:compile
+          npm test
+          npm run lint
+          npm run build:pages
+          npm run static:validate
+      - name: Create reviewable evidence pull request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/model-evaluation
+          title: 'Review five-probe API evaluation: ${{ inputs.api_model_id }}'
+          commit-message: 'Propose reviewed provider API probe evidence'
+          body-path: .evaluation/latest-summary.md
+          draft: false
+          reviewers: diegolinan
+          add-paths: |
+            data/model-evaluation/results.jsonl
+            data/changelog/events.jsonl
+            public/data/monitor.json
+            public/data/changelog.json

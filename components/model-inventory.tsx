@@ -16,7 +16,7 @@ type ProbeCoverage = {
   eligibilityReasons: string[];
   methodologyVersionId: string | null;
   testability: 'API_TESTABLE' | 'PARTIALLY_API_TESTABLE' | 'NOT_API_TESTABLE';
-  empiricalResult: 'MATCH' | 'MISMATCH' | 'INCONCLUSIVE' | 'OPERATIONAL_ERROR' | null;
+  empiricalResult: 'PASS' | 'FAIL' | 'MATCH' | 'MISMATCH' | 'INCONCLUSIVE' | 'OPERATIONAL_ERROR' | null;
   evidenceClass: string | null;
   verifiedOn: string | null;
   limitations: string[];

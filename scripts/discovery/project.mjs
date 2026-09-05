@@ -154,9 +154,15 @@ export function projectModels(
           'MODEL_NOT_IN_ADOPTION_SCOPE',
         ],
         adoptionAssessedOn: adoption?.assessed_on ?? null,
-        queueState: adoption?.queue.state ?? 'NOT_QUEUED',
-        queueReasons: adoption?.queue.reasons ?? [],
-        executionState: adoption?.execution_state ?? (behavioralApiResults.length ? 'COMPLETED' : 'NOT_RUN'),
+        queueState: behavioralApiResults.length
+          ? 'ALREADY_TESTED'
+          : (adoption?.queue.state ?? 'NOT_QUEUED'),
+        queueReasons: behavioralApiResults.length
+          ? ['SCOPED_API_EVIDENCE_AVAILABLE']
+          : (adoption?.queue.reasons ?? []),
+        executionState: behavioralApiResults.length
+          ? 'COMPLETED'
+          : (adoption?.execution_state ?? 'NOT_RUN'),
         probeCoverage,
         surfaces,
         sources: [...new Set(model.provenance.map((p) => p.url))],

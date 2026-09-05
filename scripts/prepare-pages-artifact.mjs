@@ -12,14 +12,14 @@ const prefixedFrameworkAssets = path.join(
 await cp(prefixedFrameworkAssets, path.join(output, '_next'), {
   recursive: true,
 });
-await mkdir(path.join(output, 'article'), { recursive: true });
+await mkdir(path.join(output, 'changelog'), { recursive: true });
 await cp(
-  path.join(output, 'article.html'),
-  path.join(output, 'article/index.html'),
+  path.join(output, 'changelog.html'),
+  path.join(output, 'changelog/index.html'),
 );
 await cp(
-  path.join(output, 'article.txt'),
-  path.join(output, 'article/index.txt'),
+  path.join(output, 'changelog.txt'),
+  path.join(output, 'changelog/index.txt'),
 );
 
 console.log('Prepared dist/client as the GitHub Pages artifact root.');

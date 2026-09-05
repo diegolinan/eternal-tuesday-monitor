@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
   pages: write
   id-token: write
 
@@ -44,6 +45,10 @@ jobs:
         run: npm run models:stage -- --mode automatic
       - name: Resolve model evaluation adoption eligibility
         run: npm run models:adopt -- --report .discovery/run.json
+      - name: Notify when human evaluation becomes required
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/sync-evaluation-issues.mjs
       - name: Preserve non-executing evaluation requirements
         uses: actions/upload-artifact@v4
         with:
@@ -63,7 +68,7 @@ jobs:
         id: automatic
         shell: bash
         run: |
-          if git diff --quiet -- data/catalog/models.json data/model-discovery/events.jsonl data/model-discovery/source-checks.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl public/data/monitor.json; then
+          if git diff --quiet -- data/catalog/models.json data/model-discovery/events.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl data/changelog/events.jsonl public/data/monitor.json public/data/changelog.json; then
             echo "deploy=false" >> "$GITHUB_OUTPUT"
           else
             echo "deploy=true" >> "$GITHUB_OUTPUT"
@@ -82,7 +87,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/catalog/models.json data/model-discovery/events.jsonl data/model-discovery/source-checks.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl public/data/monitor.json
+          git add data/catalog/models.json data/model-discovery/events.jsonl data/model-discovery/source-checks.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl data/changelog/events.jsonl public/data/monitor.json public/data/changelog.json
           git commit -m "Update official model discovery and adoption state"
           git push origin HEAD:main
       - name: Stage review-required changes separately
@@ -104,12 +109,20 @@ jobs:
           title: 'Review official model discovery candidates'
           commit-message: 'Propose review-required official model metadata'
           body-path: .discovery/pr-body.md
-          draft: true
+          draft: false
+          reviewers: diegolinan
           add-paths: |
             data/catalog/models.json
             data/model-discovery/events.jsonl
             data/state-events/events.jsonl
+            data/changelog/events.jsonl
             public/data/monitor.json
+            public/data/changelog.json
+      - name: Report discovery workflow failure
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/report-workflow-failure.mjs
 
   deploy:
     if: needs.discover.outputs.deploy == 'true'

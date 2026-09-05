@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "manual-model-evaluation-v1",
+  "execution_environment": "GITHUB_ACTIONS_ONLY",
+  "automatic_execution": false,
+  "supported_vendor_ids": ["vendor-openai"],
+  "surface_id": "surface-openai-model-api",
+  "endpoint": "responses",
+  "probe_ids": ["probe-temporal-anchor", "probe-elapsed", "probe-revalidation", "probe-state-reconciliation", "probe-historical-validity"],
+  "max_provider_requests": 9,
+  "max_inference_requests": 8,
+  "max_output_tokens_per_request": 200,
+  "assumed_input_tokens_per_request": 1200,
+  "input_usd_per_million_ceiling": 10,
+  "output_usd_per_million_ceiling": 40,
+  "max_accepted_spend_usd": 0.5,
+  "raw_artifact_retention_days": 90,
+  "notes": "Manual, explicitly dispatched provider-API evaluation only. It does not test ChatGPT, Codex or any other consumer product surface. The cost check is a conservative estimate, not a provider-side hard spending cap."
+}

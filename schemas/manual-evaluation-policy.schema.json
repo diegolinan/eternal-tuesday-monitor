@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/manual-evaluation-policy.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "policy_id", "execution_environment", "automatic_execution", "supported_vendor_ids", "surface_id", "endpoint", "probe_ids", "max_provider_requests", "max_inference_requests", "max_output_tokens_per_request", "assumed_input_tokens_per_request", "input_usd_per_million_ceiling", "output_usd_per_million_ceiling", "max_accepted_spend_usd", "raw_artifact_retention_days", "notes"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "policy_id": { "const": "manual-model-evaluation-v1" },
+    "execution_environment": { "const": "GITHUB_ACTIONS_ONLY" },
+    "automatic_execution": { "const": false },
+    "supported_vendor_ids": { "type": "array", "const": ["vendor-openai"] },
+    "surface_id": { "const": "surface-openai-model-api" },
+    "endpoint": { "const": "responses" },
+    "probe_ids": { "type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true, "items": { "type": "string" } },
+    "max_provider_requests": { "type": "integer", "minimum": 1, "maximum": 9 },
+    "max_inference_requests": { "type": "integer", "minimum": 1, "maximum": 8 },
+    "max_output_tokens_per_request": { "type": "integer", "minimum": 1, "maximum": 500 },
+    "assumed_input_tokens_per_request": { "type": "integer", "minimum": 1 },
+    "input_usd_per_million_ceiling": { "type": "number", "minimum": 0 },
+    "output_usd_per_million_ceiling": { "type": "number", "minimum": 0 },
+    "max_accepted_spend_usd": { "type": "number", "exclusiveMinimum": 0, "maximum": 0.5 },
+    "raw_artifact_retention_days": { "type": "integer", "minimum": 1, "maximum": 90 },
+    "notes": { "type": "string", "minLength": 1 }
+  }
+}

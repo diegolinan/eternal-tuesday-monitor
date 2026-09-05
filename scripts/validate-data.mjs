@@ -18,6 +18,7 @@ const observationPath = 'data/observations/observations.jsonl';
 const eventPath = 'data/state-events/events.jsonl';
 const evaluationResultPath = 'data/model-evaluation/results.jsonl';
 const sourceCheckPath = 'data/model-discovery/source-checks.jsonl';
+const changelogPath = 'data/changelog/events.jsonl';
 const failures = [];
 failures.push(...(await validateDiscovery(root)));
 const fail = (message) => failures.push(message);
@@ -113,6 +114,7 @@ const [
   contentManifest,
   freshnessPolicy,
   evaluationPolicy,
+  manualEvaluationPolicy,
   adoptionRegister,
   monitorView,
   sourceSchema,
@@ -122,17 +124,20 @@ const [
   releaseSchema,
   freshnessPolicySchema,
   evaluationPolicySchema,
+  manualEvaluationPolicySchema,
   adoptionSchema,
   modelCatalogSchema,
   modelLifecycleSchema,
   stateEventSchema,
   evaluationResultSchema,
   sourceCheckSchema,
+  changelogSchema,
   releaseEntries,
   observationLedger,
   eventLedger,
   evaluationResultLedger,
   sourceCheckLedger,
+  changelogLedger,
 ] = await Promise.all([
   readJson('data/catalog/vendors.json'),
   readJson('data/catalog/products.json'),
@@ -147,6 +152,7 @@ const [
   readJson('content/manifest.json'),
   readJson('config/freshness-policy.json'),
   readJson('config/model-evaluation-policy.json'),
+  readJson('config/manual-evaluation-policy.json'),
   readJson('data/model-evaluation/adoption.json'),
   readJson('public/data/monitor.json'),
   readJson('schemas/source.schema.json'),
@@ -156,23 +162,27 @@ const [
   readJson('schemas/release.schema.json'),
   readJson('schemas/freshness-policy.schema.json'),
   readJson('schemas/model-evaluation-policy.schema.json'),
+  readJson('schemas/manual-evaluation-policy.schema.json'),
   readJson('schemas/model-evaluation-adoption.schema.json'),
   readJson('schemas/model-catalog.schema.json'),
   readJson('schemas/model-lifecycle.schema.json'),
   readJson('schemas/state-event.schema.json'),
   readJson('schemas/model-evaluation-result.schema.json'),
   readJson('schemas/source-check.schema.json'),
+  readJson('schemas/changelog-event.schema.json'),
   loadReleases(root),
   readJsonLines(observationPath),
   readJsonLines(eventPath),
   readOptionalJsonLines(evaluationResultPath),
   readOptionalJsonLines(sourceCheckPath),
+  readJsonLines(changelogPath),
 ]);
 
 const observations = observationLedger.items;
 const stateEvents = eventLedger.items;
 const evaluationResults = evaluationResultLedger.items;
 const sourceChecks = sourceCheckLedger.items;
+const changelogEvents = changelogLedger.items;
 const ajv = new Ajv2020({
   allErrors: true,
   strict: true,
@@ -211,6 +221,9 @@ validateWithSchema('freshness policy', freshnessPolicySchema, [
 validateWithSchema('model evaluation policy', evaluationPolicySchema, [
   evaluationPolicy,
 ]);
+validateWithSchema('manual evaluation policy', manualEvaluationPolicySchema, [
+  manualEvaluationPolicy,
+]);
 validateWithSchema('model evaluation adoption', adoptionSchema, [
   adoptionRegister,
 ]);
@@ -223,6 +236,7 @@ validateWithSchema(
 validateWithSchema('state event', stateEventSchema, stateEvents);
 validateWithSchema('model evaluation result', evaluationResultSchema, evaluationResults);
 validateWithSchema('public source check', sourceCheckSchema, sourceChecks);
+validateWithSchema('changelog event', changelogSchema, changelogEvents);
 
 const collections = [
   ['vendors', vendorsFile.vendors],
@@ -240,6 +254,7 @@ const collections = [
   ['state events', stateEvents],
   ['model evaluation results', evaluationResults],
   ['public source checks', sourceChecks],
+  ['changelog events', changelogEvents],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -277,6 +292,14 @@ if (evaluationPolicy.surface_id && !surfaces.has(evaluationPolicy.surface_id))
   fail(
     `${evaluationPolicy.policy_id}: unknown surface ${evaluationPolicy.surface_id}`,
   );
+if (!surfaces.has(manualEvaluationPolicy.surface_id))
+  fail(`${manualEvaluationPolicy.policy_id}: unknown surface ${manualEvaluationPolicy.surface_id}`);
+for (const providerId of manualEvaluationPolicy.supported_vendor_ids)
+  if (!vendors.has(providerId))
+    fail(`${manualEvaluationPolicy.policy_id}: unknown provider ${providerId}`);
+for (const probeId of manualEvaluationPolicy.probe_ids)
+  if (!probes.has(probeId))
+    fail(`${manualEvaluationPolicy.policy_id}: unknown probe ${probeId}`);
 const configuredProviders = new Set();
 for (const providerId of evaluationPolicy.providers) {
   if (!vendors.has(providerId))
@@ -559,6 +582,7 @@ if (baseArgIndex !== -1) {
     compareAppendOnlyLines(base, eventPath, eventLedger.lines);
     compareAppendOnlyLines(base, evaluationResultPath, evaluationResultLedger.lines);
     compareAppendOnlyLines(base, sourceCheckPath, sourceCheckLedger.lines);
+    compareAppendOnlyLines(base, changelogPath, changelogLedger.lines);
     compareAppendOnlyLines(
       base,
       'data/model-discovery/events.jsonl',

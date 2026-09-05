@@ -38,6 +38,35 @@ const additions = selected.filter(
   ({ event }) => !prior.some((old) => old.id === event.id),
 );
 
+if (additions.length) {
+  const changePath = 'data/changelog/events.jsonl';
+  const changeRaw = await read(changePath);
+  const existingChanges = changeRaw.split(/\r?\n/).filter(Boolean).map(JSON.parse);
+  const existingChangeIds = new Set(existingChanges.map((event) => event.id));
+  const changes = additions.map(({ event }) => ({
+    schema_version: '1.0.0',
+    id: `change-${event.id}`,
+    recorded_on: event.recorded_on,
+    type: catalog.models.some((item) => item.id === event.model.id) ? 'MODEL_METADATA_UPDATED' : 'MODEL_DISCOVERED',
+    title: catalog.models.some((item) => item.id === event.model.id)
+      ? `${event.model.display_name} model metadata updated`
+      : `${event.model.display_name} added to the model catalog`,
+    summary: mode === 'automatic'
+      ? 'An approved deterministic rule accepted this identity from an official provider source. No behavioral verdict was inferred.'
+      : 'Official model metadata was accepted after human review. No behavioral verdict was inferred.',
+    source: mode === 'automatic' ? 'AUTOMATIC_POLICY' : 'HUMAN_REVIEW',
+    subjects: [{ type: 'model', id: event.model.id, label: event.model.display_name }],
+    source_urls: [...new Set(event.model.provenance.map((item) => item.url))],
+    pull_request_url: null,
+    affects_observations: false,
+  })).filter((event) => !existingChangeIds.has(event.id));
+  if (changes.length)
+    await writeFile(
+      path.join(root, changePath),
+      changeRaw.trimEnd() + (existingChanges.length ? '\n' : '') + changes.map(JSON.stringify).join('\n') + '\n',
+    );
+}
+
 const ajv = new Ajv2020({ allErrors: true });
 addFormats(ajv);
 const validate = ajv.compile(

@@ -22,6 +22,7 @@ import {
   ModelInventory,
   type DiscoveredModel,
 } from '@/components/model-inventory';
+import { AutomationStatus } from '@/components/automation-status';
 
 export const dynamic = 'force-static';
 
@@ -68,7 +69,6 @@ type MonitorData = {
   freshnessEvaluatedOn: string;
   freshnessPolicyVersion: string;
   methodologyVersion: string;
-  articlePath: string;
   observations: Observation[];
   models?: DiscoveredModel[];
 };
@@ -386,6 +386,7 @@ export default function Home() {
           <a href="#history">History</a>
           <a href="#evidence">Evidence</a>
           <a href="#methodology">Methodology</a>
+          <a href={withBasePath('/changelog/')}>Changelog</a>
         </nav>
       </header>
 
@@ -438,6 +439,8 @@ export default function Home() {
           <figcaption>OBSERVABLE PROBES - NOT INTERNAL ARCHITECTURE</figcaption>
         </figure>
       </section>
+
+      <AutomationStatus />
 
       <ModelInventory models={data?.models ?? []} />
 
@@ -840,30 +843,6 @@ export default function Home() {
           />
           <figcaption>PUBLIC CONTINUITY EXHIBIT · MODEL CCU-58</figcaption>
         </figure>
-      </section>
-
-      <section
-        className="source-section"
-        id="article"
-        aria-labelledby="source-title"
-      >
-        <div>
-          <p className="section-code">SOURCE / ARTICLE</p>
-          <h2 id="source-title">Your AI Lives in an Eternal Tuesday</h2>
-        </div>
-        <div className="source-copy">
-          <p>
-            The full article is the conceptual and evidentiary source for this
-            first Monitor release. Its citations remain source notes, not
-            automatic current-status records.
-          </p>
-          <a
-            className="article-link"
-            href={withBasePath(data?.articlePath ?? '/article/')}
-          >
-            Read the full article <ExternalLink aria-hidden="true" />
-          </a>
-        </div>
       </section>
 
       <footer>

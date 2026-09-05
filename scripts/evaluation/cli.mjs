@@ -48,6 +48,41 @@ const adoption = buildAdoptionRegister({
   asOf,
   previous,
 });
+const previouslyRequired = new Set(
+  previous.records
+    .filter((record) => record.queue.state === 'TEST_REQUIRED')
+    .map((record) => record.model_id),
+);
+const newlyRequired = adoption.records.filter(
+  (record) =>
+    record.queue.state === 'TEST_REQUIRED' &&
+    !previouslyRequired.has(record.model_id),
+);
+if (newlyRequired.length) {
+  const changePath = path.join(root, 'data/changelog/events.jsonl');
+  const changeRaw = await readFile(changePath, 'utf8');
+  const existingIds = new Set(
+    changeRaw.split(/\r?\n/).filter(Boolean).map(JSON.parse).map((event) => event.id),
+  );
+  const changes = newlyRequired.map((record) => {
+    const model = catalog.find((item) => item.id === record.model_id);
+    return {
+      schema_version: '1.0.0',
+      id: `change-evaluation-required-${record.model_id}-${asOf}`,
+      recorded_on: asOf,
+      type: 'EVALUATION_REQUIRED',
+      title: `Evaluation required for ${model?.name ?? record.model_id}`,
+      summary: 'The accepted catalog identity has no current behavioral evidence. No probe was run and no PASS or FAIL was inferred.',
+      source: 'AUTOMATIC_POLICY',
+      subjects: [{ type: 'model', id: record.model_id, label: model?.name ?? record.model_id }],
+      source_urls: [],
+      pull_request_url: null,
+      affects_observations: false,
+    };
+  }).filter((event) => !existingIds.has(event.id));
+  if (changes.length)
+    await writeFile(changePath, changeRaw.trimEnd() + '\n' + changes.map(JSON.stringify).join('\n') + '\n');
+}
 await mkdir(path.join(root, 'data/model-evaluation'), { recursive: true });
 await writeFile(
   path.join(root, 'data/model-evaluation/adoption.json'),

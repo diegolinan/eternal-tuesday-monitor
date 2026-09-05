@@ -8,7 +8,6 @@
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
-  "articlePath": "/article/",
   "observations": [
     {
       "id": "obs-cursor-agent-anchor-2026-03",

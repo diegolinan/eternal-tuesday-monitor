@@ -185,7 +185,6 @@ const view = {
   modelEvaluationPolicyVersion: evaluationPolicy.policy_id,
   methodologyVersion: methodologies.get(release.monitor_methodology_version_id)
     .version,
-  articlePath: release.article_public_path,
   observations: siteObservations,
   models: projectModels(
     await parseLines('data/model-discovery/events.jsonl'),

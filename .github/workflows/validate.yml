@@ -23,18 +23,18 @@ jobs:
       - run: npm run data:validate
       - run: npm run models:catalog:sync
       - run: git diff --exit-code -- data/catalog/models.json
-      - name: Enforce append-only observation ledger on pull requests
+      - name: Enforce append-only ledgers on pull requests
         if: github.event_name == 'pull_request'
         env:
           BASE_REF: ${{ github.base_ref }}
         run: npm run data:validate -- --base "origin/$BASE_REF"
-      - name: Enforce append-only observation ledger on pushes
+      - name: Enforce append-only ledgers on pushes
         if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
         env:
           BASE_SHA: ${{ github.event.before }}
         run: npm run data:validate -- --base "$BASE_SHA"
       - run: npm run data:compile
-      - run: git diff --exit-code -- public/data/monitor.json
+      - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json
       - run: npm test
       - run: npm run lint
       - run: npm run build:pages
