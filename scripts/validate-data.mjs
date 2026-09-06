@@ -122,6 +122,7 @@ const [
   adoptionRegister,
   monitorView,
   systemStatus,
+  modelOperations,
   sourceSchema,
   evidenceSchema,
   observationSchema,
@@ -138,6 +139,7 @@ const [
   sourceCheckSchema,
   changelogSchema,
   systemStatusSchema,
+  modelOperationsSchema,
   releaseEntries,
   observationLedger,
   eventLedger,
@@ -162,6 +164,7 @@ const [
   readJson('data/model-evaluation/adoption.json'),
   readJson('public/data/monitor.json'),
   readJson('public/data/system-status.json'),
+  readJson('public/data/model-operations.json'),
   readJson('schemas/source.schema.json'),
   readJson('schemas/evidence.schema.json'),
   readJson('schemas/observation.schema.json'),
@@ -178,6 +181,7 @@ const [
   readJson('schemas/source-check.schema.json'),
   readJson('schemas/changelog-event.schema.json'),
   readJson('schemas/system-status.schema.json'),
+  readJson('schemas/model-operations.schema.json'),
   loadReleases(root),
   readJsonLines(observationPath),
   readJsonLines(eventPath),
@@ -250,6 +254,22 @@ validateWithSchema(
 validateWithSchema('public source check', sourceCheckSchema, sourceChecks);
 validateWithSchema('changelog event', changelogSchema, changelogEvents);
 validateWithSchema('public system status', systemStatusSchema, [systemStatus]);
+validateWithSchema('public model operations', modelOperationsSchema, [
+  modelOperations,
+]);
+
+const publicModelIds = new Set(monitorView.models.map((model) => model.id));
+const operationalModelIds = new Set(
+  modelOperations.models.map((model) => model.id),
+);
+if (operationalModelIds.size !== modelOperations.models.length)
+  fail('public model operations contains duplicate model ids');
+for (const modelId of publicModelIds)
+  if (!operationalModelIds.has(modelId))
+    fail(`public model operations: missing model ${modelId}`);
+for (const modelId of operationalModelIds)
+  if (!publicModelIds.has(modelId))
+    fail(`public model operations: unknown model ${modelId}`);
 
 const collections = [
   ['vendors', vendorsFile.vendors],

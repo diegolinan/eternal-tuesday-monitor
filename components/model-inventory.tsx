@@ -95,6 +95,40 @@ export type DiscoveredModel = {
   defaultProminence: boolean;
 };
 
+export type ModelOperationalStatus = {
+  id: string;
+  sourceCheck: {
+    state:
+      | 'CHECKED_NO_CHANGE'
+      | 'IDENTITY_CHANGED'
+      | 'PARTIAL'
+      | 'NEEDS_ATTENTION'
+      | 'NOT_RECORDED';
+    checkedAt: string | null;
+    checkedSources: number;
+    expectedSources: number;
+  };
+  eligibilityCheck: {
+    state: string;
+    checkedAt: string | null;
+    stateChangedOn: string | null;
+    reasons: string[];
+  };
+  behavioralEvaluation: {
+    state:
+      | 'NEVER_RUN'
+      | 'EVIDENCE_RECORDED'
+      | 'COMPLETED'
+      | 'OPERATIONAL_ERROR';
+    lastAttemptAt: string | null;
+    lastEvidenceAt: string | null;
+    lastEvidenceOn: string | null;
+    attemptedProbes: number;
+    evidenceProbes: number;
+    totalProbes: number;
+  };
+};
+
 type RegistryGroup =
   | 'TESTED'
   | 'RETEST_REQUIRED'
@@ -158,6 +192,37 @@ const explainReasons = (reasons: string[]) =>
     )
     .join('. ');
 
+const sourceStateLabels: Record<
+  ModelOperationalStatus['sourceCheck']['state'],
+  string
+> = {
+  CHECKED_NO_CHANGE: 'CHECKED · NO IDENTITY CHANGE',
+  IDENTITY_CHANGED: 'IDENTITY CHANGE DETECTED',
+  PARTIAL: 'PARTIALLY CHECKED',
+  NEEDS_ATTENTION: 'CHECK NEEDS ATTENTION',
+  NOT_RECORDED: 'NO CHECK RECORDED',
+};
+
+function localMoment(value: string | null) {
+  if (!value) return 'No timestamp recorded';
+  return new Intl.DateTimeFormat(undefined, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  }).format(new Date(value));
+}
+
+function calendarDay(value: string | null) {
+  if (!value) return null;
+  return new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'medium',
+    timeZone: 'UTC',
+  }).format(new Date(`${value}T00:00:00Z`));
+}
+
 function registryGroup(model: DiscoveredModel): RegistryGroup {
   if (model.lifecycleState === 'TESTED') return 'TESTED';
   if (model.lifecycleState === 'RETEST_REQUIRED') return 'RETEST_REQUIRED';
@@ -175,9 +240,35 @@ function registryGroup(model: DiscoveredModel): RegistryGroup {
   return 'CATALOG_ONLY';
 }
 
-function ModelDetail({ model }: { model: DiscoveredModel }) {
+function ModelDetail({
+  model,
+  operations,
+}: {
+  model: DiscoveredModel;
+  operations: ModelOperationalStatus | null;
+}) {
   const boundaryReasons = [
-    ...new Set([...model.apiAvailabilityReasons, ...model.queueReasons]),
+    ...new Set(
+      operations?.eligibilityCheck.reasons ?? [
+        ...model.apiAvailabilityReasons,
+        ...model.queueReasons,
+      ],
+    ),
+  ];
+  const eligibilityGroups = [
+    ...model.probeCoverage
+      .reduce((groups, probe) => {
+        const key = `${probe.eligibilityState}|${probe.eligibilityReasons.join('|')}`;
+        const group = groups.get(key) ?? {
+          state: probe.eligibilityState,
+          reasons: probe.eligibilityReasons,
+          probes: [] as string[],
+        };
+        group.probes.push(probe.name);
+        groups.set(key, group);
+        return groups;
+      }, new Map<string, { state: ProbeCoverage['eligibilityState']; reasons: string[]; probes: string[] }>())
+      .values(),
   ];
   return (
     <div className="model-row-detail">
@@ -201,6 +292,81 @@ function ModelDetail({ model }: { model: DiscoveredModel }) {
       </dl>
 
       <div
+        className="model-activity"
+        aria-label={`${model.name} latest checks`}
+      >
+        <section>
+          <span>Official listing</span>
+          <strong>
+            {operations
+              ? sourceStateLabels[operations.sourceCheck.state]
+              : 'STATUS SNAPSHOT UNAVAILABLE'}
+          </strong>
+          <time dateTime={operations?.sourceCheck.checkedAt ?? undefined}>
+            {localMoment(operations?.sourceCheck.checkedAt ?? null)}
+          </time>
+          {operations && operations.sourceCheck.expectedSources > 0 && (
+            <small>
+              {operations.sourceCheck.checkedSources}/
+              {operations.sourceCheck.expectedSources} recorded source
+              {operations.sourceCheck.expectedSources === 1 ? '' : 's'} checked
+            </small>
+          )}
+        </section>
+        <section>
+          <span>Eligibility policy</span>
+          <strong>
+            {operations
+              ? label(operations.eligibilityCheck.state)
+              : label(model.testabilityState)}
+          </strong>
+          <time dateTime={operations?.eligibilityCheck.checkedAt ?? undefined}>
+            {localMoment(operations?.eligibilityCheck.checkedAt ?? null)}
+          </time>
+          {(operations?.eligibilityCheck.stateChangedOn ??
+            model.adoptionAssessedOn) && (
+            <small>
+              State unchanged since{' '}
+              {calendarDay(
+                operations?.eligibilityCheck.stateChangedOn ??
+                  model.adoptionAssessedOn,
+              )}
+            </small>
+          )}
+        </section>
+        <section>
+          <span>Behavioral evidence</span>
+          <strong>
+            {operations?.behavioralEvaluation.state === 'COMPLETED'
+              ? 'TESTED'
+              : operations?.behavioralEvaluation.state === 'EVIDENCE_RECORDED'
+                ? 'EVIDENCE RECORDED'
+                : operations?.behavioralEvaluation.state === 'OPERATIONAL_ERROR'
+                  ? 'ATTEMPTED · NO VERDICT'
+                  : 'NEVER TESTED'}
+          </strong>
+          {operations?.behavioralEvaluation.lastAttemptAt ? (
+            <time dateTime={operations.behavioralEvaluation.lastAttemptAt}>
+              Last attempt{' '}
+              {localMoment(operations.behavioralEvaluation.lastAttemptAt)}
+            </time>
+          ) : (
+            <time>
+              {operations?.behavioralEvaluation.lastEvidenceOn
+                ? `Evidence verified ${calendarDay(operations.behavioralEvaluation.lastEvidenceOn)}`
+                : 'No five-probe attempt recorded'}
+            </time>
+          )}
+          <small>
+            {operations?.behavioralEvaluation.evidenceProbes ?? 0}/
+            {operations?.behavioralEvaluation.totalProbes ??
+              model.probeCoverage.length}{' '}
+            probes with evidence
+          </small>
+        </section>
+      </div>
+
+      <div
         className="probe-coverage"
         aria-label={`${model.name} probe coverage`}
       >
@@ -209,40 +375,43 @@ function ModelDetail({ model }: { model: DiscoveredModel }) {
             <span>{probe.name}</span>
             <StatusEmblem
               compact
-              value={probe.empiricalResult ?? 'NO CURRENT EVIDENCE'}
+              value={
+                probe.empiricalResult ??
+                (probe.state === 'TESTED'
+                  ? 'TESTED'
+                  : probe.state === 'RETEST_REQUIRED'
+                    ? 'RETEST REQUIRED'
+                    : 'NOT RUN')
+              }
             />
-            <small>{label(probe.state)}</small>
+            <small>
+              {probe.verifiedOn
+                ? `VERIFIED ${calendarDay(probe.verifiedOn)}`
+                : label(probe.state)}
+            </small>
           </div>
         ))}
       </div>
 
       {boundaryReasons.length > 0 && (
         <div className="coverage-blocker" role="note">
-          <strong>Evidence boundary</strong>
+          <strong>Current evaluation boundary</strong>
           <p>{explainReasons(boundaryReasons)}</p>
         </div>
       )}
 
       <div className="model-provenance">
-        <h4>Eligibility and provenance</h4>
-        <p>
-          {model.evaluationReasons.length
-            ? explainReasons(model.evaluationReasons)
-            : 'No mechanical blocker is currently recorded.'}
-        </p>
-        {model.adoptionAssessedOn && (
-          <p>Adoption eligibility assessed {model.adoptionAssessedOn}.</p>
-        )}
-        <ul>
-          {model.probeCoverage.map((probe) => (
-            <li key={`${probe.id}-eligibility`}>
-              {probe.name}: {label(probe.eligibilityState)}
-              {probe.eligibilityReasons.length
-                ? ` · ${explainReasons(probe.eligibilityReasons)}`
-                : ''}
-              {probe.empiricalResult
-                ? ` · empirical result ${label(probe.empiricalResult)} · ${probe.evidenceClass} · verified ${probe.verifiedOn} · methodology ${probe.methodologyVersionId} · ${probe.requestCount} request(s)${probe.limitations.length ? ` · ${probe.limitations.join(' ')}` : ''}`
-                : ''}
+        <h4>Probe eligibility and provenance</h4>
+        <ul className="eligibility-groups">
+          {eligibilityGroups.map((group) => (
+            <li key={`${group.state}-${group.probes.join('-')}`}>
+              <strong>
+                {group.probes.length}/{model.probeCoverage.length} probes ·{' '}
+                {label(group.state)}
+              </strong>
+              {group.reasons.length > 0 && (
+                <small>{explainReasons(group.reasons)}</small>
+              )}
             </li>
           ))}
         </ul>
@@ -275,7 +444,13 @@ function ModelDetail({ model }: { model: DiscoveredModel }) {
   );
 }
 
-function ModelRow({ model }: { model: DiscoveredModel }) {
+function ModelRow({
+  model,
+  operations,
+}: {
+  model: DiscoveredModel;
+  operations: ModelOperationalStatus | null;
+}) {
   const group = registryGroup(model);
   const tested = model.probeCoverage.filter(
     (probe) => probe.empiricalResult || probe.state === 'TESTED',
@@ -293,7 +468,7 @@ function ModelRow({ model }: { model: DiscoveredModel }) {
           {tested}/5 PROBES WITH EVIDENCE
         </span>
       </summary>
-      <ModelDetail model={model} />
+      <ModelDetail model={model} operations={operations} />
     </details>
   );
 }
@@ -305,12 +480,22 @@ function updateOpenSet(current: Set<string>, key: string, isOpen: boolean) {
   return next;
 }
 
-export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
+export function ModelInventory({
+  models,
+  operations = [],
+}: {
+  models: DiscoveredModel[];
+  operations?: ModelOperationalStatus[];
+}) {
   const [scope, setScope] = useState<'focus' | 'all'>('focus');
   const [query, setQuery] = useState('');
   const [openVendors, setOpenVendors] = useState(new Set<string>());
   const [openGroups, setOpenGroups] = useState(new Set<string>());
   const needle = query.trim().toLowerCase();
+  const operationsByModel = useMemo(
+    () => new Map(operations.map((status) => [status.id, status])),
+    [operations],
+  );
 
   const visible = useMemo(
     () =>
@@ -488,7 +673,13 @@ export function ModelInventory({ models }: { models: DiscoveredModel[] }) {
                         </summary>
                         <div className="model-rows">
                           {group.models.map((model) => (
-                            <ModelRow key={model.id} model={model} />
+                            <ModelRow
+                              key={model.id}
+                              model={model}
+                              operations={
+                                operationsByModel.get(model.id) ?? null
+                              }
+                            />
                           ))}
                         </div>
                       </details>

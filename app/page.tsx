@@ -21,6 +21,7 @@ import { withBasePath } from '@/lib/site-paths';
 import {
   ModelInventory,
   type DiscoveredModel,
+  type ModelOperationalStatus,
 } from '@/components/model-inventory';
 import { AutomationStatus } from '@/components/automation-status';
 import { StatusEmblem } from '@/components/status-emblem';
@@ -76,6 +77,12 @@ type MonitorData = {
   methodologyVersion: string;
   observations: Observation[];
   models?: DiscoveredModel[];
+};
+
+type ModelOperationsData = {
+  schemaVersion: string;
+  generatedAt: string;
+  models: ModelOperationalStatus[];
 };
 
 const probes = [
@@ -444,6 +451,8 @@ function SurfaceMap({
 
 export default function Home() {
   const [data, setData] = useState<MonitorData | null>(null);
+  const [modelOperations, setModelOperations] =
+    useState<ModelOperationsData | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [vendor, setVendor] = useState('ALL');
   const [surface, setSurface] = useState('ALL');
@@ -461,6 +470,15 @@ export default function Home() {
       })
       .then((value) => setData(value as MonitorData))
       .catch(() => setLoadError(true));
+    fetch(`${withBasePath('/data/model-operations.json')}?t=${Date.now()}`, {
+      cache: 'no-store',
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('Model status unavailable');
+        return response.json();
+      })
+      .then((value) => setModelOperations(value as ModelOperationsData))
+      .catch(() => setModelOperations(null));
   }, []);
 
   const observations = useMemo(() => data?.observations ?? [], [data]);
@@ -729,7 +747,10 @@ export default function Home() {
         )}
       </section>
 
-      <ModelInventory models={data?.models ?? []} />
+      <ModelInventory
+        models={data?.models ?? []}
+        operations={modelOperations?.models ?? []}
+      />
 
       <section
         className="probe-section"

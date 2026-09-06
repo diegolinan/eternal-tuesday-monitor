@@ -34,6 +34,7 @@ await Promise.all([
   requireFile('data/monitor.json'),
   requireFile('data/changelog.json'),
   requireFile('data/system-status.json'),
+  requireFile('data/model-operations.json'),
   requireFile('favicon.svg'),
   requireFile('favicon-32.png'),
   requireFile('assets/eternal-tuesday-banner.png'),
@@ -94,6 +95,31 @@ try {
     );
 } catch (error) {
   fail(`unable to validate static dataset: ${error.message}`);
+}
+
+try {
+  const [modelOperations, modelOperationsSchema] = await Promise.all([
+    read('data/model-operations.json').then(JSON.parse),
+    readFile(
+      path.join(root, 'schemas/model-operations.schema.json'),
+      'utf8',
+    ).then(JSON.parse),
+  ]);
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  addFormats(ajv);
+  const validate = ajv.compile(modelOperationsSchema);
+  if (!validate(modelOperations))
+    fail(
+      `public model operations does not match its schema: ${ajv.errorsText(validate.errors)}`,
+    );
+  if (modelOperations.models.length !== monitorData?.models?.length)
+    fail('public model operations does not cover the complete model catalog');
+  if (
+    /github|workflow|run_id|repository/i.test(JSON.stringify(modelOperations))
+  )
+    fail('public model operations exposes implementation metadata');
+} catch (error) {
+  fail(`unable to validate public model operations: ${error.message}`);
 }
 
 try {

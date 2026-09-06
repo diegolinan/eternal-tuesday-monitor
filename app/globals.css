@@ -656,6 +656,53 @@ h1 {
   font-weight: 800;
 }
 
+.model-activity {
+  margin-top: 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 2px solid var(--ink);
+  background: var(--paper-deep);
+}
+
+.model-activity section {
+  min-width: 0;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  border-right: 1px solid var(--ink);
+}
+
+.model-activity section:last-child {
+  border-right: 0;
+}
+
+.model-activity span,
+.model-activity strong {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.model-activity span {
+  color: var(--signal);
+  font-size: 0.7rem;
+}
+
+.model-activity strong {
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.model-activity time,
+.model-activity small {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: 1.35;
+}
+
 .model-provenance {
   margin-top: 1rem;
   padding-top: 0.8rem;
@@ -669,6 +716,35 @@ h1 {
 .model-provenance p,
 .model-provenance li {
   font-size: 0.9rem;
+}
+
+.eligibility-groups {
+  margin: 0.65rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+  list-style: none;
+}
+
+.eligibility-groups li {
+  padding: 0.55rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-left: 4px solid var(--mustard);
+  background: color-mix(in srgb, var(--mustard) 10%, transparent);
+}
+
+.eligibility-groups strong {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.eligibility-groups small {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
 }
 
 .surface-map {
@@ -813,8 +889,18 @@ h1 {
   }
 
   .model-facts,
+  .model-activity,
   .surface-map {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .model-activity section:nth-child(2) {
+    border-right: 0;
+  }
+
+  .model-activity section:last-child {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--ink);
   }
 
   .model-facts div:nth-child(2) {
@@ -837,8 +923,21 @@ h1 {
 
   .coverage-controls,
   .surface-map,
-  .model-facts {
+  .model-facts,
+  .model-activity {
     grid-template-columns: 1fr;
+  }
+
+  .model-activity section,
+  .model-activity section:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .model-activity section:last-child {
+    grid-column: auto;
+    border-top: 0;
+    border-bottom: 0;
   }
 
   .model-facts div,

@@ -39,6 +39,27 @@ jobs:
           SYSTEM_STATUS_TOKEN: ${{ github.token }}
           SYSTEM_STATUS_REPOSITORY: ${{ github.repository }}
         run: npm run status:compile
+      - name: Resolve latest completed source check
+        id: latest-discovery
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          record="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/discover-models.yml/runs?status=completed&per_page=20" --jq '[.workflow_runs[] | select(.conclusion == "success")][0] | [.id, .updated_at] | @tsv')"
+          IFS=$'\t' read -r run_id completed_at <<< "$record"
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          echo "completed_at=$completed_at" >> "$GITHUB_OUTPUT"
+      - name: Read latest model-level source checks
+        if: steps.latest-discovery.outputs.run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: official-model-discovery-sources
+          path: .latest-discovery
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.latest-discovery.outputs.run_id }}
+      - name: Compile per-model public status
+        if: steps.latest-discovery.outputs.run_id != ''
+        run: npm run model-status:compile -- --report .latest-discovery --completed-at "${{ steps.latest-discovery.outputs.completed_at }}"
       - name: Evaluate freshness for the deployment date
         shell: bash
         run: |

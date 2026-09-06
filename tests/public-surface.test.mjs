@@ -87,7 +87,16 @@ test('the product and surface station is driven by accepted observations', async
 
 test('the model register is grouped by vendor and status', async () => {
   const source = await read('components/model-inventory.tsx');
+  const page = await read('app/page.tsx');
   assert.match(source, /vendor-register-group/);
   assert.match(source, /registry-status-group/);
   assert.doesNotMatch(source, /visible\.slice\(0, 24\)/);
+  assert.match(page, /data\/model-operations\.json/);
+  assert.match(source, /Official listing/);
+  assert.match(source, /Eligibility policy/);
+  assert.match(source, /Behavioral evidence/);
+  assert.match(source, /State unchanged since/);
+  assert.match(source, /No five-probe attempt recorded/);
+  assert.match(source, /eligibilityGroups/);
+  assert.doesNotMatch(source, /Adoption eligibility assessed/);
 });

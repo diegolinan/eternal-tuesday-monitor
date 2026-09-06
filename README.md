@@ -60,6 +60,8 @@ The end-to-end notification, manual probe, review and publication cycle is docum
 
 The public site exposes read-only automation status only. Repository run links and manual evaluation controls deliberately remain in the operator documentation and GitHub Actions interface, never in the public monitor.
 
+The public model register also receives a deployment-time operational snapshot at `public/data/model-operations.json`. It keeps three clocks separate: the latest official-source check, the latest eligibility-policy check, and the latest behavioral attempt or accepted evidence date. A source check never implies that a behavioral probe ran. When a completed discovery run contains no catalog change, its model-level check times still reach the deployed site without creating a semantic changelog event or a no-op catalog commit.
+
 ### Public interface and vendor marks
 
 The model registry is grouped by vendor, review/evaluation state, and exact model identity. Groups are collapsed by default; search expands only matching branches. Product/surface coverage is derived exclusively from accepted observations and never inferred from a vendor catalog identity.

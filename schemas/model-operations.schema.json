@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/model-operations.schema.json",
+  "title": "Public per-model operational status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "models"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0", "type": "string" },
+    "generatedAt": { "format": "date-time", "type": "string" },
+    "models": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/model" }
+    }
+  },
+  "$defs": {
+    "nullableDateTime": {
+      "oneOf": [{ "format": "date-time", "type": "string" }, { "type": "null" }]
+    },
+    "nullableDate": {
+      "oneOf": [{ "format": "date", "type": "string" }, { "type": "null" }]
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceCheck",
+        "eligibilityCheck",
+        "behavioralEvaluation"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "sourceCheck": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "checkedAt",
+            "checkedSources",
+            "expectedSources"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "CHECKED_NO_CHANGE",
+                "IDENTITY_CHANGED",
+                "PARTIAL",
+                "NEEDS_ATTENTION",
+                "NOT_RECORDED"
+              ]
+            },
+            "checkedAt": { "$ref": "#/$defs/nullableDateTime" },
+            "checkedSources": { "type": "integer", "minimum": 0 },
+            "expectedSources": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "eligibilityCheck": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "checkedAt", "stateChangedOn", "reasons"],
+          "properties": {
+            "state": { "type": "string", "minLength": 1 },
+            "checkedAt": { "$ref": "#/$defs/nullableDateTime" },
+            "stateChangedOn": { "$ref": "#/$defs/nullableDate" },
+            "reasons": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "behavioralEvaluation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "lastAttemptAt",
+            "lastEvidenceAt",
+            "lastEvidenceOn",
+            "attemptedProbes",
+            "evidenceProbes",
+            "totalProbes"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "NEVER_RUN",
+                "EVIDENCE_RECORDED",
+                "COMPLETED",
+                "OPERATIONAL_ERROR"
+              ]
+            },
+            "lastAttemptAt": { "$ref": "#/$defs/nullableDateTime" },
+            "lastEvidenceAt": { "$ref": "#/$defs/nullableDateTime" },
+            "lastEvidenceOn": { "$ref": "#/$defs/nullableDate" },
+            "attemptedProbes": { "type": "integer", "minimum": 0 },
+            "evidenceProbes": { "type": "integer", "minimum": 0 },
+            "totalProbes": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    }
+  }
+}
