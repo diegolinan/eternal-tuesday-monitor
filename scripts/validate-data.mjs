@@ -51,8 +51,12 @@ const readJsonLines = async (relativePath) => {
   };
 };
 const readOptionalJsonLines = async (relativePath) => {
-  try { return await readJsonLines(relativePath); }
-  catch (error) { if (error.code === 'ENOENT') return { lines: [], items: [] }; throw error; }
+  try {
+    return await readJsonLines(relativePath);
+  } catch (error) {
+    if (error.code === 'ENOENT') return { lines: [], items: [] };
+    throw error;
+  }
 };
 
 function assertUnique(label, items) {
@@ -117,6 +121,7 @@ const [
   manualEvaluationPolicy,
   adoptionRegister,
   monitorView,
+  systemStatus,
   sourceSchema,
   evidenceSchema,
   observationSchema,
@@ -132,6 +137,7 @@ const [
   evaluationResultSchema,
   sourceCheckSchema,
   changelogSchema,
+  systemStatusSchema,
   releaseEntries,
   observationLedger,
   eventLedger,
@@ -155,6 +161,7 @@ const [
   readJson('config/manual-evaluation-policy.json'),
   readJson('data/model-evaluation/adoption.json'),
   readJson('public/data/monitor.json'),
+  readJson('public/data/system-status.json'),
   readJson('schemas/source.schema.json'),
   readJson('schemas/evidence.schema.json'),
   readJson('schemas/observation.schema.json'),
@@ -170,6 +177,7 @@ const [
   readJson('schemas/model-evaluation-result.schema.json'),
   readJson('schemas/source-check.schema.json'),
   readJson('schemas/changelog-event.schema.json'),
+  readJson('schemas/system-status.schema.json'),
   loadReleases(root),
   readJsonLines(observationPath),
   readJsonLines(eventPath),
@@ -234,9 +242,14 @@ validateWithSchema(
   monitorView.models,
 );
 validateWithSchema('state event', stateEventSchema, stateEvents);
-validateWithSchema('model evaluation result', evaluationResultSchema, evaluationResults);
+validateWithSchema(
+  'model evaluation result',
+  evaluationResultSchema,
+  evaluationResults,
+);
 validateWithSchema('public source check', sourceCheckSchema, sourceChecks);
 validateWithSchema('changelog event', changelogSchema, changelogEvents);
+validateWithSchema('public system status', systemStatusSchema, [systemStatus]);
 
 const collections = [
   ['vendors', vendorsFile.vendors],
@@ -293,7 +306,9 @@ if (evaluationPolicy.surface_id && !surfaces.has(evaluationPolicy.surface_id))
     `${evaluationPolicy.policy_id}: unknown surface ${evaluationPolicy.surface_id}`,
   );
 if (!surfaces.has(manualEvaluationPolicy.surface_id))
-  fail(`${manualEvaluationPolicy.policy_id}: unknown surface ${manualEvaluationPolicy.surface_id}`);
+  fail(
+    `${manualEvaluationPolicy.policy_id}: unknown surface ${manualEvaluationPolicy.surface_id}`,
+  );
 for (const providerId of manualEvaluationPolicy.supported_vendor_ids)
   if (!vendors.has(providerId))
     fail(`${manualEvaluationPolicy.policy_id}: unknown provider ${providerId}`);
@@ -346,12 +361,22 @@ for (const record of adoptionRegister.records) {
   }
 }
 for (const result of evaluationResults) {
-  if (!models.has(result.model_id)) fail(`model evaluation result: unknown model ${result.model_id}`);
-  if (!vendors.has(result.vendor_id)) fail(`model evaluation result: unknown vendor ${result.vendor_id}`);
-  if (!surfaces.has(result.surface_id)) fail(`model evaluation result: unknown surface ${result.surface_id}`);
-  if (!probes.has(result.probe_id)) fail(`model evaluation result: unknown probe ${result.probe_id}`);
-  if (!methodologies.has(result.methodology_version_id)) fail(`model evaluation result: unknown methodology ${result.methodology_version_id}`);
-  if (!evidenceClasses.has(result.evidence_class_id)) fail(`model evaluation result: unknown evidence class ${result.evidence_class_id}`);
+  if (!models.has(result.model_id))
+    fail(`model evaluation result: unknown model ${result.model_id}`);
+  if (!vendors.has(result.vendor_id))
+    fail(`model evaluation result: unknown vendor ${result.vendor_id}`);
+  if (!surfaces.has(result.surface_id))
+    fail(`model evaluation result: unknown surface ${result.surface_id}`);
+  if (!probes.has(result.probe_id))
+    fail(`model evaluation result: unknown probe ${result.probe_id}`);
+  if (!methodologies.has(result.methodology_version_id))
+    fail(
+      `model evaluation result: unknown methodology ${result.methodology_version_id}`,
+    );
+  if (!evidenceClasses.has(result.evidence_class_id))
+    fail(
+      `model evaluation result: unknown evidence class ${result.evidence_class_id}`,
+    );
 }
 
 for (const product of productsFile.products)
@@ -580,7 +605,11 @@ if (baseArgIndex !== -1) {
   else {
     compareAppendOnlyLines(base, observationPath, observationLedger.lines);
     compareAppendOnlyLines(base, eventPath, eventLedger.lines);
-    compareAppendOnlyLines(base, evaluationResultPath, evaluationResultLedger.lines);
+    compareAppendOnlyLines(
+      base,
+      evaluationResultPath,
+      evaluationResultLedger.lines,
+    );
     compareAppendOnlyLines(base, sourceCheckPath, sourceCheckLedger.lines);
     compareAppendOnlyLines(base, changelogPath, changelogLedger.lines);
     compareAppendOnlyLines(

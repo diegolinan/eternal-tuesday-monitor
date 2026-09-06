@@ -13,6 +13,7 @@
     "start": "wrangler dev --config dist/server/wrangler.json",
     "data:validate": "node scripts/validate-data.mjs",
     "data:compile": "node scripts/compile-data.mjs",
+    "status:compile": "node scripts/compile-system-status.mjs",
     "models:discover": "node scripts/discovery/run.mjs",
     "models:stage": "node scripts/discovery/stage.mjs",
     "models:adopt": "node scripts/evaluation/cli.mjs",

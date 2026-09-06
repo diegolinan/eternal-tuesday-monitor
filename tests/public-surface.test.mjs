@@ -9,16 +9,68 @@ const read = (relativePath) => readFile(path.join(root, relativePath), 'utf8');
 
 test('the public status panel exposes status but no administrative actions', async () => {
   const source = await read('components/automation-status.tsx');
+  const compiledStatus = await read('public/data/system-status.json');
   assert.doesNotMatch(source, /Inspect discovery runs/i);
   assert.doesNotMatch(source, /Run five probes manually/i);
   assert.doesNotMatch(source, /evaluate-model\.yml/i);
-  assert.match(source, /Last attempt/);
-  assert.match(source, /Last scheduled run/);
-  assert.match(source, /Today&apos;s scheduled run/);
-  assert.match(source, /Next scheduled window/);
-  assert.match(source, /WAITING FOR GITHUB/);
-  assert.match(source, /eventLabel\(latest\.event\)/);
+  assert.doesNotMatch(source, /api\.github\.com/i);
+  assert.doesNotMatch(source, /github/i);
+  assert.doesNotMatch(compiledStatus, /workflow|repository|html_url|run_id/i);
+  assert.match(source, /Latest check/);
+  assert.match(source, /Current check/);
+  assert.match(source, /Next check/);
+  assert.match(source, /ALL TIMES SHOWN IN YOUR LOCAL TIME/);
+  assert.match(source, /IN \{remaining\(nextWindow, now\)\}/);
+  assert.match(source, /STARTING WINDOW/);
+  assert.match(source, /AWAITING START/);
+  assert.match(source, /withBasePath\('\/data\/system-status\.json'\)/);
   assert.match(source, /useState<Date \| null>\(null\)/);
+});
+
+test('the status publisher emits only neutral public fields', async () => {
+  const { compilePublicSystemStatus } =
+    await import('../lib/system-status.mjs');
+  const result = compilePublicSystemStatus(
+    [
+      {
+        id: 42,
+        event: 'workflow_dispatch',
+        status: 'completed',
+        conclusion: 'success',
+        created_at: '2026-09-06T14:00:00Z',
+        run_started_at: '2026-09-06T14:00:05Z',
+        updated_at: '2026-09-06T14:01:00Z',
+        html_url: 'https://example.invalid/private-run',
+      },
+      {
+        id: 41,
+        event: 'schedule',
+        status: 'completed',
+        conclusion: 'failure',
+        created_at: '2026-09-06T13:10:00Z',
+        run_started_at: '2026-09-06T13:10:05Z',
+        updated_at: '2026-09-06T13:11:00Z',
+        html_url: 'https://example.invalid/routine-run',
+      },
+    ],
+    new Date('2026-09-06T14:02:00Z'),
+  );
+  assert.deepEqual(Object.keys(result), [
+    'schemaVersion',
+    'generatedAt',
+    'latestCheck',
+    'lastRoutineCheck',
+  ]);
+  assert.equal(result.latestCheck.state, 'complete');
+  assert.equal(result.lastRoutineCheck.state, 'needs_attention');
+  assert.equal(
+    result.lastRoutineCheck.scheduledFor,
+    '2026-09-06T12:43:00.000Z',
+  );
+  assert.doesNotMatch(
+    JSON.stringify(result),
+    /workflow|html_url|run_id|42|41/i,
+  );
 });
 
 test('the product and surface station is driven by accepted observations', async () => {

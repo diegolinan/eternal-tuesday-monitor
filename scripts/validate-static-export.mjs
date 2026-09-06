@@ -1,8 +1,10 @@
-import { access, readFile, mkdtemp } from 'node:fs/promises';
+import { access, readFile, mkdtemp, readdir } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import Ajv2020 from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, 'dist/client');
@@ -31,6 +33,7 @@ await Promise.all([
   requireFile('.nojekyll'),
   requireFile('data/monitor.json'),
   requireFile('data/changelog.json'),
+  requireFile('data/system-status.json'),
   requireFile('favicon.svg'),
   requireFile('favicon-32.png'),
   requireFile('assets/eternal-tuesday-banner.png'),
@@ -38,6 +41,27 @@ await Promise.all([
   requireFile('assets/monitor-exhibit.png'),
   requireFile('assets/same-sequence-different-time.png'),
 ]);
+
+try {
+  const [systemStatus, systemStatusSchema] = await Promise.all([
+    read('data/system-status.json').then(JSON.parse),
+    readFile(path.join(root, 'schemas/system-status.schema.json'), 'utf8').then(
+      JSON.parse,
+    ),
+  ]);
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  addFormats(ajv);
+  const validate = ajv.compile(systemStatusSchema);
+  if (!validate(systemStatus))
+    fail(
+      `public system status does not match its schema: ${ajv.errorsText(validate.errors)}`,
+    );
+  const serialized = JSON.stringify(systemStatus);
+  if (/html_url|workflow|run_id|repository|provider/i.test(serialized))
+    fail('public system status exposes operational metadata');
+} catch (error) {
+  fail(`unable to validate public system status: ${error.message}`);
+}
 
 let monitorData;
 try {
@@ -70,6 +94,32 @@ try {
     );
 } catch (error) {
   fail(`unable to validate static dataset: ${error.message}`);
+}
+
+try {
+  const chunkDirectory = path.join(output, '_next/static/chunks');
+  const chunkNames = (
+    await readdir(chunkDirectory, { recursive: true })
+  ).filter((name) => name.endsWith('.js'));
+  const publicClient = (
+    await Promise.all(
+      chunkNames.map((name) =>
+        readFile(path.join(chunkDirectory, name), 'utf8'),
+      ),
+    )
+  ).join('\n');
+  const operationalLeaks = [
+    'api.github.com',
+    'actions/workflows',
+    'PUBLIC GITHUB DATA',
+    'WAITING FOR GITHUB',
+    'GITHUB MAY DELAY',
+  ];
+  for (const phrase of operationalLeaks)
+    if (publicClient.includes(phrase))
+      fail(`public client exposes operational marker: ${phrase}`);
+} catch (error) {
+  fail(`unable to inspect public client chunks: ${error.message}`);
 }
 
 for (const relativePath of ['index.html', 'changelog/index.html']) {

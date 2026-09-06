@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.example/schemas/system-status.schema.json",
+  "title": "Public monitor system status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "latestCheck",
+    "lastRoutineCheck"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0", "type": "string" },
+    "generatedAt": { "format": "date-time", "type": "string" },
+    "latestCheck": {
+      "anyOf": [{ "$ref": "#/$defs/check" }, { "type": "null" }]
+    },
+    "lastRoutineCheck": {
+      "anyOf": [{ "$ref": "#/$defs/routineCheck" }, { "type": "null" }]
+    }
+  },
+  "$defs": {
+    "state": {
+      "enum": ["complete", "in_progress", "needs_attention"],
+      "type": "string"
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["startedAt", "completedAt", "state"],
+      "properties": {
+        "startedAt": { "format": "date-time", "type": "string" },
+        "completedAt": {
+          "anyOf": [
+            { "format": "date-time", "type": "string" },
+            { "type": "null" }
+          ]
+        },
+        "state": { "$ref": "#/$defs/state" }
+      }
+    },
+    "routineCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["startedAt", "completedAt", "state", "scheduledFor"],
+      "properties": {
+        "startedAt": { "format": "date-time", "type": "string" },
+        "completedAt": {
+          "anyOf": [
+            { "format": "date-time", "type": "string" },
+            { "type": "null" }
+          ]
+        },
+        "state": { "$ref": "#/$defs/state" },
+        "scheduledFor": { "format": "date-time", "type": "string" }
+      }
+    }
+  }
+}

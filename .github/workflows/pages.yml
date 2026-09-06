@@ -4,8 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  workflow_run:
+    workflows: ['Discover official model changes']
+    types: [in_progress, completed]
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -30,6 +34,11 @@ jobs:
       - run: npm run data:compile
       - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json
       - run: npm test
+      - name: Compile neutral public status
+        env:
+          SYSTEM_STATUS_TOKEN: ${{ github.token }}
+          SYSTEM_STATUS_REPOSITORY: ${{ github.repository }}
+        run: npm run status:compile
       - name: Evaluate freshness for the deployment date
         shell: bash
         run: |

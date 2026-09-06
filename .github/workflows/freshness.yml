@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -35,6 +36,11 @@ jobs:
           echo "as_of=$as_of" >> "$GITHUB_OUTPUT"
       - name: Compile derived state without changing evidence dates
         run: npm run data:compile -- --as-of "${{ steps.evaluation.outputs.as_of }}"
+      - name: Compile neutral public status
+        env:
+          SYSTEM_STATUS_TOKEN: ${{ github.token }}
+          SYSTEM_STATUS_REPOSITORY: ${{ github.repository }}
+        run: npm run status:compile
       - run: npm run build:pages
       - run: npm run static:validate
       - uses: actions/configure-pages@v5

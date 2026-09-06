@@ -303,7 +303,11 @@ test('production workflows are GitHub-only and contain no provider inference, ta
   const providerSecret = ['OPENAI', 'API', 'KEY'].join('_');
   assert.match(discovery, /schedule:/);
   assert.match(discovery, /workflow_dispatch:/);
-  assert.match(discovery, /actions\/deploy-pages/);
+  assert.doesNotMatch(discovery, /actions\/deploy-pages/);
+  assert.match(pages, /workflow_run:/);
+  assert.match(pages, /types: \[in_progress, completed\]/);
+  assert.match(pages, /npm run status:compile/);
+  assert.match(pages, /actions\/deploy-pages/);
   assert.equal(workflows.includes(providerSecret), false);
   assert.equal(
     /models:evaluate|models:targets|probe-targets|api\.openai\.com/i.test(

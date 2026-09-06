@@ -9,8 +9,6 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: model-discovery
@@ -20,8 +18,6 @@ jobs:
   discover:
     runs-on: ubuntu-latest
     timeout-minutes: 35
-    outputs:
-      deploy: ${{ steps.automatic.outputs.deploy }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -73,14 +69,6 @@ jobs:
           else
             echo "deploy=true" >> "$GITHUB_OUTPUT"
           fi
-      - name: Configure Pages deployment
-        if: steps.automatic.outputs.deploy == 'true'
-        uses: actions/configure-pages@v5
-      - name: Package rebuilt public Monitor
-        if: steps.automatic.outputs.deploy == 'true'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/client
       - name: Commit deterministic catalog discoveries to main
         if: steps.automatic.outputs.deploy == 'true'
         shell: bash
@@ -123,18 +111,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/notifications/report-workflow-failure.mjs
-
-  deploy:
-    if: needs.discover.outputs.deploy == 'true'
-    needs: discover
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Deploy rebuilt Monitor
-        id: deployment
-        uses: actions/deploy-pages@v4
