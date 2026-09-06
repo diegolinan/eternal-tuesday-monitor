@@ -56,7 +56,7 @@ test('candidate identity is stable and accepted URLs are excluded', () => {
   const input = {
     sourceType: 'PUBLIC_ISSUE',
     sourceUrl: 'https://example.com/report?utm_source=x#part',
-    title: 'Wrong current date',
+    title: 'Agent reports wrong current date',
     excerpt: 'The agent reports the wrong current date.',
     discoveredAt: '2026-09-06T12:00:00.000Z',
     queryId: 'test',
@@ -156,6 +156,24 @@ test('public screening rejects UI and infrastructure keyword collisions', () => 
       title: 'Connector stopped working yesterday morning',
       excerpt:
         'The Claude session report says a connected tool disappeared.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Auto memory has no freshness indicator',
+      excerpt:
+        'A months-old stale memory file loads into every Claude session.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Sessions with model show no messages after update',
+      excerpt:
+        'Historical context still exists on disk but the Claude session list is empty.',
     }),
     null,
   );

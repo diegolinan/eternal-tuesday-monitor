@@ -146,6 +146,7 @@ const behavioralOutcomeTerms = [
   're-dated',
   'references "the test',
   'reported',
+  'reports',
   'said',
   'says',
   'stated',
@@ -160,17 +161,11 @@ const behavioralOutcomeTerms = [
   'wrong day',
   'wrong time',
 ];
-const contextualOnlyTerms = new Set([
-  'days later',
-  'hours earlier',
-  'minutes earlier',
-  'prior session',
-  'resumed session',
-  'stale context',
-  'stale memory',
-  'superseded',
-  'weeks later',
-  'yesterday',
+const decisiveProbeTerms = new Set([
+  're-dated',
+  'without verifying',
+  'wrong date',
+  'wrong day',
 ]);
 
 const hasBehavioralContext = (value) => {
@@ -247,12 +242,12 @@ export function inferClaimClass(sourceType, sentiment) {
 export function buildCandidate(input) {
   const sourceUrl = normalizeUrl(input.sourceUrl);
   const screeningPolicyVersion =
-    input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.3';
+    input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.4';
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
   const directClassification = classifyText(corpus);
   const hasStrongProbeMatch = directClassification.matchingTerms.length > 0;
-  const contextualOnlyMatch = directClassification.matchingTerms.every(
-    (term) => contextualOnlyTerms.has(term),
+  const contextualOnlyMatch = !directClassification.matchingTerms.some(
+    (term) => decisiveProbeTerms.has(term),
   );
   if (!hasStrongProbeMatch && !input.allowUnclassified) return null;
   if (
