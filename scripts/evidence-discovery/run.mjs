@@ -93,6 +93,7 @@ function add(input) {
     ...input,
     discoveredAt: now,
     maxExcerpt: config.max_excerpt_characters,
+    screeningPolicyVersion: config.screening_policy_version,
     vendorIds: input.vendorIds ?? inferIds(corpus, vendorTerms),
     modelIds: input.modelIds ?? inferIds(corpus, modelTerms),
     productIds: input.productIds ?? inferIds(corpus, productTerms),

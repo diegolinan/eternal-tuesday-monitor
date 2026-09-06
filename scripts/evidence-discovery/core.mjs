@@ -122,12 +122,73 @@ const behavioralInteractionTerms = [
   'told',
 ];
 
+const behavioralOutcomeTerms = [
+  'answered',
+  'asserted',
+  'assumed',
+  'believed',
+  'claimed',
+  'concluded',
+  'continued the conversation',
+  'described',
+  'executed tools',
+  'failed to consult',
+  'failed to distinguish',
+  'failed to notice',
+  'failed to remember',
+  'failed to revalidate',
+  'failed to verify',
+  'forgot',
+  'ignores',
+  'ignored',
+  'invented',
+  'misdated',
+  're-dated',
+  'references "the test',
+  'reported',
+  'said',
+  'says',
+  'stated',
+  'treated answered',
+  'told',
+  'used stale',
+  'uses stale',
+  'without verifying',
+  'wrong current date',
+  'wrong current time',
+  'wrong date',
+  'wrong day',
+  'wrong time',
+];
+const contextualOnlyTerms = new Set([
+  'days later',
+  'hours earlier',
+  'minutes earlier',
+  'prior session',
+  'resumed session',
+  'stale context',
+  'stale memory',
+  'superseded',
+  'weeks later',
+  'yesterday',
+]);
+
 const hasBehavioralContext = (value) => {
   const text = value.toLowerCase();
   return (
     behavioralActorTerms.some((term) => text.includes(term)) &&
     behavioralInteractionTerms.some((term) => text.includes(term))
   );
+};
+
+const hasBehavioralOutcome = (value) => {
+  const text = value.toLowerCase();
+  return behavioralOutcomeTerms.some((term) => text.includes(term));
+};
+
+const hasBehavioralActor = (value) => {
+  const text = value.toLowerCase();
+  return behavioralActorTerms.some((term) => text.includes(term));
 };
 
 export function normalizeUrl(value) {
@@ -188,10 +249,21 @@ export function buildCandidate(input) {
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
   const directClassification = classifyText(corpus);
   const hasStrongProbeMatch = directClassification.matchingTerms.length > 0;
+  const contextualOnlyMatch = directClassification.matchingTerms.every(
+    (term) => contextualOnlyTerms.has(term),
+  );
   if (!hasStrongProbeMatch && !input.allowUnclassified) return null;
   if (
     ['PUBLIC_ISSUE', 'GENERAL_WEB'].includes(input.sourceType) &&
-    !hasBehavioralContext(corpus) &&
+    (!hasBehavioralContext(corpus) || !hasBehavioralOutcome(corpus)) &&
+    !input.allowUnclassified
+  )
+    return null;
+  if (
+    ['PUBLIC_ISSUE', 'GENERAL_WEB'].includes(input.sourceType) &&
+    contextualOnlyMatch &&
+    (!hasBehavioralActor(input.title ?? '') ||
+      !hasBehavioralOutcome(corpus)) &&
     !input.allowUnclassified
   )
     return null;
@@ -233,7 +305,8 @@ export function buildCandidate(input) {
     probe_ids: classification.probeIds,
     claim_class: claimClass,
     query_id: clean(input.queryId, 120),
-    screening_policy_version: 'ETM-EVIDENCE-1.1',
+    screening_policy_version:
+      input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.2',
     matching_terms: classification.matchingTerms,
     review_state: 'PENDING',
     review_reasons: [

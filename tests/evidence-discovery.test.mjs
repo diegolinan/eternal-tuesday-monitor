@@ -107,12 +107,65 @@ test('public screening rejects UI and infrastructure keyword collisions', () => 
     }),
     null,
   );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Claude usage reset timer changed yesterday',
+      excerpt:
+        'The session usage counter moved after yesterday without resetting.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Claude project folder lost prior session history',
+      excerpt:
+        'Renaming the folder hides the prior session from the project list.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Claude auto memory contains stale memory',
+      excerpt:
+        'The session loads a stale memory file but reports no model behavior.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Cowork was working yesterday and is now missing',
+      excerpt:
+        'The Claude session report says the product disappeared after an update.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Connector stopped working yesterday morning',
+      excerpt:
+        'The Claude session report says a connected tool disappeared.',
+    }),
+    null,
+  );
   assert.ok(
     buildCandidate({
       ...shared,
       title: 'Model relies on stale memory',
       excerpt:
         'The assistant stated an old answer from stale memory without verifying current evidence.',
+    }),
+  );
+  assert.ok(
+    buildCandidate({
+      ...shared,
+      title: 'Claude resumed after an eight-hour gap',
+      excerpt:
+        'The assistant said good night when the user had just woken up and referenced the test from hours earlier as still running.',
     }),
   );
 });
