@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "lastSearchAt": null,
+  "state": "NOT_YET_RUN",
+  "channels": [
+    {
+      "name": "OFFICIAL_SOURCES",
+      "state": "NOT_YET_RUN",
+      "searchedAt": null,
+      "resultsReviewed": 0,
+      "candidatesFound": 0,
+      "note": "Waiting for the first evidence search."
+    },
+    {
+      "name": "PUBLIC_ISSUES",
+      "state": "NOT_CONFIGURED",
+      "searchedAt": null,
+      "resultsReviewed": 0,
+      "candidatesFound": 0,
+      "note": "Waiting for the first evidence search."
+    },
+    {
+      "name": "RESEARCH",
+      "state": "NOT_YET_RUN",
+      "searchedAt": null,
+      "resultsReviewed": 0,
+      "candidatesFound": 0,
+      "note": "Waiting for the first evidence search."
+    },
+    {
+      "name": "GENERAL_WEB",
+      "state": "NOT_CONFIGURED",
+      "searchedAt": null,
+      "resultsReviewed": 0,
+      "candidatesFound": 0,
+      "note": "The broad web-search channel is not configured yet."
+    }
+  ],
+  "candidateCounts": {
+    "pending": 0,
+    "officialClaims": 0,
+    "publicReports": 0,
+    "researchResults": 0
+  },
+  "latestCandidates": []
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "enabled": true,
+  "lookback_days": 14,
+  "max_results_per_query": 20,
+  "max_excerpt_characters": 480,
+  "channels": {
+    "official_sources": true,
+    "public_issue_search": true,
+    "research_search": true,
+    "general_web_search": true
+  },
+  "public_issue_repositories": ["anthropics/claude-code", "getcursor/cursor"],
+  "queries": [
+    {
+      "id": "temporal-continuity",
+      "terms": "AI agent current date elapsed time temporal awareness conversation continuity",
+      "issue_terms": "\"current date\" OR \"elapsed time\" OR \"time awareness\"",
+      "probe_ids": ["probe-temporal-anchor", "probe-elapsed"]
+    },
+    {
+      "id": "stale-state",
+      "terms": "AI agent stale context revalidate changed state outdated information",
+      "issue_terms": "stale OR revalidate OR \"changed state\" OR outdated",
+      "probe_ids": ["probe-revalidation", "probe-state-reconciliation"]
+    },
+    {
+      "id": "historical-validity",
+      "terms": "AI agent historical context previously true current state memory",
+      "issue_terms": "\"historical context\" OR \"previously true\" OR \"past state\"",
+      "probe_ids": ["probe-historical-validity"]
+    }
+  ]
+}

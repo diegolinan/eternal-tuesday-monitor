@@ -339,6 +339,309 @@ h1 {
   }
 }
 
+/* Public evidence watch and community service desk */
+.evidence-watch {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.55fr);
+  gap: clamp(24px, 4vw, 58px);
+  padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 76px);
+  border-bottom: 5px solid var(--ink);
+  background: #d7e2d8;
+}
+.evidence-watch h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 4.8rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.evidence-watch-heading > p:not(.section-code) {
+  max-width: 36rem;
+}
+.service-station-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border: 3px solid var(--ink);
+  background: var(--mustard);
+  box-shadow: 5px 5px 0 var(--ink);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.service-station-button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+.evidence-watch-board {
+  min-width: 0;
+}
+.evidence-watch-state {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1rem;
+  padding: 18px;
+  border: 3px solid var(--ink);
+  background: var(--paper-light);
+}
+.evidence-watch-state > span,
+.evidence-watch-state > small {
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.evidence-watch-state > strong {
+  grid-row: span 2;
+  align-self: center;
+  color: var(--signal);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  text-transform: uppercase;
+}
+.evidence-watch-state > time {
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+.evidence-watch-channels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 3px solid var(--ink);
+  border-top: 0;
+}
+.evidence-watch-channels article {
+  min-width: 0;
+  padding: 14px;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+.evidence-watch-channels article:nth-child(2n) {
+  border-right: 0;
+}
+.evidence-watch-channels article:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+.evidence-watch-channels span,
+.evidence-watch-channels strong,
+.evidence-watch-channels small {
+  display: block;
+}
+.evidence-watch-channels span {
+  color: var(--signal);
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+.evidence-watch-channels strong {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+.evidence-watch-channels small {
+  margin-top: 0.3rem;
+  font-weight: 800;
+}
+.evidence-watch-channels p {
+  margin: 0.55rem 0 0;
+  font-size: 0.84rem;
+}
+.evidence-candidate-strip {
+  padding: 16px;
+  border: 3px solid var(--signal);
+  border-top: 0;
+  background: #f5c09f;
+}
+.evidence-candidate-strip > strong {
+  font-family: var(--font-display);
+}
+.evidence-candidate-strip li {
+  margin-top: 0.7rem;
+}
+.evidence-candidate-strip small {
+  display: block;
+  text-transform: uppercase;
+}
+
+.contribute-page {
+  min-height: 100vh;
+  background: var(--paper);
+}
+.contribute-hero {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 90px);
+  padding: clamp(48px, 8vw, 110px) clamp(20px, 6vw, 92px);
+  border-bottom: 5px solid var(--ink);
+  background: #c9dedd;
+}
+.contribute-hero h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(3rem, 7vw, 7rem);
+}
+.contribute-hero > div:last-child > p:last-child {
+  max-width: 44rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.roadside-sign {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: 15%;
+  clip-path: polygon(
+    50% 0,
+    90% 12%,
+    100% 50%,
+    88% 88%,
+    50% 100%,
+    12% 88%,
+    0 50%,
+    12% 12%
+  );
+  background: var(--signal);
+  color: var(--paper-light);
+  text-align: center;
+  transform: rotate(-2deg);
+}
+.roadside-sign::before {
+  content: '';
+  position: absolute;
+}
+.roadside-sign span,
+.roadside-sign strong,
+.roadside-sign b {
+  display: block;
+  font-family: var(--font-display);
+  line-height: 0.9;
+}
+.roadside-sign span {
+  font-size: clamp(1rem, 2.3vw, 2.1rem);
+}
+.roadside-sign strong {
+  font-size: clamp(2rem, 5vw, 4.8rem);
+}
+.roadside-sign b {
+  color: var(--mustard);
+  font-size: clamp(1.2rem, 3vw, 2.8rem);
+}
+.contribute-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+  gap: clamp(24px, 5vw, 64px);
+  padding: clamp(44px, 7vw, 92px) clamp(20px, 6vw, 92px);
+}
+.contribution-form {
+  display: grid;
+  gap: 1.15rem;
+}
+.contribution-form label,
+.contribution-form legend {
+  display: grid;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.contribution-form input,
+.contribution-form select,
+.contribution-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper-light);
+  color: var(--ink);
+  font: inherit;
+  font-family: var(--font-body);
+  text-transform: none;
+}
+.contribution-form fieldset {
+  padding: 1rem;
+  border: 2px solid var(--ink);
+}
+.form-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.form-intro,
+.form-unavailable {
+  padding: 1rem;
+  border: 3px solid var(--signal);
+  background: #f5c09f;
+}
+.form-intro p {
+  margin-bottom: 0;
+}
+.checkbox-line {
+  grid-template-columns: auto 1fr !important;
+  align-items: start;
+  margin-top: 0.8rem;
+}
+.checkbox-line input {
+  width: auto;
+  margin-top: 0.15rem;
+}
+.honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+}
+.turnstile-slot {
+  min-height: 70px;
+}
+.contribution-rules {
+  align-self: start;
+  padding: 1.4rem;
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--mustard);
+  background: var(--paper-light);
+}
+.contribution-rules h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+.contribution-rules li {
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  .evidence-watch,
+  .contribute-hero,
+  .contribute-layout {
+    grid-template-columns: 1fr;
+  }
+  .roadside-sign {
+    width: min(68vw, 340px);
+    justify-self: center;
+  }
+}
+@media (max-width: 560px) {
+  .evidence-watch-channels,
+  .form-pair {
+    grid-template-columns: 1fr;
+  }
+  .evidence-watch-channels article {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink) !important;
+  }
+  .evidence-watch-channels article:last-child {
+    border-bottom: 0 !important;
+  }
+  .evidence-watch-state {
+    grid-template-columns: 1fr;
+  }
+  .evidence-watch-state > strong {
+    grid-row: auto;
+  }
+}
+
 /* Compact public monitor, hierarchical registry, and period signal system. */
 .hero {
   min-height: 500px;
@@ -451,6 +754,12 @@ h1 {
 .status-emblem-evaluation-blocked,
 .status-emblem-review-required {
   background: var(--mustard);
+}
+
+.status-emblem-evidence-watch {
+  padding-inline: 0.7rem;
+  background: #c9dedd;
+  clip-path: polygon(7% 0, 93% 0, 100% 50%, 93% 100%, 7% 100%, 0 50%);
 }
 
 .status-bar .vendor-mark {

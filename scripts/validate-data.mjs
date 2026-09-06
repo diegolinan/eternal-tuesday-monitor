@@ -19,6 +19,7 @@ const eventPath = 'data/state-events/events.jsonl';
 const evaluationResultPath = 'data/model-evaluation/results.jsonl';
 const sourceCheckPath = 'data/model-discovery/source-checks.jsonl';
 const changelogPath = 'data/changelog/events.jsonl';
+const evidenceCandidatePath = 'data/evidence-discovery/candidates.jsonl';
 const failures = [];
 failures.push(...(await validateDiscovery(root)));
 const fail = (message) => failures.push(message);
@@ -190,17 +191,37 @@ const [
   readJsonLines(changelogPath),
 ]);
 
+const [
+  evidenceDiscoveryConfig,
+  evidenceDiscoveryConfigSchema,
+  evidenceCandidateSchema,
+  evidenceWatchSchema,
+  publicSubmissionSchema,
+  evidenceCandidateLedger,
+  evidenceWatch,
+] = await Promise.all([
+  readJson('config/evidence-discovery.json'),
+  readJson('schemas/evidence-discovery-config.schema.json'),
+  readJson('schemas/evidence-candidate.schema.json'),
+  readJson('schemas/evidence-watch.schema.json'),
+  readJson('schemas/public-submission.schema.json'),
+  readOptionalJsonLines(evidenceCandidatePath),
+  readJson('public/data/evidence-watch.json'),
+]);
+
 const observations = observationLedger.items;
 const stateEvents = eventLedger.items;
 const evaluationResults = evaluationResultLedger.items;
 const sourceChecks = sourceCheckLedger.items;
 const changelogEvents = changelogLedger.items;
+const evidenceCandidates = evidenceCandidateLedger.items;
 const ajv = new Ajv2020({
   allErrors: true,
   strict: true,
   strictRequired: false,
 });
 addFormats(ajv);
+ajv.compile(publicSubmissionSchema);
 function validateWithSchema(label, schema, items) {
   const validate = ajv.compile(schema);
   for (const item of items)
@@ -257,6 +278,17 @@ validateWithSchema('public system status', systemStatusSchema, [systemStatus]);
 validateWithSchema('public model operations', modelOperationsSchema, [
   modelOperations,
 ]);
+validateWithSchema('evidence discovery config', evidenceDiscoveryConfigSchema, [
+  evidenceDiscoveryConfig,
+]);
+validateWithSchema(
+  'evidence candidate',
+  evidenceCandidateSchema,
+  evidenceCandidates,
+);
+validateWithSchema('public evidence watch', evidenceWatchSchema, [
+  evidenceWatch,
+]);
 
 const publicModelIds = new Set(monitorView.models.map((model) => model.id));
 const operationalModelIds = new Set(
@@ -288,6 +320,7 @@ const collections = [
   ['model evaluation results', evaluationResults],
   ['public source checks', sourceChecks],
   ['changelog events', changelogEvents],
+  ['evidence candidates', evidenceCandidates],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -320,6 +353,25 @@ const modelsById = new Map(modelsFile.models.map((item) => [item.id, item]));
 const evidenceById = new Map(
   evidenceFile.evidence_records.map((item) => [item.id, item]),
 );
+
+for (const candidate of evidenceCandidates) {
+  for (const id of candidate.vendor_ids)
+    if (!vendors.has(id)) fail(`${candidate.id}: unknown vendor ${id}`);
+  for (const id of candidate.model_ids)
+    if (!models.has(id)) fail(`${candidate.id}: unknown model ${id}`);
+  for (const id of candidate.product_ids)
+    if (!products.has(id)) fail(`${candidate.id}: unknown product ${id}`);
+  for (const id of candidate.surface_ids)
+    if (!surfaces.has(id)) fail(`${candidate.id}: unknown surface ${id}`);
+  for (const id of candidate.probe_ids)
+    if (!probes.has(id)) fail(`${candidate.id}: unknown probe ${id}`);
+}
+for (const query of evidenceDiscoveryConfig.queries)
+  for (const id of query.probe_ids)
+    if (!probes.has(id))
+      fail(
+        `${evidenceDiscoveryConfig.schema_version}: unknown query probe ${id}`,
+      );
 
 if (evaluationPolicy.surface_id && !surfaces.has(evaluationPolicy.surface_id))
   fail(
@@ -632,6 +684,11 @@ if (baseArgIndex !== -1) {
     );
     compareAppendOnlyLines(base, sourceCheckPath, sourceCheckLedger.lines);
     compareAppendOnlyLines(base, changelogPath, changelogLedger.lines);
+    compareAppendOnlyLines(
+      base,
+      evidenceCandidatePath,
+      evidenceCandidateLedger.lines,
+    );
     compareAppendOnlyLines(
       base,
       'data/model-discovery/events.jsonl',

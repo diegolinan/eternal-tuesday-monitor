@@ -143,6 +143,7 @@ type RegistryGroup =
   | 'RETEST_REQUIRED'
   | 'TEST_REQUIRED'
   | 'EVALUATION_BLOCKED'
+  | 'EVIDENCE_WATCH'
   | 'REVIEW_REQUIRED'
   | 'CATALOG_ONLY';
 
@@ -151,6 +152,7 @@ const groupOrder: RegistryGroup[] = [
   'RETEST_REQUIRED',
   'TEST_REQUIRED',
   'EVALUATION_BLOCKED',
+  'EVIDENCE_WATCH',
   'REVIEW_REQUIRED',
   'CATALOG_ONLY',
 ];
@@ -177,7 +179,7 @@ const reasonLabels: Record<string, string> = {
   NO_CURRENT_BEHAVIORAL_EVIDENCE:
     'No current behavioral evidence has been established for this model',
   BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW:
-    'A human must define or approve the product surface, probe method, and evidence standard before testing',
+    'No controlled surface and method have been accepted yet; the public evidence watch continues separately',
   NO_APPROVED_METHODOLOGY: 'This probe needs a reviewed executable methodology',
   PROVIDER_SEMANTICS_REQUIRE_REVIEW:
     'Provider semantics require human review before this methodology can be reused',
@@ -244,9 +246,8 @@ function registryGroup(model: DiscoveredModel): RegistryGroup {
   if (model.lifecycleState === 'TESTED') return 'TESTED';
   if (model.lifecycleState === 'RETEST_REQUIRED') return 'RETEST_REQUIRED';
   if (
-    model.testabilityState === 'REVIEW_REQUIRED' ||
     model.relevanceState === 'REVIEW_REQUIRED' ||
-    model.reviewReasons.length > 0
+    model.reviewReasons.includes('IDENTITY_OR_SOURCE_REVIEW_REQUIRED')
   )
     return 'REVIEW_REQUIRED';
   if (model.queueState === 'TEST_REQUIRED') return 'TEST_REQUIRED';
@@ -255,6 +256,8 @@ function registryGroup(model: DiscoveredModel): RegistryGroup {
     model.lifecycleState === 'EVALUATION_NOT_POSSIBLE'
   )
     return 'EVALUATION_BLOCKED';
+  if (model.defaultProminence || model.testabilityState === 'REVIEW_REQUIRED')
+    return 'EVIDENCE_WATCH';
   return 'CATALOG_ONLY';
 }
 
@@ -309,7 +312,7 @@ function ModelDetail({
 
       <div
         className="model-activity"
-        aria-label={`${model.name} source scan, test eligibility, and behavioral evidence`}
+        aria-label={`${model.name} source scan, controlled-test readiness, and behavioral evidence`}
       >
         <section>
           <span>
@@ -347,7 +350,7 @@ function ModelDetail({
           )}
         </section>
         <section>
-          <span>Behavioral-test eligibility</span>
+          <span>Controlled-test readiness</span>
           <strong>
             {operations
               ? label(operations.eligibilityCheck.state)
@@ -359,7 +362,7 @@ function ModelDetail({
           {(operations?.eligibilityCheck.stateChangedOn ??
             model.adoptionAssessedOn) && (
             <small>
-              Eligibility decision unchanged since{' '}
+              Method decision unchanged since{' '}
               {calendarDay(
                 operations?.eligibilityCheck.stateChangedOn ??
                   model.adoptionAssessedOn,
@@ -430,6 +433,11 @@ function ModelDetail({
 
       <div className="model-provenance">
         <h4>What must happen before a behavioral result exists</h4>
+        <p>
+          This is a method-status record, not a task for the visitor. Public
+          evidence is searched automatically; any promising lead is reviewed
+          separately before it can alter the accepted dataset.
+        </p>
         <ul className="eligibility-groups">
           {eligibilityGroups.map((group) => (
             <li key={`${group.state}-${group.probes.join('-')}`}>
@@ -617,7 +625,8 @@ export function ModelInventory({
         <p>
           A model can appear in an official catalog without being behaviorally
           tested. Open a vendor, then a status group, to see its listing scan,
-          test eligibility, and accepted probe evidence as separate claims.
+          evidence-watch state, controlled-test readiness, and accepted probe
+          evidence as separate claims.
         </p>
       </div>
 
@@ -627,12 +636,12 @@ export function ModelInventory({
           <span>Has probe evidence</span>
         </div>
         <div>
-          <strong>{counts.TEST_REQUIRED ?? 0}</strong>
-          <span>Behavioral test due</span>
+          <strong>{counts.RETEST_REQUIRED ?? 0}</strong>
+          <span>Retest due</span>
         </div>
         <div>
-          <strong>{counts.REVIEW_REQUIRED ?? 0}</strong>
-          <span>Human review due</span>
+          <strong>{counts.EVIDENCE_WATCH ?? 0}</strong>
+          <span>Evidence watch active</span>
         </div>
         <div className="coverage-known">
           <strong>{models.length}</strong>
@@ -647,7 +656,7 @@ export function ModelInventory({
             aria-pressed={scope === 'focus'}
             onClick={() => setScope('focus')}
           >
-            Actionable focus
+            Monitoring focus
           </button>
           <button
             type="button"
@@ -671,8 +680,8 @@ export function ModelInventory({
       </div>
 
       <p className="coverage-explainer">
-        Actionable focus shows identities with evidence or a decision still
-        needed. The complete catalog includes every tracked official identity;
+        Monitoring focus shows identities with evidence or an active evidence
+        watch. The complete catalog includes every tracked official identity;
         inclusion does not imply API access, product availability, or behavior.
       </p>
       <dl className="coverage-glossary">
@@ -688,9 +697,16 @@ export function ModelInventory({
           </dd>
         </div>
         <div>
+          <dt>EVIDENCE WATCH</dt>
+          <dd>
+            Public sources are searched for relevant claims; no accepted
+            behavioral result exists yet.
+          </dd>
+        </div>
+        <div>
           <dt>REVIEW REQUIRED</dt>
           <dd>
-            A human identity, scope, or methodology decision is still due.
+            A specific identity or source ambiguity needs a human decision.
           </dd>
         </div>
         <div>

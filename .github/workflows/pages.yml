@@ -57,9 +57,22 @@ jobs:
           path: .latest-discovery
           github-token: ${{ github.token }}
           run-id: ${{ steps.latest-discovery.outputs.run_id }}
+      - name: Read latest public evidence search
+        if: steps.latest-discovery.outputs.run_id != ''
+        id: evidence-artifact
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: public-evidence-search
+          path: .latest-evidence
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.latest-discovery.outputs.run_id }}
       - name: Compile per-model public status
         if: steps.latest-discovery.outputs.run_id != ''
         run: npm run model-status:compile -- --report .latest-discovery --completed-at "${{ steps.latest-discovery.outputs.completed_at }}"
+      - name: Compile neutral public evidence-search status
+        if: steps.evidence-artifact.outcome == 'success'
+        run: npm run evidence:status -- --report .latest-evidence
       - name: Evaluate freshness for the deployment date
         shell: bash
         run: |
@@ -67,6 +80,9 @@ jobs:
           as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
           npm run data:compile -- --as-of "$as_of"
       - run: npm run build:pages
+        env:
+          NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
       - run: npm run static:validate
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

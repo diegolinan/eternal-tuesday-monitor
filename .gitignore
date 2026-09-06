@@ -38,5 +38,7 @@ next-env.d.ts
 /work/
 /.discovery/
 /.evaluation/
+/.evidence-discovery/
+/.submission-pr-body.md
 /.probes/
 /.probe-candidates/

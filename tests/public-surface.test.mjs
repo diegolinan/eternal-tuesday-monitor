@@ -94,9 +94,9 @@ test('the model register separates source scans, eligibility, and evidence', asy
   assert.doesNotMatch(source, /visible\.slice\(0, 24\)/);
   assert.match(page, /data\/model-operations\.json/);
   assert.match(source, /Official-source scan/);
-  assert.match(source, /Behavioral-test eligibility/);
+  assert.match(source, /Controlled-test readiness/);
   assert.match(source, /Behavioral probe evidence/);
-  assert.match(source, /Eligibility decision unchanged since/);
+  assert.match(source, /Method decision unchanged since/);
   assert.match(source, /No behavioral probe attempt recorded/);
   assert.match(source, /NO TEST EVIDENCE/);
   assert.doesNotMatch(source, /NOT RUN|NEVER TESTED/);
@@ -105,9 +105,21 @@ test('the model register separates source scans, eligibility, and evidence', asy
   assert.match(source, /Dated observation context/);
   assert.match(source, /not accepted probe evidence/);
   assert.match(source, /hasProbeEvidence/);
-  assert.match(source, /model\.testabilityState === 'REVIEW_REQUIRED'/);
+  assert.match(source, /return 'EVIDENCE_WATCH'/);
   assert.match(source, /eligibilityGroups/);
   assert.doesNotMatch(source, /Adoption eligibility assessed/);
+});
+
+test('the public evidence watch separates search, candidates and verdicts', async () => {
+  const watch = await read('components/evidence-watch.tsx');
+  const form = await read('app/contribute/page.tsx');
+  assert.match(watch, /A match becomes a review candidate/);
+  assert.match(watch, /not a PASS, FAIL/);
+  assert.match(watch, /browser&apos;s local time/);
+  assert.doesNotMatch(watch, /workflow|repository_dispatch|github/i);
+  assert.match(form, /Every submission enters a review queue/);
+  assert.match(form, /cannot directly change\s+the Monitor/);
+  assert.match(form, /No email address is requested/);
 });
 
 test('the public copy explains dates and status vocabularies', async () => {

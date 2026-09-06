@@ -24,6 +24,7 @@ import {
   type ModelOperationalStatus,
 } from '@/components/model-inventory';
 import { AutomationStatus } from '@/components/automation-status';
+import { EvidenceWatch } from '@/components/evidence-watch';
 import { StatusEmblem } from '@/components/status-emblem';
 import { VendorMark } from '@/components/vendor-mark';
 
@@ -623,6 +624,7 @@ export default function Home() {
           <a href="#evidence">Evidence</a>
           <a href="#methodology">Methodology</a>
           <a href={withBasePath('/changelog/')}>Changelog</a>
+          <a href={withBasePath('/contribute/')}>Contribute</a>
         </nav>
       </header>
 
@@ -673,6 +675,8 @@ export default function Home() {
       </section>
 
       <AutomationStatus />
+
+      <EvidenceWatch />
 
       <ReadingGuide />
 
@@ -1098,6 +1102,7 @@ export default function Home() {
 
       <footer>
         <span>THE ETERNAL TUESDAY MONITOR</span>
+        <a href={withBasePath('/contribute/')}>REPORT A TIME LEAK</a>
         <span>
           PUBLISHED · {data ? labelDate(data.publishedOn) : 'READING…'}
         </span>

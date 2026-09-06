@@ -29,6 +29,7 @@ function StatusIcon({ value }: { value: string }) {
   if (status.includes('RETEST')) return <AlarmClock aria-hidden="true" />;
   if (status.includes('TEST REQUIRED'))
     return <ClipboardClock aria-hidden="true" />;
+  if (status.includes('EVIDENCE WATCH')) return <Radar aria-hidden="true" />;
   if (status.includes('HISTORICAL')) return <Archive aria-hidden="true" />;
   if (status.includes('FAIL')) return <TriangleAlert aria-hidden="true" />;
   if (status.includes('NO PUBLIC') || status.includes('NO CURRENT'))

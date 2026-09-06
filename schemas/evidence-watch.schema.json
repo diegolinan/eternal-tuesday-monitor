@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diegolinan.github.io/eternal-tuesday-monitor/schemas/evidence-watch.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "lastSearchAt",
+    "state",
+    "channels",
+    "candidateCounts",
+    "latestCandidates"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0", "type": "string" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "lastSearchAt": { "type": ["string", "null"], "format": "date-time" },
+    "state": {
+      "enum": [
+        "NOT_YET_RUN",
+        "SEARCHED_NO_NEW_EVIDENCE",
+        "CANDIDATES_FOUND",
+        "PARTIAL",
+        "SOURCE_UNAVAILABLE"
+      ]
+    },
+    "channels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "state",
+          "searchedAt",
+          "resultsReviewed",
+          "candidatesFound",
+          "note"
+        ],
+        "properties": {
+          "name": {
+            "enum": [
+              "OFFICIAL_SOURCES",
+              "PUBLIC_ISSUES",
+              "RESEARCH",
+              "GENERAL_WEB"
+            ]
+          },
+          "state": {
+            "enum": [
+              "NOT_YET_RUN",
+              "SEARCHED",
+              "NOT_CONFIGURED",
+              "UNAVAILABLE",
+              "SKIPPED"
+            ]
+          },
+          "searchedAt": { "type": ["string", "null"], "format": "date-time" },
+          "resultsReviewed": { "type": "integer", "minimum": 0 },
+          "candidatesFound": { "type": "integer", "minimum": 0 },
+          "note": { "type": "string", "maxLength": 240 }
+        }
+      }
+    },
+    "candidateCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pending",
+        "officialClaims",
+        "publicReports",
+        "researchResults"
+      ],
+      "properties": {
+        "pending": { "type": "integer", "minimum": 0 },
+        "officialClaims": { "type": "integer", "minimum": 0 },
+        "publicReports": { "type": "integer", "minimum": 0 },
+        "researchResults": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "latestCandidates": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "url",
+          "sourceType",
+          "claimClass",
+          "probeNames",
+          "discoveredAt"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "sourceType": { "type": "string" },
+          "claimClass": { "type": "string" },
+          "probeNames": { "type": "array", "items": { "type": "string" } },
+          "discoveredAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "eternal-tuesday-intake",
+  "main": "worker/intake.mjs",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "ratelimits": [
+    {
+      "name": "SUBMISSION_RATE_LIMITER",
+      "namespace_id": "730591",
+      "simple": { "limit": 6, "period": 60 },
+    },
+  ],
+  "vars": {
+    "GITHUB_REPOSITORY": "diegolinan/eternal-tuesday-monitor",
+  },
+}

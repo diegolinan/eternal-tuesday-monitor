@@ -29,12 +29,15 @@ await Promise.all([
   requireFile('index.html'),
   requireFile('changelog/index.html'),
   requireFile('changelog/index.txt'),
+  requireFile('contribute/index.html'),
+  requireFile('contribute/index.txt'),
   requireFile('_next/static'),
   requireFile('.nojekyll'),
   requireFile('data/monitor.json'),
   requireFile('data/changelog.json'),
   requireFile('data/system-status.json'),
   requireFile('data/model-operations.json'),
+  requireFile('data/evidence-watch.json'),
   requireFile('favicon.svg'),
   requireFile('favicon-32.png'),
   requireFile('assets/eternal-tuesday-banner.png'),
@@ -148,7 +151,11 @@ try {
   fail(`unable to inspect public client chunks: ${error.message}`);
 }
 
-for (const relativePath of ['index.html', 'changelog/index.html']) {
+for (const relativePath of [
+  'index.html',
+  'changelog/index.html',
+  'contribute/index.html',
+]) {
   try {
     const html = await read(relativePath);
     if (!html.includes(`${basePath}/_next/`))
@@ -173,6 +180,27 @@ for (const relativePath of ['index.html', 'changelog/index.html']) {
   } catch (error) {
     fail(`${relativePath}: unable to inspect HTML (${error.message})`);
   }
+}
+
+try {
+  const [evidenceWatch, evidenceWatchSchema] = await Promise.all([
+    read('data/evidence-watch.json').then(JSON.parse),
+    readFile(
+      path.join(root, 'schemas/evidence-watch.schema.json'),
+      'utf8',
+    ).then(JSON.parse),
+  ]);
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  addFormats(ajv);
+  const validate = ajv.compile(evidenceWatchSchema);
+  if (!validate(evidenceWatch))
+    fail(
+      `public evidence watch does not match its schema: ${ajv.errorsText(validate.errors)}`,
+    );
+  if (/workflow|run_id|repository[_-]id/i.test(JSON.stringify(evidenceWatch)))
+    fail('public evidence watch exposes implementation metadata');
+} catch (error) {
+  fail(`unable to validate public evidence watch: ${error.message}`);
 }
 
 try {

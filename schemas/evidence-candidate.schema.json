@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diegolinan.github.io/eternal-tuesday-monitor/schemas/evidence-candidate.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "discovered_at",
+    "retrieved_on",
+    "source_type",
+    "source_url",
+    "source_title",
+    "source_excerpt",
+    "published_on",
+    "vendor_ids",
+    "model_ids",
+    "product_ids",
+    "surface_ids",
+    "probe_ids",
+    "claim_class",
+    "query_id",
+    "matching_terms",
+    "review_state",
+    "review_reasons"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0", "type": "string" },
+    "id": { "type": "string", "pattern": "^evcand-[a-f0-9]{24}$" },
+    "discovered_at": { "type": "string", "format": "date-time" },
+    "retrieved_on": { "type": "string", "format": "date" },
+    "source_type": {
+      "enum": [
+        "OFFICIAL_SOURCE",
+        "PUBLIC_ISSUE",
+        "RESEARCH_INDEX",
+        "GENERAL_WEB",
+        "PUBLIC_SUBMISSION"
+      ]
+    },
+    "source_url": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "source_title": { "type": "string", "minLength": 1, "maxLength": 300 },
+    "source_excerpt": { "type": "string", "minLength": 1, "maxLength": 480 },
+    "published_on": { "type": ["string", "null"], "format": "date" },
+    "vendor_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "model_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "product_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "surface_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "probe_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "claim_class": {
+      "enum": [
+        "OFFICIAL_CAPABILITY_CLAIM",
+        "PUBLIC_SUCCESS_REPORT",
+        "PUBLIC_FAILURE_REPORT",
+        "RESEARCH_RESULT",
+        "CORRECTION",
+        "UNCLEAR"
+      ]
+    },
+    "query_id": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "matching_terms": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "maxLength": 80 }
+    },
+    "review_state": { "const": "PENDING", "type": "string" },
+    "review_reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "maxLength": 240 }
+    },
+    "public_attribution": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["name", "affiliation"],
+      "properties": {
+        "name": { "type": ["string", "null"], "maxLength": 100 },
+        "affiliation": { "type": ["string", "null"], "maxLength": 120 }
+      }
+    }
+  }
+}

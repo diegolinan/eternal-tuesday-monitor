@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diegolinan.github.io/eternal-tuesday-monitor/schemas/evidence-discovery-config.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "enabled",
+    "lookback_days",
+    "max_results_per_query",
+    "max_excerpt_characters",
+    "channels",
+    "public_issue_repositories",
+    "queries"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0", "type": "string" },
+    "enabled": { "type": "boolean" },
+    "lookback_days": { "type": "integer", "minimum": 1, "maximum": 90 },
+    "max_results_per_query": { "type": "integer", "minimum": 1, "maximum": 50 },
+    "max_excerpt_characters": {
+      "type": "integer",
+      "minimum": 120,
+      "maximum": 480
+    },
+    "channels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "official_sources",
+        "public_issue_search",
+        "research_search",
+        "general_web_search"
+      ],
+      "properties": {
+        "official_sources": { "type": "boolean" },
+        "public_issue_search": { "type": "boolean" },
+        "research_search": { "type": "boolean" },
+        "general_web_search": { "type": "boolean" }
+      }
+    },
+    "public_issue_repositories": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+      }
+    },
+    "queries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "terms", "issue_terms", "probe_ids"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "terms": { "type": "string", "minLength": 10, "maxLength": 300 },
+          "issue_terms": { "type": "string", "minLength": 3, "maxLength": 300 },
+          "probe_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

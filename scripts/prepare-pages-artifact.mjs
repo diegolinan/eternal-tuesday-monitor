@@ -21,5 +21,14 @@ await cp(
   path.join(output, 'changelog.txt'),
   path.join(output, 'changelog/index.txt'),
 );
+await mkdir(path.join(output, 'contribute'), { recursive: true });
+await cp(
+  path.join(output, 'contribute.html'),
+  path.join(output, 'contribute/index.html'),
+);
+await cp(
+  path.join(output, 'contribute.txt'),
+  path.join(output, 'contribute/index.txt'),
+);
 
 console.log('Prepared dist/client as the GitHub Pages artifact root.');

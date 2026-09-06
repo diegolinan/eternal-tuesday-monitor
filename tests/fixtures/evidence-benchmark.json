@@ -1,0 +1,7 @@
+[
+  { "name": "Fable 5 same-session yesterday report", "url": "https://github.com/anthropics/claude-code/issues/79731", "text": "Fable 5 described an event from roughly 30 minutes earlier in the same session as yesterday.", "expectedProbe": "probe-elapsed", "expectedClaim": "PUBLIC_FAILURE_REPORT" },
+  { "name": "Cursor wrong current day report", "url": "https://forum.cursor.com/t/agent-doesnt-know-what-day-it-is/154920", "text": "The agent does not know the current date and reports the wrong day.", "expectedProbe": "probe-temporal-anchor", "expectedClaim": "PUBLIC_FAILURE_REPORT" },
+  { "name": "Claude resumed stale state report", "url": "https://github.com/anthropics/claude-code/issues/86219", "text": "A resumed session used stale operative context instead of the updated state.", "expectedProbe": "probe-state-reconciliation", "expectedClaim": "PUBLIC_FAILURE_REPORT" },
+  { "name": "Official revalidation claim", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes", "text": "The product now revalidates stale information and obtains current evidence.", "expectedProbe": "probe-revalidation", "expectedClaim": "OFFICIAL_CAPABILITY_CLAIM" },
+  { "name": "Research historical-validity result", "url": "https://aclanthology.org/2026.findings-acl.1848/", "text": "The study evaluates whether agents preserve historical context without treating a past state as current.", "expectedProbe": "probe-historical-validity", "expectedClaim": "RESEARCH_RESULT" }
+]

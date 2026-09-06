@@ -50,6 +50,27 @@ try {
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
 }
+const priorReportIndex = process.argv.indexOf('--prior-report');
+if (priorReportIndex !== -1) {
+  const requested = process.argv[priorReportIndex + 1];
+  if (!requested) throw new Error('--prior-report requires a path');
+  const candidates = [
+    requested,
+    path.join(requested, 'run.json'),
+    path.join(requested, '.discovery/run.json'),
+  ];
+  for (const candidate of candidates) {
+    try {
+      const report = JSON.parse(
+        await readFile(path.resolve(root, candidate), 'utf8'),
+      );
+      priorSourceChecks.push(...(report.source_checks ?? []));
+      break;
+    } catch (error) {
+      if (!['ENOENT', 'EISDIR'].includes(error.code)) throw error;
+    }
+  }
+}
 const priorCheckByUrl = new Map();
 for (const check of priorSourceChecks)
   if (check.content_sha256)

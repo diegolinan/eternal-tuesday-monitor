@@ -119,6 +119,7 @@ data/catalog/                   Vendors, products, surfaces, models, probes and 
 data/methodologies/             Versioned admission and review methods
 data/sources/                   Versioned source records, including archived launch provenance
 data/evidence/                  Evidence records connecting claims to sources
+data/evidence-discovery/        Append-only review-candidate ledger; never accepted evidence by itself
 data/observations/              Append-only observation ledger (JSON Lines)
 data/state-events/              Append-only operational state-event ledger
 data/releases/                  Dated release manifests and cutoffs
@@ -221,6 +222,12 @@ The validation workflow:
 The Pages workflow publishes that validated artifact to the canonical production URL. A separate minimal workflow runs every Monday at 12:17 UTC, 09:17 Argentina time. It supplies an explicit date, reevaluates only local versioned state, rebuilds, and redeploys Pages. It does not fetch sources, change evidence verification dates, modify historical records, or commit derived files. Neither workflow deploys the OpenAI prototype.
 
 Daily official model discovery and display-freshness refresh are configured as described above. The production workflows contain no provider-inference or API-target step. No local ChatGPT/Codex scheduler participates in the canonical path. Automated evidence acceptance is not configured.
+
+### Public evidence watch and contribution intake
+
+The daily discovery workflow also searches four explicitly separated channels: changed official product sources, configured public issue trackers, a public research index, and an optional broad-web search. The broad-web channel reports `NOT_CONFIGURED` unless `BRAVE_SEARCH_API_KEY` is present; the other channels continue independently. Search results are untrusted leads. They are deduplicated against accepted source URLs and the append-only candidate ledger, then proposed for human review. They cannot directly add an observation, associate a model with a product surface, or create a behavioral PASS or FAIL.
+
+The public `/contribute/` form follows the same boundary. A small Cloudflare Worker validates the payload, requires Turnstile verification, applies a post-challenge rate limit, strips challenge and transport data, and dispatches a sanitized candidate into the review workflow. It requests no email address and publishes optional name or affiliation only after explicit consent. The Worker requires `TURNSTILE_SECRET_KEY` and `GITHUB_REPOSITORY_TOKEN` secrets; the static site requires `NEXT_PUBLIC_CONTRIBUTION_ENDPOINT` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` during its build. Until those values are configured, the form is visibly read-only rather than accepting insecure submissions.
 
 ## Initial evidence scope
 

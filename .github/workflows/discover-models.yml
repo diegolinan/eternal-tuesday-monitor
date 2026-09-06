@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: write
   pull-requests: write
   issues: write
@@ -27,9 +28,24 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Read the previous successful source snapshot
+        continue-on-error: true
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/discover-models.yml/runs?status=completed&per_page=20" --jq '[.workflow_runs[] | select(.conclusion == "success")][0].id // empty')"
+          if [ -n "$run_id" ]; then
+            gh run download "$run_id" --name official-model-discovery-sources --dir .prior-discovery
+          fi
       - run: npm run data:validate
       - name: Read approved official sources only
-        run: npm run models:discover
+        run: npm run models:discover -- --prior-report .prior-discovery
+      - name: Search public evidence channels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+        run: npm run evidence:discover
       - name: Preserve raw source snapshots and normalized report
         uses: actions/upload-artifact@v4
         with:
@@ -37,14 +53,17 @@ jobs:
           path: .discovery
           include-hidden-files: true
           retention-days: 90
+      - name: Preserve evidence-search report
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-evidence-search
+          path: .evidence-discovery
+          include-hidden-files: true
+          retention-days: 90
       - name: Stage deterministic automatic acceptances
         run: npm run models:stage -- --mode automatic
       - name: Resolve model evaluation adoption eligibility
         run: npm run models:adopt -- --report .discovery/run.json
-      - name: Notify when human evaluation becomes required
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/notifications/sync-evaluation-issues.mjs
       - name: Preserve non-executing evaluation requirements
         uses: actions/upload-artifact@v4
         with:
@@ -106,6 +125,20 @@ jobs:
             data/changelog/events.jsonl
             public/data/monitor.json
             public/data/changelog.json
+      - name: Stage new evidence leads separately
+        run: npm run evidence:stage
+      - name: Validate evidence proposal when present
+        run: npm run data:validate -- --base HEAD
+      - name: Propose evidence candidates for review
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/evidence-candidates
+          title: 'Review public evidence candidates'
+          commit-message: 'Propose public evidence candidates'
+          body-path: .evidence-discovery/pr-body.md
+          draft: false
+          reviewers: diegolinan
+          add-paths: data/evidence-discovery/candidates.jsonl
       - name: Report discovery workflow failure
         if: failure()
         env:

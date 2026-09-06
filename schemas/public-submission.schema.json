@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "submissionType",
+    "vendor",
+    "model",
+    "productSurface",
+    "probeId",
+    "sourceUrl",
+    "observedOn",
+    "summary",
+    "relationship",
+    "attributionConsent",
+    "website",
+    "turnstileToken"
+  ],
+  "properties": {
+    "submissionType": { "enum": ["FOUND_SOURCE", "FIRSTHAND_OBSERVATION"] },
+    "vendor": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "model": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "productSurface": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "probeId": {
+      "enum": [
+        "probe-temporal-anchor",
+        "probe-elapsed",
+        "probe-revalidation",
+        "probe-state-reconciliation",
+        "probe-historical-validity",
+        "UNSURE"
+      ]
+    },
+    "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "observedOn": { "type": "string", "format": "date" },
+    "summary": { "type": "string", "minLength": 30, "maxLength": 1800 },
+    "expectedBehavior": { "type": "string", "maxLength": 1200 },
+    "actualBehavior": { "type": "string", "maxLength": 1200 },
+    "relationship": { "enum": ["NONE", "USER", "AUTHOR", "EMPLOYEE", "OTHER"] },
+    "comments": { "type": "string", "maxLength": 1200 },
+    "publicName": { "type": "string", "maxLength": 100 },
+    "affiliation": { "type": "string", "maxLength": 120 },
+    "attributionConsent": { "type": "boolean" },
+    "website": { "type": "string", "maxLength": 0 },
+    "turnstileToken": { "type": "string", "minLength": 1, "maxLength": 2048 }
+  }
+}

@@ -1,0 +1,43 @@
+name: Review a public evidence submission
+
+on:
+  repository_dispatch:
+    types: [public-evidence-submission]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: public-evidence-submission
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate and stage the untrusted submission
+        env:
+          SUBMISSION_JSON: ${{ toJSON(github.event.client_payload) }}
+        run: node scripts/evidence-discovery/stage-submission.mjs
+      - run: npm run data:validate -- --base HEAD
+      - run: npm test
+      - name: Propose the candidate for human review
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/community-evidence
+          title: 'Review a community evidence lead'
+          commit-message: 'Propose a community evidence candidate'
+          body-path: .submission-pr-body.md
+          draft: false
+          reviewers: diegolinan
+          add-paths: data/evidence-discovery/candidates.jsonl
