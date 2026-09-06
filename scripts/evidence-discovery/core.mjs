@@ -246,6 +246,8 @@ export function inferClaimClass(sourceType, sentiment) {
 
 export function buildCandidate(input) {
   const sourceUrl = normalizeUrl(input.sourceUrl);
+  const screeningPolicyVersion =
+    input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.3';
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
   const directClassification = classifyText(corpus);
   const hasStrongProbeMatch = directClassification.matchingTerms.length > 0;
@@ -263,7 +265,7 @@ export function buildCandidate(input) {
     ['PUBLIC_ISSUE', 'GENERAL_WEB'].includes(input.sourceType) &&
     contextualOnlyMatch &&
     (!hasBehavioralActor(input.title ?? '') ||
-      !hasBehavioralOutcome(corpus)) &&
+      !hasBehavioralOutcome(input.title ?? '')) &&
     !input.allowUnclassified
   )
     return null;
@@ -273,9 +275,12 @@ export function buildCandidate(input) {
   const claimClass =
     input.claimClass ??
     inferClaimClass(input.sourceType, classification.sentiment);
-  const identity = [sourceUrl, claimClass, ...classification.probeIds].join(
-    '|',
-  );
+  const identity = [
+    sourceUrl,
+    claimClass,
+    ...classification.probeIds,
+    screeningPolicyVersion,
+  ].join('|');
   return {
     schema_version: '1.0.0',
     id: `evcand-${createHash('sha256').update(identity).digest('hex').slice(0, 24)}`,
@@ -305,8 +310,7 @@ export function buildCandidate(input) {
     probe_ids: classification.probeIds,
     claim_class: claimClass,
     query_id: clean(input.queryId, 120),
-    screening_policy_version:
-      input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.2',
+    screening_policy_version: screeningPolicyVersion,
     matching_terms: classification.matchingTerms,
     review_state: 'PENDING',
     review_reasons: [

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "screening_policy_version": "ETM-EVIDENCE-1.2",
+  "screening_policy_version": "ETM-EVIDENCE-1.3",
   "enabled": true,
   "lookback_days": 14,
   "max_results_per_query": 20,

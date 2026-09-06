@@ -67,6 +67,13 @@ test('candidate identity is stable and accepted URLs are excluded', () => {
     discoveredAt: '2026-09-07T12:00:00.000Z',
   });
   assert.equal(one.id, two.id);
+  assert.notEqual(
+    one.id,
+    buildCandidate({
+      ...input,
+      screeningPolicyVersion: 'ETM-EVIDENCE-9.9',
+    }).id,
+  );
   assert.equal(normalizeUrl(input.sourceUrl), 'https://example.com/report');
   assert.deepEqual(dedupeCandidates([one, two]), [one]);
   assert.deepEqual(
@@ -163,7 +170,7 @@ test('public screening rejects UI and infrastructure keyword collisions', () => 
   assert.ok(
     buildCandidate({
       ...shared,
-      title: 'Claude resumed after an eight-hour gap',
+      title: 'Claude said good night after an eight-hour resumed-session gap',
       excerpt:
         'The assistant said good night when the user had just woken up and referenced the test from hours earlier as still running.',
     }),
