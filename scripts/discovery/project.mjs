@@ -107,6 +107,32 @@ export function projectModels(
           .map((o) => o.observation_date.value),
         ...behavioralApiResults.map((result) => result.verified_on),
       ].sort((left, right) => left.localeCompare(right));
+      const observationContexts = observations
+        .filter((observation) => observation.model_id === model.id)
+        .map((observation) => {
+          const projected = projectedObservations.find(
+            (item) => item.id === observation.id,
+          );
+          const surface = options.surfaces?.get(observation.surface_id);
+          const product = surface
+            ? options.products?.get(surface.product_id)
+            : null;
+          const probe = (options.probes ?? []).find(
+            (item) => item.id === observation.probe_id,
+          );
+          return {
+            id: observation.id,
+            product: product?.name ?? 'Not established',
+            surface: surface?.name ?? observation.surface_id,
+            probe: probe?.name ?? observation.probe_id,
+            evidenceClass:
+              projected?.evidenceClass ?? observation.evidence_class_id,
+            observedOn:
+              projected?.observedOn?.label ??
+              observation.observation_date.value,
+            applicability: projected?.applicability ?? 'HISTORICAL',
+          };
+        });
       const surfaces = [
         ...new Map(
           lifecycle.empiricalObservations.map((observation) => {
@@ -180,6 +206,7 @@ export function projectModels(
           : (adoption?.execution_state ?? 'NOT_RUN'),
         probeCoverage,
         surfaces,
+        observationContexts,
         sources: [...new Set(model.provenance.map((p) => p.url))],
         reviewReasons: model.review_reasons,
         defaultProminence: isPubliclyProminent({

@@ -100,6 +100,12 @@ test('the model register separates source scans, eligibility, and evidence', asy
   assert.match(source, /No behavioral probe attempt recorded/);
   assert.match(source, /NO TEST EVIDENCE/);
   assert.doesNotMatch(source, /NOT RUN|NEVER TESTED/);
+  assert.match(source, /CURATED HISTORICAL IDENTITY/);
+  assert.match(source, /the daily listing\s+scan does not apply/);
+  assert.match(source, /Dated observation context/);
+  assert.match(source, /not accepted probe evidence/);
+  assert.match(source, /hasProbeEvidence/);
+  assert.match(source, /model\.testabilityState === 'REVIEW_REQUIRED'/);
   assert.match(source, /eligibilityGroups/);
   assert.doesNotMatch(source, /Adoption eligibility assessed/);
 });
@@ -120,7 +126,7 @@ test('the public copy explains dates and status vocabularies', async () => {
     inventory,
     /At least one probe has accepted behavioral evidence/,
   );
-  assert.match(inventory, /policy status, not a test result/);
+  assert.match(inventory, /What must happen before a behavioral result exists/);
 });
 
 test('the public changelog omits internal review mechanics', async () => {

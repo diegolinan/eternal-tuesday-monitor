@@ -45,7 +45,7 @@ function assessProbe(model, _availability, profile, _policy) {
   return {
     ...base,
     state: 'REVIEW_REQUIRED',
-    reasons: ['NO_CURRENT_BEHAVIORAL_EVIDENCE'],
+    reasons: ['BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW'],
   };
 }
 
@@ -108,11 +108,23 @@ export function assessModelAdoption({
         reasons: ['FRESHNESS_POLICY_CONTROLS_RETEST'],
         execution_authorized: false,
       }
-    : {
+    : eligible.length
+      ? {
           state: 'TEST_REQUIRED',
           reasons: ['NO_CURRENT_BEHAVIORAL_EVIDENCE'],
           execution_authorized: false,
-      };
+        }
+      : testabilityState === 'NOT_TESTABLE'
+        ? {
+            state: 'BLOCKED',
+            reasons: unique(probeRecords.flatMap((item) => item.reasons)),
+            execution_authorized: false,
+          }
+        : {
+            state: 'NOT_QUEUED',
+            reasons: unique(probeRecords.flatMap((item) => item.reasons)),
+            execution_authorized: false,
+          };
   const record = {
     model_id: model.id,
     vendor_id: model.vendor_id,

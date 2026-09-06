@@ -90,6 +90,15 @@ export type DiscoveredModel = {
     name: string;
     kind: 'PROVIDER_API' | 'CONSUMER_PRODUCT_SURFACE';
   }>;
+  observationContexts: Array<{
+    id: string;
+    product: string;
+    surface: string;
+    probe: string;
+    evidenceClass: string;
+    observedOn: string;
+    applicability: string;
+  }>;
   sources: string[];
   reviewReasons: string[];
   defaultProminence: boolean;
@@ -167,6 +176,8 @@ const reasonLabels: Record<string, string> = {
     'The official public source establishes identity, not account access or behavior',
   NO_CURRENT_BEHAVIORAL_EVIDENCE:
     'No current behavioral evidence has been established for this model',
+  BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW:
+    'A human must define or approve the product surface, probe method, and evidence standard before testing',
   NO_APPROVED_METHODOLOGY: 'This probe needs a reviewed executable methodology',
   PROVIDER_SEMANTICS_REQUIRE_REVIEW:
     'Provider semantics require human review before this methodology can be reused',
@@ -232,17 +243,18 @@ function calendarDay(value: string | null) {
 function registryGroup(model: DiscoveredModel): RegistryGroup {
   if (model.lifecycleState === 'TESTED') return 'TESTED';
   if (model.lifecycleState === 'RETEST_REQUIRED') return 'RETEST_REQUIRED';
+  if (
+    model.testabilityState === 'REVIEW_REQUIRED' ||
+    model.relevanceState === 'REVIEW_REQUIRED' ||
+    model.reviewReasons.length > 0
+  )
+    return 'REVIEW_REQUIRED';
   if (model.queueState === 'TEST_REQUIRED') return 'TEST_REQUIRED';
   if (
     model.queueState === 'BLOCKED' ||
     model.lifecycleState === 'EVALUATION_NOT_POSSIBLE'
   )
     return 'EVALUATION_BLOCKED';
-  if (
-    model.relevanceState === 'REVIEW_REQUIRED' ||
-    model.reviewReasons.length > 0
-  )
-    return 'REVIEW_REQUIRED';
   return 'CATALOG_ONLY';
 }
 
@@ -253,14 +265,12 @@ function ModelDetail({
   model: DiscoveredModel;
   operations: ModelOperationalStatus | null;
 }) {
-  const boundaryReasons = [
-    ...new Set(
-      operations?.eligibilityCheck.reasons ?? [
-        ...model.apiAvailabilityReasons,
-        ...model.queueReasons,
-      ],
-    ),
-  ];
+  const listingScanApplies =
+    model.sources.length > 0 ||
+    (operations?.sourceCheck.expectedSources ?? 0) > 0;
+  const hasProbeEvidence = model.probeCoverage.some(
+    (probe) => probe.empiricalResult || probe.state !== 'NOT_TESTED',
+  );
   const eligibilityGroups = [
     ...model.probeCoverage
       .reduce((groups, probe) => {
@@ -302,20 +312,37 @@ function ModelDetail({
         aria-label={`${model.name} source scan, test eligibility, and behavioral evidence`}
       >
         <section>
-          <span>Official-source scan</span>
+          <span>
+            {listingScanApplies ? 'Official-source scan' : 'Catalog provenance'}
+          </span>
           <strong>
-            {operations
-              ? sourceStateLabels[operations.sourceCheck.state]
-              : 'STATUS SNAPSHOT UNAVAILABLE'}
+            {!listingScanApplies
+              ? 'CURATED HISTORICAL IDENTITY'
+              : operations
+                ? sourceStateLabels[operations.sourceCheck.state]
+                : 'STATUS SNAPSHOT UNAVAILABLE'}
           </strong>
-          <time dateTime={operations?.sourceCheck.checkedAt ?? undefined}>
-            {localMoment(operations?.sourceCheck.checkedAt ?? null)}
-          </time>
-          {operations && operations.sourceCheck.expectedSources > 0 && (
+          {listingScanApplies ? (
+            <time dateTime={operations?.sourceCheck.checkedAt ?? undefined}>
+              {localMoment(operations?.sourceCheck.checkedAt ?? null)}
+            </time>
+          ) : (
+            <time>No current official listing is asserted</time>
+          )}
+          {listingScanApplies &&
+            operations &&
+            operations.sourceCheck.expectedSources > 0 && (
+              <small>
+                {operations.sourceCheck.checkedSources}/
+                {operations.sourceCheck.expectedSources} official source
+                {operations.sourceCheck.expectedSources === 1 ? '' : 's'}{' '}
+                scanned
+              </small>
+            )}
+          {!listingScanApplies && (
             <small>
-              {operations.sourceCheck.checkedSources}/
-              {operations.sourceCheck.expectedSources} official source
-              {operations.sourceCheck.expectedSources === 1 ? '' : 's'} scanned
+              Retained because a dated observation names it; the daily listing
+              scan does not apply
             </small>
           )}
         </section>
@@ -372,42 +399,37 @@ function ModelDetail({
         </section>
       </div>
 
-      <div
-        className="probe-coverage"
-        aria-label={`${model.name} probe coverage`}
-      >
-        {model.probeCoverage.map((probe) => (
-          <div key={probe.id}>
-            <span>{probe.name}</span>
-            <StatusEmblem
-              compact
-              value={
-                probe.empiricalResult ??
-                (probe.state === 'TESTED'
-                  ? 'TESTED'
-                  : probe.state === 'RETEST_REQUIRED'
-                    ? 'RETEST REQUIRED'
-                    : 'NO TEST EVIDENCE')
-              }
-            />
-            <small>
-              {probe.verifiedOn
-                ? `VERIFIED ${calendarDay(probe.verifiedOn)}`
-                : probeStateLabels[probe.state]}
-            </small>
-          </div>
-        ))}
-      </div>
-
-      {boundaryReasons.length > 0 && (
-        <div className="coverage-blocker" role="note">
-          <strong>Why behavioral testing is not yet established</strong>
-          <p>{explainReasons(boundaryReasons)}</p>
+      {hasProbeEvidence && (
+        <div
+          className="probe-coverage"
+          aria-label={`${model.name} probe coverage`}
+        >
+          {model.probeCoverage.map((probe) => (
+            <div key={probe.id}>
+              <span>{probe.name}</span>
+              <StatusEmblem
+                compact
+                value={
+                  probe.empiricalResult ??
+                  (probe.state === 'TESTED'
+                    ? 'TESTED'
+                    : probe.state === 'RETEST_REQUIRED'
+                      ? 'RETEST REQUIRED'
+                      : 'NO TEST EVIDENCE')
+                }
+              />
+              <small>
+                {probe.verifiedOn
+                  ? `VERIFIED ${calendarDay(probe.verifiedOn)}`
+                  : probeStateLabels[probe.state]}
+              </small>
+            </div>
+          ))}
         </div>
       )}
 
       <div className="model-provenance">
-        <h4>Per-probe eligibility · policy status, not a test result</h4>
+        <h4>What must happen before a behavioral result exists</h4>
         <ul className="eligibility-groups">
           {eligibilityGroups.map((group) => (
             <li key={`${group.state}-${group.probes.join('-')}`}>
@@ -415,9 +437,13 @@ function ModelDetail({
                 {group.probes.length}/{model.probeCoverage.length} probes ·{' '}
                 {label(group.state)}
               </strong>
-              {group.reasons.length > 0 && (
-                <small>{explainReasons(group.reasons)}</small>
-              )}
+              <small>
+                {group.reasons.length > 0
+                  ? explainReasons(group.reasons)
+                  : group.state === 'NOT_IN_SCOPE'
+                    ? 'No behavioral test plan is attached to this historical catalog identity'
+                    : 'No additional reason was recorded'}
+              </small>
             </li>
           ))}
         </ul>
@@ -430,7 +456,29 @@ function ModelDetail({
             ))}
           </ul>
         ) : (
-          <p>No product surface is inferred from catalog or API metadata.</p>
+          <p>
+            No accepted behavioral-test surface is established for this exact
+            model. Catalog or API metadata alone cannot establish one.
+          </p>
+        )}
+        {model.observationContexts.length > 0 && (
+          <>
+            <h4>Dated observation context · not accepted probe evidence</h4>
+            <p>
+              These records explain why the identity remains visible. They do
+              not establish a current official listing or a controlled
+              behavioral result.
+            </p>
+            <ul>
+              {model.observationContexts.map((context) => (
+                <li key={context.id}>
+                  {context.product} / {context.surface} · {context.probe} ·{' '}
+                  {context.observedOn} · {context.evidenceClass} ·{' '}
+                  {label(context.applicability)}
+                </li>
+              ))}
+            </ul>
+          </>
         )}
         {model.sources.length ? (
           <ul>
@@ -588,7 +636,7 @@ export function ModelInventory({
         </div>
         <div className="coverage-known">
           <strong>{models.length}</strong>
-          <span>Official identities tracked</span>
+          <span>Catalog identities tracked</span>
         </div>
       </div>
 
@@ -634,7 +682,10 @@ export function ModelInventory({
         </div>
         <div>
           <dt>TEST REQUIRED</dt>
-          <dd>The model is eligible, but behavioral evidence is still due.</dd>
+          <dd>
+            A reviewed method exists and the model is ready to enter the test
+            queue; no behavioral result exists yet.
+          </dd>
         </div>
         <div>
           <dt>REVIEW REQUIRED</dt>
@@ -644,7 +695,10 @@ export function ModelInventory({
         </div>
         <div>
           <dt>CATALOG ONLY</dt>
-          <dd>The official identity is tracked; no behavior is implied.</dd>
+          <dd>
+            An identity is retained for catalog or historical evidence; current
+            listing and behavior are not implied.
+          </dd>
         </div>
       </dl>
       <p className="coverage-result-count">

@@ -7,7 +7,7 @@
       "vendor_id": "vendor-anthropic",
       "api_model_id": "claude-opus-5",
       "originating_discovery_event_id": "discovery-f9c6e8aaa4d07c6dd27da73a",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -19,7 +19,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -30,7 +30,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -41,7 +41,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -52,7 +52,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -63,7 +63,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -74,15 +74,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -92,7 +92,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5-codex",
       "originating_discovery_event_id": "discovery-c2f2fadb3935812eec44d3a4",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -104,7 +104,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -115,7 +115,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -126,7 +126,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -137,7 +137,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -148,7 +148,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -159,15 +159,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -177,7 +177,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.4",
       "originating_discovery_event_id": "discovery-84c3ae1764d3c763b9b9bbfc",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -189,7 +189,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -200,7 +200,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -211,7 +211,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -222,7 +222,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -233,7 +233,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -244,15 +244,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -262,7 +262,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-2.0-flash-lite",
       "originating_discovery_event_id": "discovery-5149dcfa2998ed61bebbfc27",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNAVAILABLE",
         "reasons": [
@@ -274,7 +274,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -285,7 +285,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -296,7 +296,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -307,7 +307,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -318,7 +318,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -329,15 +329,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -347,7 +347,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5-nano",
       "originating_discovery_event_id": "discovery-6dd75b032dd4d0dfdbc051df",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -359,7 +359,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -370,7 +370,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -381,7 +381,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -392,7 +392,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -403,7 +403,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -414,15 +414,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -432,7 +432,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.4-pro",
       "originating_discovery_event_id": "discovery-d2bed2d35d96a65fdd63f5b0",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -444,7 +444,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -455,7 +455,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -466,7 +466,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -477,7 +477,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -488,7 +488,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -499,15 +499,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -517,7 +517,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o3-pro",
       "originating_discovery_event_id": "discovery-45cb993da4bb4f9315b971f6",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -529,7 +529,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -540,7 +540,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -551,7 +551,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -562,7 +562,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -573,7 +573,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -584,15 +584,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -602,7 +602,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-2.0-flash",
       "originating_discovery_event_id": "discovery-bb3c3f09e132e24bd3db1837",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNAVAILABLE",
         "reasons": [
@@ -614,7 +614,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -625,7 +625,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -636,7 +636,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -647,7 +647,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -658,7 +658,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -669,15 +669,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -687,7 +687,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.2-codex",
       "originating_discovery_event_id": "discovery-bde3f2c2d710651b6f66a909",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -699,7 +699,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -710,7 +710,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -721,7 +721,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -732,7 +732,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -743,7 +743,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -754,15 +754,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -772,7 +772,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o3-mini",
       "originating_discovery_event_id": "discovery-aaccab3b7ba7394330459d6d",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -784,7 +784,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -795,7 +795,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -806,7 +806,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -817,7 +817,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -828,7 +828,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -839,15 +839,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -857,7 +857,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o1-mini",
       "originating_discovery_event_id": "discovery-3b43e21d23c9be7609ce4c45",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -869,7 +869,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -880,7 +880,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -891,7 +891,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -902,7 +902,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -913,7 +913,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -924,15 +924,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -942,7 +942,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.2-chat-latest",
       "originating_discovery_event_id": "discovery-49d848e56eac2f9bbc9d3f3e",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -954,7 +954,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -965,7 +965,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -976,7 +976,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -987,7 +987,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -998,7 +998,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1009,15 +1009,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1027,7 +1027,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5-pro",
       "originating_discovery_event_id": "discovery-f7f85c097fd5172b955679e7",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1039,7 +1039,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1050,7 +1050,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1061,7 +1061,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1072,7 +1072,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1083,7 +1083,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1094,15 +1094,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1112,7 +1112,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "codex-mini-latest",
       "originating_discovery_event_id": "discovery-589c7be70b369e8d22d91f48",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1124,7 +1124,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1135,7 +1135,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1146,7 +1146,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1157,7 +1157,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1168,7 +1168,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1179,15 +1179,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1197,7 +1197,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5-mini",
       "originating_discovery_event_id": "discovery-e876170bad5f1ee0ae62de82",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1209,7 +1209,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1220,7 +1220,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1231,7 +1231,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1242,7 +1242,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1253,7 +1253,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1264,15 +1264,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1282,7 +1282,7 @@
       "vendor_id": "vendor-anthropic",
       "api_model_id": "claude-sonnet-5",
       "originating_discovery_event_id": "discovery-44b60b3de127f0e152b4d86b",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1294,7 +1294,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1305,7 +1305,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1316,7 +1316,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1327,7 +1327,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1338,7 +1338,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1349,15 +1349,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1367,7 +1367,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.1-flash-lite-preview",
       "originating_discovery_event_id": "discovery-af417bdc2b334ce2325e3fe9",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNAVAILABLE",
         "reasons": [
@@ -1379,7 +1379,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1390,7 +1390,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1401,7 +1401,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1412,7 +1412,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1423,7 +1423,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1434,15 +1434,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1452,7 +1452,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.4-nano",
       "originating_discovery_event_id": "discovery-d78636c4b48a9c4737b042ac",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1464,7 +1464,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1475,7 +1475,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1486,7 +1486,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1497,7 +1497,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1508,7 +1508,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1519,15 +1519,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1537,7 +1537,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o4-mini-deep-research",
       "originating_discovery_event_id": "discovery-2c2ecaaafc90f1483464093a",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1549,7 +1549,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1560,7 +1560,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1571,7 +1571,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1582,7 +1582,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1593,7 +1593,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1604,15 +1604,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1622,7 +1622,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.1-chat-latest",
       "originating_discovery_event_id": "discovery-c0c697d8c13e5898e0fd37a2",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1634,7 +1634,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1645,7 +1645,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1656,7 +1656,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1667,7 +1667,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1678,7 +1678,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1689,15 +1689,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1707,7 +1707,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.5-pro",
       "originating_discovery_event_id": "discovery-206d7dddd598ed82ea9f533a",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1719,7 +1719,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1730,7 +1730,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1741,7 +1741,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1752,7 +1752,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1763,7 +1763,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1774,15 +1774,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1792,7 +1792,7 @@
       "vendor_id": "vendor-anthropic",
       "api_model_id": "claude-haiku-4-5-20251001",
       "originating_discovery_event_id": "discovery-bd399e9a1cc918cc42bd5f7c",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1804,7 +1804,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1815,7 +1815,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1826,7 +1826,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1837,7 +1837,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1848,7 +1848,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1859,15 +1859,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1877,7 +1877,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.1-codex-max",
       "originating_discovery_event_id": "discovery-0d4b7e200feacbf79ccd0e41",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1889,7 +1889,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1900,7 +1900,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1911,7 +1911,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1922,7 +1922,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1933,7 +1933,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1944,15 +1944,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -1962,7 +1962,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.4-mini",
       "originating_discovery_event_id": "discovery-c4e4bda794c9b99866dc8bcd",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -1974,7 +1974,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -1985,7 +1985,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -1996,7 +1996,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2007,7 +2007,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2018,7 +2018,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2029,15 +2029,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2047,7 +2047,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.2-pro",
       "originating_discovery_event_id": "discovery-f7d77d559980a2277f2a45b8",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2059,7 +2059,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2070,7 +2070,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2081,7 +2081,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2092,7 +2092,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2103,7 +2103,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2114,15 +2114,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2132,7 +2132,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o1-preview",
       "originating_discovery_event_id": "discovery-4b4d4ee7f94442e497877d80",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2144,7 +2144,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2155,7 +2155,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2166,7 +2166,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2177,7 +2177,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2188,7 +2188,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2199,15 +2199,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2217,7 +2217,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4",
       "originating_discovery_event_id": "discovery-adabbd2b280baab3d35d95c8",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2229,7 +2229,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2240,7 +2240,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2251,7 +2251,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2262,7 +2262,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2273,7 +2273,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2284,15 +2284,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2302,7 +2302,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o4-mini",
       "originating_discovery_event_id": "discovery-f4f67352bb91b52241266aee",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2314,7 +2314,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2325,7 +2325,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2336,7 +2336,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2347,7 +2347,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2358,7 +2358,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2369,15 +2369,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2387,7 +2387,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5-chat-latest",
       "originating_discovery_event_id": "discovery-5b574fab75b3ad4875ea5751",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2399,7 +2399,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2410,7 +2410,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2421,7 +2421,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2432,7 +2432,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2443,7 +2443,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2454,15 +2454,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2472,7 +2472,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.5",
       "originating_discovery_event_id": "discovery-c3abf0f14095a5dd0f6813fe",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2484,7 +2484,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2495,7 +2495,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2506,7 +2506,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2517,7 +2517,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2528,7 +2528,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2539,15 +2539,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2557,7 +2557,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.3-chat-latest",
       "originating_discovery_event_id": "discovery-bb13b6633f263b2003c2010d",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2569,7 +2569,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2580,7 +2580,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2591,7 +2591,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2602,7 +2602,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2613,7 +2613,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2624,15 +2624,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2642,7 +2642,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-2.5-flash-lite",
       "originating_discovery_event_id": "discovery-6f52532bd601b778e9f9990a",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2654,7 +2654,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2665,7 +2665,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2676,7 +2676,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2687,7 +2687,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2698,7 +2698,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2709,15 +2709,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2727,7 +2727,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.6-flash",
       "originating_discovery_event_id": "discovery-d30fce1d5d109ab650a0ddf1",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2739,7 +2739,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2750,7 +2750,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2761,7 +2761,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2772,7 +2772,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2783,7 +2783,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2794,15 +2794,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2812,7 +2812,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-terra",
       "originating_discovery_event_id": "discovery-8fd1bdd43e7720e7a3a8be10",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2824,7 +2824,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2835,7 +2835,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2846,7 +2846,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2857,7 +2857,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2868,7 +2868,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2879,15 +2879,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2897,7 +2897,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.1-flash-lite",
       "originating_discovery_event_id": "discovery-c0af1e4dc32b4d333b43b04d",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2909,7 +2909,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -2920,7 +2920,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2931,7 +2931,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2942,7 +2942,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2953,7 +2953,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -2964,15 +2964,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -2982,7 +2982,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.5-flash-lite",
       "originating_discovery_event_id": "discovery-54e5ed40a2160d6182bc51cb",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2994,7 +2994,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3005,7 +3005,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3016,7 +3016,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3027,7 +3027,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3038,7 +3038,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3049,15 +3049,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3067,7 +3067,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4o-mini",
       "originating_discovery_event_id": "discovery-986be8be1a7c890aabaadb2d",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3079,7 +3079,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3090,7 +3090,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3101,7 +3101,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3112,7 +3112,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3123,7 +3123,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3134,15 +3134,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3152,7 +3152,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.1-codex",
       "originating_discovery_event_id": "discovery-218a2561dd2373423b525e63",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3164,7 +3164,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3175,7 +3175,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3186,7 +3186,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3197,7 +3197,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3208,7 +3208,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3219,15 +3219,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3237,7 +3237,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.2",
       "originating_discovery_event_id": "discovery-54a709e8d785508884846c4a",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3249,7 +3249,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3260,7 +3260,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3271,7 +3271,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3282,7 +3282,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3293,7 +3293,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3304,15 +3304,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3322,7 +3322,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5",
       "originating_discovery_event_id": "discovery-70cd3c77e38649a3161e5690",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3334,7 +3334,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3345,7 +3345,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3356,7 +3356,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3367,7 +3367,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3378,7 +3378,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3389,15 +3389,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3407,7 +3407,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.3-codex",
       "originating_discovery_event_id": "discovery-cc682439722972f34ba6a556",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3419,7 +3419,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3430,7 +3430,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3441,7 +3441,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3452,7 +3452,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3463,7 +3463,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3474,15 +3474,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3492,7 +3492,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-cyber",
       "originating_discovery_event_id": "discovery-d2eff11ea309a76b4ec89d2d",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3504,7 +3504,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3515,7 +3515,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3526,7 +3526,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3537,7 +3537,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3548,7 +3548,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3559,15 +3559,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3577,7 +3577,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.1-codex-mini",
       "originating_discovery_event_id": "discovery-d9f3c70bdb2785ce0fc2d5e7",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3589,7 +3589,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3600,7 +3600,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3611,7 +3611,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3622,7 +3622,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3633,7 +3633,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3644,15 +3644,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3662,7 +3662,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-2.5-pro",
       "originating_discovery_event_id": "discovery-7f951a8963bc35d698322e86",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3674,7 +3674,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3685,7 +3685,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3696,7 +3696,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3707,7 +3707,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3718,7 +3718,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3729,15 +3729,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3747,7 +3747,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4.1-nano",
       "originating_discovery_event_id": "discovery-98504ac4dd0ccfd89670fac5",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3759,7 +3759,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3770,7 +3770,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3781,7 +3781,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3792,7 +3792,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3803,7 +3803,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3814,15 +3814,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3832,7 +3832,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4.1-mini",
       "originating_discovery_event_id": "discovery-62fc0cb4c18d77590b77e83c",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3844,7 +3844,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3855,7 +3855,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3866,7 +3866,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3877,7 +3877,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3888,7 +3888,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3899,15 +3899,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -3917,7 +3917,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4.5-preview",
       "originating_discovery_event_id": "discovery-e4211e9f3ab0bc5cf4ee95f2",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNAVAILABLE",
         "reasons": [
@@ -3929,7 +3929,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -3940,7 +3940,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3951,7 +3951,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3962,7 +3962,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3973,7 +3973,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -3984,15 +3984,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4002,7 +4002,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3-pro-preview",
       "originating_discovery_event_id": "discovery-e0a403ec293462c560689fc7",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNAVAILABLE",
         "reasons": [
@@ -4014,7 +4014,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4025,7 +4025,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4036,7 +4036,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4047,7 +4047,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4058,7 +4058,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4069,15 +4069,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4087,7 +4087,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-2.5-flash",
       "originating_discovery_event_id": "discovery-73215d54b25a5ad403888e1b",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4099,7 +4099,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4110,7 +4110,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4121,7 +4121,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4132,7 +4132,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4143,7 +4143,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4154,15 +4154,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4172,7 +4172,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o1-pro",
       "originating_discovery_event_id": "discovery-d3b0cd5a457f4a8477ae5265",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4184,7 +4184,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4195,7 +4195,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4206,7 +4206,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4217,7 +4217,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4228,7 +4228,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4239,15 +4239,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4257,7 +4257,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4-turbo",
       "originating_discovery_event_id": "discovery-6ee89d4f20880cf7d5ae1cc5",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4269,7 +4269,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4280,7 +4280,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4291,7 +4291,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4302,7 +4302,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4313,7 +4313,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4324,15 +4324,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4342,7 +4342,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4o",
       "originating_discovery_event_id": "discovery-45a99129f39c0f6a78a701c9",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4354,7 +4354,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4365,7 +4365,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4376,7 +4376,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4387,7 +4387,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4398,7 +4398,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4409,15 +4409,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4427,7 +4427,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.1",
       "originating_discovery_event_id": "discovery-b5682337d59511c87dc371fe",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4439,7 +4439,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4450,7 +4450,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4461,7 +4461,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4472,7 +4472,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4483,7 +4483,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4494,15 +4494,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4512,7 +4512,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-luna",
       "originating_discovery_event_id": "discovery-0b9d4651acddb38769d2780d",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4524,7 +4524,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4535,7 +4535,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4546,7 +4546,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4557,7 +4557,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4568,7 +4568,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4579,7 +4579,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
@@ -4597,7 +4597,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4.1",
       "originating_discovery_event_id": "discovery-1cb3f7ac57cecfe4bb6cb5d4",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4609,7 +4609,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4620,7 +4620,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4631,7 +4631,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4642,7 +4642,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4653,7 +4653,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4664,15 +4664,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4682,7 +4682,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-6-astra",
       "originating_discovery_event_id": "discovery-2443e4b4b8ee42969d86ff86",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4694,7 +4694,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4705,7 +4705,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4716,7 +4716,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4727,7 +4727,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4738,7 +4738,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4749,15 +4749,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4767,7 +4767,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "o3-deep-research",
       "originating_discovery_event_id": "discovery-61f8bbcb114853b404d79bd6",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4779,7 +4779,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4790,7 +4790,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4801,7 +4801,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4812,7 +4812,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4823,7 +4823,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4834,15 +4834,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4852,7 +4852,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4-turbo-preview",
       "originating_discovery_event_id": "discovery-f4d3c955e91cd759784bac12",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4864,7 +4864,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4875,7 +4875,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4886,7 +4886,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4897,7 +4897,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4908,7 +4908,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4919,15 +4919,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -4937,7 +4937,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.5-flash",
       "originating_discovery_event_id": "discovery-cb62d986d192c9a0aa9e32b3",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4949,7 +4949,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -4960,7 +4960,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4971,7 +4971,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4982,7 +4982,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -4993,7 +4993,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5004,15 +5004,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -5022,7 +5022,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.7-flash",
       "originating_discovery_event_id": "discovery-ddd972e0bc5583a1ff63beb3",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5034,7 +5034,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -5045,7 +5045,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5056,7 +5056,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5067,7 +5067,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5078,7 +5078,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5089,15 +5089,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -5107,7 +5107,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3-flash-preview",
       "originating_discovery_event_id": "discovery-7632cf12ff4cf8eaa7d69809",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5119,7 +5119,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -5130,7 +5130,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5141,7 +5141,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5152,7 +5152,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5163,7 +5163,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5174,15 +5174,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -5192,7 +5192,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.1-pro-preview",
       "originating_discovery_event_id": "discovery-55b41f7979cc47e82f3c37fe",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5204,7 +5204,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -5215,7 +5215,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5226,7 +5226,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5237,7 +5237,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5248,7 +5248,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5259,15 +5259,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -5277,7 +5277,7 @@
       "vendor_id": "vendor-google",
       "api_model_id": "gemini-3.8-flash",
       "originating_discovery_event_id": "discovery-d89e4d3e059fc03322ace3a7",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5289,7 +5289,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -5300,7 +5300,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5311,7 +5311,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5322,7 +5322,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5333,7 +5333,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5344,15 +5344,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -5362,7 +5362,7 @@
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-sol",
       "originating_discovery_event_id": "discovery-cb16843270c542005e521e70",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5374,7 +5374,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -5385,7 +5385,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5396,7 +5396,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5407,7 +5407,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5418,7 +5418,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5429,15 +5429,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }
@@ -5447,7 +5447,7 @@
       "vendor_id": "vendor-xai",
       "api_model_id": "grok-4.6",
       "originating_discovery_event_id": "discovery-8c06b5d82793fbda76ac8f30",
-      "assessed_on": "2026-09-05",
+      "assessed_on": "2026-09-06",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5459,7 +5459,7 @@
       },
       "testability_state": "REVIEW_REQUIRED",
       "testability_reasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "probes": [
         {
@@ -5470,7 +5470,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5481,7 +5481,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5492,7 +5492,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5503,7 +5503,7 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         },
         {
@@ -5514,15 +5514,15 @@
           "testability": "NOT_API_TESTABLE",
           "state": "REVIEW_REQUIRED",
           "reasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ]
         }
       ],
       "execution_state": "NOT_RUN",
       "queue": {
-        "state": "TEST_REQUIRED",
+        "state": "NOT_QUEUED",
         "reasons": [
-          "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
         ],
         "execution_authorized": false
       }

@@ -30,6 +30,7 @@
     "executionState",
     "probeCoverage",
     "surfaces",
+    "observationContexts",
     "sources",
     "reviewReasons",
     "defaultProminence"
@@ -220,6 +221,31 @@
           "product": { "type": "string", "minLength": 1 },
           "name": { "type": "string", "minLength": 1 },
           "kind": { "enum": ["PROVIDER_API", "CONSUMER_PRODUCT_SURFACE"] }
+        }
+      }
+    },
+    "observationContexts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "product",
+          "surface",
+          "probe",
+          "evidenceClass",
+          "observedOn",
+          "applicability"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "product": { "type": "string", "minLength": 1 },
+          "surface": { "type": "string", "minLength": 1 },
+          "probe": { "type": "string", "minLength": 1 },
+          "evidenceClass": { "type": "string", "minLength": 1 },
+          "observedOn": { "type": "string", "minLength": 1 },
+          "applicability": { "enum": ["CURRENT", "HISTORICAL"] }
         }
       }
     },

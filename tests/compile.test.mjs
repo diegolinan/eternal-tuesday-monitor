@@ -76,6 +76,20 @@ test('the public dataset compiles deterministically without rewriting results', 
   assert.ok(
     data.observations.every((item) => typeof item.observedResult === 'string'),
   );
+  const fable = data.models.find((item) => item.id === 'model-fable-5');
+  assert.equal(fable.sources.length, 0);
+  assert.deepEqual(fable.surfaces, []);
+  assert.deepEqual(fable.observationContexts, [
+    {
+      id: 'obs-anthropic-claude-code-fable-elapsed-2026-07',
+      product: 'Claude Code',
+      surface: 'Terminal agent conversation',
+      probe: 'ELAPSED',
+      evidenceClass: 'USER / PRACTITIONER REPORT',
+      observedOn: 'JUL 2026',
+      applicability: 'HISTORICAL',
+    },
+  ]);
 
   const beforePublicationPath = path.join(directory, 'before-publication.json');
   const beforePublicationRun = spawnSync(

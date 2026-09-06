@@ -591,6 +591,17 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [
+        {
+          "id": "obs-anthropic-claude-code-fable-elapsed-2026-07",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "ELAPSED",
+          "evidenceClass": "USER / PRACTITIONER REPORT",
+          "observedOn": "JUL 2026",
+          "applicability": "HISTORICAL"
+        }
+      ],
       "sources": [],
       "reviewReasons": [],
       "defaultProminence": false
@@ -699,6 +710,17 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [
+        {
+          "id": "obs-anthropic-code-fable51-gap-2026-09-03",
+          "product": "Claude Code",
+          "surface": "Terminal agent",
+          "probe": "REVALIDATION",
+          "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
+          "observedOn": "03 SEP 2026",
+          "applicability": "CURRENT"
+        }
+      ],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -723,16 +745,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -742,7 +764,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -758,7 +780,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -774,7 +796,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -790,7 +812,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -806,7 +828,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -818,6 +840,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -842,16 +865,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -861,7 +884,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -877,7 +900,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -893,7 +916,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -909,7 +932,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -925,7 +948,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -937,6 +960,17 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [
+        {
+          "id": "obs-anthropic-cowork-opus5-gap-2026-09-03",
+          "product": "Claude",
+          "surface": "Cowork",
+          "probe": "REVALIDATION",
+          "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
+          "observedOn": "03 SEP 2026",
+          "applicability": "CURRENT"
+        }
+      ],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -961,16 +995,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -980,7 +1014,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -996,7 +1030,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1012,7 +1046,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1028,7 +1062,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1044,7 +1078,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1056,6 +1090,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://platform.claude.com/docs/en/models/overview"
       ],
@@ -1166,6 +1201,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1190,16 +1226,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
         "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -1209,7 +1245,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1225,7 +1261,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1241,7 +1277,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1257,7 +1293,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1273,7 +1309,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1285,6 +1321,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1309,16 +1346,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
         "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -1328,7 +1365,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1344,7 +1381,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1360,7 +1397,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1376,7 +1413,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1392,7 +1429,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1404,6 +1441,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1428,16 +1466,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -1447,7 +1485,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1463,7 +1501,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1479,7 +1517,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1495,7 +1533,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1511,7 +1549,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1523,6 +1561,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1633,6 +1672,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1743,6 +1783,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1767,16 +1808,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -1786,7 +1827,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1802,7 +1843,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1818,7 +1859,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1834,7 +1875,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1850,7 +1891,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1862,6 +1903,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -1886,16 +1928,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -1905,7 +1947,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1921,7 +1963,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1937,7 +1979,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1953,7 +1995,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1969,7 +2011,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -1981,6 +2023,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2091,6 +2134,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2115,16 +2159,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -2134,7 +2178,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2150,7 +2194,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2166,7 +2210,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2182,7 +2226,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2198,7 +2242,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2210,6 +2254,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2234,16 +2279,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
         "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -2253,7 +2298,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2269,7 +2314,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2285,7 +2330,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2301,7 +2346,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2317,7 +2362,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2329,6 +2374,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2439,6 +2485,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2549,6 +2596,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2573,16 +2621,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -2592,7 +2640,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2608,7 +2656,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2624,7 +2672,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2640,7 +2688,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2656,7 +2704,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2668,6 +2716,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2692,16 +2741,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
         "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -2711,7 +2760,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2727,7 +2776,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2743,7 +2792,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2759,7 +2808,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2775,7 +2824,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2787,6 +2836,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2811,16 +2861,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -2830,7 +2880,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2846,7 +2896,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2862,7 +2912,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2878,7 +2928,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2894,7 +2944,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2906,6 +2956,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -2930,16 +2981,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -2949,7 +3000,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2965,7 +3016,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2981,7 +3032,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -2997,7 +3048,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3013,7 +3064,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3025,6 +3076,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3049,16 +3101,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -3068,7 +3120,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3084,7 +3136,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3100,7 +3152,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3116,7 +3168,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3132,7 +3184,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3144,6 +3196,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3254,6 +3307,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3278,16 +3332,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -3297,7 +3351,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3313,7 +3367,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3329,7 +3383,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3345,7 +3399,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3361,7 +3415,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3373,6 +3427,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3397,16 +3452,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -3416,7 +3471,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3432,7 +3487,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3448,7 +3503,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3464,7 +3519,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3480,7 +3535,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3492,6 +3547,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3516,16 +3572,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -3535,7 +3591,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3551,7 +3607,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3567,7 +3623,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3583,7 +3639,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3599,7 +3655,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -3611,6 +3667,17 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [
+        {
+          "id": "obs-google-gemini38-gap-2026-09-03",
+          "product": "Gemini",
+          "surface": "Gemini app",
+          "probe": "REVALIDATION",
+          "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
+          "observedOn": "03 SEP 2026",
+          "applicability": "CURRENT"
+        }
+      ],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3721,6 +3788,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3831,6 +3899,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -3941,6 +4010,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -4051,6 +4121,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -4161,6 +4232,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -4271,6 +4343,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -4381,6 +4454,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -4491,6 +4565,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -4601,6 +4676,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/models?hl=en"
       ],
@@ -4711,6 +4787,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/chatgpt-image-latest"
@@ -4736,16 +4813,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -4755,7 +4832,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -4771,7 +4848,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -4787,7 +4864,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -4803,7 +4880,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -4819,7 +4896,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -4831,6 +4908,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/codex-mini-latest"
@@ -4942,6 +5020,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-daybreak-blue-latest"
@@ -5053,6 +5132,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-daybreak-red-latest"
@@ -5164,6 +5244,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-3.5-turbo"
@@ -5189,16 +5270,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -5208,7 +5289,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5224,7 +5305,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5240,7 +5321,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5256,7 +5337,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5272,7 +5353,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5284,6 +5365,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4"
@@ -5309,16 +5391,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -5328,7 +5410,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5344,7 +5426,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5360,7 +5442,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5376,7 +5458,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5392,7 +5474,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5404,6 +5486,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4-turbo"
@@ -5429,16 +5512,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -5448,7 +5531,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5464,7 +5547,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5480,7 +5563,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5496,7 +5579,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5512,7 +5595,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5524,6 +5607,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4-turbo-preview"
@@ -5549,16 +5633,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -5568,7 +5652,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5584,7 +5668,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5600,7 +5684,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5616,7 +5700,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5632,7 +5716,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5644,6 +5728,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.1"
@@ -5669,16 +5754,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -5688,7 +5773,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5704,7 +5789,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5720,7 +5805,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5736,7 +5821,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5752,7 +5837,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5764,6 +5849,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.1-mini"
@@ -5789,16 +5875,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -5808,7 +5894,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5824,7 +5910,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5840,7 +5926,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5856,7 +5942,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5872,7 +5958,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5884,6 +5970,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.1-nano"
@@ -5909,16 +5996,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
         "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -5928,7 +6015,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5944,7 +6031,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5960,7 +6047,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5976,7 +6063,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -5992,7 +6079,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6004,6 +6091,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4.5-preview"
@@ -6029,16 +6117,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -6048,7 +6136,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6064,7 +6152,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6080,7 +6168,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6096,7 +6184,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6112,7 +6200,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6124,6 +6212,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o"
@@ -6235,6 +6324,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-audio-preview"
@@ -6260,16 +6350,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -6279,7 +6369,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6295,7 +6385,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6311,7 +6401,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6327,7 +6417,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6343,7 +6433,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -6355,6 +6445,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini"
@@ -6466,6 +6557,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-audio-preview"
@@ -6577,6 +6669,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-realtime-preview"
@@ -6688,6 +6781,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-search-preview"
@@ -6799,6 +6893,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe"
@@ -6910,6 +7005,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-mini-tts"
@@ -7021,6 +7117,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-realtime-preview"
@@ -7132,6 +7229,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-search-preview"
@@ -7243,6 +7341,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-transcribe"
@@ -7354,6 +7453,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-4o-transcribe-diarize"
@@ -7379,16 +7479,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -7398,7 +7498,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7414,7 +7514,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7430,7 +7530,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7446,7 +7546,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7462,7 +7562,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7474,6 +7574,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5"
@@ -7499,16 +7600,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -7518,7 +7619,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7534,7 +7635,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7550,7 +7651,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7566,7 +7667,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7582,7 +7683,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7594,6 +7695,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-chat-latest"
@@ -7619,16 +7721,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -7638,7 +7740,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7654,7 +7756,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7670,7 +7772,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7686,7 +7788,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7702,7 +7804,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7714,6 +7816,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-mini"
@@ -7739,16 +7842,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -7758,7 +7861,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7774,7 +7877,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7790,7 +7893,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7806,7 +7909,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7822,7 +7925,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7834,6 +7937,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-nano"
@@ -7859,16 +7963,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -7878,7 +7982,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7894,7 +7998,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7910,7 +8014,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7926,7 +8030,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7942,7 +8046,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -7954,6 +8058,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-pro"
@@ -7979,16 +8084,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -7998,7 +8103,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8014,7 +8119,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8030,7 +8135,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8046,7 +8151,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8062,7 +8167,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8074,6 +8179,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5-codex"
@@ -8099,16 +8205,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8118,7 +8224,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8134,7 +8240,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8150,7 +8256,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8166,7 +8272,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8182,7 +8288,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8194,6 +8300,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1"
@@ -8219,16 +8326,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8238,7 +8345,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8254,7 +8361,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8270,7 +8377,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8286,7 +8393,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8302,7 +8409,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8314,6 +8421,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-chat-latest"
@@ -8339,16 +8447,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8358,7 +8466,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8374,7 +8482,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8390,7 +8498,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8406,7 +8514,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8422,7 +8530,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8434,6 +8542,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-codex"
@@ -8459,16 +8568,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8478,7 +8587,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8494,7 +8603,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8510,7 +8619,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8526,7 +8635,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8542,7 +8651,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8554,6 +8663,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini"
@@ -8579,16 +8689,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8598,7 +8708,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8614,7 +8724,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8630,7 +8740,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8646,7 +8756,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8662,7 +8772,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8674,6 +8784,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.1-codex-max"
@@ -8699,16 +8810,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8718,7 +8829,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8734,7 +8845,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8750,7 +8861,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8766,7 +8877,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8782,7 +8893,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8794,6 +8905,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2"
@@ -8819,16 +8931,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8838,7 +8950,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8854,7 +8966,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8870,7 +8982,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8886,7 +8998,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8902,7 +9014,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8914,6 +9026,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest"
@@ -8939,16 +9052,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -8958,7 +9071,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8974,7 +9087,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -8990,7 +9103,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9006,7 +9119,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9022,7 +9135,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9034,6 +9147,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2-pro"
@@ -9059,16 +9173,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9078,7 +9192,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9094,7 +9208,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9110,7 +9224,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9126,7 +9240,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9142,7 +9256,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9154,6 +9268,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.2-codex"
@@ -9179,16 +9294,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9198,7 +9313,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9214,7 +9329,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9230,7 +9345,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9246,7 +9361,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9262,7 +9377,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9274,6 +9389,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest"
@@ -9299,16 +9415,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9318,7 +9434,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9334,7 +9450,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9350,7 +9466,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9366,7 +9482,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9382,7 +9498,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9394,6 +9510,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.3-codex"
@@ -9419,16 +9536,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9438,7 +9555,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9454,7 +9571,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9470,7 +9587,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9486,7 +9603,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9502,7 +9619,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9514,6 +9631,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4"
@@ -9539,16 +9657,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9558,7 +9676,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9574,7 +9692,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9590,7 +9708,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9606,7 +9724,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9622,7 +9740,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9634,6 +9752,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4-mini"
@@ -9659,16 +9778,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9678,7 +9797,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9694,7 +9813,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9710,7 +9829,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9726,7 +9845,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9742,7 +9861,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9754,6 +9873,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4-nano"
@@ -9779,16 +9899,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9798,7 +9918,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9814,7 +9934,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9830,7 +9950,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9846,7 +9966,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9862,7 +9982,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9874,6 +9994,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.4-pro"
@@ -9899,16 +10020,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -9918,7 +10039,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9934,7 +10055,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9950,7 +10071,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9966,7 +10087,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9982,7 +10103,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -9994,6 +10115,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.5"
@@ -10019,16 +10141,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -10038,7 +10160,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10054,7 +10176,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10070,7 +10192,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10086,7 +10208,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10102,7 +10224,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10114,6 +10236,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.5-pro"
@@ -10139,16 +10262,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -10158,7 +10281,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10174,7 +10297,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10190,7 +10313,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10206,7 +10329,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10222,7 +10345,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10234,6 +10357,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.6-cyber"
@@ -10259,13 +10383,13 @@
       "lifecycleState": "TESTED",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
+      "adoptionAssessedOn": "2026-09-06",
       "queueState": "ALREADY_TESTED",
       "queueReasons": [
         "FRESHNESS_POLICY_CONTROLS_RETEST"
@@ -10278,7 +10402,7 @@
           "state": "TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10294,7 +10418,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10310,7 +10434,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10326,7 +10450,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10342,7 +10466,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10359,6 +10483,17 @@
           "product": "ChatGPT",
           "name": "Codex CLI with ChatGPT authentication",
           "kind": "CONSUMER_PRODUCT_SURFACE"
+        }
+      ],
+      "observationContexts": [
+        {
+          "id": "obs-openai-codex-cli-luna-anchor-2026-09-05",
+          "product": "ChatGPT",
+          "surface": "Codex CLI with ChatGPT authentication",
+          "probe": "TEMPORAL ANCHOR",
+          "evidenceClass": "REPRODUCED OBSERVATION",
+          "observedOn": "05 SEP 2026",
+          "applicability": "CURRENT"
         }
       ],
       "sources": [
@@ -10386,16 +10521,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -10405,7 +10540,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10421,7 +10556,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10437,7 +10572,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10453,7 +10588,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10469,7 +10604,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10481,6 +10616,26 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [
+        {
+          "id": "obs-openai-projects-sol-gap-2026-09-03",
+          "product": "ChatGPT",
+          "surface": "Projects",
+          "probe": "REVALIDATION",
+          "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
+          "observedOn": "03 SEP 2026",
+          "applicability": "CURRENT"
+        },
+        {
+          "id": "obs-openai-api-sol-gap-2026-09-03",
+          "product": "API",
+          "surface": "Model API",
+          "probe": "REVALIDATION",
+          "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
+          "observedOn": "03 SEP 2026",
+          "applicability": "CURRENT"
+        }
+      ],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
@@ -10506,16 +10661,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -10525,7 +10680,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10541,7 +10696,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10557,7 +10712,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10573,7 +10728,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10589,7 +10744,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10601,6 +10756,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
@@ -10626,16 +10782,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -10645,7 +10801,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10661,7 +10817,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10677,7 +10833,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10693,7 +10849,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10709,7 +10865,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -10721,6 +10877,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-6-astra"
@@ -10832,6 +10989,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-audio"
@@ -10943,6 +11101,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-audio-mini"
@@ -11054,6 +11213,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-audio-1.5"
@@ -11165,6 +11325,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-1"
@@ -11276,6 +11437,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-1-mini"
@@ -11387,6 +11549,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-1.5"
@@ -11498,6 +11661,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-image-2"
@@ -11609,6 +11773,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-live-transcribe"
@@ -11720,6 +11885,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-oss-120b"
@@ -11831,6 +11997,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-oss-20b"
@@ -11942,6 +12109,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime"
@@ -12053,6 +12221,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-mini"
@@ -12164,6 +12333,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-1.5"
@@ -12275,6 +12445,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-2"
@@ -12386,6 +12557,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-2.1"
@@ -12497,6 +12669,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-2.1-mini"
@@ -12608,6 +12781,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-translate"
@@ -12719,6 +12893,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-realtime-whisper"
@@ -12830,6 +13005,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/gpt-transcribe"
@@ -12855,16 +13031,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -12874,7 +13050,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -12890,7 +13066,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -12906,7 +13082,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -12922,7 +13098,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -12938,7 +13114,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -12950,6 +13126,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o1-preview"
@@ -12975,16 +13152,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -12994,7 +13171,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13010,7 +13187,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13026,7 +13203,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13042,7 +13219,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13058,7 +13235,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13070,6 +13247,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o1-mini"
@@ -13095,16 +13273,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -13114,7 +13292,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13130,7 +13308,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13146,7 +13324,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13162,7 +13340,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13178,7 +13356,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13190,6 +13368,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o1-pro"
@@ -13215,16 +13394,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -13234,7 +13413,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13250,7 +13429,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13266,7 +13445,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13282,7 +13461,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13298,7 +13477,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13310,6 +13489,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o3-deep-research"
@@ -13335,16 +13515,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -13354,7 +13534,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13370,7 +13550,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13386,7 +13566,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13402,7 +13582,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13418,7 +13598,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13430,6 +13610,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o3-mini"
@@ -13455,16 +13636,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -13474,7 +13655,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13490,7 +13671,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13506,7 +13687,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13522,7 +13703,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13538,7 +13719,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13550,6 +13731,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o3-pro"
@@ -13575,16 +13757,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -13594,7 +13776,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13610,7 +13792,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13626,7 +13808,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13642,7 +13824,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13658,7 +13840,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13670,6 +13852,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o4-mini"
@@ -13695,16 +13878,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -13714,7 +13897,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13730,7 +13913,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13746,7 +13929,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13762,7 +13945,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13778,7 +13961,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13790,6 +13973,7 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [],
       "sources": [
         "https://developers.openai.com/api/docs/models/all",
         "https://developers.openai.com/api/docs/models/o4-mini-deep-research"
@@ -13815,16 +13999,16 @@
       "lifecycleState": "EVALUATION_PENDING",
       "testabilityState": "REVIEW_REQUIRED",
       "evaluationReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "apiAvailabilityState": "UNKNOWN",
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-05",
-      "queueState": "TEST_REQUIRED",
+      "adoptionAssessedOn": "2026-09-06",
+      "queueState": "NOT_QUEUED",
       "queueReasons": [
-        "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
       "executionState": "NOT_RUN",
       "probeCoverage": [
@@ -13834,7 +14018,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13850,7 +14034,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13866,7 +14050,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13882,7 +14066,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13898,7 +14082,7 @@
           "state": "NOT_TESTED",
           "eligibilityState": "REVIEW_REQUIRED",
           "eligibilityReasons": [
-            "NO_CURRENT_BEHAVIORAL_EVIDENCE"
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
           "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
@@ -13910,6 +14094,17 @@
         }
       ],
       "surfaces": [],
+      "observationContexts": [
+        {
+          "id": "obs-xai-grok46-gap-2026-09-03",
+          "product": "Grok",
+          "surface": "Long-running agents",
+          "probe": "REVALIDATION",
+          "evidenceClass": "UNTESTED / NO PUBLIC EVIDENCE",
+          "observedOn": "03 SEP 2026",
+          "applicability": "CURRENT"
+        }
+      ],
       "sources": [
         "https://docs.x.ai/developers/models",
         "https://docs.x.ai/developers/models/grok-4.6"
