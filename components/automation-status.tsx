@@ -129,11 +129,12 @@ export function AutomationStatus() {
       aria-labelledby="automation-title"
     >
       <div className="automation-status-copy">
-        <p className="section-code">MONITOR STATUS · PUBLIC DATA</p>
-        <h2 id="automation-title">Official-source watch</h2>
+        <p className="section-code">OFFICIAL-SOURCE SCAN · PUBLIC STATUS</p>
+        <h2 id="automation-title">Daily catalog watch</h2>
         <p>
-          Discovery checks official model sources. It never runs the five
-          behavioral probes and never creates a PASS or FAIL.
+          This daily scan reads approved provider pages to detect model-listing
+          changes. It does not contact a model, run a behavioral probe, or
+          create a PASS or FAIL.
         </p>
         <p className="automation-time-zone" title={timeZone?.identifier}>
           ALL TIMES SHOWN IN YOUR LOCAL TIME
@@ -144,7 +145,7 @@ export function AutomationStatus() {
       <div className="automation-status-board">
         <dl className="automation-timeline">
           <div>
-            <dt>Latest check</dt>
+            <dt>Latest source scan started</dt>
             <dd>
               {!loaded
                 ? 'READING…'
@@ -156,7 +157,7 @@ export function AutomationStatus() {
           </div>
 
           <div>
-            <dt>Current check</dt>
+            <dt>Today&apos;s scheduled scan</dt>
             <dd aria-live="polite">
               {currentWindow ? displayDate(currentWindow) : 'CALCULATING…'}
               <StatusStamp state={currentState} />
@@ -175,7 +176,7 @@ export function AutomationStatus() {
           </div>
 
           <div>
-            <dt>Next check</dt>
+            <dt>Next scheduled scan</dt>
             <dd>
               {nextWindow ? displayDate(nextWindow) : 'CALCULATING…'}
               <StatusStamp state="on_deck" />
@@ -186,7 +187,7 @@ export function AutomationStatus() {
               )}
               {nextWindow && now && (
                 <span className="sr-only">
-                  Next check in approximately{' '}
+                  Next source scan in approximately{' '}
                   {Math.max(
                     1,
                     Math.ceil((nextWindow.valueOf() - now.valueOf()) / 60_000),
@@ -200,7 +201,7 @@ export function AutomationStatus() {
 
         <p className="automation-freshness">
           {status && now
-            ? `STATUS UPDATED ${relativeAge(new Date(status.generatedAt), now)}`
+            ? `SOURCE-SCAN STATUS UPDATED ${relativeAge(new Date(status.generatedAt), now)}`
             : loaded
               ? 'STATUS TEMPORARILY UNAVAILABLE'
               : 'READING STATUS…'}

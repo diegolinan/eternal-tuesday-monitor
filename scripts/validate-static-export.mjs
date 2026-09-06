@@ -182,6 +182,8 @@ try {
   const publicChanges = JSON.parse(await read('data/changelog.json'));
   if (!Array.isArray(publicChanges.events) || publicChanges.events.length === 0)
     fail('compiled changelog contains no domain events');
+  if (/pull_request_url|github\.com/i.test(JSON.stringify(publicChanges)))
+    fail('compiled changelog exposes internal review mechanics');
 } catch (error) {
   fail(`unable to validate rendered changelog: ${error.message}`);
 }

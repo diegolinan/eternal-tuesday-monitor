@@ -196,11 +196,17 @@ const sourceStateLabels: Record<
   ModelOperationalStatus['sourceCheck']['state'],
   string
 > = {
-  CHECKED_NO_CHANGE: 'CHECKED · NO IDENTITY CHANGE',
+  CHECKED_NO_CHANGE: 'SCANNED · NO LISTING CHANGE',
   IDENTITY_CHANGED: 'IDENTITY CHANGE DETECTED',
-  PARTIAL: 'PARTIALLY CHECKED',
-  NEEDS_ATTENTION: 'CHECK NEEDS ATTENTION',
-  NOT_RECORDED: 'NO CHECK RECORDED',
+  PARTIAL: 'SOURCE SCAN PARTIAL',
+  NEEDS_ATTENTION: 'SOURCE SCAN NEEDS ATTENTION',
+  NOT_RECORDED: 'NO SOURCE SCAN RECORDED',
+};
+
+const probeStateLabels: Record<ProbeCoverage['state'], string> = {
+  NOT_TESTED: 'NO ACCEPTED RESULT',
+  TESTED: 'TEST EVIDENCE RECORDED',
+  RETEST_REQUIRED: 'RETEST REQUIRED',
 };
 
 function localMoment(value: string | null) {
@@ -278,7 +284,7 @@ function ModelDetail({
           <dd>{model.apiModelId ?? 'Not established'}</dd>
         </div>
         <div>
-          <dt>Official source detected</dt>
+          <dt>First official listing seen</dt>
           <dd>{model.discoveredOn ?? 'Not established'}</dd>
         </div>
         <div>
@@ -286,17 +292,17 @@ function ModelDetail({
           <dd>{label(model.releaseState)}</dd>
         </div>
         <div>
-          <dt>Reviewed relevance</dt>
+          <dt>Monitor scope decision</dt>
           <dd>{label(model.relevanceState)}</dd>
         </div>
       </dl>
 
       <div
         className="model-activity"
-        aria-label={`${model.name} latest checks`}
+        aria-label={`${model.name} source scan, test eligibility, and behavioral evidence`}
       >
         <section>
-          <span>Official listing</span>
+          <span>Official-source scan</span>
           <strong>
             {operations
               ? sourceStateLabels[operations.sourceCheck.state]
@@ -308,13 +314,13 @@ function ModelDetail({
           {operations && operations.sourceCheck.expectedSources > 0 && (
             <small>
               {operations.sourceCheck.checkedSources}/
-              {operations.sourceCheck.expectedSources} recorded source
-              {operations.sourceCheck.expectedSources === 1 ? '' : 's'} checked
+              {operations.sourceCheck.expectedSources} official source
+              {operations.sourceCheck.expectedSources === 1 ? '' : 's'} scanned
             </small>
           )}
         </section>
         <section>
-          <span>Eligibility policy</span>
+          <span>Behavioral-test eligibility</span>
           <strong>
             {operations
               ? label(operations.eligibilityCheck.state)
@@ -326,7 +332,7 @@ function ModelDetail({
           {(operations?.eligibilityCheck.stateChangedOn ??
             model.adoptionAssessedOn) && (
             <small>
-              State unchanged since{' '}
+              Eligibility decision unchanged since{' '}
               {calendarDay(
                 operations?.eligibilityCheck.stateChangedOn ??
                   model.adoptionAssessedOn,
@@ -335,7 +341,7 @@ function ModelDetail({
           )}
         </section>
         <section>
-          <span>Behavioral evidence</span>
+          <span>Behavioral probe evidence</span>
           <strong>
             {operations?.behavioralEvaluation.state === 'COMPLETED'
               ? 'TESTED'
@@ -343,7 +349,7 @@ function ModelDetail({
                 ? 'EVIDENCE RECORDED'
                 : operations?.behavioralEvaluation.state === 'OPERATIONAL_ERROR'
                   ? 'ATTEMPTED · NO VERDICT'
-                  : 'NEVER TESTED'}
+                  : 'NO BEHAVIORAL TEST RECORDED'}
           </strong>
           {operations?.behavioralEvaluation.lastAttemptAt ? (
             <time dateTime={operations.behavioralEvaluation.lastAttemptAt}>
@@ -353,15 +359,15 @@ function ModelDetail({
           ) : (
             <time>
               {operations?.behavioralEvaluation.lastEvidenceOn
-                ? `Evidence verified ${calendarDay(operations.behavioralEvaluation.lastEvidenceOn)}`
-                : 'No five-probe attempt recorded'}
+                ? `Accepted evidence dated ${calendarDay(operations.behavioralEvaluation.lastEvidenceOn)}`
+                : 'No behavioral probe attempt recorded for this exact model'}
             </time>
           )}
           <small>
             {operations?.behavioralEvaluation.evidenceProbes ?? 0}/
             {operations?.behavioralEvaluation.totalProbes ??
               model.probeCoverage.length}{' '}
-            probes with evidence
+            probes with accepted evidence
           </small>
         </section>
       </div>
@@ -381,13 +387,13 @@ function ModelDetail({
                   ? 'TESTED'
                   : probe.state === 'RETEST_REQUIRED'
                     ? 'RETEST REQUIRED'
-                    : 'NOT RUN')
+                    : 'NO TEST EVIDENCE')
               }
             />
             <small>
               {probe.verifiedOn
                 ? `VERIFIED ${calendarDay(probe.verifiedOn)}`
-                : label(probe.state)}
+                : probeStateLabels[probe.state]}
             </small>
           </div>
         ))}
@@ -395,13 +401,13 @@ function ModelDetail({
 
       {boundaryReasons.length > 0 && (
         <div className="coverage-blocker" role="note">
-          <strong>Current evaluation boundary</strong>
+          <strong>Why behavioral testing is not yet established</strong>
           <p>{explainReasons(boundaryReasons)}</p>
         </div>
       )}
 
       <div className="model-provenance">
-        <h4>Probe eligibility and provenance</h4>
+        <h4>Per-probe eligibility · policy status, not a test result</h4>
         <ul className="eligibility-groups">
           {eligibilityGroups.map((group) => (
             <li key={`${group.state}-${group.probes.join('-')}`}>
@@ -431,13 +437,16 @@ function ModelDetail({
             {model.sources.map((url, index) => (
               <li key={url}>
                 <a href={url} target="_blank" rel="noreferrer">
-                  Official discovery source {index + 1}
+                  Official model listing {index + 1}
                 </a>
               </li>
             ))}
           </ul>
         ) : (
-          <p>This manually curated identity has no discovery-event source.</p>
+          <p>
+            This catalog identity predates the recorded source-scan history; no
+            automated listing event is attached to it.
+          </p>
         )}
       </div>
     </div>
@@ -465,7 +474,7 @@ function ModelRow({
         </span>
         <StatusEmblem compact value={group} />
         <span className="model-probe-count">
-          {tested}/5 PROBES WITH EVIDENCE
+          {tested}/5 PROBES WITH ACCEPTED EVIDENCE
         </span>
       </summary>
       <ModelDetail model={model} operations={operations} />
@@ -558,28 +567,28 @@ export function ModelInventory({
           <h2 id="models-title">What the Monitor knows</h2>
         </div>
         <p>
-          Verified identity, review state and behavioral evidence remain
-          separate. Open a vendor, then a status group, to inspect one exact
-          model.
+          A model can appear in an official catalog without being behaviorally
+          tested. Open a vendor, then a status group, to see its listing scan,
+          test eligibility, and accepted probe evidence as separate claims.
         </p>
       </div>
 
       <div className="coverage-summary" aria-label="Model registry summary">
         <div>
           <strong>{counts.TESTED ?? 0}</strong>
-          <span>Tested</span>
+          <span>Has probe evidence</span>
         </div>
         <div>
           <strong>{counts.TEST_REQUIRED ?? 0}</strong>
-          <span>Test required</span>
+          <span>Behavioral test due</span>
         </div>
         <div>
           <strong>{counts.REVIEW_REQUIRED ?? 0}</strong>
-          <span>Review required</span>
+          <span>Human review due</span>
         </div>
         <div className="coverage-known">
           <strong>{models.length}</strong>
-          <span>Catalog identities</span>
+          <span>Official identities tracked</span>
         </div>
       </div>
 
@@ -590,7 +599,7 @@ export function ModelInventory({
             aria-pressed={scope === 'focus'}
             onClick={() => setScope('focus')}
           >
-            Evidence focus
+            Actionable focus
           </button>
           <button
             type="button"
@@ -614,9 +623,30 @@ export function ModelInventory({
       </div>
 
       <p className="coverage-explainer">
-        Evidence focus shows reviewed or actionable identities. The complete
-        catalog remains available without implying availability or behavior.
+        Actionable focus shows identities with evidence or a decision still
+        needed. The complete catalog includes every tracked official identity;
+        inclusion does not imply API access, product availability, or behavior.
       </p>
+      <dl className="coverage-glossary">
+        <div>
+          <dt>TESTED</dt>
+          <dd>At least one probe has accepted behavioral evidence.</dd>
+        </div>
+        <div>
+          <dt>TEST REQUIRED</dt>
+          <dd>The model is eligible, but behavioral evidence is still due.</dd>
+        </div>
+        <div>
+          <dt>REVIEW REQUIRED</dt>
+          <dd>
+            A human identity, scope, or methodology decision is still due.
+          </dd>
+        </div>
+        <div>
+          <dt>CATALOG ONLY</dt>
+          <dd>The official identity is tracked; no behavior is implied.</dd>
+        </div>
+      </dl>
       <p className="coverage-result-count">
         {visible.length} matching models in {vendors.length} vendor groups.
       </p>

@@ -15,11 +15,15 @@ type ChangeEvent = {
   source: string;
   subjects: Array<{ type: string; id: string; label: string }>;
   source_urls: string[];
-  pull_request_url: string | null;
   affects_observations: boolean;
 };
 
 const label = (value: string) => value.replaceAll('_', ' ');
+const sourceLabels: Record<string, string> = {
+  HUMAN_REVIEW: 'ACCEPTED AFTER HUMAN REVIEW',
+  AUTOMATIC_POLICY: 'ACCEPTED BY PUBLISHED POLICY',
+  RELEASE: 'MONITOR POLICY CHANGE',
+};
 
 export default function ChangelogPage() {
   const [events, setEvents] = useState<ChangeEvent[] | null>(null);
@@ -37,7 +41,9 @@ export default function ChangelogPage() {
   return (
     <main className="changelog-page">
       <header className="masthead">
-        <a className="series-mark" href={withBasePath('/')}>The Eternal Tuesday Monitor</a>
+        <a className="series-mark" href={withBasePath('/')}>
+          The Eternal Tuesday Monitor
+        </a>
         <nav aria-label="Changelog navigation">
           <a href={withBasePath('/')}>Monitor</a>
         </nav>
@@ -45,22 +51,44 @@ export default function ChangelogPage() {
       <section className="changelog-hero">
         <p className="eyebrow">PUBLIC RECORD · DOMAIN CHANGES ONLY</p>
         <h1>Monitor changelog</h1>
-        <p>New models, evidence, evaluations and observations—not software implementation details.</p>
+        <p>
+          Accepted domain changes only: official model identities, eligibility
+          decisions, behavioral evidence, and observation status. A routine
+          source scan with no accepted change creates no entry. Software changes
+          are excluded.
+        </p>
       </section>
       <section className="changelog-list" aria-live="polite">
         {events === null && <p>Reading the public change ledger…</p>}
-        {events?.length === 0 && <p>The public change ledger is unavailable.</p>}
+        {events?.length === 0 && (
+          <p>The public change ledger is unavailable.</p>
+        )}
         {events?.map((event) => (
           <article key={event.id}>
-            <div className="change-date"><time dateTime={event.recorded_on}>{event.recorded_on}</time><span>{label(event.type)}</span></div>
+            <div className="change-date">
+              <time dateTime={event.recorded_on}>{event.recorded_on}</time>
+              <span>{label(event.type)}</span>
+            </div>
             <div>
               <h2>{event.title}</h2>
               <p>{event.summary}</p>
-              <p className="change-scope">{event.affects_observations ? 'OBSERVATION DATA CHANGED' : 'NO OBSERVATION VERDICT CHANGED'} · {label(event.source)}</p>
-              <ul>{event.subjects.map((subject) => <li key={`${event.id}-${subject.id}`}>{subject.label}</li>)}</ul>
+              <p className="change-scope">
+                {event.affects_observations
+                  ? 'OBSERVATION DATA CHANGED'
+                  : 'NO OBSERVATION VERDICT CHANGED'}{' '}
+                · {sourceLabels[event.source] ?? label(event.source)}
+              </p>
+              <ul>
+                {event.subjects.map((subject) => (
+                  <li key={`${event.id}-${subject.id}`}>{subject.label}</li>
+                ))}
+              </ul>
               <div className="change-links">
-                {event.source_urls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer">Official source <ExternalLink aria-hidden="true" /></a>)}
-                {event.pull_request_url && <a href={event.pull_request_url} target="_blank" rel="noreferrer">Reviewed proposal <ExternalLink aria-hidden="true" /></a>}
+                {event.source_urls.map((url) => (
+                  <a key={url} href={url} target="_blank" rel="noreferrer">
+                    Official source <ExternalLink aria-hidden="true" />
+                  </a>
+                ))}
               </div>
             </div>
           </article>

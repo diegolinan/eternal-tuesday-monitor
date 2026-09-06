@@ -229,14 +229,14 @@ function ObservationCard({
           </dd>
         </div>
         <div className="verified">
-          <dt>Evidence verified</dt>
+          <dt>Evidence accepted on</dt>
           <dd>{labelDate(item.evidenceVerifiedOn)}</dd>
         </div>
       </dl>
       <div
         className={`sufficiency-strip sufficiency-${item.currentSufficiency.toLowerCase()}`}
       >
-        <span>Current sufficiency</span>
+        <span>Evidence use status</span>
         <StatusEmblem compact value={sufficiencyLabel(item)} />
       </div>
       <button
@@ -277,6 +277,55 @@ function ObservationList({
         <ObservationCard item={item} key={item.id} onOpen={onOpen} />
       ))}
     </div>
+  );
+}
+
+function ReadingGuide() {
+  return (
+    <section className="reading-guide" aria-labelledby="reading-guide-title">
+      <div>
+        <p className="section-code">READING KEY</p>
+        <h2 id="reading-guide-title">Four different claims</h2>
+        <p>
+          These events can happen on different dates. One never stands in for
+          another.
+        </p>
+      </div>
+      <ol>
+        <li>
+          <b>01</b>
+          <span>
+            <strong>Official-source scan</strong>
+            Reads provider listings. It can detect a model identity; it does not
+            test behavior.
+          </span>
+        </li>
+        <li>
+          <b>02</b>
+          <span>
+            <strong>Eligibility decision</strong>
+            Decides whether a named model can be tested with an approved method.
+            It is policy, not a result.
+          </span>
+        </li>
+        <li>
+          <b>03</b>
+          <span>
+            <strong>Behavioral probe</strong>
+            Exercises an exact model and product surface. Only accepted probe
+            evidence can support a behavioral verdict.
+          </span>
+        </li>
+        <li>
+          <b>04</b>
+          <span>
+            <strong>Freshness review</strong>
+            Recalculates whether existing evidence is still usable. It does not
+            rerun a probe or change the original observation.
+          </span>
+        </li>
+      </ol>
+    </section>
   );
 }
 
@@ -596,24 +645,20 @@ export default function Home() {
           </p>
           <div
             className="date-plates"
-            aria-label="Publication and evidence dates"
+            aria-label="Dataset publication, evidence cutoff, and freshness dates"
           >
             <div className="cutoff-plate">
-              <span>Public launch</span>
-              <strong>
-                {data ? labelDate(data.publishedOn) : '07 SEP 2026'}
-              </strong>
+              <span>Dataset release published</span>
+              <strong>{data ? labelDate(data.publishedOn) : 'READING…'}</strong>
             </div>
             <div className="cutoff-plate">
-              <span>Evidence reviewed</span>
-              <strong>
-                {data ? labelDate(data.dataCutoff) : '03 SEP 2026'}
-              </strong>
+              <span>Evidence included through</span>
+              <strong>{data ? labelDate(data.dataCutoff) : 'READING…'}</strong>
             </div>
             <div className="cutoff-plate">
-              <span>Evaluated as of</span>
+              <span>Evidence age recalculated</span>
               <strong>
-                {data ? labelDate(data.freshnessEvaluatedOn) : '07 SEP 2026'}
+                {data ? labelDate(data.freshnessEvaluatedOn) : 'READING…'}
               </strong>
             </div>
           </div>
@@ -629,6 +674,8 @@ export default function Home() {
 
       <AutomationStatus />
 
+      <ReadingGuide />
+
       <section
         className="monitor-section"
         id="observations"
@@ -640,8 +687,10 @@ export default function Home() {
             <h2 id="current-title">Current observations</h2>
           </div>
           <p>
-            Most recent valid records at the cutoff. Product behavior, evidence
-            class and date are kept separate. No overall score is calculated.
+            CURRENT means applicable to the monitored product state at the
+            evidence cutoff—not tested today. HISTORICAL preserves evidence for
+            an earlier state. RETEST REQUIRED warns about age without rewriting
+            the original result.
           </p>
         </div>
 
@@ -676,7 +725,7 @@ export default function Home() {
               onChange={setEvidence}
             />
             <FilterSelect
-              label="Verification"
+              label="Evidence use status"
               value={verification}
               options={['RETEST REQUIRED']}
               onChange={setVerification}
@@ -699,8 +748,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="status-legend" aria-label="Observation status legend">
-          <span>Signal legend</span>
+        <div className="status-legend" aria-label="Observed-result legend">
+          <span>
+            Observed-result legend · unrelated to the daily source scan
+          </span>
           <StatusEmblem compact value="VERIFIED" />
           <StatusEmblem compact value="DOCUMENTED FEATURE" />
           <StatusEmblem compact value="NO PUBLIC EVIDENCE" />
@@ -764,7 +815,9 @@ export default function Home() {
           </div>
           <p>
             Five black-box diagnostic questions. They are not five components
-            inside a product, and they were not derived from one benchmark.
+            inside a product, and they were not derived from one benchmark. The
+            daily official-source scan does not execute them; results appear
+            only when dated evidence is accepted for an exact model and surface.
           </p>
         </div>
         <div className="probe-family">
@@ -844,8 +897,9 @@ export default function Home() {
             <h2 id="history-title">Observation history</h2>
           </div>
           <p>
-            New evidence may supersede operative state. It does not erase what
-            was observed before.
+            New accepted evidence may supersede a record&apos;s applicability.
+            It does not erase what was observed before. This timeline changes
+            only when observation evidence changes—not after every source scan.
           </p>
         </div>
         <div className="history-principle">
@@ -892,8 +946,8 @@ export default function Home() {
                     );
                   })}
                   <div className="timeline-open-end">
-                    <span>NEXT VALID RETEST</span>
-                    <strong>NOT SCHEDULED</strong>
+                    <span>NEXT BEHAVIORAL RETEST</span>
+                    <strong>NO DATE SCHEDULED</strong>
                   </div>
                 </div>
               </article>
@@ -991,12 +1045,13 @@ export default function Home() {
             <li>
               <span>03</span>
               <div>
-                <h3>Check the age</h3>
+                <h3>Recalculate evidence age</h3>
                 <p>
-                  Evidence verification and freshness evaluation are separate
-                  dates. An applicable record remains visible in CURRENT when
-                  its evidence requires retesting. The observed result stays
-                  intact.
+                  Evidence acceptance and freshness review are separate dates.
+                  Freshness review compares an existing record with its age
+                  policy; it does not rerun a behavioral probe. An applicable
+                  record remains visible in CURRENT when a retest is required,
+                  while the dated result stays intact.
                 </p>
               </div>
             </li>
@@ -1044,10 +1099,11 @@ export default function Home() {
       <footer>
         <span>THE ETERNAL TUESDAY MONITOR</span>
         <span>
-          PUBLISHED · {data ? labelDate(data.publishedOn) : '07 SEP 2026'}
+          PUBLISHED · {data ? labelDate(data.publishedOn) : 'READING…'}
         </span>
         <span>
-          EVIDENCE · {data ? labelDate(data.dataCutoff) : '03 SEP 2026'}
+          EVIDENCE INCLUDED THROUGH ·{' '}
+          {data ? labelDate(data.dataCutoff) : 'READING…'}
         </span>
       </footer>
 
@@ -1104,19 +1160,19 @@ export default function Home() {
                   </dd>
                 </div>
                 <div>
-                  <dt>Observed</dt>
+                  <dt>Behavior observed on</dt>
                   <dd>{selected.observedOn.label}</dd>
                 </div>
                 <div className="dialog-verified">
-                  <dt>Evidence verified</dt>
+                  <dt>Evidence accepted on</dt>
                   <dd>{labelDate(selected.evidenceVerifiedOn)}</dd>
                 </div>
                 <div>
-                  <dt>Current sufficiency</dt>
+                  <dt>Evidence use status</dt>
                   <dd>{sufficiencyLabel(selected)}</dd>
                 </div>
                 <div>
-                  <dt>Why</dt>
+                  <dt>Reason for use status</dt>
                   <dd>
                     {selected.sufficiencyReasons
                       .map((reason) => reasonLabels[reason] ?? reason)
@@ -1124,29 +1180,27 @@ export default function Home() {
                   </dd>
                 </div>
                 <div>
-                  <dt>Freshness evaluated</dt>
-                  <dd>
-                    {labelDate(data?.freshnessEvaluatedOn ?? '2026-09-07')}
-                  </dd>
+                  <dt>Evidence age recalculated on</dt>
+                  <dd>{labelDate(data?.freshnessEvaluatedOn ?? null)}</dd>
                 </div>
                 <div>
-                  <dt>Source checked</dt>
+                  <dt>Supporting source last checked</dt>
                   <dd>{labelDate(selected.sourceCheckedOn)}</dd>
                 </div>
                 <div>
-                  <dt>Method / test version</dt>
+                  <dt>Behavioral method version</dt>
                   <dd>{selected.methodologyVersion}</dd>
                 </div>
                 {selected.sourceAvailability !== 'UNKNOWN' && (
                   <div>
-                    <dt>Source availability</dt>
+                    <dt>Supporting source availability</dt>
                     <dd>{selected.sourceAvailability}</dd>
                   </div>
                 )}
               </dl>
               {selected.stateHistory.length > 0 && (
                 <div className="state-history">
-                  <h3>Dated state history</h3>
+                  <h3>Dated record-status history</h3>
                   <ul>
                     {selected.stateHistory.map((event) => (
                       <li key={event.id}>
@@ -1160,7 +1214,7 @@ export default function Home() {
                 </div>
               )}
               <div className="evidence-note">
-                <h3>Evidence note</h3>
+                <h3>What this evidence supports</h3>
                 <p>{selected.evidenceNote}</p>
               </div>
               {selected.sourceUrl && (
@@ -1170,7 +1224,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Open source <ExternalLink aria-hidden="true" />
+                  Open supporting source <ExternalLink aria-hidden="true" />
                 </a>
               )}
             </>

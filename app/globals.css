@@ -1050,6 +1050,73 @@ h1 {
   color: var(--signal);
   font-size: 0.65rem;
 }
+
+.reading-guide {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.6fr);
+  gap: clamp(24px, 4vw, 56px);
+  padding: clamp(32px, 6vw, 80px);
+  border-bottom: 3px solid var(--ink);
+  background: var(--mustard);
+}
+
+.reading-guide h2 {
+  margin: 0.25rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.reading-guide ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border: 3px solid var(--ink);
+  background: var(--paper-light);
+  list-style: none;
+}
+
+.reading-guide li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 16px;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+.reading-guide li:nth-child(2n) {
+  border-right: 0;
+}
+
+.reading-guide li:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.reading-guide li > b {
+  color: var(--signal);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.reading-guide li span,
+.reading-guide li strong {
+  display: block;
+}
+
+.reading-guide li strong {
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+.status-emblem-no-test-evidence,
+.status-emblem-no-accepted-result {
+  background: var(--paper-deep);
+}
 .automation-time-zone {
   margin: 1.25rem 0 0;
   padding-top: 0.75rem;
@@ -3070,6 +3137,31 @@ body::before {
   letter-spacing: 0.055em;
   text-transform: uppercase;
 }
+.coverage-glossary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 18px 0 0;
+  border: 2px solid var(--ink);
+  background: color-mix(in srgb, var(--paper-light) 82%, var(--paper-deep));
+}
+.coverage-glossary div {
+  padding: 12px;
+  border-right: 1px solid var(--ink);
+}
+.coverage-glossary div:last-child {
+  border-right: 0;
+}
+.coverage-glossary dt {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+.coverage-glossary dd {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
 .coverage-controls {
   display: grid;
   grid-template-columns: auto minmax(260px, 1fr);
@@ -3272,6 +3364,15 @@ body::before {
 }
 
 @media (max-width: 1050px) {
+  .coverage-glossary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .coverage-glossary div:nth-child(2) {
+    border-right: 0;
+  }
+  .coverage-glossary div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--ink);
+  }
   .coverage-controls {
     grid-template-columns: 1fr 1fr;
   }
@@ -3284,7 +3385,24 @@ body::before {
 }
 
 @media (max-width: 680px) {
+  .reading-guide,
+  .reading-guide ol {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-guide li,
+  .reading-guide li:nth-child(2n),
+  .reading-guide li:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .reading-guide li:last-child {
+    border-bottom: 0;
+  }
+
   .coverage-summary,
+  .coverage-glossary,
   .coverage-controls,
   .model-register-grid {
     grid-template-columns: 1fr;
@@ -3292,6 +3410,13 @@ body::before {
   .coverage-summary div {
     border-right: 0;
     border-bottom: 2px solid var(--ink);
+  }
+  .coverage-glossary div {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  .coverage-glossary div:last-child {
+    border-bottom: 0;
   }
   .coverage-summary div:last-child {
     border-bottom: 0;

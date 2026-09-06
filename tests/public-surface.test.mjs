@@ -16,9 +16,10 @@ test('the public status panel exposes status but no administrative actions', asy
   assert.doesNotMatch(source, /api\.github\.com/i);
   assert.doesNotMatch(source, /github/i);
   assert.doesNotMatch(compiledStatus, /workflow|repository|html_url|run_id/i);
-  assert.match(source, /Latest check/);
-  assert.match(source, /Current check/);
-  assert.match(source, /Next check/);
+  assert.match(source, /Latest source scan started/);
+  assert.match(source, /Today&apos;s scheduled scan/);
+  assert.match(source, /Next scheduled scan/);
+  assert.match(source, /does not contact a model/);
   assert.match(source, /ALL TIMES SHOWN IN YOUR LOCAL TIME/);
   assert.match(source, /IN \{remaining\(nextWindow, now\)\}/);
   assert.match(source, /STARTING WINDOW/);
@@ -85,18 +86,50 @@ test('the product and surface station is driven by accepted observations', async
   assert.match(source, /setScope\(nextScope\)/);
 });
 
-test('the model register is grouped by vendor and status', async () => {
+test('the model register separates source scans, eligibility, and evidence', async () => {
   const source = await read('components/model-inventory.tsx');
   const page = await read('app/page.tsx');
   assert.match(source, /vendor-register-group/);
   assert.match(source, /registry-status-group/);
   assert.doesNotMatch(source, /visible\.slice\(0, 24\)/);
   assert.match(page, /data\/model-operations\.json/);
-  assert.match(source, /Official listing/);
-  assert.match(source, /Eligibility policy/);
-  assert.match(source, /Behavioral evidence/);
-  assert.match(source, /State unchanged since/);
-  assert.match(source, /No five-probe attempt recorded/);
+  assert.match(source, /Official-source scan/);
+  assert.match(source, /Behavioral-test eligibility/);
+  assert.match(source, /Behavioral probe evidence/);
+  assert.match(source, /Eligibility decision unchanged since/);
+  assert.match(source, /No behavioral probe attempt recorded/);
+  assert.match(source, /NO TEST EVIDENCE/);
+  assert.doesNotMatch(source, /NOT RUN|NEVER TESTED/);
   assert.match(source, /eligibilityGroups/);
   assert.doesNotMatch(source, /Adoption eligibility assessed/);
+});
+
+test('the public copy explains dates and status vocabularies', async () => {
+  const page = await read('app/page.tsx');
+  const inventory = await read('components/model-inventory.tsx');
+  assert.match(page, /Four different claims/);
+  assert.match(page, /Official-source scan/);
+  assert.match(page, /Eligibility decision/);
+  assert.match(page, /Behavioral probe/);
+  assert.match(page, /Freshness review/);
+  assert.match(page, /CURRENT means applicable/);
+  assert.match(page, /Evidence included through/);
+  assert.match(page, /Evidence age recalculated/);
+  assert.doesNotMatch(page, /03 SEP 2026|07 SEP 2026|2026-09-07/);
+  assert.match(
+    inventory,
+    /At least one probe has accepted behavioral evidence/,
+  );
+  assert.match(inventory, /policy status, not a test result/);
+});
+
+test('the public changelog omits internal review mechanics', async () => {
+  const page = await read('app/changelog/page.tsx');
+  const compiled = await read('public/data/changelog.json');
+  assert.doesNotMatch(page, /pull_request_url|Reviewed proposal|github/i);
+  assert.doesNotMatch(compiled, /pull_request_url|github\.com/i);
+  assert.match(
+    page,
+    /routine\s+source scan with no accepted change creates no entry/,
+  );
 });
