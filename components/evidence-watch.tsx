@@ -16,6 +16,7 @@ type EvidenceWatchData = {
     state:
       | 'NOT_YET_RUN'
       | 'SEARCHED'
+      | 'PARTIAL'
       | 'NOT_CONFIGURED'
       | 'UNAVAILABLE'
       | 'SKIPPED';

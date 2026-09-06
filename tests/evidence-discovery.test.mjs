@@ -8,7 +8,7 @@ import {
   dedupeCandidates,
   normalizeUrl,
 } from '../scripts/evidence-discovery/core.mjs';
-import { validateSubmission } from '../worker/intake.mjs';
+import intakeWorker, { validateSubmission } from '../worker/intake.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 
@@ -75,6 +75,48 @@ test('candidate identity is stable and accepted URLs are excluded', () => {
   );
 });
 
+test('public screening rejects UI and infrastructure keyword collisions', () => {
+  const shared = {
+    sourceType: 'PUBLIC_ISSUE',
+    sourceUrl: 'https://example.com/report',
+    discoveredAt: '2026-09-06T12:00:00.000Z',
+    queryId: 'regression',
+  };
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Claude elapsed timer freezes',
+      excerpt: 'The session spinner stops painting its elapsed counter.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Claude model quality regression',
+      excerpt:
+        'The report compares verbosity between sessions across model generations.',
+    }),
+    null,
+  );
+  assert.equal(
+    buildCandidate({
+      ...shared,
+      title: 'Claude session shows a stale project name',
+      excerpt: 'The desktop breadcrumb keeps the stale project label.',
+    }),
+    null,
+  );
+  assert.ok(
+    buildCandidate({
+      ...shared,
+      title: 'Model relies on stale memory',
+      excerpt:
+        'The assistant stated an old answer from stale memory without verifying current evidence.',
+    }),
+  );
+});
+
 test('public intake rejects bots, private-network URLs and weak reports', () => {
   const valid = {
     submissionType: 'FOUND_SOURCE',
@@ -103,4 +145,75 @@ test('public intake rejects bots, private-network URLs and weak reports', () => 
     validateSubmission({ ...valid, summary: 'too short' }),
     'INVALID_SUMMARY',
   );
+});
+
+test('public intake requires the canonical Turnstile hostname and action', async () => {
+  const payload = {
+    submissionType: 'FOUND_SOURCE',
+    vendor: 'Anthropic',
+    model: 'Fable 5',
+    productSurface: 'Claude Code session',
+    probeId: 'probe-elapsed',
+    sourceUrl: 'https://example.com/report',
+    observedOn: '2026-09-06',
+    summary: 'A detailed public report of elapsed-time behavior.',
+    relationship: 'NONE',
+    attributionConsent: false,
+    website: '',
+    turnstileToken: 'token',
+  };
+  const env = {
+    TURNSTILE_SECRET_KEY: 'test-secret',
+    GITHUB_REPOSITORY_TOKEN: 'test-token',
+    GITHUB_REPOSITORY: 'diegolinan/eternal-tuesday-monitor',
+    SUBMISSION_RATE_LIMITER: { limit: async () => ({ success: true }) },
+  };
+  const originalFetch = globalThis.fetch;
+  try {
+    let calls = 0;
+    globalThis.fetch = async () => {
+      calls++;
+      if (calls === 1)
+        return Response.json({
+          success: true,
+          hostname: 'diegolinan.github.io',
+          action: 'evidence_submission',
+        });
+      return new Response(null, { status: 204 });
+    };
+    const accepted = await intakeWorker.fetch(
+      new Request('https://intake.example/', {
+        method: 'POST',
+        headers: {
+          Origin: 'https://diegolinan.github.io',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      }),
+      env,
+    );
+    assert.equal(accepted.status, 202);
+    assert.equal(calls, 2);
+
+    globalThis.fetch = async () =>
+      Response.json({
+        success: true,
+        hostname: 'example.com',
+        action: 'evidence_submission',
+      });
+    const rejected = await intakeWorker.fetch(
+      new Request('https://intake.example/', {
+        method: 'POST',
+        headers: {
+          Origin: 'https://diegolinan.github.io',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      }),
+      env,
+    );
+    assert.equal(rejected.status, 403);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });

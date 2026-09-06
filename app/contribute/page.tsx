@@ -42,6 +42,7 @@ export default function ContributePage() {
       sitekey: siteKey,
       callback: (value: string) => setToken(value),
       'expired-callback': () => setToken(''),
+      action: 'evidence_submission',
       theme: 'light',
     });
   }, [scriptReady]);

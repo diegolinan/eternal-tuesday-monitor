@@ -2,8 +2,15 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "eternal-tuesday-intake",
   "main": "worker/intake.mjs",
-  "compatibility_date": "2026-09-01",
+  "compatibility_date": "2026-09-06",
   "workers_dev": true,
+  "secrets": {
+    "required": ["TURNSTILE_SECRET_KEY", "GITHUB_REPOSITORY_TOKEN"],
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+  },
   "ratelimits": [
     {
       "name": "SUBMISSION_RATE_LIMITER",

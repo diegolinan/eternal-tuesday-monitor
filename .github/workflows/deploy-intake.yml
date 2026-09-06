@@ -23,6 +23,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm test
+      - name: Generate and check Worker binding types
+        run: |
+          npm run intake:types
+          npx tsc --noEmit
       - name: Deploy the validated intake Worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

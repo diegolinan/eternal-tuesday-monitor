@@ -1,4 +1,6 @@
 const allowedOrigin = 'https://diegolinan.github.io';
+const allowedHostname = 'diegolinan.github.io';
+const expectedChallengeAction = 'evidence_submission';
 const json = (body, status = 200, origin = allowedOrigin) =>
   new Response(JSON.stringify(body), {
     status,
@@ -22,6 +24,34 @@ const allowedProbeIds = new Set([
   'probe-historical-validity',
   'UNSURE',
 ]);
+
+async function readJsonBody(request, maxBytes) {
+  if (!request.body) throw new Error('INVALID_JSON');
+  const reader = request.body.getReader();
+  const chunks = [];
+  let total = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > maxBytes) {
+      await reader.cancel();
+      throw new Error('BODY_TOO_LARGE');
+    }
+    chunks.push(value);
+  }
+  const bytes = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  try {
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } catch {
+    throw new Error('INVALID_JSON');
+  }
+}
 
 export function validateSubmission(payload) {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload))
@@ -104,30 +134,41 @@ const intakeWorker = {
       return json({ ok: false, error: 'BODY_TOO_LARGE' }, 413);
     let payload;
     try {
-      payload = await request.json();
-    } catch {
-      return json({ ok: false, error: 'INVALID_JSON' }, 400);
+      payload = await readJsonBody(request, 16000);
+    } catch (error) {
+      const code = error.message === 'BODY_TOO_LARGE' ? 413 : 400;
+      return json({ ok: false, error: error.message }, code);
     }
     const invalid = validateSubmission(payload);
     if (invalid) return json({ ok: false, error: invalid }, 400);
-    const verification = await fetch(
-      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-      {
-        method: 'POST',
-        body: new URLSearchParams({
-          secret: env.TURNSTILE_SECRET_KEY,
-          response: payload.turnstileToken,
-          remoteip: request.headers.get('CF-Connecting-IP') ?? '',
-        }),
-      },
-    );
-    const challenge = await verification.json();
-    if (!challenge.success)
-      return json({ ok: false, error: 'CHALLENGE_FAILED' }, 403);
-    const rate = await env.SUBMISSION_RATE_LIMITER.limit({
-      key: request.headers.get('CF-Connecting-IP') ?? 'unknown',
-    });
+    const visitorKey = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+    const rate = await env.SUBMISSION_RATE_LIMITER.limit({ key: visitorKey });
     if (!rate.success) return json({ ok: false, error: 'RATE_LIMITED' }, 429);
+    let challenge;
+    try {
+      const verification = await fetch(
+        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+        {
+          method: 'POST',
+          body: new URLSearchParams({
+            secret: env.TURNSTILE_SECRET_KEY,
+            response: payload.turnstileToken,
+            remoteip: visitorKey,
+            idempotency_key: crypto.randomUUID(),
+          }),
+          signal: AbortSignal.timeout(10000),
+        },
+      );
+      challenge = await verification.json();
+    } catch {
+      return json({ ok: false, error: 'CHALLENGE_UNAVAILABLE' }, 503);
+    }
+    if (
+      !challenge.success ||
+      challenge.hostname !== allowedHostname ||
+      challenge.action !== expectedChallengeAction
+    )
+      return json({ ok: false, error: 'CHALLENGE_FAILED' }, 403);
     const submission = {
       submissionType: payload.submissionType,
       vendor: text(payload.vendor, 80),
@@ -150,23 +191,29 @@ const intakeWorker = {
       attributionConsent: payload.attributionConsent,
       receivedAt: new Date().toISOString(),
     };
-    const dispatch = await fetch(
-      `https://api.github.com/repos/${env.GITHUB_REPOSITORY}/dispatches`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${env.GITHUB_REPOSITORY_TOKEN}`,
-          Accept: 'application/vnd.github+json',
-          'Content-Type': 'application/json',
-          'User-Agent': 'eternal-tuesday-intake',
-          'X-GitHub-Api-Version': '2022-11-28',
+    let dispatch;
+    try {
+      dispatch = await fetch(
+        `https://api.github.com/repos/${env.GITHUB_REPOSITORY}/dispatches`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${env.GITHUB_REPOSITORY_TOKEN}`,
+            Accept: 'application/vnd.github+json',
+            'Content-Type': 'application/json',
+            'User-Agent': 'eternal-tuesday-intake',
+            'X-GitHub-Api-Version': '2022-11-28',
+          },
+          body: JSON.stringify({
+            event_type: 'public-evidence-submission',
+            client_payload: submission,
+          }),
+          signal: AbortSignal.timeout(10000),
         },
-        body: JSON.stringify({
-          event_type: 'public-evidence-submission',
-          client_payload: submission,
-        }),
-      },
-    );
+      );
+    } catch {
+      return json({ ok: false, error: 'QUEUE_UNAVAILABLE' }, 503);
+    }
     if (!dispatch.ok)
       return json({ ok: false, error: 'QUEUE_UNAVAILABLE' }, 503);
     return json({ ok: true, state: 'QUEUED_FOR_REVIEW' }, 202);

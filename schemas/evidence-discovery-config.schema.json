@@ -5,6 +5,7 @@
   "additionalProperties": false,
   "required": [
     "schema_version",
+    "screening_policy_version",
     "enabled",
     "lookback_days",
     "max_results_per_query",
@@ -15,6 +16,10 @@
   ],
   "properties": {
     "schema_version": { "const": "1.0.0", "type": "string" },
+    "screening_policy_version": {
+      "type": "string",
+      "pattern": "^ETM-EVIDENCE-[0-9]+\\.[0-9]+$"
+    },
     "enabled": { "type": "boolean" },
     "lookback_days": { "type": "integer", "minimum": 1, "maximum": 90 },
     "max_results_per_query": { "type": "integer", "minimum": 1, "maximum": 50 },

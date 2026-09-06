@@ -3,35 +3,44 @@ import { createHash } from 'node:crypto';
 const probeLexicon = {
   'probe-temporal-anchor': [
     'current date',
-    'today',
     'what day',
     'time awareness',
     'temporal anchor',
     'system time',
     'current time',
     'date awareness',
+    'wrong day',
+    'wrong date',
+    'midnight rollover',
+    're-dated',
   ],
   'probe-elapsed': [
-    'elapsed',
     'time passed',
     'time has passed',
-    'between sessions',
     'resumed session',
-    'long-running',
-    'duration',
     'minutes earlier',
     'hours earlier',
+    'days later',
+    'weeks later',
     'yesterday',
   ],
   'probe-revalidation': [
     'revalidate',
     'revalidation',
     'freshness',
-    'stale',
-    'outdated',
+    'stale information',
+    'stale context',
+    'stale memory',
+    'stale knowledge',
+    'outdated information',
+    'outdated data',
+    'outdated knowledge',
     'up to date',
     'browse again',
     'current evidence',
+    'without verifying',
+    'verify current',
+    'check current',
   ],
   'probe-state-reconciliation': [
     'state reconciliation',
@@ -41,6 +50,10 @@ const probeLexicon = {
     'old state',
     'new evidence',
     'context update',
+    'operative context',
+    'stale context',
+    'stale memory',
+    'prior state',
   ],
   'probe-historical-validity': [
     'historical validity',
@@ -50,6 +63,9 @@ const probeLexicon = {
     'historical context',
     'was valid',
     'no longer true',
+    'past event',
+    'prior session',
+    're-dated',
   ],
 };
 
@@ -79,7 +95,40 @@ const successTerms = [
   'passed',
   'works',
 ];
-const weakProbeTerms = new Set(['today', 'duration']);
+const behavioralActorTerms = [
+  'assistant',
+  'agent',
+  'model',
+  'claude',
+  'chatgpt',
+  'gemini',
+  'grok',
+  'cursor',
+  'fable',
+];
+const behavioralInteractionTerms = [
+  'answer',
+  'conversation',
+  'context',
+  'memory',
+  'message',
+  'prompt',
+  'reply',
+  'report',
+  'response',
+  'said',
+  'session',
+  'stated',
+  'told',
+];
+
+const hasBehavioralContext = (value) => {
+  const text = value.toLowerCase();
+  return (
+    behavioralActorTerms.some((term) => text.includes(term)) &&
+    behavioralInteractionTerms.some((term) => text.includes(term))
+  );
+};
 
 export function normalizeUrl(value) {
   const url = new URL(value);
@@ -138,16 +187,17 @@ export function buildCandidate(input) {
   const sourceUrl = normalizeUrl(input.sourceUrl);
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
   const directClassification = classifyText(corpus);
-  const hasStrongProbeMatch = directClassification.matchingTerms.some(
-    (term) => !weakProbeTerms.has(term),
-  );
+  const hasStrongProbeMatch = directClassification.matchingTerms.length > 0;
   if (!hasStrongProbeMatch && !input.allowUnclassified) return null;
-  const classification = classifyText(
-    corpus,
-    directClassification.probeIds.length || input.allowUnclassified
-      ? (input.probeIds ?? [])
-      : [],
-  );
+  if (
+    ['PUBLIC_ISSUE', 'GENERAL_WEB'].includes(input.sourceType) &&
+    !hasBehavioralContext(corpus) &&
+    !input.allowUnclassified
+  )
+    return null;
+  const classification = input.allowUnclassified
+    ? classifyText(corpus, input.probeIds ?? [])
+    : directClassification;
   const claimClass =
     input.claimClass ??
     inferClaimClass(input.sourceType, classification.sentiment);
@@ -183,6 +233,7 @@ export function buildCandidate(input) {
     probe_ids: classification.probeIds,
     claim_class: claimClass,
     query_id: clean(input.queryId, 120),
+    screening_policy_version: 'ETM-EVIDENCE-1.1',
     matching_terms: classification.matchingTerms,
     review_state: 'PENDING',
     review_reasons: [

@@ -25,6 +25,7 @@
     "evidence:stage": "node scripts/evidence-discovery/stage.mjs",
     "evidence:status": "node scripts/evidence-discovery/compile-status.mjs",
     "intake:dev": "wrangler dev --config wrangler.intake.jsonc",
+    "intake:types": "wrangler types worker-configuration.d.ts --config wrangler.intake.jsonc",
     "intake:deploy": "wrangler deploy --config wrangler.intake.jsonc",
     "probes:codex:plan": "node scripts/probes/codex-cli.mjs",
     "probes:codex:pilot": "node scripts/probes/codex-cli.mjs --live",
@@ -58,7 +59,6 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.54.4",
-    "@cloudflare/workers-types": "5.20260904.1",
     "@openai/sites-vite-plugin": "0.2.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",

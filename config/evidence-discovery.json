@@ -1,5 +1,6 @@
 {
   "schema_version": "1.0.0",
+  "screening_policy_version": "ETM-EVIDENCE-1.1",
   "enabled": true,
   "lookback_days": 14,
   "max_results_per_query": 20,
@@ -10,24 +11,24 @@
     "research_search": true,
     "general_web_search": true
   },
-  "public_issue_repositories": ["anthropics/claude-code", "getcursor/cursor"],
+  "public_issue_repositories": ["anthropics/claude-code", "cursor/cursor"],
   "queries": [
     {
       "id": "temporal-continuity",
       "terms": "AI agent current date elapsed time temporal awareness conversation continuity",
-      "issue_terms": "\"current date\" OR \"elapsed time\" OR \"time awareness\"",
+      "issue_terms": "\"current date\" OR \"time awareness\" OR yesterday",
       "probe_ids": ["probe-temporal-anchor", "probe-elapsed"]
     },
     {
       "id": "stale-state",
       "terms": "AI agent stale context revalidate changed state outdated information",
-      "issue_terms": "stale OR revalidate OR \"changed state\" OR outdated",
+      "issue_terms": "\"stale context\" OR \"stale memory\" OR \"changed state\"",
       "probe_ids": ["probe-revalidation", "probe-state-reconciliation"]
     },
     {
       "id": "historical-validity",
       "terms": "AI agent historical context previously true current state memory",
-      "issue_terms": "\"historical context\" OR \"previously true\" OR \"past state\"",
+      "issue_terms": "\"historical context\" OR \"past state\" OR \"prior session\"",
       "probe_ids": ["probe-historical-validity"]
     }
   ]

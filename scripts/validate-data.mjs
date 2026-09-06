@@ -20,6 +20,7 @@ const evaluationResultPath = 'data/model-evaluation/results.jsonl';
 const sourceCheckPath = 'data/model-discovery/source-checks.jsonl';
 const changelogPath = 'data/changelog/events.jsonl';
 const evidenceCandidatePath = 'data/evidence-discovery/candidates.jsonl';
+const evidenceCandidateDecisionPath = 'data/evidence-discovery/decisions.jsonl';
 const failures = [];
 failures.push(...(await validateDiscovery(root)));
 const fail = (message) => failures.push(message);
@@ -195,17 +196,21 @@ const [
   evidenceDiscoveryConfig,
   evidenceDiscoveryConfigSchema,
   evidenceCandidateSchema,
+  evidenceCandidateDecisionSchema,
   evidenceWatchSchema,
   publicSubmissionSchema,
   evidenceCandidateLedger,
+  evidenceCandidateDecisionLedger,
   evidenceWatch,
 ] = await Promise.all([
   readJson('config/evidence-discovery.json'),
   readJson('schemas/evidence-discovery-config.schema.json'),
   readJson('schemas/evidence-candidate.schema.json'),
+  readJson('schemas/evidence-candidate-decision.schema.json'),
   readJson('schemas/evidence-watch.schema.json'),
   readJson('schemas/public-submission.schema.json'),
   readOptionalJsonLines(evidenceCandidatePath),
+  readOptionalJsonLines(evidenceCandidateDecisionPath),
   readJson('public/data/evidence-watch.json'),
 ]);
 
@@ -215,6 +220,7 @@ const evaluationResults = evaluationResultLedger.items;
 const sourceChecks = sourceCheckLedger.items;
 const changelogEvents = changelogLedger.items;
 const evidenceCandidates = evidenceCandidateLedger.items;
+const evidenceCandidateDecisions = evidenceCandidateDecisionLedger.items;
 const ajv = new Ajv2020({
   allErrors: true,
   strict: true,
@@ -286,6 +292,11 @@ validateWithSchema(
   evidenceCandidateSchema,
   evidenceCandidates,
 );
+validateWithSchema(
+  'evidence candidate decision',
+  evidenceCandidateDecisionSchema,
+  evidenceCandidateDecisions,
+);
 validateWithSchema('public evidence watch', evidenceWatchSchema, [
   evidenceWatch,
 ]);
@@ -321,6 +332,7 @@ const collections = [
   ['public source checks', sourceChecks],
   ['changelog events', changelogEvents],
   ['evidence candidates', evidenceCandidates],
+  ['evidence candidate decisions', evidenceCandidateDecisions],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -365,6 +377,16 @@ for (const candidate of evidenceCandidates) {
     if (!surfaces.has(id)) fail(`${candidate.id}: unknown surface ${id}`);
   for (const id of candidate.probe_ids)
     if (!probes.has(id)) fail(`${candidate.id}: unknown probe ${id}`);
+}
+for (const decision of evidenceCandidateDecisions) {
+  const affected = evidenceCandidates.filter(
+    (candidate) =>
+      candidate.discovered_at === decision.candidate_batch_generated_at,
+  );
+  if (affected.length !== decision.affected_count)
+    fail(
+      `${decision.id}: expected ${decision.affected_count} candidates in batch, found ${affected.length}`,
+    );
 }
 for (const query of evidenceDiscoveryConfig.queries)
   for (const id of query.probe_ids)
@@ -688,6 +710,11 @@ if (baseArgIndex !== -1) {
       base,
       evidenceCandidatePath,
       evidenceCandidateLedger.lines,
+    );
+    compareAppendOnlyLines(
+      base,
+      evidenceCandidateDecisionPath,
+      evidenceCandidateDecisionLedger.lines,
     );
     compareAppendOnlyLines(
       base,

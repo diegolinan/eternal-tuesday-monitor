@@ -63,9 +63,26 @@ const surfaceTerms = surfacesFile.surfaces.map((s) => [
   s.id,
   s.name.toLowerCase(),
 ]);
+const genericIdentityTerms = new Set([
+  'agent',
+  'api',
+  'brain',
+  'consumer conversation',
+  'memory system',
+  'model api',
+  'projects',
+  'research preview',
+]);
+const containsIdentity = (value, term) => {
+  if (genericIdentityTerms.has(term)) return false;
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'i').test(value);
+};
 const inferIds = (value, terms) => {
   const lower = value.toLowerCase();
-  return terms.filter(([, term]) => lower.includes(term)).map(([id]) => id);
+  return terms
+    .filter(([, term]) => containsIdentity(lower, term))
+    .map(([id]) => id);
 };
 const candidates = [];
 const channels = [];
@@ -157,6 +174,8 @@ async function jsonFetch(url, headers = {}) {
 async function publicIssues() {
   const start = candidates.length;
   let reviewed = 0;
+  let requestsCompleted = 0;
+  let requestsFailed = 0;
   if (!config.channels.public_issue_search) {
     channels.push({
       name: 'PUBLIC_ISSUES',
@@ -179,9 +198,9 @@ async function publicIssues() {
     });
     return;
   }
-  try {
-    for (const repository of config.public_issue_repositories)
-      for (const query of config.queries) {
+  for (const repository of config.public_issue_repositories)
+    for (const query of config.queries) {
+      try {
         const q = `${query.issue_terms ?? query.terms} repo:${repository} is:issue updated:>=${new Date(Date.parse(now) - config.lookback_days * 86400000).toISOString().slice(0, 10)}`;
         const data = await jsonFetch(
           `https://api.github.com/search/issues?q=${encodeURIComponent(q)}&per_page=${config.max_results_per_query}`,
@@ -203,25 +222,28 @@ async function publicIssues() {
             queryId: `public-issue:${repository}:${query.id}`,
           });
         }
+        requestsCompleted++;
+      } catch {
+        requestsFailed++;
       }
-    channels.push({
-      name: 'PUBLIC_ISSUES',
-      state: 'SEARCHED',
-      searchedAt: now,
-      resultsReviewed: reviewed,
-      candidatesFound: candidates.length - start,
-      note: 'Configured public issue trackers were searched. Matches remain unverified leads.',
-    });
-  } catch (error) {
-    channels.push({
-      name: 'PUBLIC_ISSUES',
-      state: 'UNAVAILABLE',
-      searchedAt: now,
-      resultsReviewed: reviewed,
-      candidatesFound: candidates.length - start,
-      note: `The public issue search was incomplete (${String(error.message).slice(0, 80)}).`,
-    });
-  }
+    }
+  const totalRequests = requestsCompleted + requestsFailed;
+  channels.push({
+    name: 'PUBLIC_ISSUES',
+    state:
+      requestsCompleted === 0
+        ? 'UNAVAILABLE'
+        : requestsFailed
+          ? 'PARTIAL'
+          : 'SEARCHED',
+    searchedAt: now,
+    resultsReviewed: reviewed,
+    candidatesFound: candidates.length - start,
+    note:
+      requestsFailed === 0
+        ? `All ${totalRequests} configured public-issue searches completed.`
+        : `${requestsCompleted} of ${totalRequests} public-issue searches completed; incomplete results remain visible as partial.`,
+  });
 }
 
 function openAlexAbstract(work) {
@@ -366,7 +388,9 @@ const novel = dedupeCandidates(candidates, excludedIds, excludedUrls);
 const unavailable = channels.filter(
   (item) => item.state === 'UNAVAILABLE',
 ).length;
-const searched = channels.filter((item) => item.state === 'SEARCHED').length;
+const searched = channels.filter((item) =>
+  ['SEARCHED', 'PARTIAL'].includes(item.state),
+).length;
 const report = {
   schema_version: '1.0.0',
   generated_at: now,
