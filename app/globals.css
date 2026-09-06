@@ -902,16 +902,20 @@ h1 {
 }
 .automation-status dl {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin: 0;
   border: 2px solid var(--ink);
 }
 .automation-status dl div {
   padding: 14px;
   border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
 }
-.automation-status dl div:last-child {
+.automation-status dl div:nth-child(2n) {
   border-right: 0;
+}
+.automation-status dl div:nth-last-child(-n + 2) {
+  border-bottom: 0;
 }
 .automation-status dt {
   font-size: 0.7rem;
@@ -1009,6 +1013,9 @@ h1 {
   }
   .automation-status dl div {
     border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+  .automation-status dl div:nth-last-child(-n + 2) {
     border-bottom: 2px solid var(--ink);
   }
   .automation-status dl div:last-child {

@@ -13,7 +13,11 @@ test('the public status panel exposes status but no administrative actions', asy
   assert.doesNotMatch(source, /Run five probes manually/i);
   assert.doesNotMatch(source, /evaluate-model\.yml/i);
   assert.match(source, /Last attempt/);
-  assert.match(source, /Next scheduled attempt/);
+  assert.match(source, /Last scheduled run/);
+  assert.match(source, /Today&apos;s scheduled run/);
+  assert.match(source, /Next scheduled window/);
+  assert.match(source, /WAITING FOR GITHUB/);
+  assert.match(source, /eventLabel\(latest\.event\)/);
   assert.match(source, /useState<Date \| null>\(null\)/);
 });
 
