@@ -55,6 +55,7 @@ const probeLexicon = {
     'stale context',
     'stale memory',
     'prior state',
+    'treated answered',
   ],
   'probe-historical-validity': [
     'historical validity',
@@ -200,6 +201,30 @@ const clean = (value, max = 480) =>
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, max);
+
+const normalizeIdentityText = (value) =>
+  String(value ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+export function inferIdentityIds(value, terms, excludedTerms = new Set()) {
+  const normalizedValue = ` ${normalizeIdentityText(value)} `;
+  return [
+    ...new Set(
+      terms
+        .filter(([, term]) => {
+          const normalizedTerm = normalizeIdentityText(term);
+          return (
+            normalizedTerm.length >= 4 &&
+            !excludedTerms.has(normalizedTerm) &&
+            normalizedValue.includes(` ${normalizedTerm} `)
+          );
+        })
+        .map(([id]) => id),
+    ),
+  ];
+}
 
 export function classifyText(value, hintedProbeIds = []) {
   const text = clean(value, 20000).toLowerCase();

@@ -6,6 +6,7 @@ import path from 'node:path';
 import {
   buildCandidate,
   dedupeCandidates,
+  inferIdentityIds,
   normalizeUrl,
 } from '../scripts/evidence-discovery/core.mjs';
 import {
@@ -287,6 +288,32 @@ test('public screening rejects UI and infrastructure keyword collisions', () => 
         'The assistant said good night when the user had just woken up and referenced the test from hours earlier as still running.',
     }),
   );
+  const staleDirective = buildCandidate({
+    ...shared,
+    title: 'Claude treated answered directives as pending',
+    excerpt:
+      'The agent treated answered directives as still open and repeated them in a later session.',
+  });
+  assert.ok(staleDirective);
+  assert.ok(staleDirective.probe_ids.includes('probe-state-reconciliation'));
+});
+
+test('public-issue identity extraction recognizes slugged model names without cross-vendor noise', async () => {
+  const modelIds = inferIdentityIds(
+    'Claude Code used claude-fable-5 and claude-opus-5.',
+    [
+      ['model-fable-5', 'Fable 5'],
+      ['model-opus-5', 'claude-opus-5'],
+    ],
+  );
+  assert.deepEqual(modelIds, ['model-fable-5', 'model-opus-5']);
+
+  const source = await readFile(
+    path.join(root, 'scripts/evidence-discovery/run.mjs'),
+    'utf8',
+  );
+  assert.match(source, /anthropics\/claude-code/);
+  assert.match(source, /product-claude-code/);
 });
 
 test('public intake rejects bots, private-network URLs and weak reports', () => {
