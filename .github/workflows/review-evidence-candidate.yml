@@ -33,7 +33,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: evidence-review-${{ inputs.candidate_id }}
+  group: evidence-review-ledger
   cancel-in-progress: false
 
 jobs:
@@ -49,6 +49,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Require the previous decision to be resolved
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/assert-no-open-evidence-decision.mjs
       - name: Record the proposed human decision
         env:
           CANDIDATE_ID: ${{ inputs.candidate_id }}

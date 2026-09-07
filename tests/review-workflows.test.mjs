@@ -62,6 +62,16 @@ test('candidate decision and source promotion remain separate review gates', asy
   assert.doesNotMatch(promotionScript, /result_status_id/);
 });
 
+test('candidate decisions serialize the append-only ledger and block parallel review PRs', async () => {
+  const review = await read('.github/workflows/review-evidence-candidate.yml');
+  assert.match(review, /group: evidence-review-ledger/);
+  assert.match(
+    review,
+    /node scripts\/notifications\/assert-no-open-evidence-decision\.mjs/,
+  );
+  assert.doesNotMatch(review, /group: evidence-review-\$\{\{/);
+});
+
 test('the notification canary requests review and cannot be mistaken for evidence', async () => {
   const canary = await read(
     '.github/workflows/reviewer-notification-canary.yml',
