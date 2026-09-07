@@ -305,7 +305,8 @@ test('production workflows are GitHub-only and contain no provider inference, ta
   assert.match(discovery, /workflow_dispatch:/);
   assert.doesNotMatch(discovery, /actions\/deploy-pages/);
   assert.match(pages, /workflow_run:/);
-  assert.match(pages, /types: \[in_progress, completed\]/);
+  assert.match(pages, /types: \[completed\]/);
+  assert.doesNotMatch(pages, /types: \[in_progress/);
   assert.match(pages, /npm run status:compile/);
   assert.match(pages, /actions\/deploy-pages/);
   assert.equal(workflows.includes(providerSecret), false);

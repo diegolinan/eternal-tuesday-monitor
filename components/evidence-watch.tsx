@@ -46,8 +46,11 @@ const label = (value: string) => value.replaceAll('_', ' ');
 const moment = (value: string | null) =>
   value
     ? new Intl.DateTimeFormat(undefined, {
-        dateStyle: 'medium',
-        timeStyle: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
         timeZoneName: 'short',
       }).format(new Date(value))
     : 'No completed search yet';
@@ -97,32 +100,29 @@ export function EvidenceWatch() {
               <span>{label(channel.name)}</span>
               <strong>{label(channel.state)}</strong>
               <small>
-                {channel.resultsReviewed} results screened ·{' '}
-                {channel.candidatesFound} candidates
+                {channel.resultsReviewed} results examined automatically ·{' '}
+                {channel.candidatesFound} potential leads
               </small>
-              <p>{channel.note}</p>
+              <p>
+                {channel.name === 'GENERAL_WEB' &&
+                channel.state === 'NOT_CONFIGURED'
+                  ? 'Broad-web search is outside the current public search scope.'
+                  : channel.note}
+              </p>
             </article>
           ))}
         </div>
-        {!!data?.latestCandidates.length && (
+        {!!data?.candidateCounts.pending && (
           <div className="evidence-candidate-strip">
             <strong>
-              {data.candidateCounts.pending} NEW CANDIDATE
-              {data.candidateCounts.pending === 1 ? '' : 'S'} AWAITING REVIEW
+              {data.candidateCounts.pending} POTENTIAL LEAD
+              {data.candidateCounts.pending === 1 ? '' : 'S'} AWAITING HUMAN
+              REVIEW
             </strong>
-            <ul>
-              {data.latestCandidates.map((candidate) => (
-                <li key={candidate.id}>
-                  <a href={candidate.url} target="_blank" rel="noreferrer">
-                    {candidate.title}
-                  </a>
-                  <small>
-                    {label(candidate.claimClass)} ·{' '}
-                    {candidate.probeNames.join(', ')}
-                  </small>
-                </li>
-              ))}
-            </ul>
+            <p>
+              Unreviewed titles are withheld here. A lead becomes public
+              evidence only after its source, scope and claim have been checked.
+            </p>
           </div>
         )}
       </div>

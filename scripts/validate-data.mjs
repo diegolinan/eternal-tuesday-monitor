@@ -21,6 +21,7 @@ const sourceCheckPath = 'data/model-discovery/source-checks.jsonl';
 const changelogPath = 'data/changelog/events.jsonl';
 const evidenceCandidatePath = 'data/evidence-discovery/candidates.jsonl';
 const evidenceCandidateDecisionPath = 'data/evidence-discovery/decisions.jsonl';
+const evidenceCandidateReviewPath = 'data/evidence-discovery/reviews.jsonl';
 const failures = [];
 failures.push(...(await validateDiscovery(root)));
 const fail = (message) => failures.push(message);
@@ -197,21 +198,29 @@ const [
   evidenceDiscoveryConfigSchema,
   evidenceCandidateSchema,
   evidenceCandidateDecisionSchema,
+  evidenceCandidateReviewSchema,
   evidenceWatchSchema,
   publicSubmissionSchema,
+  modelOptionsSchema,
   evidenceCandidateLedger,
   evidenceCandidateDecisionLedger,
+  evidenceCandidateReviewLedger,
   evidenceWatch,
+  modelOptions,
 ] = await Promise.all([
   readJson('config/evidence-discovery.json'),
   readJson('schemas/evidence-discovery-config.schema.json'),
   readJson('schemas/evidence-candidate.schema.json'),
   readJson('schemas/evidence-candidate-decision.schema.json'),
+  readJson('schemas/evidence-candidate-review.schema.json'),
   readJson('schemas/evidence-watch.schema.json'),
   readJson('schemas/public-submission.schema.json'),
+  readJson('schemas/model-options.schema.json'),
   readOptionalJsonLines(evidenceCandidatePath),
   readOptionalJsonLines(evidenceCandidateDecisionPath),
+  readOptionalJsonLines(evidenceCandidateReviewPath),
   readJson('public/data/evidence-watch.json'),
+  readJson('public/data/model-options.json'),
 ]);
 
 const observations = observationLedger.items;
@@ -221,6 +230,7 @@ const sourceChecks = sourceCheckLedger.items;
 const changelogEvents = changelogLedger.items;
 const evidenceCandidates = evidenceCandidateLedger.items;
 const evidenceCandidateDecisions = evidenceCandidateDecisionLedger.items;
+const evidenceCandidateReviews = evidenceCandidateReviewLedger.items;
 const ajv = new Ajv2020({
   allErrors: true,
   strict: true,
@@ -297,9 +307,15 @@ validateWithSchema(
   evidenceCandidateDecisionSchema,
   evidenceCandidateDecisions,
 );
+validateWithSchema(
+  'evidence candidate review',
+  evidenceCandidateReviewSchema,
+  evidenceCandidateReviews,
+);
 validateWithSchema('public evidence watch', evidenceWatchSchema, [
   evidenceWatch,
 ]);
+validateWithSchema('public model picker', modelOptionsSchema, [modelOptions]);
 
 const publicModelIds = new Set(monitorView.models.map((model) => model.id));
 const operationalModelIds = new Set(
@@ -333,6 +349,7 @@ const collections = [
   ['changelog events', changelogEvents],
   ['evidence candidates', evidenceCandidates],
   ['evidence candidate decisions', evidenceCandidateDecisions],
+  ['evidence candidate reviews', evidenceCandidateReviews],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -366,6 +383,24 @@ const evidenceById = new Map(
   evidenceFile.evidence_records.map((item) => [item.id, item]),
 );
 
+for (const vendor of modelOptions.vendors) {
+  const canonicalVendor = vendorsFile.vendors.find(
+    (item) => item.id === vendor.id,
+  );
+  if (!canonicalVendor || canonicalVendor.name !== vendor.name)
+    fail(`public model picker: unknown or renamed vendor ${vendor.id}`);
+  for (const model of vendor.models) {
+    const canonicalModel = modelsById.get(model.id);
+    if (
+      !canonicalModel ||
+      canonicalModel.vendor_id !== vendor.id ||
+      canonicalModel.name !== model.name ||
+      (canonicalModel.api_model_id ?? null) !== model.apiModelId
+    )
+      fail(`public model picker: stale or invalid model ${model.id}`);
+  }
+}
+
 for (const candidate of evidenceCandidates) {
   for (const id of candidate.vendor_ids)
     if (!vendors.has(id)) fail(`${candidate.id}: unknown vendor ${id}`);
@@ -388,6 +423,57 @@ for (const decision of evidenceCandidateDecisions) {
       `${decision.id}: expected ${decision.affected_count} candidates in batch, found ${affected.length}`,
     );
 }
+const candidateIds = ids(evidenceCandidates);
+const candidateReviewsById = new Map(
+  evidenceCandidateReviews.map((item, index) => [item.id, { item, index }]),
+);
+const retractedCandidateBatches = new Set(
+  evidenceCandidateDecisions
+    .filter((item) => item.decision === 'RETRACTED_PIPELINE_DEFECT')
+    .map((item) => item.candidate_batch_generated_at),
+);
+const supersededCandidateReviewIds = new Set();
+for (const review of evidenceCandidateReviews) {
+  const candidate = evidenceCandidates.find(
+    (item) => item.id === review.candidate_id,
+  );
+  if (!candidateIds.has(review.candidate_id))
+    fail(`${review.id}: unknown evidence candidate ${review.candidate_id}`);
+  else if (review.decided_at < candidate.discovered_at)
+    fail(`${review.id}: review predates candidate discovery`);
+  else if (retractedCandidateBatches.has(candidate.discovered_at))
+    fail(`${review.id}: candidate belongs to a retracted detector batch`);
+  if (review.supersedes_review_id) {
+    const prior = candidateReviewsById.get(review.supersedes_review_id);
+    if (!prior)
+      fail(
+        `${review.id}: unknown superseded review ${review.supersedes_review_id}`,
+      );
+    else {
+      if (prior.item.candidate_id !== review.candidate_id)
+        fail(`${review.id}: cannot supersede a review for another candidate`);
+      if (prior.index >= candidateReviewsById.get(review.id).index)
+        fail(
+          `${review.id}: superseded review must appear earlier in the ledger`,
+        );
+      if (prior.item.decided_at > review.decided_at)
+        fail(`${review.id}: superseded review is dated after its correction`);
+      if (supersededCandidateReviewIds.has(prior.item.id))
+        fail(`${review.id}: superseded review was already superseded`);
+      supersededCandidateReviewIds.add(prior.item.id);
+    }
+  }
+}
+const activeReviewCountByCandidate = new Map();
+for (const review of evidenceCandidateReviews)
+  if (!supersededCandidateReviewIds.has(review.id))
+    activeReviewCountByCandidate.set(
+      review.candidate_id,
+      (activeReviewCountByCandidate.get(review.candidate_id) ?? 0) + 1,
+    );
+for (const [candidateId, count] of activeReviewCountByCandidate)
+  if (count > 1)
+    fail(`${candidateId}: multiple active evidence-candidate reviews`);
 for (const query of evidenceDiscoveryConfig.queries)
   for (const id of query.probe_ids)
     if (!probes.has(id))
@@ -715,6 +801,11 @@ if (baseArgIndex !== -1) {
       base,
       evidenceCandidateDecisionPath,
       evidenceCandidateDecisionLedger.lines,
+    );
+    compareAppendOnlyLines(
+      base,
+      evidenceCandidateReviewPath,
+      evidenceCandidateReviewLedger.lines,
     );
     compareAppendOnlyLines(
       base,

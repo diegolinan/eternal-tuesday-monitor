@@ -27,13 +27,6 @@ if (!reportPath)
 const report = JSON.parse(
   await readFile(path.resolve(root, reportPath), 'utf8'),
 );
-const probeNames = new Map([
-  ['probe-temporal-anchor', 'TEMPORAL ANCHOR'],
-  ['probe-elapsed', 'ELAPSED'],
-  ['probe-revalidation', 'REVALIDATION'],
-  ['probe-state-reconciliation', 'STATE RECONCILIATION'],
-  ['probe-historical-validity', 'HISTORICAL VALIDITY'],
-]);
 const publicStatus = {
   schemaVersion: '1.0.0',
   generatedAt: report.generated_at,
@@ -52,15 +45,9 @@ const publicStatus = {
       (c) => c.claim_class === 'RESEARCH_RESULT',
     ).length,
   },
-  latestCandidates: report.candidates.slice(0, 8).map((candidate) => ({
-    id: candidate.id,
-    title: candidate.source_title,
-    url: candidate.source_url,
-    sourceType: candidate.source_type,
-    claimClass: candidate.claim_class,
-    probeNames: candidate.probe_ids.map((id) => probeNames.get(id) ?? id),
-    discoveredAt: candidate.discovered_at,
-  })),
+  // Unreviewed third-party titles are intentionally not republished. The
+  // public surface exposes only aggregate lead counts until human review.
+  latestCandidates: [],
 };
 await writeFile(
   path.join(root, 'public/data/evidence-watch.json'),

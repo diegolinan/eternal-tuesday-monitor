@@ -175,3 +175,27 @@ test('the public dataset compiles deterministically without rewriting results', 
     ),
   );
 });
+
+test('the public changelog follows the active release instead of announcing future observations', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'etm-changelog-'));
+  const beforePath = path.join(directory, 'before.json');
+  const afterPath = path.join(directory, 'after.json');
+  for (const [asOf, output] of [
+    ['2026-09-07', beforePath],
+    ['2026-09-08', afterPath],
+  ]) {
+    const run = spawnSync(
+      process.execPath,
+      ['scripts/compile-changelog.mjs', '--as-of', asOf, '--output', output],
+      { cwd: root, encoding: 'utf8' },
+    );
+    assert.equal(run.status, 0, run.stderr);
+  }
+  const before = JSON.parse(await readFile(beforePath, 'utf8'));
+  const after = JSON.parse(await readFile(afterPath, 'utf8'));
+  const eventId = 'change-2026-09-05-codex-luna-observation';
+  assert.equal(before.releaseId, 'release-2026-09-07');
+  assert.equal(before.events.some((event) => event.id === eventId), false);
+  assert.equal(after.releaseId, 'release-2026-09-08');
+  assert.equal(after.events.some((event) => event.id === eventId), true);
+});

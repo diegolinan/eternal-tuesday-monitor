@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: ['Discover official model changes']
-    types: [in_progress, completed]
+    types: [completed]
 
 permissions:
   actions: read
@@ -22,8 +22,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -32,7 +32,7 @@ jobs:
       - run: npm run models:catalog:sync
       - run: git diff --exit-code -- data/catalog/models.json
       - run: npm run data:compile
-      - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json
+      - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json public/data/model-options.json
       - run: npm test
       - name: Compile neutral public status
         env:
@@ -51,7 +51,7 @@ jobs:
           echo "completed_at=$completed_at" >> "$GITHUB_OUTPUT"
       - name: Read latest model-level source checks
         if: steps.latest-discovery.outputs.run_id != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: official-model-discovery-sources
           path: .latest-discovery
@@ -61,7 +61,7 @@ jobs:
         if: steps.latest-discovery.outputs.run_id != ''
         id: evidence-artifact
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: public-evidence-search
           path: .latest-evidence
@@ -79,15 +79,35 @@ jobs:
           today="$(date -u +%F)"
           as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
           npm run data:compile -- --as-of "$as_of"
+      - name: Verify public contribution configuration
+        env:
+          NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+        run: node -e "if (!process.env.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT || !process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) process.exit(1)"
       - run: npm run build:pages
         env:
           NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
           NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
       - run: npm run static:validate
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - name: Archive the Pages site
+        shell: bash
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory dist/client \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=".[^/]*" \
+            .
+      - name: Upload the Pages artifact
+        uses: actions/upload-artifact@v7
         with:
-          path: dist/client
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
     environment:
@@ -98,4 +118,4 @@ jobs:
     steps:
       - name: Deploy production
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

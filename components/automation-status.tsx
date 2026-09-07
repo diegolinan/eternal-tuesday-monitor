@@ -145,7 +145,7 @@ export function AutomationStatus() {
       <div className="automation-status-board">
         <dl className="automation-timeline">
           <div>
-            <dt>Latest source scan started</dt>
+            <dt>Latest source scan</dt>
             <dd>
               {!loaded
                 ? 'READING…'
@@ -153,30 +153,38 @@ export function AutomationStatus() {
                   ? 'NOT AVAILABLE'
                   : displayDate(status?.latestCheck?.startedAt ?? null)}
               <StatusStamp state={latestState} />
-            </dd>
-          </div>
-
-          <div>
-            <dt>Today&apos;s scheduled scan</dt>
-            <dd aria-live="polite">
-              {currentWindow ? displayDate(currentWindow) : 'CALCULATING…'}
-              <StatusStamp state={currentState} />
-              {now && currentWindow && currentState === 'on_deck' && (
-                <small>READY · WINDOW OPENS SOON</small>
-              )}
-              {now && currentWindow && currentState === 'starting_window' && (
-                <small>WINDOW OPEN · TIMING MAY VARY</small>
-              )}
-              {now && currentWindow && currentState === 'awaiting_start' && (
+              {status?.latestCheck?.completedAt && (
                 <small>
-                  WINDOW OPEN · {elapsed(currentWindow, now)} SINCE SCHEDULED
+                  COMPLETED {displayDate(status.latestCheck.completedAt)}
                 </small>
               )}
             </dd>
           </div>
 
           <div>
-            <dt>Next scheduled scan</dt>
+            <dt>Today&apos;s planned source scan</dt>
+            <dd aria-live="polite">
+              {currentWindow ? displayDate(currentWindow) : 'CALCULATING…'}
+              <StatusStamp state={currentState} />
+              {now && currentWindow && currentState === 'on_deck' && (
+                <small>WINDOW OPENS IN {remaining(currentWindow, now)}</small>
+              )}
+              {now && currentWindow && currentState === 'starting_window' && (
+                <small>START WINDOW OPEN</small>
+              )}
+              {now && currentWindow && currentState === 'awaiting_start' && (
+                <small>
+                  WINDOW OPEN · {elapsed(currentWindow, now)} SINCE PLANNED
+                </small>
+              )}
+              {now && currentWindow && currentState === 'complete' && (
+                <small>ROUTINE SCAN REPORTED FOR TODAY</small>
+              )}
+            </dd>
+          </div>
+
+          <div>
+            <dt>Next planned source scan</dt>
             <dd>
               {nextWindow ? displayDate(nextWindow) : 'CALCULATING…'}
               <StatusStamp state="on_deck" />
@@ -199,9 +207,20 @@ export function AutomationStatus() {
           </div>
         </dl>
 
+        {['in_progress', 'needs_attention'].includes(currentState) && (
+          <p
+            className={`automation-incident automation-incident--${currentState}`}
+          >
+            <StatusStamp state={currentState} />
+            {currentState === 'in_progress'
+              ? 'A source scan is currently in progress.'
+              : 'The latest routine source scan needs attention.'}
+          </p>
+        )}
+
         <p className="automation-freshness">
           {status && now
-            ? `SOURCE-SCAN STATUS UPDATED ${relativeAge(new Date(status.generatedAt), now)}`
+            ? `STATUS BOARD REFRESHED ${relativeAge(new Date(status.generatedAt), now)}`
             : loaded
               ? 'STATUS TEMPORARILY UNAVAILABLE'
               : 'READING STATUS…'}

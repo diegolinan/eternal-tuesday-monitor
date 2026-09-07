@@ -42,5 +42,7 @@ next-env.d.ts
 /.evaluation/
 /.evidence-discovery/
 /.submission-pr-body.md
+/.evidence-review-pr-body.md
+/.evidence-promotion-pr-body.md
 /.probes/
 /.probe-candidates/

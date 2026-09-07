@@ -5,8 +5,6 @@ import { evaluateObservationFreshness } from './lib/freshness.mjs';
 import { projectModels } from './discovery/project.mjs';
 import {
   loadReleases,
-  releaseDate,
-  resolveCurrentRelease,
   resolveReleaseAsOf,
 } from './lib/release-resolution.mjs';
 
@@ -55,12 +53,8 @@ const [
   readJson('data/model-evaluation/adoption.json'),
   loadReleases(root),
 ]);
-const release = (
-  asOfOption
-    ? resolveReleaseAsOf(releaseEntries, asOfOption)
-    : resolveCurrentRelease(releaseEntries)
-).release;
-const asOf = asOfOption ?? releaseDate(release);
+const asOf = asOfOption ?? new Date().toISOString().slice(0, 10);
+const release = resolveReleaseAsOf(releaseEntries, asOf).release;
 
 const parseLines = async (relativePath) =>
   (await readFile(path.join(root, relativePath), 'utf8'))
@@ -112,6 +106,19 @@ function displayDay(value) {
   return `${value.slice(8, 10)} ${monthNames[Number(value.slice(5, 7)) - 1]} ${value.slice(0, 4)}`;
 }
 
+function publicEvidenceText(value) {
+  return value
+    .replaceAll('The article found', 'The source review found')
+    .replaceAll('the article found', 'the source review found')
+    .replaceAll('At the article cutoff', 'At the evidence cutoff');
+}
+
+function publicMethodologyVersion(value) {
+  if (value === 'ARTICLE-SOURCE-1') return 'SOURCE REVIEW 1';
+  if (value === 'ARTICLE SEARCH CUTOFF') return 'EVIDENCE SEARCH CUTOFF';
+  return value;
+}
+
 const selected = new Set(release.observation_ids);
 const supersededBy = new Map(
   observations
@@ -158,9 +165,11 @@ const siteObservations = observations
       evidenceVerifiedOn: item.last_verified_on,
       sourceCheckedOn,
       sourceUrl: externalSource?.url ?? null,
-      evidenceNote: evidenceRecords
-        .flatMap((record) => [record.summary, ...record.limitations])
-        .join(' '),
+      evidenceNote: publicEvidenceText(
+        evidenceRecords
+          .flatMap((record) => [record.summary, ...record.limitations])
+          .join(' '),
+      ),
       observationQualifiers: item.record_states.filter((state) =>
         ['INCONCLUSIVE', 'UNTESTED'].includes(state),
       ),
@@ -176,8 +185,9 @@ const siteObservations = observations
         effectiveOn: event.effective_on,
         reason: event.reason,
       })),
-      methodologyVersion: methodologies.get(item.methodology_version_id)
-        .version,
+      methodologyVersion: publicMethodologyVersion(
+        methodologies.get(item.methodology_version_id).version,
+      ),
       supersedesObservationId: item.supersedes_observation_id,
       supersededByObservationId: supersededBy.get(item.id) ?? null,
     };

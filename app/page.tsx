@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ExternalLink, RotateCcw, Search, X } from 'lucide-react';
 import {
   Dialog,
@@ -18,15 +18,12 @@ import {
 } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { withBasePath } from '@/lib/site-paths';
-import {
-  ModelInventory,
-  type DiscoveredModel,
-  type ModelOperationalStatus,
-} from '@/components/model-inventory';
+import { type DiscoveredModel } from '@/components/model-inventory';
 import { AutomationStatus } from '@/components/automation-status';
 import { EvidenceWatch } from '@/components/evidence-watch';
 import { StatusEmblem } from '@/components/status-emblem';
 import { VendorMark } from '@/components/vendor-mark';
+import monitorSnapshot from '@/public/data/monitor.json';
 
 export const dynamic = 'force-static';
 
@@ -78,12 +75,6 @@ type MonitorData = {
   methodologyVersion: string;
   observations: Observation[];
   models?: DiscoveredModel[];
-};
-
-type ModelOperationsData = {
-  schemaVersion: string;
-  generatedAt: string;
-  models: ModelOperationalStatus[];
 };
 
 const probes = [
@@ -230,7 +221,11 @@ function ObservationCard({
           </dd>
         </div>
         <div className="verified">
-          <dt>Evidence accepted on</dt>
+          <dt>
+            {item.observedResult === 'NO PUBLIC EVIDENCE'
+              ? 'Evidence gap assessed through'
+              : 'Evidence accepted on'}
+          </dt>
           <dd>{labelDate(item.evidenceVerifiedOn)}</dd>
         </div>
       </dl>
@@ -326,6 +321,60 @@ function ReadingGuide() {
           </span>
         </li>
       </ol>
+    </section>
+  );
+}
+
+function ClaimLedger({
+  observations,
+  modelCount,
+  dataCutoff,
+}: {
+  observations: Observation[];
+  modelCount: number;
+  dataCutoff: string;
+}) {
+  const current = observations.filter(
+    (item) => item.applicability === 'CURRENT',
+  );
+  const gaps = current.filter(
+    (item) => item.observedResult === 'NO PUBLIC EVIDENCE',
+  );
+  const supported = current.length - gaps.length;
+  const historical = observations.length - current.length;
+  return (
+    <section className="claim-ledger" aria-labelledby="claim-ledger-title">
+      <div>
+        <p className="section-code">THE MONITOR&apos;S QUESTION · LIVE EVIDENCE</p>
+        <h2 id="claim-ledger-title">What do we know now?</h2>
+        <p>
+          The Monitor tracks a continuity problem. This ledger keeps its
+          factual claims inspectable as products change, without turning a
+          catalog listing or an unanswered question into proof.
+        </p>
+      </div>
+      <dl>
+        <div>
+          <dt>Currently applicable records</dt>
+          <dd>{current.length}</dd>
+          <small>{supported} results · {gaps.length} evidence gaps</small>
+        </div>
+        <div>
+          <dt>Historical records preserved</dt>
+          <dd>{historical}</dd>
+          <small>Past evidence remains past evidence</small>
+        </div>
+        <div>
+          <dt>Catalog identities tracked</dt>
+          <dd>{modelCount}</dd>
+          <small>Identity does not establish behavior</small>
+        </div>
+        <div>
+          <dt>Evidence included through</dt>
+          <dd className="claim-ledger-date">{labelDate(dataCutoff)}</dd>
+          <small>The public release&apos;s evidence boundary</small>
+        </div>
+      </dl>
     </section>
   );
 }
@@ -500,10 +549,7 @@ function SurfaceMap({
 }
 
 export default function Home() {
-  const [data, setData] = useState<MonitorData | null>(null);
-  const [modelOperations, setModelOperations] =
-    useState<ModelOperationsData | null>(null);
-  const [loadError, setLoadError] = useState(false);
+  const data = monitorSnapshot as MonitorData;
   const [vendor, setVendor] = useState('ALL');
   const [surface, setSurface] = useState('ALL');
   const [probe, setProbe] = useState('ALL');
@@ -512,26 +558,7 @@ export default function Home() {
   const [scope, setScope] = useState<'current' | 'historical'>('current');
   const [selected, setSelected] = useState<Observation | null>(null);
 
-  useEffect(() => {
-    fetch(withBasePath('/data/monitor.json'))
-      .then((response) => {
-        if (!response.ok) throw new Error('Observation data unavailable');
-        return response.json();
-      })
-      .then((value) => setData(value as MonitorData))
-      .catch(() => setLoadError(true));
-    fetch(`${withBasePath('/data/model-operations.json')}?t=${Date.now()}`, {
-      cache: 'no-store',
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error('Model status unavailable');
-        return response.json();
-      })
-      .then((value) => setModelOperations(value as ModelOperationsData))
-      .catch(() => setModelOperations(null));
-  }, []);
-
-  const observations = useMemo(() => data?.observations ?? [], [data]);
+  const observations = useMemo(() => data.observations, [data]);
   const vendors = useMemo(
     () => [...new Set(observations.map((item) => item.vendor))].sort(),
     [observations],
@@ -611,19 +638,16 @@ export default function Home() {
   }, [observations]);
 
   return (
-    <main>
+    <main id="main-content">
       <header className="masthead">
-        <a className="series-mark" href="#methodology">
-          Operational AI Literacy
+        <a className="series-mark" href={withBasePath('/')}>
+          The Eternal Tuesday Monitor
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#observations">Observations</a>
-          <a href="#models">Models</a>
-          <a href="#probes">Five probes</a>
-          <a href="#history">History</a>
-          <a href="#evidence">Evidence</a>
-          <a href="#methodology">Methodology</a>
-          <a href={withBasePath('/changelog/')}>Changelog</a>
+          <a href="#observations">Findings</a>
+          <a href="#probes">Method</a>
+          <a href={withBasePath('/models/')}>Models</a>
+          <a href={withBasePath('/changelog/')}>Changes</a>
           <a href={withBasePath('/contribute/')}>Contribute</a>
         </nav>
       </header>
@@ -669,15 +693,19 @@ export default function Home() {
           <img
             src={withBasePath('/assets/monitor-exhibit.png')}
             alt="A period-styled Eternal Tuesday Monitor control console with gauges and evidence labels"
+            width="1672"
+            height="941"
+            fetchPriority="high"
           />
           <figcaption>OBSERVABLE PROBES - NOT INTERNAL ARCHITECTURE</figcaption>
         </figure>
       </section>
 
-      <AutomationStatus />
-
-      <EvidenceWatch />
-
+      <ClaimLedger
+        observations={observations}
+        modelCount={data.models?.length ?? 0}
+        dataCutoff={data.dataCutoff}
+      />
       <ReadingGuide />
 
       <section
@@ -688,7 +716,7 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="section-code">STATION 01</p>
-            <h2 id="current-title">Current observations</h2>
+            <h2 id="current-title">Current evidence state</h2>
           </div>
           <p>
             CURRENT means applicable to the monitored product state at the
@@ -763,20 +791,6 @@ export default function Home() {
           <StatusEmblem compact value="RETEST REQUIRED" />
         </div>
 
-        {loadError ? (
-          <div className="empty-state">
-            <span>DATA FEED UNAVAILABLE</span>
-            <p>
-              The exhibit remains intact, but the observation file could not be
-              read.
-            </p>
-          </div>
-        ) : !data ? (
-          <output className="loading-panel">
-            <i />
-            <span>READING DATED RECORDS</span>
-          </output>
-        ) : (
           <Tabs
             value={scope}
             onValueChange={(value) =>
@@ -786,7 +800,7 @@ export default function Home() {
           >
             <TabsList variant="line" aria-label="Observation scope">
               <TabsTrigger value="current">
-                CURRENT · {current.length}
+                APPLICABLE NOW · {current.length}
               </TabsTrigger>
               <TabsTrigger value="historical">
                 HISTORICAL · {historical.length}
@@ -799,13 +813,23 @@ export default function Home() {
               <ObservationList items={historical} onOpen={setSelected} />
             </TabsContent>
           </Tabs>
-        )}
       </section>
 
-      <ModelInventory
-        models={data?.models ?? []}
-        operations={modelOperations?.models ?? []}
-      />
+      <section className="model-overview" aria-labelledby="model-overview-title">
+        <div>
+          <p className="section-code">MODEL REGISTER · SECONDARY REFERENCE</p>
+          <h2 id="model-overview-title">Catalog identity is not evidence</h2>
+          <p>
+            The full register tracks {data.models?.length ?? 0} exact identities
+            and keeps listing checks, method readiness and behavioral evidence
+            separate. It lives outside the main reading path so accepted
+            evidence remains the focus.
+          </p>
+        </div>
+        <a className="service-station-button" href={withBasePath('/models/')}>
+          Open the model register
+        </a>
+      </section>
 
       <section
         className="probe-section"
@@ -860,6 +884,10 @@ export default function Home() {
           <img
             src={withBasePath('/assets/diagnostic-panel.png')}
             alt="A mid-century service diagram showing five external diagnostic probes connected to a conversational continuity unit"
+            width="1672"
+            height="941"
+            loading="lazy"
+            decoding="async"
           />
           <figcaption>
             FIG. 7-2 · EXTERNAL DIAGNOSTIC PROBES FOR OBSERVABLE BEHAVIOR ONLY
@@ -1016,6 +1044,10 @@ export default function Home() {
           <img
             src={withBasePath('/assets/same-sequence-different-time.png')}
             alt="A split period illustration showing the same conversation after 30 seconds and after 72 hours"
+            width="1672"
+            height="941"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="method-copy">
@@ -1073,6 +1105,10 @@ export default function Home() {
         </div>
       </section>
 
+      <AutomationStatus />
+
+      <EvidenceWatch />
+
       <section className="why-section" id="why" aria-labelledby="why-title">
         <div className="why-copy">
           <p className="section-code">EDITORIAL NOTE</p>
@@ -1095,6 +1131,10 @@ export default function Home() {
           <img
             src={withBasePath('/assets/eternal-tuesday-banner.png')}
             alt="A mid-century advertisement for a continuity computer under clocks labeled Tuesday, Monday and Saturday"
+            width="1672"
+            height="941"
+            loading="lazy"
+            decoding="async"
           />
           <figcaption>PUBLIC CONTINUITY EXHIBIT · MODEL CCU-58</figcaption>
         </figure>
@@ -1169,7 +1209,11 @@ export default function Home() {
                   <dd>{selected.observedOn.label}</dd>
                 </div>
                 <div className="dialog-verified">
-                  <dt>Evidence accepted on</dt>
+                  <dt>
+                    {selected.observedResult === 'NO PUBLIC EVIDENCE'
+                      ? 'Evidence gap assessed through'
+                      : 'Evidence accepted on'}
+                  </dt>
                   <dd>{labelDate(selected.evidenceVerifiedOn)}</dd>
                 </div>
                 <div>

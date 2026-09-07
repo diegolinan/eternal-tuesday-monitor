@@ -23,6 +23,8 @@
     "models:relevance:sync": "node scripts/sync-model-relevance.mjs",
     "evidence:discover": "node scripts/evidence-discovery/run.mjs",
     "evidence:stage": "node scripts/evidence-discovery/stage.mjs",
+    "evidence:review": "node scripts/evidence-discovery/review-candidate.mjs",
+    "evidence:promote-source": "node scripts/evidence-discovery/promote-supporting-source.mjs",
     "evidence:status": "node scripts/evidence-discovery/compile-status.mjs",
     "intake:dev": "wrangler dev --config wrangler.intake.jsonc",
     "intake:types": "wrangler types worker-configuration.d.ts --config wrangler.intake.jsonc",

@@ -31,6 +31,10 @@ await Promise.all([
   requireFile('changelog/index.txt'),
   requireFile('contribute/index.html'),
   requireFile('contribute/index.txt'),
+  requireFile('models/index.html'),
+  requireFile('models/index.txt'),
+  requireFile('robots.txt'),
+  requireFile('sitemap.xml'),
   requireFile('_next/static'),
   requireFile('.nojekyll'),
   requireFile('data/monitor.json'),
@@ -38,6 +42,7 @@ await Promise.all([
   requireFile('data/system-status.json'),
   requireFile('data/model-operations.json'),
   requireFile('data/evidence-watch.json'),
+  requireFile('data/model-options.json'),
   requireFile('favicon.svg'),
   requireFile('favicon-32.png'),
   requireFile('assets/eternal-tuesday-banner.png'),
@@ -45,6 +50,29 @@ await Promise.all([
   requireFile('assets/monitor-exhibit.png'),
   requireFile('assets/same-sequence-different-time.png'),
 ]);
+
+try {
+  const [modelOptions, modelOptionsSchema] = await Promise.all([
+    read('data/model-options.json').then(JSON.parse),
+    readFile(path.join(root, 'schemas/model-options.schema.json'), 'utf8').then(
+      JSON.parse,
+    ),
+  ]);
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  addFormats(ajv);
+  const validate = ajv.compile(modelOptionsSchema);
+  if (!validate(modelOptions))
+    fail(
+      `public model picker does not match its schema: ${ajv.errorsText(validate.errors)}`,
+    );
+  const optionCount = modelOptions.vendors.reduce(
+    (sum, vendor) => sum + vendor.models.length,
+    0,
+  );
+  if (optionCount < 1) fail('public model picker contains no model choices');
+} catch (error) {
+  fail(`unable to validate public model picker: ${error.message}`);
+}
 
 try {
   const [systemStatus, systemStatusSchema] = await Promise.all([
@@ -151,21 +179,28 @@ try {
   fail(`unable to inspect public client chunks: ${error.message}`);
 }
 
-for (const relativePath of [
-  'index.html',
-  'changelog/index.html',
-  'contribute/index.html',
+for (const [relativePath, canonicalPath] of [
+  ['index.html', ''],
+  ['changelog/index.html', 'changelog/'],
+  ['contribute/index.html', 'contribute/'],
+  ['models/index.html', 'models/'],
 ]) {
   try {
     const html = await read(relativePath);
     if (!html.includes(`${basePath}/_next/`))
       fail(`${relativePath}: framework assets are not base-path prefixed`);
-    if (!html.includes(`rel="canonical" href="${canonicalUrl}`))
+    if (
+      !html.includes(
+        `rel="canonical" href="${canonicalUrl}${canonicalPath}`,
+      )
+    )
       fail(`${relativePath}: canonical metadata does not use GitHub Pages`);
     if (relativePath === 'index.html' && !html.includes(`${basePath}/favicon`))
       fail('index.html: favicon is not repository-prefix aware');
     if (html.includes(openAIPrototypeHost))
       fail(`${relativePath}: contains the historical OpenAI prototype host`);
+    if (/href=["'][^"']*\/article\//.test(html))
+      fail(`${relativePath}: contains the retired public article route`);
     if (
       html.includes('Inspect discovery runs') ||
       html.includes('Run five probes manually')
@@ -212,6 +247,10 @@ try {
     fail('compiled changelog contains no domain events');
   if (/pull_request_url|github\.com/i.test(JSON.stringify(publicChanges)))
     fail('compiled changelog exposes internal review mechanics');
+  if (publicChanges.releaseId !== monitorData?.releaseId)
+    fail('changelog and Monitor dataset resolve different active releases');
+  if (publicChanges.asOf !== monitorData?.freshnessEvaluatedOn)
+    fail('changelog and Monitor dataset use different publication dates');
 } catch (error) {
   fail(`unable to validate rendered changelog: ${error.message}`);
 }
@@ -225,5 +264,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Validated GitHub Pages export: ${monitorData.observations.length} observations matching canonical data, public domain changelog, four figures, and repository-prefixed internal assets.`,
+  `Validated GitHub Pages export: ${monitorData.observations.length} observations matching canonical data, release-aware changelog, four figures, responsive routes, and repository-prefixed internal assets.`,
 );

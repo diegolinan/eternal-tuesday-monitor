@@ -1,0 +1,626 @@
+{
+  "schemaVersion": "1.0.0",
+  "catalogSchemaVersion": "2.0.0",
+  "catalogCheckedThrough": "2026-09-05",
+  "vendors": [
+    {
+      "id": "vendor-anthropic",
+      "name": "Anthropic",
+      "models": [
+        {
+          "id": "model-discovered-58ae42fa2da27922842c",
+          "name": "Claude Haiku 4.5",
+          "apiModelId": "claude-haiku-4-5-20251001"
+        },
+        {
+          "id": "model-claude-opus-5",
+          "name": "Claude Opus 5",
+          "apiModelId": "claude-opus-5"
+        },
+        {
+          "id": "model-discovered-473d2baac36d5968b9d0",
+          "name": "Claude Sonnet 5",
+          "apiModelId": "claude-sonnet-5"
+        },
+        {
+          "id": "model-fable-5",
+          "name": "Fable 5",
+          "apiModelId": null
+        },
+        {
+          "id": "model-fable-5-1",
+          "name": "Fable 5.1",
+          "apiModelId": "claude-fable-5-1"
+        }
+      ]
+    },
+    {
+      "id": "vendor-cursor",
+      "name": "Cursor",
+      "models": []
+    },
+    {
+      "id": "vendor-google",
+      "name": "Google",
+      "models": [
+        {
+          "id": "model-discovered-176fb23288af2af4493e",
+          "name": "Computer Use",
+          "apiModelId": "gemini-2.5-computer-use-preview-10-2025"
+        },
+        {
+          "id": "model-discovered-29705db1c67f0fadf65e",
+          "name": "Gemini 2.0 Flash",
+          "apiModelId": "gemini-2.0-flash"
+        },
+        {
+          "id": "model-discovered-15b029fc02435f4e7373",
+          "name": "Gemini 2.0 Flash-Lite",
+          "apiModelId": "gemini-2.0-flash-lite"
+        },
+        {
+          "id": "model-discovered-bd4c8bf27af648d3330a",
+          "name": "Gemini 2.5 Flash",
+          "apiModelId": "gemini-2.5-flash"
+        },
+        {
+          "id": "model-discovered-4f4b5da7ada2d9de5083",
+          "name": "Gemini 2.5 Flash Live",
+          "apiModelId": "gemini-2.5-flash-native-audio-preview-12-2025"
+        },
+        {
+          "id": "model-discovered-2157bb2b07e6a87cc2a8",
+          "name": "Gemini 2.5 Flash TTS",
+          "apiModelId": "gemini-2.5-flash-preview-tts"
+        },
+        {
+          "id": "model-discovered-8117798ae58404fd4297",
+          "name": "Gemini 2.5 Flash-Lite",
+          "apiModelId": "gemini-2.5-flash-lite"
+        },
+        {
+          "id": "model-discovered-b41c55e3ff71ff33d32b",
+          "name": "Gemini 2.5 Pro",
+          "apiModelId": "gemini-2.5-pro"
+        },
+        {
+          "id": "model-discovered-f76d13c3ede266d7e1e4",
+          "name": "Gemini 2.5 Pro TTS",
+          "apiModelId": "gemini-2.5-pro-preview-tts"
+        },
+        {
+          "id": "model-discovered-fc973b7c5cd91319493b",
+          "name": "Gemini 3 Flash",
+          "apiModelId": "gemini-3-flash-preview"
+        },
+        {
+          "id": "model-discovered-bba8e7fdaaa5feb26728",
+          "name": "Gemini 3 Pro Preview",
+          "apiModelId": "gemini-3-pro-preview"
+        },
+        {
+          "id": "model-discovered-cb00673f4eb5f1b0f47c",
+          "name": "Gemini 3.1 Flash Live",
+          "apiModelId": "gemini-3.1-flash-live-preview"
+        },
+        {
+          "id": "model-discovered-e286634f954d5e40b670",
+          "name": "Gemini 3.1 Flash TTS",
+          "apiModelId": "gemini-3.1-flash-tts-preview"
+        },
+        {
+          "id": "model-discovered-8ab5c52cb1cd5cf88e26",
+          "name": "Gemini 3.1 Flash-Lite",
+          "apiModelId": "gemini-3.1-flash-lite"
+        },
+        {
+          "id": "model-discovered-4882e78c90fbf11b8297",
+          "name": "Gemini 3.1 Flash-Lite Preview",
+          "apiModelId": "gemini-3.1-flash-lite-preview"
+        },
+        {
+          "id": "model-discovered-fd0c815a6942fe9646f0",
+          "name": "Gemini 3.1 Pro",
+          "apiModelId": "gemini-3.1-pro-preview"
+        },
+        {
+          "id": "model-discovered-f29bc63c04163f5b021c",
+          "name": "Gemini 3.5 Flash",
+          "apiModelId": "gemini-3.5-flash"
+        },
+        {
+          "id": "model-discovered-8cd3db89db51e350e528",
+          "name": "Gemini 3.5 Flash-Lite",
+          "apiModelId": "gemini-3.5-flash-lite"
+        },
+        {
+          "id": "model-discovered-4c46e3ea2ea387fc6782",
+          "name": "Gemini 3.5 Live Translate",
+          "apiModelId": "gemini-3.5-live-translate-preview"
+        },
+        {
+          "id": "model-discovered-85d1ba853a1ef46be5bd",
+          "name": "Gemini 3.6 Flash",
+          "apiModelId": "gemini-3.6-flash"
+        },
+        {
+          "id": "model-discovered-f3ee403332f490da7638",
+          "name": "Gemini 3.7 Flash",
+          "apiModelId": "gemini-3.7-flash"
+        },
+        {
+          "id": "model-gemini-3-8-flash",
+          "name": "Gemini 3.8 Flash",
+          "apiModelId": "gemini-3.8-flash"
+        },
+        {
+          "id": "model-discovered-e4cad8ba5d5bc779408a",
+          "name": "Gemini Embedding",
+          "apiModelId": "gemini-embedding-001"
+        },
+        {
+          "id": "model-discovered-7bdbf966c27ba583d26a",
+          "name": "Gemini Embedding 2",
+          "apiModelId": "gemini-embedding-2-preview"
+        },
+        {
+          "id": "model-discovered-ac152d2e8d24eb4c3232",
+          "name": "Gemini Omni Flash",
+          "apiModelId": "gemini-omni-1.1-flash"
+        },
+        {
+          "id": "model-discovered-3c31be2eeda4bcd851d7",
+          "name": "Gemini Robotics ER 1.6",
+          "apiModelId": "gemini-robotics-er-1.6-preview"
+        },
+        {
+          "id": "model-discovered-468b94523288b17c49bd",
+          "name": "Gemini Robotics ER 2",
+          "apiModelId": "gemini-robotics-er-2-preview"
+        },
+        {
+          "id": "model-discovered-6a9ccf4ad79b1e8dd304",
+          "name": "Nano Banana",
+          "apiModelId": "gemini-2.5-flash-image"
+        },
+        {
+          "id": "model-discovered-59f0f72683377111d7bc",
+          "name": "Nano Banana 2",
+          "apiModelId": "gemini-3.1-flash-image"
+        },
+        {
+          "id": "model-discovered-ee0a631bc7a1c2147ca6",
+          "name": "Nano Banana 2 Lite",
+          "apiModelId": "gemini-3.1-flash-lite-image"
+        },
+        {
+          "id": "model-discovered-5f80092f5e85cef40c36",
+          "name": "Nano Banana Pro",
+          "apiModelId": "gemini-3-pro-image"
+        }
+      ]
+    },
+    {
+      "id": "vendor-independent-research",
+      "name": "Independent research",
+      "models": []
+    },
+    {
+      "id": "vendor-openai",
+      "name": "OpenAI",
+      "models": [
+        {
+          "id": "model-discovered-1b05544a1e38815ba050",
+          "name": "chatgpt-image-latest",
+          "apiModelId": "chatgpt-image-latest"
+        },
+        {
+          "id": "model-discovered-43e4ff83a595f03273e8",
+          "name": "codex-mini-latest",
+          "apiModelId": "codex-mini-latest"
+        },
+        {
+          "id": "model-discovered-6a30c69a24a2ba7616e7",
+          "name": "Daybreak Blue",
+          "apiModelId": "gpt-daybreak-blue-latest"
+        },
+        {
+          "id": "model-discovered-01433a49c5cc60e7428c",
+          "name": "Daybreak Red",
+          "apiModelId": "gpt-daybreak-red-latest"
+        },
+        {
+          "id": "model-discovered-c221dc89c0adc7bf58c9",
+          "name": "GPT-3.5 Turbo",
+          "apiModelId": "gpt-3.5-turbo"
+        },
+        {
+          "id": "model-discovered-731392d07973ec4dd374",
+          "name": "GPT-4",
+          "apiModelId": "gpt-4"
+        },
+        {
+          "id": "model-discovered-d59d6ddd57ee9a1e8d3f",
+          "name": "GPT-4 Turbo",
+          "apiModelId": "gpt-4-turbo"
+        },
+        {
+          "id": "model-discovered-ee7fbd4ea5b036d8c4d8",
+          "name": "GPT-4 Turbo Preview",
+          "apiModelId": "gpt-4-turbo-preview"
+        },
+        {
+          "id": "model-discovered-e7ad5bd7e714b6fbe0c3",
+          "name": "GPT-4.1",
+          "apiModelId": "gpt-4.1"
+        },
+        {
+          "id": "model-discovered-b9257ac7a2c8eaca2b5a",
+          "name": "GPT-4.1 Mini",
+          "apiModelId": "gpt-4.1-mini"
+        },
+        {
+          "id": "model-discovered-b422818c6300cfc29362",
+          "name": "GPT-4.1 nano",
+          "apiModelId": "gpt-4.1-nano"
+        },
+        {
+          "id": "model-discovered-b9917ad913a137839464",
+          "name": "GPT-4.5 Preview",
+          "apiModelId": "gpt-4.5-preview"
+        },
+        {
+          "id": "model-discovered-dcc1382081671253d9b5",
+          "name": "GPT-4o",
+          "apiModelId": "gpt-4o"
+        },
+        {
+          "id": "model-discovered-29fbee76cd37a78d0990",
+          "name": "GPT-4o Audio",
+          "apiModelId": "gpt-4o-audio-preview"
+        },
+        {
+          "id": "model-discovered-8d6b0f1b6faadb07b615",
+          "name": "GPT-4o Mini",
+          "apiModelId": "gpt-4o-mini"
+        },
+        {
+          "id": "model-discovered-436161bb8ac5f5490821",
+          "name": "GPT-4o Mini Audio",
+          "apiModelId": "gpt-4o-mini-audio-preview"
+        },
+        {
+          "id": "model-discovered-8e9c857a7ff8235ea836",
+          "name": "GPT-4o Mini Realtime",
+          "apiModelId": "gpt-4o-mini-realtime-preview"
+        },
+        {
+          "id": "model-discovered-da4390555129f7b96ace",
+          "name": "GPT-4o Mini Search Preview",
+          "apiModelId": "gpt-4o-mini-search-preview"
+        },
+        {
+          "id": "model-discovered-4b8ecb4f05c5a4a79952",
+          "name": "GPT-4o Mini Transcribe",
+          "apiModelId": "gpt-4o-mini-transcribe"
+        },
+        {
+          "id": "model-discovered-d6570eab7b1ee4f3f30b",
+          "name": "GPT-4o Mini TTS",
+          "apiModelId": "gpt-4o-mini-tts"
+        },
+        {
+          "id": "model-discovered-fa3ab9de6f363cec61d6",
+          "name": "GPT-4o Realtime",
+          "apiModelId": "gpt-4o-realtime-preview"
+        },
+        {
+          "id": "model-discovered-c1f11abb445a94e20a49",
+          "name": "GPT-4o Search Preview",
+          "apiModelId": "gpt-4o-search-preview"
+        },
+        {
+          "id": "model-discovered-de551bae2539edcc71a7",
+          "name": "GPT-4o Transcribe",
+          "apiModelId": "gpt-4o-transcribe"
+        },
+        {
+          "id": "model-discovered-12c98d85d99fbc80d244",
+          "name": "GPT-4o Transcribe Diarize",
+          "apiModelId": "gpt-4o-transcribe-diarize"
+        },
+        {
+          "id": "model-discovered-a631362df6539c375a1f",
+          "name": "GPT-5",
+          "apiModelId": "gpt-5"
+        },
+        {
+          "id": "model-discovered-76ac3061d43cbea99683",
+          "name": "GPT-5 Chat",
+          "apiModelId": "gpt-5-chat-latest"
+        },
+        {
+          "id": "model-discovered-454d972053e3035f992c",
+          "name": "GPT-5 Mini",
+          "apiModelId": "gpt-5-mini"
+        },
+        {
+          "id": "model-discovered-1e9a4f1a438a4bfd5fd7",
+          "name": "GPT-5 nano",
+          "apiModelId": "gpt-5-nano"
+        },
+        {
+          "id": "model-discovered-3e9e5798a0fcafec17d8",
+          "name": "GPT-5 Pro",
+          "apiModelId": "gpt-5-pro"
+        },
+        {
+          "id": "model-discovered-023f4743226707f70c92",
+          "name": "GPT-5-Codex",
+          "apiModelId": "gpt-5-codex"
+        },
+        {
+          "id": "model-discovered-e19c519e25aaefa93b0f",
+          "name": "GPT-5.1",
+          "apiModelId": "gpt-5.1"
+        },
+        {
+          "id": "model-discovered-53da97192b53c9fb9cd4",
+          "name": "GPT-5.1 Chat",
+          "apiModelId": "gpt-5.1-chat-latest"
+        },
+        {
+          "id": "model-discovered-96b3d6a8812d1bff8280",
+          "name": "GPT-5.1-Codex",
+          "apiModelId": "gpt-5.1-codex"
+        },
+        {
+          "id": "model-discovered-ac268b9c9424fa0d96c6",
+          "name": "GPT-5.1-Codex Mini",
+          "apiModelId": "gpt-5.1-codex-mini"
+        },
+        {
+          "id": "model-discovered-698a39834857c5ed27bb",
+          "name": "GPT-5.1-Codex-Max",
+          "apiModelId": "gpt-5.1-codex-max"
+        },
+        {
+          "id": "model-discovered-a4d62a7cf5e798457d76",
+          "name": "GPT-5.2",
+          "apiModelId": "gpt-5.2"
+        },
+        {
+          "id": "model-discovered-3e5d717e80573cf8d2f6",
+          "name": "GPT-5.2 Chat",
+          "apiModelId": "gpt-5.2-chat-latest"
+        },
+        {
+          "id": "model-discovered-71a2a8fdc338e5099bd5",
+          "name": "GPT-5.2 Pro",
+          "apiModelId": "gpt-5.2-pro"
+        },
+        {
+          "id": "model-discovered-2a1c4b7a96497390d63a",
+          "name": "GPT-5.2-Codex",
+          "apiModelId": "gpt-5.2-codex"
+        },
+        {
+          "id": "model-discovered-7c76ed0b3a985bb4f0ae",
+          "name": "GPT-5.3 Chat",
+          "apiModelId": "gpt-5.3-chat-latest"
+        },
+        {
+          "id": "model-discovered-a74c2e9d0a00080b78c4",
+          "name": "GPT-5.3-Codex",
+          "apiModelId": "gpt-5.3-codex"
+        },
+        {
+          "id": "model-discovered-0ec90986ddf2d16fa90e",
+          "name": "GPT-5.4",
+          "apiModelId": "gpt-5.4"
+        },
+        {
+          "id": "model-discovered-70c3ac4805a382e7499d",
+          "name": "GPT-5.4 Mini",
+          "apiModelId": "gpt-5.4-mini"
+        },
+        {
+          "id": "model-discovered-5129934552dd2286e897",
+          "name": "GPT-5.4 nano",
+          "apiModelId": "gpt-5.4-nano"
+        },
+        {
+          "id": "model-discovered-1fb968dfc97a50a275ea",
+          "name": "GPT-5.4 Pro",
+          "apiModelId": "gpt-5.4-pro"
+        },
+        {
+          "id": "model-discovered-7ae0b7ff37a648b21f2e",
+          "name": "GPT-5.5",
+          "apiModelId": "gpt-5.5"
+        },
+        {
+          "id": "model-discovered-5813b29ae4f9cdf7224a",
+          "name": "GPT-5.5 Pro",
+          "apiModelId": "gpt-5.5-pro"
+        },
+        {
+          "id": "model-discovered-aa82e1844a4aa3932879",
+          "name": "GPT-5.6 Cyber",
+          "apiModelId": "gpt-5.6-cyber"
+        },
+        {
+          "id": "model-discovered-e65fdbebbfed99349ec2",
+          "name": "GPT-5.6 Luna",
+          "apiModelId": "gpt-5.6-luna"
+        },
+        {
+          "id": "model-gpt-5-6-sol",
+          "name": "GPT-5.6 Sol",
+          "apiModelId": "gpt-5.6-sol"
+        },
+        {
+          "id": "model-discovered-88b38a0be53dd343689c",
+          "name": "GPT-5.6 Terra",
+          "apiModelId": "gpt-5.6-terra"
+        },
+        {
+          "id": "model-discovered-e8ec7ed4b30b4efbaf48",
+          "name": "GPT-6 Astra",
+          "apiModelId": "gpt-6-astra"
+        },
+        {
+          "id": "model-discovered-a7b8efc666342264a603",
+          "name": "GPT-Audio",
+          "apiModelId": "gpt-audio"
+        },
+        {
+          "id": "model-discovered-81592b8b318be516dac4",
+          "name": "GPT-Audio Mini",
+          "apiModelId": "gpt-audio-mini"
+        },
+        {
+          "id": "model-discovered-295b656c3e83b017a71f",
+          "name": "GPT-Audio-1.5",
+          "apiModelId": "gpt-audio-1.5"
+        },
+        {
+          "id": "model-discovered-2cac746ef1a55cb5ac89",
+          "name": "GPT-Image-1",
+          "apiModelId": "gpt-image-1"
+        },
+        {
+          "id": "model-discovered-d86884237412b2ed62cc",
+          "name": "GPT-Image-1 Mini",
+          "apiModelId": "gpt-image-1-mini"
+        },
+        {
+          "id": "model-discovered-4c927f8246106837b3d7",
+          "name": "GPT-Image-1.5",
+          "apiModelId": "gpt-image-1.5"
+        },
+        {
+          "id": "model-discovered-bd0e51b349b405705836",
+          "name": "GPT-Image-2",
+          "apiModelId": "gpt-image-2"
+        },
+        {
+          "id": "model-discovered-ecfe55f8a422ccdff7ed",
+          "name": "GPT-Live-Transcribe",
+          "apiModelId": "gpt-live-transcribe"
+        },
+        {
+          "id": "model-discovered-6c8c926518e94df93aed",
+          "name": "gpt-oss-120b",
+          "apiModelId": "gpt-oss-120b"
+        },
+        {
+          "id": "model-discovered-b57640270d77a39ad172",
+          "name": "gpt-oss-20b",
+          "apiModelId": "gpt-oss-20b"
+        },
+        {
+          "id": "model-discovered-54b047be8ad11af0a08a",
+          "name": "GPT-Realtime",
+          "apiModelId": "gpt-realtime"
+        },
+        {
+          "id": "model-discovered-7c9ed0fdee8d576ec2c8",
+          "name": "GPT-Realtime Mini",
+          "apiModelId": "gpt-realtime-mini"
+        },
+        {
+          "id": "model-discovered-0e29cdb1a9068369cdfd",
+          "name": "GPT-Realtime-1.5",
+          "apiModelId": "gpt-realtime-1.5"
+        },
+        {
+          "id": "model-discovered-e76102c0aeab37be7be8",
+          "name": "GPT-Realtime-2",
+          "apiModelId": "gpt-realtime-2"
+        },
+        {
+          "id": "model-discovered-7633f7280401e4fe7015",
+          "name": "GPT-Realtime-2.1",
+          "apiModelId": "gpt-realtime-2.1"
+        },
+        {
+          "id": "model-discovered-5308f96edde33db43d93",
+          "name": "GPT-Realtime-2.1 Mini",
+          "apiModelId": "gpt-realtime-2.1-mini"
+        },
+        {
+          "id": "model-discovered-f0e3cd07004a27ba5e00",
+          "name": "GPT-Realtime-Translate",
+          "apiModelId": "gpt-realtime-translate"
+        },
+        {
+          "id": "model-discovered-f463fdf1af5e8e009dcc",
+          "name": "GPT-Realtime-Whisper",
+          "apiModelId": "gpt-realtime-whisper"
+        },
+        {
+          "id": "model-discovered-21e9947fc3d539478a0d",
+          "name": "GPT-Transcribe",
+          "apiModelId": "gpt-transcribe"
+        },
+        {
+          "id": "model-discovered-726dd1e6cbcf8f3e2436",
+          "name": "o1 Preview",
+          "apiModelId": "o1-preview"
+        },
+        {
+          "id": "model-discovered-3d24101d58fa0b07db6b",
+          "name": "o1-mini",
+          "apiModelId": "o1-mini"
+        },
+        {
+          "id": "model-discovered-c0466cbac6d887384649",
+          "name": "o1-pro",
+          "apiModelId": "o1-pro"
+        },
+        {
+          "id": "model-discovered-ea3b61e7225f020a5b7e",
+          "name": "o3-deep-research",
+          "apiModelId": "o3-deep-research"
+        },
+        {
+          "id": "model-discovered-368039b89b2d9e7f3dad",
+          "name": "o3-mini",
+          "apiModelId": "o3-mini"
+        },
+        {
+          "id": "model-discovered-1fd19c9c66c35da1b8ec",
+          "name": "o3-pro",
+          "apiModelId": "o3-pro"
+        },
+        {
+          "id": "model-discovered-738b169f6dadce123772",
+          "name": "o4-mini",
+          "apiModelId": "o4-mini"
+        },
+        {
+          "id": "model-discovered-51d7e9ccbf0079432f1b",
+          "name": "o4-mini-deep-research",
+          "apiModelId": "o4-mini-deep-research"
+        }
+      ]
+    },
+    {
+      "id": "vendor-perplexity",
+      "name": "Perplexity",
+      "models": []
+    },
+    {
+      "id": "vendor-xai",
+      "name": "xAI",
+      "models": [
+        {
+          "id": "model-grok-4-6",
+          "name": "Grok 4.6",
+          "apiModelId": "grok-4.6"
+        }
+      ]
+    }
+  ]
+}
