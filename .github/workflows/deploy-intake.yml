@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - .github/workflows/deploy-intake.yml
       - worker/intake.mjs
       - wrangler.intake.jsonc
 
@@ -28,8 +29,27 @@ jobs:
         run: |
           npm run intake:types
           npx tsc --noEmit
+      - name: Prepare encrypted Worker secrets for first deployment
+        shell: bash
+        env:
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
+          GITHUB_REPOSITORY_TOKEN: ${{ secrets.GITHUB_REPOSITORY_TOKEN }}
+        run: |
+          if [[ -z "$TURNSTILE_SECRET_KEY" || -z "$GITHUB_REPOSITORY_TOKEN" ]]; then
+            echo "Required Worker deployment secrets are not configured." >&2
+            exit 1
+          fi
+          umask 077
+          printf 'TURNSTILE_SECRET_KEY=%s\nGITHUB_REPOSITORY_TOKEN=%s\n' \
+            "$TURNSTILE_SECRET_KEY" \
+            "$GITHUB_REPOSITORY_TOKEN" \
+            > "$RUNNER_TEMP/intake.secrets"
       - name: Deploy the validated intake Worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npm run intake:deploy
+        run: npx wrangler deploy --config wrangler.intake.jsonc --secrets-file "$RUNNER_TEMP/intake.secrets"
+      - name: Remove temporary Worker secrets file
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/intake.secrets"
