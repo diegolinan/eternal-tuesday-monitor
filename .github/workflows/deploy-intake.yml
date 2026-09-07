@@ -29,11 +29,11 @@ jobs:
         run: |
           npm run intake:types
           npx tsc --noEmit
-      - name: Prepare encrypted Worker secrets for first deployment
+      - name: Prepare Worker secrets for deployment
         shell: bash
         env:
           TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
-          GITHUB_REPOSITORY_TOKEN: ${{ secrets.GITHUB_REPOSITORY_TOKEN }}
+          GITHUB_REPOSITORY_TOKEN: ${{ secrets.REPOSITORY_DISPATCH_TOKEN }}
         run: |
           if [[ -z "$TURNSTILE_SECRET_KEY" || -z "$GITHUB_REPOSITORY_TOKEN" ]]; then
             echo "Required Worker deployment secrets are not configured." >&2
