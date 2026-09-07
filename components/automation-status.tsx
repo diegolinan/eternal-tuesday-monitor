@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   currentWindowState,
+  elapsed,
   localTimeZone,
   nextScheduledWindow,
   relativeAge,
@@ -117,10 +118,6 @@ export function AutomationStatus() {
             now,
             lastRoutineCheck: status?.lastRoutineCheck ?? null,
           });
-  const todayWindowIsOpen = ['starting_window', 'awaiting_start'].includes(
-    currentState,
-  );
-  const nextPlannedWindow = todayWindowIsOpen ? currentWindow : nextWindow;
   const latestState: WindowState = !loaded
     ? 'reading'
     : (status?.latestCheck?.state ?? 'status_unavailable');
@@ -146,9 +143,9 @@ export function AutomationStatus() {
       </div>
 
       <div className="automation-status-board">
-        <dl className="automation-timeline automation-timeline--compact">
+        <dl className="automation-timeline">
           <div>
-            <dt>Latest reported source scan</dt>
+            <dt>Latest source scan</dt>
             <dd>
               {!loaded
                 ? 'READING…'
@@ -165,34 +162,43 @@ export function AutomationStatus() {
           </div>
 
           <div>
-            <dt>
-              {todayWindowIsOpen
-                ? "Today's planned source scan"
-                : 'Next planned source scan'}
-            </dt>
-            <dd>
-              {nextPlannedWindow
-                ? displayDate(nextPlannedWindow)
-                : 'CALCULATING…'}
-              <StatusStamp
-                state={todayWindowIsOpen ? currentState : 'on_deck'}
-              />
-              {nextPlannedWindow && now && nextPlannedWindow > now && (
-                <small className="automation-countdown" aria-hidden="true">
-                  IN {remaining(nextPlannedWindow, now)}
+            <dt>Today&apos;s planned source scan</dt>
+            <dd aria-live="polite">
+              {currentWindow ? displayDate(currentWindow) : 'CALCULATING…'}
+              <StatusStamp state={currentState} />
+              {now && currentWindow && currentState === 'on_deck' && (
+                <small>WINDOW OPENS IN {remaining(currentWindow, now)}</small>
+              )}
+              {now && currentWindow && currentState === 'starting_window' && (
+                <small>START WINDOW OPEN</small>
+              )}
+              {now && currentWindow && currentState === 'awaiting_start' && (
+                <small>
+                  WINDOW OPEN · {elapsed(currentWindow, now)} SINCE PLANNED
                 </small>
               )}
-              {nextPlannedWindow && now && nextPlannedWindow <= now && (
-                <small className="automation-countdown">START WINDOW OPEN</small>
+              {now && currentWindow && currentState === 'complete' && (
+                <small>ROUTINE SCAN REPORTED FOR TODAY</small>
               )}
-              {nextPlannedWindow && now && nextPlannedWindow > now && (
+            </dd>
+          </div>
+
+          <div>
+            <dt>Next planned source scan</dt>
+            <dd>
+              {nextWindow ? displayDate(nextWindow) : 'CALCULATING…'}
+              <StatusStamp state="on_deck" />
+              {nextWindow && now && (
+                <small className="automation-countdown" aria-hidden="true">
+                  IN {remaining(nextWindow, now)}
+                </small>
+              )}
+              {nextWindow && now && (
                 <span className="sr-only">
                   Next source scan in approximately{' '}
                   {Math.max(
                     1,
-                    Math.ceil(
-                      (nextPlannedWindow.valueOf() - now.valueOf()) / 60_000,
-                    ),
+                    Math.ceil((nextWindow.valueOf() - now.valueOf()) / 60_000),
                   )}{' '}
                   minutes.
                 </span>
@@ -202,7 +208,9 @@ export function AutomationStatus() {
         </dl>
 
         {['in_progress', 'needs_attention'].includes(currentState) && (
-          <p className={`automation-incident automation-incident--${currentState}`}>
+          <p
+            className={`automation-incident automation-incident--${currentState}`}
+          >
             <StatusStamp state={currentState} />
             {currentState === 'in_progress'
               ? 'A source scan is currently in progress.'

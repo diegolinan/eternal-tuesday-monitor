@@ -16,12 +16,13 @@ test('the public status panel exposes status but no administrative actions', asy
   assert.doesNotMatch(source, /api\.github\.com/i);
   assert.doesNotMatch(source, /github/i);
   assert.doesNotMatch(compiledStatus, /workflow|repository|html_url|run_id/i);
-  assert.match(source, /Latest reported source scan/);
+  assert.match(source, /Latest source scan/);
+  assert.match(source, /Today&apos;s planned source scan/);
   assert.match(source, /Next planned source scan/);
-  assert.doesNotMatch(source, /Today&apos;s scheduled scan/);
   assert.match(source, /does not contact a model/);
   assert.match(source, /ALL TIMES SHOWN IN YOUR LOCAL TIME/);
-  assert.match(source, /IN \{remaining\(nextPlannedWindow, now\)\}/);
+  assert.match(source, /IN \{remaining\(nextWindow, now\)\}/);
+  assert.match(source, /SINCE PLANNED/);
   assert.match(source, /STARTING WINDOW/);
   assert.match(source, /AWAITING START/);
   assert.match(source, /withBasePath\('\/data\/system-status\.json'\)/);
