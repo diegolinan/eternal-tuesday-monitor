@@ -54,6 +54,7 @@ const probeLexicon = {
     'stale context',
     'stale memory',
     'prior state',
+    'treated answered',
   ],
   'probe-historical-validity': [
     'historical validity',
@@ -205,6 +206,30 @@ const clean = (value, max = 480) =>
     .trim()
     .slice(0, max);
 
+const normalizeIdentityText = (value) =>
+  String(value ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+export function inferIdentityIds(value, terms, excludedTerms = new Set()) {
+  const normalizedValue = ` ${normalizeIdentityText(value)} `;
+  return [
+    ...new Set(
+      terms
+        .filter(([, term]) => {
+          const normalizedTerm = normalizeIdentityText(term);
+          return (
+            normalizedTerm.length >= 4 &&
+            !excludedTerms.has(normalizedTerm) &&
+            normalizedValue.includes(` ${normalizedTerm} `)
+          );
+        })
+        .map(([id]) => id),
+    ),
+  ];
+}
+
 export function classifyText(value, hintedProbeIds = []) {
   const text = clean(value, 20000).toLowerCase();
   const matches = [];
@@ -246,8 +271,8 @@ export function buildCandidate(input) {
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
   const directClassification = classifyText(corpus);
   const hasStrongProbeMatch = directClassification.matchingTerms.length > 0;
-  const contextualOnlyMatch = !directClassification.matchingTerms.some(
-    (term) => decisiveProbeTerms.has(term),
+  const contextualOnlyMatch = !directClassification.matchingTerms.some((term) =>
+    decisiveProbeTerms.has(term),
   );
   if (!hasStrongProbeMatch && !input.allowUnclassified) return null;
   if (

@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { document, main, tags, text } from '../discovery/html.mjs';
-import { buildCandidate, dedupeCandidates } from './core.mjs';
+import { buildCandidate, dedupeCandidates, inferIdentityIds } from './core.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const readJson = async (file) =>
@@ -52,9 +52,11 @@ const [
 const vendorTerms = vendorsFile.vendors
   .filter((v) => v.id !== 'vendor-independent-research')
   .map((v) => [v.id, v.name.toLowerCase()]);
-const modelTerms = catalog.models
-  .map((m) => [m.id, String(m.api_model_id ?? m.name).toLowerCase()])
-  .filter(([, term]) => term.length >= 4);
+const modelTerms = catalog.models.flatMap((model) =>
+  [model.api_model_id, model.name, ...(model.aliases ?? [])]
+    .filter(Boolean)
+    .map((term) => [model.id, String(term).toLowerCase()]),
+);
 const productTerms = productsFile.products.map((p) => [
   p.id,
   p.name.toLowerCase(),
@@ -73,17 +75,19 @@ const genericIdentityTerms = new Set([
   'projects',
   'research preview',
 ]);
-const containsIdentity = (value, term) => {
-  if (genericIdentityTerms.has(term)) return false;
-  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'i').test(value);
-};
-const inferIds = (value, terms) => {
-  const lower = value.toLowerCase();
-  return terms
-    .filter(([, term]) => containsIdentity(lower, term))
-    .map(([id]) => id);
-};
+const publicIssueCoordinates = new Map([
+  [
+    'anthropics/claude-code',
+    {
+      vendorIds: ['vendor-anthropic'],
+      productIds: ['product-claude-code'],
+    },
+  ],
+  [
+    'cursor/cursor',
+    { vendorIds: ['vendor-cursor'], productIds: ['product-cursor'] },
+  ],
+]);
 const candidates = [];
 const channels = [];
 
@@ -94,10 +98,18 @@ function add(input) {
     discoveredAt: now,
     maxExcerpt: config.max_excerpt_characters,
     screeningPolicyVersion: config.screening_policy_version,
-    vendorIds: input.vendorIds ?? inferIds(corpus, vendorTerms),
-    modelIds: input.modelIds ?? inferIds(corpus, modelTerms),
-    productIds: input.productIds ?? inferIds(corpus, productTerms),
-    surfaceIds: input.surfaceIds ?? inferIds(corpus, surfaceTerms),
+    vendorIds:
+      input.vendorIds ??
+      inferIdentityIds(corpus, vendorTerms, genericIdentityTerms),
+    modelIds:
+      input.modelIds ??
+      inferIdentityIds(corpus, modelTerms, genericIdentityTerms),
+    productIds:
+      input.productIds ??
+      inferIdentityIds(corpus, productTerms, genericIdentityTerms),
+    surfaceIds:
+      input.surfaceIds ??
+      inferIdentityIds(corpus, surfaceTerms, genericIdentityTerms),
   });
   if (candidate) candidates.push(candidate);
 }
@@ -213,12 +225,15 @@ async function publicIssues() {
         );
         for (const item of data.items ?? []) {
           reviewed++;
+          const sourceCoordinates = publicIssueCoordinates.get(repository);
           add({
             sourceType: 'PUBLIC_ISSUE',
             sourceUrl: item.html_url,
             title: item.title,
             excerpt: item.body ?? item.title,
             publishedOn: item.created_at?.slice(0, 10),
+            vendorIds: sourceCoordinates?.vendorIds,
+            productIds: sourceCoordinates?.productIds,
             probeIds: query.probe_ids,
             queryId: `public-issue:${repository}:${query.id}`,
           });
