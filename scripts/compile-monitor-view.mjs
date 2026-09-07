@@ -5,8 +5,6 @@ import { evaluateObservationFreshness } from './lib/freshness.mjs';
 import { projectModels } from './discovery/project.mjs';
 import {
   loadReleases,
-  releaseDate,
-  resolveCurrentRelease,
   resolveReleaseAsOf,
 } from './lib/release-resolution.mjs';
 
@@ -55,12 +53,8 @@ const [
   readJson('data/model-evaluation/adoption.json'),
   loadReleases(root),
 ]);
-const release = (
-  asOfOption
-    ? resolveReleaseAsOf(releaseEntries, asOfOption)
-    : resolveCurrentRelease(releaseEntries)
-).release;
-const asOf = asOfOption ?? releaseDate(release);
+const asOf = asOfOption ?? new Date().toISOString().slice(0, 10);
+const release = resolveReleaseAsOf(releaseEntries, asOf).release;
 
 const parseLines = async (relativePath) =>
   (await readFile(path.join(root, relativePath), 'utf8'))

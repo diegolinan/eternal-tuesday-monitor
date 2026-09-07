@@ -3,7 +3,7 @@ import { normalizePublicSourceUrl } from '../lib/public-source-url.mjs';
 const allowedOrigin = 'https://diegolinan.github.io';
 const allowedHostname = 'diegolinan.github.io';
 const expectedChallengeAction = 'evidence_submission';
-const formSchemaVersion = '2.0.0';
+const formSchemaVersion = '2.1.0';
 const pendingBranch = 'automation/community-evidence';
 const allowedProbeIds = new Set([
   'probe-temporal-anchor',
@@ -134,15 +134,19 @@ export function validateSubmission(payload, now = new Date()) {
   )
     return 'INVALID_MODEL_IDENTITY';
 
-  let sourceUrl;
-  try {
-    sourceUrl = normalizePublicSourceUrl(payload.sourceUrl, {
-      rejectPrivate: true,
-    });
-  } catch {
+  const submittedSource = sanitizeText(payload.sourceUrl, 2049);
+  if (payload.submissionType === 'FOUND_SOURCE' && !submittedSource)
     return 'INVALID_SOURCE_URL';
+  if (submittedSource) {
+    try {
+      const sourceUrl = normalizePublicSourceUrl(submittedSource, {
+        rejectPrivate: true,
+      });
+      if (!sourceUrl || sourceUrl.length > 2048) return 'INVALID_SOURCE_URL';
+    } catch {
+      return 'INVALID_SOURCE_URL';
+    }
   }
-  if (!sourceUrl || sourceUrl.length > 2048) return 'INVALID_SOURCE_URL';
 
   if (payload.submissionType === 'FIRSTHAND_OBSERVATION') {
     if (sanitizeText(payload.expectedBehavior, 1201).length < 15)
@@ -215,7 +219,7 @@ async function readCandidateLedger(env, ref) {
   return atob(body.content.replace(/\s/g, ''));
 }
 
-async function isAlreadyPending(env, sourceUrl, probeId) {
+async function isAlreadyPending(env, sourceUrl, probeId, fingerprint) {
   const raw =
     (await readCandidateLedger(env, pendingBranch)) ??
     (await readCandidateLedger(env, 'main'));
@@ -227,7 +231,10 @@ async function isAlreadyPending(env, sourceUrl, probeId) {
     } catch {
       throw new Error('DEDUPE_UNAVAILABLE');
     }
-    if (candidate.source_url !== sourceUrl) continue;
+    const sameIdentity = sourceUrl
+      ? candidate.source_url === sourceUrl
+      : candidate.submission_fingerprint === fingerprint;
+    if (!sameIdentity) continue;
     if (probeId === 'UNSURE' || candidate.probe_ids?.includes(probeId))
       return true;
   }
@@ -238,6 +245,27 @@ function receiptId() {
   const alphabet = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
   const bytes = crypto.getRandomValues(new Uint8Array(10));
   return `ETM-LEAD-${[...bytes].map((byte) => alphabet[byte % alphabet.length]).join('')}`;
+}
+
+async function submissionFingerprint(payload) {
+  const fields = [
+    payload.vendor,
+    payload.model,
+    payload.productSurface,
+    payload.probeId,
+    payload.observedOn,
+    payload.summary,
+    payload.expectedBehavior,
+    payload.actualBehavior,
+    payload.reproductionSteps,
+  ].map((value) => sanitizeText(value, 1800).toLocaleLowerCase());
+  const digest = await crypto.subtle.digest(
+    'SHA-256',
+    new TextEncoder().encode(JSON.stringify(fields)),
+  );
+  return [...new Uint8Array(digest)]
+    .map((byte) => byte.toString(16).padStart(2, '0'))
+    .join('');
 }
 
 const logOutcome = (outcome, detail = {}) =>
@@ -359,11 +387,19 @@ const intakeWorker = {
       return json({ ok: false, error: 'INTAKE_BUSY' }, 429, origin);
     }
 
-    const sourceUrl = normalizePublicSourceUrl(payload.sourceUrl, {
-      rejectPrivate: true,
-    });
+    const sourceUrl = sanitizeText(payload.sourceUrl, 2049)
+      ? normalizePublicSourceUrl(payload.sourceUrl, { rejectPrivate: true })
+      : null;
+    const fingerprint = await submissionFingerprint(payload);
     try {
-      if (await isAlreadyPending(env, sourceUrl, payload.probeId)) {
+      if (
+        await isAlreadyPending(
+          env,
+          sourceUrl,
+          payload.probeId,
+          fingerprint,
+        )
+      ) {
         logOutcome('duplicate');
         return json(
           { ok: true, state: 'ALREADY_UNDER_REVIEW', receiptId: null },
@@ -394,6 +430,7 @@ const intakeWorker = {
       productSurface: sanitizeText(payload.productSurface, 160),
       probeId: payload.probeId,
       sourceUrl,
+      submissionFingerprint: fingerprint,
       observedOn: payload.observedOn,
       summary: sanitizeText(payload.summary, 1800),
       expectedBehavior: sanitizeText(payload.expectedBehavior, 1200),

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: ['Discover official model changes']
-    types: [in_progress, completed]
+    types: [completed]
 
 permissions:
   actions: read
@@ -79,6 +79,11 @@ jobs:
           today="$(date -u +%F)"
           as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
           npm run data:compile -- --as-of "$as_of"
+      - name: Verify public contribution configuration
+        env:
+          NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+        run: node -e "if (!process.env.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT || !process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) process.exit(1)"
       - run: npm run build:pages
         env:
           NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}

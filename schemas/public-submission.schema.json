@@ -31,7 +31,7 @@
     "turnstileToken"
   ],
   "properties": {
-    "formSchemaVersion": { "const": "2.0.0", "type": "string" },
+    "formSchemaVersion": { "const": "2.1.0", "type": "string" },
     "requestId": { "type": "string", "format": "uuid" },
     "catalogSchemaVersion": {
       "type": "string",
@@ -57,12 +57,7 @@
         "UNSURE"
       ]
     },
-    "sourceUrl": {
-      "type": "string",
-      "format": "uri",
-      "pattern": "^https://",
-      "maxLength": 2048
-    },
+    "sourceUrl": { "type": "string", "maxLength": 2048 },
     "observedOn": { "type": "string", "format": "date" },
     "summary": { "type": "string", "minLength": 30, "maxLength": 1800 },
     "expectedBehavior": { "type": "string", "maxLength": 1200 },
@@ -77,6 +72,21 @@
     "turnstileToken": { "type": "string", "minLength": 1, "maxLength": 2048 }
   },
   "allOf": [
+    {
+      "if": {
+        "properties": { "submissionType": { "const": "FOUND_SOURCE" } }
+      },
+      "then": {
+        "properties": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://",
+            "minLength": 1
+          }
+        }
+      }
+    },
     {
       "if": {
         "properties": { "submissionType": { "const": "FIRSTHAND_OBSERVATION" } }

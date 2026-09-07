@@ -41,7 +41,15 @@ jobs:
           SYSTEM_STATUS_TOKEN: ${{ github.token }}
           SYSTEM_STATUS_REPOSITORY: ${{ github.repository }}
         run: npm run status:compile
+      - name: Verify public contribution configuration
+        env:
+          NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+        run: node -e "if (!process.env.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT || !process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) process.exit(1)"
       - run: npm run build:pages
+        env:
+          NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
       - run: npm run static:validate
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

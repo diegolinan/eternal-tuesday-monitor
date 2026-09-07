@@ -37,7 +37,6 @@ const requiredStrings = [
   'model',
   'productSurface',
   'probeId',
-  'sourceUrl',
   'observedOn',
   'summary',
   'relationship',
@@ -46,7 +45,7 @@ const requiredStrings = [
 for (const field of requiredStrings)
   if (typeof payload[field] !== 'string' || !clean(payload[field]))
     throw new Error(`INVALID_${field.toUpperCase()}`);
-if (payload.formSchemaVersion !== '2.0.0')
+if (payload.formSchemaVersion !== '2.1.0')
   throw new Error('INVALID_FORM_VERSION');
 if (payload.intakeState !== 'NEEDS_REVIEW')
   throw new Error('INVALID_INTAKE_STATE');
@@ -83,6 +82,16 @@ if (payload.submissionType === 'FIRSTHAND_OBSERVATION') {
   if (clean(payload.reproductionSteps, 1801).length < 20)
     throw new Error('INVALID_REPRODUCTION_STEPS');
 }
+if (
+  payload.submissionType === 'FOUND_SOURCE' &&
+  (typeof payload.sourceUrl !== 'string' || !clean(payload.sourceUrl))
+)
+  throw new Error('INVALID_SOURCE_URL');
+if (
+  typeof payload.submissionFingerprint !== 'string' ||
+  !/^[a-f0-9]{64}$/.test(payload.submissionFingerprint)
+)
+  throw new Error('INVALID_SUBMISSION_FINGERPRINT');
 
 const [vendors, models, products, surfaces] = await Promise.all([
   readJson('data/catalog/vendors.json'),
@@ -145,6 +154,8 @@ const excerpt = [
 const candidate = buildCandidate({
   sourceType: 'PUBLIC_SUBMISSION',
   sourceUrl: payload.sourceUrl,
+  identityKey: payload.submissionFingerprint,
+  submissionFingerprint: payload.submissionFingerprint,
   title: `Community lead: ${clean(payload.vendor, 80)} / ${clean(payload.model, 120)}`,
   excerpt,
   publishedOn: payload.observedOn,
@@ -183,7 +194,7 @@ const checklist = additions.length
 
 - **Receipt:** \`${markdown(payload.receiptId)}\`
 - **Intake state:** **NEEDS REVIEW**
-- **Source:** ${candidate.source_url}
+- **Source:** ${candidate.source_url ?? 'No public source supplied — firsthand observation only'}
 - **Submitted as:** ${markdown(payload.submissionType)}
 - **Vendor:** ${markdown(payload.vendor)} (${markdown(payload.vendorMode)})
 - **Model:** ${markdown(payload.model)} (${markdown(payload.modelMode)})
@@ -195,7 +206,8 @@ This is an unverified lead. It cannot create a PASS, FAIL, product association o
 
 ### Reviewer checklist
 
-- [ ] The source is public, accessible and actually supports the submitted summary.
+- [ ] If a public source was supplied, it is accessible and actually supports the submitted summary.
+- [ ] If no public source was supplied, the report remains a firsthand lead until independently reproduced.
 - [ ] The date is supported by the source or observation record.
 - [ ] Vendor, exact model and product surface are verified; unknowns remain explicit.
 - [ ] The suggested Monitor question fits the claim.

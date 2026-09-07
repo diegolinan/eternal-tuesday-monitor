@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { withBasePath } from '@/lib/site-paths';
+import changelogSnapshot from '@/public/data/changelog.json';
 
 export const dynamic = 'force-static';
 
@@ -26,20 +26,10 @@ const sourceLabels: Record<string, string> = {
 };
 
 export default function ChangelogPage() {
-  const [events, setEvents] = useState<ChangeEvent[] | null>(null);
-
-  useEffect(() => {
-    fetch(withBasePath('/data/changelog.json'))
-      .then((response) => {
-        if (!response.ok) throw new Error('Changelog unavailable');
-        return response.json() as Promise<{ events: ChangeEvent[] }>;
-      })
-      .then((data) => setEvents(data.events))
-      .catch(() => setEvents([]));
-  }, []);
+  const events = changelogSnapshot.events as ChangeEvent[];
 
   return (
-    <main className="changelog-page">
+    <main className="changelog-page" id="main-content">
       <header className="masthead">
         <a className="series-mark" href={withBasePath('/')}>
           The Eternal Tuesday Monitor
@@ -58,12 +48,11 @@ export default function ChangelogPage() {
           are excluded.
         </p>
       </section>
-      <section className="changelog-list" aria-live="polite">
-        {events === null && <p>Reading the public change ledger…</p>}
-        {events?.length === 0 && (
-          <p>The public change ledger is unavailable.</p>
+      <section className="changelog-list">
+        {events.length === 0 && (
+          <p>No accepted domain changes are published for this release.</p>
         )}
-        {events?.map((event) => (
+        {events.map((event) => (
           <article key={event.id}>
             <div className="change-date">
               <time dateTime={event.recorded_on}>{event.recorded_on}</time>

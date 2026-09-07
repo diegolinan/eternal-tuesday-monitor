@@ -30,5 +30,14 @@ await cp(
   path.join(output, 'contribute.txt'),
   path.join(output, 'contribute/index.txt'),
 );
+await mkdir(path.join(output, 'models'), { recursive: true });
+await cp(
+  path.join(output, 'models.html'),
+  path.join(output, 'models/index.html'),
+);
+await cp(
+  path.join(output, 'models.txt'),
+  path.join(output, 'models/index.txt'),
+);
 
 console.log('Prepared dist/client as the GitHub Pages artifact root.');

@@ -146,7 +146,7 @@ The repository preserves two separate build targets:
 
 The historical OpenAI-hosted prototype remains available at <https://eternal-tuesday-monitor.stella-diego-9071.chatgpt.site/> as an unchanged fallback. It is intentionally not canonical, and the GitHub Pages workflows do not modify, redirect, disable, or redeploy it.
 
-There is deliberately no public long-form article route. The archived launch source and historical release fields are retained because deleting or rewriting them would break the provenance of already-published evidence.
+There is deliberately no public long-form article route. The archived launch source remains the editorial baseline that the Monitor's evidence ledger supports, while the public site stays a living evidence companion rather than a second article copy. Historical `article_public_path` fields are deprecated provenance only; they do not assert that `/article/` exists. New release manifests must not add that field.
 
 ## Append-only history and release resolution
 

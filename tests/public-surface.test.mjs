@@ -16,12 +16,12 @@ test('the public status panel exposes status but no administrative actions', asy
   assert.doesNotMatch(source, /api\.github\.com/i);
   assert.doesNotMatch(source, /github/i);
   assert.doesNotMatch(compiledStatus, /workflow|repository|html_url|run_id/i);
-  assert.match(source, /Latest source scan started/);
-  assert.match(source, /Today&apos;s scheduled scan/);
-  assert.match(source, /Next scheduled scan/);
+  assert.match(source, /Latest reported source scan/);
+  assert.match(source, /Next planned source scan/);
+  assert.doesNotMatch(source, /Today&apos;s scheduled scan/);
   assert.match(source, /does not contact a model/);
   assert.match(source, /ALL TIMES SHOWN IN YOUR LOCAL TIME/);
-  assert.match(source, /IN \{remaining\(nextWindow, now\)\}/);
+  assert.match(source, /IN \{remaining\(nextPlannedWindow, now\)\}/);
   assert.match(source, /STARTING WINDOW/);
   assert.match(source, /AWAITING START/);
   assert.match(source, /withBasePath\('\/data\/system-status\.json'\)/);
@@ -88,11 +88,11 @@ test('the product and surface station is driven by accepted observations', async
 
 test('the model register separates source scans, eligibility, and evidence', async () => {
   const source = await read('components/model-inventory.tsx');
-  const page = await read('app/page.tsx');
+  const modelsPage = await read('app/models/page.tsx');
   assert.match(source, /vendor-register-group/);
   assert.match(source, /registry-status-group/);
   assert.doesNotMatch(source, /visible\.slice\(0, 24\)/);
-  assert.match(page, /data\/model-operations\.json/);
+  assert.match(modelsPage, /model-operations\.json/);
   assert.match(source, /Official-source scan/);
   assert.match(source, /Controlled-test readiness/);
   assert.match(source, /Behavioral probe evidence/);
@@ -127,7 +127,11 @@ test('the public evidence watch separates search, candidates and verdicts', asyn
   assert.match(form, /Other \/ not listed/);
   assert.match(form, /I don’t know the exact model/);
   assert.match(form, /Review your lead/);
-  assert.match(form, /Keep this receipt/);
+  assert.match(form, /Internal receipt/);
+  assert.match(
+    form,
+    /A firsthand\s+observation may be sent without one/,
+  );
   assert.match(form, /REQUIRED/);
   assert.match(form, /OPTIONAL/);
   assert.doesNotMatch(form, /github|repository_dispatch|pull request/i);
@@ -150,6 +154,16 @@ test('the public copy explains dates and status vocabularies', async () => {
     /At least one probe has accepted behavioral evidence/,
   );
   assert.match(inventory, /What must happen before a behavioral result exists/);
+});
+
+test('the public reading path separates the article question from operations', async () => {
+  const page = await read('app/page.tsx');
+  assert.match(page, /What do we know now\?/);
+  assert.match(page, /Current evidence state/);
+  assert.match(page, /Catalog identity is not evidence/);
+  assert.match(page, /Open the model register/);
+  assert.match(page, /Evidence gap assessed through/);
+  assert.doesNotMatch(page, /<ModelInventory/);
 });
 
 test('the public changelog omits internal review mechanics', async () => {

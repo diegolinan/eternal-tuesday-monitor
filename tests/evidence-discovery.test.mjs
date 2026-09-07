@@ -91,6 +91,27 @@ test('candidate identity is stable and accepted URLs are excluded', () => {
   );
 });
 
+test('a firsthand report can remain a reproducible lead without inventing a source URL', () => {
+  const fingerprint = 'a'.repeat(64);
+  const candidate = buildCandidate({
+    sourceType: 'PUBLIC_SUBMISSION',
+    sourceUrl: '',
+    identityKey: fingerprint,
+    submissionFingerprint: fingerprint,
+    title: 'Firsthand temporal anchor report',
+    excerpt: 'The assistant stated the wrong current date in a new session.',
+    discoveredAt: '2026-09-07T12:00:00.000Z',
+    queryId: 'public-intake',
+    probeIds: ['probe-temporal-anchor'],
+    claimClass: 'PRACTITIONER_REPORT',
+    allowUnclassified: true,
+  });
+  assert.equal(candidate.source_url, null);
+  assert.equal(candidate.submission_fingerprint, fingerprint);
+  assert.equal(candidate.source_title, 'Firsthand temporal anchor report');
+  assert.match(candidate.review_reasons.join(' '), /reproduce it/i);
+});
+
 test('public screening rejects UI and infrastructure keyword collisions', () => {
   const shared = {
     sourceType: 'PUBLIC_ISSUE',
@@ -205,7 +226,7 @@ test('public screening rejects UI and infrastructure keyword collisions', () => 
 
 test('public intake rejects bots, private-network URLs and weak reports', () => {
   const valid = {
-    formSchemaVersion: '2.0.0',
+    formSchemaVersion: '2.1.0',
     requestId: '123e4567-e89b-42d3-a456-426614174000',
     catalogSchemaVersion: '2.0.0',
     catalogCheckedThrough: '2026-09-05',
@@ -245,6 +266,10 @@ test('public intake rejects bots, private-network URLs and weak reports', () => 
     'INVALID_SOURCE_URL',
   );
   assert.equal(
+    validateSubmission({ ...valid, sourceUrl: '' }),
+    'INVALID_SOURCE_URL',
+  );
+  assert.equal(
     validateSubmission({ ...valid, summary: 'too short' }),
     'INVALID_SUMMARY',
   );
@@ -263,18 +288,19 @@ test('public intake rejects bots, private-network URLs and weak reports', () => 
     validateSubmission({
       ...valid,
       submissionType: 'FIRSTHAND_OBSERVATION',
+      sourceUrl: '',
       expectedBehavior: 'Expected behavior is clear.',
       actualBehavior: 'Actual behavior is clear.',
-      reproductionSteps: 'short',
+      reproductionSteps: 'Repeat these clear steps twice.',
     }),
-    'INVALID_REPRODUCTION_STEPS',
+    null,
   );
   assert.equal(sanitizeText('safe\u202Etxt\u0000', 20), 'safetxt');
 });
 
 test('public intake requires the canonical Turnstile hostname and action', async () => {
   const payload = {
-    formSchemaVersion: '2.0.0',
+    formSchemaVersion: '2.1.0',
     requestId: '123e4567-e89b-42d3-a456-426614174000',
     catalogSchemaVersion: '2.0.0',
     catalogCheckedThrough: '2026-09-05',
@@ -377,7 +403,7 @@ test('public intake requires the canonical Turnstile hostname and action', async
 
 test('public intake closes safely and suppresses duplicate dispatches', async () => {
   const payload = {
-    formSchemaVersion: '2.0.0',
+    formSchemaVersion: '2.1.0',
     requestId: '123e4567-e89b-42d3-a456-426614174000',
     catalogSchemaVersion: '2.0.0',
     catalogCheckedThrough: '2026-09-05',

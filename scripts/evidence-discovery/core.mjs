@@ -236,7 +236,9 @@ export function inferClaimClass(sourceType, sentiment) {
 }
 
 export function buildCandidate(input) {
-  const sourceUrl = normalizeUrl(input.sourceUrl);
+  const sourceUrl = input.sourceUrl ? normalizeUrl(input.sourceUrl) : null;
+  const identityKey = sourceUrl ?? clean(input.identityKey, 160);
+  if (!identityKey) throw new Error('CANDIDATE_IDENTITY_REQUIRED');
   const screeningPolicyVersion =
     input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.4';
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
@@ -267,7 +269,7 @@ export function buildCandidate(input) {
     input.claimClass ??
     inferClaimClass(input.sourceType, classification.sentiment);
   const identity = [
-    sourceUrl,
+    identityKey,
     claimClass,
     ...classification.probeIds,
     screeningPolicyVersion,
@@ -279,7 +281,12 @@ export function buildCandidate(input) {
     retrieved_on: input.discoveredAt.slice(0, 10),
     source_type: input.sourceType,
     source_url: sourceUrl,
-    source_title: clean(input.title, 300) || new URL(sourceUrl).hostname,
+    submission_fingerprint: input.submissionFingerprint ?? null,
+    source_title:
+      clean(input.title, 300) ||
+      (sourceUrl
+        ? new URL(sourceUrl).hostname
+        : 'Firsthand observation without a public source'),
     source_excerpt:
       clean(input.excerpt, input.maxExcerpt ?? 480) ||
       'The source matched a configured Monitor evidence query.',
@@ -305,7 +312,9 @@ export function buildCandidate(input) {
     matching_terms: classification.matchingTerms,
     review_state: 'PENDING',
     review_reasons: [
-      'A search match is a lead only; verify the source, exact model and product surface.',
+      sourceUrl
+        ? 'A search match is a lead only; verify the source, exact model and product surface.'
+        : 'A firsthand report without a public source is a lead only; reproduce it before considering evidence.',
       'A public claim cannot create a behavioral PASS or FAIL without accepted evidence.',
     ],
     public_attribution: input.publicAttribution ?? null,

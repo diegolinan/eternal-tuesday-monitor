@@ -158,6 +158,17 @@ const groupOrder: RegistryGroup[] = [
 ];
 
 const label = (value: string) => value.replaceAll('_', ' ');
+const publicRegistryLabel: Record<RegistryGroup, string> = {
+  TESTED: 'ACCEPTED PROBE EVIDENCE',
+  RETEST_REQUIRED: 'RETEST DUE',
+  TEST_REQUIRED: 'READY FOR CONTROLLED TEST',
+  EVALUATION_BLOCKED: 'CONTROLLED TEST BLOCKED',
+  EVIDENCE_WATCH: 'PUBLIC EVIDENCE SEARCH ACTIVE',
+  REVIEW_REQUIRED: 'METHOD OR IDENTITY DECISION PENDING',
+  CATALOG_ONLY: 'CATALOG IDENTITY ONLY',
+};
+const publicEligibilityLabel = (value: string) =>
+  value === 'REVIEW_REQUIRED' ? 'METHOD REVIEW PENDING' : label(value);
 const reasonLabels: Record<string, string> = {
   API_UNKNOWN: 'API availability has not been established',
   API_PENDING: 'The provider documents API access as pending',
@@ -442,8 +453,8 @@ function ModelDetail({
           {eligibilityGroups.map((group) => (
             <li key={`${group.state}-${group.probes.join('-')}`}>
               <strong>
-                {group.probes.length}/{model.probeCoverage.length} probes ·{' '}
-                {label(group.state)}
+                 {group.probes.length}/{model.probeCoverage.length} probes ·{' '}
+                 {publicEligibilityLabel(group.state)}
               </strong>
               <small>
                 {group.reasons.length > 0
@@ -528,7 +539,7 @@ function ModelRow({
           <strong>{model.name}</strong>
           <small>{model.apiModelId ?? 'OFFICIAL ID NOT ESTABLISHED'}</small>
         </span>
-        <StatusEmblem compact value={group} />
+        <StatusEmblem compact value={publicRegistryLabel[group]} />
         <span className="model-probe-count">
           {tested}/5 PROBES WITH ACCEPTED EVIDENCE
         </span>
@@ -633,15 +644,15 @@ export function ModelInventory({
       <div className="coverage-summary" aria-label="Model registry summary">
         <div>
           <strong>{counts.TESTED ?? 0}</strong>
-          <span>Has probe evidence</span>
+          <span>Exact models with accepted probe evidence</span>
         </div>
         <div>
           <strong>{counts.RETEST_REQUIRED ?? 0}</strong>
-          <span>Retest due</span>
+          <span>Exact models with a retest due</span>
         </div>
         <div>
           <strong>{counts.EVIDENCE_WATCH ?? 0}</strong>
-          <span>Evidence watch active</span>
+          <span>Public evidence search active</span>
         </div>
         <div className="coverage-known">
           <strong>{models.length}</strong>
@@ -686,31 +697,31 @@ export function ModelInventory({
       </p>
       <dl className="coverage-glossary">
         <div>
-          <dt>TESTED</dt>
+          <dt>ACCEPTED PROBE EVIDENCE</dt>
           <dd>At least one probe has accepted behavioral evidence.</dd>
         </div>
         <div>
-          <dt>TEST REQUIRED</dt>
+          <dt>READY FOR CONTROLLED TEST</dt>
           <dd>
             A reviewed method exists and the model is ready to enter the test
             queue; no behavioral result exists yet.
           </dd>
         </div>
         <div>
-          <dt>EVIDENCE WATCH</dt>
+          <dt>PUBLIC EVIDENCE SEARCH ACTIVE</dt>
           <dd>
             Public sources are searched for relevant claims; no accepted
             behavioral result exists yet.
           </dd>
         </div>
         <div>
-          <dt>REVIEW REQUIRED</dt>
+          <dt>METHOD OR IDENTITY DECISION PENDING</dt>
           <dd>
             A specific identity or source ambiguity needs a human decision.
           </dd>
         </div>
         <div>
-          <dt>CATALOG ONLY</dt>
+          <dt>CATALOG IDENTITY ONLY</dt>
           <dd>
             An identity is retained for catalog or historical evidence; current
             listing and behavior are not implied.
@@ -768,7 +779,10 @@ export function ModelInventory({
                       >
                         <summary>
                           <ChevronRight aria-hidden="true" />
-                          <StatusEmblem compact value={group.name} />
+                          <StatusEmblem
+                            compact
+                            value={publicRegistryLabel[group.name]}
+                          />
                           <strong>{group.models.length}</strong>
                         </summary>
                         <div className="model-rows">

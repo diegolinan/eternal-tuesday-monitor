@@ -24,7 +24,7 @@ type Submission = Record<string, string | boolean | null>;
 
 const endpoint = process.env.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT ?? '';
 const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
-const formSchemaVersion = '2.0.0';
+const formSchemaVersion = '2.1.0';
 const otherVendor = '__OTHER_VENDOR__';
 const otherModel = '__OTHER_MODEL__';
 const unknownModel = '__NOT_SPECIFIED__';
@@ -313,7 +313,7 @@ export default function ContributePage() {
   const available = desk === 'open';
 
   return (
-    <main className="contribute-page">
+    <main className="contribute-page" id="main-content">
       {endpoint && siteKey && (
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
@@ -493,15 +493,28 @@ export default function ContributePage() {
               </label>
               <div className="form-pair">
                 <label>
-                  Public source URL <FieldMark />
+                  Public source URL{' '}
+                  <FieldMark
+                    optional={submissionType === 'FIRSTHAND_OBSERVATION'}
+                  />
                   <input
                     name="sourceUrl"
                     type="url"
-                    required
+                    required={submissionType === 'FOUND_SOURCE'}
                     maxLength={2048}
                     pattern="https://.*"
-                    placeholder="https://…"
+                    placeholder={
+                      submissionType === 'FIRSTHAND_OBSERVATION'
+                        ? 'Optional for firsthand reports'
+                        : 'https://…'
+                    }
                   />
+                  {submissionType === 'FIRSTHAND_OBSERVATION' && (
+                    <small>
+                      Without a public source, this remains a firsthand lead
+                      until someone independently reproduces it.
+                    </small>
+                  )}
                 </label>
                 <label>
                   Date observed or published <FieldMark />
@@ -712,7 +725,7 @@ export default function ContributePage() {
               <p>{message}</p>
               {receipt && (
                 <p className="receipt-code">
-                  <span>Keep this receipt</span>
+                  <span>Internal receipt</span>
                   <strong>{receipt}</strong>
                 </p>
               )}
@@ -738,7 +751,11 @@ export default function ContributePage() {
         <aside className="contribution-rules">
           <h2>Before you pull in</h2>
           <ol>
-            <li>Use a public link that a reviewer can open.</li>
+            <li>
+              Include a public link when reporting a source. A firsthand
+              observation may be sent without one, but it cannot become accepted
+              evidence until it is independently reproduced.
+            </li>
             <li>
               Choose the exact model when known; uncertainty is acceptable and
               remains visible.
