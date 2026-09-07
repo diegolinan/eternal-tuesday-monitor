@@ -158,14 +158,21 @@ test('the public copy explains dates and status vocabularies', async () => {
   assert.match(inventory, /What must happen before a behavioral result exists/);
 });
 
-test('the public reading path separates the article question from operations', async () => {
+test('the public reading path separates the monitor question from operations', async () => {
   const page = await read('app/page.tsx');
   assert.match(page, /What do we know now\?/);
   assert.match(page, /Current evidence state/);
   assert.match(page, /Catalog identity is not evidence/);
   assert.match(page, /Open the model register/);
   assert.match(page, /Evidence gap assessed through/);
+  assert.doesNotMatch(page, /ARTICLE&apos;S QUESTION|The article described|article&apos;s evidence/i);
   assert.doesNotMatch(page, /<ModelInventory/);
+});
+
+test('the public observation projection does not expose retired article copy', async () => {
+  const compiled = await read('public/data/monitor.json');
+  assert.doesNotMatch(compiled, /ARTICLE-SOURCE-1|ARTICLE SEARCH CUTOFF/);
+  assert.doesNotMatch(compiled, /The article found|At the article cutoff/i);
 });
 
 test('the public changelog omits internal review mechanics', async () => {

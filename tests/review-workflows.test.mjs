@@ -1,11 +1,29 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (relativePath) => readFile(path.join(root, relativePath), 'utf8');
+
+test('workflows use Node 24 compatible JavaScript actions', async () => {
+  const workflowDirectory = path.join(root, '.github', 'workflows');
+  const workflowFiles = (await readdir(workflowDirectory)).filter((name) =>
+    /\.ya?ml$/.test(name),
+  );
+  const workflows = await Promise.all(
+    workflowFiles.map((name) => readFile(path.join(workflowDirectory, name), 'utf8')),
+  );
+  const combined = workflows.join('\n');
+  assert.doesNotMatch(combined, /actions\/checkout@v4/);
+  assert.doesNotMatch(combined, /actions\/setup-node@v4/);
+  assert.doesNotMatch(combined, /actions\/(?:upload|download)-artifact@v4/);
+  assert.doesNotMatch(combined, /actions\/configure-pages@v5/);
+  assert.doesNotMatch(combined, /actions\/upload-pages-artifact@/);
+  assert.doesNotMatch(combined, /actions\/deploy-pages@v4/);
+  assert.doesNotMatch(combined, /create-pull-request@271a8d/);
+});
 
 test('every interpretive proposal uses a unique disposable review branch', async () => {
   const [intake, discovery, evaluation] = await Promise.all([
@@ -50,6 +68,8 @@ test('the notification canary requests review and cannot be mistaken for evidenc
   );
   assert.match(canary, /reviewers: diegolinan/);
   assert.match(canary, /Do not merge it/);
+  assert.match(canary, /delete its disposable branch/);
+  assert.doesNotMatch(canary, /deleted automatically/);
   assert.match(canary, /notification-canary/);
   assert.doesNotMatch(canary, /data\/evidence|data\/observations/);
 });

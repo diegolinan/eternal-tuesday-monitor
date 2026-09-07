@@ -345,10 +345,10 @@ function ClaimLedger({
   return (
     <section className="claim-ledger" aria-labelledby="claim-ledger-title">
       <div>
-        <p className="section-code">THE ARTICLE&apos;S QUESTION · LIVE EVIDENCE</p>
+        <p className="section-code">THE MONITOR&apos;S QUESTION · LIVE EVIDENCE</p>
         <h2 id="claim-ledger-title">What do we know now?</h2>
         <p>
-          The article described a continuity problem. This ledger keeps its
+          The Monitor tracks a continuity problem. This ledger keeps its
           factual claims inspectable as products change, without turning a
           catalog listing or an unanswered question into proof.
         </p>
@@ -822,7 +822,7 @@ export default function Home() {
           <p>
             The full register tracks {data.models?.length ?? 0} exact identities
             and keeps listing checks, method readiness and behavioral evidence
-            separate. It lives outside the main reading path so the article&apos;s
+            separate. It lives outside the main reading path so accepted
             evidence remains the focus.
           </p>
         </div>

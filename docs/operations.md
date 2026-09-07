@@ -16,7 +16,7 @@ The deployment compiles a neutral operational snapshot for the public status pan
 
 Pull-request review requests and assigned issues use GitHub's own notifications. In the GitHub account's **Settings → Notifications**, enable email for **Participating and @mentions**. Ensure the repository is not ignored; watching **All Activity** is optional if broader repository mail is desired. GitHub—not this application—delivers and manages those emails.
 
-Run **Actions → Check reviewer email notification → Run workflow** once after changing notification settings. It opens a harmless pull request and requests review from `diegolinan`. Do not merge it. Confirm that the email arrived, then close the pull request; its temporary branch is deleted automatically. This proves notification delivery without fabricating an evidence lead.
+Run **Actions → Check reviewer email notification → Run workflow** once after changing notification settings. It opens a harmless pull request and requests review from `diegolinan`. Do not merge it. Confirm that the email arrived, close the pull request, then delete its disposable branch. This proves notification delivery without fabricating an evidence lead.
 
 ## Reviewing evidence candidates
 
