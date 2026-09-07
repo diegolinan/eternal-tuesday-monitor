@@ -422,7 +422,7 @@ export default function ContributePage() {
                   />
                 </label>
                 <label>
-                  Exact model <FieldMark />
+                  Model identity <FieldMark />
                   <select
                     required
                     value={modelChoice}
@@ -581,10 +581,10 @@ export default function ContributePage() {
                 </>
               )}
               <label>
-                Your relationship to this source <FieldMark />
+                Your relationship to the product or source <FieldMark />
                 <select name="relationship" required defaultValue="NONE">
-                  <option value="NONE">No relationship</option>
-                  <option value="USER">Product user</option>
+                  <option value="NONE">No disclosed relationship</option>
+                  <option value="USER">Product user or tester</option>
                   <option value="AUTHOR">Author or reporter</option>
                   <option value="EMPLOYEE">Vendor employee</option>
                   <option value="OTHER">Other relationship</option>
