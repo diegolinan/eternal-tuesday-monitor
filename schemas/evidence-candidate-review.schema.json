@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diegolinan.github.io/eternal-tuesday-monitor/schemas/evidence-candidate-review.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "candidate_id",
+    "decided_at",
+    "decision",
+    "reason",
+    "reviewer",
+    "supersedes_review_id"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0", "type": "string" },
+    "id": { "type": "string", "pattern": "^evreview-[a-f0-9]{24}$" },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^evcand-[a-f0-9]{24}$"
+    },
+    "decided_at": { "type": "string", "format": "date-time" },
+    "decision": {
+      "enum": [
+        "REJECTED_IRRELEVANT",
+        "REJECTED_UNVERIFIABLE",
+        "DUPLICATE",
+        "NEEDS_MORE_INFORMATION",
+        "ACCEPTED_AS_SUPPORTING_SOURCE",
+        "REQUIRES_BEHAVIORAL_REPRODUCTION"
+      ]
+    },
+    "reason": { "type": "string", "minLength": 20, "maxLength": 1200 },
+    "reviewer": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "supersedes_review_id": {
+      "type": ["string", "null"],
+      "pattern": "^evreview-[a-f0-9]{24}$"
+    }
+  }
+}

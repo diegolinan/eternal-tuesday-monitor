@@ -4,7 +4,6 @@ const allowedOrigin = 'https://diegolinan.github.io';
 const allowedHostname = 'diegolinan.github.io';
 const expectedChallengeAction = 'evidence_submission';
 const formSchemaVersion = '2.1.0';
-const pendingBranch = 'automation/community-evidence';
 const allowedProbeIds = new Set([
   'probe-temporal-anchor',
   'probe-elapsed',
@@ -219,12 +218,33 @@ async function readCandidateLedger(env, ref) {
   return atob(body.content.replace(/\s/g, ''));
 }
 
-async function isAlreadyPending(env, sourceUrl, probeId, fingerprint) {
-  const raw =
-    (await readCandidateLedger(env, pendingBranch)) ??
-    (await readCandidateLedger(env, 'main'));
-  if (raw === null) return false;
-  for (const line of raw.split(/\r?\n/).filter(Boolean)) {
+async function hasOpenSubmission(env, dedupeKey) {
+  const url = new URL('https://api.github.com/search/issues');
+  url.searchParams.set(
+    'q',
+    `repo:${env.GITHUB_REPOSITORY} is:pr is:open "etm-intake-dedupe:${dedupeKey}"`,
+  );
+  url.searchParams.set('per_page', '1');
+  const response = await fetch(url, {
+    headers: repositoryHeaders(env),
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!response.ok) throw new Error('DEDUPE_UNAVAILABLE');
+  const body = await response.json();
+  if (!Number.isInteger(body.total_count))
+    throw new Error('DEDUPE_UNAVAILABLE');
+  return body.total_count > 0;
+}
+
+async function isAlreadyPending(
+  env,
+  sourceUrl,
+  probeId,
+  fingerprint,
+  dedupeKey,
+) {
+  const raw = await readCandidateLedger(env, 'main');
+  for (const line of (raw ?? '').split(/\r?\n/).filter(Boolean)) {
     let candidate;
     try {
       candidate = JSON.parse(line);
@@ -238,13 +258,23 @@ async function isAlreadyPending(env, sourceUrl, probeId, fingerprint) {
     if (probeId === 'UNSURE' || candidate.probe_ids?.includes(probeId))
       return true;
   }
-  return false;
+  return hasOpenSubmission(env, dedupeKey);
 }
 
 function receiptId() {
   const alphabet = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
   const bytes = crypto.getRandomValues(new Uint8Array(10));
   return `ETM-LEAD-${[...bytes].map((byte) => alphabet[byte % alphabet.length]).join('')}`;
+}
+
+async function sha256Hex(value) {
+  const digest = await crypto.subtle.digest(
+    'SHA-256',
+    new TextEncoder().encode(value),
+  );
+  return [...new Uint8Array(digest)]
+    .map((byte) => byte.toString(16).padStart(2, '0'))
+    .join('');
 }
 
 async function submissionFingerprint(payload) {
@@ -259,14 +289,15 @@ async function submissionFingerprint(payload) {
     payload.actualBehavior,
     payload.reproductionSteps,
   ].map((value) => sanitizeText(value, 1800).toLocaleLowerCase());
-  const digest = await crypto.subtle.digest(
-    'SHA-256',
-    new TextEncoder().encode(JSON.stringify(fields)),
-  );
-  return [...new Uint8Array(digest)]
-    .map((byte) => byte.toString(16).padStart(2, '0'))
-    .join('');
+  return sha256Hex(JSON.stringify(fields));
 }
+
+export const submissionDedupeKey = (sourceUrl, probeId, fingerprint) =>
+  sha256Hex(
+    sourceUrl
+      ? JSON.stringify(['PUBLIC_SOURCE', sourceUrl, probeId])
+      : JSON.stringify(['FIRSTHAND_OBSERVATION', fingerprint]),
+  );
 
 const logOutcome = (outcome, detail = {}) =>
   console.log(JSON.stringify({ event: 'public_intake', outcome, ...detail }));
@@ -391,6 +422,11 @@ const intakeWorker = {
       ? normalizePublicSourceUrl(payload.sourceUrl, { rejectPrivate: true })
       : null;
     const fingerprint = await submissionFingerprint(payload);
+    const dedupeKey = await submissionDedupeKey(
+      sourceUrl,
+      payload.probeId,
+      fingerprint,
+    );
     try {
       if (
         await isAlreadyPending(
@@ -398,6 +434,7 @@ const intakeWorker = {
           sourceUrl,
           payload.probeId,
           fingerprint,
+          dedupeKey,
         )
       ) {
         logOutcome('duplicate');
@@ -431,6 +468,7 @@ const intakeWorker = {
       probeId: payload.probeId,
       sourceUrl,
       submissionFingerprint: fingerprint,
+      submissionDedupeKey: dedupeKey,
       observedOn: payload.observedOn,
       summary: sanitizeText(payload.summary, 1800),
       expectedBehavior: sanitizeText(payload.expectedBehavior, 1200),

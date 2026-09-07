@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 concurrency:
@@ -27,17 +28,26 @@ jobs:
       - run: npm ci
       - name: Validate and stage the untrusted submission
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUBMISSION_JSON: ${{ toJSON(github.event.client_payload) }}
         run: node scripts/evidence-discovery/stage-submission.mjs
       - run: npm run data:validate -- --base HEAD
       - run: npm test
+      - name: Confirm review labels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/ensure-labels.mjs community-lead review-required
       - name: Propose the candidate for human review
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          branch: automation/community-evidence
-          title: 'Review a community evidence lead'
+          branch: automation/community-evidence-${{ github.event.client_payload.receiptId }}
+          delete-branch: true
+          title: 'Review community evidence lead ${{ github.event.client_payload.receiptId }}'
           commit-message: 'Propose a community evidence candidate'
           body-path: .submission-pr-body.md
           draft: false
           reviewers: diegolinan
+          labels: |
+            community-lead
+            review-required
           add-paths: data/evidence-discovery/candidates.jsonl

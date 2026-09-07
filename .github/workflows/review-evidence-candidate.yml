@@ -1,0 +1,79 @@
+name: Review one evidence candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_id:
+        description: 'Exact evcand identifier from the candidate PR'
+        required: true
+        type: string
+      decision:
+        description: 'Human review decision'
+        required: true
+        type: choice
+        options:
+          - NEEDS_MORE_INFORMATION
+          - REQUIRES_BEHAVIORAL_REPRODUCTION
+          - ACCEPTED_AS_SUPPORTING_SOURCE
+          - DUPLICATE
+          - REJECTED_IRRELEVANT
+          - REJECTED_UNVERIFIABLE
+      reason:
+        description: 'Evidence-based reason (20-1200 characters)'
+        required: true
+        type: string
+      supersedes_review_id:
+        description: 'Active evreview identifier when correcting an earlier decision'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: evidence-review-${{ inputs.candidate_id }}
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Record the proposed human decision
+        env:
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          REVIEW_DECISION: ${{ inputs.decision }}
+          REVIEW_REASON: ${{ inputs.reason }}
+          REVIEWER: ${{ github.actor }}
+          SUPERSEDES_REVIEW_ID: ${{ inputs.supersedes_review_id }}
+        run: npm run evidence:review
+      - run: npm run data:validate -- --base HEAD
+      - run: npm test
+      - name: Confirm review labels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/ensure-labels.mjs evidence-decision review-required
+      - name: Open the append-only decision for review
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/evidence-decision-${{ github.run_id }}
+          delete-branch: true
+          title: 'Review decision for ${{ inputs.candidate_id }}'
+          commit-message: 'Propose an evidence-candidate decision'
+          body-path: .evidence-review-pr-body.md
+          draft: false
+          reviewers: diegolinan
+          labels: |
+            evidence-decision
+            review-required
+          add-paths: data/evidence-discovery/reviews.jsonl

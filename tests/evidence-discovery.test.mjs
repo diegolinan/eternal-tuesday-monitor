@@ -8,8 +8,13 @@ import {
   dedupeCandidates,
   normalizeUrl,
 } from '../scripts/evidence-discovery/core.mjs';
+import {
+  activeCandidateReviews,
+  buildCandidateReview,
+} from '../scripts/evidence-discovery/review.mjs';
 import intakeWorker, {
   sanitizeText,
+  submissionDedupeKey,
   validateSubmission,
 } from '../worker/intake.mjs';
 
@@ -110,6 +115,66 @@ test('a firsthand report can remain a reproducible lead without inventing a sour
   assert.equal(candidate.submission_fingerprint, fingerprint);
   assert.equal(candidate.source_title, 'Firsthand temporal anchor report');
   assert.match(candidate.review_reasons.join(' '), /reproduce it/i);
+});
+
+test('candidate review decisions are append-only and have one active head', () => {
+  const candidate = {
+    id: 'evcand-1234567890abcdef12345678',
+    discovered_at: '2026-09-07T10:00:00.000Z',
+  };
+  const first = buildCandidateReview({
+    candidate,
+    decision: 'NEEDS_MORE_INFORMATION',
+    reason: 'The report lacks an exact product surface and reproducible steps.',
+    reviewer: 'diegolinan',
+    decidedAt: '2026-09-07T11:00:00.000Z',
+  });
+  const corrected = buildCandidateReview({
+    candidate,
+    decision: 'REQUIRES_BEHAVIORAL_REPRODUCTION',
+    reason:
+      'The clarified report is relevant but needs independent reproduction.',
+    reviewer: 'diegolinan',
+    decidedAt: '2026-09-07T12:00:00.000Z',
+    supersedesReviewId: first.id,
+    reviews: [first],
+  });
+  assert.deepEqual(activeCandidateReviews([first, corrected], candidate.id), [
+    corrected,
+  ]);
+  assert.throws(
+    () =>
+      buildCandidateReview({
+        candidate,
+        decision: 'ACCEPTED_AS_SUPPORTING_SOURCE',
+        reason: 'This would incorrectly fork the active review history.',
+        reviewer: 'diegolinan',
+        decidedAt: '2026-09-07T13:00:00.000Z',
+        reviews: [first, corrected],
+      }),
+    /ACTIVE_REVIEW_ALREADY_EXISTS/,
+  );
+});
+
+test('intake dedupe keys separate public URLs from firsthand content', async () => {
+  const fingerprint = 'a'.repeat(64);
+  const publicOne = await submissionDedupeKey(
+    'https://example.com/report',
+    'probe-elapsed',
+    fingerprint,
+  );
+  const publicTwo = await submissionDedupeKey(
+    'https://example.com/report',
+    'probe-elapsed',
+    'b'.repeat(64),
+  );
+  const firsthand = await submissionDedupeKey(
+    null,
+    'probe-elapsed',
+    fingerprint,
+  );
+  assert.equal(publicOne, publicTwo);
+  assert.notEqual(publicOne, firsthand);
 });
 
 test('public screening rejects UI and infrastructure keyword collisions', () => {
@@ -358,6 +423,8 @@ test('public intake requires the canonical Turnstile hostname and action', async
         return Response.json({ workflow_runs: [] });
       if (url.includes('/contents/'))
         return Response.json({ encoding: 'base64', content: btoa('') });
+      if (url.includes('/search/issues'))
+        return Response.json({ total_count: 0, items: [] });
       if (url.endsWith('/dispatches'))
         return new Response(null, { status: 204 });
       throw new Error(`Unexpected fetch: ${url}`);
@@ -374,7 +441,7 @@ test('public intake requires the canonical Turnstile hostname and action', async
       env,
     );
     assert.equal(accepted.status, 202);
-    assert.equal(calls.length, 4);
+    assert.equal(calls.length, 5);
     const acceptedBody = await accepted.json();
     assert.match(acceptedBody.receiptId, /^ETM-LEAD-/);
 

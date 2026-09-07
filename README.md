@@ -119,7 +119,7 @@ data/catalog/                   Vendors, products, surfaces, models, probes and 
 data/methodologies/             Versioned admission and review methods
 data/sources/                   Versioned source records, including archived launch provenance
 data/evidence/                  Evidence records connecting claims to sources
-data/evidence-discovery/        Append-only candidate and batch-decision ledgers; never accepted evidence by themselves
+data/evidence-discovery/        Append-only candidate, batch-retraction and per-candidate review ledgers; never accepted evidence by themselves
 data/observations/              Append-only observation ledger (JSON Lines)
 data/state-events/              Append-only operational state-event ledger
 data/releases/                  Dated release manifests and cutoffs
@@ -231,7 +231,9 @@ The public `/contribute/` form follows the same boundary. It uses a deterministi
 
 A small Cloudflare Worker validates and size-limits the payload, normalizes public HTTPS source URLs, removes tracking parameters and unsafe Unicode controls, requires a single-use Turnstile token for the canonical hostname and form action, and checks duplicate candidates before dispatch. Abuse controls combine a per-visitor rate limit, a global rate limit, explicit hourly/daily downstream budgets, and an `INTAKE_OPEN` kill switch. Budget and deduplication checks fail closed: when their state cannot be established, no submission is dispatched. Operational logs contain only anonymous outcomes, reason classes, and accepted receipt IDs; they never contain source text or network addresses.
 
-Accepted submissions enter the internal state `NEEDS_REVIEW`. The generated review proposal includes an explicit checklist for source accessibility, date, exact identity, evidence scope, disclosure, duplication, and methodology. No public submission can auto-merge, auto-promote evidence, infer a product surface, or create a PASS or FAIL. No email address, account, file upload, or automatic URL fetch is requested; optional name and affiliation are retained only after explicit consent.
+Accepted submissions enter the internal state `NEEDS_REVIEW`. Each receipt opens its own disposable review branch and pull request, with an explicit checklist for source accessibility, date, exact identity, evidence scope, disclosure, duplication, and methodology. The contributor first chooses whether the lead is a public source or a firsthand observation: a source URL is required only for the former and is optional for the latter. No public submission can auto-merge, auto-promote evidence, infer a product surface, or create a PASS or FAIL. No email address, account, file upload, or automatic URL fetch is requested; optional name and affiliation are retained only after explicit consent.
+
+Per-candidate outcomes are appended to `data/evidence-discovery/reviews.jsonl`; corrections supersede a prior review without editing it. Accepting a candidate as a supporting source still does not make it canonical evidence. A separate manual workflow can propose that source for an existing evidence record, while behavioral claims route to the separate controlled-probe workflow. Both paths open reviewable pull requests and neither auto-merges.
 
 The Worker requires `TURNSTILE_SECRET_KEY` and `GITHUB_REPOSITORY_TOKEN` secrets. Its non-secret controls are `INTAKE_OPEN`, `INTAKE_HOURLY_BUDGET`, and `INTAKE_DAILY_BUDGET`. The static site requires `NEXT_PUBLIC_CONTRIBUTION_ENDPOINT` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` during its build. Until those values are configured, or whenever the intake status cannot be confirmed, the form is visibly read-only rather than accepting insecure submissions.
 

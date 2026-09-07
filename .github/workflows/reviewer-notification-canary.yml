@@ -1,0 +1,45 @@
+name: Check reviewer email notification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Create a harmless notification receipt
+        shell: bash
+        run: |
+          mkdir -p .notification-canary
+          printf 'Reviewer notification canary. Run: %s\n' "${GITHUB_RUN_ID}" > .notification-canary/receipt.txt
+      - name: Confirm review labels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/ensure-labels.mjs notification-canary review-required
+      - name: Request review
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/reviewer-notification-${{ github.run_id }}
+          delete-branch: true
+          title: 'Canary: confirm reviewer notification delivery'
+          commit-message: 'Create reviewer notification canary'
+          body: |
+            This harmless pull request verifies that the repository can request review from `diegolinan` and that the account's notification settings deliver the expected email.
+
+            Do not merge it. Confirm the email, then close the pull request; its branch is deleted automatically.
+          draft: false
+          reviewers: diegolinan
+          labels: |
+            notification-canary
+            review-required
+          add-paths: .notification-canary/receipt.txt

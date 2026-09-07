@@ -92,6 +92,11 @@ if (
   !/^[a-f0-9]{64}$/.test(payload.submissionFingerprint)
 )
   throw new Error('INVALID_SUBMISSION_FINGERPRINT');
+if (
+  typeof payload.submissionDedupeKey !== 'string' ||
+  !/^[a-f0-9]{64}$/.test(payload.submissionDedupeKey)
+)
+  throw new Error('INVALID_SUBMISSION_DEDUPE_KEY');
 
 const [vendors, models, products, surfaces] = await Promise.all([
   readJson('data/catalog/vendors.json'),
@@ -183,14 +188,47 @@ const additions = dedupeCandidates(
   [candidate],
   new Set(existing.map((item) => item.id)),
 );
-if (additions.length)
+let alreadyOpen = false;
+if (
+  additions.length &&
+  process.env.GITHUB_TOKEN &&
+  process.env.GITHUB_REPOSITORY
+) {
+  const url = new URL(
+    `https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls`,
+  );
+  url.searchParams.set('state', 'open');
+  url.searchParams.set('sort', 'created');
+  url.searchParams.set('direction', 'desc');
+  url.searchParams.set('per_page', '100');
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      Accept: 'application/vnd.github+json',
+      'User-Agent': 'eternal-tuesday-intake-stage',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!response.ok) throw new Error('OPEN_REVIEW_CHECK_UNAVAILABLE');
+  const body = await response.json();
+  if (!Array.isArray(body)) throw new Error('OPEN_REVIEW_CHECK_UNAVAILABLE');
+  const marker = `etm-intake-dedupe:${payload.submissionDedupeKey}`;
+  alreadyOpen = body.some((pullRequest) =>
+    String(pullRequest.body ?? '').includes(marker),
+  );
+}
+if (additions.length && !alreadyOpen)
   await writeFile(
     ledgerPath,
     `${[...existing, ...additions].map((item) => JSON.stringify(item)).join('\n')}\n`,
   );
 
-const checklist = additions.length
-  ? `## Community evidence lead
+const checklist =
+  additions.length && !alreadyOpen
+    ? `## Community evidence lead
+
+<!-- etm-intake-dedupe:${payload.submissionDedupeKey} -->
 
 - **Receipt:** \`${markdown(payload.receiptId)}\`
 - **Intake state:** **NEEDS REVIEW**
@@ -216,11 +254,15 @@ This is an unverified lead. It cannot create a PASS, FAIL, product association o
 - [ ] The candidate states what the source shows and what it does **not** prove.
 - [ ] Any promotion uses the normal evidence methodology; this lead alone does not establish behavioral evidence.
 `
-  : `## Duplicate community evidence lead
+    : `## Duplicate community evidence lead
+
+<!-- etm-intake-dedupe:${payload.submissionDedupeKey} -->
 
 **Receipt:** \`${markdown(payload.receiptId)}\`
 
 The normalized source and screening-policy identity are already present in the candidate ledger. No duplicate record was added.
 `;
 await writeFile(path.join(root, '.submission-pr-body.md'), checklist);
-console.log(`Staged ${additions.length} public evidence candidate.`);
+console.log(
+  `Staged ${additions.length && !alreadyOpen ? 1 : 0} public evidence candidate.`,
+);

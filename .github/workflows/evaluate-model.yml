@@ -27,6 +27,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 concurrency:
@@ -80,15 +81,23 @@ jobs:
           npm run lint
           npm run build:pages
           npm run static:validate
+      - name: Confirm review labels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/ensure-labels.mjs model-evaluation review-required
       - name: Create reviewable evidence pull request
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          branch: automation/model-evaluation
+          branch: automation/model-evaluation-${{ github.run_id }}
+          delete-branch: true
           title: 'Review five-probe API evaluation: ${{ inputs.api_model_id }}'
           commit-message: 'Propose reviewed provider API probe evidence'
           body-path: .evaluation/latest-summary.md
           draft: false
           reviewers: diegolinan
+          labels: |
+            model-evaluation
+            review-required
           add-paths: |
             data/model-evaluation/results.jsonl
             data/changelog/events.jsonl

@@ -128,10 +128,11 @@ test('the public evidence watch separates search, candidates and verdicts', asyn
   assert.match(form, /I don’t know the exact model/);
   assert.match(form, /Review your lead/);
   assert.match(form, /Internal receipt/);
-  assert.match(
-    form,
-    /A firsthand\s+observation may be sent without one/,
-  );
+  assert.match(form, /A firsthand\s+observation may be sent without one/);
+  assert.match(form, /useState<SubmissionType>\(''\)/);
+  assert.match(form, /Choose the kind of lead/);
+  assert.match(form, /\{submissionType && \(/);
+  assert.doesNotMatch(form, /useState(?:<SubmissionType>)?\('FOUND_SOURCE'\)/);
   assert.match(form, /REQUIRED/);
   assert.match(form, /OPTIONAL/);
   assert.doesNotMatch(form, /github|repository_dispatch|pull request/i);

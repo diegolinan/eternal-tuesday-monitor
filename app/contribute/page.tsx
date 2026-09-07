@@ -21,6 +21,7 @@ declare global {
 type Phase = 'editing' | 'reviewing' | 'sending' | 'sent' | 'error';
 type DeskState = 'checking' | 'open' | 'closed' | 'unavailable';
 type Submission = Record<string, string | boolean | null>;
+type SubmissionType = '' | 'FOUND_SOURCE' | 'FIRSTHAND_OBSERVATION';
 
 const endpoint = process.env.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT ?? '';
 const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
@@ -102,7 +103,7 @@ export default function ContributePage() {
     endpoint && siteKey ? 'checking' : 'unavailable',
   );
   const [phase, setPhase] = useState<Phase>('editing');
-  const [submissionType, setSubmissionType] = useState('FOUND_SOURCE');
+  const [submissionType, setSubmissionType] = useState<SubmissionType>('');
   const [vendorChoice, setVendorChoice] = useState('');
   const [modelChoice, setModelChoice] = useState('');
   const [modelSearch, setModelSearch] = useState('');
@@ -182,6 +183,7 @@ export default function ContributePage() {
   }, [phase, scriptReady]);
 
   function buildSubmission(form: HTMLFormElement): Submission | null {
+    if (!submissionType) return null;
     const data = new FormData(form);
     const vendorMode = vendorChoice === otherVendor ? 'OTHER' : 'CATALOG';
     const vendor =
@@ -238,7 +240,9 @@ export default function ContributePage() {
     if (desk !== 'open') return;
     const next = buildSubmission(event.currentTarget);
     if (!next) {
-      setMessage('Choose a vendor and model option before continuing.');
+      setMessage(
+        'Choose what you are sending, a vendor and a model option before continuing.',
+      );
       return;
     }
     setPreview(next);
@@ -297,7 +301,7 @@ export default function ContributePage() {
       window.turnstile.remove(widgetId.current);
       widgetId.current = undefined;
     }
-    setSubmissionType('FOUND_SOURCE');
+    setSubmissionType('');
     setVendorChoice('');
     setModelChoice('');
     setModelSearch('');
@@ -365,8 +369,11 @@ export default function ContributePage() {
                   name="submissionType"
                   required
                   value={submissionType}
-                  onChange={(event) => setSubmissionType(event.target.value)}
+                  onChange={(event) =>
+                    setSubmissionType(event.target.value as SubmissionType)
+                  }
                 >
+                  <option value="">Choose the kind of lead…</option>
                   <option value="FOUND_SOURCE">A public source I found</option>
                   <option value="FIRSTHAND_OBSERVATION">
                     A firsthand observation
@@ -492,30 +499,35 @@ export default function ContributePage() {
                 </select>
               </label>
               <div className="form-pair">
-                <label>
-                  Public source URL{' '}
-                  <FieldMark
-                    optional={submissionType === 'FIRSTHAND_OBSERVATION'}
-                  />
-                  <input
-                    name="sourceUrl"
-                    type="url"
-                    required={submissionType === 'FOUND_SOURCE'}
-                    maxLength={2048}
-                    pattern="https://.*"
-                    placeholder={
-                      submissionType === 'FIRSTHAND_OBSERVATION'
-                        ? 'Optional for firsthand reports'
-                        : 'https://…'
-                    }
-                  />
-                  {submissionType === 'FIRSTHAND_OBSERVATION' && (
-                    <small>
-                      Without a public source, this remains a firsthand lead
-                      until someone independently reproduces it.
-                    </small>
-                  )}
-                </label>
+                {submissionType && (
+                  <label>
+                    Public source URL{' '}
+                    <FieldMark
+                      optional={submissionType === 'FIRSTHAND_OBSERVATION'}
+                    />
+                    <input
+                      name="sourceUrl"
+                      type="url"
+                      required={submissionType === 'FOUND_SOURCE'}
+                      maxLength={2048}
+                      pattern="https://.*"
+                      placeholder={
+                        submissionType === 'FIRSTHAND_OBSERVATION'
+                          ? 'Optional for firsthand reports'
+                          : 'https://…'
+                      }
+                    />
+                    {submissionType === 'FIRSTHAND_OBSERVATION' && (
+                      <small>
+                        Without a public source, this remains a firsthand lead
+                        until someone independently reproduces it.
+                      </small>
+                    )}
+                  </label>
+                )}
+                {!submissionType && (
+                  <input type="hidden" name="sourceUrl" value="" />
+                )}
                 <label>
                   Date observed or published <FieldMark />
                   <input

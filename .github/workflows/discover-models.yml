@@ -109,15 +109,23 @@ jobs:
           cat .discovery/automatic-summary.md >> "$GITHUB_STEP_SUMMARY"
           printf '\n' >> "$GITHUB_STEP_SUMMARY"
           cat .discovery/review-summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Confirm review labels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/ensure-labels.mjs model-discovery evidence-candidate review-required
       - name: Propose ambiguous or interpretive changes for review
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          branch: automation/model-discovery
+          branch: automation/model-discovery-${{ github.run_id }}
+          delete-branch: true
           title: 'Review official model discovery candidates'
           commit-message: 'Propose review-required official model metadata'
           body-path: .discovery/pr-body.md
           draft: false
           reviewers: diegolinan
+          labels: |
+            model-discovery
+            review-required
           add-paths: |
             data/catalog/models.json
             data/model-discovery/events.jsonl
@@ -133,12 +141,16 @@ jobs:
       - name: Propose evidence candidates for review
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          branch: automation/evidence-candidates-v1-4
+          branch: automation/evidence-candidates-${{ github.run_id }}
+          delete-branch: true
           title: 'Review public evidence candidates'
           commit-message: 'Propose public evidence candidates'
           body-path: .evidence-discovery/pr-body.md
           draft: false
           reviewers: diegolinan
+          labels: |
+            evidence-candidate
+            review-required
           add-paths: data/evidence-discovery/candidates.jsonl
       - name: Report discovery workflow failure
         if: failure()

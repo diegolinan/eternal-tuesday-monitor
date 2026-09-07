@@ -1,0 +1,110 @@
+name: Promote an accepted supporting source
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_id:
+        description: 'Accepted evcand identifier'
+        required: true
+        type: string
+      review_id:
+        description: 'Active ACCEPTED_AS_SUPPORTING_SOURCE evreview identifier'
+        required: true
+        type: string
+      evidence_id:
+        description: 'Existing evidence record this source supports'
+        required: true
+        type: string
+      source_id:
+        description: 'New canonical source ID (lowercase words separated by hyphens)'
+        required: true
+        type: string
+      source_publisher:
+        description: 'Publisher or accountable organization'
+        required: true
+        type: string
+      source_type:
+        description: 'Evidence provenance class'
+        required: true
+        type: choice
+        options:
+          - official_documentation
+          - vendor_evaluation
+          - staff_confirmation
+          - user_issue_report
+          - practitioner_report
+          - peer_reviewed_paper
+          - other_public_source
+      verified_on:
+        description: 'Date the reviewer opened and verified the source (YYYY-MM-DD)'
+        required: true
+        type: string
+      source_notes:
+        description: 'What was verified and the important scope limits (20-1200 characters)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: supporting-source-${{ inputs.candidate_id }}
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Stage the accepted supporting source
+        env:
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          REVIEW_ID: ${{ inputs.review_id }}
+          EVIDENCE_ID: ${{ inputs.evidence_id }}
+          SOURCE_ID: ${{ inputs.source_id }}
+          SOURCE_PUBLISHER: ${{ inputs.source_publisher }}
+          SOURCE_TYPE: ${{ inputs.source_type }}
+          VERIFIED_ON: ${{ inputs.verified_on }}
+          SOURCE_NOTES: ${{ inputs.source_notes }}
+        run: npm run evidence:promote-source
+      - name: Validate and build the exact proposal
+        run: |
+          npm run data:validate -- --base HEAD
+          npm run data:compile
+          npm test
+          npm run lint
+          npm run build:pages
+          npm run static:validate
+      - name: Confirm review labels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/ensure-labels.mjs supporting-source review-required
+      - name: Open the source promotion for review
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          branch: automation/supporting-source-${{ github.run_id }}
+          delete-branch: true
+          title: 'Review supporting source ${{ inputs.source_id }}'
+          commit-message: 'Propose an accepted supporting source'
+          body-path: .evidence-promotion-pr-body.md
+          draft: false
+          reviewers: diegolinan
+          labels: |
+            supporting-source
+            review-required
+          add-paths: |
+            data/sources/sources.json
+            data/evidence/evidence.json
+            data/changelog/events.jsonl
+            public/data/monitor.json
+            public/data/changelog.json
