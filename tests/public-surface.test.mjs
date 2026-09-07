@@ -116,6 +116,10 @@ test('the public evidence watch separates search, candidates and verdicts', asyn
   assert.match(watch, /A match becomes a review candidate/);
   assert.match(watch, /not a PASS, FAIL/);
   assert.match(watch, /browser&apos;s local time/);
+  assert.doesNotMatch(
+    watch,
+    /dateStyle:[\s\S]*timeZoneName:|timeZoneName:[\s\S]*dateStyle:/,
+  );
   assert.doesNotMatch(watch, /workflow|repository_dispatch|github/i);
   assert.match(form, /Every submission enters a review queue/);
   assert.match(form, /cannot directly change\s+the Monitor/);

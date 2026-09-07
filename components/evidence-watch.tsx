@@ -46,8 +46,11 @@ const label = (value: string) => value.replaceAll('_', ' ');
 const moment = (value: string | null) =>
   value
     ? new Intl.DateTimeFormat(undefined, {
-        dateStyle: 'medium',
-        timeStyle: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
         timeZoneName: 'short',
       }).format(new Date(value))
     : 'No completed search yet';
