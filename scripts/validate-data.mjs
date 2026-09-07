@@ -199,9 +199,11 @@ const [
   evidenceCandidateDecisionSchema,
   evidenceWatchSchema,
   publicSubmissionSchema,
+  modelOptionsSchema,
   evidenceCandidateLedger,
   evidenceCandidateDecisionLedger,
   evidenceWatch,
+  modelOptions,
 ] = await Promise.all([
   readJson('config/evidence-discovery.json'),
   readJson('schemas/evidence-discovery-config.schema.json'),
@@ -209,9 +211,11 @@ const [
   readJson('schemas/evidence-candidate-decision.schema.json'),
   readJson('schemas/evidence-watch.schema.json'),
   readJson('schemas/public-submission.schema.json'),
+  readJson('schemas/model-options.schema.json'),
   readOptionalJsonLines(evidenceCandidatePath),
   readOptionalJsonLines(evidenceCandidateDecisionPath),
   readJson('public/data/evidence-watch.json'),
+  readJson('public/data/model-options.json'),
 ]);
 
 const observations = observationLedger.items;
@@ -300,6 +304,7 @@ validateWithSchema(
 validateWithSchema('public evidence watch', evidenceWatchSchema, [
   evidenceWatch,
 ]);
+validateWithSchema('public model picker', modelOptionsSchema, [modelOptions]);
 
 const publicModelIds = new Set(monitorView.models.map((model) => model.id));
 const operationalModelIds = new Set(
@@ -365,6 +370,24 @@ const modelsById = new Map(modelsFile.models.map((item) => [item.id, item]));
 const evidenceById = new Map(
   evidenceFile.evidence_records.map((item) => [item.id, item]),
 );
+
+for (const vendor of modelOptions.vendors) {
+  const canonicalVendor = vendorsFile.vendors.find(
+    (item) => item.id === vendor.id,
+  );
+  if (!canonicalVendor || canonicalVendor.name !== vendor.name)
+    fail(`public model picker: unknown or renamed vendor ${vendor.id}`);
+  for (const model of vendor.models) {
+    const canonicalModel = modelsById.get(model.id);
+    if (
+      !canonicalModel ||
+      canonicalModel.vendor_id !== vendor.id ||
+      canonicalModel.name !== model.name ||
+      (canonicalModel.api_model_id ?? null) !== model.apiModelId
+    )
+      fail(`public model picker: stale or invalid model ${model.id}`);
+  }
+}
 
 for (const candidate of evidenceCandidates) {
   for (const id of candidate.vendor_ids)

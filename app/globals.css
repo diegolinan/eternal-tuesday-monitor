@@ -566,6 +566,53 @@ h1 {
   padding: 1rem;
   border: 2px solid var(--ink);
 }
+.contribution-form .form-fields {
+  display: grid;
+  gap: 1.15rem;
+  padding: 0;
+  border: 0;
+}
+.field-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+}
+.field-mark {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.18rem 0.4rem;
+  border: 1px solid currentColor;
+  background: var(--mustard);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.56rem;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  transform: rotate(-1deg);
+}
+.field-mark.optional {
+  background: transparent;
+  color: #5e5a4f;
+}
+.model-picker,
+.firsthand-fields {
+  display: grid;
+  gap: 0.8rem;
+}
+.model-picker {
+  padding: 1rem;
+  border: 2px dashed var(--ink);
+  background: rgb(255 255 255 / 24%);
+}
+.model-picker small {
+  line-height: 1.45;
+}
+.contribution-form :disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
 .form-pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -596,6 +643,81 @@ h1 {
 .turnstile-slot {
   min-height: 70px;
 }
+.submission-preview,
+.submission-receipt {
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 4px solid var(--ink);
+  box-shadow: 9px 9px 0 var(--mustard);
+  background: var(--paper-light);
+}
+.submission-preview h2,
+.submission-receipt h2 {
+  margin: 0.25rem 0 1rem;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+}
+.submission-preview dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+}
+.submission-preview dl > div {
+  min-width: 0;
+  padding: 0.85rem;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.submission-preview dt {
+  margin-bottom: 0.25rem;
+  color: var(--signal);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.submission-preview dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+.secondary-button {
+  padding: 0.75rem 1.2rem;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper-light);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.receipt-code {
+  display: grid;
+  gap: 0.35rem;
+  width: fit-content;
+  padding: 1rem 1.25rem;
+  border: 2px dashed var(--ink);
+  background: var(--mustard);
+}
+.receipt-code span {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+.receipt-code strong {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: 0.06em;
+}
+.form-error {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 3px solid var(--signal);
+  background: #f5c09f;
+  font-weight: 800;
+}
 .contribution-rules {
   align-self: start;
   padding: 1.4rem;
@@ -624,7 +746,8 @@ h1 {
 }
 @media (max-width: 560px) {
   .evidence-watch-channels,
-  .form-pair {
+  .form-pair,
+  .submission-preview dl {
     grid-template-columns: 1fr;
   }
   .evidence-watch-channels article {

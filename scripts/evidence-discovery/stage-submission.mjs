@@ -4,12 +4,36 @@ import path from 'node:path';
 import { buildCandidate, dedupeCandidates } from './core.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
+const bidiAndZeroWidth = /[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/gu;
+const clean = (value, max = 2000) =>
+  String(value ?? '')
+    .normalize('NFC')
+    .replace(bidiAndZeroWidth, '')
+    .replace(/\p{Cc}/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, max);
+const markdown = (value) =>
+  clean(value).replace(/([\\`*_{}[\]()<>#+.!|~-])/g, '\\$1');
+const readJson = async (file) =>
+  JSON.parse(await readFile(path.join(root, file), 'utf8'));
+
 const payload = JSON.parse(process.env.SUBMISSION_JSON ?? 'null');
 if (!payload || typeof payload !== 'object' || Array.isArray(payload))
   throw new Error('INVALID_SUBMISSION');
-const required = [
+if (JSON.stringify(payload).length > 14000)
+  throw new Error('SUBMISSION_TOO_LARGE');
+
+const requiredStrings = [
+  'formSchemaVersion',
+  'requestId',
+  'receiptId',
+  'intakeState',
+  'catalogSchemaVersion',
   'submissionType',
+  'vendorMode',
   'vendor',
+  'modelMode',
   'model',
   'productSurface',
   'probeId',
@@ -19,9 +43,19 @@ const required = [
   'relationship',
   'receivedAt',
 ];
-for (const field of required)
-  if (typeof payload[field] !== 'string' || !payload[field].trim())
+for (const field of requiredStrings)
+  if (typeof payload[field] !== 'string' || !clean(payload[field]))
     throw new Error(`INVALID_${field.toUpperCase()}`);
+if (payload.formSchemaVersion !== '2.0.0')
+  throw new Error('INVALID_FORM_VERSION');
+if (payload.intakeState !== 'NEEDS_REVIEW')
+  throw new Error('INVALID_INTAKE_STATE');
+if (
+  !/^ETM-LEAD-[23456789ABCDEFGHJKLMNPQRSTUVWXYZ]{10}$/.test(payload.receiptId)
+)
+  throw new Error('INVALID_RECEIPT');
+if (!/^[0-9a-f-]{36}$/i.test(payload.requestId))
+  throw new Error('INVALID_REQUEST_ID');
 if (!['FOUND_SOURCE', 'FIRSTHAND_OBSERVATION'].includes(payload.submissionType))
   throw new Error('INVALID_SUBMISSION_TYPE');
 if (
@@ -36,35 +70,63 @@ if (!/^\d{4}-\d{2}-\d{2}$/.test(payload.observedOn))
   throw new Error('INVALID_DATE');
 if (Number.isNaN(new Date(payload.receivedAt).valueOf()))
   throw new Error('INVALID_RECEIVED_AT');
-if (payload.summary.length < 30 || payload.summary.length > 1800)
+if (
+  clean(payload.summary, 1801).length < 30 ||
+  clean(payload.summary, 1801).length > 1800
+)
   throw new Error('INVALID_SUMMARY');
-for (const [field, max] of [
-  ['vendor', 80],
-  ['model', 120],
-  ['productSurface', 160],
-])
-  if (payload[field].length > max || /[\r\n]/.test(payload[field]))
-    throw new Error(`INVALID_${field.toUpperCase()}`);
-if (JSON.stringify(payload).length > 10000)
-  throw new Error('SUBMISSION_TOO_LARGE');
+if (payload.submissionType === 'FIRSTHAND_OBSERVATION') {
+  if (clean(payload.expectedBehavior, 1201).length < 15)
+    throw new Error('INVALID_EXPECTED_BEHAVIOR');
+  if (clean(payload.actualBehavior, 1201).length < 15)
+    throw new Error('INVALID_ACTUAL_BEHAVIOR');
+  if (clean(payload.reproductionSteps, 1801).length < 20)
+    throw new Error('INVALID_REPRODUCTION_STEPS');
+}
 
-const readJson = async (file) =>
-  JSON.parse(await readFile(path.join(root, file), 'utf8'));
 const [vendors, models, products, surfaces] = await Promise.all([
   readJson('data/catalog/vendors.json'),
   readJson('data/catalog/models.json'),
   readJson('data/catalog/products.json'),
   readJson('data/catalog/surfaces.json'),
 ]);
+if (payload.catalogSchemaVersion !== models.schema_version)
+  throw new Error('STALE_CATALOG_VERSION');
+
+let vendorIds = [];
+if (payload.vendorMode === 'CATALOG') {
+  const vendor = vendors.vendors.find((item) => item.id === payload.vendorId);
+  if (!vendor || vendor.name !== payload.vendor)
+    throw new Error('INVALID_VENDOR_IDENTITY');
+  vendorIds = [vendor.id];
+} else if (payload.vendorMode === 'OTHER') {
+  if (payload.vendorId !== '') throw new Error('INVALID_VENDOR_IDENTITY');
+} else {
+  throw new Error('INVALID_VENDOR_MODE');
+}
+
+let modelIds = [];
+if (payload.modelMode === 'CATALOG') {
+  const model = models.models.find((item) => item.id === payload.modelId);
+  if (
+    !model ||
+    model.name !== payload.model ||
+    model.vendor_id !== payload.vendorId
+  )
+    throw new Error('INVALID_MODEL_IDENTITY');
+  modelIds = [model.id];
+} else if (payload.modelMode === 'OTHER') {
+  if (payload.modelId !== '') throw new Error('INVALID_MODEL_IDENTITY');
+} else if (payload.modelMode === 'NOT_SPECIFIED') {
+  if (payload.modelId !== '' || payload.model !== 'Exact model not known')
+    throw new Error('INVALID_MODEL_IDENTITY');
+} else {
+  throw new Error('INVALID_MODEL_MODE');
+}
+
 const corpus =
   `${payload.vendor} ${payload.model} ${payload.productSurface}`.toLowerCase();
 const includes = (value) => corpus.includes(String(value).toLowerCase());
-const vendorIds = vendors.vendors
-  .filter((item) => includes(item.name))
-  .map((item) => item.id);
-const modelIds = models.models
-  .filter((item) => includes(item.api_model_id ?? item.name))
-  .map((item) => item.id);
 const productIds = products.products
   .filter((item) => includes(item.name))
   .map((item) => item.id);
@@ -72,11 +134,19 @@ const surfaceIds = surfaces.surfaces
   .filter((item) => includes(item.name))
   .map((item) => item.id);
 const probeIds = payload.probeId === 'UNSURE' ? [] : [payload.probeId];
+const excerpt = [
+  clean(payload.summary, 1800),
+  clean(payload.expectedBehavior, 1200),
+  clean(payload.actualBehavior, 1200),
+  clean(payload.reproductionSteps, 1800),
+]
+  .filter(Boolean)
+  .join(' ');
 const candidate = buildCandidate({
   sourceType: 'PUBLIC_SUBMISSION',
   sourceUrl: payload.sourceUrl,
-  title: `Community lead: ${payload.vendor} / ${payload.model}`,
-  excerpt: `${payload.summary} ${payload.expectedBehavior ?? ''} ${payload.actualBehavior ?? ''}`,
+  title: `Community lead: ${clean(payload.vendor, 80)} / ${clean(payload.model, 120)}`,
+  excerpt,
   publishedOn: payload.observedOn,
   discoveredAt: payload.receivedAt,
   probeIds,
@@ -88,11 +158,13 @@ const candidate = buildCandidate({
   allowUnclassified: true,
   publicAttribution: payload.attributionConsent
     ? {
-        name: payload.publicName || null,
-        affiliation: payload.affiliation || null,
+        name: clean(payload.publicName, 100) || null,
+        affiliation: clean(payload.affiliation, 120) || null,
       }
     : null,
 });
+if (!candidate) throw new Error('CANDIDATE_NOT_CREATED');
+
 const ledgerPath = path.join(root, 'data/evidence-discovery/candidates.jsonl');
 const raw = await readFile(ledgerPath, 'utf8');
 const existing = raw.split(/\r?\n/).filter(Boolean).map(JSON.parse);
@@ -103,11 +175,40 @@ const additions = dedupeCandidates(
 if (additions.length)
   await writeFile(
     ledgerPath,
-    [...existing, ...additions].map((item) => JSON.stringify(item)).join('\n') +
-      '\n',
+    `${[...existing, ...additions].map((item) => JSON.stringify(item)).join('\n')}\n`,
   );
-const summary = additions.length
-  ? `## Community evidence lead\n\nA public submission produced one review candidate. It is a lead only and cannot create a PASS, FAIL, product association, or accepted observation.\n\n- Source: ${candidate.source_url}\n- Suggested probe: ${candidate.probe_ids.length ? candidate.probe_ids.join(', ') : 'not established'}\n- Relationship disclosed: ${payload.relationship}\n- Public attribution consent: ${payload.attributionConsent ? 'yes' : 'no'}\n\nVerify the source, exact model, surface, date and evidence class before promotion.\n`
-  : 'This submitted source is already present in the candidate ledger.\n';
-await writeFile(path.join(root, '.submission-pr-body.md'), summary);
+
+const checklist = additions.length
+  ? `## Community evidence lead
+
+- **Receipt:** \`${markdown(payload.receiptId)}\`
+- **Intake state:** **NEEDS REVIEW**
+- **Source:** ${candidate.source_url}
+- **Submitted as:** ${markdown(payload.submissionType)}
+- **Vendor:** ${markdown(payload.vendor)} (${markdown(payload.vendorMode)})
+- **Model:** ${markdown(payload.model)} (${markdown(payload.modelMode)})
+- **Suggested Monitor question:** ${candidate.probe_ids.length ? candidate.probe_ids.map(markdown).join(', ') : 'not established'}
+- **Relationship disclosed:** ${markdown(payload.relationship)}
+- **Public attribution consent:** ${payload.attributionConsent ? 'yes' : 'no'}
+
+This is an unverified lead. It cannot create a PASS, FAIL, product association or accepted observation.
+
+### Reviewer checklist
+
+- [ ] The source is public, accessible and actually supports the submitted summary.
+- [ ] The date is supported by the source or observation record.
+- [ ] Vendor, exact model and product surface are verified; unknowns remain explicit.
+- [ ] The suggested Monitor question fits the claim.
+- [ ] The source class and relationship disclosure are accurate.
+- [ ] The lead is not already represented by an accepted or pending record.
+- [ ] The candidate states what the source shows and what it does **not** prove.
+- [ ] Any promotion uses the normal evidence methodology; this lead alone does not establish behavioral evidence.
+`
+  : `## Duplicate community evidence lead
+
+**Receipt:** \`${markdown(payload.receiptId)}\`
+
+The normalized source and screening-policy identity are already present in the candidate ledger. No duplicate record was added.
+`;
+await writeFile(path.join(root, '.submission-pr-body.md'), checklist);
 console.log(`Staged ${additions.length} public evidence candidate.`);

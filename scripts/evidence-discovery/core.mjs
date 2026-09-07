@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { normalizePublicSourceUrl } from '../../lib/public-source-url.mjs';
 
 const probeLexicon = {
   'probe-temporal-anchor': [
@@ -187,16 +188,11 @@ const hasBehavioralActor = (value) => {
 };
 
 export function normalizeUrl(value) {
-  const url = new URL(value);
-  if (url.protocol !== 'https:' || url.username || url.password)
+  try {
+    return normalizePublicSourceUrl(value);
+  } catch {
     throw new Error('UNSAFE_SOURCE_URL');
-  url.hash = '';
-  for (const key of Array.from(url.searchParams.keys()))
-    if (/^(?:utm_|fbclid|gclid|ref$|source$)/i.test(key))
-      url.searchParams.delete(key);
-  url.hostname = url.hostname.toLowerCase();
-  if (url.pathname !== '/') url.pathname = url.pathname.replace(/\/+$/, '');
-  return url.href;
+  }
 }
 
 const clean = (value, max = 480) =>
@@ -246,8 +242,8 @@ export function buildCandidate(input) {
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
   const directClassification = classifyText(corpus);
   const hasStrongProbeMatch = directClassification.matchingTerms.length > 0;
-  const contextualOnlyMatch = !directClassification.matchingTerms.some(
-    (term) => decisiveProbeTerms.has(term),
+  const contextualOnlyMatch = !directClassification.matchingTerms.some((term) =>
+    decisiveProbeTerms.has(term),
   );
   if (!hasStrongProbeMatch && !input.allowUnclassified) return null;
   if (

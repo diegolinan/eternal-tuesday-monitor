@@ -121,9 +121,16 @@ test('the public evidence watch separates search, candidates and verdicts', asyn
     /dateStyle:[\s\S]*timeZoneName:|timeZoneName:[\s\S]*dateStyle:/,
   );
   assert.doesNotMatch(watch, /workflow|repository_dispatch|github/i);
-  assert.match(form, /Every submission enters a review queue/);
-  assert.match(form, /cannot directly change\s+the Monitor/);
+  assert.match(form, /Every submission is checked by a person/);
+  assert.match(form, /cannot directly\s+change the Monitor/);
   assert.match(form, /No email address is requested/);
+  assert.match(form, /Other \/ not listed/);
+  assert.match(form, /I don’t know the exact model/);
+  assert.match(form, /Review your lead/);
+  assert.match(form, /Keep this receipt/);
+  assert.match(form, /REQUIRED/);
+  assert.match(form, /OPTIONAL/);
+  assert.doesNotMatch(form, /github|repository_dispatch|pull request/i);
 });
 
 test('the public copy explains dates and status vocabularies', async () => {

@@ -3,22 +3,48 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "formSchemaVersion",
+    "requestId",
+    "catalogSchemaVersion",
+    "catalogCheckedThrough",
     "submissionType",
+    "vendorMode",
+    "vendorId",
     "vendor",
+    "modelMode",
+    "modelId",
     "model",
     "productSurface",
     "probeId",
     "sourceUrl",
     "observedOn",
     "summary",
+    "expectedBehavior",
+    "actualBehavior",
+    "reproductionSteps",
     "relationship",
+    "comments",
+    "publicName",
+    "affiliation",
     "attributionConsent",
     "website",
     "turnstileToken"
   ],
   "properties": {
+    "formSchemaVersion": { "const": "2.0.0", "type": "string" },
+    "requestId": { "type": "string", "format": "uuid" },
+    "catalogSchemaVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "catalogCheckedThrough": { "type": ["string", "null"], "format": "date" },
     "submissionType": { "enum": ["FOUND_SOURCE", "FIRSTHAND_OBSERVATION"] },
+    "vendorMode": { "enum": ["CATALOG", "OTHER"] },
+    "vendorId": { "type": "string", "maxLength": 120 },
     "vendor": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "modelMode": { "enum": ["CATALOG", "OTHER", "NOT_SPECIFIED"] },
+    "modelId": { "type": "string", "maxLength": 160 },
     "model": { "type": "string", "minLength": 1, "maxLength": 120 },
     "productSurface": { "type": "string", "minLength": 1, "maxLength": 160 },
     "probeId": {
@@ -31,11 +57,17 @@
         "UNSURE"
       ]
     },
-    "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 2048
+    },
     "observedOn": { "type": "string", "format": "date" },
     "summary": { "type": "string", "minLength": 30, "maxLength": 1800 },
     "expectedBehavior": { "type": "string", "maxLength": 1200 },
     "actualBehavior": { "type": "string", "maxLength": 1200 },
+    "reproductionSteps": { "type": "string", "maxLength": 1800 },
     "relationship": { "enum": ["NONE", "USER", "AUTHOR", "EMPLOYEE", "OTHER"] },
     "comments": { "type": "string", "maxLength": 1200 },
     "publicName": { "type": "string", "maxLength": 100 },
@@ -43,5 +75,43 @@
     "attributionConsent": { "type": "boolean" },
     "website": { "type": "string", "maxLength": 0 },
     "turnstileToken": { "type": "string", "minLength": 1, "maxLength": 2048 }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "submissionType": { "const": "FIRSTHAND_OBSERVATION" } }
+      },
+      "then": {
+        "properties": {
+          "expectedBehavior": { "type": "string", "minLength": 15 },
+          "actualBehavior": { "type": "string", "minLength": 15 },
+          "reproductionSteps": { "type": "string", "minLength": 20 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "vendorMode": { "const": "CATALOG" } } },
+      "then": {
+        "properties": { "vendorId": { "type": "string", "minLength": 1 } }
+      },
+      "else": {
+        "properties": { "vendorId": { "type": "string", "maxLength": 0 } }
+      }
+    },
+    {
+      "if": { "properties": { "modelMode": { "const": "CATALOG" } } },
+      "then": {
+        "properties": { "modelId": { "type": "string", "minLength": 1 } }
+      },
+      "else": {
+        "properties": { "modelId": { "type": "string", "maxLength": 0 } }
+      }
+    },
+    {
+      "if": { "properties": { "attributionConsent": { "const": true } } },
+      "then": {
+        "properties": { "publicName": { "type": "string", "minLength": 1 } }
+      }
+    }
+  ]
 }

@@ -32,7 +32,7 @@ jobs:
       - run: npm run models:catalog:sync
       - run: git diff --exit-code -- data/catalog/models.json
       - run: npm run data:compile
-      - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json
+      - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json public/data/model-options.json
       - run: npm test
       - name: Compile neutral public status
         env:

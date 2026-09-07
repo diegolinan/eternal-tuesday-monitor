@@ -8,7 +8,10 @@ import {
   dedupeCandidates,
   normalizeUrl,
 } from '../scripts/evidence-discovery/core.mjs';
-import intakeWorker, { validateSubmission } from '../worker/intake.mjs';
+import intakeWorker, {
+  sanitizeText,
+  validateSubmission,
+} from '../worker/intake.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 
@@ -75,6 +78,12 @@ test('candidate identity is stable and accepted URLs are excluded', () => {
     }).id,
   );
   assert.equal(normalizeUrl(input.sourceUrl), 'https://example.com/report');
+  assert.equal(
+    normalizeUrl(
+      'https://EXAMPLE.com/report/?utm_source=x&utm_medium=y&b=2&a=1#part',
+    ),
+    'https://example.com/report?a=1&b=2',
+  );
   assert.deepEqual(dedupeCandidates([one, two]), [one]);
   assert.deepEqual(
     dedupeCandidates([one], new Set(), new Set([one.source_url])),
@@ -154,8 +163,7 @@ test('public screening rejects UI and infrastructure keyword collisions', () => 
     buildCandidate({
       ...shared,
       title: 'Connector stopped working yesterday morning',
-      excerpt:
-        'The Claude session report says a connected tool disappeared.',
+      excerpt: 'The Claude session report says a connected tool disappeared.',
     }),
     null,
   );
@@ -197,20 +205,37 @@ test('public screening rejects UI and infrastructure keyword collisions', () => 
 
 test('public intake rejects bots, private-network URLs and weak reports', () => {
   const valid = {
+    formSchemaVersion: '2.0.0',
+    requestId: '123e4567-e89b-42d3-a456-426614174000',
+    catalogSchemaVersion: '2.0.0',
+    catalogCheckedThrough: '2026-09-05',
     submissionType: 'FOUND_SOURCE',
+    vendorMode: 'CATALOG',
+    vendorId: 'vendor-anthropic',
     vendor: 'Anthropic',
+    modelMode: 'CATALOG',
+    modelId: 'model-fable-5',
     model: 'Fable 5',
     productSurface: 'Claude Code session',
     probeId: 'probe-elapsed',
     sourceUrl: 'https://example.com/report',
     observedOn: '2026-09-06',
     summary: 'A detailed public report of elapsed-time behavior.',
+    expectedBehavior: '',
+    actualBehavior: '',
+    reproductionSteps: '',
     relationship: 'NONE',
+    comments: '',
+    publicName: '',
+    affiliation: '',
     attributionConsent: false,
     website: '',
     turnstileToken: 'token',
   };
-  assert.equal(validateSubmission(valid), null);
+  assert.equal(
+    validateSubmission(valid, new Date('2026-09-07T00:00:00Z')),
+    null,
+  );
   assert.equal(
     validateSubmission({ ...valid, website: 'spam' }),
     'BOT_FIELD_FILLED',
@@ -223,19 +248,55 @@ test('public intake rejects bots, private-network URLs and weak reports', () => 
     validateSubmission({ ...valid, summary: 'too short' }),
     'INVALID_SUMMARY',
   );
+  assert.equal(
+    validateSubmission(
+      { ...valid, observedOn: '2026-09-08' },
+      new Date('2026-09-07T00:00:00Z'),
+    ),
+    'INVALID_DATE',
+  );
+  assert.equal(
+    validateSubmission({ ...valid, observedOn: '2026-02-30' }),
+    'INVALID_DATE',
+  );
+  assert.equal(
+    validateSubmission({
+      ...valid,
+      submissionType: 'FIRSTHAND_OBSERVATION',
+      expectedBehavior: 'Expected behavior is clear.',
+      actualBehavior: 'Actual behavior is clear.',
+      reproductionSteps: 'short',
+    }),
+    'INVALID_REPRODUCTION_STEPS',
+  );
+  assert.equal(sanitizeText('safe\u202Etxt\u0000', 20), 'safetxt');
 });
 
 test('public intake requires the canonical Turnstile hostname and action', async () => {
   const payload = {
+    formSchemaVersion: '2.0.0',
+    requestId: '123e4567-e89b-42d3-a456-426614174000',
+    catalogSchemaVersion: '2.0.0',
+    catalogCheckedThrough: '2026-09-05',
     submissionType: 'FOUND_SOURCE',
+    vendorMode: 'CATALOG',
+    vendorId: 'vendor-anthropic',
     vendor: 'Anthropic',
+    modelMode: 'CATALOG',
+    modelId: 'model-fable-5',
     model: 'Fable 5',
     productSurface: 'Claude Code session',
     probeId: 'probe-elapsed',
     sourceUrl: 'https://example.com/report',
     observedOn: '2026-09-06',
     summary: 'A detailed public report of elapsed-time behavior.',
+    expectedBehavior: '',
+    actualBehavior: '',
+    reproductionSteps: '',
     relationship: 'NONE',
+    comments: '',
+    publicName: '',
+    affiliation: '',
     attributionConsent: false,
     website: '',
     turnstileToken: 'token',
@@ -244,20 +305,36 @@ test('public intake requires the canonical Turnstile hostname and action', async
     TURNSTILE_SECRET_KEY: 'test-secret',
     GITHUB_REPOSITORY_TOKEN: 'test-token',
     GITHUB_REPOSITORY: 'diegolinan/eternal-tuesday-monitor',
+    INTAKE_OPEN: 'true',
+    INTAKE_HOURLY_BUDGET: '12',
+    INTAKE_DAILY_BUDGET: '40',
     SUBMISSION_RATE_LIMITER: { limit: async () => ({ success: true }) },
+    SUBMISSION_GLOBAL_LIMITER: { limit: async () => ({ success: true }) },
   };
   const originalFetch = globalThis.fetch;
   try {
-    let calls = 0;
-    globalThis.fetch = async () => {
-      calls++;
-      if (calls === 1)
+    const calls = [];
+    globalThis.fetch = async (input) => {
+      const url =
+        input instanceof Request
+          ? input.url
+          : input instanceof URL
+            ? input.href
+            : input;
+      calls.push(url);
+      if (url.includes('siteverify'))
         return Response.json({
           success: true,
           hostname: 'diegolinan.github.io',
           action: 'evidence_submission',
         });
-      return new Response(null, { status: 204 });
+      if (url.includes('/actions/workflows/'))
+        return Response.json({ workflow_runs: [] });
+      if (url.includes('/contents/'))
+        return Response.json({ encoding: 'base64', content: btoa('') });
+      if (url.endsWith('/dispatches'))
+        return new Response(null, { status: 204 });
+      throw new Error(`Unexpected fetch: ${url}`);
     };
     const accepted = await intakeWorker.fetch(
       new Request('https://intake.example/', {
@@ -271,7 +348,9 @@ test('public intake requires the canonical Turnstile hostname and action', async
       env,
     );
     assert.equal(accepted.status, 202);
-    assert.equal(calls, 2);
+    assert.equal(calls.length, 4);
+    const acceptedBody = await accepted.json();
+    assert.match(acceptedBody.receiptId, /^ETM-LEAD-/);
 
     globalThis.fetch = async () =>
       Response.json({
@@ -291,6 +370,100 @@ test('public intake requires the canonical Turnstile hostname and action', async
       env,
     );
     assert.equal(rejected.status, 403);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('public intake closes safely and suppresses duplicate dispatches', async () => {
+  const payload = {
+    formSchemaVersion: '2.0.0',
+    requestId: '123e4567-e89b-42d3-a456-426614174000',
+    catalogSchemaVersion: '2.0.0',
+    catalogCheckedThrough: '2026-09-05',
+    submissionType: 'FOUND_SOURCE',
+    vendorMode: 'CATALOG',
+    vendorId: 'vendor-anthropic',
+    vendor: 'Anthropic',
+    modelMode: 'CATALOG',
+    modelId: 'model-fable-5',
+    model: 'Fable 5',
+    productSurface: 'Claude Code session',
+    probeId: 'probe-elapsed',
+    sourceUrl: 'https://example.com/report?utm_source=test',
+    observedOn: '2026-09-06',
+    summary: 'A detailed public report of elapsed-time behavior.',
+    expectedBehavior: '',
+    actualBehavior: '',
+    reproductionSteps: '',
+    relationship: 'NONE',
+    comments: '',
+    publicName: '',
+    affiliation: '',
+    attributionConsent: false,
+    website: '',
+    turnstileToken: 'token',
+  };
+  const baseEnv = {
+    TURNSTILE_SECRET_KEY: 'test-secret',
+    GITHUB_REPOSITORY_TOKEN: 'test-token',
+    GITHUB_REPOSITORY: 'diegolinan/eternal-tuesday-monitor',
+    INTAKE_OPEN: 'true',
+    INTAKE_HOURLY_BUDGET: '12',
+    INTAKE_DAILY_BUDGET: '40',
+    SUBMISSION_RATE_LIMITER: { limit: async () => ({ success: true }) },
+    SUBMISSION_GLOBAL_LIMITER: { limit: async () => ({ success: true }) },
+  };
+  const makeRequest = () =>
+    new Request('https://intake.example/', {
+      method: 'POST',
+      headers: {
+        Origin: 'https://diegolinan.github.io',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+  const closed = await intakeWorker.fetch(makeRequest(), {
+    ...baseEnv,
+    INTAKE_OPEN: 'false',
+  });
+  assert.equal(closed.status, 503);
+
+  const originalFetch = globalThis.fetch;
+  try {
+    let dispatched = false;
+    globalThis.fetch = async (input) => {
+      const url =
+        input instanceof Request
+          ? input.url
+          : input instanceof URL
+            ? input.href
+            : input;
+      if (url.includes('siteverify'))
+        return Response.json({
+          success: true,
+          hostname: 'diegolinan.github.io',
+          action: 'evidence_submission',
+        });
+      if (url.includes('/actions/workflows/'))
+        return Response.json({ workflow_runs: [] });
+      if (url.includes('/contents/'))
+        return Response.json({
+          encoding: 'base64',
+          content: btoa(
+            `${JSON.stringify({
+              source_url: 'https://example.com/report',
+              probe_ids: ['probe-elapsed'],
+            })}\n`,
+          ),
+        });
+      if (url.endsWith('/dispatches')) dispatched = true;
+      return new Response(null, { status: 204 });
+    };
+    const duplicate = await intakeWorker.fetch(makeRequest(), baseEnv);
+    assert.equal(duplicate.status, 202);
+    assert.equal((await duplicate.json()).state, 'ALREADY_UNDER_REVIEW');
+    assert.equal(dispatched, false);
   } finally {
     globalThis.fetch = originalFetch;
   }

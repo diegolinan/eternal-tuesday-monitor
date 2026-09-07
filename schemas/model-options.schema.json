@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diegolinan.github.io/eternal-tuesday-monitor/schemas/model-options.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "catalogSchemaVersion",
+    "catalogCheckedThrough",
+    "vendors"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0", "type": "string" },
+    "catalogSchemaVersion": { "type": "string", "minLength": 1 },
+    "catalogCheckedThrough": { "type": ["string", "null"], "format": "date" },
+    "vendors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "models"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "models": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "name", "apiModelId"],
+              "properties": {
+                "id": { "type": "string", "minLength": 1 },
+                "name": { "type": "string", "minLength": 1 },
+                "apiModelId": { "type": ["string", "null"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -38,6 +38,7 @@ await Promise.all([
   requireFile('data/system-status.json'),
   requireFile('data/model-operations.json'),
   requireFile('data/evidence-watch.json'),
+  requireFile('data/model-options.json'),
   requireFile('favicon.svg'),
   requireFile('favicon-32.png'),
   requireFile('assets/eternal-tuesday-banner.png'),
@@ -45,6 +46,29 @@ await Promise.all([
   requireFile('assets/monitor-exhibit.png'),
   requireFile('assets/same-sequence-different-time.png'),
 ]);
+
+try {
+  const [modelOptions, modelOptionsSchema] = await Promise.all([
+    read('data/model-options.json').then(JSON.parse),
+    readFile(path.join(root, 'schemas/model-options.schema.json'), 'utf8').then(
+      JSON.parse,
+    ),
+  ]);
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  addFormats(ajv);
+  const validate = ajv.compile(modelOptionsSchema);
+  if (!validate(modelOptions))
+    fail(
+      `public model picker does not match its schema: ${ajv.errorsText(validate.errors)}`,
+    );
+  const optionCount = modelOptions.vendors.reduce(
+    (sum, vendor) => sum + vendor.models.length,
+    0,
+  );
+  if (optionCount < 1) fail('public model picker contains no model choices');
+} catch (error) {
+  fail(`unable to validate public model picker: ${error.message}`);
+}
 
 try {
   const [systemStatus, systemStatusSchema] = await Promise.all([

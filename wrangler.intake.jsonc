@@ -15,10 +15,18 @@
     {
       "name": "SUBMISSION_RATE_LIMITER",
       "namespace_id": "730591",
-      "simple": { "limit": 6, "period": 60 },
+      "simple": { "limit": 3, "period": 60 },
+    },
+    {
+      "name": "SUBMISSION_GLOBAL_LIMITER",
+      "namespace_id": "730592",
+      "simple": { "limit": 12, "period": 60 },
     },
   ],
   "vars": {
     "GITHUB_REPOSITORY": "diegolinan/eternal-tuesday-monitor",
+    "INTAKE_OPEN": "true",
+    "INTAKE_HOURLY_BUDGET": "12",
+    "INTAKE_DAILY_BUDGET": "40",
   },
 }
