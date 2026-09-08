@@ -9,6 +9,7 @@ const read = (relativePath) => readFile(path.join(root, relativePath), 'utf8');
 
 test('the public status panel exposes status but no administrative actions', async () => {
   const source = await read('components/automation-status.tsx');
+  const page = await read('app/page.tsx');
   const compiledStatus = await read('public/data/system-status.json');
   assert.doesNotMatch(source, /Inspect discovery runs/i);
   assert.doesNotMatch(source, /Run five probes manually/i);
@@ -27,6 +28,16 @@ test('the public status panel exposes status but no administrative actions', asy
   assert.match(source, /AWAITING START/);
   assert.match(source, /withBasePath\('\/data\/system-status\.json'\)/);
   assert.match(source, /useState<Date \| null>\(null\)/);
+  const ledgerPosition = page.indexOf('<ClaimLedger');
+  const statusPosition = page.indexOf('<AutomationStatus />');
+  const guidePosition = page.indexOf('<ReadingGuide />');
+  const findingsPosition = page.indexOf('id="observations"');
+  assert.ok(ledgerPosition >= 0);
+  assert.ok(statusPosition > ledgerPosition);
+  assert.ok(statusPosition < guidePosition);
+  assert.ok(statusPosition < findingsPosition);
+  assert.equal(page.lastIndexOf('<AutomationStatus />'), statusPosition);
+  assert.match(page, /href="#automation">Status<\/a>/);
 });
 
 test('the status publisher emits only neutral public fields', async () => {
