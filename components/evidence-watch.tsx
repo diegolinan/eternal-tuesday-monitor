@@ -5,6 +5,7 @@ import { withBasePath } from '@/lib/site-paths';
 
 type EvidenceWatchData = {
   lastSearchAt: string | null;
+  latestReviewAt?: string | null;
   state:
     | 'NOT_YET_RUN'
     | 'SEARCHED_NO_NEW_EVIDENCE'
@@ -26,7 +27,13 @@ type EvidenceWatchData = {
     note: string;
   }>;
   candidateCounts: {
+    total?: number;
     pending: number;
+    reviewed?: number;
+    reproductionRequired?: number;
+    supportingSourcesAccepted?: number;
+    needsMoreInformation?: number;
+    closedWithoutPromotion?: number;
     officialClaims: number;
     publicReports: number;
     researchResults: number;
@@ -57,6 +64,15 @@ const moment = (value: string | null) =>
 
 export function EvidenceWatch() {
   const [data, setData] = useState<EvidenceWatchData | null>(null);
+  const totalCandidates =
+    data?.candidateCounts.total ?? data?.candidateCounts.pending ?? 0;
+  const reviewedCandidates = data?.candidateCounts.reviewed ?? 0;
+  const reproductionRequired = data?.candidateCounts.reproductionRequired ?? 0;
+  const supportingSourcesAccepted =
+    data?.candidateCounts.supportingSourcesAccepted ?? 0;
+  const needsMoreInformation = data?.candidateCounts.needsMoreInformation ?? 0;
+  const closedWithoutPromotion =
+    data?.candidateCounts.closedWithoutPromotion ?? 0;
   useEffect(() => {
     fetch(`${withBasePath('/data/evidence-watch.json')}?t=${Date.now()}`, {
       cache: 'no-store',
@@ -112,17 +128,59 @@ export function EvidenceWatch() {
             </article>
           ))}
         </div>
-        {!!data?.candidateCounts.pending && (
+        {totalCandidates > 0 && (
           <div className="evidence-candidate-strip">
-            <strong>
-              {data.candidateCounts.pending} POTENTIAL LEAD
-              {data.candidateCounts.pending === 1 ? '' : 'S'} AWAITING HUMAN
-              REVIEW
-            </strong>
-            <p>
-              Unreviewed titles are withheld here. A lead becomes public
-              evidence only after its source, scope and claim have been checked.
-            </p>
+            <div>
+              <strong>
+                {data?.candidateCounts.pending ?? 0} POTENTIAL LEAD
+                {(data?.candidateCounts.pending ?? 0) === 1 ? '' : 'S'} AWAITING
+                HUMAN REVIEW
+              </strong>
+              {(data?.candidateCounts.pending ?? 0) > 0 ? (
+                <p>
+                  Unreviewed titles are withheld while their source, scope and
+                  claim are checked.
+                </p>
+              ) : (
+                <p>No latest-search lead is waiting for its first review.</p>
+              )}
+            </div>
+            {reviewedCandidates > 0 && (
+              <div>
+                <strong>
+                  {reviewedCandidates} LEAD
+                  {reviewedCandidates === 1 ? '' : 'S'} REVIEWED
+                </strong>
+                <ul className="evidence-review-summary">
+                  {reproductionRequired > 0 && (
+                    <li>
+                      {reproductionRequired} require controlled behavioral
+                      reproduction
+                    </li>
+                  )}
+                  {supportingSourcesAccepted > 0 && (
+                    <li>
+                      {supportingSourcesAccepted} accepted as supporting sources
+                    </li>
+                  )}
+                  {needsMoreInformation > 0 && (
+                    <li>{needsMoreInformation} need more information</li>
+                  )}
+                  {closedWithoutPromotion > 0 && (
+                    <li>{closedWithoutPromotion} closed without promotion</li>
+                  )}
+                </ul>
+                {data?.latestReviewAt && (
+                  <time>
+                    Latest review completed {moment(data.latestReviewAt)}
+                  </time>
+                )}
+              </div>
+            )}
+            <small>
+              Review classifies a lead. It does not create an observation, PASS
+              or FAIL.
+            </small>
           </div>
         )}
       </div>

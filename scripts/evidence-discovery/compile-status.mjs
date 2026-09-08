@@ -1,6 +1,7 @@
 import { access, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { buildPublicEvidenceStatus } from './public-status.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const option = (name) => {
@@ -27,32 +28,20 @@ if (!reportPath)
 const report = JSON.parse(
   await readFile(path.resolve(root, reportPath), 'utf8'),
 );
-const publicStatus = {
-  schemaVersion: '1.0.0',
-  generatedAt: report.generated_at,
-  lastSearchAt: report.generated_at,
-  state: report.state,
-  channels: report.channels,
-  candidateCounts: {
-    pending: report.candidates.length,
-    officialClaims: report.candidates.filter(
-      (c) => c.claim_class === 'OFFICIAL_CAPABILITY_CLAIM',
-    ).length,
-    publicReports: report.candidates.filter((c) =>
-      c.claim_class.startsWith('PUBLIC_'),
-    ).length,
-    researchResults: report.candidates.filter(
-      (c) => c.claim_class === 'RESEARCH_RESULT',
-    ).length,
-  },
-  // Unreviewed third-party titles are intentionally not republished. The
-  // public surface exposes only aggregate lead counts until human review.
-  latestCandidates: [],
-};
+const reviews = (
+  await readFile(
+    path.join(root, 'data/evidence-discovery/reviews.jsonl'),
+    'utf8',
+  )
+)
+  .split(/\r?\n/)
+  .filter(Boolean)
+  .map((line) => JSON.parse(line));
+const publicStatus = buildPublicEvidenceStatus(report, reviews);
 await writeFile(
   path.join(root, 'public/data/evidence-watch.json'),
   `${JSON.stringify(publicStatus, null, 2)}\n`,
 );
 console.log(
-  `Compiled public evidence-watch status with ${publicStatus.candidateCounts.pending} pending candidates.`,
+  `Compiled public evidence-watch status with ${publicStatus.candidateCounts.pending} pending and ${publicStatus.candidateCounts.reviewed} reviewed candidates.`,
 );
