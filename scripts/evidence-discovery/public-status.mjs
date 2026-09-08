@@ -1,9 +1,26 @@
 import { activeCandidateReviews } from './review.mjs';
 
-export function buildPublicEvidenceStatus(report, reviews = []) {
-  const candidates = report.candidates ?? [];
+export function buildPublicEvidenceStatus(
+  report,
+  { candidates: candidateLedger = [], reviews = [], decisions = [] } = {},
+) {
+  const retractedBatches = new Set(
+    decisions
+      .filter((decision) => decision.decision === 'RETRACTED_PIPELINE_DEFECT')
+      .map((decision) => decision.candidate_batch_generated_at),
+  );
+  const isActiveCandidate = (candidate) =>
+    !retractedBatches.has(candidate.discovered_at);
+  const latestCandidates = (report.candidates ?? []).filter(isActiveCandidate);
+  const candidatesById = new Map(
+    [...candidateLedger, ...latestCandidates]
+      .filter(isActiveCandidate)
+      .map((candidate) => [candidate.id, candidate]),
+  );
+  const candidates = [...candidatesById.values()];
   let latestReviewAt = null;
   const counts = {
+    latestSearchLeads: latestCandidates.length,
     total: candidates.length,
     pending: 0,
     reviewed: 0,
@@ -53,7 +70,7 @@ export function buildPublicEvidenceStatus(report, reviews = []) {
   }
 
   return {
-    schemaVersion: '1.1.0',
+    schemaVersion: '1.2.0',
     generatedAt: report.generated_at,
     lastSearchAt: report.generated_at,
     latestReviewAt,

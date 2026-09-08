@@ -28,16 +28,21 @@ if (!reportPath)
 const report = JSON.parse(
   await readFile(path.resolve(root, reportPath), 'utf8'),
 );
-const reviews = (
-  await readFile(
-    path.join(root, 'data/evidence-discovery/reviews.jsonl'),
-    'utf8',
-  )
-)
-  .split(/\r?\n/)
-  .filter(Boolean)
-  .map((line) => JSON.parse(line));
-const publicStatus = buildPublicEvidenceStatus(report, reviews);
+const readJsonLines = async (relativePath) =>
+  (await readFile(path.join(root, relativePath), 'utf8'))
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .map((line) => JSON.parse(line));
+const [candidateLedger, reviews, decisions] = await Promise.all([
+  readJsonLines('data/evidence-discovery/candidates.jsonl'),
+  readJsonLines('data/evidence-discovery/reviews.jsonl'),
+  readJsonLines('data/evidence-discovery/decisions.jsonl'),
+]);
+const publicStatus = buildPublicEvidenceStatus(report, {
+  candidates: candidateLedger,
+  reviews,
+  decisions,
+});
 await writeFile(
   path.join(root, 'public/data/evidence-watch.json'),
   `${JSON.stringify(publicStatus, null, 2)}\n`,

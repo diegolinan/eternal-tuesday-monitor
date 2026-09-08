@@ -27,6 +27,7 @@ type EvidenceWatchData = {
     note: string;
   }>;
   candidateCounts: {
+    latestSearchLeads?: number;
     total?: number;
     pending: number;
     reviewed?: number;
@@ -130,6 +131,11 @@ export function EvidenceWatch() {
         </div>
         {totalCandidates > 0 && (
           <div className="evidence-candidate-strip">
+            <p className="evidence-candidate-context">
+              Active lead ledger · the latest search added{' '}
+              {data?.candidateCounts.latestSearchLeads ?? 0} new lead
+              {(data?.candidateCounts.latestSearchLeads ?? 0) === 1 ? '' : 's'}.
+            </p>
             <div>
               <strong>
                 {data?.candidateCounts.pending ?? 0} POTENTIAL LEAD
@@ -142,7 +148,7 @@ export function EvidenceWatch() {
                   claim are checked.
                 </p>
               ) : (
-                <p>No latest-search lead is waiting for its first review.</p>
+                <p>No governed lead is waiting for its first review.</p>
               )}
             </div>
             {reviewedCandidates > 0 && (
