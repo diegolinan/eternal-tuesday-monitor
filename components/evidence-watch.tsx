@@ -118,7 +118,7 @@ export function EvidenceWatch() {
               <strong>{label(channel.state)}</strong>
               <small>
                 {channel.resultsReviewed} results examined automatically ·{' '}
-                {channel.candidatesFound} potential leads
+                {channel.candidatesFound} matches before known-lead filtering
               </small>
               <p>
                 {channel.name === 'GENERAL_WEB' &&
@@ -132,15 +132,11 @@ export function EvidenceWatch() {
         {totalCandidates > 0 && (
           <div className="evidence-candidate-strip">
             <p className="evidence-candidate-context">
-              Active lead ledger · the latest search added{' '}
-              {data?.candidateCounts.latestSearchLeads ?? 0} new lead
-              {(data?.candidateCounts.latestSearchLeads ?? 0) === 1 ? '' : 's'}.
+              {`Active lead ledger · the latest search added ${data?.candidateCounts.latestSearchLeads ?? 0} new ${(data?.candidateCounts.latestSearchLeads ?? 0) === 1 ? 'lead' : 'leads'}.`}
             </p>
             <div>
               <strong>
-                {data?.candidateCounts.pending ?? 0} POTENTIAL LEAD
-                {(data?.candidateCounts.pending ?? 0) === 1 ? '' : 'S'} AWAITING
-                HUMAN REVIEW
+                {`${data?.candidateCounts.pending ?? 0} POTENTIAL ${(data?.candidateCounts.pending ?? 0) === 1 ? 'LEAD' : 'LEADS'} AWAITING HUMAN REVIEW`}
               </strong>
               {(data?.candidateCounts.pending ?? 0) > 0 ? (
                 <p>
@@ -154,14 +150,12 @@ export function EvidenceWatch() {
             {reviewedCandidates > 0 && (
               <div>
                 <strong>
-                  {reviewedCandidates} LEAD
-                  {reviewedCandidates === 1 ? '' : 'S'} REVIEWED
+                  {`${reviewedCandidates} ${reviewedCandidates === 1 ? 'LEAD' : 'LEADS'} REVIEWED`}
                 </strong>
                 <ul className="evidence-review-summary">
                   {reproductionRequired > 0 && (
                     <li>
-                      {reproductionRequired} require controlled behavioral
-                      reproduction
+                      {`${reproductionRequired} ${reproductionRequired === 1 ? 'requires' : 'require'} controlled behavioral reproduction`}
                     </li>
                   )}
                   {supportingSourcesAccepted > 0 && (
@@ -170,7 +164,9 @@ export function EvidenceWatch() {
                     </li>
                   )}
                   {needsMoreInformation > 0 && (
-                    <li>{needsMoreInformation} need more information</li>
+                    <li>
+                      {`${needsMoreInformation} ${needsMoreInformation === 1 ? 'needs' : 'need'} more information`}
+                    </li>
                   )}
                   {closedWithoutPromotion > 0 && (
                     <li>{closedWithoutPromotion} closed without promotion</li>

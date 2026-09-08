@@ -118,6 +118,11 @@ test('the public evidence watch separates search, candidates and verdicts', asyn
   assert.match(watch, /not a PASS, FAIL/);
   assert.match(watch, /Review classifies a lead/);
   assert.match(watch, /controlled behavioral\s+reproduction/);
+  assert.match(watch, /matches before known-lead filtering/);
+  assert.doesNotMatch(
+    watch,
+    /candidateCounts\.latestSearchLeads[^\n]*new lead\s*\n/,
+  );
   assert.match(watch, /browser&apos;s local time/);
   assert.doesNotMatch(
     watch,
