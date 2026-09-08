@@ -681,6 +681,12 @@ body > main {
 .evidence-candidate-strip strong {
   font-family: var(--font-display);
 }
+.evidence-candidate-context {
+  grid-column: 1 / -1;
+  margin: 0 !important;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
 .evidence-candidate-strip p {
   margin: 0.45rem 0 0;
 }

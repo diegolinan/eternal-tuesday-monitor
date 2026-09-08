@@ -14,7 +14,7 @@
     "latestCandidates"
   ],
   "properties": {
-    "schemaVersion": { "const": "1.1.0", "type": "string" },
+    "schemaVersion": { "const": "1.2.0", "type": "string" },
     "generatedAt": { "type": "string", "format": "date-time" },
     "lastSearchAt": { "type": ["string", "null"], "format": "date-time" },
     "latestReviewAt": {
@@ -74,6 +74,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "latestSearchLeads",
         "total",
         "pending",
         "reviewed",
@@ -86,6 +87,7 @@
         "researchResults"
       ],
       "properties": {
+        "latestSearchLeads": { "type": "integer", "minimum": 0 },
         "total": { "type": "integer", "minimum": 0 },
         "pending": { "type": "integer", "minimum": 0 },
         "reviewed": { "type": "integer", "minimum": 0 },

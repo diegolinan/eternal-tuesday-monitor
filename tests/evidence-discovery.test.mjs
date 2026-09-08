@@ -174,21 +174,38 @@ test('public evidence status separates unreviewed leads from reviewed decisions'
       generated_at: '2026-09-07T12:00:00.000Z',
       state: 'CANDIDATES_FOUND',
       channels: [],
-      candidates,
+      candidates: [candidates[0]],
     },
-    [
-      {
-        id: 'evreview-current',
-        candidate_id: 'evcand-reviewed',
-        decision: 'REQUIRES_BEHAVIORAL_REPRODUCTION',
-        decided_at: '2026-09-07T13:00:00.000Z',
-        supersedes_review_id: null,
-      },
-    ],
+    {
+      candidates: [
+        candidates[1],
+        {
+          id: 'evcand-retracted',
+          discovered_at: '2026-09-06T20:43:41.752Z',
+          claim_class: 'PUBLIC_FAILURE_REPORT',
+        },
+      ],
+      reviews: [
+        {
+          id: 'evreview-current',
+          candidate_id: 'evcand-reviewed',
+          decision: 'REQUIRES_BEHAVIORAL_REPRODUCTION',
+          decided_at: '2026-09-07T13:00:00.000Z',
+          supersedes_review_id: null,
+        },
+      ],
+      decisions: [
+        {
+          decision: 'RETRACTED_PIPELINE_DEFECT',
+          candidate_batch_generated_at: '2026-09-06T20:43:41.752Z',
+        },
+      ],
+    },
   );
-  assert.equal(status.schemaVersion, '1.1.0');
+  assert.equal(status.schemaVersion, '1.2.0');
   assert.equal(status.latestReviewAt, '2026-09-07T13:00:00.000Z');
   assert.deepEqual(status.candidateCounts, {
+    latestSearchLeads: 1,
     total: 2,
     pending: 1,
     reviewed: 1,
@@ -200,6 +217,39 @@ test('public evidence status separates unreviewed leads from reviewed decisions'
     publicReports: 2,
     researchResults: 0,
   });
+});
+
+test('reviewed lead summaries persist when the next search finds nothing new', () => {
+  const status = buildPublicEvidenceStatus(
+    {
+      generated_at: '2026-09-08T12:00:00.000Z',
+      state: 'SEARCHED_NO_NEW_EVIDENCE',
+      channels: [],
+      candidates: [],
+    },
+    {
+      candidates: [
+        {
+          id: 'evcand-reviewed',
+          discovered_at: '2026-09-07T12:00:00.000Z',
+          claim_class: 'PUBLIC_FAILURE_REPORT',
+        },
+      ],
+      reviews: [
+        {
+          id: 'evreview-current',
+          candidate_id: 'evcand-reviewed',
+          decision: 'REQUIRES_BEHAVIORAL_REPRODUCTION',
+          decided_at: '2026-09-07T13:00:00.000Z',
+          supersedes_review_id: null,
+        },
+      ],
+    },
+  );
+  assert.equal(status.candidateCounts.latestSearchLeads, 0);
+  assert.equal(status.candidateCounts.pending, 0);
+  assert.equal(status.candidateCounts.reviewed, 1);
+  assert.equal(status.candidateCounts.reproductionRequired, 1);
 });
 
 test('intake dedupe keys separate public URLs from firsthand content', async () => {
