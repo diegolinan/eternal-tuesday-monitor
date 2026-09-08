@@ -207,6 +207,10 @@ const [
   evidenceCandidateReviewLedger,
   evidenceWatch,
   modelOptions,
+  surfaceReproductionPolicy,
+  surfaceReproductionPolicySchema,
+  reproductionTargets,
+  reproductionTargetsSchema,
 ] = await Promise.all([
   readJson('config/evidence-discovery.json'),
   readJson('schemas/evidence-discovery-config.schema.json'),
@@ -221,6 +225,10 @@ const [
   readOptionalJsonLines(evidenceCandidateReviewPath),
   readJson('public/data/evidence-watch.json'),
   readJson('public/data/model-options.json'),
+  readJson('config/surface-reproduction-policy.json'),
+  readJson('schemas/surface-reproduction-policy.schema.json'),
+  readJson('data/evidence-discovery/reproduction-targets.json'),
+  readJson('schemas/reproduction-targets.schema.json'),
 ]);
 
 const observations = observationLedger.items;
@@ -316,6 +324,14 @@ validateWithSchema('public evidence watch', evidenceWatchSchema, [
   evidenceWatch,
 ]);
 validateWithSchema('public model picker', modelOptionsSchema, [modelOptions]);
+validateWithSchema(
+  'surface reproduction policy',
+  surfaceReproductionPolicySchema,
+  [surfaceReproductionPolicy],
+);
+validateWithSchema('reproduction targets', reproductionTargetsSchema, [
+  reproductionTargets,
+]);
 
 const publicModelIds = new Set(monitorView.models.map((model) => model.id));
 const operationalModelIds = new Set(
@@ -350,6 +366,8 @@ const collections = [
   ['evidence candidates', evidenceCandidates],
   ['evidence candidate decisions', evidenceCandidateDecisions],
   ['evidence candidate reviews', evidenceCandidateReviews],
+  ['surface reproduction protocols', surfaceReproductionPolicy.protocols],
+  ['reproduction targets', reproductionTargets.targets],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -474,6 +492,89 @@ for (const review of evidenceCandidateReviews)
 for (const [candidateId, count] of activeReviewCountByCandidate)
   if (count > 1)
     fail(`${candidateId}: multiple active evidence-candidate reviews`);
+
+const reproductionProtocolsById = new Map(
+  surfaceReproductionPolicy.protocols.map((protocol) => [
+    protocol.id,
+    protocol,
+  ]),
+);
+for (const protocol of surfaceReproductionPolicy.protocols) {
+  for (const surfaceId of protocol.surface_ids)
+    if (!surfaces.has(surfaceId))
+      fail(`${protocol.id}: unknown surface ${surfaceId}`);
+  for (const probeId of protocol.probe_ids)
+    if (!probes.has(probeId)) fail(`${protocol.id}: unknown probe ${probeId}`);
+}
+
+for (const target of reproductionTargets.targets) {
+  const candidate = evidenceCandidates.find(
+    (item) => item.id === target.candidate_id,
+  );
+  const reviewEntry = candidateReviewsById.get(target.active_review_id);
+  const protocol = target.protocol_id
+    ? reproductionProtocolsById.get(target.protocol_id)
+    : null;
+
+  if (!candidate)
+    fail(`${target.id}: unknown evidence candidate ${target.candidate_id}`);
+  if (!reviewEntry)
+    fail(`${target.id}: unknown evidence review ${target.active_review_id}`);
+  else {
+    if (reviewEntry.item.candidate_id !== target.candidate_id)
+      fail(`${target.id}: review belongs to a different candidate`);
+    if (supersededCandidateReviewIds.has(target.active_review_id))
+      fail(`${target.id}: review is no longer active`);
+    if (reviewEntry.item.decision !== 'REQUIRES_BEHAVIORAL_REPRODUCTION')
+      fail(`${target.id}: active review does not require reproduction`);
+  }
+  if (!models.has(target.model_id))
+    fail(`${target.id}: unknown model ${target.model_id}`);
+  if (candidate && !candidate.model_ids.includes(target.model_id))
+    fail(`${target.id}: model is not named by its evidence candidate`);
+  for (const probeId of target.probe_ids) {
+    if (!probes.has(probeId)) fail(`${target.id}: unknown probe ${probeId}`);
+    if (candidate && !candidate.probe_ids.includes(probeId))
+      fail(`${target.id}: probe ${probeId} is not named by its candidate`);
+  }
+  if (target.surface_id && !surfaces.has(target.surface_id))
+    fail(`${target.id}: unknown surface ${target.surface_id}`);
+  if (target.protocol_id && !protocol)
+    fail(`${target.id}: unknown protocol ${target.protocol_id}`);
+  if (
+    target.surface_id &&
+    protocol &&
+    !protocol.surface_ids.includes(target.surface_id)
+  )
+    fail(`${target.id}: protocol does not cover ${target.surface_id}`);
+  if (target.readiness === 'NEEDS_SURFACE_SELECTION') {
+    if (target.surface_id !== null || target.protocol_id !== null)
+      fail(`${target.id}: unresolved surface must not have a protocol`);
+    if (target.execution_location !== 'UNRESOLVED')
+      fail(`${target.id}: unresolved surface must have unresolved execution`);
+  } else if (!target.surface_id || !target.protocol_id) {
+    fail(`${target.id}: routed target requires a surface and protocol`);
+  }
+  if (
+    target.execution_location === 'GITHUB_HOSTED_RUNNER' &&
+    protocol &&
+    !['SERVER_AUTOMATABLE', 'SERVER_CAPABLE_EXACT_PRODUCT_BINARY'].includes(
+      protocol.execution_class,
+    )
+  )
+    fail(`${target.id}: selected protocol cannot run on a hosted server`);
+  if (
+    target.execution_location === 'CONTROLLED_INTERACTIVE_HOST' &&
+    protocol &&
+    ![
+      'INTERACTIVE_HOST_REQUIRED',
+      'VENDOR_OR_INTERACTIVE_SURFACE_REQUIRED',
+    ].includes(protocol.execution_class)
+  )
+    fail(
+      `${target.id}: selected protocol does not require an interactive host`,
+    );
+}
 for (const query of evidenceDiscoveryConfig.queries)
   for (const id of query.probe_ids)
     if (!probes.has(id))
