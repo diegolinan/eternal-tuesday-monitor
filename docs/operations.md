@@ -10,11 +10,15 @@ GitHub Actions is the only scheduler. Every day at 12:43 UTC (09:43 Argentina), 
 - Newly relevant model without behavioral evidence: the evaluation register shows TEST_REQUIRED and GitHub opens an issue assigned to `diegolinan` with the manual workflow link.
 - Workflow failure: GitHub opens or updates one failure issue assigned to `diegolinan`. An operational failure is never a behavioral FAIL.
 
+Every public deployment and the weekly freshness pass also synchronize one assigned reminder for accepted records whose deterministic state is `RETEST_REQUIRED`. The reminder lists exact model, surface, probe, applicability and reason. It opens when at least one record is due, updates when the set changes, and closes when none remain. This notification does not execute a probe, assign a retest date, or change evidence.
+
 The deployment compiles a neutral operational snapshot for the public status panel. The browser makes no direct repository API call. It shows the last attempt, last success and the next scheduled attempt with a live countdown. The next time remains an estimate because scheduled execution can be delayed.
 
 ## Email notifications
 
 Pull-request review requests and assigned issues use GitHub's own notifications. In the GitHub account's **Settings → Notifications**, enable email for **Participating and @mentions**. Ensure the repository is not ignored; watching **All Activity** is optional if broader repository mail is desired. GitHub—not this application—delivers and manages those emails.
+
+The bounded product backlog is grouped in the `Evidence automation and behavioral reproduction V1` milestone. Human policy and reproduction work remains visible there instead of appearing as an unexplained public-site status.
 
 Run **Actions → Check reviewer email notification → Run workflow** once after changing notification settings. It opens a harmless pull request and requests review from `diegolinan`. Do not merge it. Confirm that the email arrived, close the pull request, then delete its disposable branch. This proves notification delivery without fabricating an evidence lead.
 

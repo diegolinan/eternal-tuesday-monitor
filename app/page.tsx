@@ -644,6 +644,7 @@ export default function Home() {
           The Eternal Tuesday Monitor
         </a>
         <nav aria-label="Primary navigation">
+          <a href="#automation">Status</a>
           <a href="#observations">Findings</a>
           <a href="#probes">Method</a>
           <a href={withBasePath('/models/')}>Models</a>
@@ -706,6 +707,7 @@ export default function Home() {
         modelCount={data.models?.length ?? 0}
         dataCutoff={data.dataCutoff}
       />
+      <AutomationStatus />
       <ReadingGuide />
 
       <section
@@ -1104,8 +1106,6 @@ export default function Home() {
           </ol>
         </div>
       </section>
-
-      <AutomationStatus />
 
       <EvidenceWatch />
 

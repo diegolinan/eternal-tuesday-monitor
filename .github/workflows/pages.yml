@@ -11,6 +11,7 @@ on:
 permissions:
   actions: read
   contents: read
+  issues: write
   pages: write
   id-token: write
 
@@ -79,6 +80,14 @@ jobs:
           today="$(date -u +%F)"
           as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
           npm run data:compile -- --as-of "$as_of"
+      - name: Confirm evidence-review labels
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/notifications/ensure-labels.mjs model-evaluation review-required
+      - name: Synchronize due evidence-review reminder
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/notifications/sync-evidence-review-issue.mjs
       - name: Verify public contribution configuration
         env:
           NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}

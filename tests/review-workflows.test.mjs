@@ -13,7 +13,9 @@ test('workflows use Node 24 compatible JavaScript actions', async () => {
     /\.ya?ml$/.test(name),
   );
   const workflows = await Promise.all(
-    workflowFiles.map((name) => readFile(path.join(workflowDirectory, name), 'utf8')),
+    workflowFiles.map((name) =>
+      readFile(path.join(workflowDirectory, name), 'utf8'),
+    ),
   );
   const combined = workflows.join('\n');
   assert.doesNotMatch(combined, /actions\/checkout@v4/);
@@ -82,4 +84,32 @@ test('the notification canary requests review and cannot be mistaken for evidenc
   assert.doesNotMatch(canary, /deleted automatically/);
   assert.match(canary, /notification-canary/);
   assert.doesNotMatch(canary, /data\/evidence|data\/observations/);
+});
+
+test('due-review notifications are wired without running or accepting probes', async () => {
+  const [discovery, pages, freshness, dueScript, dueCore, evaluationScript] =
+    await Promise.all([
+      read('.github/workflows/discover-models.yml'),
+      read('.github/workflows/pages.yml'),
+      read('.github/workflows/freshness.yml'),
+      read('scripts/notifications/sync-evidence-review-issue.mjs'),
+      read('scripts/notifications/evidence-review-due.mjs'),
+      read('scripts/notifications/sync-evaluation-issues.mjs'),
+    ]);
+
+  assert.match(discovery, /sync-evaluation-issues\.mjs/);
+  assert.match(discovery, /issues: write/);
+  assert.match(evaluationScript, /etm-model-evaluation/);
+  assert.match(evaluationScript, /alreadyNotified/);
+  for (const workflow of [pages, freshness]) {
+    assert.match(workflow, /issues: write/);
+    assert.match(workflow, /sync-evidence-review-issue\.mjs/);
+    assert.match(
+      workflow,
+      /ensure-labels\.mjs model-evaluation review-required/,
+    );
+  }
+  assert.match(dueCore, /did not run a behavioral probe/);
+  assert.match(dueScript, /No behavioral probe or evidence decision/);
+  assert.doesNotMatch(dueScript, /observedResult\s*=|currentSufficiency\s*=/);
 });

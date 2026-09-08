@@ -8,6 +8,7 @@ on:
 permissions:
   actions: read
   contents: read
+  issues: write
   pages: write
   id-token: write
 
@@ -36,6 +37,14 @@ jobs:
           echo "as_of=$as_of" >> "$GITHUB_OUTPUT"
       - name: Compile derived state without changing evidence dates
         run: npm run data:compile -- --as-of "${{ steps.evaluation.outputs.as_of }}"
+      - name: Confirm evidence-review labels
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/notifications/ensure-labels.mjs model-evaluation review-required
+      - name: Synchronize due evidence-review reminder
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/notifications/sync-evidence-review-issue.mjs
       - name: Compile neutral public status
         env:
           SYSTEM_STATUS_TOKEN: ${{ github.token }}
