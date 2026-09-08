@@ -50,6 +50,8 @@ The preserved [manual Codex pilot](docs/manual-codex-pilot.md) is historical evi
 
 The supported five-probe path is the manual-only `Run five probes for one model` GitHub Actions workflow described in [the V1 protocol](docs/probe-evaluation-v1.md). It currently supports the OpenAI API surface only, requires exact catalog and API IDs, two typed confirmations, the protected `model-evaluation` environment, an API secret and a cost estimate at or below USD 0.50. It opens a normal PR assigned for review and never auto-merges. Other providers remain visibly evaluation-required until a provider-specific protocol is reviewed.
 
+Reviewed behavioral leads are routed by the [surface-specific reproduction protocols](docs/surface-reproduction-protocols-v1.md). A server may reproduce a provider API or the exact headless terminal product, but it cannot stand in for an IDE extension, desktop application or authenticated product UI. Model, product, surface, version and authentication mode are part of the result; cross-surface transfer, automatic execution and automatic evidence acceptance are forbidden.
+
 The former Luna-specific recurring candidate path has been retired. The one reviewed GPT-5.6 Luna observation, its evidence receipt, release manifest and manual reproduction notes remain immutable historical evidence; they no longer imply an active scheduler. GitHub Actions remains the Monitor's only clock.
 
 A failed source creates an explicit source-check error and never deletes accepted catalog state. Other sources continue. Unchanged checks append audit history without duplicating semantic events. Ambiguous metadata and all epistemic interpretations remain reviewable through GitHub pull requests.
@@ -120,10 +122,12 @@ data/methodologies/             Versioned admission and review methods
 data/sources/                   Versioned source records, including archived launch provenance
 data/evidence/                  Evidence records connecting claims to sources
 data/evidence-discovery/        Append-only candidate, batch-retraction and per-candidate review ledgers; never accepted evidence by themselves
+data/evidence-discovery/reproduction-targets.json  Exact-model routing plan for reviewed behavioral leads
 data/observations/              Append-only observation ledger (JSON Lines)
 data/state-events/              Append-only operational state-event ledger
 data/releases/                  Dated release manifests and cutoffs
 config/freshness-policy.json    Versioned editorial review windows
+config/surface-reproduction-policy.json  Execution boundaries and required artifacts by product surface
 schemas/                        JSON Schemas for core record types
 scripts/validate-data.mjs       Contract, relationship and chronology validation
 scripts/compile-monitor-view.mjs  Deterministic public projection for an explicit date

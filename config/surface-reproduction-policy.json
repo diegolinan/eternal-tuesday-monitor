@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "surface-reproduction-policy-v1",
+  "verified_on": "2026-09-08",
+  "automatic_execution": false,
+  "automatic_evidence_acceptance": false,
+  "cross_surface_transfer": false,
+  "exact_coordinates": [
+    "vendor_id",
+    "model_id",
+    "product_id",
+    "surface_id",
+    "product_version",
+    "authentication_mode"
+  ],
+  "raw_artifact_retention_days": 90,
+  "protocols": [
+    {
+      "id": "protocol-provider-api-v1",
+      "name": "Provider API",
+      "execution_class": "SERVER_AUTOMATABLE",
+      "implementation_state": "IMPLEMENTED",
+      "surface_ids": ["surface-openai-model-api"],
+      "probe_ids": [
+        "probe-temporal-anchor",
+        "probe-elapsed",
+        "probe-revalidation",
+        "probe-state-reconciliation",
+        "probe-historical-validity"
+      ],
+      "minimum_independent_trials": 1,
+      "human_start_required": true,
+      "required_coordinates": [
+        "provider endpoint",
+        "exact returned model identifier",
+        "request parameters",
+        "authentication project"
+      ],
+      "required_controls": [
+        "deterministic oracle per probe",
+        "bounded request count",
+        "no promotion from operational errors"
+      ],
+      "required_artifacts": [
+        "redacted requests and responses",
+        "provider request identifiers",
+        "timestamps and token usage",
+        "oracle evaluation output"
+      ],
+      "invalid_substitutions": [
+        "consumer conversation for an API result",
+        "API result for a terminal, editor or desktop result"
+      ],
+      "official_sources": [
+        "https://platform.openai.com/docs/api-reference/responses"
+      ]
+    },
+    {
+      "id": "protocol-terminal-agent-v1",
+      "name": "Headless terminal agent",
+      "execution_class": "SERVER_CAPABLE_EXACT_PRODUCT_BINARY",
+      "implementation_state": "PROTOCOL_DEFINED",
+      "surface_ids": [
+        "surface-claude-code-terminal-agent",
+        "surface-claude-code-terminal-agent-conversation",
+        "surface-codex-cli-chatgpt-local"
+      ],
+      "probe_ids": [
+        "probe-temporal-anchor",
+        "probe-elapsed",
+        "probe-revalidation",
+        "probe-state-reconciliation",
+        "probe-historical-validity"
+      ],
+      "minimum_independent_trials": 3,
+      "human_start_required": true,
+      "required_coordinates": [
+        "exact executable and version",
+        "exact returned model identifier",
+        "authentication mode",
+        "operating system and architecture"
+      ],
+      "required_controls": [
+        "fresh disposable workspace per trial",
+        "fixed seed artifacts and instructions",
+        "independent session per trial",
+        "machine clock captured before and after"
+      ],
+      "required_artifacts": [
+        "complete structured transcript",
+        "command and version metadata",
+        "session identifiers",
+        "input and output file hashes",
+        "timestamps and exit status"
+      ],
+      "invalid_substitutions": [
+        "provider API for the terminal product",
+        "terminal agent for an editor extension",
+        "terminal agent for a desktop application",
+        "different authentication mode without a separately named result"
+      ],
+      "official_sources": [
+        "https://code.claude.com/docs/en/headless",
+        "https://code.claude.com/docs/en/cli-usage"
+      ]
+    },
+    {
+      "id": "protocol-ide-extension-v1",
+      "name": "IDE extension",
+      "execution_class": "INTERACTIVE_HOST_REQUIRED",
+      "implementation_state": "PROTOCOL_DEFINED",
+      "surface_ids": [
+        "surface-claude-code-vscode-extension",
+        "surface-cursor-agent"
+      ],
+      "probe_ids": [
+        "probe-temporal-anchor",
+        "probe-elapsed",
+        "probe-revalidation",
+        "probe-state-reconciliation",
+        "probe-historical-validity"
+      ],
+      "minimum_independent_trials": 3,
+      "human_start_required": true,
+      "required_coordinates": [
+        "editor name and version",
+        "extension name and version",
+        "exact displayed model identifier",
+        "authentication mode"
+      ],
+      "required_controls": [
+        "fresh disposable workspace per trial",
+        "fixed seed artifacts and instructions",
+        "independent editor session per trial",
+        "machine clock captured before and after"
+      ],
+      "required_artifacts": [
+        "complete conversation export or screen capture",
+        "editor and extension version metadata",
+        "input and output file hashes",
+        "timestamps and visible model selection"
+      ],
+      "invalid_substitutions": [
+        "headless terminal run for an extension result",
+        "provider API for an extension result",
+        "different editor integration"
+      ],
+      "official_sources": ["https://code.claude.com/docs/en/ide-integrations"]
+    },
+    {
+      "id": "protocol-desktop-app-v1",
+      "name": "Desktop application",
+      "execution_class": "INTERACTIVE_HOST_REQUIRED",
+      "implementation_state": "PROTOCOL_DEFINED",
+      "surface_ids": ["surface-claude-code-desktop"],
+      "probe_ids": [
+        "probe-temporal-anchor",
+        "probe-elapsed",
+        "probe-revalidation",
+        "probe-state-reconciliation",
+        "probe-historical-validity"
+      ],
+      "minimum_independent_trials": 3,
+      "human_start_required": true,
+      "required_coordinates": [
+        "desktop application and version",
+        "exact displayed model identifier",
+        "authentication mode",
+        "operating system and architecture"
+      ],
+      "required_controls": [
+        "fresh disposable workspace per trial",
+        "fixed seed artifacts and instructions",
+        "independent application session per trial",
+        "machine clock captured across the tested boundary"
+      ],
+      "required_artifacts": [
+        "complete conversation export or screen capture",
+        "application version metadata",
+        "input and output file hashes",
+        "timestamps and visible model selection"
+      ],
+      "invalid_substitutions": [
+        "headless terminal run for a desktop result",
+        "provider API for a desktop result",
+        "web conversation for a desktop result"
+      ],
+      "official_sources": [
+        "https://code.claude.com/docs/en/desktop",
+        "https://code.claude.com/docs/en/platforms"
+      ]
+    },
+    {
+      "id": "protocol-authenticated-product-ui-v1",
+      "name": "Authenticated product UI or vendor cloud session",
+      "execution_class": "VENDOR_OR_INTERACTIVE_SURFACE_REQUIRED",
+      "implementation_state": "PROTOCOL_DEFINED",
+      "surface_ids": [
+        "surface-chatgpt-consumer-conversation",
+        "surface-chatgpt-memory-system",
+        "surface-chatgpt-projects",
+        "surface-claude-cowork",
+        "surface-claude-cowork-resumed-session",
+        "surface-gemini-app",
+        "surface-grok-long-running-agents",
+        "surface-perplexity-brain-research-preview"
+      ],
+      "probe_ids": [
+        "probe-temporal-anchor",
+        "probe-elapsed",
+        "probe-revalidation",
+        "probe-state-reconciliation",
+        "probe-historical-validity"
+      ],
+      "minimum_independent_trials": 3,
+      "human_start_required": true,
+      "required_coordinates": [
+        "exact product surface",
+        "displayed model when available",
+        "account capability state",
+        "browser or client version"
+      ],
+      "required_controls": [
+        "fresh or deliberately resumed session as specified",
+        "fixed instructions and disclosed preloaded state",
+        "independent session per trial",
+        "client clock captured before and after"
+      ],
+      "required_artifacts": [
+        "conversation export or continuous screen capture",
+        "visible surface and model metadata",
+        "timestamps",
+        "oracle evaluation output"
+      ],
+      "invalid_substitutions": [
+        "provider API for a consumer product result",
+        "terminal client for a web or cloud product result",
+        "fresh session for a resumed-session claim"
+      ],
+      "official_sources": [
+        "https://code.claude.com/docs/en/how-claude-code-works"
+      ]
+    }
+  ]
+}
