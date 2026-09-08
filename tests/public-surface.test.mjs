@@ -116,6 +116,8 @@ test('the public evidence watch separates search, candidates and verdicts', asyn
   const form = await read('app/contribute/page.tsx');
   assert.match(watch, /A match becomes a review candidate/);
   assert.match(watch, /not a PASS, FAIL/);
+  assert.match(watch, /Review classifies a lead/);
+  assert.match(watch, /controlled behavioral\s+reproduction/);
   assert.match(watch, /browser&apos;s local time/);
   assert.doesNotMatch(
     watch,
@@ -165,7 +167,10 @@ test('the public reading path separates the monitor question from operations', a
   assert.match(page, /Catalog identity is not evidence/);
   assert.match(page, /Open the model register/);
   assert.match(page, /Evidence gap assessed through/);
-  assert.doesNotMatch(page, /ARTICLE&apos;S QUESTION|The article described|article&apos;s evidence/i);
+  assert.doesNotMatch(
+    page,
+    /ARTICLE&apos;S QUESTION|The article described|article&apos;s evidence/i,
+  );
   assert.doesNotMatch(page, /<ModelInventory/);
 });
 

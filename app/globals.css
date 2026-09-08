@@ -670,19 +670,38 @@ body > main {
   font-size: 0.84rem;
 }
 .evidence-candidate-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
   padding: 16px;
   border: 3px solid var(--signal);
   border-top: 0;
   background: #f5c09f;
 }
-.evidence-candidate-strip > strong {
+.evidence-candidate-strip strong {
   font-family: var(--font-display);
+}
+.evidence-candidate-strip p {
+  margin: 0.45rem 0 0;
+}
+.evidence-review-summary {
+  margin: 0.45rem 0 0;
+  padding-left: 1.1rem;
+}
+.evidence-review-summary + time {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 .evidence-candidate-strip li {
   margin-top: 0.7rem;
 }
 .evidence-candidate-strip small {
   display: block;
+  grid-column: 1 / -1;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink);
   text-transform: uppercase;
 }
 
@@ -966,6 +985,7 @@ body > main {
 }
 @media (max-width: 560px) {
   .evidence-watch-channels,
+  .evidence-candidate-strip,
   .form-pair,
   .submission-preview dl {
     grid-template-columns: 1fr;

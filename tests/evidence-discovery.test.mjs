@@ -13,6 +13,7 @@ import {
   activeCandidateReviews,
   buildCandidateReview,
 } from '../scripts/evidence-discovery/review.mjs';
+import { buildPublicEvidenceStatus } from '../scripts/evidence-discovery/public-status.mjs';
 import intakeWorker, {
   sanitizeText,
   submissionDedupeKey,
@@ -155,6 +156,50 @@ test('candidate review decisions are append-only and have one active head', () =
       }),
     /ACTIVE_REVIEW_ALREADY_EXISTS/,
   );
+});
+
+test('public evidence status separates unreviewed leads from reviewed decisions', () => {
+  const candidates = [
+    {
+      id: 'evcand-pending',
+      claim_class: 'PUBLIC_FAILURE_REPORT',
+    },
+    {
+      id: 'evcand-reviewed',
+      claim_class: 'PUBLIC_FAILURE_REPORT',
+    },
+  ];
+  const status = buildPublicEvidenceStatus(
+    {
+      generated_at: '2026-09-07T12:00:00.000Z',
+      state: 'CANDIDATES_FOUND',
+      channels: [],
+      candidates,
+    },
+    [
+      {
+        id: 'evreview-current',
+        candidate_id: 'evcand-reviewed',
+        decision: 'REQUIRES_BEHAVIORAL_REPRODUCTION',
+        decided_at: '2026-09-07T13:00:00.000Z',
+        supersedes_review_id: null,
+      },
+    ],
+  );
+  assert.equal(status.schemaVersion, '1.1.0');
+  assert.equal(status.latestReviewAt, '2026-09-07T13:00:00.000Z');
+  assert.deepEqual(status.candidateCounts, {
+    total: 2,
+    pending: 1,
+    reviewed: 1,
+    reproductionRequired: 1,
+    supportingSourcesAccepted: 0,
+    needsMoreInformation: 0,
+    closedWithoutPromotion: 0,
+    officialClaims: 0,
+    publicReports: 2,
+    researchResults: 0,
+  });
 });
 
 test('intake dedupe keys separate public URLs from firsthand content', async () => {
