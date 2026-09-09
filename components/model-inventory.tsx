@@ -25,6 +25,11 @@ type ProbeCoverage = {
     | 'MISMATCH'
     | 'INCONCLUSIVE'
     | 'OPERATIONAL_ERROR'
+    | 'VERIFIED'
+    | 'OBSERVED_FAILURE'
+    | 'DOCUMENTED_FEATURE'
+    | 'VENDOR_DESCRIBED'
+    | 'NO_PUBLIC_EVIDENCE'
     | null;
   evidenceClass: string | null;
   verifiedOn: string | null;
@@ -287,6 +292,7 @@ function ModelDetail({
   );
   const eligibilityGroups = [
     ...model.probeCoverage
+      .filter((probe) => probe.state === 'NOT_TESTED' && !probe.empiricalResult)
       .reduce((groups, probe) => {
         const key = `${probe.eligibilityState}|${probe.eligibilityReasons.join('|')}`;
         const group = groups.get(key) ?? {
@@ -443,29 +449,35 @@ function ModelDetail({
       )}
 
       <div className="model-provenance">
-        <h4>What must happen before a behavioral result exists</h4>
+        <h4>
+          {hasProbeEvidence
+            ? 'Behavioral coverage and remaining gaps'
+            : 'What must happen before a behavioral result exists'}
+        </h4>
         <p>
-          This is a method-status record, not a task for the visitor. Public
-          evidence is searched automatically; any promising lead is reviewed
-          separately before it can alter the accepted dataset.
+          {hasProbeEvidence
+            ? 'Accepted results are shown above. Any probe still listed below has no accepted result for this exact model and surface coordinate.'
+            : 'This is a method-status record, not a task for the visitor. Public evidence is searched automatically; any promising lead is reviewed separately before it can alter the accepted dataset.'}
         </p>
-        <ul className="eligibility-groups">
-          {eligibilityGroups.map((group) => (
-            <li key={`${group.state}-${group.probes.join('-')}`}>
-              <strong>
-                 {group.probes.length}/{model.probeCoverage.length} probes ·{' '}
-                 {publicEligibilityLabel(group.state)}
-              </strong>
-              <small>
-                {group.reasons.length > 0
-                  ? explainReasons(group.reasons)
-                  : group.state === 'NOT_IN_SCOPE'
-                    ? 'No behavioral test plan is attached to this historical catalog identity'
-                    : 'No additional reason was recorded'}
-              </small>
-            </li>
-          ))}
-        </ul>
+        {eligibilityGroups.length > 0 && (
+          <ul className="eligibility-groups">
+            {eligibilityGroups.map((group) => (
+              <li key={`${group.state}-${group.probes.join('-')}`}>
+                <strong>
+                  {group.probes.length}/{model.probeCoverage.length} probes ·{' '}
+                  {publicEligibilityLabel(group.state)}
+                </strong>
+                <small>
+                  {group.reasons.length > 0
+                    ? explainReasons(group.reasons)
+                    : group.state === 'NOT_IN_SCOPE'
+                      ? 'No executable test plan is attached to these remaining probes for this exact coordinate'
+                      : 'No additional reason was recorded'}
+                </small>
+              </li>
+            ))}
+          </ul>
+        )}
         {model.surfaces.length ? (
           <ul>
             {model.surfaces.map((surface) => (
@@ -482,11 +494,11 @@ function ModelDetail({
         )}
         {model.observationContexts.length > 0 && (
           <>
-            <h4>Dated observation context · not accepted probe evidence</h4>
+            <h4>Dated observation context</h4>
             <p>
-              These records explain why the identity remains visible. They do
-              not establish a current official listing or a controlled
-              behavioral result.
+              These records show accepted empirical evidence and historical
+              context separately. Each keeps its original date, evidence class
+              and applicability; none establishes a current official listing.
             </p>
             <ul>
               {model.observationContexts.map((context) => (

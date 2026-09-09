@@ -2208,6 +2208,60 @@
       ]
     },
     {
+      "id": "model-discovered-a768321108810b45db76",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-2.5 Sunburst",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-image-2.5-sunburst",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-09",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-09",
+          "sha256": "179e84b59b5940b82b19fa4fdbcd467dae1167d7b1c8e49b31733c458defcf32",
+          "fetched_at": "2026-09-09T16:54:15.029Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "8a3e5b19a4f10cc2e8ad9ee184f29c46cb74d702",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/179e84b59b5940b82b19fa4fdbcd467dae1167d7b1c8e49b31733c458defcf32.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "checked_on": "2026-09-09",
+          "sha256": "dfde0bccaa958030a224ecaf0fa0f02ce5c2d5b2cf80c1e32ef6925dc030df5b",
+          "fetched_at": "2026-09-09T16:54:16.825Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "8a3e5b19a4f10cc2e8ad9ee184f29c46cb74d702",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/dfde0bccaa958030a224ecaf0fa0f02ce5c2d5b2cf80c1e32ef6925dc030df5b.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-6a9ccf4ad79b1e8dd304",
       "vendor_id": "vendor-google",
       "name": "Nano Banana",
@@ -4194,6 +4248,60 @@
           "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
           "raw_snapshot_artifact": "official-model-discovery-sources",
           "raw_snapshot_path": "discovery-openai-docs/6d6be65eb9e8bc7f116ab15aea88f7c4bc7cc2b3dd31e08aa80be2b3f0032b8e.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-8afee28d5d048812f7aa",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-2.5 Flare",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-image-2.5-flare",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-09",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-09",
+          "sha256": "179e84b59b5940b82b19fa4fdbcd467dae1167d7b1c8e49b31733c458defcf32",
+          "fetched_at": "2026-09-09T16:54:15.029Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "8a3e5b19a4f10cc2e8ad9ee184f29c46cb74d702",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/179e84b59b5940b82b19fa4fdbcd467dae1167d7b1c8e49b31733c458defcf32.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-image-2.5-flare",
+          "checked_on": "2026-09-09",
+          "sha256": "e66df8caaaf79c55691d8e066ea95e944d574c3ac7df1c17de3e52ee409ceb37",
+          "fetched_at": "2026-09-09T16:54:17.127Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "3",
+          "checked_from_commit": "8a3e5b19a4f10cc2e8ad9ee184f29c46cb74d702",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/e66df8caaaf79c55691d8e066ea95e944d574c3ac7df1c17de3e52ee409ceb37.html.gz",
           "raw_snapshot_retention_days": 90
         }
       ]
