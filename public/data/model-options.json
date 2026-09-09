@@ -505,14 +505,14 @@
           "apiModelId": "gpt-image-2"
         },
         {
-          "id": "model-discovered-c5bb4add1f5dfbf861bf",
+          "id": "model-discovered-8afee28d5d048812f7aa",
           "name": "GPT-Image-2.5 Flare",
-          "apiModelId": null
+          "apiModelId": "gpt-image-2.5-flare"
         },
         {
-          "id": "model-discovered-6a47e06de59b8ac31d44",
+          "id": "model-discovered-a768321108810b45db76",
           "name": "GPT-Image-2.5 Sunburst",
-          "apiModelId": null
+          "apiModelId": "gpt-image-2.5-sunburst"
         },
         {
           "id": "model-discovered-ecfe55f8a422ccdff7ed",

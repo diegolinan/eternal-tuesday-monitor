@@ -10,6 +10,7 @@
     "automatic_execution",
     "automatic_evidence_acceptance",
     "cross_surface_transfer",
+    "model_attribution",
     "exact_coordinates",
     "raw_artifact_retention_days",
     "protocols"
@@ -24,6 +25,30 @@
     "automatic_execution": { "type": "boolean", "const": false },
     "automatic_evidence_acceptance": { "type": "boolean", "const": false },
     "cross_surface_transfer": { "type": "boolean", "const": false },
+    "model_attribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selected_model_must_appear_in_usage",
+        "record_all_returned_models",
+        "auxiliary_models",
+        "exclusive_model_claim_requires_no_auxiliaries"
+      ],
+      "properties": {
+        "selected_model_must_appear_in_usage": {
+          "type": "boolean",
+          "const": true
+        },
+        "record_all_returned_models": { "type": "boolean", "const": true },
+        "auxiliary_models": {
+          "const": "ALLOW_WITH_DISCLOSURE_FOR_PRODUCT_SURFACE_CLAIMS"
+        },
+        "exclusive_model_claim_requires_no_auxiliaries": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
     "exact_coordinates": {
       "type": "array",
       "minItems": 6,

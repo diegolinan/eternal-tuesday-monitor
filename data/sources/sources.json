@@ -120,6 +120,16 @@
       "url": "https://x.ai/news/grok-4-6/",
       "article_reference_numbers": [26],
       "last_verified_on": "2026-09-03"
+    },
+    {
+      "id": "source-claude-code-fable-stale-readiness-2026-09-09",
+      "title": "Controlled Claude Code stale-readiness reproduction",
+      "publisher": "Eternal Tuesday Monitor controlled reproduction",
+      "source_type": "reproduced_observation",
+      "repository_path": "data/evidence/claude-code-fable-stale-readiness-2026-09-09.json",
+      "sha256": "4f4e179b82294938267237427bf0035dec9aab0362b12821a8872df78e19ec08",
+      "last_verified_on": "2026-09-09",
+      "notes": "Reviewed, sanitized receipt for three independent trials. Raw captures remain private; hashes, model attribution and the private artifact digest are retained in the receipt."
     }
   ]
 }

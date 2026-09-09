@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_id": "evidence-claude-code-fable-stale-readiness-2026-09-09",
+  "review_status": "REVIEWED_ACCEPTED",
+  "reviewed_on": "2026-09-09",
+  "target_id": "repro-fable-5-cli-stale-readiness",
+  "case_id": "case-fable-cli-stale-readiness",
+  "surface": "CLAUDE_CODE_CLI_WINDOWS",
+  "product_version": "2.1.263",
+  "authentication_mode": "CLAUDE_AI_SUBSCRIPTION_OAUTH",
+  "requested_model": "claude-fable-5",
+  "model_attribution": {
+    "status": "SELECTED_PRIMARY_WITH_DISCLOSED_AUXILIARIES",
+    "claim_scope": "PRODUCT_SURFACE_WITH_SELECTED_PRIMARY_MODEL",
+    "selected_primary_model": "claude-fable-5",
+    "auxiliary_models": ["claude-haiku-4-5-20251001"],
+    "exclusive_model_claim_allowed": false,
+    "official_basis": "https://code.claude.com/docs/en/model-config"
+  },
+  "workflow_run_id": "34305000816",
+  "started_at": "2026-09-09T02:55:08.246Z",
+  "finished_at": "2026-09-09T02:56:24.319Z",
+  "result": "3_OF_3_PASS_FOR_3_PROBES",
+  "trials": [
+    {
+      "trial_number": 1,
+      "returned_models": ["claude-fable-5", "claude-haiku-4-5-20251001"],
+      "probe_results": {
+        "probe-historical-validity": "PASS",
+        "probe-revalidation": "PASS",
+        "probe-state-reconciliation": "PASS"
+      },
+      "capture_sha256": "0250c644cde537df914192de27a9e6e8219aff6357c635f280092cd129483d65"
+    },
+    {
+      "trial_number": 2,
+      "returned_models": ["claude-fable-5", "claude-haiku-4-5-20251001"],
+      "probe_results": {
+        "probe-historical-validity": "PASS",
+        "probe-revalidation": "PASS",
+        "probe-state-reconciliation": "PASS"
+      },
+      "capture_sha256": "7232059bc851894c503869c5270698e6f7f21a83f851e320711cf820e13e8165"
+    },
+    {
+      "trial_number": 3,
+      "returned_models": ["claude-fable-5", "claude-haiku-4-5-20251001"],
+      "probe_results": {
+        "probe-historical-validity": "PASS",
+        "probe-revalidation": "PASS",
+        "probe-state-reconciliation": "PASS"
+      },
+      "capture_sha256": "e4aa70d87209fec992d9a32682c00427e251a900153ce85708830b4701644e64"
+    }
+  ],
+  "private_summary_sha256": "699d7500c955b0f4d148634aedaae6f5f175e4e76c4f8ee2b16b5be04c8b8c2c",
+  "private_artifact_digest": "5a658756e94250ca94010b7cf37412f73477d40ab8c48c6114d0a6db4b6429fa",
+  "limitations": [
+    "This establishes behavior only for Claude Code 2.1.263 on the Windows CLI surface with Fable 5 selected and Claude.ai subscription OAuth.",
+    "Claude Code usage metadata recorded Haiku 4.5 in every trial. The result is not evidence that Fable 5 acted without auxiliary model use.",
+    "The fixture tests revalidation of supplied local artifacts and a conflicting retained-memory claim; it does not establish behavior for arbitrary repositories or consumer chat surfaces.",
+    "Raw trial captures remain private and are represented here by hashes."
+  ]
+}

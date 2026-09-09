@@ -65,10 +65,15 @@ export function detail(body, source, url) {
   if (!title.endsWith(' Model | OpenAI API'))
     throw new Error('MODEL_PAGE_FORMAT_CHANGED');
   const slug = new URL(url).pathname.split('/').at(-1);
-  const snapshotSection = content
-    .slice(content.lastIndexOf('Snapshots'))
-    .split('Rate limits')[0];
-  const documented = snapshotSection.split(/\s+/).includes(slug);
+  const identityHeadings = ['Snapshots', 'Model IDs'];
+  const identitySectionStart = Math.max(
+    ...identityHeadings.map((heading) => content.lastIndexOf(heading)),
+  );
+  const identitySection =
+    identitySectionStart >= 0
+      ? content.slice(identitySectionStart).split('Rate limits')[0]
+      : '';
+  const documented = identitySection.split(/\s+/).includes(slug);
   const compatibility = structuredCompatibility(root, slug, documented);
   return fact(source, {
     display_name: title.replace(/ Model \| OpenAI API$/, ''),

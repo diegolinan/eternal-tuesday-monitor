@@ -99,6 +99,31 @@ test('future MODEL_C is discovered as data without an allowlist or source-code c
   );
 });
 
+test('OpenAI detail parsing accepts exact IDs from both current Model IDs and legacy Snapshots sections', () => {
+  const page = (name, heading, id) => `
+    <main>
+      <h1>${name} Model | OpenAI API</h1>
+      <section><h2>${heading}</h2><p>${id}</p></section>
+      <section><h2>Rate limits</h2></section>
+    </main>`;
+  assert.equal(
+    openai.detail(
+      page('GPT-Image-2.5 Sunburst', 'Model IDs', 'gpt-image-2.5-sunburst'),
+      official,
+      'https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst',
+    ).api_model_id,
+    'gpt-image-2.5-sunburst',
+  );
+  assert.equal(
+    openai.detail(
+      page('GPT-7', 'Snapshots', 'gpt-7'),
+      official,
+      'https://developers.openai.com/api/docs/models/gpt-7',
+    ).api_model_id,
+    'gpt-7',
+  );
+});
+
 test('unchanged model input is idempotent and produces no duplicate semantic event', () => {
   const first = normalizeDiscoveries(
     [modelFact('gpt-model-c')],

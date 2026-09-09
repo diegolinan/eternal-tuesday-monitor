@@ -13,6 +13,7 @@ import {
 } from '../scripts/reproduction/core.mjs';
 import {
   assertTerminalAuthorization,
+  classifyModelAttribution,
   claudeArguments,
   claudeJsonSchema,
   evaluateStaleReadiness,
@@ -174,6 +175,27 @@ test('the deterministic oracle distinguishes pass from failure', () => {
   );
 });
 
+test('model attribution separates the selected primary from auxiliaries', () => {
+  assert.deepEqual(
+    classifyModelAttribution('claude-fable-5', [
+      'claude-fable-5',
+      'claude-haiku-4-5-20251001',
+    ]),
+    {
+      status: 'SELECTED_PRIMARY_WITH_DISCLOSED_AUXILIARIES',
+      claimScope: 'PRODUCT_SURFACE_WITH_SELECTED_PRIMARY_MODEL',
+      selectedPrimaryModel: 'claude-fable-5',
+      auxiliaryModels: ['claude-haiku-4-5-20251001'],
+      exclusiveModelClaimAllowed: false,
+    },
+  );
+  assert.throws(
+    () =>
+      classifyModelAttribution('claude-fable-5', ['claude-haiku-4-5-20251001']),
+    /RETURNED_MODEL_NOT_CONFIRMED/,
+  );
+});
+
 test('the three-trial runner remains private and pending human review', async () => {
   const temporary = await mkdtemp(path.join(tmpdir(), 'etm-run-test-'));
   const calls = [];
@@ -202,6 +224,13 @@ test('the three-trial runner remains private and pending human review', async ()
   );
   assert.equal(summary.status, 'COMPLETED_PENDING_HUMAN_REVIEW');
   assert.equal(summary.automaticEvidenceAcceptance, false);
+  assert.ok(
+    summary.trials.every(
+      (trial) =>
+        trial.modelAttribution.status === 'SELECTED_PRIMARY_ONLY' &&
+        trial.modelAttribution.exclusiveModelClaimAllowed === true,
+    ),
+  );
   assert.ok(calls.every((call) => call.args.includes('claude-fable-5')));
   assert.ok(
     calls.every(
