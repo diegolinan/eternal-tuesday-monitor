@@ -152,8 +152,8 @@ test('the three-trial runner remains private and pending human review', async ()
     environment: authorizedEnvironment(),
     platform: 'win32',
     outputRoot: path.join(temporary, 'runs'),
-    executor: async (_binary, args, options) => {
-      calls.push({ args, options });
+    executor: async (binary, args, options) => {
+      calls.push({ binary, args, options });
       return {
         exitCode: 0,
         stdout: JSON.stringify({
@@ -166,6 +166,7 @@ test('the three-trial runner remains private and pending human review', async ()
     },
   });
   assert.equal(calls.length, 3);
+  assert.ok(calls.every((call) => call.binary === 'claude.cmd'));
   assert.equal(summary.status, 'COMPLETED_PENDING_HUMAN_REVIEW');
   assert.equal(summary.automaticEvidenceAcceptance, false);
   assert.ok(calls.every((call) => call.args.includes('claude-fable-5')));

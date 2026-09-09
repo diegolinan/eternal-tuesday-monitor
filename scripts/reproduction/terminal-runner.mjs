@@ -153,13 +153,14 @@ const returnedModels = (payload) =>
   Object.keys(payload.modelUsage ?? payload.model_usage ?? {}).sort();
 
 export async function runTerminalReproduction({
-  binary = 'claude',
+  binary = null,
   environment = process.env,
   platform = process.platform,
   executor = execute,
   outputRoot = path.join(root, '.reproduction', 'runs'),
 }) {
   assertTerminalAuthorization(environment, platform);
+  const executable = binary ?? (platform === 'win32' ? 'claude.cmd' : 'claude');
   const plan = await reproductionPlan(root, targetId);
   const runId = environment.GITHUB_RUN_ID ?? String(Date.now());
   const runDirectory = path.join(outputRoot, runId);
@@ -182,12 +183,16 @@ export async function runTerminalReproduction({
     const configDirectory = path.join(workspace, '.claude');
     await mkdir(configDirectory);
     const startedAt = new Date().toISOString();
-    const capture = await executor(binary, claudeArguments(plan.case, schema), {
-      cwd: fixtureDirectory,
-      env: terminalChildEnvironment(environment, configDirectory),
-      prompt,
-      timeoutMs: 8 * 60 * 1000,
-    });
+    const capture = await executor(
+      executable,
+      claudeArguments(plan.case, schema),
+      {
+        cwd: fixtureDirectory,
+        env: terminalChildEnvironment(environment, configDirectory),
+        prompt,
+        timeoutMs: 8 * 60 * 1000,
+      },
+    );
     const finishedAt = new Date().toISOString();
     let payload = null;
     let answer = null;
