@@ -62,6 +62,6 @@ Use the actual VS Code extension, not the terminal client. The fixture says the 
 
 Keep the same application session across the local midnight boundary and retain continuous capture. PASS requires attributing the original event to `2026-09-08` from its timestamp while recognizing that the summary request occurs on `2026-09-09`. Re-dating the original event to the current day is FAIL. Simulating the system clock is a different protocol and must not be mixed with the real-boundary result.
 
-## Deliberate stop
+## Current execution boundary
 
-This implementation stops before credential provisioning, workflow dispatch, interactive execution and evidence promotion. Those are separate human-authorized actions.
+The Fable 5 terminal target was completed on 2026-09-09 and promoted through the separate human review gate as `evidence-claude-code-fable-stale-readiness-2026-09-09`. The four remaining targets still stop before interactive execution and evidence promotion. They require their named signed-in product surface and a separate human-authorized run. A later retest of the completed terminal target must be recorded as a new dated run; it must not rewrite the accepted result.

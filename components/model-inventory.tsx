@@ -45,6 +45,7 @@ export type DiscoveredModel = {
   apiModelId: string | null;
   releaseState: string;
   relevanceState: string;
+  relevanceReviewedOn: string | null;
   apiState: string;
   accountAccess: string;
   accountCheckedOn: string | null;
@@ -374,16 +375,26 @@ function ModelDetail({
               : label(model.testabilityState)}
           </strong>
           <time dateTime={operations?.eligibilityCheck.checkedAt ?? undefined}>
-            {localMoment(operations?.eligibilityCheck.checkedAt ?? null)}
+            {operations?.eligibilityCheck.state === 'NOT_IN_SCOPE'
+              ? operations.eligibilityCheck.stateChangedOn
+                ? `Classified ${calendarDay(operations.eligibilityCheck.stateChangedOn)}`
+                : 'Catalog-only classification recorded'
+              : localMoment(operations?.eligibilityCheck.checkedAt ?? null)}
           </time>
           {(operations?.eligibilityCheck.stateChangedOn ??
-            model.adoptionAssessedOn) && (
+            model.adoptionAssessedOn) &&
+            operations?.eligibilityCheck.state !== 'NOT_IN_SCOPE' && (
+              <small>
+                Method decision unchanged since{' '}
+                {calendarDay(
+                  operations?.eligibilityCheck.stateChangedOn ??
+                    model.adoptionAssessedOn,
+                )}
+              </small>
+            )}
+          {operations?.eligibilityCheck.state === 'NOT_IN_SCOPE' && (
             <small>
-              Method decision unchanged since{' '}
-              {calendarDay(
-                operations?.eligibilityCheck.stateChangedOn ??
-                  model.adoptionAssessedOn,
-              )}
+              Retained as a catalog identity; no behavioral test is requested
             </small>
           )}
         </section>

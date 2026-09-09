@@ -197,6 +197,8 @@ export function projectModels(
         apiModelId: model.api_model_id,
         releaseState: model.release_state,
         relevanceState,
+        relevanceReviewedOn:
+          catalogEntry?.relevance_review?.reviewed_on ?? null,
         apiState: model.api_state,
         accountAccess: model.account_access,
         accountCheckedOn: model.account_checked_on,

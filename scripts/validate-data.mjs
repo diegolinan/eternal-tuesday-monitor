@@ -582,6 +582,13 @@ for (const target of reproductionTargets.targets) {
     fail(
       `${target.id}: selected protocol does not require an interactive host`,
     );
+  if (target.readiness === 'COMPLETED_ACCEPTED_EVIDENCE') {
+    const completionEvidenceId = target.completion?.evidence_id;
+    if (!completionEvidenceId || !evidenceRecords.has(completionEvidenceId))
+      fail(
+        `${target.id}: completed target must reference a canonical evidence record`,
+      );
+  }
 }
 
 const reproductionTargetsById = new Map(
