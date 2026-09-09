@@ -14,13 +14,14 @@
         "probe-revalidation",
         "probe-state-reconciliation"
       ],
-      "readiness": "READY_FOR_CREDENTIAL_PROVISIONING",
+      "readiness": "COMPLETED_ACCEPTED_EVIDENCE",
       "execution_location": "GITHUB_HOSTED_RUNNER",
-      "blockers": [
-        "The report does not disclose its authentication mode; a new run must be scoped explicitly to Claude.ai subscription OAuth.",
-        "The repository has not verified a CLAUDE_CODE_OAUTH_TOKEN secret."
-      ],
-      "next_action": "Provision a Claude.ai subscription OAuth token in the protected evaluation environment, then explicitly dispatch the three-trial Windows runner."
+      "blockers": [],
+      "next_action": "No action remains for this initial reproduction target. Any later retest must be tracked as a new dated run without rewriting the accepted result.",
+      "completion": {
+        "completed_on": "2026-09-09",
+        "evidence_id": "evidence-claude-code-fable-stale-readiness-2026-09-09"
+      }
     },
     {
       "id": "repro-opus-5-prior-session-memory",

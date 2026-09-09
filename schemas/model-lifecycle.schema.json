@@ -12,6 +12,7 @@
     "apiModelId",
     "releaseState",
     "relevanceState",
+    "relevanceReviewedOn",
     "apiState",
     "accountAccess",
     "accountCheckedOn",
@@ -64,6 +65,9 @@
         "HISTORICAL",
         "SUPERSEDED"
       ]
+    },
+    "relevanceReviewedOn": {
+      "oneOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
     },
     "apiState": { "enum": ["API_UNKNOWN", "API_PENDING", "API_AVAILABLE"] },
     "accountAccess": {

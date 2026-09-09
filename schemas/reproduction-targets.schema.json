@@ -54,6 +54,7 @@
         },
         "readiness": {
           "enum": [
+            "COMPLETED_ACCEPTED_EVIDENCE",
             "READY_FOR_HUMAN_START",
             "READY_FOR_CREDENTIAL_PROVISIONING",
             "BLOCKED_EXACT_MODEL_AVAILABILITY",
@@ -73,8 +74,33 @@
           "uniqueItems": true,
           "items": { "type": "string", "minLength": 1 }
         },
-        "next_action": { "type": "string", "minLength": 1 }
-      }
+        "next_action": { "type": "string", "minLength": 1 },
+        "completion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["completed_on", "evidence_id"],
+          "properties": {
+            "completed_on": { "type": "string", "format": "date" },
+            "evidence_id": { "type": "string", "minLength": 1 }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "readiness": { "const": "COMPLETED_ACCEPTED_EVIDENCE" }
+            },
+            "required": ["readiness"]
+          },
+          "then": {
+            "required": ["completion"],
+            "properties": {
+              "blockers": { "type": "array", "maxItems": 0 }
+            }
+          }
+        }
+      ]
     }
   }
 }

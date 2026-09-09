@@ -61,13 +61,13 @@ Terminal, editor, desktop and authenticated-product claims require three indepen
 
 The machine-readable plan is [`data/evidence-discovery/reproduction-targets.json`](../data/evidence-discovery/reproduction-targets.json).
 
-| Lead                                      | Exact target                               | Route                                         | Current blocker                                                                |
-| ----------------------------------------- | ------------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------ |
-| Stale readiness from persistent memory    | Fable 5, Claude Code terminal conversation | Hosted server with the exact terminal product | Provision protected subscription OAuth; the report's auth mode is undisclosed. |
-| Prior transcripts or memory not consulted | Opus 5, Claude Code Desktop                | Controlled interactive host                   | Record the application version and authentication mode used by the new run.    |
-| Prior transcripts or memory not consulted | Fable 5, Claude Code Desktop               | Controlled interactive host                   | Record the application version and authentication mode; do not substitute 5.1. |
-| Answered directives treated as pending    | Fable 5, Claude Code VS Code extension     | Controlled interactive host                   | Requires the actual signed-in extension and exact model.                       |
-| Past event re-dated after midnight        | Opus 5, Claude Code Desktop                | Controlled interactive host                   | Requires the actual signed-in desktop application across the time boundary.    |
+| Lead                                      | Exact target                               | Route                                         | Current blocker                                                                                                                                         |
+| ----------------------------------------- | ------------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stale readiness from persistent memory    | Fable 5, Claude Code terminal conversation | Hosted server with the exact terminal product | Completed on 2026-09-09; accepted evidence is recorded as `evidence-claude-code-fable-stale-readiness-2026-09-09`. Any later retest is a new dated run. |
+| Prior transcripts or memory not consulted | Opus 5, Claude Code Desktop                | Controlled interactive host                   | Record the application version and authentication mode used by the new run.                                                                             |
+| Prior transcripts or memory not consulted | Fable 5, Claude Code Desktop               | Controlled interactive host                   | Record the application version and authentication mode; do not substitute 5.1.                                                                          |
+| Answered directives treated as pending    | Fable 5, Claude Code VS Code extension     | Controlled interactive host                   | Requires the actual signed-in extension and exact model.                                                                                                |
+| Past event re-dated after midnight        | Opus 5, Claude Code Desktop                | Controlled interactive host                   | Requires the actual signed-in desktop application across the time boundary.                                                                             |
 
 ## Promotion boundary
 

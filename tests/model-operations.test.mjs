@@ -100,3 +100,37 @@ test('accepted observations remain evidence without inventing a five-probe run',
   );
   assert.equal(result.models[0].behavioralEvaluation.evidenceProbes, 1);
 });
+
+test('catalog-only identities are not presented as awaiting controlled-test review', () => {
+  const result = compileModelOperations({
+    monitorModels: [
+      {
+        ...model,
+        relevanceState: 'CATALOG_ONLY',
+        relevanceReviewedOn: '2026-09-09',
+      },
+    ],
+    report: {
+      models: [
+        {
+          id: 'model-one',
+          provenance: [],
+          eligibility: {
+            state: 'UNKNOWN_REVIEW_REQUIRED',
+            reasons: ['API_UNKNOWN'],
+          },
+        },
+      ],
+      source_checks: [],
+      events: [],
+    },
+    completedAt: '2026-09-09T16:54:17Z',
+  });
+
+  assert.deepEqual(result.models[0].eligibilityCheck, {
+    state: 'NOT_IN_SCOPE',
+    checkedAt: null,
+    stateChangedOn: '2026-09-09',
+    reasons: ['MODEL_NOT_IN_ADOPTION_SCOPE'],
+  });
+});

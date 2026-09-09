@@ -11,14 +11,11 @@
         "expectedSources": 0
       },
       "eligibilityCheck": {
-        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "state": "NOT_IN_SCOPE",
         "checkedAt": null,
-        "stateChangedOn": null,
+        "stateChangedOn": "2026-09-09",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -40,14 +37,11 @@
         "expectedSources": 0
       },
       "eligibilityCheck": {
-        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "state": "NOT_IN_SCOPE",
         "checkedAt": null,
-        "stateChangedOn": null,
+        "stateChangedOn": "2026-09-09",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -185,14 +179,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -303,14 +294,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -332,14 +320,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -419,14 +404,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -507,14 +489,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -536,14 +515,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -711,14 +687,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -827,14 +800,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -856,14 +826,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -914,14 +881,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -943,14 +907,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -972,14 +933,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1001,14 +959,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1030,14 +985,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1059,14 +1011,11 @@
         "expectedSources": 1
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1088,14 +1037,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1466,14 +1412,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1524,14 +1467,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1553,14 +1493,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1582,14 +1519,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1611,14 +1545,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1640,14 +1571,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1669,14 +1597,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1698,14 +1623,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1727,14 +1649,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -1756,14 +1675,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2597,14 +2513,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2626,14 +2539,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2655,14 +2565,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2684,14 +2591,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2713,14 +2617,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2742,14 +2643,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2771,14 +2669,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2800,14 +2695,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2887,14 +2779,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2916,14 +2805,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2945,14 +2831,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -2974,14 +2857,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -3003,14 +2883,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -3032,14 +2909,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -3061,14 +2935,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -3090,14 +2961,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {
@@ -3119,14 +2987,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "NOT_YET_TESTABLE",
-        "checkedAt": "2026-09-05T15:50:49.167Z",
-        "stateChangedOn": null,
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-05",
         "reasons": [
-          "API_UNKNOWN",
-          "ACCOUNT_ACCESS_NOT_CONFIRMED",
-          "ACCOUNT_ACCESS_CHECK_STALE",
-          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
         ]
       },
       "behavioralEvaluation": {

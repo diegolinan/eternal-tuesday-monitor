@@ -46,6 +46,7 @@ test('Fable 5 targets cannot silently substitute Fable 5.1', async () => {
   assert.ok(
     fableTargets.every(
       (target) =>
+        target.readiness === 'COMPLETED_ACCEPTED_EVIDENCE' ||
         target.readiness === 'READY_FOR_CREDENTIAL_PROVISIONING' ||
         target.readiness === 'BLOCKED_EXACT_MODEL_AVAILABILITY' ||
         target.readiness === 'NEEDS_SURFACE_SELECTION' ||
@@ -57,6 +58,24 @@ test('Fable 5 targets cannot silently substitute Fable 5.1', async () => {
     JSON.stringify(fableTargets),
     /"model_id":"model-fable-5-1"/,
   );
+});
+
+test('completed reproduction targets point to accepted evidence and have no blockers', async () => {
+  const [plan, evidence] = await Promise.all([
+    readJson('data/evidence-discovery/reproduction-targets.json'),
+    readJson('data/evidence/evidence.json'),
+  ]);
+  const evidenceIds = new Set(
+    evidence.evidence_records.map((record) => record.id),
+  );
+  const completed = plan.targets.filter(
+    (target) => target.readiness === 'COMPLETED_ACCEPTED_EVIDENCE',
+  );
+
+  assert.equal(completed.length, 1);
+  assert.deepEqual(completed[0].blockers, []);
+  assert.equal(completed[0].completion.completed_on, '2026-09-09');
+  assert.ok(evidenceIds.has(completed[0].completion.evidence_id));
 });
 
 test('server and interactive surfaces use different protocols', async () => {

@@ -20,6 +20,16 @@ Pull-request review requests and assigned issues use GitHub's own notifications.
 
 The bounded product backlog is grouped in the `Evidence automation and behavioral reproduction V1` milestone. Human policy and reproduction work remains visible there instead of appearing as an unexplained public-site status.
 
+### Backlog truth rules
+
+The milestone is the operational queue, but canonical data remains the source of truth for public status. A task may close only when its complete acceptance condition is linked to a merged commit, workflow run, canonical evidence record or explicit documented policy decision. Partial progress is recorded without closing the task. If an issue and the data disagree, reconcile the issue; do not infer that completed work was never done.
+
+Automated reminders remain open while their triggering condition exists. In particular, the retest reminder closes only when the deterministic due set becomes empty. A comment or deferral does not manufacture a fresh result. Accepted successor evidence or a reviewed applicability change must first alter the canonical data.
+
+### Broad-web search decision
+
+V1 deliberately keeps broad-web search disabled. Official provider discovery, curated public-source watches and the controlled community intake remain the approved channels. Reconsider broad search only after those channels demonstrate a measurable blind spot and a reviewed policy defines query scope, provenance retention, deduplication, false-positive budget and credential handling. The missing search credential is therefore not an operational failure or an unfinished deployment.
+
 Run **Actions → Check reviewer email notification → Run workflow** once after changing notification settings. It opens a harmless pull request and requests review from `diegolinan`. Do not merge it. Confirm that the email arrived, close the pull request, then delete its disposable branch. This proves notification delivery without fabricating an evidence lead.
 
 ## Reviewing evidence candidates
