@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-09-05",
+  "catalogCheckedThrough": "2026-09-09",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -503,6 +503,16 @@
           "id": "model-discovered-bd0e51b349b405705836",
           "name": "GPT-Image-2",
           "apiModelId": "gpt-image-2"
+        },
+        {
+          "id": "model-discovered-c5bb4add1f5dfbf861bf",
+          "name": "GPT-Image-2.5 Flare",
+          "apiModelId": null
+        },
+        {
+          "id": "model-discovered-6a47e06de59b8ac31d44",
+          "name": "GPT-Image-2.5 Sunburst",
+          "apiModelId": null
         },
         {
           "id": "model-discovered-ecfe55f8a422ccdff7ed",
