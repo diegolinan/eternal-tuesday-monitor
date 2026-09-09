@@ -236,7 +236,7 @@ export function projectModels(
     })
     .sort(
       (a, b) =>
-        b.discoveredOn.localeCompare(a.discoveredOn) ||
+        (b.discoveredOn ?? '').localeCompare(a.discoveredOn ?? '') ||
         a.vendor.localeCompare(b.vendor) ||
         a.name.localeCompare(b.name),
     );

@@ -3,7 +3,7 @@
   "generatedAt": "2026-09-05T15:50:49.167Z",
   "models": [
     {
-      "id": "model-fable-5",
+      "id": "model-discovered-8afee28d5d048812f7aa",
       "sourceCheck": {
         "state": "NOT_RECORDED",
         "checkedAt": null,
@@ -22,12 +22,41 @@
         ]
       },
       "behavioralEvaluation": {
-        "state": "EVIDENCE_RECORDED",
+        "state": "NEVER_RUN",
         "lastAttemptAt": null,
         "lastEvidenceAt": null,
-        "lastEvidenceOn": "2026-09-09",
+        "lastEvidenceOn": null,
         "attemptedProbes": 0,
-        "evidenceProbes": 3,
+        "evidenceProbes": 0,
+        "totalProbes": 5
+      }
+    },
+    {
+      "id": "model-discovered-a768321108810b45db76",
+      "sourceCheck": {
+        "state": "NOT_RECORDED",
+        "checkedAt": null,
+        "checkedSources": 0,
+        "expectedSources": 0
+      },
+      "eligibilityCheck": {
+        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "checkedAt": null,
+        "stateChangedOn": null,
+        "reasons": [
+          "API_UNKNOWN",
+          "ACCOUNT_ACCESS_NOT_CONFIRMED",
+          "ACCOUNT_ACCESS_CHECK_STALE",
+          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+        ]
+      },
+      "behavioralEvaluation": {
+        "state": "NEVER_RUN",
+        "lastAttemptAt": null,
+        "lastEvidenceAt": null,
+        "lastEvidenceOn": null,
+        "attemptedProbes": 0,
+        "evidenceProbes": 0,
         "totalProbes": 5
       }
     },
@@ -3368,6 +3397,35 @@
         "lastEvidenceOn": null,
         "attemptedProbes": 0,
         "evidenceProbes": 0,
+        "totalProbes": 5
+      }
+    },
+    {
+      "id": "model-fable-5",
+      "sourceCheck": {
+        "state": "NOT_RECORDED",
+        "checkedAt": null,
+        "checkedSources": 0,
+        "expectedSources": 0
+      },
+      "eligibilityCheck": {
+        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "checkedAt": null,
+        "stateChangedOn": null,
+        "reasons": [
+          "API_UNKNOWN",
+          "ACCOUNT_ACCESS_NOT_CONFIRMED",
+          "ACCOUNT_ACCESS_CHECK_STALE",
+          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+        ]
+      },
+      "behavioralEvaluation": {
+        "state": "EVIDENCE_RECORDED",
+        "lastAttemptAt": null,
+        "lastEvidenceAt": null,
+        "lastEvidenceOn": "2026-09-09",
+        "attemptedProbes": 0,
+        "evidenceProbes": 3,
         "totalProbes": 5
       }
     }

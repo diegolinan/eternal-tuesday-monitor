@@ -587,21 +587,21 @@
   ],
   "models": [
     {
-      "id": "model-fable-5",
-      "vendorId": "vendor-anthropic",
-      "vendor": "Anthropic",
-      "name": "Fable 5",
-      "apiModelId": null,
-      "releaseState": "UNKNOWN",
-      "relevanceState": "UNCLASSIFIED",
+      "id": "model-discovered-8afee28d5d048812f7aa",
+      "vendorId": "vendor-openai",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-2.5 Flare",
+      "apiModelId": "gpt-image-2.5-flare",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "CATALOG_ONLY",
       "apiState": "API_UNKNOWN",
       "accountAccess": "UNKNOWN",
       "accountCheckedOn": null,
-      "discoveredOn": null,
+      "discoveredOn": "2026-09-09",
       "releasedOn": null,
-      "firstTestedOn": "2026-09-09",
-      "lastTestedOn": "2026-09-09",
-      "lifecycleState": "TESTED",
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "DISCOVERED",
       "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
       "evaluationReasons": [
         "API_UNKNOWN",
@@ -649,95 +649,166 @@
         {
           "id": "probe-revalidation",
           "name": "REVALIDATION",
-          "state": "TESTED",
+          "state": "NOT_TESTED",
           "eligibilityState": "NOT_IN_SCOPE",
           "eligibilityReasons": [],
-          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
+          "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
-          "empiricalResult": "VERIFIED",
-          "evidenceClass": "evidence-reproduced-observation",
-          "verifiedOn": "2026-09-09",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
           "limitations": [],
           "requestCount": 0
         },
         {
           "id": "probe-state-reconciliation",
           "name": "STATE RECONCILIATION",
-          "state": "TESTED",
+          "state": "NOT_TESTED",
           "eligibilityState": "NOT_IN_SCOPE",
           "eligibilityReasons": [],
-          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
+          "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
-          "empiricalResult": "VERIFIED",
-          "evidenceClass": "evidence-reproduced-observation",
-          "verifiedOn": "2026-09-09",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
           "limitations": [],
           "requestCount": 0
         },
         {
           "id": "probe-historical-validity",
           "name": "HISTORICAL VALIDITY",
-          "state": "TESTED",
+          "state": "NOT_TESTED",
           "eligibilityState": "NOT_IN_SCOPE",
           "eligibilityReasons": [],
-          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
+          "methodologyVersionId": null,
           "testability": "NOT_API_TESTABLE",
-          "empiricalResult": "VERIFIED",
-          "evidenceClass": "evidence-reproduced-observation",
-          "verifiedOn": "2026-09-09",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
           "limitations": [],
           "requestCount": 0
         }
       ],
-      "surfaces": [
-        {
-          "id": "surface-claude-code-terminal-agent-conversation",
-          "product": "Claude Code",
-          "name": "Terminal agent conversation",
-          "kind": "CONSUMER_PRODUCT_SURFACE"
-        }
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-2.5-flare"
       ],
-      "observationContexts": [
-        {
-          "id": "obs-anthropic-claude-code-fable-elapsed-2026-07",
-          "product": "Claude Code",
-          "surface": "Terminal agent conversation",
-          "probe": "ELAPSED",
-          "evidenceClass": "USER / PRACTITIONER REPORT",
-          "observedOn": "JUL 2026",
-          "applicability": "HISTORICAL"
-        },
-        {
-          "id": "obs-anthropic-claude-code-fable-revalidation-2026-09-09",
-          "product": "Claude Code",
-          "surface": "Terminal agent conversation",
-          "probe": "REVALIDATION",
-          "evidenceClass": "REPRODUCED OBSERVATION",
-          "observedOn": "09 SEP 2026",
-          "applicability": "CURRENT"
-        },
-        {
-          "id": "obs-anthropic-claude-code-fable-reconciliation-2026-09-09",
-          "product": "Claude Code",
-          "surface": "Terminal agent conversation",
-          "probe": "STATE RECONCILIATION",
-          "evidenceClass": "REPRODUCED OBSERVATION",
-          "observedOn": "09 SEP 2026",
-          "applicability": "CURRENT"
-        },
-        {
-          "id": "obs-anthropic-claude-code-fable-historical-validity-2026-09-09",
-          "product": "Claude Code",
-          "surface": "Terminal agent conversation",
-          "probe": "HISTORICAL VALIDITY",
-          "evidenceClass": "REPRODUCED OBSERVATION",
-          "observedOn": "09 SEP 2026",
-          "applicability": "CURRENT"
-        }
-      ],
-      "sources": [],
       "reviewReasons": [],
-      "defaultProminence": true
+      "defaultProminence": false
+    },
+    {
+      "id": "model-discovered-a768321108810b45db76",
+      "vendorId": "vendor-openai",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-2.5 Sunburst",
+      "apiModelId": "gpt-image-2.5-sunburst",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "CATALOG_ONLY",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-09",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "MODEL_NOT_IN_ADOPTION_SCOPE"
+      ],
+      "adoptionAssessedOn": null,
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": false
     },
     {
       "id": "model-fable-5-1",
@@ -14242,6 +14313,159 @@
         "https://docs.x.ai/developers/models",
         "https://docs.x.ai/developers/models/grok-4.6"
       ],
+      "reviewReasons": [],
+      "defaultProminence": true
+    },
+    {
+      "id": "model-fable-5",
+      "vendorId": "vendor-anthropic",
+      "vendor": "Anthropic",
+      "name": "Fable 5",
+      "apiModelId": null,
+      "releaseState": "UNKNOWN",
+      "relevanceState": "UNCLASSIFIED",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": null,
+      "releasedOn": null,
+      "firstTestedOn": "2026-09-09",
+      "lastTestedOn": "2026-09-09",
+      "lifecycleState": "TESTED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "MODEL_NOT_IN_ADOPTION_SCOPE"
+      ],
+      "adoptionAssessedOn": null,
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": "VERIFIED",
+          "evidenceClass": "evidence-reproduced-observation",
+          "verifiedOn": "2026-09-09",
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": "VERIFIED",
+          "evidenceClass": "evidence-reproduced-observation",
+          "verifiedOn": "2026-09-09",
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": "VERIFIED",
+          "evidenceClass": "evidence-reproduced-observation",
+          "verifiedOn": "2026-09-09",
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [
+        {
+          "id": "surface-claude-code-terminal-agent-conversation",
+          "product": "Claude Code",
+          "name": "Terminal agent conversation",
+          "kind": "CONSUMER_PRODUCT_SURFACE"
+        }
+      ],
+      "observationContexts": [
+        {
+          "id": "obs-anthropic-claude-code-fable-elapsed-2026-07",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "ELAPSED",
+          "evidenceClass": "USER / PRACTITIONER REPORT",
+          "observedOn": "JUL 2026",
+          "applicability": "HISTORICAL"
+        },
+        {
+          "id": "obs-anthropic-claude-code-fable-revalidation-2026-09-09",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "REVALIDATION",
+          "evidenceClass": "REPRODUCED OBSERVATION",
+          "observedOn": "09 SEP 2026",
+          "applicability": "CURRENT"
+        },
+        {
+          "id": "obs-anthropic-claude-code-fable-reconciliation-2026-09-09",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "STATE RECONCILIATION",
+          "evidenceClass": "REPRODUCED OBSERVATION",
+          "observedOn": "09 SEP 2026",
+          "applicability": "CURRENT"
+        },
+        {
+          "id": "obs-anthropic-claude-code-fable-historical-validity-2026-09-09",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "HISTORICAL VALIDITY",
+          "evidenceClass": "REPRODUCED OBSERVATION",
+          "observedOn": "09 SEP 2026",
+          "applicability": "CURRENT"
+        }
+      ],
+      "sources": [],
       "reviewReasons": [],
       "defaultProminence": true
     }
