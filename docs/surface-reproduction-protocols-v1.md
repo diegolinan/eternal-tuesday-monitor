@@ -61,12 +61,14 @@ The machine-readable plan is [`data/evidence-discovery/reproduction-targets.json
 
 | Lead                                      | Exact target                               | Route                                         | Current blocker                                                                |
 | ----------------------------------------- | ------------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------ |
-| Stale readiness from persistent memory    | Fable 5, Claude Code terminal conversation | Hosted server with the exact terminal product | Confirm exact Fable 5 availability and authentication mode.                    |
-| Prior transcripts or memory not consulted | Opus 5, surface unresolved                 | Not assigned                                  | The report bundles models and does not identify the exact Claude Code surface. |
-| Prior transcripts or memory not consulted | Fable 5, surface unresolved                | Not assigned                                  | Identify the surface and confirm exact Fable 5 availability.                   |
+| Stale readiness from persistent memory    | Fable 5, Claude Code terminal conversation | Hosted server with the exact terminal product | Provision protected subscription OAuth; the report's auth mode is undisclosed. |
+| Prior transcripts or memory not consulted | Opus 5, Claude Code Desktop                | Controlled interactive host                   | Record the application version and authentication mode used by the new run.    |
+| Prior transcripts or memory not consulted | Fable 5, Claude Code Desktop               | Controlled interactive host                   | Record the application version and authentication mode; do not substitute 5.1. |
 | Answered directives treated as pending    | Fable 5, Claude Code VS Code extension     | Controlled interactive host                   | Requires the actual signed-in extension and exact model.                       |
 | Past event re-dated after midnight        | Opus 5, Claude Code Desktop                | Controlled interactive host                   | Requires the actual signed-in desktop application across the time boundary.    |
 
 ## Promotion boundary
 
 Execution is human-started. A completed run produces a reviewable evidence package, not an accepted observation. Promotion still requires a separate human decision that checks exact coordinates, artifacts, oracle output and independence of the required trials. Automatic execution and automatic evidence acceptance remain disabled.
+
+The executable and interactive preparation packages are documented in [the reproduction runbooks](reproduction-runbooks-v1.md).

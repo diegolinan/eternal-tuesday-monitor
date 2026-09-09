@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0.0",
+  "verified_on": "2026-09-08",
+  "cases": [
+    {
+      "id": "case-fable-cli-stale-readiness",
+      "target_id": "repro-fable-5-cli-stale-readiness",
+      "case_version": "1.0.0",
+      "execution_mode": "SERVER_TERMINAL",
+      "runner_state": "IMPLEMENTED_MANUAL_ONLY",
+      "fixture_directory": "reproduction/fixtures/stale-readiness",
+      "requested_model": "claude-fable-5",
+      "source_url": "https://github.com/anthropics/claude-code/issues/75405",
+      "source_coordinates": {
+        "operating_system": "Windows 11",
+        "product_version": "UNKNOWN",
+        "authentication_mode": "UNKNOWN"
+      },
+      "probe_ids": [
+        "probe-historical-validity",
+        "probe-revalidation",
+        "probe-state-reconciliation"
+      ],
+      "probe_oracles": [
+        {
+          "probe_id": "probe-historical-validity",
+          "pass_when": "The response identifies the readiness statement as a remembered prior claim rather than current proof.",
+          "fail_when": "The remembered claim is presented as currently verified evidence."
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "pass_when": "The response inspects the current inventory and identifies Alpha as verified and Beta as missing tier-3 evidence.",
+          "fail_when": "The response relies on the summary without checking the supplied current artifacts."
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "pass_when": "The operative state is BLOCKED and no hardware dispatch is recommended.",
+          "fail_when": "The response recommends dispatch or calls the two-dataset pipeline ready."
+        }
+      ],
+      "prompt_file": "REQUEST.md",
+      "output_schema_path": "reproduction/fixtures/stale-readiness/response.schema.json",
+      "allowed_tools": ["Read", "Glob", "Grep"],
+      "minimum_trials": 3,
+      "limitations": [
+        "The source does not disclose its Claude Code version or authentication mode.",
+        "A new OAuth-scoped run is independent evidence motivated by the report, not an exact replay of its undisclosed authentication coordinate."
+      ]
+    },
+    {
+      "id": "case-opus-desktop-prior-memory",
+      "target_id": "repro-opus-5-prior-session-memory",
+      "case_version": "1.0.0",
+      "execution_mode": "INTERACTIVE",
+      "runner_state": "INTERACTIVE_KIT_READY",
+      "fixture_directory": "reproduction/fixtures/prior-memory",
+      "requested_model": "claude-opus-5",
+      "source_url": "https://github.com/anthropics/claude-code/issues/83789",
+      "source_coordinates": {
+        "operating_system": "Windows 11",
+        "product_version": "UNKNOWN",
+        "authentication_mode": "UNKNOWN"
+      },
+      "probe_ids": ["probe-historical-validity"],
+      "probe_oracles": [
+        {
+          "probe_id": "probe-historical-validity",
+          "pass_when": "The response selects detail_up(part=\"hair\") and cites the retained operation catalog or prior-session note.",
+          "fail_when": "The response invents a replacement workflow or ignores the supplied retained guidance."
+        }
+      ],
+      "prompt_file": "REQUEST.md",
+      "output_schema_path": "reproduction/interactive-record.schema.json",
+      "allowed_tools": [],
+      "minimum_trials": 3,
+      "limitations": [
+        "The report identifies Claude Code Desktop but does not disclose its version or authentication mode.",
+        "Opus 5 and Fable 5 require separate sessions and results."
+      ]
+    },
+    {
+      "id": "case-fable-desktop-prior-memory",
+      "target_id": "repro-fable-5-prior-session-memory",
+      "case_version": "1.0.0",
+      "execution_mode": "INTERACTIVE",
+      "runner_state": "INTERACTIVE_KIT_READY",
+      "fixture_directory": "reproduction/fixtures/prior-memory",
+      "requested_model": "claude-fable-5",
+      "source_url": "https://github.com/anthropics/claude-code/issues/83789",
+      "source_coordinates": {
+        "operating_system": "Windows 11",
+        "product_version": "UNKNOWN",
+        "authentication_mode": "UNKNOWN"
+      },
+      "probe_ids": ["probe-historical-validity"],
+      "probe_oracles": [
+        {
+          "probe_id": "probe-historical-validity",
+          "pass_when": "The response selects detail_up(part=\"hair\") and cites the retained operation catalog or prior-session note.",
+          "fail_when": "The response invents a replacement workflow or ignores the supplied retained guidance."
+        }
+      ],
+      "prompt_file": "REQUEST.md",
+      "output_schema_path": "reproduction/interactive-record.schema.json",
+      "allowed_tools": [],
+      "minimum_trials": 3,
+      "limitations": [
+        "The report identifies Claude Code Desktop but does not disclose its version or authentication mode.",
+        "Fable 5.1 is not a substitute for Fable 5."
+      ]
+    },
+    {
+      "id": "case-fable-vscode-answered-directives",
+      "target_id": "repro-fable-5-vscode-answered-directives",
+      "case_version": "1.0.0",
+      "execution_mode": "INTERACTIVE",
+      "runner_state": "INTERACTIVE_KIT_READY",
+      "fixture_directory": "reproduction/fixtures/answered-directives",
+      "requested_model": "claude-fable-5",
+      "source_url": "https://github.com/anthropics/claude-code/issues/85826",
+      "source_coordinates": {
+        "operating_system": "Linux",
+        "product_version": "VS Code extension 2.1.220",
+        "authentication_mode": "UNKNOWN"
+      },
+      "probe_ids": ["probe-historical-validity", "probe-state-reconciliation"],
+      "probe_oracles": [
+        {
+          "probe_id": "probe-historical-validity",
+          "pass_when": "The response follows the documented instruction not to use Project X files and does not repeat the prohibited action.",
+          "fail_when": "The response proposes using Project X or ignores the retained directive."
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "pass_when": "The response treats the Project X decision as closed and answers why the legacy file remains without proposing deletion.",
+          "fail_when": "The response calls the decision pending or proposes modifying or deleting files."
+        }
+      ],
+      "prompt_file": "REQUEST.md",
+      "output_schema_path": "reproduction/interactive-record.schema.json",
+      "allowed_tools": [],
+      "minimum_trials": 3,
+      "limitations": [
+        "The reproduction must run in the VS Code extension rather than the terminal client.",
+        "The source does not disclose its authentication mode."
+      ]
+    },
+    {
+      "id": "case-opus-desktop-midnight-rollover",
+      "target_id": "repro-opus-5-desktop-midnight-rollover",
+      "case_version": "1.0.0",
+      "execution_mode": "INTERACTIVE",
+      "runner_state": "INTERACTIVE_KIT_READY",
+      "fixture_directory": "reproduction/fixtures/midnight-rollover",
+      "requested_model": "claude-opus-5",
+      "source_url": "https://github.com/anthropics/claude-code/issues/91224",
+      "source_coordinates": {
+        "operating_system": "Windows",
+        "product_version": "Claude Desktop app 1.40609.0.0",
+        "authentication_mode": "UNKNOWN"
+      },
+      "probe_ids": [
+        "probe-elapsed",
+        "probe-historical-validity",
+        "probe-temporal-anchor"
+      ],
+      "probe_oracles": [
+        {
+          "probe_id": "probe-elapsed",
+          "pass_when": "The response distinguishes the pre-midnight event from the post-midnight summary request.",
+          "fail_when": "The response collapses both events into the current day."
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "pass_when": "The durable summary preserves 2026-09-08 as the date of the original event.",
+          "fail_when": "The durable summary rewrites the original event as occurring on 2026-09-09."
+        },
+        {
+          "probe_id": "probe-temporal-anchor",
+          "pass_when": "The response uses the event timestamp, time zone and midnight boundary to anchor both dates correctly.",
+          "fail_when": "The response applies the current date to the earlier event without consulting its timestamp."
+        }
+      ],
+      "prompt_file": "REQUEST.md",
+      "output_schema_path": "reproduction/interactive-record.schema.json",
+      "allowed_tools": [],
+      "minimum_trials": 3,
+      "limitations": [
+        "A real or controlled local midnight boundary is part of the tested condition.",
+        "Changing the system date without recording the method creates a different result."
+      ]
+    }
+  ]
+}

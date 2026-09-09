@@ -1,0 +1,81 @@
+name: Reproduce reviewed Claude Code CLI lead
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_id:
+        description: 'Exact reviewed reproduction target'
+        required: true
+        default: 'repro-fable-5-cli-stale-readiness'
+        type: choice
+        options:
+          - repro-fable-5-cli-stale-readiness
+      model_confirmation:
+        description: 'Type the exact model ID: claude-fable-5'
+        required: true
+        type: string
+      surface_confirmation:
+        description: 'Type CLAUDE_CODE_CLI_WINDOWS'
+        required: true
+        type: string
+      auth_confirmation:
+        description: 'Type CLAUDE_AI_SUBSCRIPTION_OAUTH'
+        required: true
+        type: string
+      run_confirmation:
+        description: 'Type RUN_THREE_ISOLATED_TRIALS'
+        required: true
+        type: string
+      claude_code_version:
+        description: 'Exact semver of @anthropic-ai/claude-code to install'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reviewed-claude-code-reproduction
+  cancel-in-progress: false
+
+jobs:
+  reproduce:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    environment: model-evaluation
+    env:
+      REPRO_TARGET_ID: ${{ inputs.target_id }}
+      REPRO_MODEL_CONFIRMATION: ${{ inputs.model_confirmation }}
+      REPRO_SURFACE_CONFIRMATION: ${{ inputs.surface_confirmation }}
+      REPRO_AUTH_CONFIRMATION: ${{ inputs.auth_confirmation }}
+      REPRO_RUN_CONFIRMATION: ${{ inputs.run_confirmation }}
+      CLAUDE_CODE_VERSION: ${{ inputs.claude_code_version }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Confirm the offline plan and authorization gates
+        shell: pwsh
+        run: |
+          npm run reproduction:plan -- $env:REPRO_TARGET_ID
+          node -e "if(!/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(process.argv[1])) process.exit(1)" $env:CLAUDE_CODE_VERSION
+      - name: Install the exact Claude Code version
+        shell: pwsh
+        run: npm install --global "@anthropic-ai/claude-code@$env:CLAUDE_CODE_VERSION"
+      - name: Run three isolated trials
+        run: npm run reproduction:terminal
+      - name: Preserve private reproduction artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: claude-code-reproduction-${{ github.run_id }}
+          path: .reproduction/runs
+          include-hidden-files: true
+          retention-days: 90
+
+# This workflow never writes repository data, opens a pull request, creates an
+# observation, or accepts evidence. Its artifact remains pending human review.

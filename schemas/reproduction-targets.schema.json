@@ -55,6 +55,7 @@
         "readiness": {
           "enum": [
             "READY_FOR_HUMAN_START",
+            "READY_FOR_CREDENTIAL_PROVISIONING",
             "BLOCKED_EXACT_MODEL_AVAILABILITY",
             "NEEDS_SURFACE_SELECTION",
             "INTERACTIVE_HOST_REQUIRED"

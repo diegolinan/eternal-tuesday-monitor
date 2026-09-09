@@ -211,6 +211,8 @@ const [
   surfaceReproductionPolicySchema,
   reproductionTargets,
   reproductionTargetsSchema,
+  reproductionCasesFile,
+  reproductionCasesSchema,
 ] = await Promise.all([
   readJson('config/evidence-discovery.json'),
   readJson('schemas/evidence-discovery-config.schema.json'),
@@ -229,6 +231,8 @@ const [
   readJson('schemas/surface-reproduction-policy.schema.json'),
   readJson('data/evidence-discovery/reproduction-targets.json'),
   readJson('schemas/reproduction-targets.schema.json'),
+  readJson('reproduction/cases.json'),
+  readJson('schemas/reproduction-cases.schema.json'),
 ]);
 
 const observations = observationLedger.items;
@@ -332,6 +336,9 @@ validateWithSchema(
 validateWithSchema('reproduction targets', reproductionTargetsSchema, [
   reproductionTargets,
 ]);
+validateWithSchema('reproduction cases', reproductionCasesSchema, [
+  reproductionCasesFile,
+]);
 
 const publicModelIds = new Set(monitorView.models.map((model) => model.id));
 const operationalModelIds = new Set(
@@ -368,6 +375,7 @@ const collections = [
   ['evidence candidate reviews', evidenceCandidateReviews],
   ['surface reproduction protocols', surfaceReproductionPolicy.protocols],
   ['reproduction targets', reproductionTargets.targets],
+  ['reproduction cases', reproductionCasesFile.cases],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
 for (const [label, items] of collections) {
@@ -575,6 +583,102 @@ for (const target of reproductionTargets.targets) {
       `${target.id}: selected protocol does not require an interactive host`,
     );
 }
+
+const reproductionTargetsById = new Map(
+  reproductionTargets.targets.map((target) => [target.id, target]),
+);
+const reproductionCaseCountByTarget = new Map();
+const validatedReproductionOutputSchemas = new Set();
+for (const reproductionCase of reproductionCasesFile.cases) {
+  const target = reproductionTargetsById.get(reproductionCase.target_id);
+  const protocol = target
+    ? reproductionProtocolsById.get(target.protocol_id)
+    : null;
+  reproductionCaseCountByTarget.set(
+    reproductionCase.target_id,
+    (reproductionCaseCountByTarget.get(reproductionCase.target_id) ?? 0) + 1,
+  );
+  if (!target)
+    fail(
+      `${reproductionCase.id}: unknown reproduction target ${reproductionCase.target_id}`,
+    );
+  if (
+    target &&
+    JSON.stringify(
+      [...reproductionCase.probe_ids].sort((a, b) => a.localeCompare(b)),
+    ) !==
+      JSON.stringify([...target.probe_ids].sort((a, b) => a.localeCompare(b)))
+  )
+    fail(`${reproductionCase.id}: probe set differs from its target`);
+  if (
+    JSON.stringify(
+      reproductionCase.probe_oracles
+        .map((oracle) => oracle.probe_id)
+        .sort((a, b) => a.localeCompare(b)),
+    ) !==
+    JSON.stringify(
+      [...reproductionCase.probe_ids].sort((a, b) => a.localeCompare(b)),
+    )
+  )
+    fail(`${reproductionCase.id}: oracle set differs from its probe set`);
+  const candidate = target
+    ? evidenceCandidates.find((item) => item.id === target.candidate_id)
+    : null;
+  if (candidate && reproductionCase.source_url !== candidate.source_url)
+    fail(`${reproductionCase.id}: source URL differs from its candidate`);
+  if (
+    reproductionCase.execution_mode === 'SERVER_TERMINAL' &&
+    target?.execution_location !== 'GITHUB_HOSTED_RUNNER'
+  )
+    fail(
+      `${reproductionCase.id}: terminal case is not routed to a hosted runner`,
+    );
+  if (
+    reproductionCase.execution_mode === 'INTERACTIVE' &&
+    target?.execution_location !== 'CONTROLLED_INTERACTIVE_HOST'
+  )
+    fail(`${reproductionCase.id}: interactive case lacks an interactive route`);
+  if (
+    reproductionCase.runner_state === 'IMPLEMENTED_MANUAL_ONLY' &&
+    reproductionCase.execution_mode !== 'SERVER_TERMINAL'
+  )
+    fail(
+      `${reproductionCase.id}: implemented runner has the wrong execution mode`,
+    );
+  if (
+    protocol &&
+    reproductionCase.minimum_trials !== protocol.minimum_independent_trials
+  )
+    fail(`${reproductionCase.id}: trial count differs from its protocol`);
+  try {
+    await readFile(
+      path.join(
+        root,
+        reproductionCase.fixture_directory,
+        reproductionCase.prompt_file,
+      ),
+      'utf8',
+    );
+    const outputSchema = await readJson(reproductionCase.output_schema_path);
+    if (
+      !validatedReproductionOutputSchemas.has(
+        reproductionCase.output_schema_path,
+      )
+    ) {
+      ajv.compile(outputSchema);
+      validatedReproductionOutputSchemas.add(
+        reproductionCase.output_schema_path,
+      );
+    }
+  } catch (error) {
+    fail(
+      `${reproductionCase.id}: fixture contract is unreadable (${error.message})`,
+    );
+  }
+}
+for (const target of reproductionTargets.targets)
+  if ((reproductionCaseCountByTarget.get(target.id) ?? 0) !== 1)
+    fail(`${target.id}: expected exactly one reproduction case`);
 for (const query of evidenceDiscoveryConfig.queries)
   for (const id of query.probe_ids)
     if (!probes.has(id))
