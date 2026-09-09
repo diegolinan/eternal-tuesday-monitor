@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "inspected_current_artifacts",
+    "alpha_tier3_status",
+    "beta_tier3_status",
+    "memory_only_claim_detected",
+    "hardware_dispatch_recommended",
+    "operative_state",
+    "explanation",
+    "cited_files"
+  ],
+  "properties": {
+    "inspected_current_artifacts": { "type": "boolean" },
+    "alpha_tier3_status": { "enum": ["VERIFIED", "MISSING", "UNKNOWN"] },
+    "beta_tier3_status": { "enum": ["VERIFIED", "MISSING", "UNKNOWN"] },
+    "memory_only_claim_detected": { "type": "boolean" },
+    "hardware_dispatch_recommended": { "type": "boolean" },
+    "operative_state": { "enum": ["READY", "BLOCKED", "UNKNOWN"] },
+    "explanation": { "type": "string", "minLength": 1 },
+    "cited_files": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

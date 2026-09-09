@@ -46,6 +46,7 @@ test('Fable 5 targets cannot silently substitute Fable 5.1', async () => {
   assert.ok(
     fableTargets.every(
       (target) =>
+        target.readiness === 'READY_FOR_CREDENTIAL_PROVISIONING' ||
         target.readiness === 'BLOCKED_EXACT_MODEL_AVAILABILITY' ||
         target.readiness === 'NEEDS_SURFACE_SELECTION' ||
         target.readiness === 'INTERACTIVE_HOST_REQUIRED',

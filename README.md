@@ -52,6 +52,8 @@ The supported five-probe path is the manual-only `Run five probes for one model`
 
 Reviewed behavioral leads are routed by the [surface-specific reproduction protocols](docs/surface-reproduction-protocols-v1.md). A server may reproduce a provider API or the exact headless terminal product, but it cannot stand in for an IDE extension, desktop application or authenticated product UI. Model, product, surface, version and authentication mode are part of the result; cross-surface transfer, automatic execution and automatic evidence acceptance are forbidden.
 
+The [reviewed-lead reproduction runbooks](docs/reproduction-runbooks-v1.md) provide one protected, manual-only Windows terminal runner and offline preparation kits for the required VS Code and Desktop sessions. The terminal workflow has read-only repository permission and produces private candidate artifacts only; it cannot change the Monitor or accept evidence.
+
 The former Luna-specific recurring candidate path has been retired. The one reviewed GPT-5.6 Luna observation, its evidence receipt, release manifest and manual reproduction notes remain immutable historical evidence; they no longer imply an active scheduler. GitHub Actions remains the Monitor's only clock.
 
 A failed source creates an explicit source-check error and never deletes accepted catalog state. Other sources continue. Unchanged checks append audit history without duplicating semantic events. Ambiguous metadata and all epistemic interpretations remain reviewable through GitHub pull requests.
@@ -123,6 +125,7 @@ data/sources/                   Versioned source records, including archived lau
 data/evidence/                  Evidence records connecting claims to sources
 data/evidence-discovery/        Append-only candidate, batch-retraction and per-candidate review ledgers; never accepted evidence by themselves
 data/evidence-discovery/reproduction-targets.json  Exact-model routing plan for reviewed behavioral leads
+reproduction/                    Versioned synthetic fixtures, case oracles and private-run record schemas
 data/observations/              Append-only observation ledger (JSON Lines)
 data/state-events/              Append-only operational state-event ledger
 data/releases/                  Dated release manifests and cutoffs

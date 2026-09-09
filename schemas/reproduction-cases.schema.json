@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diegolinan.github.io/eternal-tuesday-monitor/schemas/reproduction-cases.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "verified_on", "cases"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "verified_on": { "type": "string", "format": "date" },
+    "cases": {
+      "type": "array",
+      "minItems": 5,
+      "items": { "$ref": "#/$defs/case" }
+    }
+  },
+  "$defs": {
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "target_id",
+        "case_version",
+        "execution_mode",
+        "runner_state",
+        "fixture_directory",
+        "requested_model",
+        "source_url",
+        "source_coordinates",
+        "probe_ids",
+        "probe_oracles",
+        "prompt_file",
+        "output_schema_path",
+        "allowed_tools",
+        "minimum_trials",
+        "limitations"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^case-[a-z0-9-]+$" },
+        "target_id": { "type": "string", "pattern": "^repro-[a-z0-9-]+$" },
+        "case_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "execution_mode": { "enum": ["SERVER_TERMINAL", "INTERACTIVE"] },
+        "runner_state": {
+          "enum": ["IMPLEMENTED_MANUAL_ONLY", "INTERACTIVE_KIT_READY"]
+        },
+        "fixture_directory": {
+          "type": "string",
+          "pattern": "^reproduction/fixtures/[a-z0-9-]+$"
+        },
+        "requested_model": {
+          "type": "string",
+          "pattern": "^claude-[a-z0-9-]+$"
+        },
+        "source_url": { "type": "string", "format": "uri" },
+        "source_coordinates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "operating_system",
+            "product_version",
+            "authentication_mode"
+          ],
+          "properties": {
+            "operating_system": { "type": "string", "minLength": 1 },
+            "product_version": { "type": "string", "minLength": 1 },
+            "authentication_mode": { "type": "string", "minLength": 1 }
+          }
+        },
+        "probe_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "probe_oracles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["probe_id", "pass_when", "fail_when"],
+            "properties": {
+              "probe_id": { "type": "string", "minLength": 1 },
+              "pass_when": { "type": "string", "minLength": 1 },
+              "fail_when": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "prompt_file": { "type": "string", "pattern": "^[A-Z0-9_-]+\\.md$" },
+        "output_schema_path": {
+          "type": "string",
+          "pattern": "^reproduction/[a-z0-9/.-]+\\.schema\\.json$"
+        },
+        "allowed_tools": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "minimum_trials": { "type": "integer", "const": 3 },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

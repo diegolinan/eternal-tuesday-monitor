@@ -1,0 +1,15 @@
+{
+  "timezone": "America/Argentina/Buenos_Aires",
+  "events": [
+    {
+      "id": "issue-created",
+      "occurred_at": "2026-09-08T23:58:30-03:00",
+      "description": "Created the tracked issue and posted its initial comment."
+    },
+    {
+      "id": "summary-requested",
+      "occurred_at": "2026-09-09T00:02:00-03:00",
+      "description": "Requested a durable summary of the original issue-creation event."
+    }
+  ]
+}
