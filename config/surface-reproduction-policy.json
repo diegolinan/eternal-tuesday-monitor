@@ -5,6 +5,12 @@
   "automatic_execution": false,
   "automatic_evidence_acceptance": false,
   "cross_surface_transfer": false,
+  "model_attribution": {
+    "selected_model_must_appear_in_usage": true,
+    "record_all_returned_models": true,
+    "auxiliary_models": "ALLOW_WITH_DISCLOSURE_FOR_PRODUCT_SURFACE_CLAIMS",
+    "exclusive_model_claim_requires_no_auxiliaries": true
+  },
   "exact_coordinates": [
     "vendor_id",
     "model_id",
@@ -84,7 +90,8 @@
         "fresh disposable workspace per trial",
         "fixed seed artifacts and instructions",
         "independent session per trial",
-        "machine clock captured before and after"
+        "machine clock captured before and after",
+        "selected primary and every returned auxiliary model recorded"
       ],
       "required_artifacts": [
         "complete structured transcript",
@@ -97,7 +104,8 @@
         "provider API for the terminal product",
         "terminal agent for an editor extension",
         "terminal agent for a desktop application",
-        "different authentication mode without a separately named result"
+        "different authentication mode without a separately named result",
+        "product-surface result presented as an isolated model result"
       ],
       "official_sources": [
         "https://code.claude.com/docs/en/headless",

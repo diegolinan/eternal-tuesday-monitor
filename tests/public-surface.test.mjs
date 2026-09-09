@@ -115,7 +115,7 @@ test('the model register separates source scans, eligibility, and evidence', asy
   assert.match(source, /CURATED HISTORICAL IDENTITY/);
   assert.match(source, /the daily listing\s+scan does not apply/);
   assert.match(source, /Dated observation context/);
-  assert.match(source, /not accepted probe evidence/);
+  assert.match(source, /accepted empirical evidence and historical/);
   assert.match(source, /hasProbeEvidence/);
   assert.match(source, /return 'EVIDENCE_WATCH'/);
   assert.match(source, /eligibilityGroups/);

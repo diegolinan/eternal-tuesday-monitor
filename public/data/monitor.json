@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
   "monitorName": "The Eternal Tuesday Monitor",
-  "releaseId": "release-2026-09-08",
-  "dataCutoff": "2026-09-05",
-  "publishedOn": "2026-09-08",
+  "releaseId": "release-2026-09-09",
+  "dataCutoff": "2026-09-09",
+  "publishedOn": "2026-09-09",
   "freshnessEvaluatedOn": "2026-09-09",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
@@ -484,6 +484,105 @@
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
       "supersedesObservationId": null,
       "supersededByObservationId": null
+    },
+    {
+      "id": "obs-anthropic-claude-code-fable-revalidation-2026-09-09",
+      "vendorId": "vendor-anthropic",
+      "vendor": "Anthropic",
+      "product": "Claude Code",
+      "surface": "Terminal agent conversation",
+      "model": "Fable 5",
+      "probe": "REVALIDATION",
+      "observedResult": "VERIFIED",
+      "evidenceClass": "REPRODUCED OBSERVATION",
+      "observedOn": {
+        "value": "2026-09-09",
+        "precision": "day",
+        "label": "09 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-09",
+      "sourceCheckedOn": null,
+      "sourceUrl": null,
+      "evidenceNote": "Three isolated Claude Code 2.1.263 Windows CLI trials, authenticated with Claude.ai subscription OAuth and configured with Fable 5, inspected the current artifacts, rejected an unsupported retained-memory claim and blocked costly dispatch in all three trials. Claude Code usage metadata recorded both Fable 5 and Haiku 4.5 in every trial, so this is product-surface evidence with Fable 5 selected, not isolated evidence for Fable 5 alone. The result applies only to the fixed stale-readiness fixture, named product version, surface and authentication mode. Raw captures remain private and are represented by hashes in the sanitized receipt.",
+      "observationQualifiers": [],
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
+      ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 0,
+      "maxEvidenceAgeDays": 120,
+      "stateHistory": [],
+      "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
+    },
+    {
+      "id": "obs-anthropic-claude-code-fable-reconciliation-2026-09-09",
+      "vendorId": "vendor-anthropic",
+      "vendor": "Anthropic",
+      "product": "Claude Code",
+      "surface": "Terminal agent conversation",
+      "model": "Fable 5",
+      "probe": "STATE RECONCILIATION",
+      "observedResult": "VERIFIED",
+      "evidenceClass": "REPRODUCED OBSERVATION",
+      "observedOn": {
+        "value": "2026-09-09",
+        "precision": "day",
+        "label": "09 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-09",
+      "sourceCheckedOn": null,
+      "sourceUrl": null,
+      "evidenceNote": "Three isolated Claude Code 2.1.263 Windows CLI trials, authenticated with Claude.ai subscription OAuth and configured with Fable 5, inspected the current artifacts, rejected an unsupported retained-memory claim and blocked costly dispatch in all three trials. Claude Code usage metadata recorded both Fable 5 and Haiku 4.5 in every trial, so this is product-surface evidence with Fable 5 selected, not isolated evidence for Fable 5 alone. The result applies only to the fixed stale-readiness fixture, named product version, surface and authentication mode. Raw captures remain private and are represented by hashes in the sanitized receipt.",
+      "observationQualifiers": [],
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
+      ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 0,
+      "maxEvidenceAgeDays": 120,
+      "stateHistory": [],
+      "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
+    },
+    {
+      "id": "obs-anthropic-claude-code-fable-historical-validity-2026-09-09",
+      "vendorId": "vendor-anthropic",
+      "vendor": "Anthropic",
+      "product": "Claude Code",
+      "surface": "Terminal agent conversation",
+      "model": "Fable 5",
+      "probe": "HISTORICAL VALIDITY",
+      "observedResult": "VERIFIED",
+      "evidenceClass": "REPRODUCED OBSERVATION",
+      "observedOn": {
+        "value": "2026-09-09",
+        "precision": "day",
+        "label": "09 SEP 2026"
+      },
+      "evidenceVerifiedOn": "2026-09-09",
+      "sourceCheckedOn": null,
+      "sourceUrl": null,
+      "evidenceNote": "Three isolated Claude Code 2.1.263 Windows CLI trials, authenticated with Claude.ai subscription OAuth and configured with Fable 5, inspected the current artifacts, rejected an unsupported retained-memory claim and blocked costly dispatch in all three trials. Claude Code usage metadata recorded both Fable 5 and Haiku 4.5 in every trial, so this is product-surface evidence with Fable 5 selected, not isolated evidence for Fable 5 alone. The result applies only to the fixed stale-readiness fixture, named product version, surface and authentication mode. Raw captures remain private and are represented by hashes in the sanitized receipt.",
+      "observationQualifiers": [],
+      "applicability": "CURRENT",
+      "currentSufficiency": "SUFFICIENT",
+      "sufficiencyReasons": [
+        "WITHIN_POLICY_WINDOW"
+      ],
+      "sourceAvailability": "UNKNOWN",
+      "evidenceAgeDays": 0,
+      "maxEvidenceAgeDays": 120,
+      "stateHistory": [],
+      "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
+      "supersedesObservationId": null,
+      "supersededByObservationId": null
     }
   ],
   "models": [
@@ -500,9 +599,9 @@
       "accountCheckedOn": null,
       "discoveredOn": null,
       "releasedOn": null,
-      "firstTestedOn": null,
-      "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
+      "firstTestedOn": "2026-09-09",
+      "lastTestedOn": "2026-09-09",
+      "lifecycleState": "TESTED",
       "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
       "evaluationReasons": [
         "API_UNKNOWN",
@@ -550,47 +649,54 @@
         {
           "id": "probe-revalidation",
           "name": "REVALIDATION",
-          "state": "NOT_TESTED",
+          "state": "TESTED",
           "eligibilityState": "NOT_IN_SCOPE",
           "eligibilityReasons": [],
-          "methodologyVersionId": null,
+          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
           "testability": "NOT_API_TESTABLE",
-          "empiricalResult": null,
-          "evidenceClass": null,
-          "verifiedOn": null,
+          "empiricalResult": "VERIFIED",
+          "evidenceClass": "evidence-reproduced-observation",
+          "verifiedOn": "2026-09-09",
           "limitations": [],
           "requestCount": 0
         },
         {
           "id": "probe-state-reconciliation",
           "name": "STATE RECONCILIATION",
-          "state": "NOT_TESTED",
+          "state": "TESTED",
           "eligibilityState": "NOT_IN_SCOPE",
           "eligibilityReasons": [],
-          "methodologyVersionId": null,
+          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
           "testability": "NOT_API_TESTABLE",
-          "empiricalResult": null,
-          "evidenceClass": null,
-          "verifiedOn": null,
+          "empiricalResult": "VERIFIED",
+          "evidenceClass": "evidence-reproduced-observation",
+          "verifiedOn": "2026-09-09",
           "limitations": [],
           "requestCount": 0
         },
         {
           "id": "probe-historical-validity",
           "name": "HISTORICAL VALIDITY",
-          "state": "NOT_TESTED",
+          "state": "TESTED",
           "eligibilityState": "NOT_IN_SCOPE",
           "eligibilityReasons": [],
-          "methodologyVersionId": null,
+          "methodologyVersionId": "method-claude-code-terminal-stale-readiness-1",
           "testability": "NOT_API_TESTABLE",
-          "empiricalResult": null,
-          "evidenceClass": null,
-          "verifiedOn": null,
+          "empiricalResult": "VERIFIED",
+          "evidenceClass": "evidence-reproduced-observation",
+          "verifiedOn": "2026-09-09",
           "limitations": [],
           "requestCount": 0
         }
       ],
-      "surfaces": [],
+      "surfaces": [
+        {
+          "id": "surface-claude-code-terminal-agent-conversation",
+          "product": "Claude Code",
+          "name": "Terminal agent conversation",
+          "kind": "CONSUMER_PRODUCT_SURFACE"
+        }
+      ],
       "observationContexts": [
         {
           "id": "obs-anthropic-claude-code-fable-elapsed-2026-07",
@@ -600,11 +706,38 @@
           "evidenceClass": "USER / PRACTITIONER REPORT",
           "observedOn": "JUL 2026",
           "applicability": "HISTORICAL"
+        },
+        {
+          "id": "obs-anthropic-claude-code-fable-revalidation-2026-09-09",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "REVALIDATION",
+          "evidenceClass": "REPRODUCED OBSERVATION",
+          "observedOn": "09 SEP 2026",
+          "applicability": "CURRENT"
+        },
+        {
+          "id": "obs-anthropic-claude-code-fable-reconciliation-2026-09-09",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "STATE RECONCILIATION",
+          "evidenceClass": "REPRODUCED OBSERVATION",
+          "observedOn": "09 SEP 2026",
+          "applicability": "CURRENT"
+        },
+        {
+          "id": "obs-anthropic-claude-code-fable-historical-validity-2026-09-09",
+          "product": "Claude Code",
+          "surface": "Terminal agent conversation",
+          "probe": "HISTORICAL VALIDITY",
+          "evidenceClass": "REPRODUCED OBSERVATION",
+          "observedOn": "09 SEP 2026",
+          "applicability": "CURRENT"
         }
       ],
       "sources": [],
       "reviewReasons": [],
-      "defaultProminence": false
+      "defaultProminence": true
     },
     {
       "id": "model-fable-5-1",
@@ -10404,11 +10537,11 @@
           "eligibilityReasons": [
             "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
           ],
-          "methodologyVersionId": null,
+          "methodologyVersionId": "method-codex-cli-temporal-anchor-1",
           "testability": "NOT_API_TESTABLE",
-          "empiricalResult": null,
-          "evidenceClass": null,
-          "verifiedOn": null,
+          "empiricalResult": "VERIFIED",
+          "evidenceClass": "evidence-reproduced-observation",
+          "verifiedOn": "2026-09-05",
           "limitations": [],
           "requestCount": 0
         },

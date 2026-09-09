@@ -18,7 +18,7 @@ test('the public dataset compiles deterministically without rewriting results', 
       [
         'scripts/compile-monitor-view.mjs',
         '--as-of',
-        '2026-09-08',
+        '2026-09-09',
         '--output',
         output,
       ],
@@ -57,10 +57,10 @@ test('the public dataset compiles deterministically without rewriting results', 
       ),
     );
   }
-  assert.equal(data.observations.length, 14);
+  assert.equal(data.observations.length, 17);
   assert.equal(
     data.observations.filter((item) => item.applicability === 'CURRENT').length,
-    11,
+    14,
   );
   assert.equal(
     data.observations.filter((item) => item.applicability === 'HISTORICAL')
@@ -78,7 +78,14 @@ test('the public dataset compiles deterministically without rewriting results', 
   );
   const fable = data.models.find((item) => item.id === 'model-fable-5');
   assert.equal(fable.sources.length, 0);
-  assert.deepEqual(fable.surfaces, []);
+  assert.deepEqual(fable.surfaces, [
+    {
+      id: 'surface-claude-code-terminal-agent-conversation',
+      product: 'Claude Code',
+      name: 'Terminal agent conversation',
+      kind: 'CONSUMER_PRODUCT_SURFACE',
+    },
+  ]);
   assert.deepEqual(fable.observationContexts, [
     {
       id: 'obs-anthropic-claude-code-fable-elapsed-2026-07',
@@ -89,7 +96,44 @@ test('the public dataset compiles deterministically without rewriting results', 
       observedOn: 'JUL 2026',
       applicability: 'HISTORICAL',
     },
+    {
+      id: 'obs-anthropic-claude-code-fable-revalidation-2026-09-09',
+      product: 'Claude Code',
+      surface: 'Terminal agent conversation',
+      probe: 'REVALIDATION',
+      evidenceClass: 'REPRODUCED OBSERVATION',
+      observedOn: '09 SEP 2026',
+      applicability: 'CURRENT',
+    },
+    {
+      id: 'obs-anthropic-claude-code-fable-reconciliation-2026-09-09',
+      product: 'Claude Code',
+      surface: 'Terminal agent conversation',
+      probe: 'STATE RECONCILIATION',
+      evidenceClass: 'REPRODUCED OBSERVATION',
+      observedOn: '09 SEP 2026',
+      applicability: 'CURRENT',
+    },
+    {
+      id: 'obs-anthropic-claude-code-fable-historical-validity-2026-09-09',
+      product: 'Claude Code',
+      surface: 'Terminal agent conversation',
+      probe: 'HISTORICAL VALIDITY',
+      evidenceClass: 'REPRODUCED OBSERVATION',
+      observedOn: '09 SEP 2026',
+      applicability: 'CURRENT',
+    },
   ]);
+  for (const probeId of [
+    'probe-revalidation',
+    'probe-state-reconciliation',
+    'probe-historical-validity',
+  ]) {
+    const probe = fable.probeCoverage.find((item) => item.id === probeId);
+    assert.equal(probe.empiricalResult, 'VERIFIED');
+    assert.equal(probe.verifiedOn, '2026-09-09');
+    assert.equal(probe.evidenceClass, 'evidence-reproduced-observation');
+  }
 
   const beforePublicationPath = path.join(directory, 'before-publication.json');
   const beforePublicationRun = spawnSync(
@@ -195,7 +239,13 @@ test('the public changelog follows the active release instead of announcing futu
   const after = JSON.parse(await readFile(afterPath, 'utf8'));
   const eventId = 'change-2026-09-05-codex-luna-observation';
   assert.equal(before.releaseId, 'release-2026-09-07');
-  assert.equal(before.events.some((event) => event.id === eventId), false);
+  assert.equal(
+    before.events.some((event) => event.id === eventId),
+    false,
+  );
   assert.equal(after.releaseId, 'release-2026-09-08');
-  assert.equal(after.events.some((event) => event.id === eventId), true);
+  assert.equal(
+    after.events.some((event) => event.id === eventId),
+    true,
+  );
 });

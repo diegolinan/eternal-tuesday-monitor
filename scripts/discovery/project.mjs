@@ -75,15 +75,34 @@ export function projectModels(
         const latestApiResult = behavioralApiResults.findLast(
           (result) => result.probe_id === probe.id,
         );
+        const latestObservation = lifecycle.empiricalObservations
+          .filter((observation) => observation.probe_id === probe.id)
+          .sort((left, right) =>
+            left.last_verified_on.localeCompare(right.last_verified_on),
+          )
+          .at(-1);
         return {
           ...probe,
           eligibilityState: assessed?.state ?? 'NOT_IN_SCOPE',
           eligibilityReasons: assessed?.reasons ?? [],
-          methodologyVersionId: assessed?.methodology_version_id ?? null,
+          methodologyVersionId:
+            latestApiResult?.methodology_version_id ??
+            latestObservation?.methodology_version_id ??
+            assessed?.methodology_version_id ??
+            null,
           testability: assessed?.testability ?? 'NOT_API_TESTABLE',
-          empiricalResult: latestApiResult?.status ?? null,
-          evidenceClass: latestApiResult?.evidence_class_id ?? null,
-          verifiedOn: latestApiResult?.verified_on ?? null,
+          empiricalResult:
+            latestApiResult?.status ??
+            latestObservation?.result_status_id ??
+            null,
+          evidenceClass:
+            latestApiResult?.evidence_class_id ??
+            latestObservation?.evidence_class_id ??
+            null,
+          verifiedOn:
+            latestApiResult?.verified_on ??
+            latestObservation?.last_verified_on ??
+            null,
           limitations: latestApiResult?.limitations ?? [],
           requestCount: latestApiResult?.request_count ?? 0,
         };
