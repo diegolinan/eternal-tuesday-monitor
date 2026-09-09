@@ -66,6 +66,12 @@
       "version": "API-HISTORICAL-VALIDITY-1",
       "name": "Provider API controlled historical validity",
       "scope": "One structured-output request checks the distinction between a claim that was true at an earlier date and the current authoritative state. Broader semantic judgment remains outside this partial API test."
+    },
+    {
+      "id": "method-claude-code-terminal-stale-readiness-1",
+      "version": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
+      "name": "Claude Code terminal stale-readiness reproduction",
+      "scope": "Three isolated Windows CLI sessions using Claude Code 2.1.263, Claude.ai subscription OAuth, Fable 5 as the selected primary model, disclosed auxiliary model usage, immutable local fixtures, limited read-only tools and deterministic per-probe oracles. Results apply only to this product-surface configuration and are not isolated-model evidence."
     }
   ]
 }

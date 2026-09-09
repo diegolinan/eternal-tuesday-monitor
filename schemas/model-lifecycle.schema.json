@@ -200,6 +200,11 @@
               "MISMATCH",
               "INCONCLUSIVE",
               "OPERATIONAL_ERROR",
+              "VERIFIED",
+              "OBSERVED_FAILURE",
+              "DOCUMENTED_FEATURE",
+              "VENDOR_DESCRIBED",
+              "NO_PUBLIC_EVIDENCE",
               null
             ]
           },

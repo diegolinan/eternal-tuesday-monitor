@@ -183,6 +183,21 @@ export function executeProcess(binary, args, options, spawnImpl = spawn) {
 const returnedModels = (payload) =>
   Object.keys(payload.modelUsage ?? payload.model_usage ?? {}).sort();
 
+export function classifyModelAttribution(requestedModel, models) {
+  if (!models.includes(requestedModel))
+    throw new Error('RETURNED_MODEL_NOT_CONFIRMED');
+  const auxiliaryModels = models.filter((model) => model !== requestedModel);
+  return {
+    status: auxiliaryModels.length
+      ? 'SELECTED_PRIMARY_WITH_DISCLOSED_AUXILIARIES'
+      : 'SELECTED_PRIMARY_ONLY',
+    claimScope: 'PRODUCT_SURFACE_WITH_SELECTED_PRIMARY_MODEL',
+    selectedPrimaryModel: requestedModel,
+    auxiliaryModels,
+    exclusiveModelClaimAllowed: auxiliaryModels.length === 0,
+  };
+}
+
 export async function runTerminalReproduction({
   binary = null,
   environment = process.env,
@@ -229,6 +244,7 @@ export async function runTerminalReproduction({
     let payload = null;
     let answer = null;
     let provisionalResults = null;
+    let modelAttribution = null;
     let error = capture.error;
     try {
       if (capture.exitCode !== 0) throw new Error('NONZERO_EXIT');
@@ -236,8 +252,10 @@ export async function runTerminalReproduction({
       answer = payload.structured_output ?? payload.structuredOutput ?? null;
       if (!answer) throw new Error('STRUCTURED_OUTPUT_MISSING');
       const models = returnedModels(payload);
-      if (!models.includes(plan.case.requested_model))
-        throw new Error('RETURNED_MODEL_NOT_CONFIRMED');
+      modelAttribution = classifyModelAttribution(
+        plan.case.requested_model,
+        models,
+      );
       provisionalResults = evaluateStaleReadiness(answer);
     } catch (parseError) {
       error ??= safeReproductionError(parseError);
@@ -248,6 +266,7 @@ export async function runTerminalReproduction({
       finishedAt,
       requestedModel: plan.case.requested_model,
       returnedModels: payload ? returnedModels(payload) : [],
+      modelAttribution,
       exitCode: capture.exitCode,
       error,
       answer,

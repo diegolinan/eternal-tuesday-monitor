@@ -19,6 +19,8 @@ Every accepted result must name all six coordinates:
 
 If one coordinate is unknown, the result is not ready for execution or promotion. A newer model with a similar name is not a substitute. In particular, Fable 5.1 cannot stand in for a report that names Fable 5.
 
+The model coordinate names the model selected for the product run, not an unsupported claim that no internal helper was used. If returned usage metadata includes auxiliary models, all are retained and the result is scoped to the product surface configured with the selected model. It cannot be transferred to the provider API or described as isolated-model evidence. If the selected model does not appear in returned usage, the run is `NOT_EVALUABLE`.
+
 ## Where a protocol may run
 
 | Protocol                                         | Execution location                                                               | Boundary                                                                                                                         |

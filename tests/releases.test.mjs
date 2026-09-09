@@ -12,16 +12,21 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 
 test('the current release is resolved from versioned manifests', async () => {
   const entries = await loadReleases(root);
-  assert.equal(resolveCurrentRelease(entries).release.id, 'release-2026-09-08');
+  assert.equal(resolveCurrentRelease(entries).release.id, 'release-2026-09-09');
   assert.deepEqual(assertReleaseChain(entries), []);
 });
 
-test('the current release includes the reviewed Codex pilot observation', async () => {
+test('the current release includes the reviewed controlled observations', async () => {
   const entries = await loadReleases(root);
   const release = resolveCurrentRelease(entries).release;
-  assert.equal(release.published_on, '2026-09-08');
-  assert.equal(release.data_cutoff, '2026-09-05');
-  assert.equal(release.observation_ids.length, 14);
+  assert.equal(release.published_on, '2026-09-09');
+  assert.equal(release.data_cutoff, '2026-09-09');
+  assert.equal(release.observation_ids.length, 17);
+  assert.ok(
+    release.observation_ids.includes(
+      'obs-anthropic-claude-code-fable-revalidation-2026-09-09',
+    ),
+  );
 });
 
 test('future-dated releases remain stored but are not published early', async () => {
@@ -37,6 +42,10 @@ test('future-dated releases remain stored but are not published early', async ()
   assert.equal(
     resolveReleaseAsOf(entries, '2026-09-08').release.id,
     'release-2026-09-08',
+  );
+  assert.equal(
+    resolveReleaseAsOf(entries, '2026-09-09').release.id,
+    'release-2026-09-09',
   );
 });
 
