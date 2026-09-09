@@ -79,7 +79,7 @@ export function claudeArguments(reproductionCase, schema) {
     '--output-format',
     'json',
     '--json-schema',
-    JSON.stringify(schema),
+    JSON.stringify(claudeJsonSchema(schema)),
     '--max-turns',
     '4',
     '--permission-mode',
@@ -88,6 +88,12 @@ export function claudeArguments(reproductionCase, schema) {
     reproductionCase.allowed_tools.join(','),
     '--no-session-persistence',
   ];
+}
+
+export function claudeJsonSchema(schema) {
+  const compatibleSchema = { ...schema };
+  delete compatibleSchema.$schema;
+  return compatibleSchema;
 }
 
 export function evaluateStaleReadiness(answer) {
