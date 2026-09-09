@@ -14,6 +14,7 @@ import {
 import {
   assertTerminalAuthorization,
   claudeArguments,
+  claudeJsonSchema,
   evaluateStaleReadiness,
   executeProcess,
   runTerminalReproduction,
@@ -229,6 +230,28 @@ test('Claude arguments pin model, tools, plan mode and structured output', async
   assert.ok(args.includes('--permission-mode'));
   assert.ok(args.includes('plan'));
   assert.ok(args.includes('--no-session-persistence'));
+});
+
+test('Claude receives a compatible schema without mutating the canonical schema', async () => {
+  const schema = JSON.parse(
+    await readFile(
+      path.join(
+        root,
+        'reproduction/fixtures/stale-readiness/response.schema.json',
+      ),
+      'utf8',
+    ),
+  );
+  const canonicalDeclaration = schema.$schema;
+  const compatible = claudeJsonSchema(schema);
+  assert.equal(
+    canonicalDeclaration,
+    'https://json-schema.org/draft/2020-12/schema',
+  );
+  assert.equal(compatible.$schema, undefined);
+  assert.equal(schema.$schema, canonicalDeclaration);
+  assert.deepEqual(compatible.required, schema.required);
+  assert.deepEqual(compatible.properties, schema.properties);
 });
 
 test('the reproduction workflow is manual, read-only, and non-promoting', async () => {
