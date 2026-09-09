@@ -62,6 +62,13 @@ export function assertTerminalAuthorization(
     )
   )
     throw new Error('PINNED_CLAUDE_CODE_VERSION_REQUIRED');
+  const nativeBinary = environment.CLAUDE_BINARY ?? '';
+  const normalizedBinary = nativeBinary.replaceAll('\\', '/').toLowerCase();
+  if (
+    !path.win32.isAbsolute(nativeBinary) ||
+    !normalizedBinary.endsWith('/@anthropic-ai/claude-code/bin/claude.exe')
+  )
+    throw new Error('PINNED_CLAUDE_NATIVE_BINARY_REQUIRED');
 }
 
 export function claudeArguments(reproductionCase, schema) {
@@ -104,19 +111,38 @@ export function evaluateStaleReadiness(answer) {
   );
 }
 
-function execute(binary, args, options) {
+export function executeProcess(binary, args, options, spawnImpl = spawn) {
   return new Promise((resolve) => {
-    const child = spawn(binary, args, {
-      cwd: options.cwd,
-      env: options.env,
-      windowsHide: true,
-      shell: false,
-      stdio: ['pipe', 'pipe', 'pipe'],
-    });
     let stdout = '';
     let stderr = '';
     let timedOut = false;
-    const timer = setTimeout(() => {
+    let timer = null;
+    let settled = false;
+    const finish = (result) => {
+      if (settled) return;
+      settled = true;
+      if (timer) clearTimeout(timer);
+      resolve(result);
+    };
+    let child;
+    try {
+      child = spawnImpl(binary, args, {
+        cwd: options.cwd,
+        env: options.env,
+        windowsHide: true,
+        shell: false,
+        stdio: ['pipe', 'pipe', 'pipe'],
+      });
+    } catch {
+      finish({
+        exitCode: null,
+        stdout,
+        stderr,
+        error: 'PROCESS_START_FAILED',
+      });
+      return;
+    }
+    timer = setTimeout(() => {
       timedOut = true;
       child.kill('SIGKILL');
     }, options.timeoutMs);
@@ -129,7 +155,7 @@ function execute(binary, args, options) {
       stderr += value;
     });
     child.on('error', () =>
-      resolve({
+      finish({
         exitCode: null,
         stdout,
         stderr,
@@ -137,8 +163,7 @@ function execute(binary, args, options) {
       }),
     );
     child.on('close', (exitCode) => {
-      clearTimeout(timer);
-      resolve({
+      finish({
         exitCode,
         stdout,
         stderr,
@@ -156,11 +181,12 @@ export async function runTerminalReproduction({
   binary = null,
   environment = process.env,
   platform = process.platform,
-  executor = execute,
+  executor = executeProcess,
   outputRoot = path.join(root, '.reproduction', 'runs'),
 }) {
   assertTerminalAuthorization(environment, platform);
-  const executable = binary ?? (platform === 'win32' ? 'claude.cmd' : 'claude');
+  const executable =
+    binary ?? (platform === 'win32' ? environment.CLAUDE_BINARY : 'claude');
   const plan = await reproductionPlan(root, targetId);
   const runId = environment.GITHUB_RUN_ID ?? String(Date.now());
   const runDirectory = path.join(outputRoot, runId);

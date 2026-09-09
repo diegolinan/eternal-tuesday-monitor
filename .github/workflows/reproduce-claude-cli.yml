@@ -63,9 +63,17 @@ jobs:
         run: |
           npm run reproduction:plan -- $env:REPRO_TARGET_ID
           node -e "if(!/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(process.argv[1])) process.exit(1)" $env:CLAUDE_CODE_VERSION
-      - name: Install the exact Claude Code version
+      - name: Install and locate the exact Claude Code version
         shell: pwsh
-        run: npm install --global "@anthropic-ai/claude-code@$env:CLAUDE_CODE_VERSION"
+        run: |
+          npm install --global "@anthropic-ai/claude-code@$env:CLAUDE_CODE_VERSION"
+          $claudeRoot = (npm root --global).Trim()
+          $claudeBinary = Join-Path $claudeRoot '@anthropic-ai\claude-code\bin\claude.exe'
+          if (-not (Test-Path -LiteralPath $claudeBinary -PathType Leaf)) {
+            throw 'Pinned Claude native binary not found'
+          }
+          $claudeBinary = (Resolve-Path -LiteralPath $claudeBinary).Path
+          "CLAUDE_BINARY=$claudeBinary" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - name: Run three isolated trials
         run: npm run reproduction:terminal
       - name: Preserve private reproduction artifacts

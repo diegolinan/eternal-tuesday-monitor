@@ -15,6 +15,7 @@ import {
   assertTerminalAuthorization,
   claudeArguments,
   evaluateStaleReadiness,
+  executeProcess,
   runTerminalReproduction,
   terminalChildEnvironment,
 } from '../scripts/reproduction/terminal-runner.mjs';
@@ -32,6 +33,8 @@ const authorizedEnvironment = () => ({
   REPRO_AUTH_CONFIRMATION: 'CLAUDE_AI_SUBSCRIPTION_OAUTH',
   REPRO_RUN_CONFIRMATION: 'RUN_THREE_ISOLATED_TRIALS',
   CLAUDE_CODE_VERSION: '2.1.220',
+  CLAUDE_BINARY:
+    'C:\\npm\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe',
   CLAUDE_CODE_OAUTH_TOKEN: 'fixture-not-a-real-token',
 });
 
@@ -109,6 +112,31 @@ test('terminal authorization requires every exact coordinate and OAuth only', ()
     () => assertTerminalAuthorization(authorizedEnvironment(), 'linux'),
     /WINDOWS_RUNNER_REQUIRED/,
   );
+  assert.throws(
+    () =>
+      assertTerminalAuthorization(
+        { ...authorizedEnvironment(), CLAUDE_BINARY: 'C:\\temp\\other.exe' },
+        'win32',
+      ),
+    /PINNED_CLAUDE_NATIVE_BINARY_REQUIRED/,
+  );
+});
+
+test('a synchronous process-start failure is captured as a safe result', async () => {
+  const capture = await executeProcess(
+    'C:\\fixture\\claude.exe',
+    [],
+    { cwd: '.', env: {}, prompt: '', timeoutMs: 1_000 },
+    () => {
+      throw new Error('fixture process-start failure');
+    },
+  );
+  assert.deepEqual(capture, {
+    exitCode: null,
+    stdout: '',
+    stderr: '',
+    error: 'PROCESS_START_FAILED',
+  });
 });
 
 test('terminal child inherits OAuth but strips provider and unrelated secrets', () => {
@@ -166,7 +194,11 @@ test('the three-trial runner remains private and pending human review', async ()
     },
   });
   assert.equal(calls.length, 3);
-  assert.ok(calls.every((call) => call.binary === 'claude.cmd'));
+  assert.ok(
+    calls.every(
+      (call) => call.binary === authorizedEnvironment().CLAUDE_BINARY,
+    ),
+  );
   assert.equal(summary.status, 'COMPLETED_PENDING_HUMAN_REVIEW');
   assert.equal(summary.automaticEvidenceAcceptance, false);
   assert.ok(calls.every((call) => call.args.includes('claude-fable-5')));
@@ -210,6 +242,8 @@ test('the reproduction workflow is manual, read-only, and non-promoting', async 
   assert.doesNotMatch(workflow, /^\s*(pull-requests|issues):\s*write\s*$/m);
   assert.match(workflow, /^\s*runs-on:\s*windows-latest\s*$/m);
   assert.match(workflow, /CLAUDE_CODE_OAUTH_TOKEN/);
+  assert.match(workflow, /CLAUDE_BINARY/);
+  assert.match(workflow, /claude\.exe/);
   assert.doesNotMatch(workflow, /ANTHROPIC_API_KEY|ANTHROPIC_AUTH_TOKEN/);
   assert.doesNotMatch(workflow, /create-pull-request|gh\s+pr\s+create/);
   assert.match(workflow, /pending human review/i);
