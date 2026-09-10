@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-09-09",
+  "catalogCheckedThrough": "2026-09-10",
   "vendors": [
     {
       "id": "vendor-anthropic",
