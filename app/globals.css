@@ -3911,15 +3911,20 @@ body::before {
 
 @media (max-width: 680px) {
   .masthead nav {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0.4rem;
-    overflow-x: auto;
-    padding-bottom: 0.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+    gap: 4px;
+    overflow: visible;
+    padding: 0;
+    scrollbar-width: auto;
   }
   .masthead nav a {
-    min-height: 44px;
-    padding-inline: 0.55rem;
+    min-height: 40px;
+    padding-inline: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   .automation-timeline.automation-timeline--compact {
     grid-template-columns: 1fr;
