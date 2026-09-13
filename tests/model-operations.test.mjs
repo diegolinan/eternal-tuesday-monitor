@@ -134,3 +134,29 @@ test('catalog-only identities are not presented as awaiting controlled-test revi
     reasons: ['MODEL_NOT_IN_ADOPTION_SCOPE'],
   });
 });
+
+test('a newly accepted catalog identity receives an operational row before publication', () => {
+  const newModel = {
+    ...model,
+    id: 'model-newly-accepted',
+    relevanceState: 'CATALOG_ONLY',
+    relevanceReviewedOn: '2026-09-13',
+  };
+  const result = compileModelOperations({
+    monitorModels: [model, newModel],
+    report: {
+      models: [{ id: 'model-one', provenance: [] }],
+      source_checks: [],
+      events: [],
+    },
+    completedAt: '2026-09-13T16:41:36Z',
+  });
+
+  assert.deepEqual(
+    result.models.map((entry) => entry.id),
+    ['model-one', 'model-newly-accepted'],
+  );
+  assert.equal(result.models[1].sourceCheck.state, 'NOT_RECORDED');
+  assert.equal(result.models[1].eligibilityCheck.state, 'NOT_IN_SCOPE');
+  assert.equal(result.models[1].behavioralEvaluation.state, 'NEVER_RUN');
+});

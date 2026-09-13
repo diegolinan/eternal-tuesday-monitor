@@ -113,3 +113,19 @@ test('due-review notifications are wired without running or accepting probes', a
   assert.match(dueScript, /No behavioral probe or evidence decision/);
   assert.doesNotMatch(dueScript, /observedResult\s*=|currentSufficiency\s*=/);
 });
+
+test('validation compares generated data at its declared evaluation date', async () => {
+  const [validate, pages] = await Promise.all([
+    read('.github/workflows/validate.yml'),
+    read('.github/workflows/pages.yml'),
+  ]);
+
+  for (const workflow of [validate, pages]) {
+    assert.match(workflow, /freshnessEvaluatedOn/);
+    assert.match(workflow, /npm run data:compile -- --as-of "\$as_of"/);
+    assert.doesNotMatch(
+      workflow,
+      /- run: npm run data:compile\s*\n\s*- run: git diff --exit-code -- public\/data/,
+    );
+  }
+});

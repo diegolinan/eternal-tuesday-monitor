@@ -73,8 +73,9 @@ jobs:
           retention-days: 90
       - name: Validate deterministic result
         run: |
-          npm run data:validate -- --base HEAD
           npm run data:compile
+          npm run model-status:compile -- --report .discovery
+          npm run data:validate -- --base HEAD
           npm test
           npm run lint
           npm run build:pages
@@ -91,7 +92,7 @@ jobs:
         id: automatic
         shell: bash
         run: |
-          if git diff --quiet -- data/catalog/models.json data/model-discovery/events.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl data/changelog/events.jsonl public/data/monitor.json public/data/changelog.json public/data/model-options.json; then
+          if git diff --quiet -- data/catalog/models.json data/model-discovery/events.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl data/changelog/events.jsonl public/data/monitor.json public/data/changelog.json public/data/model-options.json public/data/model-operations.json; then
             echo "deploy=false" >> "$GITHUB_OUTPUT"
           else
             echo "deploy=true" >> "$GITHUB_OUTPUT"
@@ -102,15 +103,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/catalog/models.json data/model-discovery/events.jsonl data/model-discovery/source-checks.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl data/changelog/events.jsonl public/data/monitor.json public/data/changelog.json public/data/model-options.json
+          git add data/catalog/models.json data/model-discovery/events.jsonl data/model-discovery/source-checks.jsonl data/model-evaluation/adoption.json data/state-events/events.jsonl data/changelog/events.jsonl public/data/monitor.json public/data/changelog.json public/data/model-options.json public/data/model-operations.json
           git commit -m "Update official model discovery and adoption state"
           git push origin HEAD:main
       - name: Stage review-required changes separately
         run: npm run models:stage -- --mode review
       - name: Validate review proposal when present
         run: |
-          npm run data:validate -- --base HEAD
           npm run data:compile
+          npm run model-status:compile -- --report .discovery
+          npm run data:validate -- --base HEAD
       - name: Add workflow summary
         shell: bash
         run: |
@@ -138,6 +140,7 @@ jobs:
             public/data/monitor.json
             public/data/changelog.json
             public/data/model-options.json
+            public/data/model-operations.json
       - name: Stage new evidence leads separately
         run: npm run evidence:stage
       - name: Validate evidence proposal when present

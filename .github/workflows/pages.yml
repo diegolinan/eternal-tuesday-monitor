@@ -32,8 +32,12 @@ jobs:
       - run: npm run data:validate
       - run: npm run models:catalog:sync
       - run: git diff --exit-code -- data/catalog/models.json
-      - run: npm run data:compile
-      - run: git diff --exit-code -- public/data/monitor.json public/data/changelog.json public/data/model-options.json
+      - name: Verify the committed projection at its declared date
+        shell: bash
+        run: |
+          as_of="$(node -p "JSON.parse(require('fs').readFileSync('public/data/monitor.json', 'utf8')).freshnessEvaluatedOn")"
+          npm run data:compile -- --as-of "$as_of"
+          git diff --exit-code -- public/data/monitor.json public/data/changelog.json public/data/model-options.json
       - run: npm test
       - name: Compile neutral public status
         env:
