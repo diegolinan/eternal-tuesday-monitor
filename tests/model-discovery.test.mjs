@@ -334,6 +334,13 @@ test('production workflows are GitHub-only and contain no provider inference, ta
   assert.doesNotMatch(pages, /types: \[in_progress/);
   assert.match(pages, /npm run status:compile/);
   assert.match(pages, /actions\/deploy-pages/);
+  assert.match(
+    discovery,
+    /npm run model-status:compile -- --report \.discovery/,
+  );
+  assert.match(discovery, /public\/data\/model-operations\.json/);
+  assert.match(pages, /freshnessEvaluatedOn/);
+  assert.match(pages, /npm run data:compile -- --as-of "\$as_of"/);
   assert.equal(workflows.includes(providerSecret), false);
   assert.equal(
     /models:evaluate|models:targets|probe-targets|api\.openai\.com/i.test(
