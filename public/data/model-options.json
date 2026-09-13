@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-09-10",
+  "catalogCheckedThrough": "2026-09-13",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -513,6 +513,11 @@
           "id": "model-discovered-a768321108810b45db76",
           "name": "GPT-Image-2.5 Sunburst",
           "apiModelId": "gpt-image-2.5-sunburst"
+        },
+        {
+          "id": "model-discovered-7fc4e230104dfc645df6",
+          "name": "GPT-Live 1",
+          "apiModelId": "gpt-live-1"
         },
         {
           "id": "model-discovered-ecfe55f8a422ccdff7ed",

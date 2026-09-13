@@ -2878,6 +2878,60 @@
       ]
     },
     {
+      "id": "model-discovered-7fc4e230104dfc645df6",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Live 1",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-live-1",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-13",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-13",
+          "sha256": "c3063e100fb7b7880748fb2cb20307f6e1ac12b23084ef49d993345e935b6496",
+          "fetched_at": "2026-09-13T22:47:06.061Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "4",
+          "checked_from_commit": "cd40bd77af43c4ec9b406f789267ae880638c6c0",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/c3063e100fb7b7880748fb2cb20307f6e1ac12b23084ef49d993345e935b6496.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-live-1",
+          "checked_on": "2026-09-13",
+          "sha256": "6df50abb288d2ec03f9f4cb6817f997375c628e17603e95dfc3b7b986c632f07",
+          "fetched_at": "2026-09-13T22:47:10.512Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "4",
+          "checked_from_commit": "cd40bd77af43c4ec9b406f789267ae880638c6c0",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/6df50abb288d2ec03f9f4cb6817f997375c628e17603e95dfc3b7b986c632f07.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-8117798ae58404fd4297",
       "vendor_id": "vendor-google",
       "name": "Gemini 2.5 Flash-Lite",
