@@ -1,0 +1,121 @@
+name: Deploy Vercel candidate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: vercel-candidate
+  cancel-in-progress: true
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run data:validate
+      - run: npm run models:catalog:sync
+      - run: git diff --exit-code -- data/catalog/models.json
+      - name: Verify the committed projection at its declared date
+        shell: bash
+        run: |
+          as_of="$(node -p "JSON.parse(require('fs').readFileSync('public/data/monitor.json', 'utf8')).freshnessEvaluatedOn")"
+          npm run data:compile -- --as-of "$as_of"
+          git diff --exit-code -- public/data/monitor.json public/data/changelog.json public/data/model-options.json
+      - run: npm test
+      - name: Compile neutral public status
+        env:
+          SYSTEM_STATUS_TOKEN: ${{ github.token }}
+          SYSTEM_STATUS_REPOSITORY: ${{ github.repository }}
+        run: npm run status:compile
+      - name: Resolve latest completed source check
+        id: latest-discovery
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          record="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/discover-models.yml/runs?status=completed&per_page=20" --jq '[.workflow_runs[] | select(.conclusion == "success")][0] | [.id, .updated_at] | @tsv')"
+          IFS=$'\t' read -r run_id completed_at <<< "$record"
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          echo "completed_at=$completed_at" >> "$GITHUB_OUTPUT"
+      - name: Read latest model-level source checks
+        if: steps.latest-discovery.outputs.run_id != ''
+        uses: actions/download-artifact@v8
+        with:
+          name: official-model-discovery-sources
+          path: .latest-discovery
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.latest-discovery.outputs.run_id }}
+      - name: Read latest public evidence search
+        if: steps.latest-discovery.outputs.run_id != ''
+        id: evidence-artifact
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: public-evidence-search
+          path: .latest-evidence
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.latest-discovery.outputs.run_id }}
+      - name: Compile per-model public status
+        if: steps.latest-discovery.outputs.run_id != ''
+        run: npm run model-status:compile -- --report .latest-discovery --completed-at "${{ steps.latest-discovery.outputs.completed_at }}"
+      - name: Compile neutral public evidence-search status
+        if: steps.evidence-artifact.outcome == 'success'
+        run: npm run evidence:status -- --report .latest-evidence
+      - name: Evaluate freshness for the deployment date
+        shell: bash
+        run: |
+          today="$(date -u +%F)"
+          as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
+          npm run data:compile -- --as-of "$as_of"
+      - name: Verify candidate configuration
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          missing=0
+          for name in VERCEL_TOKEN VERCEL_ORG_ID VERCEL_PROJECT_ID NEXT_PUBLIC_CONTRIBUTION_ENDPOINT NEXT_PUBLIC_TURNSTILE_SITE_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not configured"
+              missing=1
+            fi
+          done
+          exit "$missing"
+      - name: Install pinned Vercel CLI
+        run: npm install --global vercel@59.16.0
+      - name: Load Vercel project settings
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+      - name: Build the Vercel candidate
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod --token="$VERCEL_TOKEN"
+      - run: npm run static:validate:vercel
+      - name: Deploy the Vercel candidate
+        id: deployment
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          url="$(vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "::notice title=Vercel candidate deployed::$url"
+      - name: Candidate summary
+        env:
+          DEPLOYMENT_URL: ${{ steps.deployment.outputs.url }}
+        run: echo "Candidate URL $DEPLOYMENT_URL" >> "$GITHUB_STEP_SUMMARY"
