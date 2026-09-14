@@ -2026,6 +2026,7 @@ body > main {
   box-shadow: 8px 8px 0 var(--signal);
 }
 .automation-next-run > div {
+  flex: 1 1 auto;
   min-width: 0;
 }
 .automation-next-run > div > span:first-child,
@@ -2276,7 +2277,7 @@ body > main {
   background: transparent;
   color: var(--mustard);
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 7.5rem) !important;
+  font-size: clamp(3rem, 5.2vw, 6rem) !important;
   font-weight: 900;
   letter-spacing: -0.035em;
   line-height: 0.88;
@@ -2416,7 +2417,7 @@ body > main {
     box-shadow: 5px 5px 0 var(--signal);
   }
   .automation-next-run .automation-countdown {
-    font-size: clamp(2.15rem, 12vw, 4rem) !important;
+    font-size: clamp(2rem, 10vw, 3.2rem) !important;
   }
 }
 
