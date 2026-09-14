@@ -206,3 +206,35 @@ test('the public changelog omits internal review mechanics', async () => {
     /routine\s+source scan with no accepted change creates no entry/,
   );
 });
+
+test('the Vercel candidate is a manual root-hosted static export', async () => {
+  const [packageJson, nextConfig, viteConfig, vercelConfig, workflow, docs] =
+    await Promise.all([
+      read('package.json').then(JSON.parse),
+      read('next.config.ts'),
+      read('vite.config.ts'),
+      read('vercel.json').then(JSON.parse),
+      read('.github/workflows/vercel-candidate.yml'),
+      read('docs/vercel-candidate.md'),
+    ]);
+
+  assert.match(packageJson.scripts['build:vercel'], /ETM_BUILD_TARGET=vercel/);
+  assert.match(
+    packageJson.scripts['static:validate:vercel'],
+    /--target vercel/,
+  );
+  assert.match(nextConfig, /buildTarget === 'vercel'/);
+  assert.match(nextConfig, /isGitHubPages \? \{ assetPrefix/);
+  assert.match(viteConfig, /buildTarget !== 'vercel'/);
+  assert.equal(vercelConfig.framework, null);
+  assert.equal(vercelConfig.git.deploymentEnabled, false);
+  assert.equal(vercelConfig.buildCommand, 'npm run build:vercel');
+  assert.equal(vercelConfig.outputDirectory, 'dist/client');
+  assert.match(workflow, /^\s*workflow_dispatch:\s*$/m);
+  assert.doesNotMatch(workflow, /^\s*(push|schedule|workflow_run):\s*$/m);
+  assert.match(workflow, /vercel build --prod/);
+  assert.match(workflow, /vercel deploy --prebuilt --prod/);
+  assert.doesNotMatch(workflow, /actions\/deploy-pages/);
+  assert.match(docs, /GitHub Pages remains the canonical/);
+  assert.match(docs, /workflow_dispatch/);
+});

@@ -6,7 +6,9 @@ import { defineConfig } from 'vite';
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === 'seatbelt';
 
 export default defineConfig(async () => {
-  const isOpenAIPrototype = process.env.ETM_BUILD_TARGET !== 'github-pages';
+  const buildTarget = process.env.ETM_BUILD_TARGET;
+  const isOpenAIPrototype =
+    buildTarget !== 'github-pages' && buildTarget !== 'vercel';
 
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.

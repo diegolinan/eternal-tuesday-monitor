@@ -8,7 +8,13 @@ import addFormats from 'ajv-formats';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, 'dist/client');
-const basePath = '/eternal-tuesday-monitor';
+const targetFlag = process.argv.indexOf('--target');
+const target = targetFlag >= 0 ? process.argv[targetFlag + 1] : null;
+
+if (!['github-pages', 'vercel'].includes(target))
+  throw new Error('--target must be github-pages or vercel');
+
+const basePath = target === 'github-pages' ? '/eternal-tuesday-monitor' : '';
 const canonicalUrl = 'https://diegolinan.github.io/eternal-tuesday-monitor/';
 const openAIPrototypeHost = 'chatgpt.site';
 const failures = [];
@@ -188,15 +194,13 @@ for (const [relativePath, canonicalPath] of [
   try {
     const html = await read(relativePath);
     if (!html.includes(`${basePath}/_next/`))
-      fail(`${relativePath}: framework assets are not base-path prefixed`);
-    if (
-      !html.includes(
-        `rel="canonical" href="${canonicalUrl}${canonicalPath}`,
-      )
-    )
+      fail(
+        `${relativePath}: framework assets do not use the ${target} public path`,
+      );
+    if (!html.includes(`rel="canonical" href="${canonicalUrl}${canonicalPath}`))
       fail(`${relativePath}: canonical metadata does not use GitHub Pages`);
     if (relativePath === 'index.html' && !html.includes(`${basePath}/favicon`))
-      fail('index.html: favicon is not repository-prefix aware');
+      fail(`index.html: favicon does not use the ${target} public path`);
     if (html.includes(openAIPrototypeHost))
       fail(`${relativePath}: contains the historical OpenAI prototype host`);
     if (/href=["'][^"']*\/article\//.test(html))
@@ -206,12 +210,21 @@ for (const [relativePath, canonicalPath] of [
       html.includes('Run five probes manually')
     )
       fail(`${relativePath}: contains a public administrative action`);
-    const unsafeLocalReference =
-      /(?:href|src)=["']\/(?!eternal-tuesday-monitor(?:\/|["']))/g.exec(html);
-    if (unsafeLocalReference)
-      fail(
-        `${relativePath}: root-relative reference escapes repository base path: ${unsafeLocalReference[0]}`,
-      );
+    if (target === 'github-pages') {
+      const unsafeLocalReference =
+        /(?:href|src)=["']\/(?!eternal-tuesday-monitor(?:\/|["']))/g.exec(html);
+      if (unsafeLocalReference)
+        fail(
+          `${relativePath}: root-relative reference escapes repository base path: ${unsafeLocalReference[0]}`,
+        );
+    } else {
+      const prefixedLocalReference =
+        /(?:href|src)=["']\/eternal-tuesday-monitor(?:\/|["'])/g.exec(html);
+      if (prefixedLocalReference)
+        fail(
+          `${relativePath}: Vercel reference retains the GitHub Pages prefix: ${prefixedLocalReference[0]}`,
+        );
+    }
   } catch (error) {
     fail(`${relativePath}: unable to inspect HTML (${error.message})`);
   }
@@ -264,5 +277,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Validated GitHub Pages export: ${monitorData.observations.length} observations matching canonical data, release-aware changelog, four figures, responsive routes, and repository-prefixed internal assets.`,
+  `Validated ${target} export: ${monitorData.observations.length} observations matching canonical data, release-aware changelog, four figures, responsive routes, and target-correct internal assets.`,
 );
