@@ -331,6 +331,7 @@ export default function ContributePage() {
         </a>
         <nav aria-label="Contribution navigation">
           <a href={withBasePath('/')}>Back to the Monitor</a>
+          <a href={withBasePath('/contributors/')}>Clockkeepers</a>
         </nav>
       </header>
       <section className="contribute-hero">

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://diegolinan.github.io/eternal-tuesday-monitor/</loc></url>
-  <url><loc>https://diegolinan.github.io/eternal-tuesday-monitor/models/</loc></url>
-  <url><loc>https://diegolinan.github.io/eternal-tuesday-monitor/changelog/</loc></url>
-  <url><loc>https://diegolinan.github.io/eternal-tuesday-monitor/contribute/</loc></url>
+  <url><loc>https://eternal-tuesday-monitor.vercel.app/</loc></url>
+  <url><loc>https://eternal-tuesday-monitor.vercel.app/models/</loc></url>
+  <url><loc>https://eternal-tuesday-monitor.vercel.app/changelog/</loc></url>
+  <url><loc>https://eternal-tuesday-monitor.vercel.app/contributors/</loc></url>
+  <url><loc>https://eternal-tuesday-monitor.vercel.app/contribute/</loc></url>
 </urlset>

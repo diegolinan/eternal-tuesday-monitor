@@ -1,7 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { ExternalLink, RotateCcw, Search, X } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Check, Copy, ExternalLink, RotateCcw, Search, X } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -24,6 +24,7 @@ import { EvidenceWatch } from '@/components/evidence-watch';
 import { StatusEmblem } from '@/components/status-emblem';
 import { VendorMark } from '@/components/vendor-mark';
 import monitorSnapshot from '@/public/data/monitor.json';
+import changelogSnapshot from '@/public/data/changelog.json';
 
 export const dynamic = 'force-static';
 
@@ -62,6 +63,31 @@ type Observation = {
   methodologyVersion: string;
   supersedesObservationId: string | null;
   supersededByObservationId: string | null;
+  contributionTrail: Array<{
+    id: string;
+    occurredOn: string;
+    contributorId: string;
+    contributorName: string;
+    contributorKind: 'PERSON' | 'AUTOMATED_SYSTEM';
+    role: string;
+    summary: string;
+  }>;
+};
+
+type ChangeEvent = {
+  id: string;
+  recorded_on: string;
+  type: string;
+  title: string;
+  summary: string;
+  affects_observations: boolean;
+};
+
+type VisitSummary = {
+  firstVisit: boolean;
+  newRecords: number;
+  changedRecords: number;
+  previousVisit: string | null;
 };
 
 type MonitorData = {
@@ -197,7 +223,10 @@ function ObservationCard({
   onOpen: (item: Observation) => void;
 }) {
   return (
-    <article className={`observation-card tone-${recordTone(item)}`}>
+    <article
+      className={`observation-card tone-${recordTone(item)}`}
+      id={item.id}
+    >
       <div className="status-bar">
         <VendorMark vendor={item.vendor} vendorId={item.vendorId} />
         <StatusEmblem compact value={item.observedResult} />
@@ -246,6 +275,54 @@ function ObservationCard({
         <span className="retest-flag">RETEST REQUIRED</span>
       )}
     </article>
+  );
+}
+
+function LatestMovements({ events }: { events: ChangeEvent[] }) {
+  return (
+    <section className="latest-movements" aria-labelledby="latest-title">
+      <div>
+        <p className="section-code">LATEST ACCEPTED MOVEMENTS</p>
+        <h2 id="latest-title">What changed in the Monitor</h2>
+        <p>
+          Domain changes only. Routine checks with no accepted change are not
+          presented as progress.
+        </p>
+        <a href={withBasePath('/changelog/')}>Open the complete changelog</a>
+      </div>
+      <ol>
+        {events.slice(0, 3).map((event) => (
+          <li key={event.id}>
+            <time dateTime={event.recorded_on}>{event.recorded_on}</time>
+            <span>{event.type.replaceAll('_', ' ')}</span>
+            <strong>{event.title}</strong>
+            <p>{event.summary}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+function SinceLastVisit({ summary }: { summary: VisitSummary | null }) {
+  if (!summary || summary.firstVisit) return null;
+  const changed = summary.newRecords + summary.changedRecords;
+  return (
+    <aside className="since-last-visit" aria-live="polite">
+      <div>
+        <span>SINCE YOUR LAST VISIT</span>
+        <strong>
+          {changed === 0
+            ? 'NO ACCEPTED EVIDENCE CHANGED'
+            : `${summary.newRecords} NEW · ${summary.changedRecords} UPDATED`}
+        </strong>
+      </div>
+      <p>
+        Compared privately in this browser. Nothing about your visit is stored
+        in the Monitor dataset.
+      </p>
+      <a href={withBasePath('/changelog/')}>Inspect accepted changes</a>
+    </aside>
   );
 }
 
@@ -345,19 +422,23 @@ function ClaimLedger({
   return (
     <section className="claim-ledger" aria-labelledby="claim-ledger-title">
       <div>
-        <p className="section-code">THE MONITOR&apos;S QUESTION · LIVE EVIDENCE</p>
+        <p className="section-code">
+          THE MONITOR&apos;S QUESTION · LIVE EVIDENCE
+        </p>
         <h2 id="claim-ledger-title">What do we know now?</h2>
         <p>
-          The Monitor tracks a continuity problem. This ledger keeps its
-          factual claims inspectable as products change, without turning a
-          catalog listing or an unanswered question into proof.
+          The Monitor tracks a continuity problem. This ledger keeps its factual
+          claims inspectable as products change, without turning a catalog
+          listing or an unanswered question into proof.
         </p>
       </div>
       <dl>
         <div>
           <dt>Currently applicable records</dt>
           <dd>{current.length}</dd>
-          <small>{supported} results · {gaps.length} evidence gaps</small>
+          <small>
+            {supported} results · {gaps.length} evidence gaps
+          </small>
         </div>
         <div>
           <dt>Historical records preserved</dt>
@@ -557,6 +638,12 @@ export default function Home() {
   const [verification, setVerification] = useState('ALL');
   const [scope, setScope] = useState<'current' | 'historical'>('current');
   const [selected, setSelected] = useState<Observation | null>(null);
+  const [urlReady, setUrlReady] = useState(false);
+  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>(
+    'idle',
+  );
+  const [visitSummary, setVisitSummary] = useState<VisitSummary | null>(null);
+  const copyReset = useRef<number | null>(null);
 
   const observations = useMemo(() => data.observations, [data]);
   const vendors = useMemo(
@@ -572,8 +659,11 @@ export default function Home() {
       ].sort(),
     [observations],
   );
-  const probeOptions = probes.map((item) => item.name);
-  const evidenceOptions = evidenceGroups.flatMap((group) => group.classes);
+  const probeOptions = useMemo(() => probes.map((item) => item.name), []);
+  const evidenceOptions = useMemo(
+    () => evidenceGroups.flatMap((group) => group.classes),
+    [],
+  );
 
   const applyFilters = (items: Observation[]) =>
     items.filter(
@@ -626,6 +716,137 @@ export default function Home() {
     [observations],
   );
 
+  useEffect(() => {
+    const readUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const nextVendor = params.get('vendor');
+      const nextSurface = params.get('surface');
+      const nextProbe = params.get('probe');
+      const nextEvidence = params.get('evidence');
+      const nextVerification = params.get('verification');
+      const nextScope = params.get('scope');
+      const observationId = params.get('observation');
+      setVendor(
+        nextVendor && vendors.includes(nextVendor) ? nextVendor : 'ALL',
+      );
+      setSurface(
+        nextSurface && surfaces.includes(nextSurface) ? nextSurface : 'ALL',
+      );
+      setProbe(
+        nextProbe && probeOptions.includes(nextProbe) ? nextProbe : 'ALL',
+      );
+      setEvidence(
+        nextEvidence && evidenceOptions.includes(nextEvidence)
+          ? nextEvidence
+          : 'ALL',
+      );
+      setVerification(
+        nextVerification === 'RETEST REQUIRED' ? nextVerification : 'ALL',
+      );
+      setScope(nextScope === 'historical' ? 'historical' : 'current');
+      setSelected(
+        observationId ? (observationsById.get(observationId) ?? null) : null,
+      );
+      setUrlReady(true);
+    };
+    readUrl();
+    window.addEventListener('popstate', readUrl);
+    return () => window.removeEventListener('popstate', readUrl);
+  }, [evidenceOptions, observationsById, probeOptions, surfaces, vendors]);
+
+  useEffect(() => {
+    if (!urlReady) return;
+    const params = new URLSearchParams();
+    if (vendor !== 'ALL') params.set('vendor', vendor);
+    if (surface !== 'ALL') params.set('surface', surface);
+    if (probe !== 'ALL') params.set('probe', probe);
+    if (evidence !== 'ALL') params.set('evidence', evidence);
+    if (verification !== 'ALL') params.set('verification', verification);
+    if (scope !== 'current') params.set('scope', scope);
+    if (selected) params.set('observation', selected.id);
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      '',
+      `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`,
+    );
+  }, [
+    evidence,
+    probe,
+    scope,
+    selected,
+    surface,
+    urlReady,
+    vendor,
+    verification,
+  ]);
+
+  useEffect(() => {
+    const storageKey = 'etm:last-visit:v1';
+    const fingerprints = Object.fromEntries(
+      observations.map((item) => [
+        item.id,
+        [
+          item.observedResult,
+          item.currentSufficiency,
+          item.applicability,
+          item.evidenceVerifiedOn,
+          item.sourceCheckedOn,
+        ].join('|'),
+      ]),
+    );
+    let prior: {
+      seenAt: string;
+      fingerprints: Record<string, string>;
+    } | null = null;
+    try {
+      prior = JSON.parse(window.localStorage.getItem(storageKey) ?? 'null');
+    } catch {
+      prior = null;
+    }
+    const previous = prior?.fingerprints ?? {};
+    const frame = window.requestAnimationFrame(() =>
+      setVisitSummary({
+        firstVisit: prior === null,
+        newRecords: Object.keys(fingerprints).filter((id) => !(id in previous))
+          .length,
+        changedRecords: Object.entries(fingerprints).filter(
+          ([id, fingerprint]) => id in previous && previous[id] !== fingerprint,
+        ).length,
+        previousVisit: prior?.seenAt ?? null,
+      }),
+    );
+    window.localStorage.setItem(
+      storageKey,
+      JSON.stringify({
+        releaseId: data.releaseId,
+        dataCutoff: data.dataCutoff,
+        seenAt: new Date().toISOString(),
+        fingerprints,
+      }),
+    );
+    return () => window.cancelAnimationFrame(frame);
+  }, [data.dataCutoff, data.releaseId, observations]);
+
+  const copyObservationLink = async () => {
+    const link = window.location.href;
+    try {
+      await navigator.clipboard.writeText(link);
+      setCopyState('copied');
+    } catch {
+      setCopyState('failed');
+    }
+    if (copyReset.current) window.clearTimeout(copyReset.current);
+    copyReset.current = window.setTimeout(() => setCopyState('idle'), 1800);
+  };
+
+  useEffect(
+    () => () => {
+      if (copyReset.current) window.clearTimeout(copyReset.current);
+    },
+    [],
+  );
+
   const historyGroups = useMemo(() => {
     const groups = new Map<string, Observation[]>();
     observations
@@ -649,6 +870,7 @@ export default function Home() {
           <a href="#probes">Method</a>
           <a href={withBasePath('/models/')}>Models</a>
           <a href={withBasePath('/changelog/')}>Changes</a>
+          <a href={withBasePath('/contributors/')}>Clockkeepers</a>
           <a href={withBasePath('/contribute/')}>Contribute</a>
         </nav>
       </header>
@@ -706,6 +928,10 @@ export default function Home() {
         observations={observations}
         modelCount={data.models?.length ?? 0}
         dataCutoff={data.dataCutoff}
+      />
+      <SinceLastVisit summary={visitSummary} />
+      <LatestMovements
+        events={(changelogSnapshot.events as ChangeEvent[]).slice(0, 3)}
       />
       <AutomationStatus />
       <ReadingGuide />
@@ -793,31 +1019,32 @@ export default function Home() {
           <StatusEmblem compact value="RETEST REQUIRED" />
         </div>
 
-          <Tabs
-            value={scope}
-            onValueChange={(value) =>
-              setScope(value as 'current' | 'historical')
-            }
-            className="scope-tabs"
-          >
-            <TabsList variant="line" aria-label="Observation scope">
-              <TabsTrigger value="current">
-                APPLICABLE NOW · {current.length}
-              </TabsTrigger>
-              <TabsTrigger value="historical">
-                HISTORICAL · {historical.length}
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="current">
-              <ObservationList items={current} onOpen={setSelected} />
-            </TabsContent>
-            <TabsContent value="historical">
-              <ObservationList items={historical} onOpen={setSelected} />
-            </TabsContent>
-          </Tabs>
+        <Tabs
+          value={scope}
+          onValueChange={(value) => setScope(value as 'current' | 'historical')}
+          className="scope-tabs"
+        >
+          <TabsList variant="line" aria-label="Observation scope">
+            <TabsTrigger value="current">
+              APPLICABLE NOW · {current.length}
+            </TabsTrigger>
+            <TabsTrigger value="historical">
+              HISTORICAL · {historical.length}
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="current">
+            <ObservationList items={current} onOpen={setSelected} />
+          </TabsContent>
+          <TabsContent value="historical">
+            <ObservationList items={historical} onOpen={setSelected} />
+          </TabsContent>
+        </Tabs>
       </section>
 
-      <section className="model-overview" aria-labelledby="model-overview-title">
+      <section
+        className="model-overview"
+        aria-labelledby="model-overview-title"
+      >
         <div>
           <p className="section-code">MODEL REGISTER · SECONDARY REFERENCE</p>
           <h2 id="model-overview-title">Catalog identity is not evidence</h2>
@@ -1142,6 +1369,7 @@ export default function Home() {
 
       <footer>
         <span>THE ETERNAL TUESDAY MONITOR</span>
+        <a href={withBasePath('/contributors/')}>THE CLOCKKEEPERS</a>
         <a href={withBasePath('/contribute/')}>REPORT A TIME LEAK</a>
         <span>
           PUBLISHED · {data ? labelDate(data.publishedOn) : 'READING…'}
@@ -1164,13 +1392,29 @@ export default function Home() {
               <DialogHeader>
                 <div className="dialog-kicker">
                   <span>OBSERVATION RECORD</span>
-                  <button
-                    type="button"
-                    onClick={() => setSelected(null)}
-                    aria-label="Close observation"
-                  >
-                    <X />
-                  </button>
+                  <div className="dialog-actions">
+                    <button
+                      type="button"
+                      onClick={copyObservationLink}
+                      aria-label="Copy a link to this observation"
+                    >
+                      {copyState === 'copied' ? <Check /> : <Copy />}
+                      <span>
+                        {copyState === 'copied'
+                          ? 'COPIED'
+                          : copyState === 'failed'
+                            ? 'COPY FAILED'
+                            : 'COPY LINK'}
+                      </span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelected(null)}
+                      aria-label="Close observation"
+                    >
+                      <X />
+                    </button>
+                  </div>
                 </div>
                 <DialogTitle>
                   {selected.product} / {selected.surface}
@@ -1265,6 +1509,40 @@ export default function Home() {
               <div className="evidence-note">
                 <h3>What this evidence supports</h3>
                 <p>{selected.evidenceNote}</p>
+              </div>
+              <div className="contribution-trail">
+                <div>
+                  <h3>Evidence trail</h3>
+                  <a href={withBasePath('/contributors/')}>
+                    Meet the Clockkeepers
+                  </a>
+                </div>
+                {selected.contributionTrail.length > 0 ? (
+                  <ol>
+                    {selected.contributionTrail.map((item) => (
+                      <li key={item.id}>
+                        <time dateTime={item.occurredOn}>
+                          {labelDate(item.occurredOn)}
+                        </time>
+                        <a
+                          href={withBasePath(
+                            `/contributors/#${item.contributorId}`,
+                          )}
+                        >
+                          {item.contributorName}
+                        </a>
+                        <b>{item.role.replaceAll('_', ' ')}</b>
+                        <p>{item.summary}</p>
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p>
+                    No public contributor attribution has been established for
+                    this record. The evidence and its dates remain inspectable
+                    above.
+                  </p>
+                )}
               </div>
               {selected.sourceUrl && (
                 <a

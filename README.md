@@ -128,6 +128,7 @@ data/evidence-discovery/reproduction-targets.json  Exact-model routing plan for 
 reproduction/                    Versioned synthetic fixtures, case oracles and private-run record schemas
 data/observations/              Append-only observation ledger (JSON Lines)
 data/state-events/              Append-only operational state-event ledger
+data/contributors/              Public-consent registry and append-only contribution ledger
 data/releases/                  Dated release manifests and cutoffs
 config/freshness-policy.json    Versioned editorial review windows
 config/surface-reproduction-policy.json  Execution boundaries and required artifacts by product surface
@@ -138,20 +139,21 @@ public/                         Current Site runtime assets and generated data v
 app/                            Existing ChatGPT Site source
 ```
 
-The files under `data/`, `content/`, and `assets/` are authoritative. `public/data/monitor.json`, `public/data/changelog.json`, and the copies under `public/assets/` are generated or publication views. Launch-source material remains in the repository solely to preserve the provenance of immutable early records; it has no public route or site link.
+The files under `data/`, `content/`, and `assets/` are authoritative. `public/data/monitor.json`, `public/data/changelog.json`, `public/data/contributors.json`, and the copies under `public/assets/` are generated or publication views. Launch-source material remains in the repository solely to preserve the provenance of immutable early records; it has no public route or site link.
 
 ## Publication targets
 
 The canonical public production site is:
 
-<https://diegolinan.github.io/eternal-tuesday-monitor/>
+<https://eternal-tuesday-monitor.vercel.app/>
 
 The repository preserves two separate build targets:
 
-- `npm run build:pages` creates the canonical static GitHub Pages production artifact under `dist/client`, with every internal data, asset, and route URL scoped to `/eternal-tuesday-monitor/`.
+- `npm run build:vercel` creates the canonical root-hosted Vercel production artifact under `dist/client` and includes privacy-preserving aggregate traffic measurement.
+- `npm run build:pages` creates the parallel GitHub Pages fallback artifact under `dist/client`, with every internal data, asset, and route URL scoped to `/eternal-tuesday-monitor/`.
 - `npm run build:openai` preserves the historical OpenAI Sites prototype build and its `.openai/hosting.json` project link.
 
-The historical OpenAI-hosted prototype remains available at <https://eternal-tuesday-monitor.stella-diego-9071.chatgpt.site/> as an unchanged fallback. It is intentionally not canonical, and the GitHub Pages workflows do not modify, redirect, disable, or redeploy it.
+The historical OpenAI-hosted prototype remains available at <https://eternal-tuesday-monitor.stella-diego-9071.chatgpt.site/> as an unchanged fallback. It is intentionally not canonical, and neither production workflow modifies, redirects, disables, or redeploys it.
 
 There is deliberately no public long-form article route. The archived launch source remains the editorial baseline that the Monitor's evidence ledger supports, while the public site stays a living evidence companion rather than a second article copy. Historical `article_public_path` fields are deprecated provenance only; they do not assert that `/article/` exists. New release manifests must not add that field.
 
@@ -166,6 +168,8 @@ There is deliberately no public long-form article route. The archived launch sou
 - `NO_PUBLIC_EVIDENCE` means the archived launch review found no qualifying public result by its cutoff. It is not a failed probe.
 
 `data/state-events/events.jsonl` is a separate append-only ledger. It can record a retest requirement, superseded model or methodology, discontinued surface, unavailable source, or restoration of sufficiency without rewriting an observed PASS, FAIL, or evidence gap. Release manifests are also immutable after publication. The current release is resolved deterministically from all manifests by `published_on`, falling back to `data_cutoff`, and then by release ID.
+
+`data/contributors/contributions.jsonl` is an append-only attribution ledger. People are published only with explicit consent; automated systems are identified separately with their narrow role and epistemic limit. The public `/contributors/` page never turns execution, detection, or source search into authorship or evidentiary authority. A public intake submission does not publish its sender automatically.
 
 An appended observation with `supersedes_observation_id` makes its predecessor HISTORICAL once the successor's verification date is reached; aging alone never changes applicability. Events apply only when both their effective and recorded dates are at or before the supplied evaluation date. Restoration can clear an explicit or inherited retest flag, but cannot bypass an age, unavailable-source, or lifecycle blocker or rewrite verification dates. A missing verification date is represented as null and requires review, never an invented date. INCONCLUSIVE and UNTESTED qualifiers remain explicit in the public projection.
 
@@ -224,9 +228,9 @@ The validation workflow:
 3. fails if the generated projection differs from the committed file;
 4. validates lint and the static changelog render; and
 5. runs deterministic state tests; and
-6. builds the GitHub Pages production artifact.
+6. builds both static hosting shapes under their target-specific path rules.
 
-The Pages workflow publishes that validated artifact to the canonical production URL. A separate minimal workflow runs every Monday at 12:17 UTC, 09:17 Argentina time. It supplies an explicit date, reevaluates only local versioned state, rebuilds, and redeploys Pages. It does not fetch sources, change evidence verification dates, modify historical records, or commit derived files. Neither workflow deploys the OpenAI prototype.
+The Vercel workflow deploys the canonical production site after every accepted change to `main`, with a manual trigger retained for recovery. The Pages workflow publishes the same evidence view as a parallel fallback. A separate minimal workflow runs every Monday at 12:17 UTC, 09:17 Argentina time. It supplies an explicit date, reevaluates only local versioned state, rebuilds, and redeploys the static targets. It does not fetch sources, change evidence verification dates, modify historical records, or commit derived files. No workflow deploys the OpenAI prototype.
 
 Daily official model discovery and display-freshness refresh are configured as described above. The production workflows contain no provider-inference or API-target step. No local ChatGPT/Codex scheduler participates in the canonical path. Automated evidence acceptance is not configured.
 
@@ -236,7 +240,7 @@ The daily discovery workflow also searches four explicitly separated channels: c
 
 The public `/contribute/` form follows the same boundary. It uses a deterministic compact projection of the versioned vendor/model catalog, with separate choices for a listed model, an unlisted model, and an honestly unknown exact model. Firsthand reports require expected behavior, actual behavior, and reproduction steps. The contributor reviews the complete lead before sending and receives a non-secret receipt identifier when it is queued.
 
-A small Cloudflare Worker validates and size-limits the payload, normalizes public HTTPS source URLs, removes tracking parameters and unsafe Unicode controls, requires a single-use Turnstile token for an explicitly approved public hostname and form action, and checks duplicate candidates before dispatch. The allowlist contains the canonical GitHub Pages origin and the parallel Vercel migration candidate; arbitrary preview deployment hostnames remain rejected. Abuse controls combine a per-visitor rate limit, a global rate limit, explicit hourly/daily downstream budgets, and an `INTAKE_OPEN` kill switch. Budget and deduplication checks fail closed: when their state cannot be established, no submission is dispatched. Operational logs contain only anonymous outcomes, reason classes, and accepted receipt IDs; they never contain source text or network addresses.
+A small Cloudflare Worker validates and size-limits the payload, normalizes public HTTPS source URLs, removes tracking parameters and unsafe Unicode controls, requires a single-use Turnstile token for an explicitly approved public hostname and form action, and checks duplicate candidates before dispatch. The allowlist contains the canonical Vercel origin and the parallel GitHub Pages fallback; arbitrary preview deployment hostnames remain rejected. Abuse controls combine a per-visitor rate limit, a global rate limit, explicit hourly/daily downstream budgets, and an `INTAKE_OPEN` kill switch. Budget and deduplication checks fail closed: when their state cannot be established, no submission is dispatched. Operational logs contain only anonymous outcomes, reason classes, and accepted receipt IDs; they never contain source text or network addresses.
 
 Accepted submissions enter the internal state `NEEDS_REVIEW`. Each receipt opens its own disposable review branch and pull request, with an explicit checklist for source accessibility, date, exact identity, evidence scope, disclosure, duplication, and methodology. The contributor first chooses whether the lead is a public source or a firsthand observation: a source URL is required only for the former and is optional for the latter. No public submission can auto-merge, auto-promote evidence, infer a product surface, or create a PASS or FAIL. No email address, account, file upload, or automatic URL fetch is requested; optional name and affiliation are retained only after explicit consent.
 

@@ -1,42 +1,32 @@
-# Vercel candidate deployment
+# Vercel production deployment
 
-Vercel is a parallel hosting candidate. GitHub Pages remains the canonical
-public production site until a separate, explicit migration decision is made.
-The OpenAI-hosted prototype and the Cloudflare contribution intake are not
-modified by this candidate.
+Vercel is the canonical public production host for the Monitor:
 
-The candidate uses a static export at the domain root. GitHub Pages continues
-to use `/eternal-tuesday-monitor/`. Both artifacts are built from the same
-components and versioned data; there is no second site implementation.
+`https://eternal-tuesday-monitor.vercel.app/`
 
-## One-time setup
+The filename is retained as a historical trace of the candidate stage. The
+candidate was explicitly approved and promoted without creating a second site
+implementation. GitHub Pages remains a parallel static fallback under its
+repository base path, and the OpenAI-hosted prototype remains unchanged.
 
-1. Create a Vercel Hobby project named `eternal-tuesday-monitor` for this
-   repository. Do not enable a paid plan or trial.
-2. Automatic Git deployments are disabled by `vercel.json`. The manual
-   workflow compiles the same live public operational snapshot used by
-   production before it deploys the candidate.
-3. Create a narrowly scoped Vercel access token. Never put its value in source,
-   a pull request, chat, workflow output, or documentation.
-4. Add these repository Actions secrets:
-   - `VERCEL_TOKEN`
-   - `VERCEL_ORG_ID`
-   - `VERCEL_PROJECT_ID`
-5. Retain the existing repository variables
-   `NEXT_PUBLIC_CONTRIBUTION_ENDPOINT` and
-   `NEXT_PUBLIC_TURNSTILE_SITE_KEY`. The contribution Worker remains the form
-   backend. Its Turnstile hostname policy must separately allow the candidate
-   hostname before submissions from the candidate can succeed.
-6. Run **Deploy Vercel candidate** manually. It validates canonical data,
-   reconstructs the latest public operational projection, builds a root-hosted
-   static export, validates its paths, and deploys it with the pinned Vercel
-   CLI.
+## Deployment path
 
-The workflow is deliberately `workflow_dispatch` only. It performs no catalog
-or evidence mutation, opens no issue, and makes no change to GitHub Pages. If
-the candidate is rejected, revoke its token and remove the Vercel project;
-production continues unchanged.
+The production workflow runs on every push to `main` and can also be started
+manually with `workflow_dispatch`. It validates canonical data, reconstructs
+the current public operational projections, builds a root-hosted static export,
+checks its routes and assets, and deploys the prebuilt artifact with the pinned
+Vercel CLI.
 
-The expected free candidate URL is
-`https://eternal-tuesday-monitor.vercel.app/`, subject to project-name
-availability. Vercel may assign a different project slug.
+Automatic Git deployments remain disabled in `vercel.json`; the validated
+workflow is the only Vercel deployment path. Required repository secrets are
+`VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID`. The public intake also
+requires the existing `NEXT_PUBLIC_CONTRIBUTION_ENDPOINT` and
+`NEXT_PUBLIC_TURNSTILE_SITE_KEY` variables.
+
+The workflow performs no catalog or evidence mutation and opens no issue. The
+contribution Worker remains a separate bounded backend and accepts both the
+canonical Vercel origin and the GitHub Pages fallback origin.
+
+Anonymous aggregate Web Analytics is included only in the Vercel production
+build. It is not added to either fallback build and does not receive form field
+contents.

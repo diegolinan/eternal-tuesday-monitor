@@ -1,6 +1,8 @@
-name: Deploy Vercel candidate
+name: Deploy Vercel production
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -8,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: vercel-candidate
+  group: vercel-production
   cancel-in-progress: true
 
 env:
@@ -83,7 +85,7 @@ jobs:
           today="$(date -u +%F)"
           as_of="$(node scripts/resolve-evaluation-date.mjs --today "$today")"
           npm run data:compile -- --as-of "$as_of"
-      - name: Verify candidate configuration
+      - name: Verify production configuration
         shell: bash
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -102,12 +104,12 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: vercel pull --yes --environment=production --scope="$VERCEL_TEAM_SLUG" --token="$VERCEL_TOKEN"
-      - name: Build the Vercel candidate
+      - name: Build the Vercel production site
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: vercel build --prod --scope="$VERCEL_TEAM_SLUG" --token="$VERCEL_TOKEN"
       - run: npm run static:validate:vercel
-      - name: Deploy the Vercel candidate
+      - name: Deploy the Vercel production site
         id: deployment
         shell: bash
         env:
@@ -115,8 +117,8 @@ jobs:
         run: |
           url="$(vercel deploy --prebuilt --prod --scope="$VERCEL_TEAM_SLUG" --token="$VERCEL_TOKEN")"
           echo "url=$url" >> "$GITHUB_OUTPUT"
-          echo "::notice title=Vercel candidate deployed::$url"
-      - name: Candidate summary
+          echo "::notice title=Vercel production deployed::$url"
+      - name: Production summary
         env:
           DEPLOYMENT_URL: ${{ steps.deployment.outputs.url }}
-        run: echo "Candidate URL $DEPLOYMENT_URL" >> "$GITHUB_STEP_SUMMARY"
+        run: echo "Canonical production URL $DEPLOYMENT_URL" >> "$GITHUB_STEP_SUMMARY"

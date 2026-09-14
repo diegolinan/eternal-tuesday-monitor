@@ -207,7 +207,33 @@ test('the public changelog omits internal review mechanics', async () => {
   );
 });
 
-test('the Vercel candidate is a manual root-hosted static export', async () => {
+test('public attribution, share links and return-visit comparison stay bounded', async () => {
+  const [page, contributorsPage, contributors, analytics, layout] =
+    await Promise.all([
+      read('app/page.tsx'),
+      read('app/contributors/page.tsx'),
+      read('public/data/contributors.json').then(JSON.parse),
+      read('components/private-analytics.tsx'),
+      read('app/layout.tsx'),
+    ]);
+  assert.match(page, /new URLSearchParams\(window\.location\.search\)/);
+  assert.match(page, /params\.set\('observation', selected\.id\)/);
+  assert.match(page, /navigator\.clipboard\.writeText\(link\)/);
+  assert.match(page, /etm:last-visit:v1/);
+  assert.match(page, /Evidence trail/);
+  assert.doesNotMatch(page, /fetch\([^)]*(visit|analytics|telemetry)/i);
+  assert.match(contributorsPage, /The Clockkeepers/);
+  assert.match(contributorsPage, /None of them\s+can independently accept evidence/);
+  assert.equal(contributors.people[0].display_name, 'Diego Liñan');
+  assert.equal(contributors.automatedSystems.length, 4);
+  assert.ok(
+    contributors.contributions.every((item) => item.public === true),
+  );
+  assert.match(analytics, /NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS/);
+  assert.match(layout, /<PrivateAnalytics \/>/);
+});
+
+test('Vercel production is an automatic root-hosted static export', async () => {
   const [packageJson, nextConfig, viteConfig, vercelConfig, workflow, docs] =
     await Promise.all([
       read('package.json').then(JSON.parse),
@@ -231,10 +257,12 @@ test('the Vercel candidate is a manual root-hosted static export', async () => {
   assert.equal(vercelConfig.buildCommand, 'npm run build:vercel');
   assert.equal(vercelConfig.outputDirectory, 'dist/client');
   assert.match(workflow, /^\s*workflow_dispatch:\s*$/m);
-  assert.doesNotMatch(workflow, /^\s*(push|schedule|workflow_run):\s*$/m);
+  assert.match(workflow, /^\s*push:\s*$/m);
+  assert.match(workflow, /^\s*branches:\s*\[main\]\s*$/m);
+  assert.doesNotMatch(workflow, /^\s*(schedule|workflow_run):\s*$/m);
   assert.match(workflow, /vercel build --prod/);
   assert.match(workflow, /vercel deploy --prebuilt --prod/);
   assert.doesNotMatch(workflow, /actions\/deploy-pages/);
-  assert.match(docs, /GitHub Pages remains the canonical/);
+  assert.match(docs, /Vercel is the canonical public production host/);
   assert.match(docs, /workflow_dispatch/);
 });
