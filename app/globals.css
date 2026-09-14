@@ -1993,8 +1993,9 @@ body > main {
 }
 .automation-status {
   display: grid;
-  grid-template-columns: minmax(240px, 0.8fr) minmax(420px, 1.4fr);
-  gap: 28px;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(460px, 1.7fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
   border-block: 3px solid var(--ink);
   background: var(--paper-light);
 }
@@ -2008,7 +2009,37 @@ body > main {
   text-transform: uppercase;
 }
 .automation-status-board {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
+}
+.automation-next-run {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(20px, 4vw, 56px);
+  min-width: 0;
+  padding: clamp(20px, 3vw, 36px);
+  border: 3px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper-light);
+  box-shadow: 8px 8px 0 var(--signal);
+}
+.automation-next-run > div {
+  min-width: 0;
+}
+.automation-next-run > div > span:first-child,
+.automation-next-run small {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.automation-next-run .automation-stamp {
+  flex: 0 0 auto;
+  margin: 0;
 }
 .automation-timeline {
   position: relative;
@@ -2016,6 +2047,7 @@ body > main {
   grid-template-columns: repeat(3, 1fr);
   margin: 0;
   border: 2px solid var(--ink);
+  border-top: 0;
 }
 .automation-timeline > div {
   position: relative;
@@ -2236,6 +2268,26 @@ body > main {
   font-size: 0.78rem !important;
   letter-spacing: 0.05em;
 }
+.automation-next-run .automation-countdown {
+  display: block;
+  margin: 0.15em 0 0.12em;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--mustard);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 7.5rem) !important;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  white-space: nowrap;
+}
+.monitor-snapshot {
+  border-bottom: 8px solid var(--ink);
+}
+.monitor-snapshot .latest-movements {
+  border-bottom: 0;
+}
 .automation-freshness {
   margin: 0;
   padding: 0.55rem 0.75rem;
@@ -2346,8 +2398,25 @@ body > main {
   .automation-links {
     grid-column: auto;
   }
+  .automation-next-run {
+    align-items: flex-start;
+    flex-direction: column;
+  }
   .changelog-list article {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .automation-status {
+    padding-inline: 18px;
+  }
+  .automation-next-run {
+    padding: 18px;
+    box-shadow: 5px 5px 0 var(--signal);
+  }
+  .automation-next-run .automation-countdown {
+    font-size: clamp(2.15rem, 12vw, 4rem) !important;
   }
 }
 

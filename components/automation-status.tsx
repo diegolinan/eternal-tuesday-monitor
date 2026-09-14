@@ -143,7 +143,28 @@ export function AutomationStatus() {
       </div>
 
       <div className="automation-status-board">
-        <dl className="automation-timeline">
+        <div className="automation-next-run">
+          <div>
+            <span>NEXT SOURCE SCAN</span>
+            <strong className="automation-countdown" aria-hidden="true">
+              {nextWindow && now ? remaining(nextWindow, now) : '--H --M --S'}
+            </strong>
+            <span className="sr-only">
+              {nextWindow && now
+                ? `Next source scan in approximately ${Math.max(
+                    1,
+                    Math.ceil((nextWindow.valueOf() - now.valueOf()) / 60_000),
+                  )} minutes.`
+                : 'Calculating time until the next source scan.'}
+            </span>
+            <small>
+              SCHEDULED {nextWindow ? displayDate(nextWindow) : 'CALCULATING…'}
+            </small>
+          </div>
+          <StatusStamp state="on_deck" />
+        </div>
+
+        <dl className="automation-timeline automation-timeline--compact">
           <div>
             <dt>Latest source scan</dt>
             <dd>
@@ -162,12 +183,11 @@ export function AutomationStatus() {
           </div>
 
           <div>
-            <dt>Today&apos;s planned source scan</dt>
+            <dt>Today&apos;s scheduled window</dt>
             <dd aria-live="polite">
-              {currentWindow ? displayDate(currentWindow) : 'CALCULATING…'}
               <StatusStamp state={currentState} />
               {now && currentWindow && currentState === 'on_deck' && (
-                <small>WINDOW OPENS IN {remaining(currentWindow, now)}</small>
+                <small>TODAY&apos;S WINDOW HAS NOT OPENED</small>
               )}
               {now && currentWindow && currentState === 'starting_window' && (
                 <small>START WINDOW OPEN</small>
@@ -179,29 +199,6 @@ export function AutomationStatus() {
               )}
               {now && currentWindow && currentState === 'complete' && (
                 <small>ROUTINE SCAN REPORTED FOR TODAY</small>
-              )}
-            </dd>
-          </div>
-
-          <div>
-            <dt>Next planned source scan</dt>
-            <dd>
-              {nextWindow ? displayDate(nextWindow) : 'CALCULATING…'}
-              <StatusStamp state="on_deck" />
-              {nextWindow && now && (
-                <small className="automation-countdown" aria-hidden="true">
-                  IN {remaining(nextWindow, now)}
-                </small>
-              )}
-              {nextWindow && now && (
-                <span className="sr-only">
-                  Next source scan in approximately{' '}
-                  {Math.max(
-                    1,
-                    Math.ceil((nextWindow.valueOf() - now.valueOf()) / 60_000),
-                  )}{' '}
-                  minutes.
-                </span>
               )}
             </dd>
           </div>

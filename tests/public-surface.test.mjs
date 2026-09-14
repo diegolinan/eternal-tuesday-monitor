@@ -18,11 +18,13 @@ test('the public status panel exposes status but no administrative actions', asy
   assert.doesNotMatch(source, /github/i);
   assert.doesNotMatch(compiledStatus, /workflow|repository|html_url|run_id/i);
   assert.match(source, /Latest source scan/);
-  assert.match(source, /Today&apos;s planned source scan/);
-  assert.match(source, /Next planned source scan/);
+  assert.match(source, /Today&apos;s scheduled window/);
+  assert.match(source, /NEXT SOURCE SCAN/);
+  assert.doesNotMatch(source, /Next planned source scan/);
   assert.match(source, /does not contact a model/);
   assert.match(source, /ALL TIMES SHOWN IN YOUR LOCAL TIME/);
-  assert.match(source, /IN \{remaining\(nextWindow, now\)\}/);
+  assert.match(source, /remaining\(nextWindow, now\)/);
+  assert.match(source, /'--H --M --S'/);
   assert.match(source, /SINCE PLANNED/);
   assert.match(source, /STARTING WINDOW/);
   assert.match(source, /AWAITING START/);
@@ -30,12 +32,15 @@ test('the public status panel exposes status but no administrative actions', asy
   assert.match(source, /useState<Date \| null>\(null\)/);
   const ledgerPosition = page.indexOf('<ClaimLedger');
   const statusPosition = page.indexOf('<AutomationStatus />');
+  const heroPosition = page.indexOf('className="hero"');
   const guidePosition = page.indexOf('<ReadingGuide />');
   const findingsPosition = page.indexOf('id="observations"');
   assert.ok(ledgerPosition >= 0);
-  assert.ok(statusPosition > ledgerPosition);
-  assert.ok(statusPosition < guidePosition);
+  assert.ok(statusPosition < heroPosition);
+  assert.ok(statusPosition < ledgerPosition);
+  assert.ok(guidePosition > findingsPosition);
   assert.ok(statusPosition < findingsPosition);
+  assert.ok(page.indexOf('<EvidenceWatch />') > findingsPosition);
   assert.equal(page.lastIndexOf('<AutomationStatus />'), statusPosition);
   assert.match(page, /href="#automation">Status<\/a>/);
 });
@@ -223,12 +228,13 @@ test('public attribution, share links and return-visit comparison stay bounded',
   assert.match(page, /Evidence trail/);
   assert.doesNotMatch(page, /fetch\([^)]*(visit|analytics|telemetry)/i);
   assert.match(contributorsPage, /The Clockkeepers/);
-  assert.match(contributorsPage, /None of them\s+can independently accept evidence/);
+  assert.match(
+    contributorsPage,
+    /None of them\s+can independently accept evidence/,
+  );
   assert.equal(contributors.people[0].display_name, 'Diego Liñan');
   assert.equal(contributors.automatedSystems.length, 4);
-  assert.ok(
-    contributors.contributions.every((item) => item.public === true),
-  );
+  assert.ok(contributors.contributions.every((item) => item.public === true));
   assert.match(analytics, /NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS/);
   assert.match(layout, /<PrivateAnalytics \/>/);
 });
