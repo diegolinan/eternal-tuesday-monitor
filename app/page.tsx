@@ -406,10 +406,14 @@ function ClaimLedger({
   observations,
   modelCount,
   dataCutoff,
+  publishedOn,
+  freshnessEvaluatedOn,
 }: {
   observations: Observation[];
   modelCount: number;
   dataCutoff: string;
+  publishedOn: string;
+  freshnessEvaluatedOn: string;
 }) {
   const current = observations.filter(
     (item) => item.applicability === 'CURRENT',
@@ -454,6 +458,18 @@ function ClaimLedger({
           <dt>Evidence included through</dt>
           <dd className="claim-ledger-date">{labelDate(dataCutoff)}</dd>
           <small>The public release&apos;s evidence boundary</small>
+        </div>
+        <div>
+          <dt>Dataset release published</dt>
+          <dd className="claim-ledger-date">{labelDate(publishedOn)}</dd>
+          <small>When this public dataset was issued</small>
+        </div>
+        <div>
+          <dt>Evidence age recalculated</dt>
+          <dd className="claim-ledger-date">
+            {labelDate(freshnessEvaluatedOn)}
+          </dd>
+          <small>Freshness review, not a behavioral retest</small>
         </div>
       </dl>
     </section>
@@ -875,6 +891,8 @@ export default function Home() {
         </nav>
       </header>
 
+      <AutomationStatus />
+
       <section className="hero" aria-labelledby="page-title">
         <div className="hero-copy">
           <p className="eyebrow">Public observation station · ETM-1.0</p>
@@ -892,25 +910,6 @@ export default function Home() {
             continuity in current AI products. It is dated evidence, not a
             permanent ranking.
           </p>
-          <div
-            className="date-plates"
-            aria-label="Dataset publication, evidence cutoff, and freshness dates"
-          >
-            <div className="cutoff-plate">
-              <span>Dataset release published</span>
-              <strong>{data ? labelDate(data.publishedOn) : 'READING…'}</strong>
-            </div>
-            <div className="cutoff-plate">
-              <span>Evidence included through</span>
-              <strong>{data ? labelDate(data.dataCutoff) : 'READING…'}</strong>
-            </div>
-            <div className="cutoff-plate">
-              <span>Evidence age recalculated</span>
-              <strong>
-                {data ? labelDate(data.freshnessEvaluatedOn) : 'READING…'}
-              </strong>
-            </div>
-          </div>
         </div>
         <figure className="hero-visual">
           <img
@@ -924,17 +923,19 @@ export default function Home() {
         </figure>
       </section>
 
-      <ClaimLedger
-        observations={observations}
-        modelCount={data.models?.length ?? 0}
-        dataCutoff={data.dataCutoff}
-      />
-      <SinceLastVisit summary={visitSummary} />
-      <LatestMovements
-        events={(changelogSnapshot.events as ChangeEvent[]).slice(0, 3)}
-      />
-      <AutomationStatus />
-      <ReadingGuide />
+      <div className="monitor-snapshot" aria-label="Monitor at a glance">
+        <ClaimLedger
+          observations={observations}
+          modelCount={data.models?.length ?? 0}
+          dataCutoff={data.dataCutoff}
+          publishedOn={data.publishedOn}
+          freshnessEvaluatedOn={data.freshnessEvaluatedOn}
+        />
+        <SinceLastVisit summary={visitSummary} />
+        <LatestMovements
+          events={(changelogSnapshot.events as ChangeEvent[]).slice(0, 3)}
+        />
+      </div>
 
       <section
         className="monitor-section"
@@ -1041,6 +1042,8 @@ export default function Home() {
         </Tabs>
       </section>
 
+      <EvidenceWatch />
+
       <section
         className="model-overview"
         aria-labelledby="model-overview-title"
@@ -1059,6 +1062,8 @@ export default function Home() {
           Open the model register
         </a>
       </section>
+
+      <ReadingGuide />
 
       <section
         className="probe-section"
@@ -1333,8 +1338,6 @@ export default function Home() {
           </ol>
         </div>
       </section>
-
-      <EvidenceWatch />
 
       <section className="why-section" id="why" aria-labelledby="why-title">
         <div className="why-copy">
