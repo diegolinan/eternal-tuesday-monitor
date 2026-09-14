@@ -21,6 +21,7 @@ export default function ModelsPage() {
         <nav aria-label="Model register navigation">
           <a href={withBasePath('/')}>Findings</a>
           <a href={withBasePath('/changelog/')}>Changes</a>
+          <a href={withBasePath('/contributors/')}>Clockkeepers</a>
           <a href={withBasePath('/contribute/')}>Contribute</a>
         </nav>
       </header>

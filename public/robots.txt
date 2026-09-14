@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://diegolinan.github.io/eternal-tuesday-monitor/sitemap.xml
+Sitemap: https://eternal-tuesday-monitor.vercel.app/sitemap.xml

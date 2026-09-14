@@ -559,6 +559,337 @@ body > main {
   }
 }
 
+/* Public movement, attribution and return-visit surfaces. */
+.since-last-visit {
+  margin: 0;
+  padding: 16px clamp(20px, 5vw, 76px);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.75fr) minmax(280px, 1.35fr) auto;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 4px solid var(--ink);
+  background: var(--mustard);
+}
+.since-last-visit div {
+  display: grid;
+  gap: 2px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+.since-last-visit span {
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+.since-last-visit strong {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+.since-last-visit p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.since-last-visit a,
+.latest-movements a {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.latest-movements {
+  padding: clamp(38px, 6vw, 78px) clamp(20px, 5vw, 76px);
+  display: grid;
+  grid-template-columns: minmax(230px, 0.7fr) minmax(0, 1.6fr);
+  gap: clamp(28px, 5vw, 74px);
+  border-bottom: 8px solid var(--ink);
+  background: var(--paper-light);
+}
+.latest-movements h2,
+.clockkeeper-section h2 {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.latest-movements > div > p:not(.section-code) {
+  max-width: 34rem;
+}
+.latest-movements ol {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  list-style: none;
+  border: 3px solid var(--ink);
+  box-shadow: 7px 7px 0 var(--teal);
+}
+.latest-movements li {
+  padding: 17px 20px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 5px 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.latest-movements li:last-child {
+  border-bottom: 0;
+}
+.latest-movements time,
+.latest-movements li > span {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.latest-movements li > span {
+  color: var(--signal);
+}
+.latest-movements li strong {
+  grid-column: 1 / -1;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+.latest-movements li p {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 7px;
+}
+.dialog-actions button:first-child {
+  width: auto;
+  padding: 0 9px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.contribution-trail {
+  padding: 20px 25px;
+  border-top: 3px solid var(--ink);
+  background: var(--paper-deep);
+}
+.contribution-trail > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.contribution-trail h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.contribution-trail > div a {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.contribution-trail ol {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  border-left: 3px solid var(--signal);
+}
+.contribution-trail li {
+  padding: 4px 0 14px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+}
+.contribution-trail time,
+.contribution-trail b {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.contribution-trail li > a {
+  font-weight: 900;
+}
+.contribution-trail li p {
+  grid-column: 1 / -1;
+  margin: 3px 0 0;
+  font-size: 0.9rem;
+}
+
+.clockkeepers-hero {
+  padding: clamp(58px, 9vw, 126px) clamp(20px, 8vw, 140px);
+  border-bottom: 8px solid var(--ink);
+  background: var(--paper-light);
+}
+.clockkeepers-hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+.clockkeepers-hero > p:last-child {
+  max-width: 58rem;
+  margin: 32px 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+}
+.clockkeeper-section {
+  padding: clamp(42px, 6vw, 80px) clamp(20px, 5vw, 76px);
+  border-bottom: 8px solid var(--ink);
+}
+.clockkeeper-machines {
+  background: var(--petroleum);
+  color: var(--paper-light);
+}
+.clockkeeper-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.people-grid {
+  grid-template-columns: minmax(0, 720px);
+}
+.clockkeeper-card {
+  min-width: 0;
+  border: 3px solid currentColor;
+  background: var(--paper-light);
+  color: var(--ink);
+  box-shadow: 7px 7px 0 var(--mustard);
+}
+.clockkeeper-card > header {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--paper-light);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.clockkeeper-card > div {
+  padding: 22px;
+}
+.clockkeeper-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.clockkeeper-role {
+  margin: 8px 0 16px;
+  color: var(--signal);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.clockkeeper-card details {
+  margin-top: 20px;
+  border-top: 2px solid var(--ink);
+}
+.clockkeeper-card summary {
+  padding: 12px 0;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.clockkeeper-card ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clockkeeper-card li {
+  padding: 11px 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  border-top: 1px solid var(--ink);
+}
+.clockkeeper-card li time,
+.clockkeeper-card li strong {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.clockkeeper-card li span {
+  grid-column: 1 / -1;
+}
+.clockkeeper-empty {
+  margin: 20px 0 0;
+  padding-top: 12px;
+  border-top: 2px solid var(--ink);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+.clockkeeper-privacy {
+  padding: 22px clamp(20px, 5vw, 76px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  border-bottom: 4px solid var(--ink);
+  background: var(--mustard);
+}
+.clockkeeper-privacy strong {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+}
+.clockkeeper-privacy p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .latest-movements,
+  .clockkeeper-grid {
+    grid-template-columns: 1fr;
+  }
+  .since-last-visit {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .clockkeeper-privacy {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 680px) {
+  .latest-movements li {
+    grid-template-columns: 1fr;
+  }
+  .latest-movements li strong,
+  .latest-movements li p {
+    grid-column: auto;
+  }
+  .clockkeepers-hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.75rem, 13vw, 5rem);
+    overflow-wrap: anywhere;
+  }
+  .clockkeeper-card > header,
+  .contribution-trail > div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .dialog-actions button:first-child span {
+    display: none;
+  }
+}
+
 /* Public evidence watch and community service desk */
 .evidence-watch {
   display: grid;

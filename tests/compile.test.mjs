@@ -134,6 +134,22 @@ test('the public dataset compiles deterministically without rewriting results', 
     assert.equal(probe.verifiedOn, '2026-09-09');
     assert.equal(probe.evidenceClass, 'evidence-reproduced-observation');
   }
+  const reproduced = data.observations.filter((item) =>
+    item.id.startsWith('obs-anthropic-claude-code-fable-') &&
+    item.id.endsWith('2026-09-09'),
+  );
+  assert.equal(reproduced.length, 3);
+  for (const observation of reproduced) {
+    assert.equal(observation.contributionTrail.length, 1);
+    assert.equal(
+      observation.contributionTrail[0].contributorName,
+      'Controlled reproduction runner',
+    );
+    assert.equal(
+      observation.contributionTrail[0].role,
+      'PROTOCOL_EXECUTION',
+    );
+  }
 
   const beforePublicationPath = path.join(directory, 'before-publication.json');
   const beforePublicationRun = spawnSync(

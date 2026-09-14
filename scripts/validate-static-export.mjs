@@ -15,7 +15,7 @@ if (!['github-pages', 'vercel'].includes(target))
   throw new Error('--target must be github-pages or vercel');
 
 const basePath = target === 'github-pages' ? '/eternal-tuesday-monitor' : '';
-const canonicalUrl = 'https://diegolinan.github.io/eternal-tuesday-monitor/';
+const canonicalUrl = 'https://eternal-tuesday-monitor.vercel.app/';
 const openAIPrototypeHost = 'chatgpt.site';
 const failures = [];
 
@@ -39,6 +39,8 @@ await Promise.all([
   requireFile('contribute/index.txt'),
   requireFile('models/index.html'),
   requireFile('models/index.txt'),
+  requireFile('contributors/index.html'),
+  requireFile('contributors/index.txt'),
   requireFile('robots.txt'),
   requireFile('sitemap.xml'),
   requireFile('_next/static'),
@@ -49,6 +51,7 @@ await Promise.all([
   requireFile('data/model-operations.json'),
   requireFile('data/evidence-watch.json'),
   requireFile('data/model-options.json'),
+  requireFile('data/contributors.json'),
   requireFile('favicon.svg'),
   requireFile('favicon-32.png'),
   requireFile('assets/eternal-tuesday-banner.png'),
@@ -190,6 +193,7 @@ for (const [relativePath, canonicalPath] of [
   ['changelog/index.html', 'changelog/'],
   ['contribute/index.html', 'contribute/'],
   ['models/index.html', 'models/'],
+  ['contributors/index.html', 'contributors/'],
 ]) {
   try {
     const html = await read(relativePath);
@@ -197,8 +201,13 @@ for (const [relativePath, canonicalPath] of [
       fail(
         `${relativePath}: framework assets do not use the ${target} public path`,
       );
-    if (!html.includes(`rel="canonical" href="${canonicalUrl}${canonicalPath}`))
-      fail(`${relativePath}: canonical metadata does not use GitHub Pages`);
+    const expectedCanonical = canonicalPath
+      ? `${canonicalUrl}${canonicalPath}`
+      : canonicalUrl.replace(/\/$/, '');
+    if (!html.includes(`rel="canonical" href="${expectedCanonical}`))
+      fail(
+        `${relativePath}: canonical metadata does not use Vercel production`,
+      );
     if (relativePath === 'index.html' && !html.includes(`${basePath}/favicon`))
       fail(`index.html: favicon does not use the ${target} public path`);
     if (html.includes(openAIPrototypeHost))
@@ -249,6 +258,19 @@ try {
     fail('public evidence watch exposes implementation metadata');
 } catch (error) {
   fail(`unable to validate public evidence watch: ${error.message}`);
+}
+
+try {
+  const contributors = await read('contributors/index.html');
+  const publicLedger = JSON.parse(await read('data/contributors.json'));
+  if (!contributors.includes('The Clockkeepers'))
+    fail('contributors HTML is missing its public heading');
+  if (!publicLedger.people.some((item) => item.display_name === 'Diego Liñan'))
+    fail('public contributor ledger is missing the consented maintainer name');
+  if (publicLedger.automatedSystems.length < 1)
+    fail('public contributor ledger contains no bounded automated systems');
+} catch (error) {
+  fail(`unable to validate rendered contributors: ${error.message}`);
 }
 
 try {

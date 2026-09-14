@@ -3,10 +3,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { evaluateObservationFreshness } from './lib/freshness.mjs';
 import { projectModels } from './discovery/project.mjs';
-import {
-  loadReleases,
-  resolveReleaseAsOf,
-} from './lib/release-resolution.mjs';
+import { loadReleases, resolveReleaseAsOf } from './lib/release-resolution.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const readJson = async (relativePath) =>
@@ -36,6 +33,7 @@ const [
   freshnessPolicy,
   evaluationPolicy,
   adoptionRegister,
+  contributorRegistry,
   releaseEntries,
 ] = await Promise.all([
   readJson('data/catalog/vendors.json'),
@@ -51,6 +49,7 @@ const [
   readJson('config/freshness-policy.json'),
   readJson('config/model-evaluation-policy.json'),
   readJson('data/model-evaluation/adoption.json'),
+  readJson('data/contributors/contributors.json'),
   loadReleases(root),
 ]);
 const asOf = asOfOption ?? new Date().toISOString().slice(0, 10);
@@ -61,9 +60,10 @@ const parseLines = async (relativePath) =>
     .split(/\r?\n/)
     .filter((line) => line.trim())
     .map((line) => JSON.parse(line));
-const [observations, stateEvents] = await Promise.all([
+const [observations, stateEvents, contributions] = await Promise.all([
   parseLines('data/observations/observations.jsonl'),
   parseLines('data/state-events/events.jsonl'),
+  parseLines('data/contributors/contributions.jsonl'),
 ]);
 let evaluationResults = [];
 try {
@@ -82,6 +82,7 @@ const resultStatuses = indexById(statusesFile.result_statuses);
 const methodologies = indexById(methodologiesFile.methodologies);
 const sources = indexById(sourcesFile.sources);
 const evidence = indexById(evidenceFile.evidence_records);
+const contributors = indexById(contributorRegistry.contributors);
 const monthNames = [
   'JAN',
   'FEB',
@@ -147,6 +148,30 @@ const siteObservations = observations
       observations: observations.filter((record) => selected.has(record.id)),
     });
     const sourceCheckedOn = externalSource?.last_verified_on ?? null;
+    const contributionTrail = contributions
+      .filter(
+        (contribution) =>
+          contribution.public &&
+          contribution.artifact_type === 'OBSERVATION' &&
+          contribution.artifact_id === item.id,
+      )
+      .map((contribution) => {
+        const contributor = contributors.get(contribution.contributor_id);
+        return {
+          id: contribution.id,
+          occurredOn: contribution.occurred_on,
+          contributorId: contributor.id,
+          contributorName: contributor.display_name,
+          contributorKind: contributor.kind,
+          role: contribution.role,
+          summary: contribution.summary,
+        };
+      })
+      .sort(
+        (left, right) =>
+          left.occurredOn.localeCompare(right.occurredOn) ||
+          left.id.localeCompare(right.id),
+      );
     return {
       id: item.id,
       vendorId: item.vendor_id,
@@ -190,6 +215,7 @@ const siteObservations = observations
       ),
       supersedesObservationId: item.supersedes_observation_id,
       supersededByObservationId: supersededBy.get(item.id) ?? null,
+      contributionTrail,
     };
   });
 

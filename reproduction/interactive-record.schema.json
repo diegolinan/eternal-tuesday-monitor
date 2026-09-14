@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://diegolinan.github.io/eternal-tuesday-monitor/reproduction/interactive-record.schema.json",
+  "$id": "https://eternal-tuesday-monitor.vercel.app/reproduction/interactive-record.schema.json",
   "type": "object",
   "additionalProperties": false,
   "required": ["coordinates", "trials"],

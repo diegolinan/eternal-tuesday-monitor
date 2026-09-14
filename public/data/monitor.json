@@ -4,7 +4,7 @@
   "releaseId": "release-2026-09-09",
   "dataCutoff": "2026-09-09",
   "publishedOn": "2026-09-09",
-  "freshnessEvaluatedOn": "2026-09-13",
+  "freshnessEvaluatedOn": "2026-09-14",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
@@ -35,12 +35,13 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-anthropic-claude-code-fable-elapsed-2026-07",
@@ -68,12 +69,13 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-anthropic-cowork-reconciliation-2026-08-12",
@@ -101,12 +103,13 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-tictoc-revalidation-2026",
@@ -134,12 +137,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-openai-chatgpt-local-time-2026-08-21",
@@ -167,12 +171,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-openai-dreaming-freshness-2026-06-04",
@@ -200,12 +205,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-perplexity-brain-maintenance-2026-09-03",
@@ -235,12 +241,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-openai-projects-sol-gap-2026-09-03",
@@ -270,12 +277,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-openai-api-sol-gap-2026-09-03",
@@ -305,12 +313,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-anthropic-cowork-opus5-gap-2026-09-03",
@@ -340,12 +349,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-anthropic-code-fable51-gap-2026-09-03",
@@ -375,12 +385,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-google-gemini38-gap-2026-09-03",
@@ -410,12 +421,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-xai-grok46-gap-2026-09-03",
@@ -445,12 +457,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 10,
+      "evidenceAgeDays": 11,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-openai-codex-cli-luna-anchor-2026-09-05",
@@ -478,12 +491,13 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 8,
+      "evidenceAgeDays": 9,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": []
     },
     {
       "id": "obs-anthropic-claude-code-fable-revalidation-2026-09-09",
@@ -511,12 +525,23 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": [
+        {
+          "id": "contribution-2026-09-09-fable-revalidation-run",
+          "occurredOn": "2026-09-09",
+          "contributorId": "system-controlled-reproduction-runner",
+          "contributorName": "Controlled reproduction runner",
+          "contributorKind": "AUTOMATED_SYSTEM",
+          "role": "PROTOCOL_EXECUTION",
+          "summary": "Executed the approved stale-readiness reproduction whose reviewed receipt supports this observation."
+        }
+      ]
     },
     {
       "id": "obs-anthropic-claude-code-fable-reconciliation-2026-09-09",
@@ -544,12 +569,23 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": [
+        {
+          "id": "contribution-2026-09-09-fable-reconciliation-run",
+          "occurredOn": "2026-09-09",
+          "contributorId": "system-controlled-reproduction-runner",
+          "contributorName": "Controlled reproduction runner",
+          "contributorKind": "AUTOMATED_SYSTEM",
+          "role": "PROTOCOL_EXECUTION",
+          "summary": "Executed the approved stale-readiness reproduction whose reviewed receipt supports this observation."
+        }
+      ]
     },
     {
       "id": "obs-anthropic-claude-code-fable-historical-validity-2026-09-09",
@@ -577,12 +613,23 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 4,
+      "evidenceAgeDays": 5,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
       "supersedesObservationId": null,
-      "supersededByObservationId": null
+      "supersededByObservationId": null,
+      "contributionTrail": [
+        {
+          "id": "contribution-2026-09-09-fable-history-run",
+          "occurredOn": "2026-09-09",
+          "contributorId": "system-controlled-reproduction-runner",
+          "contributorName": "Controlled reproduction runner",
+          "contributorKind": "AUTOMATED_SYSTEM",
+          "role": "PROTOCOL_EXECUTION",
+          "summary": "Executed the approved stale-readiness reproduction whose reviewed receipt supports this observation."
+        }
+      ]
     }
   ],
   "models": [

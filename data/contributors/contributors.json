@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "contributors": [
+    {
+      "id": "contributor-diego-linan",
+      "kind": "PERSON",
+      "display_name": "Diego Liñan",
+      "public_attribution": "EXPLICIT_CONSENT",
+      "role_summary": "Problem framing · Source curation · Review direction",
+      "description": "Originated the problem, defined the Monitor's evidentiary boundaries, selected and challenged sources, and directs acceptance decisions. Automated systems and AI-assisted implementation are identified separately.",
+      "started_on": "2026-09-03",
+      "url": null
+    },
+    {
+      "id": "system-official-source-watch",
+      "kind": "AUTOMATED_SYSTEM",
+      "display_name": "Official-source watch",
+      "public_attribution": "NOT_APPLICABLE",
+      "role_summary": "Detect official catalog changes",
+      "description": "Checks approved provider pages for model-listing changes. It does not test behavior and cannot create a PASS or FAIL.",
+      "started_on": "2026-09-05",
+      "url": null
+    },
+    {
+      "id": "system-public-evidence-watch",
+      "kind": "AUTOMATED_SYSTEM",
+      "display_name": "Public evidence watch",
+      "public_attribution": "NOT_APPLICABLE",
+      "role_summary": "Find potentially relevant public leads",
+      "description": "Searches separated public-source channels for leads. A match remains an untrusted review candidate and never becomes accepted evidence automatically.",
+      "started_on": "2026-09-06",
+      "url": null
+    },
+    {
+      "id": "system-freshness-review",
+      "kind": "AUTOMATED_SYSTEM",
+      "display_name": "Freshness review",
+      "public_attribution": "NOT_APPLICABLE",
+      "role_summary": "Recalculate whether accepted evidence remains usable",
+      "description": "Applies the published age and lifecycle policy to existing evidence. It never reruns a behavioral probe or rewrites the dated result.",
+      "started_on": "2026-09-05",
+      "url": null
+    },
+    {
+      "id": "system-controlled-reproduction-runner",
+      "kind": "AUTOMATED_SYSTEM",
+      "display_name": "Controlled reproduction runner",
+      "public_attribution": "NOT_APPLICABLE",
+      "role_summary": "Execute an approved behavioral protocol",
+      "description": "Runs a bounded, predeclared reproduction and preserves the receipt. Its output still requires human review before it can support a public observation.",
+      "started_on": "2026-09-09",
+      "url": null
+    }
+  ]
+}

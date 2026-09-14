@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { canonicalSiteUrl, withBasePath } from '@/lib/site-paths';
+import { PrivateAnalytics } from '@/components/private-analytics';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -39,6 +40,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <PrivateAnalytics />
       </body>
     </html>
   );

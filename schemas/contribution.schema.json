@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.vercel.app/schemas/contribution.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "occurred_on",
+    "contributor_id",
+    "role",
+    "summary",
+    "artifact_type",
+    "artifact_id",
+    "source_event_id",
+    "public"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "id": { "type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$" },
+    "occurred_on": { "type": "string", "format": "date" },
+    "contributor_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "role": {
+      "enum": [
+        "PROBLEM_FRAMING",
+        "SOURCE_CHANGE_DETECTION",
+        "EVIDENCE_LEAD_DISCOVERY",
+        "FRESHNESS_RECALCULATION",
+        "PROTOCOL_EXECUTION",
+        "HUMAN_REVIEW",
+        "SOURCE_CURATION"
+      ]
+    },
+    "summary": { "type": "string", "minLength": 1 },
+    "artifact_type": {
+      "enum": ["PROJECT", "OBSERVATION", "AUTOMATION", "CHANGELOG_EVENT"]
+    },
+    "artifact_id": { "type": "string", "minLength": 1 },
+    "source_event_id": { "type": ["string", "null"] },
+    "public": { "type": "boolean" }
+  }
+}

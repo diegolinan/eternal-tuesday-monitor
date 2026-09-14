@@ -19,6 +19,7 @@ const eventPath = 'data/state-events/events.jsonl';
 const evaluationResultPath = 'data/model-evaluation/results.jsonl';
 const sourceCheckPath = 'data/model-discovery/source-checks.jsonl';
 const changelogPath = 'data/changelog/events.jsonl';
+const contributionPath = 'data/contributors/contributions.jsonl';
 const evidenceCandidatePath = 'data/evidence-discovery/candidates.jsonl';
 const evidenceCandidateDecisionPath = 'data/evidence-discovery/decisions.jsonl';
 const evidenceCandidateReviewPath = 'data/evidence-discovery/reviews.jsonl';
@@ -141,6 +142,11 @@ const [
   evaluationResultSchema,
   sourceCheckSchema,
   changelogSchema,
+  contributorRegistry,
+  contributorSchema,
+  contributionSchema,
+  contributorsViewSchema,
+  contributorsView,
   systemStatusSchema,
   modelOperationsSchema,
   releaseEntries,
@@ -149,6 +155,7 @@ const [
   evaluationResultLedger,
   sourceCheckLedger,
   changelogLedger,
+  contributionLedger,
 ] = await Promise.all([
   readJson('data/catalog/vendors.json'),
   readJson('data/catalog/products.json'),
@@ -183,6 +190,11 @@ const [
   readJson('schemas/model-evaluation-result.schema.json'),
   readJson('schemas/source-check.schema.json'),
   readJson('schemas/changelog-event.schema.json'),
+  readJson('data/contributors/contributors.json'),
+  readJson('schemas/contributor.schema.json'),
+  readJson('schemas/contribution.schema.json'),
+  readJson('schemas/contributors-view.schema.json'),
+  readJson('public/data/contributors.json'),
   readJson('schemas/system-status.schema.json'),
   readJson('schemas/model-operations.schema.json'),
   loadReleases(root),
@@ -191,6 +203,7 @@ const [
   readOptionalJsonLines(evaluationResultPath),
   readOptionalJsonLines(sourceCheckPath),
   readJsonLines(changelogPath),
+  readJsonLines(contributionPath),
 ]);
 
 const [
@@ -240,6 +253,7 @@ const stateEvents = eventLedger.items;
 const evaluationResults = evaluationResultLedger.items;
 const sourceChecks = sourceCheckLedger.items;
 const changelogEvents = changelogLedger.items;
+const contributions = contributionLedger.items;
 const evidenceCandidates = evidenceCandidateLedger.items;
 const evidenceCandidateDecisions = evidenceCandidateDecisionLedger.items;
 const evidenceCandidateReviews = evidenceCandidateReviewLedger.items;
@@ -249,6 +263,8 @@ const ajv = new Ajv2020({
   strictRequired: false,
 });
 addFormats(ajv);
+ajv.addSchema(contributorSchema);
+ajv.addSchema(contributionSchema);
 ajv.compile(publicSubmissionSchema);
 function validateWithSchema(label, schema, items) {
   const validate = ajv.compile(schema);
@@ -302,6 +318,15 @@ validateWithSchema(
 );
 validateWithSchema('public source check', sourceCheckSchema, sourceChecks);
 validateWithSchema('changelog event', changelogSchema, changelogEvents);
+validateWithSchema(
+  'contributor',
+  contributorSchema,
+  contributorRegistry.contributors,
+);
+validateWithSchema('contribution', contributionSchema, contributions);
+validateWithSchema('public contributors', contributorsViewSchema, [
+  contributorsView,
+]);
 validateWithSchema('public system status', systemStatusSchema, [systemStatus]);
 validateWithSchema('public model operations', modelOperationsSchema, [
   modelOperations,
@@ -370,6 +395,8 @@ const collections = [
   ['model evaluation results', evaluationResults],
   ['public source checks', sourceChecks],
   ['changelog events', changelogEvents],
+  ['contributors', contributorRegistry.contributors],
+  ['contributions', contributions],
   ['evidence candidates', evidenceCandidates],
   ['evidence candidate decisions', evidenceCandidateDecisions],
   ['evidence candidate reviews', evidenceCandidateReviews],
@@ -378,6 +405,35 @@ const collections = [
   ['reproduction cases', reproductionCasesFile.cases],
   ['releases', releaseEntries.map(({ release }) => release)],
 ];
+
+const contributorIds = ids(contributorRegistry.contributors);
+const observationIds = ids(observations);
+const changelogIds = ids(changelogEvents);
+for (const contribution of contributions) {
+  if (!contributorIds.has(contribution.contributor_id))
+    fail(
+      `${contribution.id}: unknown contributor ${contribution.contributor_id}`,
+    );
+  if (
+    contribution.artifact_type === 'OBSERVATION' &&
+    !observationIds.has(contribution.artifact_id)
+  )
+    fail(`${contribution.id}: unknown observation ${contribution.artifact_id}`);
+  if (
+    contribution.source_event_id !== null &&
+    !changelogIds.has(contribution.source_event_id)
+  )
+    fail(
+      `${contribution.id}: unknown changelog event ${contribution.source_event_id}`,
+    );
+  if (contribution.public) {
+    const contributor = contributorRegistry.contributors.find(
+      (item) => item.id === contribution.contributor_id,
+    );
+    if (contributor?.public_attribution === 'ANONYMOUS')
+      fail(`${contribution.id}: exposes an anonymous contributor`);
+  }
+}
 for (const [label, items] of collections) {
   if (!Array.isArray(items)) fail(`${label}: expected an array`);
   else assertUnique(label, items);
@@ -1004,6 +1060,7 @@ if (baseArgIndex !== -1) {
     );
     compareAppendOnlyLines(base, sourceCheckPath, sourceCheckLedger.lines);
     compareAppendOnlyLines(base, changelogPath, changelogLedger.lines);
+    compareAppendOnlyLines(base, contributionPath, contributionLedger.lines);
     compareAppendOnlyLines(
       base,
       evidenceCandidatePath,

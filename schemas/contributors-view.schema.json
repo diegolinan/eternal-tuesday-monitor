@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eternal-tuesday-monitor.vercel.app/schemas/contributors-view.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "people", "automatedSystems", "contributions"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "people": {
+      "type": "array",
+      "items": { "$ref": "contributor.schema.json" }
+    },
+    "automatedSystems": {
+      "type": "array",
+      "items": { "$ref": "contributor.schema.json" }
+    },
+    "contributions": {
+      "type": "array",
+      "items": { "$ref": "contribution.schema.json" }
+    }
+  }
+}

@@ -1,7 +1,6 @@
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
-export const canonicalSiteUrl =
-  'https://diegolinan.github.io/eternal-tuesday-monitor/';
+export const canonicalSiteUrl = 'https://eternal-tuesday-monitor.vercel.app/';
 
 export const siteBasePath = configuredBasePath.replace(/\/$/, '');
 

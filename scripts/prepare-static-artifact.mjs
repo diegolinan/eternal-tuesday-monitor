@@ -20,7 +20,7 @@ if (target === 'github-pages') {
   });
 }
 
-for (const route of ['changelog', 'contribute', 'models']) {
+for (const route of ['changelog', 'contribute', 'contributors', 'models']) {
   await mkdir(path.join(output, route), { recursive: true });
   await cp(
     path.join(output, `${route}.html`),

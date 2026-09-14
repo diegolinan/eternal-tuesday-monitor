@@ -36,6 +36,8 @@ export default function ChangelogPage() {
         </a>
         <nav aria-label="Changelog navigation">
           <a href={withBasePath('/')}>Monitor</a>
+          <a href={withBasePath('/contributors/')}>Clockkeepers</a>
+          <a href={withBasePath('/contribute/')}>Contribute</a>
         </nav>
       </header>
       <section className="changelog-hero">
