@@ -683,3 +683,29 @@ test('public intake closes safely and suppresses duplicate dispatches', async ()
     globalThis.fetch = originalFetch;
   }
 });
+
+test('public intake exposes status only to approved deployment origins', async () => {
+  const env = { INTAKE_OPEN: 'true' };
+  for (const origin of [
+    'https://diegolinan.github.io',
+    'https://eternal-tuesday-monitor.vercel.app',
+  ]) {
+    const response = await intakeWorker.fetch(
+      new Request('https://intake.example/status', {
+        headers: { Origin: origin },
+      }),
+      env,
+    );
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Access-Control-Allow-Origin'), origin);
+  }
+
+  const rejected = await intakeWorker.fetch(
+    new Request('https://intake.example/status', {
+      headers: { Origin: 'https://example.com' },
+    }),
+    env,
+  );
+  assert.equal(rejected.status, 403);
+  assert.equal(rejected.headers.get('Access-Control-Allow-Origin'), null);
+});

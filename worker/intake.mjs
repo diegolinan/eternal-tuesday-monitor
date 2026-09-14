@@ -1,7 +1,12 @@
 import { normalizePublicSourceUrl } from '../lib/public-source-url.mjs';
 
-const allowedOrigin = 'https://diegolinan.github.io';
-const allowedHostname = 'diegolinan.github.io';
+const allowedOrigins = new Map([
+  ['https://diegolinan.github.io', 'diegolinan.github.io'],
+  [
+    'https://eternal-tuesday-monitor.vercel.app',
+    'eternal-tuesday-monitor.vercel.app',
+  ],
+]);
 const expectedChallengeAction = 'evidence_submission';
 const formSchemaVersion = '2.1.0';
 const allowedProbeIds = new Set([
@@ -23,7 +28,8 @@ const bidiAndZeroWidth = /[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/gu;
 
 const json = (body, status = 200, origin = null) => {
   const headers = { 'Content-Type': 'application/json', Vary: 'Origin' };
-  if (origin === allowedOrigin) headers['Access-Control-Allow-Origin'] = origin;
+  if (allowedOrigins.has(origin))
+    headers['Access-Control-Allow-Origin'] = origin;
   return new Response(JSON.stringify(body), { status, headers });
 };
 
@@ -305,7 +311,8 @@ const logOutcome = (outcome, detail = {}) =>
 const intakeWorker = {
   async fetch(request, env) {
     const origin = request.headers.get('Origin');
-    if (origin !== allowedOrigin) {
+    const allowedHostname = allowedOrigins.get(origin);
+    if (!allowedHostname) {
       logOutcome('rejected', { reason: 'origin' });
       return json({ ok: false, error: 'ORIGIN_NOT_ALLOWED' }, 403);
     }
@@ -313,7 +320,7 @@ const intakeWorker = {
       return new Response(null, {
         status: 204,
         headers: {
-          'Access-Control-Allow-Origin': allowedOrigin,
+          'Access-Control-Allow-Origin': origin,
           'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type',
           'Access-Control-Max-Age': '86400',
