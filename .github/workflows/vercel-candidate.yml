@@ -14,6 +14,7 @@ concurrency:
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_TEAM_SLUG: diego-linan
   NEXT_PUBLIC_CONTRIBUTION_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTRIBUTION_ENDPOINT }}
   NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
 
@@ -100,11 +101,11 @@ jobs:
       - name: Load Vercel project settings
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+        run: vercel pull --yes --environment=production --scope="$VERCEL_TEAM_SLUG" --token="$VERCEL_TOKEN"
       - name: Build the Vercel candidate
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel build --prod --token="$VERCEL_TOKEN"
+        run: vercel build --prod --scope="$VERCEL_TEAM_SLUG" --token="$VERCEL_TOKEN"
       - run: npm run static:validate:vercel
       - name: Deploy the Vercel candidate
         id: deployment
@@ -112,7 +113,7 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          url="$(vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
+          url="$(vercel deploy --prebuilt --prod --scope="$VERCEL_TEAM_SLUG" --token="$VERCEL_TOKEN")"
           echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "::notice title=Vercel candidate deployed::$url"
       - name: Candidate summary
