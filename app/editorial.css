@@ -268,7 +268,7 @@ p {
   margin: 16px 0 11px;
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: clamp(2.55rem, 4.5vw, 5.25rem);
+  font-size: clamp(2.45rem, 3.2vw, 3.65rem);
   font-variant-numeric: tabular-nums;
   font-weight: 740;
   line-height: 0.82;
@@ -278,7 +278,7 @@ p {
 .automation-next-run .automation-countdown {
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: clamp(2.55rem, 4.5vw, 5.25rem) !important;
+  font-size: clamp(2.45rem, 3.2vw, 3.65rem) !important;
   font-weight: 740;
   letter-spacing: -0.055em;
 }
