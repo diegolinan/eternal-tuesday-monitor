@@ -46,6 +46,9 @@
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
+    "@fontsource-variable/archivo": "^5.2.8",
+    "@fontsource-variable/fraunces": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
     "@shadcn/react": "0.3.0",
     "@vercel/analytics": "2.0.1",
     "class-variance-authority": "0.7.1",

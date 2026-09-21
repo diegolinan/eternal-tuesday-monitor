@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { canonicalSiteUrl, withBasePath } from '@/lib/site-paths';
 import { PrivateAnalytics } from '@/components/private-analytics';
+import '@fontsource-variable/fraunces/wght.css';
+import '@fontsource-variable/archivo/wght.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/600.css';
 import './globals.css';
+import './editorial.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(canonicalSiteUrl),

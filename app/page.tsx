@@ -23,6 +23,7 @@ import { AutomationStatus } from '@/components/automation-status';
 import { EvidenceWatch } from '@/components/evidence-watch';
 import { StatusEmblem } from '@/components/status-emblem';
 import { VendorMark } from '@/components/vendor-mark';
+import { Chronoscope } from '@/components/chronoscope';
 import monitorSnapshot from '@/public/data/monitor.json';
 import changelogSnapshot from '@/public/data/changelog.json';
 
@@ -911,16 +912,7 @@ export default function Home() {
             permanent ranking.
           </p>
         </div>
-        <figure className="hero-visual">
-          <img
-            src={withBasePath('/assets/monitor-exhibit.png')}
-            alt="A period-styled Eternal Tuesday Monitor control console with gauges and evidence labels"
-            width="1672"
-            height="941"
-            fetchPriority="high"
-          />
-          <figcaption>OBSERVABLE PROBES - NOT INTERNAL ARCHITECTURE</figcaption>
-        </figure>
+        <Chronoscope />
       </section>
 
       <div className="monitor-snapshot" aria-label="Monitor at a glance">
