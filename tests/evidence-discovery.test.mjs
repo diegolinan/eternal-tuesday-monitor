@@ -565,7 +565,10 @@ test('public intake requires the canonical Turnstile hostname and action', async
     assert.equal(accepted.status, 202);
     assert.equal(calls.length, 5);
     const acceptedBody = await accepted.json();
-    assert.match(acceptedBody.receiptId, /^ETM-LEAD-/);
+    assert.match(
+      acceptedBody.receiptId,
+      /^ETM-LEAD-[23456789ABCDEFGHJKLMNPQRSTUVWXYZ]{10}$/,
+    );
 
     globalThis.fetch = async () =>
       Response.json({

@@ -269,8 +269,11 @@ async function isAlreadyPending(
 
 function receiptId() {
   const alphabet = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+  const indexMask = 0b11111;
+  if (alphabet.length !== indexMask + 1)
+    throw new Error('INVALID_RECEIPT_ALPHABET');
   const bytes = crypto.getRandomValues(new Uint8Array(10));
-  return `ETM-LEAD-${[...bytes].map((byte) => alphabet[byte % alphabet.length]).join('')}`;
+  return `ETM-LEAD-${[...bytes].map((byte) => alphabet[byte & indexMask]).join('')}`;
 }
 
 async function sha256Hex(value) {
