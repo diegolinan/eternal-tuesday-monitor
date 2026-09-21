@@ -114,6 +114,25 @@ test('due-review notifications are wired without running or accepting probes', a
   assert.doesNotMatch(dueScript, /observedResult\s*=|currentSufficiency\s*=/);
 });
 
+test('discovery resolves stale failure notifications and keeps broad-web search off', async () => {
+  const [workflow, config, readme, operations] = await Promise.all([
+    read('.github/workflows/discover-models.yml'),
+    read('config/evidence-discovery.json'),
+    read('README.md'),
+    read('docs/operations.md'),
+  ]);
+  assert.match(workflow, /resolve-workflow-failure\.mjs/);
+  assert.match(workflow, /Resolve a previous discovery failure after recovery/);
+  assert.ok(
+    workflow.indexOf('Report discovery workflow failure') <
+      workflow.indexOf('Resolve a previous discovery failure after recovery'),
+  );
+  assert.doesNotMatch(workflow, /BRAVE_SEARCH_API_KEY/);
+  assert.equal(JSON.parse(config).channels.general_web_search, false);
+  assert.match(readme, /Broad-web search is disabled by the reviewed V1 policy/);
+  assert.match(operations, /V1 deliberately keeps broad-web search disabled/);
+});
+
 test('validation compares generated data at its declared evaluation date', async () => {
   const [validate, pages] = await Promise.all([
     read('.github/workflows/validate.yml'),

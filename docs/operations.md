@@ -8,7 +8,7 @@ GitHub Actions is the only scheduler. Every day at 12:43 UTC (09:43 Argentina), 
 - Deterministic new identity: the accepted catalog event and public changelog entry are committed to `main`; the same run deploys Pages.
 - Ambiguous identity or metadata: a new pull request is opened for that run and review is requested from `diegolinan`. It never auto-merges and never reuses an older review branch.
 - Newly relevant model without behavioral evidence: the evaluation register shows TEST_REQUIRED and GitHub opens an issue assigned to `diegolinan` with the manual workflow link.
-- Workflow failure: GitHub opens or updates one failure issue assigned to `diegolinan`. An operational failure is never a behavioral FAIL.
+- Workflow failure: GitHub opens or updates one failure issue assigned to `diegolinan`. An operational failure is never a behavioral FAIL. The first later successful discovery run comments with its recovery run and closes the stale incident automatically; failure-report cleanup cannot turn an otherwise successful discovery into a failed run.
 
 Every public deployment and the weekly freshness pass also synchronize one assigned reminder for accepted records whose deterministic state is `RETEST_REQUIRED`. The reminder lists exact model, surface, probe, applicability and reason. It opens when at least one record is due, updates when the set changes, and closes when none remain. This notification does not execute a probe, assign a retest date, or change evidence.
 
