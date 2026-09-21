@@ -858,6 +858,128 @@
       "defaultProminence": false
     },
     {
+      "id": "model-discovered-d90cfd6704a8c57256f1",
+      "vendorId": "vendor-xai",
+      "vendor": "xAI",
+      "name": "Grok 4.7",
+      "apiModelId": "grok-4.7",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "DISCOVERED_RELEVANT",
+      "relevanceReviewedOn": "2026-09-21",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-21",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "EVALUATION_PENDING",
+      "testabilityState": "REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "PUBLIC_SOURCE_IDENTITY_ONLY"
+      ],
+      "adoptionAssessedOn": "2026-09-21",
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://docs.x.ai/developers/models",
+        "https://docs.x.ai/developers/models/grok-4.7"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": true
+    },
+    {
       "id": "model-discovered-7fc4e230104dfc645df6",
       "vendorId": "vendor-openai",
       "vendor": "OpenAI",

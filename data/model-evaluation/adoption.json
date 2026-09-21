@@ -4338,6 +4338,91 @@
       }
     },
     {
+      "model_id": "model-discovered-d90cfd6704a8c57256f1",
+      "vendor_id": "vendor-xai",
+      "api_model_id": "grok-4.7",
+      "originating_discovery_event_id": "discovery-532740823af58ef25b98b8c6",
+      "assessed_on": "2026-09-21",
+      "api_availability": {
+        "state": "UNKNOWN",
+        "reasons": [
+          "PUBLIC_SOURCE_IDENTITY_ONLY"
+        ],
+        "source_ids": [
+          "discovery-xai-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        }
+      ],
+      "execution_state": "NOT_RUN",
+      "queue": {
+        "state": "NOT_QUEUED",
+        "reasons": [
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
       "model_id": "model-discovered-dcc1382081671253d9b5",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4o",

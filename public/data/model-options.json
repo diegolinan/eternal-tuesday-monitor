@@ -644,6 +644,11 @@
           "id": "model-grok-4-6",
           "name": "Grok 4.6",
           "apiModelId": "grok-4.6"
+        },
+        {
+          "id": "model-discovered-d90cfd6704a8c57256f1",
+          "name": "Grok 4.7",
+          "apiModelId": "grok-4.7"
         }
       ]
     }

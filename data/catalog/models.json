@@ -4637,6 +4637,60 @@
       ]
     },
     {
+      "id": "model-discovered-d90cfd6704a8c57256f1",
+      "vendor_id": "vendor-xai",
+      "name": "Grok 4.7",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "grok-4.7",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-21",
+        "reason": "The reviewed policy tracks numbered Grok general-purpose model families unless a specialized rule matches first.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "xai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models",
+          "checked_on": "2026-09-21",
+          "sha256": "9bc84da25fc823db200e2951cb46a80f1a27a576981b472056a9a7711bef9ea0",
+          "fetched_at": "2026-09-21T16:14:46.519Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "xai-docs",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "5bc24b8c929a3f20ac6e7320e465d5f87ac3da8f",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-xai-docs/9bc84da25fc823db200e2951cb46a80f1a27a576981b472056a9a7711bef9ea0.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models/grok-4.7",
+          "checked_on": "2026-09-21",
+          "sha256": "48233ddb3cf47facfbba7af35f7351700613bc9fdbe399ee2935b2abf76b54a1",
+          "fetched_at": "2026-09-21T16:14:46.678Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "xai-docs",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "5bc24b8c929a3f20ac6e7320e465d5f87ac3da8f",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-xai-docs/48233ddb3cf47facfbba7af35f7351700613bc9fdbe399ee2935b2abf76b54a1.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-da4390555129f7b96ace",
       "vendor_id": "vendor-openai",
       "name": "GPT-4o Mini Search Preview",
