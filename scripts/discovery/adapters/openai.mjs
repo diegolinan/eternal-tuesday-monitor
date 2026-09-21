@@ -62,8 +62,6 @@ export const index = (body, source) =>
   );
 export function detail(body, source, url) {
   const { root, title, content } = modelPage(body);
-  if (!title.endsWith(' Model | OpenAI API'))
-    throw new Error('MODEL_PAGE_FORMAT_CHANGED');
   const slug = new URL(url).pathname.split('/').at(-1);
   const identityHeadings = ['Snapshots', 'Model IDs'];
   const identitySectionStart = Math.max(
@@ -74,6 +72,11 @@ export function detail(body, source, url) {
       ? content.slice(identitySectionStart).split('Rate limits')[0]
       : '';
   const documented = identitySection.split(/\s+/).includes(slug);
+  const legacyTitle = title.endsWith(' Model | OpenAI API');
+  // Some first-party model pages now use the concise model name as the H1.
+  // Keep the exact identifier in the page's identity section as the safety
+  // boundary instead of coupling acceptance to presentational title markup.
+  if (!legacyTitle && !documented) throw new Error('MODEL_PAGE_FORMAT_CHANGED');
   const compatibility = structuredCompatibility(root, slug, documented);
   return fact(source, {
     display_name: title.replace(/ Model \| OpenAI API$/, ''),

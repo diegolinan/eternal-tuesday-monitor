@@ -15,16 +15,12 @@ export function allowedUrl(value, source) {
 }
 
 // Public GET-only retrieval. No generation, arbitrary crawling, or provider credentials.
-export async function readOfficial(
-  url,
-  source,
-  config,
-  fetcher = fetch,
-) {
+export async function readOfficial(url, source, config, fetcher = fetch) {
   let current = allowedUrl(url, source);
   const headers = {
     Accept:
-      source.type === 'research-feed'
+      source.type === 'research-feed' ||
+      source.adapter === 'change-detection-feed'
         ? 'application/atom+xml, application/xml, text/xml'
         : 'text/html',
     'Accept-Language': 'en',

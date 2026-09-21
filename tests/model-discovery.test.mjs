@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import * as openai from '../scripts/discovery/adapters/openai.mjs';
+import * as xai from '../scripts/discovery/adapters/xai.mjs';
 import { fact } from '../scripts/discovery/adapters/common.mjs';
 import {
   classifyDiscoveryEvent,
@@ -24,6 +25,9 @@ const relevancePolicy = JSON.parse(
 );
 const official = config.sources.find(
   (source) => source.id === 'discovery-openai-docs',
+);
+const xaiOfficial = config.sources.find(
+  (source) => source.id === 'discovery-xai-docs',
 );
 const provenance = (id, hash = 'a') => [
   {
@@ -121,6 +125,47 @@ test('OpenAI detail parsing accepts exact IDs from both current Model IDs and le
       'https://developers.openai.com/api/docs/models/gpt-7',
     ).api_model_id,
     'gpt-7',
+  );
+  assert.equal(
+    openai.detail(
+      page('ChatGPT-4o', 'Snapshots', 'chatgpt-4o-latest').replace(
+        'ChatGPT-4o Model | OpenAI API',
+        'ChatGPT-4o',
+      ),
+      official,
+      'https://developers.openai.com/api/docs/models/chatgpt-4o-latest',
+    ).api_model_id,
+    'chatgpt-4o-latest',
+  );
+});
+
+test('xAI detail parsing accepts exact slug headings and uses official social title for display', () => {
+  const body = `
+    <html>
+      <head><meta property="og:title" content="Grok Imagine Image 2.0 | SpaceXAI Docs"></head>
+      <body><main><h1>grok-imagine-image-2.0</h1><p>grok-imagine-image-2.0</p></main></body>
+    </html>`;
+  const model = xai.detail(
+    body,
+    xaiOfficial,
+    'https://docs.x.ai/developers/models/grok-imagine-image-2.0',
+  );
+  assert.equal(model.api_model_id, 'grok-imagine-image-2.0');
+  assert.equal(model.display_name, 'Grok Imagine Image 2.0');
+});
+
+test('product change detection uses public first-party release pages', () => {
+  const openaiReleaseNotes = config.sources.find(
+    (source) => source.id === 'source-openai-chatgpt-release-notes',
+  );
+  const geminiReleaseNotes = config.sources.find(
+    (source) => source.id === 'source-google-gemini-updates',
+  );
+  assert.equal(openaiReleaseNotes.url, 'https://openai.com/news/rss.xml');
+  assert.equal(openaiReleaseNotes.adapter, 'change-detection-feed');
+  assert.equal(
+    geminiReleaseNotes.url,
+    'https://gemini.google/vg/release-notes/?hl=en',
   );
 });
 
