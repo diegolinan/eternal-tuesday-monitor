@@ -256,6 +256,60 @@
       ]
     },
     {
+      "id": "model-discovered-114cebd0a5097eb7e983",
+      "vendor_id": "vendor-xai",
+      "name": "Grok Imagine Image 2.0",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "grok-imagine-image-2.0",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-21",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models",
+          "checked_on": "2026-09-21",
+          "sha256": "e2ee15ef26932d8b8b3c9e107563656bba0298e87735fc179e4f027d0dc1ffbe",
+          "fetched_at": "2026-09-21T16:40:07.107Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "xai-docs",
+          "adapter_version": "1",
+          "parser_version": "2",
+          "checked_from_commit": "bab0c263339d6ae29cfa7d4b6b6276916056a002",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-xai-docs/e2ee15ef26932d8b8b3c9e107563656bba0298e87735fc179e4f027d0dc1ffbe.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models/grok-imagine-image-2.0",
+          "checked_on": "2026-09-21",
+          "sha256": "7ee689f810e22b3f44d1691928fa5ce67b0aec60c477ea909672322cf395b8e7",
+          "fetched_at": "2026-09-21T16:40:07.356Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "xai-docs",
+          "adapter_version": "1",
+          "parser_version": "2",
+          "checked_from_commit": "bab0c263339d6ae29cfa7d4b6b6276916056a002",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-xai-docs/7ee689f810e22b3f44d1691928fa5ce67b0aec60c477ea909672322cf395b8e7.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-12c98d85d99fbc80d244",
       "vendor_id": "vendor-openai",
       "name": "GPT-4o Transcribe Diarize",

@@ -649,6 +649,11 @@
           "id": "model-discovered-d90cfd6704a8c57256f1",
           "name": "Grok 4.7",
           "apiModelId": "grok-4.7"
+        },
+        {
+          "id": "model-discovered-114cebd0a5097eb7e983",
+          "name": "Grok Imagine Image 2.0",
+          "apiModelId": "grok-imagine-image-2.0"
         }
       ]
     }
