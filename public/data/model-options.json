@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-09-13",
+  "catalogCheckedThrough": "2026-09-21",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -152,6 +152,16 @@
           "id": "model-gemini-3-8-flash",
           "name": "Gemini 3.8 Flash",
           "apiModelId": "gemini-3.8-flash"
+        },
+        {
+          "id": "model-discovered-8c0284c5ebb6ab9da7f4",
+          "name": "Gemini 3.8 Live",
+          "apiModelId": "gemini-3.8-live"
+        },
+        {
+          "id": "model-discovered-13f5d8898f66c01922e3",
+          "name": "Gemini 3.8 Live Extended Thinking",
+          "apiModelId": "gemini-3.8-live-extended-thinking"
         },
         {
           "id": "model-discovered-e4cad8ba5d5bc779408a",

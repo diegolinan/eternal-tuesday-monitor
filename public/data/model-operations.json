@@ -1,12 +1,64 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-14T18:13:05.366Z",
+  "generatedAt": "2026-09-21T14:12:04.169Z",
   "models": [
+    {
+      "id": "model-discovered-8c0284c5ebb6ab9da7f4",
+      "sourceCheck": {
+        "state": "IDENTITY_CHANGED",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
+        "checkedSources": 1,
+        "expectedSources": 1
+      },
+      "eligibilityCheck": {
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-21",
+        "reasons": [
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
+        ]
+      },
+      "behavioralEvaluation": {
+        "state": "NEVER_RUN",
+        "lastAttemptAt": null,
+        "lastEvidenceAt": null,
+        "lastEvidenceOn": null,
+        "attemptedProbes": 0,
+        "evidenceProbes": 0,
+        "totalProbes": 5
+      }
+    },
+    {
+      "id": "model-discovered-13f5d8898f66c01922e3",
+      "sourceCheck": {
+        "state": "IDENTITY_CHANGED",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
+        "checkedSources": 1,
+        "expectedSources": 1
+      },
+      "eligibilityCheck": {
+        "state": "NOT_IN_SCOPE",
+        "checkedAt": null,
+        "stateChangedOn": "2026-09-21",
+        "reasons": [
+          "MODEL_NOT_IN_ADOPTION_SCOPE"
+        ]
+      },
+      "behavioralEvaluation": {
+        "state": "NEVER_RUN",
+        "lastAttemptAt": null,
+        "lastEvidenceAt": null,
+        "lastEvidenceOn": null,
+        "attemptedProbes": 0,
+        "evidenceProbes": 0,
+        "totalProbes": 5
+      }
+    },
     {
       "id": "model-discovered-7fc4e230104dfc645df6",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:34.172Z",
+        "checkedAt": "2026-09-21T14:11:34.205Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -32,7 +84,7 @@
       "id": "model-discovered-8afee28d5d048812f7aa",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:32.974Z",
+        "checkedAt": "2026-09-21T14:11:33.587Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -58,7 +110,7 @@
       "id": "model-discovered-a768321108810b45db76",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:32.238Z",
+        "checkedAt": "2026-09-21T14:11:33.308Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -84,13 +136,13 @@
       "id": "model-fable-5-1",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.055Z",
+        "checkedAt": "2026-09-21T14:12:01.240Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "UNKNOWN_REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": null,
         "reasons": [
           "API_UNKNOWN",
@@ -113,13 +165,13 @@
       "id": "model-discovered-58ae42fa2da27922842c",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.055Z",
+        "checkedAt": "2026-09-21T14:12:01.240Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -139,13 +191,13 @@
       "id": "model-claude-opus-5",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.055Z",
+        "checkedAt": "2026-09-21T14:12:01.240Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -165,13 +217,13 @@
       "id": "model-discovered-473d2baac36d5968b9d0",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.055Z",
+        "checkedAt": "2026-09-21T14:12:01.240Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -191,7 +243,7 @@
       "id": "model-discovered-176fb23288af2af4493e",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -217,13 +269,13 @@
       "id": "model-discovered-29705db1c67f0fadf65e",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -243,13 +295,13 @@
       "id": "model-discovered-15b029fc02435f4e7373",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -269,13 +321,13 @@
       "id": "model-discovered-bd4c8bf27af648d3330a",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -295,7 +347,7 @@
       "id": "model-discovered-4f4b5da7ada2d9de5083",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -321,7 +373,7 @@
       "id": "model-discovered-2157bb2b07e6a87cc2a8",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -347,13 +399,13 @@
       "id": "model-discovered-8117798ae58404fd4297",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -373,13 +425,13 @@
       "id": "model-discovered-b41c55e3ff71ff33d32b",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -399,7 +451,7 @@
       "id": "model-discovered-f76d13c3ede266d7e1e4",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -425,13 +477,13 @@
       "id": "model-discovered-fc973b7c5cd91319493b",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -451,13 +503,13 @@
       "id": "model-discovered-bba8e7fdaaa5feb26728",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -477,7 +529,7 @@
       "id": "model-discovered-cb00673f4eb5f1b0f47c",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -503,7 +555,7 @@
       "id": "model-discovered-e286634f954d5e40b670",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -529,13 +581,13 @@
       "id": "model-discovered-8ab5c52cb1cd5cf88e26",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -555,13 +607,13 @@
       "id": "model-discovered-4882e78c90fbf11b8297",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -581,13 +633,13 @@
       "id": "model-discovered-fd0c815a6942fe9646f0",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -607,13 +659,13 @@
       "id": "model-discovered-f29bc63c04163f5b021c",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -633,13 +685,13 @@
       "id": "model-discovered-8cd3db89db51e350e528",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -659,7 +711,7 @@
       "id": "model-discovered-4c46e3ea2ea387fc6782",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -685,13 +737,13 @@
       "id": "model-discovered-85d1ba853a1ef46be5bd",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -711,13 +763,13 @@
       "id": "model-discovered-f3ee403332f490da7638",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -737,13 +789,13 @@
       "id": "model-gemini-3-8-flash",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -763,7 +815,7 @@
       "id": "model-discovered-e4cad8ba5d5bc779408a",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -789,7 +841,7 @@
       "id": "model-discovered-7bdbf966c27ba583d26a",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -815,13 +867,13 @@
       "id": "model-discovered-ac152d2e8d24eb4c3232",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
       "eligibilityCheck": {
         "state": "UNKNOWN_REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": null,
         "reasons": [
           "API_UNKNOWN",
@@ -844,7 +896,7 @@
       "id": "model-discovered-3c31be2eeda4bcd851d7",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -870,7 +922,7 @@
       "id": "model-discovered-468b94523288b17c49bd",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -896,7 +948,7 @@
       "id": "model-discovered-6a9ccf4ad79b1e8dd304",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -922,7 +974,7 @@
       "id": "model-discovered-59f0f72683377111d7bc",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -948,7 +1000,7 @@
       "id": "model-discovered-ee0a631bc7a1c2147ca6",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -974,7 +1026,7 @@
       "id": "model-discovered-5f80092f5e85cef40c36",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.445Z",
+        "checkedAt": "2026-09-21T14:12:02.092Z",
         "checkedSources": 1,
         "expectedSources": 1
       },
@@ -1000,7 +1052,7 @@
       "id": "model-discovered-1b05544a1e38815ba050",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:50.235Z",
+        "checkedAt": "2026-09-21T14:11:49.904Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1026,13 +1078,13 @@
       "id": "model-discovered-43e4ff83a595f03273e8",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:59.600Z",
+        "checkedAt": "2026-09-21T14:11:58.652Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1052,13 +1104,13 @@
       "id": "model-discovered-6a30c69a24a2ba7616e7",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:40.375Z",
+        "checkedAt": "2026-09-21T14:11:39.444Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "UNKNOWN_REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": null,
         "reasons": [
           "API_UNKNOWN",
@@ -1081,13 +1133,13 @@
       "id": "model-discovered-01433a49c5cc60e7428c",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:40.144Z",
+        "checkedAt": "2026-09-21T14:11:39.135Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "UNKNOWN_REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": null,
         "reasons": [
           "API_UNKNOWN",
@@ -1110,13 +1162,13 @@
       "id": "model-discovered-c221dc89c0adc7bf58c9",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:59.915Z",
+        "checkedAt": "2026-09-21T14:11:58.999Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "UNKNOWN_REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": null,
         "reasons": [
           "API_UNKNOWN",
@@ -1139,13 +1191,13 @@
       "id": "model-discovered-731392d07973ec4dd374",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:00.198Z",
+        "checkedAt": "2026-09-21T14:11:59.836Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1165,13 +1217,13 @@
       "id": "model-discovered-d59d6ddd57ee9a1e8d3f",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:57.602Z",
+        "checkedAt": "2026-09-21T14:11:56.547Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1191,13 +1243,13 @@
       "id": "model-discovered-ee7fbd4ea5b036d8c4d8",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:01.036Z",
+        "checkedAt": "2026-09-21T14:12:00.186Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1217,13 +1269,13 @@
       "id": "model-discovered-e7ad5bd7e714b6fbe0c3",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:46.751Z",
+        "checkedAt": "2026-09-21T14:11:46.648Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1243,13 +1295,13 @@
       "id": "model-discovered-b9257ac7a2c8eaca2b5a",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:47.098Z",
+        "checkedAt": "2026-09-21T14:11:47.042Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1269,13 +1321,13 @@
       "id": "model-discovered-b422818c6300cfc29362",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:52.676Z",
+        "checkedAt": "2026-09-21T14:11:51.814Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1295,13 +1347,13 @@
       "id": "model-discovered-b9917ad913a137839464",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:55.110Z",
+        "checkedAt": "2026-09-21T14:11:53.817Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1321,13 +1373,13 @@
       "id": "model-discovered-dcc1382081671253d9b5",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:48.299Z",
+        "checkedAt": "2026-09-21T14:11:47.716Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1347,7 +1399,7 @@
       "id": "model-discovered-29fbee76cd37a78d0990",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:56.251Z",
+        "checkedAt": "2026-09-21T14:11:55.100Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1373,13 +1425,13 @@
       "id": "model-discovered-8d6b0f1b6faadb07b615",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:47.398Z",
+        "checkedAt": "2026-09-21T14:11:47.422Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1399,7 +1451,7 @@
       "id": "model-discovered-436161bb8ac5f5490821",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:56.498Z",
+        "checkedAt": "2026-09-21T14:11:55.461Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1425,7 +1477,7 @@
       "id": "model-discovered-8e9c857a7ff8235ea836",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:56.782Z",
+        "checkedAt": "2026-09-21T14:11:55.944Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1451,7 +1503,7 @@
       "id": "model-discovered-da4390555129f7b96ace",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:54.513Z",
+        "checkedAt": "2026-09-21T14:11:53.164Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1477,7 +1529,7 @@
       "id": "model-discovered-4b8ecb4f05c5a4a79952",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:38.921Z",
+        "checkedAt": "2026-09-21T14:11:37.858Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1503,7 +1555,7 @@
       "id": "model-discovered-d6570eab7b1ee4f3f30b",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:39.589Z",
+        "checkedAt": "2026-09-21T14:11:38.464Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1529,7 +1581,7 @@
       "id": "model-discovered-fa3ab9de6f363cec61d6",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:57.015Z",
+        "checkedAt": "2026-09-21T14:11:56.265Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1555,7 +1607,7 @@
       "id": "model-discovered-c1f11abb445a94e20a49",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:54.803Z",
+        "checkedAt": "2026-09-21T14:11:53.498Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1581,7 +1633,7 @@
       "id": "model-discovered-de551bae2539edcc71a7",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:38.642Z",
+        "checkedAt": "2026-09-21T14:11:37.470Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1607,7 +1659,7 @@
       "id": "model-discovered-12c98d85d99fbc80d244",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:39.297Z",
+        "checkedAt": "2026-09-21T14:11:38.249Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -1633,13 +1685,13 @@
       "id": "model-discovered-a631362df6539c375a1f",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:45.205Z",
+        "checkedAt": "2026-09-21T14:11:44.839Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1659,13 +1711,13 @@
       "id": "model-discovered-76ac3061d43cbea99683",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:01.635Z",
+        "checkedAt": "2026-09-21T14:12:00.880Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1685,13 +1737,13 @@
       "id": "model-discovered-454d972053e3035f992c",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:45.441Z",
+        "checkedAt": "2026-09-21T14:11:45.188Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1711,13 +1763,13 @@
       "id": "model-discovered-1e9a4f1a438a4bfd5fd7",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:45.675Z",
+        "checkedAt": "2026-09-21T14:11:45.592Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1737,13 +1789,13 @@
       "id": "model-discovered-3e9e5798a0fcafec17d8",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:46.077Z",
+        "checkedAt": "2026-09-21T14:11:45.991Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1763,13 +1815,13 @@
       "id": "model-discovered-023f4743226707f70c92",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:59.412Z",
+        "checkedAt": "2026-09-21T14:11:58.215Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1789,13 +1841,13 @@
       "id": "model-discovered-e19c519e25aaefa93b0f",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:44.838Z",
+        "checkedAt": "2026-09-21T14:11:44.448Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1815,13 +1867,13 @@
       "id": "model-discovered-53da97192b53c9fb9cd4",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:01.328Z",
+        "checkedAt": "2026-09-21T14:12:00.579Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1841,13 +1893,13 @@
       "id": "model-discovered-96b3d6a8812d1bff8280",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:58.103Z",
+        "checkedAt": "2026-09-21T14:11:57.143Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1867,13 +1919,13 @@
       "id": "model-discovered-ac268b9c9424fa0d96c6",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:59.177Z",
+        "checkedAt": "2026-09-21T14:11:57.781Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1893,13 +1945,13 @@
       "id": "model-discovered-698a39834857c5ed27bb",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:58.405Z",
+        "checkedAt": "2026-09-21T14:11:57.399Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1919,13 +1971,13 @@
       "id": "model-discovered-a4d62a7cf5e798457d76",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:44.154Z",
+        "checkedAt": "2026-09-21T14:11:43.669Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1945,13 +1997,13 @@
       "id": "model-discovered-3e5d717e80573cf8d2f6",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:49.380Z",
+        "checkedAt": "2026-09-21T14:11:48.918Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1971,13 +2023,13 @@
       "id": "model-discovered-71a2a8fdc338e5099bd5",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:44.475Z",
+        "checkedAt": "2026-09-21T14:11:44.050Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -1997,13 +2049,13 @@
       "id": "model-discovered-2a1c4b7a96497390d63a",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:49.757Z",
+        "checkedAt": "2026-09-21T14:11:49.296Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2023,13 +2075,13 @@
       "id": "model-discovered-7c76ed0b3a985bb4f0ae",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:49.189Z",
+        "checkedAt": "2026-09-21T14:11:48.604Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2049,13 +2101,13 @@
       "id": "model-discovered-a74c2e9d0a00080b78c4",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:43.904Z",
+        "checkedAt": "2026-09-21T14:11:43.444Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2075,13 +2127,13 @@
       "id": "model-discovered-0ec90986ddf2d16fa90e",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:41.540Z",
+        "checkedAt": "2026-09-21T14:11:42.058Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2101,13 +2153,13 @@
       "id": "model-discovered-70c3ac4805a382e7499d",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:42.761Z",
+        "checkedAt": "2026-09-21T14:11:42.846Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2127,13 +2179,13 @@
       "id": "model-discovered-5129934552dd2286e897",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:43.608Z",
+        "checkedAt": "2026-09-21T14:11:43.063Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2153,13 +2205,13 @@
       "id": "model-discovered-1fb968dfc97a50a275ea",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:42.411Z",
+        "checkedAt": "2026-09-21T14:11:42.420Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2179,13 +2231,13 @@
       "id": "model-discovered-7ae0b7ff37a648b21f2e",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:41.092Z",
+        "checkedAt": "2026-09-21T14:11:41.268Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2205,13 +2257,13 @@
       "id": "model-discovered-5813b29ae4f9cdf7224a",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:41.351Z",
+        "checkedAt": "2026-09-21T14:11:41.677Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2231,13 +2283,13 @@
       "id": "model-discovered-aa82e1844a4aa3932879",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:39.829Z",
+        "checkedAt": "2026-09-21T14:11:38.744Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2257,13 +2309,13 @@
       "id": "model-discovered-e65fdbebbfed99349ec2",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:31.921Z",
+        "checkedAt": "2026-09-21T14:11:33.015Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2283,13 +2335,13 @@
       "id": "model-gpt-5-6-sol",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:30.757Z",
+        "checkedAt": "2026-09-21T14:11:31.658Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2309,13 +2361,13 @@
       "id": "model-discovered-88b38a0be53dd343689c",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:31.068Z",
+        "checkedAt": "2026-09-21T14:11:32.600Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2335,13 +2387,13 @@
       "id": "model-discovered-e8ec7ed4b30b4efbaf48",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:30.403Z",
+        "checkedAt": "2026-09-21T14:11:31.186Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2361,7 +2413,7 @@
       "id": "model-discovered-a7b8efc666342264a603",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:48.888Z",
+        "checkedAt": "2026-09-21T14:11:48.239Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2387,7 +2439,7 @@
       "id": "model-discovered-81592b8b318be516dac4",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:54.262Z",
+        "checkedAt": "2026-09-21T14:11:52.908Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2413,7 +2465,7 @@
       "id": "model-discovered-295b656c3e83b017a71f",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:37.049Z",
+        "checkedAt": "2026-09-21T14:11:36.850Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2439,7 +2491,7 @@
       "id": "model-discovered-2cac746ef1a55cb5ac89",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:50.757Z",
+        "checkedAt": "2026-09-21T14:11:50.619Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2465,7 +2517,7 @@
       "id": "model-discovered-d86884237412b2ed62cc",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:50.517Z",
+        "checkedAt": "2026-09-21T14:11:50.304Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2491,7 +2543,7 @@
       "id": "model-discovered-4c927f8246106837b3d7",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:49.988Z",
+        "checkedAt": "2026-09-21T14:11:49.553Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2517,7 +2569,7 @@
       "id": "model-discovered-bd0e51b349b405705836",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:33.809Z",
+        "checkedAt": "2026-09-21T14:11:33.866Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2543,7 +2595,7 @@
       "id": "model-discovered-ecfe55f8a422ccdff7ed",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:36.157Z",
+        "checkedAt": "2026-09-21T14:11:35.730Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2569,13 +2621,13 @@
       "id": "model-discovered-6c8c926518e94df93aed",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:40.614Z",
+        "checkedAt": "2026-09-21T14:11:40.591Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "UNKNOWN_REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": null,
         "reasons": [
           "API_UNKNOWN",
@@ -2598,13 +2650,13 @@
       "id": "model-discovered-b57640270d77a39ad172",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:40.800Z",
+        "checkedAt": "2026-09-21T14:11:40.879Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "UNKNOWN_REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": null,
         "reasons": [
           "API_UNKNOWN",
@@ -2627,7 +2679,7 @@
       "id": "model-discovered-54b047be8ad11af0a08a",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:48.601Z",
+        "checkedAt": "2026-09-21T14:11:47.976Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2653,7 +2705,7 @@
       "id": "model-discovered-7c9ed0fdee8d576ec2c8",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:54.070Z",
+        "checkedAt": "2026-09-21T14:11:52.714Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2679,7 +2731,7 @@
       "id": "model-discovered-0e29cdb1a9068369cdfd",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:36.758Z",
+        "checkedAt": "2026-09-21T14:11:36.504Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2705,7 +2757,7 @@
       "id": "model-discovered-e76102c0aeab37be7be8",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:35.067Z",
+        "checkedAt": "2026-09-21T14:11:35.119Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2731,7 +2783,7 @@
       "id": "model-discovered-7633f7280401e4fe7015",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:34.446Z",
+        "checkedAt": "2026-09-21T14:11:34.540Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2757,7 +2809,7 @@
       "id": "model-discovered-5308f96edde33db43d93",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:34.762Z",
+        "checkedAt": "2026-09-21T14:11:34.926Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2783,7 +2835,7 @@
       "id": "model-discovered-f0e3cd07004a27ba5e00",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:35.869Z",
+        "checkedAt": "2026-09-21T14:11:35.398Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2809,7 +2861,7 @@
       "id": "model-discovered-f463fdf1af5e8e009dcc",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:36.462Z",
+        "checkedAt": "2026-09-21T14:11:36.128Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2835,7 +2887,7 @@
       "id": "model-discovered-21e9947fc3d539478a0d",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:37.849Z",
+        "checkedAt": "2026-09-21T14:11:37.190Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
@@ -2861,13 +2913,13 @@
       "id": "model-discovered-726dd1e6cbcf8f3e2436",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:55.966Z",
+        "checkedAt": "2026-09-21T14:11:54.766Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2887,13 +2939,13 @@
       "id": "model-discovered-3d24101d58fa0b07db6b",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:55.669Z",
+        "checkedAt": "2026-09-21T14:11:54.470Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2913,13 +2965,13 @@
       "id": "model-discovered-c0466cbac6d887384649",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:53.325Z",
+        "checkedAt": "2026-09-21T14:11:52.485Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2939,13 +2991,13 @@
       "id": "model-discovered-ea3b61e7225f020a5b7e",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:51.106Z",
+        "checkedAt": "2026-09-21T14:11:51.015Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2965,13 +3017,13 @@
       "id": "model-discovered-368039b89b2d9e7f3dad",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:55.368Z",
+        "checkedAt": "2026-09-21T14:11:54.205Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -2991,13 +3043,13 @@
       "id": "model-discovered-1fd19c9c66c35da1b8ec",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:46.445Z",
+        "checkedAt": "2026-09-21T14:11:46.375Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -3017,13 +3069,13 @@
       "id": "model-discovered-738b169f6dadce123772",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:52.960Z",
+        "checkedAt": "2026-09-21T14:11:52.074Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -3043,13 +3095,13 @@
       "id": "model-discovered-51d7e9ccbf0079432f1b",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:12:52.036Z",
+        "checkedAt": "2026-09-21T14:11:51.417Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -3069,13 +3121,13 @@
       "id": "model-grok-4-6",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
-        "checkedAt": "2026-09-14T18:13:02.908Z",
+        "checkedAt": "2026-09-21T14:12:02.450Z",
         "checkedSources": 2,
         "expectedSources": 2
       },
       "eligibilityCheck": {
         "state": "REVIEW_REQUIRED",
-        "checkedAt": "2026-09-14T18:13:05.366Z",
+        "checkedAt": "2026-09-21T14:12:04.169Z",
         "stateChangedOn": "2026-09-06",
         "reasons": [
           "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"

@@ -4,7 +4,7 @@
   "releaseId": "release-2026-09-09",
   "dataCutoff": "2026-09-09",
   "publishedOn": "2026-09-09",
-  "freshnessEvaluatedOn": "2026-09-14",
+  "freshnessEvaluatedOn": "2026-09-21",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
@@ -35,7 +35,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -69,7 +69,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -103,7 +103,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -137,7 +137,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol",
@@ -171,7 +171,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -205,7 +205,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -241,7 +241,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -277,7 +277,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -313,7 +313,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -349,7 +349,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -385,7 +385,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -421,7 +421,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -457,7 +457,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 11,
+      "evidenceAgeDays": 18,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -491,7 +491,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 9,
+      "evidenceAgeDays": 16,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
@@ -525,7 +525,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 5,
+      "evidenceAgeDays": 12,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -569,7 +569,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 5,
+      "evidenceAgeDays": 12,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -613,7 +613,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 5,
+      "evidenceAgeDays": 12,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -633,6 +633,230 @@
     }
   ],
   "models": [
+    {
+      "id": "model-discovered-8c0284c5ebb6ab9da7f4",
+      "vendorId": "vendor-google",
+      "vendor": "Google",
+      "name": "Gemini 3.8 Live",
+      "apiModelId": "gemini-3.8-live",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "CATALOG_ONLY",
+      "relevanceReviewedOn": "2026-09-21",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-21",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "MODEL_NOT_IN_ADOPTION_SCOPE"
+      ],
+      "adoptionAssessedOn": null,
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": false
+    },
+    {
+      "id": "model-discovered-13f5d8898f66c01922e3",
+      "vendorId": "vendor-google",
+      "vendor": "Google",
+      "name": "Gemini 3.8 Live Extended Thinking",
+      "apiModelId": "gemini-3.8-live-extended-thinking",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "CATALOG_ONLY",
+      "relevanceReviewedOn": "2026-09-21",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-21",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "MODEL_NOT_IN_ADOPTION_SCOPE"
+      ],
+      "adoptionAssessedOn": null,
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models?hl=en"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": false
+    },
     {
       "id": "model-discovered-7fc4e230104dfc645df6",
       "vendorId": "vendor-openai",
