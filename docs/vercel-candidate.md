@@ -11,11 +11,13 @@ repository base path, and the OpenAI-hosted prototype remains unchanged.
 
 ## Deployment path
 
-The production workflow runs on every push to `main` and can also be started
-manually with `workflow_dispatch`. It validates canonical data, reconstructs
-the current public operational projections, builds a root-hosted static export,
-checks its routes and assets, and deploys the prebuilt artifact with the pinned
-Vercel CLI.
+The production workflow runs on every push to `main`, after every completed
+official-model discovery run, and can also be started manually with
+`workflow_dispatch`. The explicit discovery completion trigger is required
+because commits made with the workflow's own GitHub token do not emit another
+`push` workflow event. It validates canonical data, reconstructs the current
+public operational projections, builds a root-hosted static export, checks its
+routes and assets, and deploys the prebuilt artifact with the pinned Vercel CLI.
 
 Automatic Git deployments remain disabled in `vercel.json`; the validated
 workflow is the only Vercel deployment path. Required repository secrets are

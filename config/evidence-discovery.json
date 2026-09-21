@@ -9,7 +9,7 @@
     "official_sources": true,
     "public_issue_search": true,
     "research_search": true,
-    "general_web_search": true
+    "general_web_search": false
   },
   "public_issue_repositories": ["anthropics/claude-code", "cursor/cursor"],
   "queries": [
