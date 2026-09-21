@@ -220,6 +220,11 @@
       "name": "OpenAI",
       "models": [
         {
+          "id": "model-discovered-1140963289b9cebf9fe9",
+          "name": "ChatGPT-4o Model",
+          "apiModelId": "chatgpt-4o-latest"
+        },
+        {
           "id": "model-discovered-1b05544a1e38815ba050",
           "name": "chatgpt-image-latest",
           "apiModelId": "chatgpt-image-latest"
@@ -654,6 +659,11 @@
           "id": "model-discovered-114cebd0a5097eb7e983",
           "name": "Grok Imagine Image 2.0",
           "apiModelId": "grok-imagine-image-2.0"
+        },
+        {
+          "id": "model-discovered-65081ca13f2211836fb7",
+          "name": "Grok Imagine Video 1.5",
+          "apiModelId": "grok-imagine-video-1.5"
         }
       ]
     }
