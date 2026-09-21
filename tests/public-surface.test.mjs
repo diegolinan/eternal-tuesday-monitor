@@ -265,7 +265,10 @@ test('Vercel production is an automatic root-hosted static export', async () => 
   assert.match(workflow, /^\s*workflow_dispatch:\s*$/m);
   assert.match(workflow, /^\s*push:\s*$/m);
   assert.match(workflow, /^\s*branches:\s*\[main\]\s*$/m);
-  assert.doesNotMatch(workflow, /^\s*(schedule|workflow_run):\s*$/m);
+  assert.match(workflow, /^\s*workflow_run:\s*$/m);
+  assert.match(workflow, /workflows: \['Discover official model changes'\]/);
+  assert.match(workflow, /types: \[completed\]/);
+  assert.doesNotMatch(workflow, /^\s*schedule:\s*$/m);
   assert.match(workflow, /vercel build --prod/);
   assert.match(workflow, /vercel deploy --prebuilt --prod/);
   assert.doesNotMatch(workflow, /actions\/deploy-pages/);
