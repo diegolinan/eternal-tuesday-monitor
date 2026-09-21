@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
@@ -1026,24 +1026,63 @@ function git(args) {
     { cwd: root, encoding: 'utf8' },
   );
 }
-function compareAppendOnlyLines(base, relativePath, currentLines) {
-  const prior = git(['show', `${base}:${relativePath}`]);
+
+function streamGitLines(args, onLine) {
+  return new Promise((resolve) => {
+    const child = spawn(
+      'git',
+      ['-c', `safe.directory=${root.replaceAll('\\', '/')}`, ...args],
+      { cwd: root, stdio: ['ignore', 'pipe', 'pipe'] },
+    );
+    let pending = '';
+    let stderr = '';
+    let spawnError;
+
+    child.stdout.setEncoding('utf8');
+    child.stdout.on('data', (chunk) => {
+      const lines = `${pending}${chunk}`.split(/\r?\n/);
+      pending = lines.pop() ?? '';
+      lines.forEach(onLine);
+    });
+    child.stderr.setEncoding('utf8');
+    child.stderr.on('data', (chunk) => {
+      stderr += chunk;
+    });
+    child.on('error', (error) => {
+      spawnError = error;
+    });
+    child.on('close', (status) => {
+      if (pending) onLine(pending);
+      resolve({ status, stderr, error: spawnError });
+    });
+  });
+}
+
+async function compareAppendOnlyLines(base, relativePath, currentLines) {
+  let priorLineCount = 0;
+  const prior = await streamGitLines(
+    ['show', `${base}:${relativePath}`],
+    (line) => {
+      if (!line.trim()) return;
+      if (
+        priorLineCount < currentLines.length &&
+        line !== currentLines[priorLineCount]
+      )
+        fail(
+          `append-only violation: ${relativePath} line ${priorLineCount + 1} changed or moved`,
+        );
+      priorLineCount += 1;
+    },
+  );
   if (prior.status !== 0) {
     if (!/does not exist in|exists on disk, but not in/.test(prior.stderr))
       fail(
-        `unable to compare ${relativePath} with ${base}: ${prior.stderr.trim()}`,
+        `unable to compare ${relativePath} with ${base}: ${prior.stderr.trim() || prior.error?.message || `git exited with status ${prior.status}`}`,
       );
     return;
   }
-  const priorLines = prior.stdout.split(/\r?\n/).filter((line) => line.trim());
-  if (priorLines.length > currentLines.length)
+  if (priorLineCount > currentLines.length)
     fail(`append-only violation: lines deleted from ${relativePath}`);
-  priorLines.forEach((line, index) => {
-    if (line !== currentLines[index])
-      fail(
-        `append-only violation: ${relativePath} line ${index + 1} changed or moved`,
-      );
-  });
 }
 
 const baseArgIndex = process.argv.indexOf('--base');
@@ -1051,32 +1090,44 @@ if (baseArgIndex !== -1) {
   const base = process.argv[baseArgIndex + 1];
   if (!base) fail('--base requires a Git revision');
   else {
-    compareAppendOnlyLines(base, observationPath, observationLedger.lines);
-    compareAppendOnlyLines(base, eventPath, eventLedger.lines);
-    compareAppendOnlyLines(
+    await compareAppendOnlyLines(
+      base,
+      observationPath,
+      observationLedger.lines,
+    );
+    await compareAppendOnlyLines(base, eventPath, eventLedger.lines);
+    await compareAppendOnlyLines(
       base,
       evaluationResultPath,
       evaluationResultLedger.lines,
     );
-    compareAppendOnlyLines(base, sourceCheckPath, sourceCheckLedger.lines);
-    compareAppendOnlyLines(base, changelogPath, changelogLedger.lines);
-    compareAppendOnlyLines(base, contributionPath, contributionLedger.lines);
-    compareAppendOnlyLines(
+    await compareAppendOnlyLines(
+      base,
+      sourceCheckPath,
+      sourceCheckLedger.lines,
+    );
+    await compareAppendOnlyLines(base, changelogPath, changelogLedger.lines);
+    await compareAppendOnlyLines(
+      base,
+      contributionPath,
+      contributionLedger.lines,
+    );
+    await compareAppendOnlyLines(
       base,
       evidenceCandidatePath,
       evidenceCandidateLedger.lines,
     );
-    compareAppendOnlyLines(
+    await compareAppendOnlyLines(
       base,
       evidenceCandidateDecisionPath,
       evidenceCandidateDecisionLedger.lines,
     );
-    compareAppendOnlyLines(
+    await compareAppendOnlyLines(
       base,
       evidenceCandidateReviewPath,
       evidenceCandidateReviewLedger.lines,
     );
-    compareAppendOnlyLines(
+    await compareAppendOnlyLines(
       base,
       'data/model-discovery/events.jsonl',
       (
