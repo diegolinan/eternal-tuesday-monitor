@@ -94,7 +94,11 @@ const sourceCommit = (() => {
   }).stdout.trim();
 })();
 async function snapshot(source, response) {
-  const extension = source.type === 'research-feed' ? 'xml' : 'html';
+  const extension =
+    source.type === 'research-feed' ||
+    source.adapter === 'change-detection-feed'
+      ? 'xml'
+      : 'html';
   const relative = `${source.id}/${response.sha256}.${extension}.gz`;
   const destination = path.join(root, '.discovery/snapshots', relative);
   await mkdir(path.dirname(destination), { recursive: true });
