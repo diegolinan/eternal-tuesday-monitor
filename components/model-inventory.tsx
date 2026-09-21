@@ -344,7 +344,10 @@ function ModelDetail({
                 : 'STATUS SNAPSHOT UNAVAILABLE'}
           </strong>
           {listingScanApplies ? (
-            <time dateTime={operations?.sourceCheck.checkedAt ?? undefined}>
+            <time
+              dateTime={operations?.sourceCheck.checkedAt ?? undefined}
+              suppressHydrationWarning
+            >
               {localMoment(operations?.sourceCheck.checkedAt ?? null)}
             </time>
           ) : (
@@ -374,7 +377,10 @@ function ModelDetail({
               ? label(operations.eligibilityCheck.state)
               : label(model.testabilityState)}
           </strong>
-          <time dateTime={operations?.eligibilityCheck.checkedAt ?? undefined}>
+          <time
+            dateTime={operations?.eligibilityCheck.checkedAt ?? undefined}
+            suppressHydrationWarning
+          >
             {operations?.eligibilityCheck.state === 'NOT_IN_SCOPE'
               ? operations.eligibilityCheck.stateChangedOn
                 ? `Classified ${calendarDay(operations.eligibilityCheck.stateChangedOn)}`
@@ -410,7 +416,10 @@ function ModelDetail({
                   : 'NO BEHAVIORAL TEST RECORDED'}
           </strong>
           {operations?.behavioralEvaluation.lastAttemptAt ? (
-            <time dateTime={operations.behavioralEvaluation.lastAttemptAt}>
+            <time
+              dateTime={operations.behavioralEvaluation.lastAttemptAt}
+              suppressHydrationWarning
+            >
               Last attempt{' '}
               {localMoment(operations.behavioralEvaluation.lastAttemptAt)}
             </time>
