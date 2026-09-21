@@ -44,7 +44,6 @@ jobs:
       - name: Search public evidence channels
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
         run: npm run evidence:discover
       - name: Preserve raw source snapshots and normalized report
         uses: actions/upload-artifact@v7
@@ -164,3 +163,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/notifications/report-workflow-failure.mjs
+      - name: Resolve a previous discovery failure after recovery
+        if: success()
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notifications/resolve-workflow-failure.mjs
