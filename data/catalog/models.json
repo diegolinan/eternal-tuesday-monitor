@@ -256,6 +256,60 @@
       ]
     },
     {
+      "id": "model-discovered-1140963289b9cebf9fe9",
+      "vendor_id": "vendor-openai",
+      "name": "ChatGPT-4o Model",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "chatgpt-4o-latest",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-21",
+        "reason": "Human review required: RELEVANCE_REQUIRES_REVIEW.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-21",
+          "sha256": "1a933019addbf335a1d37bac548c6fb4ff9efb46c1eb9980b8347d203d8d7f7a",
+          "fetched_at": "2026-09-21T16:39:54.775Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "bab0c263339d6ae29cfa7d4b6b6276916056a002",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/1a933019addbf335a1d37bac548c6fb4ff9efb46c1eb9980b8347d203d8d7f7a.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/chatgpt-4o-latest",
+          "checked_on": "2026-09-21",
+          "sha256": "c8c073a7a2aec5691fbc7de81544b5734b094f174e1c991212375b95e0deeccb",
+          "fetched_at": "2026-09-21T16:40:04.524Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "bab0c263339d6ae29cfa7d4b6b6276916056a002",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/c8c073a7a2aec5691fbc7de81544b5734b094f174e1c991212375b95e0deeccb.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-114cebd0a5097eb7e983",
       "vendor_id": "vendor-xai",
       "name": "Grok Imagine Image 2.0",
@@ -2187,6 +2241,60 @@
           "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
           "raw_snapshot_artifact": "official-model-discovery-sources",
           "raw_snapshot_path": "discovery-google-docs/696e934ed7a2a2acfa8044714e4842e08d7509abd9e8872e43c29c0b40dd7656.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-65081ca13f2211836fb7",
+      "vendor_id": "vendor-xai",
+      "name": "Grok Imagine Video 1.5",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "grok-imagine-video-1.5",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "REVIEW_REQUIRED",
+      "relevance_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed_on": "2026-09-21",
+        "reason": "Human review required: RELEVANCE_REQUIRES_REVIEW.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "fallback-review"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models",
+          "checked_on": "2026-09-21",
+          "sha256": "e2ee15ef26932d8b8b3c9e107563656bba0298e87735fc179e4f027d0dc1ffbe",
+          "fetched_at": "2026-09-21T16:40:07.107Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "xai-docs",
+          "adapter_version": "1",
+          "parser_version": "2",
+          "checked_from_commit": "bab0c263339d6ae29cfa7d4b6b6276916056a002",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-xai-docs/e2ee15ef26932d8b8b3c9e107563656bba0298e87735fc179e4f027d0dc1ffbe.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-xai-docs",
+          "url": "https://docs.x.ai/developers/models/grok-imagine-video-1.5",
+          "checked_on": "2026-09-21",
+          "sha256": "f4c3abe683c4e56ff8855ae5cd8eea8f88356107c2c38b9d28b9da4ce2645d7e",
+          "fetched_at": "2026-09-21T16:40:07.472Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "xai-docs",
+          "adapter_version": "1",
+          "parser_version": "2",
+          "checked_from_commit": "bab0c263339d6ae29cfa7d4b6b6276916056a002",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-xai-docs/f4c3abe683c4e56ff8855ae5cd8eea8f88356107c2c38b9d28b9da4ce2645d7e.html.gz",
           "raw_snapshot_retention_days": 90
         }
       ]

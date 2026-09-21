@@ -55,6 +55,35 @@
       }
     },
     {
+      "id": "model-discovered-1140963289b9cebf9fe9",
+      "sourceCheck": {
+        "state": "IDENTITY_CHANGED",
+        "checkedAt": "2026-09-21T16:40:04.524Z",
+        "checkedSources": 2,
+        "expectedSources": 2
+      },
+      "eligibilityCheck": {
+        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "checkedAt": "2026-09-21T16:40:08.816Z",
+        "stateChangedOn": null,
+        "reasons": [
+          "API_UNKNOWN",
+          "ACCOUNT_ACCESS_NOT_CONFIRMED",
+          "ACCOUNT_ACCESS_CHECK_STALE",
+          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+        ]
+      },
+      "behavioralEvaluation": {
+        "state": "NEVER_RUN",
+        "lastAttemptAt": null,
+        "lastEvidenceAt": null,
+        "lastEvidenceOn": null,
+        "attemptedProbes": 0,
+        "evidenceProbes": 0,
+        "totalProbes": 5
+      }
+    },
+    {
       "id": "model-discovered-d90cfd6704a8c57256f1",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
@@ -94,6 +123,35 @@
         "stateChangedOn": "2026-09-21",
         "reasons": [
           "MODEL_NOT_IN_ADOPTION_SCOPE"
+        ]
+      },
+      "behavioralEvaluation": {
+        "state": "NEVER_RUN",
+        "lastAttemptAt": null,
+        "lastEvidenceAt": null,
+        "lastEvidenceOn": null,
+        "attemptedProbes": 0,
+        "evidenceProbes": 0,
+        "totalProbes": 5
+      }
+    },
+    {
+      "id": "model-discovered-65081ca13f2211836fb7",
+      "sourceCheck": {
+        "state": "IDENTITY_CHANGED",
+        "checkedAt": "2026-09-21T16:40:07.472Z",
+        "checkedSources": 2,
+        "expectedSources": 2
+      },
+      "eligibilityCheck": {
+        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "checkedAt": "2026-09-21T16:40:08.816Z",
+        "stateChangedOn": null,
+        "reasons": [
+          "API_UNKNOWN",
+          "ACCOUNT_ACCESS_NOT_CONFIRMED",
+          "ACCOUNT_ACCESS_CHECK_STALE",
+          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
         ]
       },
       "behavioralEvaluation": {
