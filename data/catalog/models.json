@@ -4637,6 +4637,44 @@
       ]
     },
     {
+      "id": "model-discovered-d012f907c072513f5255",
+      "vendor_id": "vendor-anthropic",
+      "name": "Claude Opus 5.5",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "claude-opus-5-5",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-22",
+        "reason": "The reviewed policy tracks Claude general-purpose model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "anthropic-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-anthropic-docs",
+          "url": "https://platform.claude.com/docs/en/models/overview",
+          "checked_on": "2026-09-22",
+          "sha256": "3c2b9e668f004833ded3954d6518d758651a30776a4def29cba269f9db6a3348",
+          "fetched_at": "2026-09-22T17:19:28.184Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "anthropic-docs",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "9ca444610a9d3367dc88568dd8f0f74c3ce45793",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-anthropic-docs/3c2b9e668f004833ded3954d6518d758651a30776a4def29cba269f9db6a3348.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-d59d6ddd57ee9a1e8d3f",
       "vendor_id": "vendor-openai",
       "name": "GPT-4 Turbo",

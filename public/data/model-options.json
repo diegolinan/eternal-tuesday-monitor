@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-09-21",
+  "catalogCheckedThrough": "2026-09-22",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -16,6 +16,11 @@
           "id": "model-claude-opus-5",
           "name": "Claude Opus 5",
           "apiModelId": "claude-opus-5"
+        },
+        {
+          "id": "model-discovered-d012f907c072513f5255",
+          "name": "Claude Opus 5.5",
+          "apiModelId": "claude-opus-5-5"
         },
         {
           "id": "model-discovered-473d2baac36d5968b9d0",

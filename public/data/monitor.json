@@ -4,7 +4,7 @@
   "releaseId": "release-2026-09-09",
   "dataCutoff": "2026-09-09",
   "publishedOn": "2026-09-09",
-  "freshnessEvaluatedOn": "2026-09-21",
+  "freshnessEvaluatedOn": "2026-09-22",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
@@ -35,7 +35,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -69,7 +69,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -103,7 +103,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -137,7 +137,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol",
@@ -171,7 +171,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -205,7 +205,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -241,7 +241,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -277,7 +277,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -313,7 +313,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -349,7 +349,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -385,7 +385,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -421,7 +421,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -457,7 +457,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 18,
+      "evidenceAgeDays": 19,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -491,7 +491,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 16,
+      "evidenceAgeDays": 17,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
@@ -525,7 +525,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 12,
+      "evidenceAgeDays": 13,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -569,7 +569,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 12,
+      "evidenceAgeDays": 13,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -613,7 +613,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 12,
+      "evidenceAgeDays": 13,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -633,6 +633,127 @@
     }
   ],
   "models": [
+    {
+      "id": "model-discovered-d012f907c072513f5255",
+      "vendorId": "vendor-anthropic",
+      "vendor": "Anthropic",
+      "name": "Claude Opus 5.5",
+      "apiModelId": "claude-opus-5-5",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "DISCOVERED_RELEVANT",
+      "relevanceReviewedOn": "2026-09-22",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-09-22",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "EVALUATION_PENDING",
+      "testabilityState": "REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "PUBLIC_SOURCE_IDENTITY_ONLY"
+      ],
+      "adoptionAssessedOn": "2026-09-22",
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://platform.claude.com/docs/en/models/overview"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": true
+    },
     {
       "id": "model-discovered-8c0284c5ebb6ab9da7f4",
       "vendorId": "vendor-google",
