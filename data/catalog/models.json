@@ -494,6 +494,44 @@
       ]
     },
     {
+      "id": "model-discovered-162b802bf1fd8a44b140",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.8 Flash TTS",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gemini-3.8-flash-tts",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-23",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-google-docs",
+          "url": "https://ai.google.dev/gemini-api/docs/models?hl=en",
+          "checked_on": "2026-09-23",
+          "sha256": "d5b49aaf3f9d808650fbd7641372f75561c6cd97ede5d96d27dee1e085b3da68",
+          "fetched_at": "2026-09-23T17:29:01.629Z",
+          "etag": null,
+          "last_modified": "Wed, 23 Sep 2026 15:14:09 GMT",
+          "adapter": "google-docs",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "4d29cb56e780fda8c4e818e7d6726d3004cac7a2",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-google-docs/d5b49aaf3f9d808650fbd7641372f75561c6cd97ede5d96d27dee1e085b3da68.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-176fb23288af2af4493e",
       "vendor_id": "vendor-google",
       "name": "Computer Use",
@@ -743,6 +781,44 @@
           "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
           "raw_snapshot_artifact": "official-model-discovery-sources",
           "raw_snapshot_path": "discovery-openai-docs/97fe40ce782d632db061713c718cfa5bcae0ffb3c408dbf57056757cd2f9145c.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-2137010c24fecd404af3",
+      "vendor_id": "vendor-google",
+      "name": "Gemini 3.8 Flash-Lite TTS",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gemini-3.8-flash-lite-tts",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-23",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-google-docs",
+          "url": "https://ai.google.dev/gemini-api/docs/models?hl=en",
+          "checked_on": "2026-09-23",
+          "sha256": "d5b49aaf3f9d808650fbd7641372f75561c6cd97ede5d96d27dee1e085b3da68",
+          "fetched_at": "2026-09-23T17:29:01.629Z",
+          "etag": null,
+          "last_modified": "Wed, 23 Sep 2026 15:14:09 GMT",
+          "adapter": "google-docs",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "4d29cb56e780fda8c4e818e7d6726d3004cac7a2",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-google-docs/d5b49aaf3f9d808650fbd7641372f75561c6cd97ede5d96d27dee1e085b3da68.html.gz",
           "raw_snapshot_retention_days": 90
         }
       ]
@@ -4729,6 +4805,60 @@
       ]
     },
     {
+      "id": "model-discovered-d60d296ac95690ca424d",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6 Luna",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-6-luna",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-23",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-23",
+          "sha256": "b5cebbe29dd57cbbb4857147031555f46f3f16c33a77634b55e937265b4cfe52",
+          "fetched_at": "2026-09-23T17:28:47.432Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "4d29cb56e780fda8c4e818e7d6726d3004cac7a2",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/b5cebbe29dd57cbbb4857147031555f46f3f16c33a77634b55e937265b4cfe52.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+          "checked_on": "2026-09-23",
+          "sha256": "fc88e3a65a4b3150fb24bfa09fed8099cbf832aded75bb6db3118643db4605f8",
+          "fetched_at": "2026-09-23T17:28:48.026Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "4d29cb56e780fda8c4e818e7d6726d3004cac7a2",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/fc88e3a65a4b3150fb24bfa09fed8099cbf832aded75bb6db3118643db4605f8.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-d6570eab7b1ee4f3f30b",
       "vendor_id": "vendor-openai",
       "name": "GPT-4o Mini TTS",
@@ -5232,6 +5362,60 @@
           "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
           "raw_snapshot_artifact": "official-model-discovery-sources",
           "raw_snapshot_path": "discovery-openai-docs/5361316966b44ebd9b51671236273e58f1a77bcbf5c9c799a6ef7f0e8b987dd4.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-e7386b22a080146fd592",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6 Sol",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-6-sol",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-23",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-23",
+          "sha256": "b5cebbe29dd57cbbb4857147031555f46f3f16c33a77634b55e937265b4cfe52",
+          "fetched_at": "2026-09-23T17:28:47.432Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "4d29cb56e780fda8c4e818e7d6726d3004cac7a2",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/b5cebbe29dd57cbbb4857147031555f46f3f16c33a77634b55e937265b4cfe52.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6-sol",
+          "checked_on": "2026-09-23",
+          "sha256": "7d459a26c597a6deeb3ad2038cd46d1a0e4005b0ae96c778d78db0a8377f0c26",
+          "fetched_at": "2026-09-23T17:28:47.843Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "4d29cb56e780fda8c4e818e7d6726d3004cac7a2",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/7d459a26c597a6deeb3ad2038cd46d1a0e4005b0ae96c778d78db0a8377f0c26.html.gz",
           "raw_snapshot_retention_days": 90
         }
       ]
