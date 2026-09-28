@@ -3722,6 +3722,44 @@
       ]
     },
     {
+      "id": "model-discovered-96d8ab554f3c88811afc",
+      "vendor_id": "vendor-anthropic",
+      "name": "Claude Sonnet 5.5",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "claude-sonnet-5-5",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-28",
+        "reason": "The reviewed policy tracks Claude general-purpose model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "anthropic-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-anthropic-docs",
+          "url": "https://platform.claude.com/docs/en/models/overview",
+          "checked_on": "2026-09-28",
+          "sha256": "2ff0e36bca094a5b08b10e48943fbb8f54efef2ef2cfea8c2853e338bb6976e1",
+          "fetched_at": "2026-09-28T19:50:58.014Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "anthropic-docs",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "e3d932992c0f522432abf9f47ff129bcd0458289",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-anthropic-docs/2ff0e36bca094a5b08b10e48943fbb8f54efef2ef2cfea8c2853e338bb6976e1.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-a4d62a7cf5e798457d76",
       "vendor_id": "vendor-openai",
       "name": "GPT-5.2",
