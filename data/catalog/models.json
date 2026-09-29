@@ -1224,6 +1224,60 @@
       ]
     },
     {
+      "id": "model-discovered-3a9d9aadba682a8cf86a",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6.1 Sol",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-6.1-sol",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-09-29",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-09-29",
+          "sha256": "d53f9ee58187b5098ce6e3637c92cd8a6c61b201f6f7ae7582844afabcefa6a5",
+          "fetched_at": "2026-09-29T18:17:03.194Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "a4bcc3c1ec5ed73298ab3dc370bfcc6596c29ab6",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/d53f9ee58187b5098ce6e3637c92cd8a6c61b201f6f7ae7582844afabcefa6a5.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+          "checked_on": "2026-09-29",
+          "sha256": "1824bdfe19021a9d56572409af8f54f795d367b7565b03e6500563423d5f3782",
+          "fetched_at": "2026-09-29T18:17:03.887Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "a4bcc3c1ec5ed73298ab3dc370bfcc6596c29ab6",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/1824bdfe19021a9d56572409af8f54f795d367b7565b03e6500563423d5f3782.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-3c31be2eeda4bcd851d7",
       "vendor_id": "vendor-google",
       "name": "Gemini Robotics ER 1.6",

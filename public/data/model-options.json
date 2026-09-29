@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-09-28",
+  "catalogCheckedThrough": "2026-09-29",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -513,6 +513,11 @@
           "id": "model-discovered-e7386b22a080146fd592",
           "name": "GPT-6 Sol",
           "apiModelId": "gpt-6-sol"
+        },
+        {
+          "id": "model-discovered-3a9d9aadba682a8cf86a",
+          "name": "GPT-6.1 Sol",
+          "apiModelId": "gpt-6.1-sol"
         },
         {
           "id": "model-discovered-a7b8efc666342264a603",
