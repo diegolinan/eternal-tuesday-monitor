@@ -539,7 +539,7 @@
       "catalog_status": "ACCEPTED_DISCOVERY",
       "api_model_id": "gemini-2.5-computer-use-preview-10-2025",
       "aliases": [],
-      "release_state": "DISCOVERED",
+      "release_state": "RETIRED",
       "relevance_state": "CATALOG_ONLY",
       "relevance_review": {
         "status": "POLICY_CLASSIFIED",
@@ -554,17 +554,17 @@
         {
           "source_id": "discovery-google-docs",
           "url": "https://ai.google.dev/gemini-api/docs/models?hl=en",
-          "checked_on": "2026-09-05",
-          "sha256": "696e934ed7a2a2acfa8044714e4842e08d7509abd9e8872e43c29c0b40dd7656",
-          "fetched_at": "2026-09-05T15:46:39.593Z",
+          "checked_on": "2026-10-01",
+          "sha256": "e9f558dcb5db0b7bdf65323bfebe6de405065716d98c40fd58d67fd6f9fad08c",
+          "fetched_at": "2026-10-01T18:35:22.317Z",
           "etag": null,
-          "last_modified": "Fri, 04 Sep 2026 09:14:05 GMT",
+          "last_modified": "Thu, 01 Oct 2026 00:13:51 GMT",
           "adapter": "google-docs",
           "adapter_version": "1",
           "parser_version": "1",
-          "checked_from_commit": "55e5671a84615942cb239dce4b8efe010ec65fb0",
+          "checked_from_commit": "9e462ee53355330c6dce7e4140d2afb6c6883e21",
           "raw_snapshot_artifact": "official-model-discovery-sources",
-          "raw_snapshot_path": "discovery-google-docs/696e934ed7a2a2acfa8044714e4842e08d7509abd9e8872e43c29c0b40dd7656.html.gz",
+          "raw_snapshot_path": "discovery-google-docs/e9f558dcb5db0b7bdf65323bfebe6de405065716d98c40fd58d67fd6f9fad08c.html.gz",
           "raw_snapshot_retention_days": 90
         }
       ]
