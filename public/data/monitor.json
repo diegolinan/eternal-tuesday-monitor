@@ -4,7 +4,7 @@
   "releaseId": "release-2026-09-09",
   "dataCutoff": "2026-09-09",
   "publishedOn": "2026-09-09",
-  "freshnessEvaluatedOn": "2026-10-01",
+  "freshnessEvaluatedOn": "2026-10-02",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
@@ -35,7 +35,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -69,7 +69,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -103,7 +103,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -137,7 +137,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol",
@@ -171,7 +171,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -205,7 +205,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -241,7 +241,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -277,7 +277,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -313,7 +313,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -349,7 +349,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -385,7 +385,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -421,7 +421,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -457,7 +457,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -491,7 +491,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 26,
+      "evidenceAgeDays": 27,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
@@ -525,7 +525,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 22,
+      "evidenceAgeDays": 23,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -569,7 +569,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 22,
+      "evidenceAgeDays": 23,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -613,7 +613,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 22,
+      "evidenceAgeDays": 23,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -6608,7 +6608,7 @@
       "vendor": "OpenAI",
       "name": "chatgpt-image-latest",
       "apiModelId": "chatgpt-image-latest",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -6618,9 +6618,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -6721,7 +6722,7 @@
       "vendor": "OpenAI",
       "name": "codex-mini-latest",
       "apiModelId": "codex-mini-latest",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -6736,11 +6737,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -7182,7 +7183,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4",
       "apiModelId": "gpt-4",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -7197,11 +7198,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -7304,7 +7305,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4 Turbo",
       "apiModelId": "gpt-4-turbo",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -7319,11 +7320,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -7426,7 +7427,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4 Turbo Preview",
       "apiModelId": "gpt-4-turbo-preview",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -7441,11 +7442,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -7792,7 +7793,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4.1 nano",
       "apiModelId": "gpt-4.1-nano",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -7807,11 +7808,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -8158,7 +8159,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4o Audio",
       "apiModelId": "gpt-4o-audio-preview",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -8168,9 +8169,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -8393,7 +8395,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4o Mini Audio",
       "apiModelId": "gpt-4o-mini-audio-preview",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -8403,9 +8405,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -8506,7 +8509,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4o Mini Realtime",
       "apiModelId": "gpt-4o-mini-realtime-preview",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -8516,9 +8519,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -8619,7 +8623,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4o Mini Search Preview",
       "apiModelId": "gpt-4o-mini-search-preview",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -8629,9 +8633,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -8845,7 +8850,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4o Mini TTS",
       "apiModelId": "gpt-4o-mini-tts",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -8855,9 +8860,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -8958,7 +8964,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4o Realtime",
       "apiModelId": "gpt-4o-realtime-preview",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -8968,9 +8974,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -9071,7 +9078,7 @@
       "vendor": "OpenAI",
       "name": "GPT-4o Search Preview",
       "apiModelId": "gpt-4o-search-preview",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -9081,9 +9088,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -9410,7 +9418,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5",
       "apiModelId": "gpt-5",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -9425,11 +9433,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -9532,7 +9540,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5 Chat",
       "apiModelId": "gpt-5-chat-latest",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -9547,11 +9555,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -9654,7 +9662,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5 Mini",
       "apiModelId": "gpt-5-mini",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -9669,11 +9677,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -9776,7 +9784,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5 nano",
       "apiModelId": "gpt-5-nano",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -9791,11 +9799,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -9898,7 +9906,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5 Pro",
       "apiModelId": "gpt-5-pro",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -9913,11 +9921,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -10020,7 +10028,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5-Codex",
       "apiModelId": "gpt-5-codex",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -10035,11 +10043,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -10142,7 +10150,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.1",
       "apiModelId": "gpt-5.1",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -10157,11 +10165,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -10264,7 +10272,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.1 Chat",
       "apiModelId": "gpt-5.1-chat-latest",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -10279,11 +10287,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -10386,7 +10394,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.1-Codex",
       "apiModelId": "gpt-5.1-codex",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -10401,11 +10409,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -10508,7 +10516,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.1-Codex Mini",
       "apiModelId": "gpt-5.1-codex-mini",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -10523,11 +10531,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -10630,7 +10638,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.1-Codex-Max",
       "apiModelId": "gpt-5.1-codex-max",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -10645,11 +10653,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -10874,7 +10882,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.2 Chat",
       "apiModelId": "gpt-5.2-chat-latest",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -10889,11 +10897,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -11118,7 +11126,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.2-Codex",
       "apiModelId": "gpt-5.2-codex",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -11133,11 +11141,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -11240,7 +11248,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.3 Chat",
       "apiModelId": "gpt-5.3-chat-latest",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -11255,11 +11263,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -11362,7 +11370,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.3-Codex",
       "apiModelId": "gpt-5.3-codex",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -11377,11 +11385,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -11728,7 +11736,7 @@
       "vendor": "OpenAI",
       "name": "GPT-5.4 nano",
       "apiModelId": "gpt-5.4-nano",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -11743,11 +11751,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -12862,7 +12870,7 @@
       "vendor": "OpenAI",
       "name": "GPT-Audio",
       "apiModelId": "gpt-audio",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -12872,9 +12880,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -12975,7 +12984,7 @@
       "vendor": "OpenAI",
       "name": "GPT-Audio Mini",
       "apiModelId": "gpt-audio-mini",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -12985,9 +12994,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -13201,7 +13211,7 @@
       "vendor": "OpenAI",
       "name": "GPT-Image-1",
       "apiModelId": "gpt-image-1",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -13211,9 +13221,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -13314,7 +13325,7 @@
       "vendor": "OpenAI",
       "name": "GPT-Image-1 Mini",
       "apiModelId": "gpt-image-1-mini",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -13324,9 +13335,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -13427,7 +13439,7 @@
       "vendor": "OpenAI",
       "name": "GPT-Image-1.5",
       "apiModelId": "gpt-image-1.5",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -13437,9 +13449,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -13992,7 +14005,7 @@
       "vendor": "OpenAI",
       "name": "GPT-Realtime",
       "apiModelId": "gpt-realtime",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -14002,9 +14015,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -14105,7 +14119,7 @@
       "vendor": "OpenAI",
       "name": "GPT-Realtime Mini",
       "apiModelId": "gpt-realtime-mini",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "CATALOG_ONLY",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -14115,9 +14129,10 @@
       "releasedOn": null,
       "firstTestedOn": null,
       "lastTestedOn": null,
-      "lifecycleState": "DISCOVERED",
-      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "lifecycleState": "EVALUATION_NOT_POSSIBLE",
+      "testabilityState": "NOT_CURRENTLY_AVAILABLE",
       "evaluationReasons": [
+        "MODEL_LIFECYCLE_BLOCKED",
         "API_UNKNOWN",
         "ACCOUNT_ACCESS_NOT_CONFIRMED",
         "ACCOUNT_ACCESS_CHECK_STALE",
@@ -15009,7 +15024,7 @@
       "vendor": "OpenAI",
       "name": "o1 Preview",
       "apiModelId": "o1-preview",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15024,11 +15039,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -15131,7 +15146,7 @@
       "vendor": "OpenAI",
       "name": "o1-mini",
       "apiModelId": "o1-mini",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15146,11 +15161,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -15253,7 +15268,7 @@
       "vendor": "OpenAI",
       "name": "o1-pro",
       "apiModelId": "o1-pro",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15268,11 +15283,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -15375,7 +15390,7 @@
       "vendor": "OpenAI",
       "name": "o3-deep-research",
       "apiModelId": "o3-deep-research",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15390,11 +15405,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -15497,7 +15512,7 @@
       "vendor": "OpenAI",
       "name": "o3-mini",
       "apiModelId": "o3-mini",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15512,11 +15527,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -15619,7 +15634,7 @@
       "vendor": "OpenAI",
       "name": "o3-pro",
       "apiModelId": "o3-pro",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15634,11 +15649,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -15741,7 +15756,7 @@
       "vendor": "OpenAI",
       "name": "o4-mini",
       "apiModelId": "o4-mini",
-      "releaseState": "RELEASED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15756,11 +15771,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -15863,7 +15878,7 @@
       "vendor": "OpenAI",
       "name": "o4-mini-deep-research",
       "apiModelId": "o4-mini-deep-research",
-      "releaseState": "DISCOVERED",
+      "releaseState": "DEPRECATED",
       "relevanceState": "DISCOVERED_RELEVANT",
       "relevanceReviewedOn": "2026-09-05",
       "apiState": "API_UNKNOWN",
@@ -15878,11 +15893,11 @@
       "evaluationReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
       ],
-      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityState": "UNAVAILABLE",
       "apiAvailabilityReasons": [
-        "PUBLIC_SOURCE_IDENTITY_ONLY"
+        "MODEL_LIFECYCLE_BLOCKED"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-10-02",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
