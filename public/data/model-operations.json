@@ -245,10 +245,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "state": "NOT_CURRENTLY_AVAILABLE",
         "checkedAt": "2026-10-02T18:03:14.970Z",
         "stateChangedOn": null,
         "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED",
           "API_UNKNOWN",
           "ACCOUNT_ACCESS_NOT_CONFIRMED",
           "ACCOUNT_ACCESS_CHECK_STALE",
@@ -1459,10 +1460,11 @@
         "expectedSources": 2
       },
       "eligibilityCheck": {
-        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "state": "NOT_CURRENTLY_AVAILABLE",
         "checkedAt": "2026-10-02T18:03:14.970Z",
         "stateChangedOn": null,
         "reasons": [
+          "MODEL_LIFECYCLE_BLOCKED",
           "API_UNKNOWN",
           "ACCOUNT_ACCESS_NOT_CONFIRMED",
           "ACCOUNT_ACCESS_CHECK_STALE",
