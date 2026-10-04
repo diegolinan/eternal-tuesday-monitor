@@ -4,7 +4,7 @@
   "releaseId": "release-2026-09-09",
   "dataCutoff": "2026-09-09",
   "publishedOn": "2026-09-09",
-  "freshnessEvaluatedOn": "2026-10-03",
+  "freshnessEvaluatedOn": "2026-10-04",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
@@ -35,7 +35,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -69,7 +69,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -103,7 +103,7 @@
         "LEGACY_RETEST_REQUIRED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -137,7 +137,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol",
@@ -171,7 +171,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -205,7 +205,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -241,7 +241,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -272,12 +272,12 @@
         "UNTESTED"
       ],
       "applicability": "CURRENT",
-      "currentSufficiency": "SUFFICIENT",
+      "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
-        "WITHIN_POLICY_WINDOW"
+        "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -308,12 +308,12 @@
         "UNTESTED"
       ],
       "applicability": "CURRENT",
-      "currentSufficiency": "SUFFICIENT",
+      "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
-        "WITHIN_POLICY_WINDOW"
+        "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -344,12 +344,12 @@
         "UNTESTED"
       ],
       "applicability": "CURRENT",
-      "currentSufficiency": "SUFFICIENT",
+      "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
-        "WITHIN_POLICY_WINDOW"
+        "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -380,12 +380,12 @@
         "UNTESTED"
       ],
       "applicability": "CURRENT",
-      "currentSufficiency": "SUFFICIENT",
+      "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
-        "WITHIN_POLICY_WINDOW"
+        "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -416,12 +416,12 @@
         "UNTESTED"
       ],
       "applicability": "CURRENT",
-      "currentSufficiency": "SUFFICIENT",
+      "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
-        "WITHIN_POLICY_WINDOW"
+        "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -452,12 +452,12 @@
         "UNTESTED"
       ],
       "applicability": "CURRENT",
-      "currentSufficiency": "SUFFICIENT",
+      "currentSufficiency": "RETEST_REQUIRED",
       "sufficiencyReasons": [
-        "WITHIN_POLICY_WINDOW"
+        "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 30,
+      "evidenceAgeDays": 31,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -491,7 +491,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 28,
+      "evidenceAgeDays": 29,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
@@ -525,7 +525,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 24,
+      "evidenceAgeDays": 25,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -569,7 +569,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 24,
+      "evidenceAgeDays": 25,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -613,7 +613,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 24,
+      "evidenceAgeDays": 25,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
