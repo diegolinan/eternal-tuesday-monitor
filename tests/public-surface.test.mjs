@@ -33,10 +33,14 @@ test('the public status panel exposes status but no administrative actions', asy
   const ledgerPosition = page.indexOf('<ClaimLedger');
   const statusPosition = page.indexOf('<AutomationStatus />');
   const heroPosition = page.indexOf('className="hero"');
+  const navigationPosition = page.indexOf(
+    'className="masthead hero-navigation"',
+  );
   const guidePosition = page.indexOf('<ReadingGuide />');
   const findingsPosition = page.indexOf('id="observations"');
   assert.ok(ledgerPosition >= 0);
-  assert.ok(statusPosition < heroPosition);
+  assert.ok(heroPosition < navigationPosition);
+  assert.ok(navigationPosition < statusPosition);
   assert.ok(statusPosition < ledgerPosition);
   assert.ok(guidePosition > findingsPosition);
   assert.ok(statusPosition < findingsPosition);
@@ -157,8 +161,8 @@ test('the public evidence watch separates search, candidates and verdicts', asyn
   assert.match(form, /Choose the kind of lead/);
   assert.match(form, /\{submissionType && \(/);
   assert.doesNotMatch(form, /useState(?:<SubmissionType>)?\('FOUND_SOURCE'\)/);
-  assert.match(form, /REQUIRED/);
-  assert.match(form, /OPTIONAL/);
+  assert.match(form, /Required/);
+  assert.match(form, /Optional/);
   assert.doesNotMatch(form, /github|repository_dispatch|pull request/i);
 });
 
@@ -208,7 +212,7 @@ test('the public changelog omits internal review mechanics', async () => {
   assert.doesNotMatch(compiled, /pull_request_url|github\.com/i);
   assert.match(
     page,
-    /routine\s+source scan with no accepted change creates no entry/,
+    /routine\s+source\s+scan with no accepted change creates no entry/,
   );
 });
 
