@@ -241,6 +241,10 @@ body {
 }
 .automation-status {
   padding-block: 30px;
+  align-items: start;
+}
+.automation-status-copy {
+  align-self: start;
 }
 .section-heading {
   align-items: start;
