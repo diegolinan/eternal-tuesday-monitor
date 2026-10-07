@@ -276,12 +276,12 @@ async function reviewValidation(env, pr) {
     env,
     repoPath(
       env,
-      `/actions/workflows/validate-review-proposal.yml/runs?branch=${encodeURIComponent(pr.head.ref)}&event=workflow_dispatch&per_page=30`,
+      '/actions/workflows/validate-review-proposal.yml/runs?branch=main&event=workflow_dispatch&per_page=100',
     ),
   );
-  const title = `review-${pr.number}-${pr.base.sha}`;
+  const title = `review-${pr.number}-${pr.head.sha}-${pr.base.sha}`;
   const run = result.workflow_runs?.find(
-    (item) => item.head_sha === pr.head.sha && item.display_title === title,
+    (item) => item.display_title === title,
   );
   if (!run) return { state: 'not_run' };
   return {
@@ -301,14 +301,13 @@ export async function validateReviewPull(env, number, expectedSha) {
   if (proposal.headSha !== expectedSha) throw new Error('PROPOSAL_CHANGED');
   if (proposal.validation.state === 'running')
     throw new Error('VALIDATION_ALREADY_RUNNING');
-  const pr = await githubApi(env, repoPath(env, `/pulls/${number}`));
   await githubApi(
     env,
     repoPath(env, '/actions/workflows/validate-review-proposal.yml/dispatches'),
     {
       method: 'POST',
       body: {
-        ref: pr.head.ref,
+        ref: 'main',
         inputs: {
           pull_number: String(number),
           head_sha: expectedSha,

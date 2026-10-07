@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import vm from 'node:vm';
 import {
@@ -162,4 +163,18 @@ test('private page is served without exposing credentials and client script pars
   );
   assert.doesNotMatch(await response.text(), /GITHUB_APP_PRIVATE_KEY/);
   assert.doesNotThrow(() => new vm.Script(reviewJs));
+});
+
+test('manual validation runs trusted main code and materializes only allowed data', async () => {
+  const workflow = await readFile(
+    new URL(
+      '../.github/workflows/validate-review-proposal.yml',
+      import.meta.url,
+    ),
+    'utf8',
+  );
+  assert.match(workflow, /run: node scripts\/materialize-review-proposal\.mjs/);
+  assert.doesNotMatch(workflow, /ref: \$\{\{ inputs\.head_sha \}\}/);
+  assert.doesNotMatch(workflow, /cache: npm/);
+  assert.match(workflow, /persist-credentials: false/);
 });
