@@ -1,0 +1,67 @@
+name: Validate review proposal
+run-name: review-${{ inputs.pull_number }}-${{ inputs.base_sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      pull_number:
+        description: 'Exact review proposal number'
+        required: true
+        type: string
+      head_sha:
+        description: 'Exact proposal head commit to validate'
+        required: true
+        type: string
+      base_sha:
+        description: 'Exact main commit used for this validation'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Verify proposal identity and exact commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PULL_NUMBER: ${{ inputs.pull_number }}
+          HEAD_SHA: ${{ inputs.head_sha }}
+          BASE_SHA: ${{ inputs.base_sha }}
+        shell: bash
+        run: |
+          test "${GITHUB_SHA}" = "$HEAD_SHA"
+          pr="$(gh api "/repos/${GITHUB_REPOSITORY}/pulls/${PULL_NUMBER}")"
+          test "$(jq -r '.state' <<< "$pr")" = 'open'
+          test "$(jq -r '.base.ref' <<< "$pr")" = 'main'
+          test "$(jq -r '.head.sha' <<< "$pr")" = "$HEAD_SHA"
+          test "$(jq -r '.base.sha' <<< "$pr")" = "$BASE_SHA"
+          test "$(jq -r '.user.login' <<< "$pr")" = 'github-actions[bot]'
+          jq -e '.labels | any(.name == "review-required")' <<< "$pr" >/dev/null
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.head_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: git fetch origin main
+      - run: npm run data:validate -- --base origin/main
+      - run: npm run models:catalog:sync
+      - run: git diff --exit-code -- data/catalog/models.json
+      - name: Verify the committed projection at its declared date
+        shell: bash
+        run: |
+          as_of="$(node -p "JSON.parse(require('fs').readFileSync('public/data/monitor.json', 'utf8')).freshnessEvaluatedOn")"
+          npm run data:compile -- --as-of "$as_of"
+          git diff --exit-code -- public/data/monitor.json public/data/changelog.json public/data/model-options.json
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build:pages
+      - run: npm run static:validate
