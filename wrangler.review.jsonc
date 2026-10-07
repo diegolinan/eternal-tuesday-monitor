@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "eternal-tuesday-review",
+  "main": "worker/review.mjs",
+  "compatibility_date": "2026-10-07",
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "GITHUB_REPOSITORY": "diegolinan/eternal-tuesday-monitor",
+    "REVIEW_WRITE_ENABLED": "false",
+    "REVIEW_ACCESS_AUD": "8b1e099a10a0c5d4fb5695627d781707498c704326f3b61e8e6db1c2c7b76417",
+  },
+  "secrets": {
+    "required": [
+      "GITHUB_APP_ID",
+      "GITHUB_APP_INSTALLATION_ID",
+      "GITHUB_APP_PRIVATE_KEY_PKCS8",
+      "REVIEWER_EMAILS",
+    ],
+  },
+}
