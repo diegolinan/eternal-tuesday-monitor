@@ -13,6 +13,11 @@ import {
   activeCandidateReviews,
   buildCandidateReview,
 } from '../scripts/evidence-discovery/review.mjs';
+import {
+  candidateIdsFromPatch,
+  isEvidenceProposal,
+  pendingProposalIds,
+} from '../scripts/evidence-discovery/pending-proposals.mjs';
 import { buildPublicEvidenceStatus } from '../scripts/evidence-discovery/public-status.mjs';
 import intakeWorker, {
   sanitizeText,
@@ -21,6 +26,50 @@ import intakeWorker, {
 } from '../worker/intake.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
+
+test('pending evidence proposals suppress repeated candidate IDs', async () => {
+  const repository = 'diegolinan/eternal-tuesday-monitor';
+  const id = `evcand-${'a'.repeat(24)}`;
+  const pull = {
+    number: 42,
+    state: 'open',
+    base: { ref: 'main', repo: { full_name: repository } },
+    head: {
+      ref: 'automation/evidence-candidates-12345',
+      repo: { full_name: repository },
+    },
+    user: { login: 'github-actions[bot]' },
+    labels: [{ name: 'evidence-candidate' }],
+  };
+  assert.equal(isEvidenceProposal(pull, repository), true);
+  assert.equal(
+    isEvidenceProposal({ ...pull, user: { login: 'other' } }, repository),
+    false,
+  );
+  const patch = `@@ -1,0 +2,1 @@\n+${JSON.stringify({ id })}`;
+  assert.deepEqual(candidateIdsFromPatch(patch), [id]);
+  await assert.rejects(
+    async () => candidateIdsFromPatch(),
+    /MISSING_CANDIDATE_PATCH/,
+  );
+  const requested = [];
+  const ids = await pendingProposalIds({
+    repository,
+    token: 'test-token',
+    fetchImpl: async (url) => {
+      requested.push(url);
+      return {
+        ok: true,
+        json: async () =>
+          url.includes('/pulls/42/files')
+            ? [{ filename: 'data/evidence-discovery/candidates.jsonl', patch }]
+            : [pull],
+      };
+    },
+  });
+  assert.deepEqual(ids, [id]);
+  assert.equal(requested.length, 2);
+});
 
 test('known historical records exercise every Monitor probe, including Fable', async () => {
   const fixtures = JSON.parse(
