@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-10-02",
+  "catalogCheckedThrough": "2026-10-06",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -222,6 +222,11 @@
           "id": "model-discovered-ee0a631bc7a1c2147ca6",
           "name": "Nano Banana 2 Lite",
           "apiModelId": "gemini-3.1-flash-lite-image"
+        },
+        {
+          "id": "model-discovered-5b7bfd3b88fda1402744",
+          "name": "Nano Banana 2.1",
+          "apiModelId": "gemini-nano-banana-2.1"
         },
         {
           "id": "model-discovered-5f80092f5e85cef40c36",

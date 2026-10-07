@@ -1,103 +1,246 @@
+'use client';
+
+import { useEffect, useId, useRef, useState } from 'react';
+
+// Deterministic geometry: decorative, never derived from model scores.
+const points = Array.from({ length: 360 }, (_, i) => {
+  const a = i * 2.399963;
+  const r = Math.sqrt(i / 360) * 114;
+  return {
+    x: 245 + Math.cos(a) * r,
+    y: 157 + Math.sin(a) * r * 0.8,
+    r: 0.8 + (i % 4) * 0.35,
+  };
+});
+
 export function Chronoscope() {
+  const [elapsed, setElapsed] = useState(62);
+  const [revalidated, setRevalidated] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const figure = useRef<HTMLElement>(null);
+  const id = useId().replaceAll(':', '');
+  const hours = Math.round(elapsed * 0.72);
+  const shift = elapsed * 0.82;
+
+  useEffect(() => {
+    if (!playing) return;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let progress = 0;
+    const timer = window.setInterval(() => {
+      progress = Math.min(100, progress + 1);
+      setElapsed(progress);
+      if (progress === 100) setPlaying(false);
+    }, 70);
+    const motionChanged = () => {
+      if (media.matches) setPlaying(false);
+    };
+    media.addEventListener('change', motionChanged);
+    const stop = () => {
+      if (document.hidden) setPlaying(false);
+    };
+    document.addEventListener('visibilitychange', stop);
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) setPlaying(false);
+    });
+    if (figure.current) observer.observe(figure.current);
+    return () => {
+      window.clearInterval(timer);
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', stop);
+      media.removeEventListener('change', motionChanged);
+    };
+  }, [playing]);
+
   return (
-    <figure className="hero-visual chronoscope">
-      <div className="chronoscope-issue" aria-hidden="true">
-        <span>FIELD NOTE</span>
-        <strong>№ 01</strong>
+    <figure ref={figure} className="hero-visual chronoscope time-instrument">
+      <div className="instrument-title">
+        <span>ETM / State drift</span>
+        <span>Interactive illustration ↘</span>
       </div>
-      <svg
-        viewBox="0 0 760 720"
-        aria-labelledby="chronoscope-title chronoscope-description"
-      >
-        <title id="chronoscope-title">The continuity chronoscope</title>
-        <desc id="chronoscope-description">
-          Three offset clock faces connected by an orbital path, illustrating
-          the difference between conversation order and elapsed real-world time.
-        </desc>
-        <defs>
-          <filter id="roughen" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence
-              baseFrequency="0.035"
-              numOctaves="2"
-              seed="17"
-              type="fractalNoise"
-              result="noise"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="noise"
-              scale="1.2"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-          <path
-            id="orbit-path"
-            d="M96,402 C148,151 480,91 656,276 C793,420 611,635 362,623 C142,611 42,503 96,402Z"
+      <div className="instrument-stage">
+        <svg viewBox="0 0 500 326" aria-labelledby={`${id}-title`}>
+          <title id={`${id}-title`}>
+            A retained context field and a changing world field separate as time
+            advances
+          </title>
+          <defs>
+            <pattern
+              id={`${id}-dots`}
+              width="7"
+              height="7"
+              patternUnits="userSpaceOnUse"
+            >
+              <circle cx="1" cy="1" r="0.6" fill="#20211f" opacity="0.3" />
+            </pattern>
+            <clipPath id={`${id}-clip`}>
+              <rect x="10" y="34" width="480" height="242" />
+            </clipPath>
+          </defs>
+          <rect width="500" height="326" fill="var(--pink)" />
+          <rect
+            x="10"
+            y="34"
+            width="480"
+            height="242"
+            fill={`url(#${id}-dots)`}
           />
-        </defs>
-
-        <g className="chrono-orbit" filter="url(#roughen)">
-          <use href="#orbit-path" />
-          <use href="#orbit-path" transform="rotate(14 380 360) scale(.82)" />
-        </g>
-
-        <g className="chrono-clock chrono-clock-main" transform="translate(380 347)">
-          <circle className="clock-shadow" r="183" cx="11" cy="15" />
-          <circle className="clock-face" r="183" />
-          <circle className="clock-ring" r="158" />
-          {Array.from({ length: 12 }).map((_, index) => (
-            <line
-              className="clock-tick"
-              key={index}
-              x1="0"
-              y1="-143"
-              x2="0"
-              y2={index % 3 === 0 ? '-122' : '-131'}
-              transform={`rotate(${index * 30})`}
+          <g clipPath={`url(#${id}-clip)`}>
+            <g
+              className="retained-field"
+              style={{
+                transform: `translate(${revalidated ? shift : 0}px, ${revalidated ? -shift * 0.3 : 0}px)`,
+              }}
+            >
+              <rect
+                x="105"
+                y="61"
+                width="225"
+                height="199"
+                fill="#f8f7f1"
+                fillOpacity="0.7"
+                stroke="#20211f"
+              />
+              {points.map((point, i) => (
+                <circle
+                  key={i}
+                  cx={point.x - 35}
+                  cy={point.y + 6}
+                  r={point.r}
+                  fill="#20211f"
+                />
+              ))}
+              <path
+                d="M105 99H330M144 61V260"
+                stroke="#20211f"
+                strokeWidth="0.65"
+              />
+            </g>
+            <g
+              className="world-field"
+              style={{ transform: `translate(${shift}px, ${-shift * 0.3}px)` }}
+            >
+              <path
+                d="M117 210L227 47L349 122L239 285Z"
+                fill="var(--cyan)"
+                fillOpacity="0.78"
+                stroke="#20211f"
+              />
+              {Array.from({ length: 15 }, (_, i) => (
+                <path
+                  key={i}
+                  d={`M${117 + i * 8.1} ${210 + i * 5}L${227 + i * 8.1} ${47 + i * 5}`}
+                  stroke="#20211f"
+                  strokeWidth="0.7"
+                />
+              ))}
+              <ellipse
+                cx="235"
+                cy="166"
+                rx="96"
+                ry="41"
+                fill="none"
+                stroke="#20211f"
+              />
+              <ellipse
+                cx="235"
+                cy="166"
+                rx="52"
+                ry="106"
+                fill="none"
+                stroke="#20211f"
+              />
+            </g>
+            <path
+              d="M16 157H484M245 40V273"
+              stroke="#20211f"
+              strokeDasharray="2 5"
+              opacity="0.6"
             />
-          ))}
-          <g className="clock-hand-hour">
-            <line x1="0" y1="8" x2="0" y2="-80" />
-            <circle cy="-80" r="7" />
+            <rect
+              className="instrument-scan"
+              x="18"
+              y="34"
+              width="2"
+              height="242"
+              fill="#20211f"
+            />
           </g>
-          <g className="clock-hand-minute">
-            <line x1="0" y1="10" x2="0" y2="-119" />
-            <path d="M-8,-113 L0,-132 L8,-113Z" />
-          </g>
-          <circle className="clock-pin" r="15" />
-          <text className="clock-word" x="0" y="82" textAnchor="middle">
-            TUESDAY
+          <path
+            d="M14 16H32M23 7V25M468 306H490M479 295V317"
+            stroke="#20211f"
+          />
+          <text x="42" y="20" className="instrument-svg-label">
+            Same thread. Different state.
           </text>
-          <text className="clock-sub" x="0" y="108" textAnchor="middle">
-            CONTEXT IS NOT A CLOCK
+          <text x="14" y="307" className="instrument-svg-label">
+            {revalidated ? 'Context revalidated' : 'Context retained at t₀'}
           </text>
-        </g>
-
-        <g className="chrono-tag chrono-tag-now" transform="translate(82 126)">
-          <circle r="52" />
-          <text x="0" y="-5" textAnchor="middle">NOW</text>
-          <text className="chrono-tag-small" x="0" y="17" textAnchor="middle">?</text>
-        </g>
-        <g className="chrono-tag chrono-tag-then" transform="translate(656 525)">
-          <circle r="47" />
-          <text x="0" y="-5" textAnchor="middle">THEN</text>
-          <text className="chrono-tag-small" x="0" y="17" textAnchor="middle">RECORDED</text>
-        </g>
-
-        <text className="orbit-copy">
-          <textPath href="#orbit-path" startOffset="4%">
-            OBSERVE · DATE · VERIFY · REVISIT · PRESERVE ·
-          </textPath>
-        </text>
-      </svg>
-      <div className="chronoscope-caption">
-        <span>FIG. 01</span>
-        <p>
-          A conversation has an order. The world has a clock. The Monitor tests
-          where those two diverge.
-        </p>
+          <text x="340" y="307" className="instrument-svg-label">
+            World +{hours}h
+          </text>
+        </svg>
+        <div className="instrument-readout">
+          <span>Context / world</span>
+          <strong>
+            {revalidated || hours === 0
+              ? 'Aligned in this illustration'
+              : 'Same sequence ≠ same state'}
+          </strong>
+        </div>
       </div>
+      <div className="instrument-controls">
+        <label htmlFor={`${id}-elapsed`}>
+          Move time <span>+{hours}h</span>
+        </label>
+        <input
+          id={`${id}-elapsed`}
+          type="range"
+          min="0"
+          max="100"
+          value={elapsed}
+          aria-label="Elapsed time in the illustration"
+          aria-valuetext={`${hours} illustrative hours`}
+          onChange={(event) => {
+            setPlaying(false);
+            setElapsed(Number(event.target.value));
+          }}
+        />
+        <div>
+          <button
+            type="button"
+            onClick={() => {
+              if (playing) setPlaying(false);
+              else {
+                const reduce = window.matchMedia(
+                  '(prefers-reduced-motion: reduce)',
+                ).matches;
+                setElapsed(reduce ? 100 : 0);
+                setRevalidated(false);
+                setPlaying(!reduce);
+              }
+            }}
+          >
+            {playing ? 'Pause' : 'Play sequence'}{' '}
+            <span aria-hidden="true">{playing ? 'Ⅱ' : '→'}</span>
+          </button>
+          <button
+            type="button"
+            aria-pressed={revalidated}
+            onClick={() => setRevalidated(!revalidated)}
+          >
+            {revalidated ? 'Keep old context' : 'Revalidate context'}{' '}
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+      <figcaption className="chronoscope-caption">
+        <span>
+          Illustration
+          <br />
+          Not a model test
+        </span>
+        <p>Keeping a conversation is not the same as keeping it current.</p>
+      </figcaption>
     </figure>
   );
 }

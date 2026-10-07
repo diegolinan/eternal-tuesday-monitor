@@ -30,6 +30,8 @@ Supersession propagates RETEST_REQUIRED only through a reviewed, same-vendor `su
 
 ### Daily workflow and review boundary
 
+The optional [private review desk](docs/private-review-desk.md) presents pending automation proposals and incorporated evidence leads without requiring routine GitHub UI navigation. It is a separate, fail-closed Worker and is not activated by the public site deployment.
+
 `.github/workflows/discover-models.yml` runs daily at 12:43 UTC (09:43 Argentina) and supports `workflow_dispatch`. Once daily is sufficient for model catalogs. Each vendor source fails independently. A source audit without a semantic domain change produces only the retained Actions artifact: it does not commit or redeploy. Qualifying deterministic discoveries are committed to `main` and deployed by the same run. Ambiguous identities, metadata changes, suspected relationships and unclassified relevance open or update a normal `automation/model-discovery` pull request and request review from `diegolinan`. There is no auto-merge. Source outcomes and raw compressed snapshots are retained for 90 days in Actions; accepted hashes and normalized provenance remain permanently in Git.
 
 GitHub must allow Actions to create pull requests for the review-required path. There is no auto-merge configuration. Automatic acceptance is limited to a brand-new exact official identity with no collision, relationship, interpretation or unresolved relevance. Existing metadata, aliases, renames, supersession, product adoption, methodologies and behavioral conclusions retain review.
@@ -116,9 +118,9 @@ No overall product score is part of the contract.
 ## Repository layout
 
 ```text
-assets/monitor/                 Canonical supplied visual assets
+assets/monitor/                 Canonical original editorial visual assets
 content/articles/               Archived launch-source material (not publicly routed)
-content/manifest.json           Byte hashes and historical provenance for supplied content
+content/manifest.json           Byte hashes and provenance for article and visual content
 data/catalog/                   Vendors, products, surfaces, models, probes and statuses
 data/methodologies/             Versioned admission and review methods
 data/sources/                   Versioned source records, including archived launch provenance

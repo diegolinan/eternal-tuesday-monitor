@@ -1,0 +1,61 @@
+name: Validate review proposal
+run-name: review-${{ inputs.pull_number }}-${{ inputs.head_sha }}-${{ inputs.base_sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      pull_number:
+        description: 'Exact review proposal number'
+        required: true
+        type: string
+      head_sha:
+        description: 'Exact proposal head commit to validate'
+        required: true
+        type: string
+      base_sha:
+        description: 'Exact main commit used for this validation'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Copy only reviewed data files into trusted main code
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PULL_NUMBER: ${{ inputs.pull_number }}
+          HEAD_SHA: ${{ inputs.head_sha }}
+          BASE_SHA: ${{ inputs.base_sha }}
+        run: node scripts/materialize-review-proposal.mjs
+      - run: npm run data:validate -- --base "$GITHUB_SHA"
+      - name: Verify catalog synchronization
+        shell: bash
+        run: |
+          before="$(sha256sum data/catalog/models.json)"
+          npm run models:catalog:sync
+          test "$before" = "$(sha256sum data/catalog/models.json)"
+      - name: Verify the committed projection at its declared date
+        shell: bash
+        run: |
+          before="$(sha256sum public/data/monitor.json public/data/changelog.json public/data/model-options.json)"
+          as_of="$(node -p "JSON.parse(require('fs').readFileSync('public/data/monitor.json', 'utf8')).freshnessEvaluatedOn")"
+          npm run data:compile -- --as-of "$as_of"
+          test "$before" = "$(sha256sum public/data/monitor.json public/data/changelog.json public/data/model-options.json)"
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build:pages
+      - run: npm run static:validate

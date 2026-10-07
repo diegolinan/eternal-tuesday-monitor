@@ -24,6 +24,11 @@ import { EvidenceWatch } from '@/components/evidence-watch';
 import { StatusEmblem } from '@/components/status-emblem';
 import { VendorMark } from '@/components/vendor-mark';
 import { Chronoscope } from '@/components/chronoscope';
+import { TemporalClockHero } from '@/components/temporal-clock-hero';
+import { ScrollRevealImage } from '@/components/scroll-reveal-image';
+import { SignalEphemera } from '@/components/signal-ephemera';
+import { TemporalInterlude } from '@/components/temporal-interlude';
+import { Permalink } from '@/components/share-links';
 import monitorSnapshot from '@/public/data/monitor.json';
 import changelogSnapshot from '@/public/data/changelog.json';
 
@@ -109,6 +114,11 @@ const probes = [
     number: '01',
     family: 'TEMPORAL TESTS',
     name: 'TEMPORAL ANCHOR',
+    headline: 'Which Now?',
+    artwork: 'temporal-anchor-v2',
+    artAlt:
+      'A conversation keeps Tuesday pinned inside it while the external calendar advances to Monday.',
+    artNote: 'Same conversation. A different now.',
     description:
       'Can this specific product surface correctly establish the relevant "now" and reference frame when the task requires it?',
   },
@@ -116,6 +126,11 @@ const probes = [
     number: '02',
     family: 'TEMPORAL TESTS',
     name: 'ELAPSED',
+    headline: 'How Much Time Passed?',
+    artwork: 'elapsed-time-v2',
+    artAlt:
+      'The same two message positions span either thirty seconds or a weekend.',
+    artNote: 'The next message is not the next moment.',
     description:
       'Can it correctly account for meaningful real-world time between relevant interactions or events?',
   },
@@ -123,6 +138,11 @@ const probes = [
     number: '03',
     family: 'TEMPORAL TESTS',
     name: 'REVALIDATION',
+    headline: 'Still True?',
+    artwork: 'revalidation-v2',
+    artAlt:
+      'A saved closed storefront remains in the record beside a new observation showing it open.',
+    artNote: 'Retained context needs a current check.',
     description:
       'Can it recognize when retained information may no longer be safe to reuse and obtain appropriate current evidence?',
   },
@@ -130,6 +150,11 @@ const probes = [
     number: '04',
     family: 'ADJACENT STATE TESTS',
     name: 'STATE RECONCILIATION',
+    headline: 'Which State Applies?',
+    artwork: 'state-reconciliation-v2',
+    artAlt:
+      'An earlier Plan A is archived while the active route follows the current Plan B.',
+    artNote: 'Keep the old record. Act on the updated state.',
     description:
       'When new evidence changes operative state, does the system act on the updated state rather than a superseded one?',
   },
@@ -137,6 +162,11 @@ const probes = [
     number: '05',
     family: 'ADJACENT STATE TESTS',
     name: 'HISTORICAL VALIDITY',
+    headline: 'Then Is Not Now.',
+    artwork: 'historical-validity-v2',
+    artAlt:
+      'An earlier snapshot is preserved while the current observation remains an open question.',
+    artNote: 'A past failure is not a permanent present.',
     description:
       'Can it preserve what was previously valid without treating it as what is valid now?',
   },
@@ -273,7 +303,9 @@ function ObservationCard({
         Inspect record <Search aria-hidden="true" />
       </button>
       {item.currentSufficiency === 'RETEST_REQUIRED' && (
-        <span className="retest-flag">RETEST REQUIRED</span>
+        <span className="retest-flag">
+          <b>RETEST REQUIRED</b>
+        </span>
       )}
     </article>
   );
@@ -357,13 +389,23 @@ function ObservationList({
 function ReadingGuide() {
   return (
     <section className="reading-guide" aria-labelledby="reading-guide-title">
-      <div>
-        <p className="section-code">READING KEY</p>
-        <h2 id="reading-guide-title">Four different claims</h2>
-        <p>
-          These events can happen on different dates. One never stands in for
-          another.
-        </p>
+      <div className="reading-guide-intro">
+        <div>
+          <p className="section-code">READING KEY</p>
+          <h2 id="reading-guide-title">Four different claims</h2>
+          <p>
+            These events can happen on different dates. One never stands in for
+            another.
+          </p>
+        </div>
+        <img
+          src={withBasePath('/assets/jev/state-overlay.webp')}
+          alt=""
+          width="1254"
+          height="1254"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <ol>
         <li>
@@ -600,7 +642,8 @@ function SurfaceMap({
             <summary>
               <VendorMark vendor={vendor} vendorId={vendorId} />
               <span>
-                {products.length} PRODUCTS · {surfaceCount} SURFACES
+                {products.length} PRODUCT{products.length === 1 ? '' : 'S'} ·{' '}
+                {surfaceCount} SURFACE{surfaceCount === 1 ? '' : 'S'}
               </span>
             </summary>
             <div className="surface-products">
@@ -655,6 +698,13 @@ export default function Home() {
   const [verification, setVerification] = useState('ALL');
   const [scope, setScope] = useState<'current' | 'historical'>('current');
   const [selected, setSelected] = useState<Observation | null>(null);
+  const [missingObservation, setMissingObservation] = useState<string | null>(
+    null,
+  );
+  const openObservation = (item: Observation) => {
+    setMissingObservation(null);
+    setSelected(item);
+  };
   const [urlReady, setUrlReady] = useState(false);
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>(
     'idle',
@@ -764,6 +814,11 @@ export default function Home() {
       setSelected(
         observationId ? (observationsById.get(observationId) ?? null) : null,
       );
+      setMissingObservation(
+        observationId && !observationsById.has(observationId)
+          ? observationId
+          : null,
+      );
       setUrlReady(true);
     };
     readUrl();
@@ -781,9 +836,10 @@ export default function Home() {
     if (verification !== 'ALL') params.set('verification', verification);
     if (scope !== 'current') params.set('scope', scope);
     if (selected) params.set('observation', selected.id);
+    else if (missingObservation) params.set('observation', missingObservation);
     const query = params.toString();
     window.history.replaceState(
-      null,
+      window.history.state,
       '',
       `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`,
     );
@@ -792,6 +848,7 @@ export default function Home() {
     probe,
     scope,
     selected,
+    missingObservation,
     surface,
     urlReady,
     vendor,
@@ -818,6 +875,14 @@ export default function Home() {
     } | null = null;
     try {
       prior = JSON.parse(window.localStorage.getItem(storageKey) ?? 'null');
+      if (
+        !prior ||
+        typeof prior.fingerprints !== 'object' ||
+        prior.fingerprints === null ||
+        Array.isArray(prior.fingerprints) ||
+        typeof prior.seenAt !== 'string'
+      )
+        prior = null;
     } catch {
       prior = null;
     }
@@ -833,15 +898,19 @@ export default function Home() {
         previousVisit: prior?.seenAt ?? null,
       }),
     );
-    window.localStorage.setItem(
-      storageKey,
-      JSON.stringify({
-        releaseId: data.releaseId,
-        dataCutoff: data.dataCutoff,
-        seenAt: new Date().toISOString(),
-        fingerprints,
-      }),
-    );
+    try {
+      window.localStorage.setItem(
+        storageKey,
+        JSON.stringify({
+          releaseId: data.releaseId,
+          dataCutoff: data.dataCutoff,
+          seenAt: new Date().toISOString(),
+          fingerprints,
+        }),
+      );
+    } catch {
+      // Optional visit comparison must never block the public evidence view.
+    }
     return () => window.cancelAnimationFrame(frame);
   }, [data.dataCutoff, data.releaseId, observations]);
 
@@ -876,44 +945,49 @@ export default function Home() {
   }, [observations]);
 
   return (
-    <main id="main-content">
-      <header className="masthead">
-        <a className="series-mark" href={withBasePath('/')}>
-          The Eternal Tuesday Monitor
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#automation">Status</a>
-          <a href="#observations">Findings</a>
-          <a href="#probes">Method</a>
-          <a href={withBasePath('/models/')}>Models</a>
-          <a href={withBasePath('/changelog/')}>Changes</a>
-          <a href={withBasePath('/contributors/')}>Clockkeepers</a>
-          <a href={withBasePath('/contribute/')}>Contribute</a>
-        </nav>
-      </header>
+    <main id="main-content" tabIndex={-1}>
+      <section className="hero" aria-labelledby="page-title">
+        <div className="hero-first-plane">
+          <h1 className="hero-masthead" id="page-title">
+            <span>The</span>
+            <span>Eternal</span>
+            <span>Tuesday</span>
+            <span>Monitor.</span>
+          </h1>
+          <TemporalClockHero />
+        </div>
+        <header className="masthead hero-navigation">
+          <span className="hero-navigation-label" aria-hidden="true">
+            ETM / PUBLIC OBSERVATORY
+          </span>
+          <nav aria-label="Primary navigation">
+            <a href="#automation">Status</a>
+            <a href="#observations">Findings</a>
+            <a href="#probes">Method</a>
+            <a href={withBasePath('/models/')}>Models</a>
+            <a href={withBasePath('/changelog/')}>Changes</a>
+            <a href={withBasePath('/contributors/')}>Clockkeepers</a>
+            <a href={withBasePath('/contribute/')}>Contribute</a>
+          </nav>
+        </header>
+        <div className="hero-second-plane">
+          <div className="hero-copy">
+            <p className="eyebrow">Public observation station · ETM-1.0</p>
+            <p className="hero-lede">
+              A persistent conversation can preserve continuity while the world
+              outside it changes.
+            </p>
+            <p className="hero-note">
+              The Monitor tracks what we can actually verify about temporal
+              continuity in current AI products. It is dated evidence, not a
+              permanent ranking.
+            </p>
+          </div>
+          <Chronoscope />
+        </div>
+      </section>
 
       <AutomationStatus />
-
-      <section className="hero" aria-labelledby="page-title">
-        <div className="hero-copy">
-          <p className="eyebrow">Public observation station · ETM-1.0</p>
-          <h1 id="page-title">
-            The Eternal
-            <br />
-            Tuesday Monitor
-          </h1>
-          <p className="hero-lede">
-            A persistent conversation can preserve continuity while the world
-            outside it changes.
-          </p>
-          <p className="hero-note">
-            The Monitor tracks what we can actually verify about temporal
-            continuity in current AI products. It is dated evidence, not a
-            permanent ranking.
-          </p>
-        </div>
-        <Chronoscope />
-      </section>
 
       <div className="monitor-snapshot" aria-label="Monitor at a glance">
         <ClaimLedger
@@ -937,7 +1011,10 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="section-code">STATION 01</p>
-            <h2 id="current-title">Current evidence state</h2>
+            <h2 id="current-title">
+              Current evidence state
+              <Permalink href="#observations" label="Current evidence state" />
+            </h2>
           </div>
           <p>
             CURRENT means applicable to the monitored product state at the
@@ -947,6 +1024,19 @@ export default function Home() {
           </p>
         </div>
 
+        {missingObservation && (
+          <aside className="view-notice" aria-live="polite">
+            <strong>Observation Link Not Found</strong>
+            <p>
+              This release has no observation for{' '}
+              <code>{missingObservation}</code>. Browse the available records
+              below; no evidence has been substituted.
+            </p>
+            <button type="button" onClick={() => setMissingObservation(null)}>
+              Dismiss this notice
+            </button>
+          </aside>
+        )}
         <div className="filter-console" aria-label="Observation filters">
           <div className="console-title">
             <span>Product / surface selector</span>
@@ -1026,10 +1116,10 @@ export default function Home() {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="current">
-            <ObservationList items={current} onOpen={setSelected} />
+            <ObservationList items={current} onOpen={openObservation} />
           </TabsContent>
           <TabsContent value="historical">
-            <ObservationList items={historical} onOpen={setSelected} />
+            <ObservationList items={historical} onOpen={openObservation} />
           </TabsContent>
         </Tabs>
       </section>
@@ -1044,10 +1134,8 @@ export default function Home() {
           <p className="section-code">MODEL REGISTER · SECONDARY REFERENCE</p>
           <h2 id="model-overview-title">Catalog identity is not evidence</h2>
           <p>
-            The full register tracks {data.models?.length ?? 0} exact identities
-            and keeps listing checks, method readiness and behavioral evidence
-            separate. It lives outside the main reading path so accepted
-            evidence remains the focus.
+            Browse {data.models?.length ?? 0} exact model identities and their
+            source records, test readiness and accepted evidence.
           </p>
         </div>
         <a className="service-station-button" href={withBasePath('/models/')}>
@@ -1058,6 +1146,46 @@ export default function Home() {
       <ReadingGuide />
 
       <section
+        className="continuity-broadcast registration-corners"
+        aria-labelledby="continuity-broadcast-title"
+      >
+        <div className="broadcast-copy">
+          <p className="section-code">CONTINUITY BROADCAST · THREE SIGNALS</p>
+          <h2 id="continuity-broadcast-title">
+            <span>Tune the</span> <em>right signal.</em>
+          </h2>
+          <p>
+            Keep identity, observed behavior and current usability on separate
+            frequencies.
+          </p>
+          <ol aria-label="The three signals tracked by the Monitor">
+            <li>
+              <b>01</b>
+              <span>
+                <strong>Catalog</strong>
+                Exact identity
+              </span>
+            </li>
+            <li>
+              <b>02</b>
+              <span>
+                <strong>Evidence</strong>
+                Observable behavior
+              </span>
+            </li>
+            <li>
+              <b>03</b>
+              <span>
+                <strong>Freshness</strong>
+                Current usability
+              </span>
+            </li>
+          </ol>
+        </div>
+        <TemporalInterlude />
+      </section>
+
+      <section
         className="probe-section"
         id="probes"
         aria-labelledby="probes-title"
@@ -1065,7 +1193,10 @@ export default function Home() {
         <div className="section-heading section-heading-light">
           <div>
             <p className="section-code">STATION 02</p>
-            <h2 id="probes-title">The five probes</h2>
+            <h2 id="probes-title">
+              The five probes
+              <Permalink href="#probes" label="The five probes" />
+            </h2>
           </div>
           <p>
             Five black-box diagnostic questions. They are not five components
@@ -1077,15 +1208,34 @@ export default function Home() {
         <div className="probe-family">
           <div className="family-label">
             <span>Experimental backbone</span>
-            <h3>TEMPORAL TESTS</h3>
+            <h3>Temporal tests</h3>
             <b>03 PROBES</b>
           </div>
           <div className="probe-cards probe-three">
             {probes.slice(0, 3).map((item) => (
-              <article className="probe-card" key={item.name}>
-                <span>{item.number}</span>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
+              <article
+                className={`probe-card probe-card--${item.artwork}`}
+                key={item.name}
+              >
+                <div className="probe-copy">
+                  <span className="probe-plate-label">
+                    {item.number} / {item.name}
+                  </span>
+                  <h3>{item.headline}</h3>
+                  <p>{item.description}</p>
+                </div>
+                <figure className="probe-illustration">
+                  <img
+                    className="probe-artwork"
+                    src={withBasePath(`/assets/jev/${item.artwork}.webp`)}
+                    alt={item.artAlt}
+                    width={1536}
+                    height={1024}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>{item.artNote}</figcaption>
+                </figure>
               </article>
             ))}
           </div>
@@ -1093,30 +1243,58 @@ export default function Home() {
         <div className="probe-family adjacent-family">
           <div className="family-label">
             <span>Deliberate extension</span>
-            <h3>ADJACENT STATE TESTS</h3>
+            <h3>Adjacent state tests</h3>
             <b>02 PROBES</b>
           </div>
           <div className="probe-cards probe-two">
             {probes.slice(3).map((item) => (
               <article className="probe-card" key={item.name}>
-                <span>{item.number}</span>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
+                <div className="probe-copy">
+                  <span className="probe-plate-label">
+                    {item.number} / {item.name}
+                  </span>
+                  <h3>{item.headline}</h3>
+                  <p>{item.description}</p>
+                </div>
+                <figure className="probe-illustration">
+                  <img
+                    className="probe-artwork"
+                    src={withBasePath(`/assets/jev/${item.artwork}.webp`)}
+                    alt={item.artAlt}
+                    width={1536}
+                    height={1024}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>{item.artNote}</figcaption>
+                </figure>
               </article>
             ))}
           </div>
         </div>
-        <figure className="wide-figure">
-          <img
-            src={withBasePath('/assets/diagnostic-panel.png')}
-            alt="A mid-century service diagram showing five external diagnostic probes connected to a conversational continuity unit"
-            width="1672"
-            height="941"
-            loading="lazy"
-            decoding="async"
+        <p className="probe-art-note">
+          Illustrative scenarios · Not model transcripts or test results.
+        </p>
+        <figure className="wide-figure signal-margin">
+          <SignalEphemera variant="rail" />
+          <ScrollRevealImage
+            src={withBasePath('/assets/jev/sequence-collage.webp')}
+            alt="A technical photocopy collage: two punched strips preserve a sequence but their states no longer align"
+            width={1536}
+            height={1024}
           />
           <figcaption>
-            FIG. 7-2 · EXTERNAL DIAGNOSTIC PROBES FOR OBSERVABLE BEHAVIOR ONLY
+            <span>Field note / Sequence ≠ state</span>
+            <strong>
+              The thread continues.
+              <br />
+              The reference changes.
+            </strong>
+            <p>
+              Five questions expose different ways that old context can stop
+              matching the world. This collage illustrates the problem; it is
+              not measured evidence.
+            </p>
           </figcaption>
         </figure>
       </section>
@@ -1129,7 +1307,10 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="section-code">STATION 03</p>
-            <h2 id="products-title">Product / surface view</h2>
+            <h2 id="products-title">
+              Product / surface view
+              <Permalink href="#products" label="Product / surface view" />
+            </h2>
           </div>
           <p>
             Vendor, product, surface and model remain separate coordinates. This
@@ -1152,7 +1333,10 @@ export default function Home() {
         <div className="section-heading section-heading-light">
           <div>
             <p className="section-code">STATION 04</p>
-            <h2 id="history-title">Observation history</h2>
+            <h2 id="history-title">
+              Observation history
+              <Permalink href="#history" label="Observation history" />
+            </h2>
           </div>
           <p>
             New accepted evidence may supersede a record&apos;s applicability.
@@ -1187,7 +1371,7 @@ export default function Home() {
                         type="button"
                         className="timeline-stop"
                         key={item.id}
-                        onClick={() => setSelected(item)}
+                        onClick={() => openObservation(item)}
                       >
                         <i aria-hidden="true" />
                         <span>{item.observedOn.label}</span>
@@ -1222,7 +1406,10 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="section-code">STATION 05</p>
-            <h2 id="evidence-title">Evidence class</h2>
+            <h2 id="evidence-title">
+              Evidence class
+              <Permalink href="#evidence" label="Evidence class" />
+            </h2>
           </div>
           <p>
             Capability status answers what was observed. Evidence class answers
@@ -1235,7 +1422,9 @@ export default function Home() {
               <span className="module-number">
                 E-{String(index + 1).padStart(2, '0')}
               </span>
-              <h3>{group.label}</h3>
+              <h3>
+                {group.label.charAt(0) + group.label.slice(1).toLowerCase()}
+              </h3>
               <p>{group.note}</p>
               <ul>
                 {group.classes.map((item) => (
@@ -1262,23 +1451,17 @@ export default function Home() {
       </section>
 
       <section
-        className="method-section"
+        className="method-section signal-margin"
         id="methodology"
         aria-labelledby="method-title"
       >
-        <div className="method-visual">
-          <img
-            src={withBasePath('/assets/same-sequence-different-time.png')}
-            alt="A split period illustration showing the same conversation after 30 seconds and after 72 hours"
-            width="1672"
-            height="941"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+        <SignalEphemera variant="rail" />
         <div className="method-copy">
           <p className="section-code">STATION 06 · METHOD ETM-1.0</p>
-          <h2 id="method-title">Methodology</h2>
+          <h2 id="method-title">
+            Methodology
+            <Permalink href="#methodology" label="Methodology" />
+          </h2>
           <p className="method-lede">
             Conversation order preserves sequence. It does not necessarily
             preserve elapsed time.
@@ -1335,45 +1518,29 @@ export default function Home() {
         <div className="why-copy">
           <p className="section-code">EDITORIAL NOTE</p>
           <h2 id="why-title">Why this exists</h2>
-          <blockquote>
+          <blockquote className="registration-corners">
             <span>The conversation continued.</span>
             <strong>The world didn&apos;t wait.</strong>
           </blockquote>
-          <p>
-            Publication freezes an observation. Products do not freeze with it.
-            The Monitor keeps dated claims inspectable while the systems beneath
-            them change.
-          </p>
-          <p>
-            Once upon a time in the future, this monitor was completely boring.
-          </p>
-          <p className="dry-note">That is the desired operating condition.</p>
+          <div className="editorial-tail">
+            <div>
+              <p>
+                Publication freezes an observation. Products do not freeze with
+                it. The Monitor keeps dated claims inspectable while the systems
+                beneath them change.
+              </p>
+              <p>
+                Once upon a time in the future, this monitor was completely
+                boring.
+              </p>
+              <p className="dry-note">
+                That is the desired operating condition.
+              </p>
+            </div>
+            <SignalEphemera />
+          </div>
         </div>
-        <figure>
-          <img
-            src={withBasePath('/assets/eternal-tuesday-banner.png')}
-            alt="A mid-century advertisement for a continuity computer under clocks labeled Tuesday, Monday and Saturday"
-            width="1672"
-            height="941"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>PUBLIC CONTINUITY EXHIBIT · MODEL CCU-58</figcaption>
-        </figure>
       </section>
-
-      <footer>
-        <span>THE ETERNAL TUESDAY MONITOR</span>
-        <a href={withBasePath('/contributors/')}>THE CLOCKKEEPERS</a>
-        <a href={withBasePath('/contribute/')}>REPORT A TIME LEAK</a>
-        <span>
-          PUBLISHED · {data ? labelDate(data.publishedOn) : 'READING…'}
-        </span>
-        <span>
-          EVIDENCE INCLUDED THROUGH ·{' '}
-          {data ? labelDate(data.dataCutoff) : 'READING…'}
-        </span>
-      </footer>
 
       <Dialog
         open={Boolean(selected)}
@@ -1384,33 +1551,33 @@ export default function Home() {
         <DialogContent className="record-dialog" showCloseButton={false}>
           {selected && (
             <>
-              <DialogHeader>
-                <div className="dialog-kicker">
-                  <span>OBSERVATION RECORD</span>
-                  <div className="dialog-actions">
-                    <button
-                      type="button"
-                      onClick={copyObservationLink}
-                      aria-label="Copy a link to this observation"
-                    >
-                      {copyState === 'copied' ? <Check /> : <Copy />}
-                      <span>
-                        {copyState === 'copied'
-                          ? 'COPIED'
-                          : copyState === 'failed'
-                            ? 'COPY FAILED'
-                            : 'COPY LINK'}
-                      </span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSelected(null)}
-                      aria-label="Close observation"
-                    >
-                      <X />
-                    </button>
-                  </div>
+              <div className="dialog-kicker">
+                <span>OBSERVATION RECORD</span>
+                <div className="dialog-actions">
+                  <button
+                    type="button"
+                    onClick={copyObservationLink}
+                    aria-label="Copy a link to this observation"
+                  >
+                    {copyState === 'copied' ? <Check /> : <Copy />}
+                    <span>
+                      {copyState === 'copied'
+                        ? 'COPIED'
+                        : copyState === 'failed'
+                          ? 'COPY FAILED'
+                          : 'COPY LINK'}
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelected(null)}
+                    aria-label="Close observation"
+                  >
+                    <X />
+                  </button>
                 </div>
+              </div>
+              <DialogHeader>
                 <DialogTitle>
                   {selected.product} / {selected.surface}
                 </DialogTitle>

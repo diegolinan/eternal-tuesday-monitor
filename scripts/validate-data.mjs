@@ -748,6 +748,14 @@ for (const query of evidenceDiscoveryConfig.queries)
       fail(
         `${evidenceDiscoveryConfig.schema_version}: unknown query probe ${id}`,
       );
+for (const exclusion of evidenceDiscoveryConfig.reviewed_exclusions ?? []) {
+  if (!exclusion.source_url?.startsWith('https://'))
+    fail('evidence discovery reviewed exclusion requires an HTTPS source URL');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(exclusion.reviewed_on ?? ''))
+    fail('evidence discovery reviewed exclusion requires a review date');
+  if (!exclusion.reason?.trim())
+    fail('evidence discovery reviewed exclusion requires a reason');
+}
 
 if (evaluationPolicy.surface_id && !surfaces.has(evaluationPolicy.surface_id))
   fail(
@@ -1014,7 +1022,7 @@ for (const item of [contentManifest.article, ...contentManifest.assets]) {
     );
 }
 for (const item of contentManifest.assets) {
-  const published = `public/assets/${path.basename(item.path)}`;
+  const published = item.path.replace(/^assets\/monitor\//, 'public/assets/');
   if ((await sha256(item.path)) !== (await sha256(published)))
     fail(`${published}: publication copy differs from ${item.path}`);
 }

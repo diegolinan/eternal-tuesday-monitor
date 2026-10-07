@@ -26,6 +26,10 @@ on:
         description: 'Active evreview identifier when correcting an earlier decision'
         required: false
         type: string
+      reviewer_identity:
+        description: 'Verified private review identity, when submitted through the review desk'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -58,7 +62,7 @@ jobs:
           CANDIDATE_ID: ${{ inputs.candidate_id }}
           REVIEW_DECISION: ${{ inputs.decision }}
           REVIEW_REASON: ${{ inputs.reason }}
-          REVIEWER: ${{ github.actor }}
+          REVIEWER: ${{ inputs.reviewer_identity || github.actor }}
           SUPERSEDES_REVIEW_ID: ${{ inputs.supersedes_review_id }}
         run: npm run evidence:review
       - run: npm run data:validate -- --base HEAD

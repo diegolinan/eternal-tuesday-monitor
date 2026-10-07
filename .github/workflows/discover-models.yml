@@ -140,6 +140,10 @@ jobs:
             public/data/changelog.json
             public/data/model-options.json
             public/data/model-operations.json
+      - name: Read evidence leads already awaiting review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/evidence-discovery/pending-proposals.mjs
       - name: Stage new evidence leads separately
         run: npm run evidence:stage
       - name: Validate evidence proposal when present

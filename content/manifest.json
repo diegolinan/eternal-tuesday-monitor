@@ -1,26 +1,38 @@
 {
   "schema_version": "1.0.0",
-  "provenance": "Supplied with The Eternal Tuesday Monitor Site version 1",
+  "provenance": "Article preserved from Site version 1; original abstract visual assets generated for the October 2026 JEV redesign. See assets/monitor/jev/README.md.",
   "article": {
     "path": "content/articles/your-ai-lives-in-an-eternal-tuesday.md",
     "sha256": "dc2c51d0b6094de018ffedf75c5446e2d9c02f8712193356fe53987c3bb4703a"
   },
   "assets": [
     {
-      "path": "assets/monitor/diagnostic-panel.png",
-      "sha256": "c1dec246ef261d1bebf4e4f92db4be856172cb0856a82e86ddd55e3045a8153c"
+      "path": "assets/monitor/jev/sequence-collage.png",
+      "sha256": "7275b590cb689a672941c510462ef12cd6cdc694d9fa19da11c247d538cf8e55"
     },
     {
-      "path": "assets/monitor/eternal-tuesday-banner.png",
-      "sha256": "927194d1aa0ffba2d29a08f4453353f0bcffa1c818b4516ef218b97d7b150b82"
+      "path": "assets/monitor/jev/state-overlay.png",
+      "sha256": "da9f8f4844b9e645b3e0910f4cca7ee25bc1320df9f1168441dcb66e3e4dba6d"
     },
     {
-      "path": "assets/monitor/monitor-exhibit.png",
-      "sha256": "2760b6f95ad54a4cb0fc1a7e2c2c3eba505b563c68750df00b29d766db417511"
+      "path": "assets/monitor/jev/temporal-anchor-v2.webp",
+      "sha256": "8966de6b39a4c3a74e424c035c6e30d30f3863c1f1e82855c0d822fd4521ee28"
     },
     {
-      "path": "assets/monitor/same-sequence-different-time.png",
-      "sha256": "a26440295a21fa11672dab1312aa9e884d8aa21fbae78895937f52d346f4fc69"
+      "path": "assets/monitor/jev/elapsed-time-v2.webp",
+      "sha256": "e8916af65e5d9b63ccc46c85a4c8b2ca25bf5c25dcf0c750324dc97a44b4cb5c"
+    },
+    {
+      "path": "assets/monitor/jev/revalidation-v2.webp",
+      "sha256": "364a3855b874cbb16fd5307796a2ab05daa48ad10a6f8b79c2dfa6305397e912"
+    },
+    {
+      "path": "assets/monitor/jev/state-reconciliation-v2.webp",
+      "sha256": "e19d25dddcfb8e731f5fc519f4671a73a6fb0d43bbb3946e36691d5c704bb28b"
+    },
+    {
+      "path": "assets/monitor/jev/historical-validity-v2.webp",
+      "sha256": "217d30c614e26426719666b98d2876722db6db6a7c9a104a303177974556caa0"
     }
   ]
 }
