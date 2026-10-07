@@ -253,3 +253,13 @@ test('abstract editorial visuals replace image-based state labels', async () => 
   assert.match(css, /prefers-reduced-motion: reduce/);
   assert.match(css, /@media[^{]*620px/);
 });
+
+test('the 3D title object does not replace the interactive state-drift illustration', async () => {
+  const [page, css] = await Promise.all([
+    read('app/page.tsx'),
+    read('app/temporal-clock-hero.css'),
+  ]);
+  assert.match(page, /<div className="hero-first-plane">[\s\S]*?<TemporalClockHero \/>/);
+  assert.match(page, /<div className="hero-second-plane">[\s\S]*?<div className="hero-copy">[\s\S]*?<Chronoscope \/>/);
+  assert.match(css, /\.hero-second-plane\s*\{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) minmax\(0, 1fr\)/);
+});

@@ -6,6 +6,7 @@ import './globals.css';
 import './editorial.css';
 import './jev-system.css';
 import './typesafe-reference.css';
+import './temporal-clock-hero.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(canonicalSiteUrl),

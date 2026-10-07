@@ -24,6 +24,7 @@ import { EvidenceWatch } from '@/components/evidence-watch';
 import { StatusEmblem } from '@/components/status-emblem';
 import { VendorMark } from '@/components/vendor-mark';
 import { Chronoscope } from '@/components/chronoscope';
+import { TemporalClockHero } from '@/components/temporal-clock-hero';
 import { ScrollRevealImage } from '@/components/scroll-reveal-image';
 import { SignalEphemera } from '@/components/signal-ephemera';
 import { TemporalInterlude } from '@/components/temporal-interlude';
@@ -946,6 +947,15 @@ export default function Home() {
   return (
     <main id="main-content" tabIndex={-1}>
       <section className="hero" aria-labelledby="page-title">
+        <div className="hero-first-plane">
+          <h1 className="hero-masthead" id="page-title">
+            <span>The</span>
+            <span>Eternal</span>
+            <span>Tuesday</span>
+            <span>Monitor.</span>
+          </h1>
+          <TemporalClockHero />
+        </div>
         <header className="masthead hero-navigation">
           <span className="hero-navigation-label" aria-hidden="true">
             ETM / PUBLIC OBSERVATORY
@@ -960,25 +970,21 @@ export default function Home() {
             <a href={withBasePath('/contribute/')}>Contribute</a>
           </nav>
         </header>
-        <h1 className="hero-masthead" id="page-title">
-          <span>The Eternal</span>
-          <span>
-            Tuesday <span>Monitor.</span>
-          </span>
-        </h1>
-        <div className="hero-copy">
-          <p className="eyebrow">Public observation station · ETM-1.0</p>
-          <p className="hero-lede">
-            A persistent conversation can preserve continuity while the world
-            outside it changes.
-          </p>
-          <p className="hero-note">
-            The Monitor tracks what we can actually verify about temporal
-            continuity in current AI products. It is dated evidence, not a
-            permanent ranking.
-          </p>
+        <div className="hero-second-plane">
+          <div className="hero-copy">
+            <p className="eyebrow">Public observation station · ETM-1.0</p>
+            <p className="hero-lede">
+              A persistent conversation can preserve continuity while the world
+              outside it changes.
+            </p>
+            <p className="hero-note">
+              The Monitor tracks what we can actually verify about temporal
+              continuity in current AI products. It is dated evidence, not a
+              permanent ranking.
+            </p>
+          </div>
+          <Chronoscope />
         </div>
-        <Chronoscope />
       </section>
 
       <AutomationStatus />
