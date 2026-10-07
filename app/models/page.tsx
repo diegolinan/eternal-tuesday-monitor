@@ -13,7 +13,7 @@ export const dynamic = 'force-static';
 
 export default function ModelsPage() {
   return (
-    <main className="models-page" id="main-content">
+    <main className="models-page" id="main-content" tabIndex={-1}>
       <header className="masthead">
         <a className="series-mark" href={withBasePath('/')}>
           The Eternal Tuesday Monitor

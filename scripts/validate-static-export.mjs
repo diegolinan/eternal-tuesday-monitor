@@ -54,10 +54,13 @@ await Promise.all([
   requireFile('data/contributors.json'),
   requireFile('favicon.svg'),
   requireFile('favicon-32.png'),
-  requireFile('assets/eternal-tuesday-banner.png'),
-  requireFile('assets/diagnostic-panel.png'),
-  requireFile('assets/monitor-exhibit.png'),
-  requireFile('assets/same-sequence-different-time.png'),
+  requireFile('assets/jev/sequence-collage.webp'),
+  requireFile('assets/jev/state-overlay.webp'),
+  requireFile('assets/jev/temporal-anchor-v2.webp'),
+  requireFile('assets/jev/elapsed-time-v2.webp'),
+  requireFile('assets/jev/revalidation-v2.webp'),
+  requireFile('assets/jev/state-reconciliation-v2.webp'),
+  requireFile('assets/jev/historical-validity-v2.webp'),
 ]);
 
 try {
@@ -275,7 +278,7 @@ try {
 
 try {
   const changelog = await read('changelog/index.html');
-  if (!changelog.includes('Monitor changelog'))
+  if (!changelog.includes('Monitor Changelog'))
     fail('changelog HTML is missing its public heading');
   const publicChanges = JSON.parse(await read('data/changelog.json'));
   if (!Array.isArray(publicChanges.events) || publicChanges.events.length === 0)
@@ -299,5 +302,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Validated ${target} export: ${monitorData.observations.length} observations matching canonical data, release-aware changelog, four figures, responsive routes, and target-correct internal assets.`,
+  `Validated ${target} export: ${monitorData.observations.length} observations matching canonical data, release-aware changelog, abstract visual assets, responsive routes, and target-correct internal assets.`,
 );

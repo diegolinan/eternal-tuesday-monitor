@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-09-23",
+  "catalogCheckedThrough": "2026-10-06",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -26,6 +26,11 @@
           "id": "model-discovered-473d2baac36d5968b9d0",
           "name": "Claude Sonnet 5",
           "apiModelId": "claude-sonnet-5"
+        },
+        {
+          "id": "model-discovered-96d8ab554f3c88811afc",
+          "name": "Claude Sonnet 5.5",
+          "apiModelId": "claude-sonnet-5-5"
         },
         {
           "id": "model-fable-5",
@@ -217,6 +222,11 @@
           "id": "model-discovered-ee0a631bc7a1c2147ca6",
           "name": "Nano Banana 2 Lite",
           "apiModelId": "gemini-3.1-flash-lite-image"
+        },
+        {
+          "id": "model-discovered-5b7bfd3b88fda1402744",
+          "name": "Nano Banana 2.1",
+          "apiModelId": "gemini-nano-banana-2.1"
         },
         {
           "id": "model-discovered-5f80092f5e85cef40c36",
@@ -508,6 +518,11 @@
           "id": "model-discovered-e7386b22a080146fd592",
           "name": "GPT-6 Sol",
           "apiModelId": "gpt-6-sol"
+        },
+        {
+          "id": "model-discovered-3a9d9aadba682a8cf86a",
+          "name": "GPT-6.1 Sol",
+          "apiModelId": "gpt-6.1-sol"
         },
         {
           "id": "model-discovered-a7b8efc666342264a603",

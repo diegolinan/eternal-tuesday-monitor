@@ -1014,7 +1014,7 @@ for (const item of [contentManifest.article, ...contentManifest.assets]) {
     );
 }
 for (const item of contentManifest.assets) {
-  const published = `public/assets/${path.basename(item.path)}`;
+  const published = item.path.replace(/^assets\/monitor\//, 'public/assets/');
   if ((await sha256(item.path)) !== (await sha256(published)))
     fail(`${published}: publication copy differs from ${item.path}`);
 }
