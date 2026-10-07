@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   alternates: { canonical: canonicalSiteUrl },
   icons: {
     icon: [
-      { url: withBasePath('/favicon.svg'), type: 'image/svg+xml' },
+      { url: withBasePath('/favicon.svg?v=temporal-1'), type: 'image/svg+xml' },
       {
-        url: withBasePath('/favicon-32.png'),
+        url: withBasePath('/favicon-32.png?v=temporal-1'),
         type: 'image/png',
         sizes: '32x32',
       },
     ],
-    shortcut: withBasePath('/favicon-32.png'),
+    shortcut: withBasePath('/favicon-32.png?v=temporal-1'),
   },
   openGraph: {
     type: 'website',
