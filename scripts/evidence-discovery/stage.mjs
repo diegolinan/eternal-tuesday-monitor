@@ -11,7 +11,26 @@ const [existing, proposed] = await Promise.all([
   lines('data/evidence-discovery/candidates.jsonl'),
   lines('.evidence-discovery/candidates.jsonl'),
 ]);
-const existingIds = new Set(existing.map((line) => JSON.parse(line).id));
+let pendingIds = [];
+try {
+  pendingIds = JSON.parse(
+    await readFile(
+      path.join(root, '.evidence-discovery/pending-pr-ids.json'),
+      'utf8',
+    ),
+  );
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
+if (
+  !Array.isArray(pendingIds) ||
+  pendingIds.some((id) => !/^evcand-[a-f0-9]{24}$/.test(id))
+)
+  throw new Error('INVALID_PENDING_CANDIDATE_IDS');
+const existingIds = new Set([
+  ...existing.map((line) => JSON.parse(line).id),
+  ...pendingIds,
+]);
 const additions = proposed.filter(
   (line) => !existingIds.has(JSON.parse(line).id),
 );

@@ -163,6 +163,9 @@ test('private page is served without exposing credentials and client script pars
   );
   assert.doesNotMatch(await response.text(), /GITHUB_APP_PRIVATE_KEY/);
   assert.doesNotThrow(() => new vm.Script(reviewJs));
+  assert.doesNotMatch(reviewJs, /\b(?:window\.)?(?:prompt|confirm)\s*\(/);
+  assert.match(reviewJs, /askInPage\(detail/);
+  assert.match(reviewJs, /reason\.minLength=20/);
 });
 
 test('manual validation runs trusted main code and materializes only allowed data', async () => {
