@@ -12,6 +12,13 @@
     "general_web_search": false
   },
   "public_issue_repositories": ["anthropics/claude-code", "cursor/cursor"],
+  "reviewed_exclusions": [
+    {
+      "source_url": "https://doi.org/10.7759/cureus.116995",
+      "reviewed_on": "2026-10-07",
+      "reason": "Clinical delirium care review; no AI product or temporal-continuity behavior under observation."
+    }
+  ],
   "queries": [
     {
       "id": "temporal-continuity",

@@ -147,6 +147,28 @@ test('candidate identity is stable and accepted URLs are excluded', () => {
   );
 });
 
+test('reviewed off-topic sources are excluded from later discovery runs', async () => {
+  const config = JSON.parse(
+    await readFile(path.join(root, 'config/evidence-discovery.json'), 'utf8'),
+  );
+  const reviewedUrls = new Set(
+    config.reviewed_exclusions.map((item) => item.source_url),
+  );
+  const clinicalReview = {
+    id: 'evcand-c9afc5c7984bc87b9c21e833',
+    source_url: 'https://doi.org/10.7759/cureus.116995',
+  };
+  assert.deepEqual(
+    dedupeCandidates([clinicalReview], new Set(), reviewedUrls),
+    [],
+  );
+  const runner = await readFile(
+    path.join(root, 'scripts/evidence-discovery/run.mjs'),
+    'utf8',
+  );
+  assert.match(runner, /config\.reviewed_exclusions/);
+});
+
 test('a firsthand report can remain a reproducible lead without inventing a source URL', () => {
   const fingerprint = 'a'.repeat(64);
   const candidate = buildCandidate({

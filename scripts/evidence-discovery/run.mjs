@@ -398,7 +398,10 @@ await generalWeb();
 
 const excludedIds = new Set(priorCandidates.map((item) => item.id));
 const excludedUrls = new Set(
-  acceptedSources.sources.map((item) => item.url).filter(Boolean),
+  [
+    ...acceptedSources.sources.map((item) => item.url),
+    ...(config.reviewed_exclusions ?? []).map((item) => item.source_url),
+  ].filter(Boolean),
 );
 const novel = dedupeCandidates(candidates, excludedIds, excludedUrls);
 const unavailable = channels.filter(
