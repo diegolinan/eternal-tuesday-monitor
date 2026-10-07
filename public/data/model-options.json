@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-10-06",
+  "catalogCheckedThrough": "2026-10-07",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -11,6 +11,11 @@
           "id": "model-discovered-58ae42fa2da27922842c",
           "name": "Claude Haiku 4.5",
           "apiModelId": "claude-haiku-4-5-20251001"
+        },
+        {
+          "id": "model-discovered-6ecba795d54626cad53a",
+          "name": "Claude Haiku 5.5",
+          "apiModelId": "claude-haiku-5-5"
         },
         {
           "id": "model-claude-opus-5",

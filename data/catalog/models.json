@@ -2668,6 +2668,44 @@
       ]
     },
     {
+      "id": "model-discovered-6ecba795d54626cad53a",
+      "vendor_id": "vendor-anthropic",
+      "name": "Claude Haiku 5.5",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "claude-haiku-5-5",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-10-07",
+        "reason": "The reviewed policy tracks Claude general-purpose model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "anthropic-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-anthropic-docs",
+          "url": "https://platform.claude.com/docs/en/models/overview",
+          "checked_on": "2026-10-07",
+          "sha256": "c84d501262cad35909a70c46ae699c726995d68b16a6cddc15ca56e2159e88ed",
+          "fetched_at": "2026-10-07T19:06:04.777Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "anthropic-docs",
+          "adapter_version": "1",
+          "parser_version": "1",
+          "checked_from_commit": "5cf89f4e723e1b7af3a81f0f45778413e8dc9026",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-anthropic-docs/c84d501262cad35909a70c46ae699c726995d68b16a6cddc15ca56e2159e88ed.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-70c3ac4805a382e7499d",
       "vendor_id": "vendor-openai",
       "name": "GPT-5.4 Mini",
