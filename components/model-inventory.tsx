@@ -4,6 +4,14 @@ import { useMemo, useState } from 'react';
 import { ChevronRight, Search } from 'lucide-react';
 import { StatusEmblem } from '@/components/status-emblem';
 import { VendorMark } from '@/components/vendor-mark';
+import { CopyViewLink } from '@/components/share-links';
+import { useViewUrl } from '@/components/use-view-url';
+import { readModelView, viewHref } from '@/lib/view-links.mjs';
+import { withBasePath } from '@/lib/site-paths';
+import {
+  ModelSignalGlyph,
+  ModelSignalKey,
+} from '@/components/model-signal-key';
 
 type ProbeCoverage = {
   id: string;
@@ -332,7 +340,8 @@ function ModelDetail({
         className="model-activity"
         aria-label={`${model.name} source scan, controlled-test readiness, and behavioral evidence`}
       >
-        <section>
+        <section data-signal="catalog">
+          <ModelSignalGlyph kind="catalog" />
           <span>
             {listingScanApplies ? 'Official-source scan' : 'Catalog provenance'}
           </span>
@@ -370,7 +379,8 @@ function ModelDetail({
             </small>
           )}
         </section>
-        <section>
+        <section data-signal="readiness">
+          <ModelSignalGlyph kind="readiness" />
           <span>Controlled-test readiness</span>
           <strong>
             {operations
@@ -404,7 +414,8 @@ function ModelDetail({
             </small>
           )}
         </section>
-        <section>
+        <section data-signal="evidence">
+          <ModelSignalGlyph kind="evidence" />
           <span>Behavioral probe evidence</span>
           <strong>
             {operations?.behavioralEvaluation.state === 'COMPLETED'
@@ -555,16 +566,24 @@ function ModelDetail({
 function ModelRow({
   model,
   operations,
+  linked,
 }: {
   model: DiscoveredModel;
   operations: ModelOperationalStatus | null;
+  linked: boolean;
 }) {
+  const [open, setOpen] = useState(linked);
   const group = registryGroup(model);
   const tested = model.probeCoverage.filter(
     (probe) => probe.empiricalResult || probe.state === 'TESTED',
   ).length;
   return (
-    <details className="model-row">
+    <details
+      className="model-row"
+      id={model.id}
+      open={open}
+      onToggle={(event) => setOpen(event.currentTarget.open)}
+    >
       <summary>
         <ChevronRight aria-hidden="true" />
         <span className="model-row-name">
@@ -576,6 +595,17 @@ function ModelRow({
           {tested}/5 PROBES WITH ACCEPTED EVIDENCE
         </span>
       </summary>
+      <div className="model-link-line">
+        <a
+          href={viewHref(
+            withBasePath('/models/'),
+            { model: model.id },
+            model.id,
+          )}
+        >
+          Link to this model →
+        </a>
+      </div>
       <ModelDetail model={model} operations={operations} />
     </details>
   );
@@ -595,8 +625,12 @@ export function ModelInventory({
   models: DiscoveredModel[];
   operations?: ModelOperationalStatus[];
 }) {
-  const [scope, setScope] = useState<'focus' | 'all'>('focus');
-  const [query, setQuery] = useState('');
+  const view = useViewUrl();
+  const { scope, query, modelId, missingModel } = readModelView(
+    view.search,
+    models,
+  );
+  const linkedModel = models.find((model) => model.id === modelId);
   const [openVendors, setOpenVendors] = useState(new Set<string>());
   const [openGroups, setOpenGroups] = useState(new Set<string>());
   const needle = query.trim().toLowerCase();
@@ -608,6 +642,7 @@ export function ModelInventory({
   const visible = useMemo(
     () =>
       models.filter((model) => {
+        if (model.id === modelId) return true;
         const matchesText =
           !needle ||
           `${model.name} ${model.vendor} ${model.apiModelId ?? ''}`
@@ -618,7 +653,7 @@ export function ModelInventory({
           matchesText
         );
       }),
-    [models, needle, scope],
+    [models, needle, scope, modelId],
   );
 
   const vendors = useMemo(() => {
@@ -666,13 +701,24 @@ export function ModelInventory({
           <h2 id="models-title">What the Monitor knows</h2>
         </div>
         <p>
-          A model can appear in an official catalog without being behaviorally
-          tested. Open a vendor, then a status group, to see its listing scan,
-          evidence-watch state, controlled-test readiness, and accepted probe
-          evidence as separate claims.
+          Open a vendor and status group to inspect an exact model. Each record
+          keeps its sources, readiness decisions and accepted evidence separate.
         </p>
       </div>
 
+      <ModelSignalKey />
+      {missingModel && (
+        <aside className="view-notice" aria-live="polite">
+          <strong>Model Link Not Found</strong>
+          <p>
+            This catalog has no record for <code>{missingModel}</code>. The
+            register remains available below; this is not a model verdict.
+          </p>
+          <button type="button" onClick={() => view.update({ model: null })}>
+            Dismiss this notice
+          </button>
+        </aside>
+      )}
       <div className="coverage-summary" aria-label="Model registry summary">
         <div>
           <strong>{counts.TESTED ?? 0}</strong>
@@ -696,78 +742,105 @@ export function ModelInventory({
         <div className="coverage-scope" aria-label="Model coverage scope">
           <button
             type="button"
+            disabled={!view.ready}
             aria-pressed={scope === 'focus'}
-            onClick={() => setScope('focus')}
+            onClick={() => view.update({ scope: null, model: null })}
           >
             Monitoring focus
           </button>
           <button
             type="button"
+            disabled={!view.ready}
             aria-pressed={scope === 'all'}
-            onClick={() => setScope('all')}
+            onClick={() => view.update({ scope: 'all', model: null })}
           >
             All known models
           </button>
         </div>
-        <label className="coverage-search">
-          <span>Find a model or API ID</span>
+        <div className="coverage-search">
+          <label htmlFor="model-search">Find a model or API ID</label>
           <div>
             <Search aria-hidden="true" />
             <input
+              id="model-search"
+              type="search"
+              disabled={!view.ready}
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) =>
+                view.update({ q: event.target.value, model: null }, 'replace')
+              }
               placeholder="Search the accepted catalog"
             />
+            {query && (
+              <button
+                className="clear-search"
+                type="button"
+                onClick={() => view.update({ q: null, model: null }, 'replace')}
+              >
+                Clear search
+              </button>
+            )}
           </div>
-        </label>
+        </div>
       </div>
 
+      <CopyViewLink key={view.snapshot} disabled={!view.ready} />
       <p className="coverage-explainer">
         Monitoring focus shows identities with evidence or an active evidence
-        watch. The complete catalog includes every tracked official identity;
-        inclusion does not imply API access, product availability, or behavior.
+        watch. Searching also includes the complete catalog.
       </p>
-      <dl className="coverage-glossary">
-        <div>
-          <dt>ACCEPTED PROBE EVIDENCE</dt>
-          <dd>At least one probe has accepted behavioral evidence.</dd>
-        </div>
-        <div>
-          <dt>READY FOR CONTROLLED TEST</dt>
-          <dd>
-            A reviewed method exists and the model is ready to enter the test
-            queue; no behavioral result exists yet.
-          </dd>
-        </div>
-        <div>
-          <dt>PUBLIC EVIDENCE SEARCH ACTIVE</dt>
-          <dd>
-            Public sources are searched for relevant claims; no accepted
-            behavioral result exists yet.
-          </dd>
-        </div>
-        <div>
-          <dt>METHOD OR IDENTITY DECISION PENDING</dt>
-          <dd>
-            A specific identity or source ambiguity needs a human decision.
-          </dd>
-        </div>
-        <div>
-          <dt>CATALOG IDENTITY ONLY</dt>
-          <dd>
-            An identity is retained for catalog or historical evidence; current
-            listing and behavior are not implied.
-          </dd>
-        </div>
-      </dl>
-      <p className="coverage-result-count">
-        {visible.length} matching models in {vendors.length} vendor groups.
-      </p>
+      <details className="coverage-key">
+        <summary>What Do These Status Labels Mean?</summary>
+        <dl className="coverage-glossary">
+          <div>
+            <dt>ACCEPTED PROBE EVIDENCE</dt>
+            <dd>At least one probe has accepted behavioral evidence.</dd>
+          </div>
+          <div>
+            <dt>READY FOR CONTROLLED TEST</dt>
+            <dd>
+              A reviewed method exists and the model is ready to enter the test
+              queue; no behavioral result exists yet.
+            </dd>
+          </div>
+          <div>
+            <dt>PUBLIC EVIDENCE SEARCH ACTIVE</dt>
+            <dd>
+              Public sources are searched for relevant claims; no accepted
+              behavioral result exists yet.
+            </dd>
+          </div>
+          <div>
+            <dt>METHOD OR IDENTITY DECISION PENDING</dt>
+            <dd>
+              A specific identity or source ambiguity needs a human decision.
+            </dd>
+          </div>
+          <div>
+            <dt>CATALOG IDENTITY ONLY</dt>
+            <dd>
+              An identity is retained for catalog or historical evidence;
+              current listing and behavior are not implied.
+            </dd>
+          </div>
+        </dl>
+      </details>
+      <output
+        className="coverage-result-count"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {visible.length} matching model{visible.length === 1 ? '' : 's'} in{' '}
+        {vendors.length} vendor group{vendors.length === 1 ? '' : 's'}.
+      </output>
 
       {vendors.length ? (
         <div className="vendor-register">
           {vendors.map(({ vendor, total, groups }) => {
-            const vendorOpen = Boolean(needle) || openVendors.has(vendor);
+            const vendorOpen =
+              Boolean(needle) ||
+              linkedModel?.vendor === vendor ||
+              openVendors.has(vendor);
             return (
               <details
                 className="vendor-register-group"
@@ -788,13 +861,17 @@ export function ModelInventory({
                     vendor={vendor}
                     vendorId={groups[0]?.models[0]?.vendorId}
                   />
-                  <strong>{total} MODELS</strong>
+                  <strong>
+                    {total} MODEL{total === 1 ? '' : 'S'}
+                  </strong>
                 </summary>
                 <div className="registry-status-groups">
                   {groups.map((group) => {
                     const groupKey = `${vendor}:${group.name}`;
                     const groupOpen =
-                      Boolean(needle) || openGroups.has(groupKey);
+                      Boolean(needle) ||
+                      group.models.some((model) => model.id === modelId) ||
+                      openGroups.has(groupKey);
                     return (
                       <details
                         className="registry-status-group"
@@ -820,8 +897,9 @@ export function ModelInventory({
                         <div className="model-rows">
                           {group.models.map((model) => (
                             <ModelRow
-                              key={model.id}
+                              key={`${model.id}:${model.id === modelId}`}
                               model={model}
+                              linked={model.id === modelId}
                               operations={
                                 operationsByModel.get(model.id) ?? null
                               }
@@ -839,7 +917,11 @@ export function ModelInventory({
       ) : (
         <div className="empty-state">
           <span>NO MATCHING MODEL</span>
-          <p>Try the complete catalog or another model/API identifier.</p>
+          <p>
+            {needle
+              ? 'This search already includes the complete catalog. Clear the search or try another model/API identifier.'
+              : 'Try All known models to include catalog-only identities.'}
+          </p>
         </div>
       )}
     </section>

@@ -116,9 +116,9 @@ No overall product score is part of the contract.
 ## Repository layout
 
 ```text
-assets/monitor/                 Canonical supplied visual assets
+assets/monitor/                 Canonical original editorial visual assets
 content/articles/               Archived launch-source material (not publicly routed)
-content/manifest.json           Byte hashes and historical provenance for supplied content
+content/manifest.json           Byte hashes and provenance for article and visual content
 data/catalog/                   Vendors, products, surfaces, models, probes and statuses
 data/methodologies/             Versioned admission and review methods
 data/sources/                   Versioned source records, including archived launch provenance

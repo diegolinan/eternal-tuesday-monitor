@@ -1,52 +1,16 @@
-import {
-  AlarmClock,
-  Archive,
-  BadgeCheck,
-  BookOpenText,
-  CircleHelp,
-  ClipboardClock,
-  Clock3,
-  FlaskConical,
-  GitCompareArrows,
-  MessageSquareText,
-  Radar,
-  RefreshCcw,
-  TriangleAlert,
-} from 'lucide-react';
-
 const normalize = (value: string) => value.toUpperCase().replaceAll('_', ' ');
 
-function StatusIcon({ value }: { value: string }) {
-  const status = normalize(value);
-  if (status.includes('TEMPORAL ANCHOR'))
-    return <AlarmClock aria-hidden="true" />;
-  if (status === 'ELAPSED') return <Clock3 aria-hidden="true" />;
-  if (status === 'REVALIDATION') return <RefreshCcw aria-hidden="true" />;
-  if (status.includes('STATE RECONCILIATION'))
-    return <GitCompareArrows aria-hidden="true" />;
-  if (status.includes('HISTORICAL VALIDITY'))
-    return <Archive aria-hidden="true" />;
-  if (status.includes('RETEST')) return <AlarmClock aria-hidden="true" />;
-  if (status.includes('TEST REQUIRED'))
-    return <ClipboardClock aria-hidden="true" />;
-  if (status.includes('EVIDENCE WATCH')) return <Radar aria-hidden="true" />;
-  if (status.includes('HISTORICAL')) return <Archive aria-hidden="true" />;
-  if (status.includes('FAIL')) return <TriangleAlert aria-hidden="true" />;
-  if (status.includes('NO PUBLIC') || status.includes('NO CURRENT'))
-    return <Radar aria-hidden="true" />;
-  if (status.includes('CONTROLLED')) return <FlaskConical aria-hidden="true" />;
-  if (status.includes('REPORT') || status.includes('CONFIRMATION'))
-    return <MessageSquareText aria-hidden="true" />;
-  if (status.includes('DOCUMENT') || status.includes('PROVIDER'))
-    return <BookOpenText aria-hidden="true" />;
+function labelFamily(label: string) {
+  if (label.includes('FAIL') || label.includes('ATTENTION')) return 'tag';
   if (
-    status.includes('VERIFIED') ||
-    status.includes('TESTED') ||
-    status.includes('SUFFICIENT') ||
-    status.includes('REPRODUCED')
+    label.includes('RETEST') ||
+    label.includes('REVIEW') ||
+    label.includes('TEST REQUIRED') ||
+    label.includes('NO TEST') ||
+    label.includes('NO ACCEPTED')
   )
-    return <BadgeCheck aria-hidden="true" />;
-  return <CircleHelp aria-hidden="true" />;
+    return 'burst';
+  return 'ticket';
 }
 
 export function StatusEmblem({
@@ -58,12 +22,12 @@ export function StatusEmblem({
 }) {
   const label = normalize(value);
   const tone = label.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-');
+  const family = labelFamily(label);
   return (
     <span
-      className={`status-emblem status-emblem-${tone}${compact ? ' compact' : ''}`}
+      className={`status-emblem status-emblem-${tone} status-emblem--${family}${compact ? ' compact' : ''}`}
     >
-      <StatusIcon value={label} />
-      <span>{label}</span>
+      <span className="status-emblem-copy">{label}</span>
     </span>
   );
 }

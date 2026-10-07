@@ -72,7 +72,7 @@ const localToday = () => {
 function FieldMark({ optional = false }: { optional?: boolean }) {
   return (
     <span className={`field-mark ${optional ? 'optional' : 'required'}`}>
-      {optional ? 'OPTIONAL' : 'REQUIRED'}
+      {optional ? 'Optional' : 'Required'}
     </span>
   );
 }
@@ -317,7 +317,7 @@ export default function ContributePage() {
   const available = desk === 'open';
 
   return (
-    <main className="contribute-page" id="main-content">
+    <main className="contribute-page" id="main-content" tabIndex={-1}>
       {endpoint && siteKey && (
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
@@ -352,6 +352,15 @@ export default function ContributePage() {
       <section className="contribute-layout">
         <div>
           <form ref={formRef} className="contribution-form" onSubmit={review}>
+            {desk !== 'open' && (
+              <output className="form-unavailable" aria-live="polite">
+                {desk === 'checking'
+                  ? 'Checking whether the service desk is open…'
+                  : desk === 'closed'
+                    ? 'The service desk is temporarily closed.'
+                    : 'The service desk is temporarily unavailable. Nothing can be submitted right now.'}
+              </output>
+            )}
             <div className="form-intro">
               <strong>A lead is not a verdict.</strong>
               <p>
@@ -623,7 +632,7 @@ export default function ContributePage() {
                     <input name="affiliation" maxLength={120} />
                   </label>
                 </div>
-                <label className="checkbox-line">
+                <label className="checkbox-line attribution-consent">
                   <input
                     name="attributionConsent"
                     type="checkbox"
@@ -639,15 +648,6 @@ export default function ContributePage() {
                 <input name="website" tabIndex={-1} autoComplete="off" />
               </label>
             </fieldset>
-            {desk !== 'open' && (
-              <output className="form-unavailable">
-                {desk === 'checking'
-                  ? 'Checking whether the service desk is open…'
-                  : desk === 'closed'
-                    ? 'The service desk is temporarily closed.'
-                    : 'The service desk is temporarily unavailable. Nothing can be submitted right now.'}
-              </output>
-            )}
             {(phase === 'editing' || phase === 'error') && (
               <button
                 className="service-station-button"

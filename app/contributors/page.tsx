@@ -1,5 +1,7 @@
 import { withBasePath } from '@/lib/site-paths';
 import contributorsSnapshot from '@/public/data/contributors.json';
+import { ResponsibilityMap } from '@/components/responsibility-map';
+import { Permalink } from '@/components/share-links';
 
 export const dynamic = 'force-static';
 
@@ -37,10 +39,10 @@ function ContributorCard({
         </span>
         <b>SINCE {contributor.started_on}</b>
       </header>
-      <div>
+      <div className="clockkeeper-card-body">
         <h3>{contributor.display_name}</h3>
         <p className="clockkeeper-role">{contributor.role_summary}</p>
-        <p>{contributor.description}</p>
+        <p className="clockkeeper-description">{contributor.description}</p>
         {contributions.length > 0 ? (
           <details>
             <summary>
@@ -78,7 +80,7 @@ export default function ContributorsPage() {
     data.contributions.filter((item) => item.contributor_id === id);
 
   return (
-    <main className="contributors-page" id="main-content">
+    <main className="contributors-page" id="main-content" tabIndex={-1}>
       <header className="masthead">
         <a className="series-mark" href={withBasePath('/')}>
           The Eternal Tuesday Monitor
@@ -94,17 +96,20 @@ export default function ContributorsPage() {
         <p className="eyebrow">PUBLIC ATTRIBUTION LEDGER · NO LEADERBOARD</p>
         <h1>The Clockkeepers</h1>
         <p>
-          The Monitor separates human judgment from automated work. A name here
-          identifies a bounded contribution; it does not transfer authorship,
-          evidentiary authority, or responsibility across the whole project.
+          A public record of bounded contributions—not shared authorship,
+          evidentiary authority or responsibility for the whole project.
         </p>
       </section>
 
+      <ResponsibilityMap />
       <section className="clockkeeper-section" aria-labelledby="people-title">
         <div className="section-heading">
           <div>
             <p className="section-code">HUMAN DESK</p>
-            <h2 id="people-title">People</h2>
+            <h2 id="people-title">
+              People
+              <Permalink href="#people-title" label="People" />
+            </h2>
           </div>
           <p>
             Public names appear only with consent. A submitted lead never makes
@@ -129,7 +134,10 @@ export default function ContributorsPage() {
         <div className="section-heading section-heading-light">
           <div>
             <p className="section-code">MACHINE ROOM</p>
-            <h2 id="systems-title">Automated systems</h2>
+            <h2 id="systems-title">
+              Automated systems
+              <Permalink href="#systems-title" label="Automated systems" />
+            </h2>
           </div>
           <p>
             These systems detect, search, recalculate or execute. None of them
@@ -155,12 +163,6 @@ export default function ContributorsPage() {
           analytics.
         </p>
       </aside>
-
-      <footer>
-        <span>THE CLOCKKEEPERS</span>
-        <a href={withBasePath('/contribute/')}>REPORT A TIME LEAK</a>
-        <a href={withBasePath('/')}>RETURN TO THE MONITOR</a>
-      </footer>
     </main>
   );
 }
