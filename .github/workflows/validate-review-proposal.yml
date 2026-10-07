@@ -46,10 +46,10 @@ jobs:
         with:
           ref: ${{ inputs.head_sha }}
           fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: npm
       - run: npm ci
       - run: git fetch origin main
       - run: npm run data:validate -- --base origin/main
