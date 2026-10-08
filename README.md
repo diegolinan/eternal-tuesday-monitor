@@ -1,5 +1,19 @@
 # The Eternal Tuesday Monitor
 
+[![Open Monitor](https://img.shields.io/badge/monitor-open-006F75?style=flat-square&labelColor=1E1E1E)](https://eternal-tuesday-monitor.vercel.app/)
+[![Validate](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/validate.yml)
+[![Source watch](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/discover-models.yml/badge.svg?branch=main)](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/discover-models.yml)
+[![Pages fallback](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/pages.yml)
+[![Documentation](https://img.shields.io/badge/docs-read-806400?style=flat-square&labelColor=1E1E1E)](docs/operations.md)
+
+[![Data release](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.publishedOn&label=data%20release&color=AD2D5B&style=flat-square&labelColor=1E1E1E)](data/releases/)
+[![Evidence through](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.dataCutoff&label=evidence%20through&color=806400&style=flat-square&labelColor=1E1E1E)](data/releases/)
+[![Method](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.methodologyVersion&label=method&color=006F75&style=flat-square&labelColor=1E1E1E)](data/methodologies/)
+[![Observations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.observations.length&label=observations&color=AD2D5B&style=flat-square&labelColor=1E1E1E)](data/observations/observations.jsonl)
+[![Contribute](https://img.shields.io/badge/evidence-contribute-AD2D5B?style=flat-square&labelColor=1E1E1E)](https://eternal-tuesday-monitor.vercel.app/contribute/)
+
+The dated release and evidence cutoff describe the published dataset, not the age of the site deployment. The method and observation badges also read the live public projection; workflow badges report GitHub Actions status.
+
 ## GitHub-native public-source discovery
 
 The public model register and the observation table answer different questions. Entity discovery, vendor source evidence, and behavioral observation are separate layers. No discovered model automatically receives a PASS/FAIL, and no model identity implies adoption by ChatGPT, Claude, Gemini, Grok, Cursor, or another product surface.
