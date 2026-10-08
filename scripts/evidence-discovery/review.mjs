@@ -5,6 +5,7 @@ export const candidateReviewDecisions = Object.freeze([
   'REJECTED_UNVERIFIABLE',
   'DUPLICATE',
   'NEEDS_MORE_INFORMATION',
+  'RETAINED_AS_RESEARCH',
   'ACCEPTED_AS_SUPPORTING_SOURCE',
   'REQUIRES_BEHAVIORAL_REPRODUCTION',
 ]);
@@ -33,6 +34,11 @@ export function buildCandidateReview({
   if (!candidate?.id) throw new Error('CANDIDATE_REQUIRED');
   if (!candidateReviewDecisions.includes(decision))
     throw new Error('INVALID_REVIEW_DECISION');
+  if (
+    decision === 'RETAINED_AS_RESEARCH' &&
+    candidate.claim_class !== 'RESEARCH_RESULT'
+  )
+    throw new Error('RESEARCH_DECISION_REQUIRES_RESEARCH_RESULT');
   const normalizedReason = String(reason ?? '').trim();
   if (normalizedReason.length < 20 || normalizedReason.length > 1200)
     throw new Error('INVALID_REVIEW_REASON');

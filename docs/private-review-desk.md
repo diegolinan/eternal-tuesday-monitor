@@ -9,6 +9,7 @@ The review desk is a separate Cloudflare Worker with the Monitor's visual langua
 - Allows the reviewer to merge a proposal only when its branch, labels, author, file allowlist, expected head SHA, current base SHA, mergeability, and explicit validation all match. Merging to `main` uses the existing production deployment workflows. The desk cannot merge code changes or arbitrary pull requests.
 - Allows closing a proposal with a recorded reason.
 - Shows incorporated evidence leads one by one. A decision with an evidence-based reason dispatches the existing `Review one evidence candidate` workflow, which opens a new append-only decision proposal. The reviewer then publishes that proposal from the same desk after validation. No candidate decision directly creates an observation, product/model association, PASS, or FAIL.
+- Shows automatically inferred product, model and surface tags on both proposals and incorporated leads as unverified suggestions. Research results can be marked `RETAINED_AS_RESEARCH` to preserve methodological context without accepting a supporting source or claiming product behavior.
 
 Proposal approval remains a batch operation because the current discovery workflows group a daily run in one pull request. The detail view makes the full batch visible. If finer model-by-model approval is needed, the discovery workflow must first stage separate proposals; the desk will not silently edit a generated batch.
 

@@ -14,6 +14,7 @@ const decisions = new Set([
   'REJECTED_UNVERIFIABLE',
   'DUPLICATE',
   'NEEDS_MORE_INFORMATION',
+  'RETAINED_AS_RESEARCH',
   'ACCEPTED_AS_SUPPORTING_SOURCE',
   'REQUIRES_BEHAVIORAL_REPRODUCTION',
 ]);
@@ -174,6 +175,7 @@ export const reviewWorker = {
               probes: entry.probe_ids ?? [],
               modelIds: entry.model_ids ?? [],
               productIds: entry.product_ids ?? [],
+              surfaceIds: entry.surface_ids ?? [],
               claimClass: entry.claim_class ?? null,
             }))
             .slice(-250)

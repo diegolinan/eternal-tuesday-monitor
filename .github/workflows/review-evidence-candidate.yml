@@ -13,6 +13,7 @@ on:
         type: choice
         options:
           - NEEDS_MORE_INFORMATION
+          - RETAINED_AS_RESEARCH
           - REQUIRES_BEHAVIORAL_REPRODUCTION
           - ACCEPTED_AS_SUPPORTING_SOURCE
           - DUPLICATE

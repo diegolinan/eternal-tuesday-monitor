@@ -371,8 +371,14 @@ export async function dispatchCandidateReview(
     env,
     'data/evidence-discovery/candidates.jsonl',
   );
-  if (!candidates.some((candidate) => candidate.id === candidateId))
+  const candidate = candidates.find((item) => item.id === candidateId);
+  if (!candidate)
     throw new Error('UNKNOWN_CANDIDATE');
+  if (
+    decision === 'RETAINED_AS_RESEARCH' &&
+    candidate.claim_class !== 'RESEARCH_RESULT'
+  )
+    throw new Error('RESEARCH_DECISION_REQUIRES_RESEARCH_RESULT');
   const reviews = await readLedger(
     env,
     'data/evidence-discovery/reviews.jsonl',
