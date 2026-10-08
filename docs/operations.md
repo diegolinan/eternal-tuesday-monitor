@@ -42,6 +42,7 @@ To record the outcome, open **Actions → Review one evidence candidate → Run 
 - `REJECTED_UNVERIFIABLE`: the material cannot be checked sufficiently.
 - `DUPLICATE`: the same evidentiary contribution is already represented.
 - `NEEDS_MORE_INFORMATION`: the lead may matter but lacks required identity, scope or provenance.
+- `RETAINED_AS_RESEARCH`: a research result is kept as methodological context only. It is not supporting evidence for a product, model or surface and cannot be promoted as a supporting source.
 - `ACCEPTED_AS_SUPPORTING_SOURCE`: the source can support an existing evidence record.
 - `REQUIRES_BEHAVIORAL_REPRODUCTION`: the claim is relevant but needs a controlled product/model test.
 

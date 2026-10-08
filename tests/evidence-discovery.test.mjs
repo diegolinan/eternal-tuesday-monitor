@@ -229,6 +229,45 @@ test('candidate review decisions are append-only and have one active head', () =
   );
 });
 
+test('research-only review closes a paper lead without promoting product evidence', () => {
+  const candidate = {
+    id: 'evcand-1234567890abcdef12345678',
+    discovered_at: '2026-09-07T10:00:00.000Z',
+    claim_class: 'RESEARCH_RESULT',
+  };
+  const review = buildCandidateReview({
+    candidate,
+    decision: 'RETAINED_AS_RESEARCH',
+    reason: 'This paper informs the revalidation method but tests no product surface.',
+    reviewer: 'diegolinan',
+    decidedAt: '2026-09-07T11:00:00.000Z',
+  });
+  assert.equal(review.decision, 'RETAINED_AS_RESEARCH');
+  const status = buildPublicEvidenceStatus(
+    {
+      generated_at: '2026-09-07T12:00:00.000Z',
+      state: 'SEARCHED_NO_NEW_EVIDENCE',
+      channels: [],
+      candidates: [],
+    },
+    { candidates: [candidate], reviews: [review] },
+  );
+  assert.equal(status.candidateCounts.pending, 0);
+  assert.equal(status.candidateCounts.closedWithoutPromotion, 1);
+  assert.equal(status.candidateCounts.supportingSourcesAccepted, 0);
+  assert.throws(
+    () =>
+      buildCandidateReview({
+        candidate: { ...candidate, claim_class: 'PUBLIC_FAILURE_REPORT' },
+        decision: 'RETAINED_AS_RESEARCH',
+        reason: 'A public report must not be archived as a research result.',
+        reviewer: 'diegolinan',
+        decidedAt: '2026-09-07T11:00:00.000Z',
+      }),
+    /RESEARCH_DECISION_REQUIRES_RESEARCH_RESULT/,
+  );
+});
+
 test('public evidence status separates unreviewed leads from reviewed decisions', () => {
   const candidates = [
     {

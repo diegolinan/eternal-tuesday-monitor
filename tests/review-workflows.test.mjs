@@ -55,6 +55,7 @@ test('candidate decision and source promotion remain separate review gates', asy
     read('scripts/evidence-discovery/promote-supporting-source.mjs'),
   ]);
   assert.match(review, /ACCEPTED_AS_SUPPORTING_SOURCE/);
+  assert.match(review, /RETAINED_AS_RESEARCH/);
   assert.match(review, /REQUIRES_BEHAVIORAL_REPRODUCTION/);
   assert.match(review, /add-paths: data\/evidence-discovery\/reviews\.jsonl/);
   assert.match(promotion, /Active ACCEPTED_AS_SUPPORTING_SOURCE/);

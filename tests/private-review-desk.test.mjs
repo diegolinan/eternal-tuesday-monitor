@@ -166,6 +166,10 @@ test('private page is served without exposing credentials and client script pars
   assert.doesNotMatch(reviewJs, /\b(?:window\.)?(?:prompt|confirm)\s*\(/);
   assert.match(reviewJs, /askInPage\(detail/);
   assert.match(reviewJs, /reason\.minLength=20/);
+  assert.match(reviewJs, /PRODUCTO SUGERIDO/);
+  assert.match(reviewJs, /SUPERFICIE SUGERIDA/);
+  assert.match(reviewJs, /RETAINED_AS_RESEARCH/);
+  assert.match(reviewJs, /item\.claimClass==='RESEARCH_RESULT'/);
 });
 
 test('manual validation runs trusted main code and materializes only allowed data', async () => {
