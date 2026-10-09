@@ -36,7 +36,7 @@
     "intake:types": "wrangler types worker-configuration.d.ts --config wrangler.intake.jsonc",
     "intake:deploy": "wrangler deploy --config wrangler.intake.jsonc",
     "review:dev": "wrangler dev --config wrangler.review.jsonc",
-    "review:deploy": "wrangler deploy --config wrangler.review.jsonc",
+    "review:deploy": "wrangler deploy --config wrangler.review.jsonc --keep-vars --strict",
     "probes:codex:plan": "node scripts/probes/codex-cli.mjs",
     "probes:codex:pilot": "node scripts/probes/codex-cli.mjs --live",
     "probes:codex:verify": "node scripts/probes/codex-cli.mjs --verify",
