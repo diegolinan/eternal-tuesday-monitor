@@ -4,6 +4,7 @@ import {
   getReviewPull,
   listOpenReviewPulls,
   mergeReviewPull,
+  publicationStatus,
   readLedger,
   validateReviewPull,
 } from './review-github.mjs';
@@ -25,7 +26,7 @@ const securityHeaders = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
   'Content-Security-Policy':
-    "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'",
+    "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; img-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'",
 };
 
 const json = (body, status = 200) =>
@@ -127,6 +128,17 @@ export const reviewWorker = {
       return asset(reviewCss, 'text/css');
     if (request.method === 'GET' && url.pathname === '/review.js')
       return asset(reviewJs, 'application/javascript');
+    if (
+      request.method === 'GET' &&
+      /^\/(?:die-grotesk-(?:regular|medium)|lisa-terminal)\.woff2$/.test(url.pathname)
+    ) {
+      if (!env.ASSETS) return json({ error: 'NOT_FOUND' }, 404);
+      const font = await env.ASSETS.fetch(request);
+      return new Response(font.body, {
+        status: font.status,
+        headers: { ...securityHeaders, 'Content-Type': 'font/woff2' },
+      });
+    }
     if (request.method === 'GET' && url.pathname === '/api/session') {
       return json({
         reviewer: email,
@@ -138,6 +150,9 @@ export const reviewWorker = {
       if (request.method === 'GET' && url.pathname === '/api/inbox') {
         const items = await listOpenReviewPulls(env);
         return json({ items });
+      }
+      if (request.method === 'GET' && url.pathname === '/api/publication') {
+        return json({ deployments: await publicationStatus(env) });
       }
       if (request.method === 'GET' && url.pathname === '/api/candidates') {
         const [candidates, reviews, batchDecisions] = await Promise.all([

@@ -5,6 +5,8 @@ The review desk is a separate Cloudflare Worker with the Monitor's visual langua
 ## What it does
 
 - Lists open automation proposals for model metadata, public evidence leads, and candidate decisions. The detail view shows changed files and newly appended lead/decision records.
+- New automation proposals appear in the first tab without merging or deploying them. Lead proposals preview the new source titles. The desk refreshes every 90 seconds and when its browser tab becomes visible, except while a reviewer is entering a decision or confirming an action. The second tab contains leads already incorporated into `main` but not yet decided. Individual decisions still require review.
+- Shows the latest Vercel and GitHub Pages workflow runs separately, including incomplete and failed runs. This is a publication indicator, not proof that an unmerged proposal is live.
 - Offers an explicit **Validate proposal** action. This runs the read-only `Validate review proposal` workflow using trusted `main` code, copying in only the proposal's allowlisted data files after verifying the exact proposal and base commits. It never checks out or runs code from the proposed branch. The button to publish unlocks only after that run succeeds. This is necessary because pull requests opened by the repository's own Actions token do not reliably trigger normal pull-request checks.
 - Allows the reviewer to merge a proposal only when its branch, labels, author, file allowlist, expected head SHA, current base SHA, mergeability, and explicit validation all match. Merging to `main` uses the existing production deployment workflows. The desk cannot merge code changes or arbitrary pull requests.
 - Allows closing a proposal with a recorded reason.
@@ -16,6 +18,8 @@ Proposal approval remains a batch operation because the current discovery workfl
 ## Security boundary
 
 Cloudflare Access must protect **all traffic** to the review Worker. The Worker rejects requests without a Cloudflare-authenticated `ctx.access` identity, an exact audience match, and an email in its private `REVIEWER_EMAILS` secret. Mutations additionally require same-origin requests and `REVIEW_WRITE_ENABLED=true`. GitHub credentials remain Worker secrets; none are sent to the browser. The page uses a restrictive content security policy and renders untrusted GitHub content as text.
+
+The desk uses the public site's fonts and color tokens. Its font assets are served only after the same Worker identity check, with `run_worker_first` enabled for the static asset binding. Do not remove that setting or let static asset routing bypass the Worker.
 
 The GitHub App must be installed on `diegolinan/eternal-tuesday-monitor` only. Give it repository permissions: Actions **write**, Pull requests **write**, Issues **write**, Contents **read**. It needs no administration, secrets, workflows, or code-write permission. Store these values as Worker secrets, never in Git, browser storage, chat, or build output:
 

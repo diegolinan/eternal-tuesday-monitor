@@ -124,9 +124,9 @@ export function TemporalClockHero() {
           frame.add(marker);
         }
 
-        // The clock has a thick dial, two separated rims, and hands at distinct Z depths.
+        // The clock has a visible side wall, two separated rims, and hands at distinct Z depths.
         const disc = new THREE.Mesh(
-          new THREE.CylinderGeometry(1.82, 1.82, 0.24, 96),
+          new THREE.CylinderGeometry(1.82, 1.82, 0.34, 96),
           face,
         );
         disc.rotation.x = Math.PI / 2;
@@ -208,10 +208,11 @@ export function TemporalClockHero() {
         clock.rotation.set(0.09, -0.28, -0.22);
         let frameTarget = { x: -0.19, y: 0.35, z: 0.025 };
         let clockTarget = { x: 0.09, y: -0.28 };
-        let clockRollSpeed = 0.0045;
-        let clockRollTarget = 0.0045;
+        let clockRollSpeed = 0.0015;
+        let clockRollTarget = 0.0015;
+        let clockSide = -1;
         let nextFrameDrift = performance.now() + 2400;
-        let nextClockDrift = performance.now() + 11000;
+        let nextClockDrift = performance.now() + 3600;
         let resumeDrift = 0;
         let dragX = 0;
         let dragY = 0;
@@ -247,13 +248,15 @@ export function TemporalClockHero() {
             nextFrameDrift = time + randomBetween(8500, 15500);
           }
           if (!dragging && time >= resumeDrift && time >= nextClockDrift) {
+            // Alternate visible side profiles while the frame follows its own drift.
+            clockSide *= -1;
             clockTarget = {
-              x: randomBetween(-0.22, 0.22),
-              y: randomBetween(-0.34, 0.34),
+              x: randomBetween(-0.28, 0.28),
+              y: clockSide * randomBetween(0.5, 0.62),
             };
             clockRollTarget =
-              (Math.random() > 0.5 ? 1 : -1) * randomBetween(0.0035, 0.0055);
-            nextClockDrift = time + randomBetween(11000, 17000);
+              (Math.random() > 0.5 ? 1 : -1) * randomBetween(0.0012, 0.002);
+            nextClockDrift = time + randomBetween(16000, 22000);
           }
           const ease = 1 - Math.pow(0.993, step);
           assembly.rotation.x +=

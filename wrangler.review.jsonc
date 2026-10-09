@@ -5,6 +5,11 @@
   "compatibility_date": "2026-10-07",
   "workers_dev": true,
   "preview_urls": false,
+  "assets": {
+    "directory": "./app/fonts",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
   "vars": {
     "GITHUB_REPOSITORY": "diegolinan/eternal-tuesday-monitor",
     "REVIEW_WRITE_ENABLED": "false",
