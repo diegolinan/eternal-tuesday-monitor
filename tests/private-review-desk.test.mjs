@@ -182,6 +182,9 @@ test('review design uses the public tokens and protects shared fonts', async () 
   assert.match(reviewCss, /lisa-terminal\.woff2/);
   const config = await readFile(new URL('../wrangler.review.jsonc', import.meta.url), 'utf8');
   assert.match(config, /"run_worker_first": true/);
+  assert.match(config, /"REVIEW_WRITE_ENABLED": "true"/);
+  const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
+  assert.match(pkg.scripts['review:deploy'], /--keep-vars --strict/);
   let assetCalls = 0;
   const fontEnv = { ...env, ASSETS: { fetch: async () => { assetCalls++; return new Response('font'); } } };
   const request = new Request('https://review.example.test/lisa-terminal.woff2');

@@ -28,7 +28,7 @@ The GitHub App must be installed on `diegolinan/eternal-tuesday-monitor` only. G
 - `GITHUB_APP_PRIVATE_KEY_PKCS8` (base64-encoded PKCS#8 DER private key)
 - `REVIEWER_EMAILS` (comma-separated exact email allowlist)
 
-Set `REVIEW_ACCESS_AUD` to the Access application's audience tag. Keep `REVIEW_WRITE_ENABLED=false` until the Worker is protected by Access, the secret values are installed, and an unauthorized request has been confirmed to return 403. Then explicitly enable writes and redeploy the Worker once. This is initial activation only; individual future decisions do not require manual deployment.
+Set `REVIEW_ACCESS_AUD` to the Access application's audience tag. For initial activation, keep `REVIEW_WRITE_ENABLED=false` until the Worker is protected by Access, the secret values are installed, and an unauthorized request has been confirmed to be denied. Production is now activated with `REVIEW_WRITE_ENABLED=true`; the repository configuration matches that live state so future deploys do not silently turn approvals off. The `review:deploy` command preserves remote variables and refuses conflicting remote changes. Individual candidate decisions do not require manual deployment.
 
 Do not deploy this Worker first and add Access later. When configuring a new private key or reviewer email, confirm the exact Cloudflare Worker secret destination before writing it.
 
