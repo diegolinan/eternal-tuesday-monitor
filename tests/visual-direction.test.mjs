@@ -219,6 +219,18 @@ test('history stays open and type changes by role, not alternating headlines', a
   assert.match(page, /The next message is not the next moment\./);
 });
 
+test('editorial figure and product note use the full section grid', async () => {
+  const [editorialCss, referenceCss, clock] = await Promise.all([
+    read('app/jev-system.css'),
+    read('app/typesafe-reference.css'),
+    read('components/temporal-clock-hero.tsx'),
+  ]);
+  assert.match(editorialCss, /\.wide-figure\s*\{[^}]*align-items:\s*start;/);
+  assert.match(referenceCss, /\.separation-note\s*\{[^}]*width:\s*100%;[^}]*max-width:\s*none;[^}]*text-align:\s*left;/);
+  assert.match(clock, /clockSide\s*\*=\s*-1/);
+  assert.match(clock, /clockSide\s*\*\s*randomBetween\(0\.5, 0\.62\)/);
+});
+
 test('the changelog preserves its mixed-case display title in export checks', async () => {
   const [page, validator] = await Promise.all([
     read('app/changelog/page.tsx'),

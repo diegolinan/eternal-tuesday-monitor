@@ -184,6 +184,25 @@ export async function githubApi(env, path, options = {}) {
 
 export const repoPath = (env, suffix) => `/repos/${requireRepo(env)}${suffix}`;
 
+export async function publicationStatus(env) {
+  const workflows = [
+    { name: 'Vercel', file: 'vercel-candidate.yml' },
+    { name: 'GitHub Pages', file: 'pages.yml' },
+  ];
+  return Promise.all(workflows.map(async ({ name, file }) => {
+    const result = await githubApi(env, repoPath(env, `/actions/workflows/${file}/runs?branch=main&per_page=1`));
+    const run = result.workflow_runs?.[0];
+    return {
+      name,
+      status: run?.status ?? 'unknown',
+      conclusion: run?.conclusion ?? null,
+      updatedAt: run?.updated_at ?? null,
+      url: run?.html_url ?? null,
+      headSha: run?.head_sha ?? null,
+    };
+  }));
+}
+
 export async function listOpenReviewPulls(env) {
   const items = [];
   for (let page = 1; page <= 4; page++) {

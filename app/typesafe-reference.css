@@ -492,8 +492,14 @@ body {
   border-radius: 0;
 }
 .separation-note {
+  width: 100%;
+  max-width: none;
+  margin: 28px 0 0;
+  padding-top: 16px;
+  border-top: var(--hairline);
   font: 400 17px/120% var(--font-body);
   letter-spacing: 0.05em;
+  text-align: left;
   text-transform: none;
 }
 .history-principle strong {

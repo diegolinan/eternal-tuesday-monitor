@@ -2268,7 +2268,7 @@ textarea,
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
   gap: 30px;
-  align-items: end;
+  align-items: start;
   margin-top: 36px;
   border: 0;
   background: transparent;

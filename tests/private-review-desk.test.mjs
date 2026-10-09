@@ -7,7 +7,7 @@ import {
   allowedReviewFiles,
 } from '../worker/review-github.mjs';
 import reviewWorker from '../worker/review.mjs';
-import { reviewJs } from '../worker/review-ui.mjs';
+import { reviewHtml, reviewCss, reviewJs } from '../worker/review-ui.mjs';
 
 const env = {
   REVIEW_ACCESS_AUD: 'test-audience',
@@ -170,6 +170,39 @@ test('private page is served without exposing credentials and client script pars
   assert.match(reviewJs, /SUPERFICIE SUGERIDA/);
   assert.match(reviewJs, /RETAINED_AS_RESEARCH/);
   assert.match(reviewJs, /item\.claimClass==='RESEARCH_RESULT'/);
+});
+
+test('review design uses the public tokens and protects shared fonts', async () => {
+  const publicCss = await readFile(new URL('../app/typesafe-reference.css', import.meta.url), 'utf8');
+  for (const [name, value] of [['pink', '#f386a1'], ['cyan', '#00c8d0'], ['yellow', '#fee857']]) {
+    assert.match(publicCss, new RegExp(`--${name}:\\s*${value}`));
+    assert.match(reviewCss, new RegExp(`--${name}:${value}`));
+  }
+  assert.match(reviewCss, /die-grotesk-regular\.woff2/);
+  assert.match(reviewCss, /lisa-terminal\.woff2/);
+  const config = await readFile(new URL('../wrangler.review.jsonc', import.meta.url), 'utf8');
+  assert.match(config, /"run_worker_first": true/);
+  let assetCalls = 0;
+  const fontEnv = { ...env, ASSETS: { fetch: async () => { assetCalls++; return new Response('font'); } } };
+  const request = new Request('https://review.example.test/lisa-terminal.woff2');
+  assert.equal((await reviewWorker.fetch(request, fontEnv, {})).status, 403);
+  assert.equal(assetCalls, 0);
+  const response = await reviewWorker.fetch(request, fontEnv, ctx);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('Content-Type'), 'font/woff2');
+  assert.equal(assetCalls, 1);
+  assert.equal((await reviewWorker.fetch(new Request('https://review.example.test/inter-latin.woff2'), fontEnv, ctx)).status, 404);
+});
+
+test('candidate lifecycle is visible and refresh preserves unfinished reviews', () => {
+  assert.match(reviewHtml, /01 DETECTADO.*02 INCORPORADO.*03 DECIDIDO.*04 PUBLICADO/);
+  assert.match(reviewJs, /DETECTADO · REVISIÓN PENDIENTE/);
+  assert.match(reviewJs, /INCORPORADO · DECISIÓN PENDIENTE/);
+  assert.match(reviewJs, /state\.previews\.set\(cacheKey/);
+  assert.match(reviewJs, /reviewInProgress\(\)/);
+  assert.match(reviewJs, /visibilitychange/);
+  assert.match(reviewJs, /setInterval\(\(\)=>\{if\(document\.visibilityState==='visible'\)refreshDesk\(\)\},90000\)/);
+  assert.match(reviewHtml, /id="publication-status"/);
 });
 
 test('manual validation runs trusted main code and materializes only allowed data', async () => {
