@@ -11,15 +11,18 @@ The review desk is a separate Cloudflare Worker with the Monitor's visual langua
 - Allows the reviewer to merge a proposal only when its branch, labels, author, file allowlist, expected head SHA, current base SHA, mergeability, and explicit validation all match. Merging to `main` uses the existing production deployment workflows. The desk cannot merge code changes or arbitrary pull requests.
 - Allows closing a proposal with a recorded reason.
 - Shows incorporated evidence leads one by one. A decision with an evidence-based reason dispatches the existing `Review one evidence candidate` workflow, which opens a new append-only decision proposal. The reviewer then publishes that proposal from the same desk after validation. No candidate decision directly creates an observation, product/model association, PASS, or FAIL.
+- Shows the current open retest reminder as a separate, scoped queue. The cards preserve the exact model, surface, probe and reason from the deterministic reminder; they cannot run a probe or change an observation.
 - Shows automatically inferred product, model and surface tags on both proposals and incorporated leads as unverified suggestions. Research results can be marked `RETAINED_AS_RESEARCH` to preserve methodological context without accepting a supporting source or claiming product behavior.
 
 Proposal approval remains a batch operation because the current discovery workflows group a daily run in one pull request. The detail view makes the full batch visible. If finer model-by-model approval is needed, the discovery workflow must first stage separate proposals; the desk will not silently edit a generated batch.
+
+The desk distinguishes a file conflict from GitHub's non-passing checks. It never publishes a proposal unless its separate trusted validation passes and GitHub reports a clean merge state. Validation is bound to the current `main` commit, not the older base snapshot carried in a long-lived pull request.
 
 ## Security boundary
 
 Cloudflare Access must protect **all traffic** to the review Worker. The Worker rejects requests without a Cloudflare-authenticated `ctx.access` identity, an exact audience match, and an email in its private `REVIEWER_EMAILS` secret. Mutations additionally require same-origin requests and `REVIEW_WRITE_ENABLED=true`. GitHub credentials remain Worker secrets; none are sent to the browser. The page uses a restrictive content security policy and renders untrusted GitHub content as text.
 
-The desk uses the public site's fonts and color tokens. Its font assets are served only after the same Worker identity check, with `run_worker_first` enabled for the static asset binding. Do not remove that setting or let static asset routing bypass the Worker.
+The desk uses the public site's fonts and color tokens. Its three fonts are bundled as Worker data modules and served only after the same Worker identity check. Do not add a Workers Static Assets binding here: Cloudflare's internal assets router does not pass `ctx.access` to the user Worker, so the authenticated desk would reject its own visitors.
 
 The GitHub App must be installed on `diegolinan/eternal-tuesday-monitor` only. Give it repository permissions: Actions **write**, Pull requests **write**, Issues **write**, Contents **read**. It needs no administration, secrets, workflows, or code-write permission. Store these values as Worker secrets, never in Git, browser storage, chat, or build output:
 

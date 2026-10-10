@@ -2,6 +2,7 @@ import {
   closeReviewPull,
   dispatchCandidateReview,
   getReviewPull,
+  listEvidenceReviewsDue,
   listOpenReviewPulls,
   mergeReviewPull,
   publicationStatus,
@@ -102,6 +103,7 @@ const errorStatus = (code) => {
     return 503;
   if (code === 'GITHUB_UNAVAILABLE' || code === 'GITHUB_CONTENT_UNAVAILABLE')
     return 502;
+  if (code === 'RETEST_ISSUE_MALFORMED') return 502;
   if (code === 'GITHUB_NOT_FOUND' || code === 'UNKNOWN_CANDIDATE') return 404;
   if (
     code === 'GITHUB_CONFLICT' ||
@@ -132,10 +134,10 @@ export const reviewWorker = {
       request.method === 'GET' &&
       /^\/(?:die-grotesk-(?:regular|medium)|lisa-terminal)\.woff2$/.test(url.pathname)
     ) {
-      if (!env.ASSETS) return json({ error: 'NOT_FOUND' }, 404);
-      const font = await env.ASSETS.fetch(request);
-      return new Response(font.body, {
-        status: font.status,
+      // Static Assets insert a router Worker that drops ctx.access. Keep these
+      // tiny, public font files in the Worker bundle so identity remains checked.
+      const { reviewFonts } = await import('./review-fonts.mjs');
+      return new Response(reviewFonts[url.pathname], {
         headers: { ...securityHeaders, 'Content-Type': 'font/woff2' },
       });
     }
@@ -153,6 +155,9 @@ export const reviewWorker = {
       }
       if (request.method === 'GET' && url.pathname === '/api/publication') {
         return json({ deployments: await publicationStatus(env) });
+      }
+      if (request.method === 'GET' && url.pathname === '/api/retests') {
+        return json(await listEvidenceReviewsDue(env));
       }
       if (request.method === 'GET' && url.pathname === '/api/candidates') {
         const [candidates, reviews, batchDecisions] = await Promise.all([

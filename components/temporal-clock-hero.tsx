@@ -358,6 +358,20 @@ export function TemporalClockHero() {
             render();
           }
         };
+        const onBlur = () => {
+          if (activePointer !== null && stage.hasPointerCapture(activePointer))
+            stage.releasePointerCapture(activePointer);
+          activePointer = null;
+          dragging = false;
+          dragX = 0;
+          dragY = 0;
+          resumeDrift = performance.now() + 1600;
+          stage.classList.remove('is-dragging');
+          if (reducedMotion.matches) {
+            assembly.rotation.set(0, 0, 0);
+            render();
+          }
+        };
         const onVisibilityChange = () => syncLoop();
         const onMotionChange = () => {
           if (reducedMotion.matches) {
@@ -380,6 +394,7 @@ export function TemporalClockHero() {
         stage.addEventListener('pointercancel', onPointerUp);
         stage.addEventListener('keydown', onKeyDown);
         stage.addEventListener('keyup', onKeyUp);
+        stage.addEventListener('blur', onBlur);
         document.addEventListener('visibilitychange', onVisibilityChange);
         reducedMotion.addEventListener('change', onMotionChange);
         resize();
@@ -396,6 +411,7 @@ export function TemporalClockHero() {
           stage.removeEventListener('pointercancel', onPointerUp);
           stage.removeEventListener('keydown', onKeyDown);
           stage.removeEventListener('keyup', onKeyUp);
+          stage.removeEventListener('blur', onBlur);
           document.removeEventListener('visibilitychange', onVisibilityChange);
           reducedMotion.removeEventListener('change', onMotionChange);
           scene.traverse((object) => {
