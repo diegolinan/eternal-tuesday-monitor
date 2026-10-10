@@ -1,3 +1,5 @@
+import { parseEvidenceReviewIssue } from './review-retests.mjs';
+
 const apiRoot = 'https://api.github.com';
 let cachedToken = null;
 const reviewBranches = [
@@ -184,6 +186,21 @@ export async function githubApi(env, path, options = {}) {
 
 export const repoPath = (env, suffix) => `/repos/${requireRepo(env)}${suffix}`;
 
+export async function listEvidenceReviewsDue(env) {
+  for (let page = 1; page <= 4; page++) {
+    const issues = await githubApi(
+      env,
+      repoPath(env, `/issues?state=open&per_page=100&page=${page}`),
+    );
+    for (const issue of issues) {
+      const parsed = parseEvidenceReviewIssue(issue);
+      if (parsed) return parsed;
+    }
+    if (issues.length < 100) break;
+  }
+  return { evaluatedOn: null, issueUrl: null, items: [] };
+}
+
 export async function publicationStatus(env) {
   const workflows = [
     { name: 'Vercel', file: 'vercel-candidate.yml' },
@@ -246,7 +263,10 @@ export async function readLedger(env, path, ref = 'main') {
 }
 
 export async function getReviewPull(env, number) {
-  const pr = await githubApi(env, repoPath(env, `/pulls/${number}`));
+  const [pr, main] = await Promise.all([
+    githubApi(env, repoPath(env, `/pulls/${number}`)),
+    githubApi(env, repoPath(env, '/branches/main')),
+  ]);
   const type = classifyReviewPull(pr);
   if (!type) throw new Error('NOT_REVIEW_PROPOSAL');
   if (pr.changed_files > 30) throw new Error('TOO_MANY_FILES');
@@ -276,7 +296,8 @@ export async function getReviewPull(env, number) {
     kind: type.kind,
     url: pr.html_url,
     headSha: pr.head.sha,
-    baseSha: pr.base.sha,
+    // Bind validation to the current main commit, not an old PR base snapshot.
+    baseSha: main.commit.sha,
     mergeCommitSha: pr.merge_commit_sha,
     mergeable: pr.mergeable,
     mergeableState: pr.mergeable_state,

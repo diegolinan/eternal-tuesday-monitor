@@ -40,9 +40,10 @@ async function api(path) {
 }
 
 const proposal = await api(`/pulls/${number}`);
+const main = await api('/branches/main');
 const type = classifyReviewPull(proposal);
 if (!type) throw new Error('NOT_ALLOWED_REVIEW_PROPOSAL');
-if (proposal.head.sha !== headSha || proposal.base.sha !== baseSha) {
+if (proposal.head.sha !== headSha || main.commit.sha !== baseSha) {
   throw new Error('PROPOSAL_CHANGED');
 }
 if (proposal.changed_files > 30) throw new Error('TOO_MANY_FILES');

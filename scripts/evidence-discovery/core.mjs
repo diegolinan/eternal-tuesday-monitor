@@ -169,6 +169,9 @@ const decisiveProbeTerms = new Set([
   'wrong date',
   'wrong day',
 ]);
+// These phrases describe many unrelated systems (for example GUI test history).
+// A research lead needs at least one more specific temporal-continuity signal.
+const weakResearchTerms = new Set(['historical context', 'past event']);
 
 const hasBehavioralContext = (value) => {
   const text = value.toLowerCase();
@@ -265,14 +268,20 @@ export function buildCandidate(input) {
   const identityKey = sourceUrl ?? clean(input.identityKey, 160);
   if (!identityKey) throw new Error('CANDIDATE_IDENTITY_REQUIRED');
   const screeningPolicyVersion =
-    input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.4';
+    input.screeningPolicyVersion ?? 'ETM-EVIDENCE-1.5';
   const corpus = `${input.title ?? ''} ${input.excerpt ?? ''}`;
   const directClassification = classifyText(corpus);
   const hasStrongProbeMatch = directClassification.matchingTerms.length > 0;
+  const researchHasOnlyWeakMatches =
+    input.sourceType === 'RESEARCH_INDEX' &&
+    directClassification.matchingTerms.every((term) =>
+      weakResearchTerms.has(term),
+    );
   const contextualOnlyMatch = !directClassification.matchingTerms.some((term) =>
     decisiveProbeTerms.has(term),
   );
   if (!hasStrongProbeMatch && !input.allowUnclassified) return null;
+  if (researchHasOnlyWeakMatches && !input.allowUnclassified) return null;
   if (
     ['PUBLIC_ISSUE', 'GENERAL_WEB'].includes(input.sourceType) &&
     (!hasBehavioralContext(corpus) || !hasBehavioralOutcome(corpus)) &&

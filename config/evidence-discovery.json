@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "screening_policy_version": "ETM-EVIDENCE-1.4",
+  "screening_policy_version": "ETM-EVIDENCE-1.5",
   "enabled": true,
   "lookback_days": 14,
   "max_results_per_query": 20,
@@ -17,6 +17,11 @@
       "source_url": "https://doi.org/10.7759/cureus.116995",
       "reviewed_on": "2026-10-07",
       "reason": "Clinical delirium care review; no AI product or temporal-continuity behavior under observation."
+    },
+    {
+      "source_url": "https://doi.org/10.1145/3832783.3837449",
+      "reviewed_on": "2026-10-09",
+      "reason": "Mobile GUI exploration methodology; historical context refers to test coverage, not temporal validity of an AI assistant's statements."
     }
   ],
   "queries": [

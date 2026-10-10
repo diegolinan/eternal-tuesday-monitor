@@ -8,6 +8,7 @@ import {
 } from '../worker/review-github.mjs';
 import reviewWorker from '../worker/review.mjs';
 import { reviewHtml, reviewCss, reviewJs } from '../worker/review-ui.mjs';
+import { parseEvidenceReviewIssue } from '../worker/review-retests.mjs';
 
 const env = {
   REVIEW_ACCESS_AUD: 'test-audience',
@@ -172,7 +173,7 @@ test('private page is served without exposing credentials and client script pars
   assert.match(reviewJs, /item\.claimClass==='RESEARCH_RESULT'/);
 });
 
-test('review design uses the public tokens and protects shared fonts', async () => {
+test('review design uses the public tokens and bundles shared fonts without Static Assets', async () => {
   const publicCss = await readFile(new URL('../app/typesafe-reference.css', import.meta.url), 'utf8');
   for (const [name, value] of [['pink', '#f386a1'], ['cyan', '#00c8d0'], ['yellow', '#fee857']]) {
     assert.match(publicCss, new RegExp(`--${name}:\\s*${value}`));
@@ -181,20 +182,18 @@ test('review design uses the public tokens and protects shared fonts', async () 
   assert.match(reviewCss, /die-grotesk-regular\.woff2/);
   assert.match(reviewCss, /lisa-terminal\.woff2/);
   const config = await readFile(new URL('../wrangler.review.jsonc', import.meta.url), 'utf8');
-  assert.match(config, /"run_worker_first": true/);
+  assert.doesNotMatch(config, /"assets"\s*:/);
+  assert.match(config, /"type": "Data"/);
+  const fontModule = await readFile(new URL('../worker/review-fonts.mjs', import.meta.url), 'utf8');
+  for (const name of ['die-grotesk-regular', 'die-grotesk-medium', 'lisa-terminal']) {
+    assert.match(fontModule, new RegExp(name + '\\.woff2'));
+  }
   assert.match(config, /"REVIEW_WRITE_ENABLED": "true"/);
   const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
   assert.match(pkg.scripts['review:deploy'], /--keep-vars --strict/);
-  let assetCalls = 0;
-  const fontEnv = { ...env, ASSETS: { fetch: async () => { assetCalls++; return new Response('font'); } } };
   const request = new Request('https://review.example.test/lisa-terminal.woff2');
-  assert.equal((await reviewWorker.fetch(request, fontEnv, {})).status, 403);
-  assert.equal(assetCalls, 0);
-  const response = await reviewWorker.fetch(request, fontEnv, ctx);
-  assert.equal(response.status, 200);
-  assert.equal(response.headers.get('Content-Type'), 'font/woff2');
-  assert.equal(assetCalls, 1);
-  assert.equal((await reviewWorker.fetch(new Request('https://review.example.test/inter-latin.woff2'), fontEnv, ctx)).status, 404);
+  assert.equal((await reviewWorker.fetch(request, env, {})).status, 403);
+  assert.equal((await reviewWorker.fetch(new Request('https://review.example.test/inter-latin.woff2'), env, ctx)).status, 404);
 });
 
 test('candidate lifecycle is visible and refresh preserves unfinished reviews', () => {
@@ -206,6 +205,38 @@ test('candidate lifecycle is visible and refresh preserves unfinished reviews', 
   assert.match(reviewJs, /visibilitychange/);
   assert.match(reviewJs, /setInterval\(\(\)=>\{if\(document\.visibilityState==='visible'\)refreshDesk\(\)\},90000\)/);
   assert.match(reviewHtml, /id="publication-status"/);
+  assert.match(reviewHtml, /03 \/ Revisiones vencidas/);
+  assert.match(reviewJs, /loadRetests\(\)/);
+});
+
+test('retest reminder becomes a scoped private queue without changing evidence', () => {
+  const issue = {
+    html_url: 'https://github.com/diegolinan/eternal-tuesday-monitor/issues/26',
+    body: [
+      '<!-- etm-evidence-review-due:obs-a -->',
+      'Freshness evaluated on: **2026-10-09**',
+      '| Observation | Exact scope | Model | Probe | Applicability | Why review is due |',
+      '| --- | --- | --- | --- | --- | --- |',
+      '| obs-a | Anthropic / Claude / Cowork | Claude Opus 5 | REVALIDATION | CURRENT | Evidence exceeded its review window |',
+    ].join('\n'),
+  };
+  assert.deepEqual(parseEvidenceReviewIssue(issue), {
+    evaluatedOn: '2026-10-09',
+    issueUrl: issue.html_url,
+    items: [{
+      id: 'obs-a',
+      scope: 'Anthropic / Claude / Cowork',
+      model: 'Claude Opus 5',
+      probe: 'REVALIDATION',
+      applicability: 'CURRENT',
+      reason: 'Evidence exceeded its review window',
+    }],
+  });
+  assert.throws(
+    () => parseEvidenceReviewIssue({ ...issue, body: issue.body.replace('obs-a |', 'obs-other |') }),
+    /RETEST_ISSUE_MALFORMED/,
+  );
+  assert.equal(parseEvidenceReviewIssue({ body: 'unrelated issue' }), null);
 });
 
 test('manual validation runs trusted main code and materializes only allowed data', async () => {
@@ -220,4 +251,10 @@ test('manual validation runs trusted main code and materializes only allowed dat
   assert.doesNotMatch(workflow, /ref: \$\{\{ inputs\.head_sha \}\}/);
   assert.doesNotMatch(workflow, /cache: npm/);
   assert.match(workflow, /persist-credentials: false/);
+  const materialize = await readFile(new URL('../scripts/materialize-review-proposal.mjs', import.meta.url), 'utf8');
+  assert.match(materialize, /const main = await api\('\/branches\/main'\)/);
+  assert.match(materialize, /main\.commit\.sha !== baseSha/);
+  const github = await readFile(new URL('../worker/review-github.mjs', import.meta.url), 'utf8');
+  assert.match(github, /baseSha: main\.commit\.sha/);
+  assert.match(github, /proposal\.mergeableState !== 'clean'/);
 });

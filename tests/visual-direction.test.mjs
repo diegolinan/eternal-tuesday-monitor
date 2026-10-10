@@ -267,11 +267,15 @@ test('abstract editorial visuals replace image-based state labels', async () => 
 });
 
 test('the 3D title object does not replace the interactive state-drift illustration', async () => {
-  const [page, css] = await Promise.all([
+  const [page, css, clock] = await Promise.all([
     read('app/page.tsx'),
     read('app/temporal-clock-hero.css'),
+    read('components/temporal-clock-hero.tsx'),
   ]);
   assert.match(page, /<div className="hero-first-plane">[\s\S]*?<TemporalClockHero \/>/);
   assert.match(page, /<div className="hero-second-plane">[\s\S]*?<div className="hero-copy">[\s\S]*?<Chronoscope \/>/);
   assert.match(css, /\.hero-second-plane\s*\{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) minmax\(0, 1fr\)/);
+  assert.match(clock, /visible && !document\.hidden && !reducedMotion\.matches \? tick : null/);
+  assert.match(clock, /stage\.addEventListener\('blur', onBlur\)/);
+  assert.match(clock, /stage\.removeEventListener\('blur', onBlur\)/);
 });

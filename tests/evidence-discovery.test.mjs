@@ -162,11 +162,38 @@ test('reviewed off-topic sources are excluded from later discovery runs', async 
     dedupeCandidates([clinicalReview], new Set(), reviewedUrls),
     [],
   );
+  assert.equal(
+    reviewedUrls.has('https://doi.org/10.1145/3832783.3837449'),
+    true,
+  );
   const runner = await readFile(
     path.join(root, 'scripts/evidence-discovery/run.mjs'),
     'utf8',
   );
   assert.match(runner, /config\.reviewed_exclusions/);
+});
+
+test('a generic research mention of historical context is not a temporal-validity lead', () => {
+  const candidate = buildCandidate({
+    sourceType: 'RESEARCH_INDEX',
+    sourceUrl: 'https://doi.org/10.1145/3832783.3837449',
+    title: 'GraphDroid: Asynchronous LLM-Based Mobile App GUI Testing',
+    excerpt:
+      'The framework retains historical context for identifying uncovered mobile app functionalities during GUI exploration.',
+    discoveredAt: '2026-10-09T18:32:21.694Z',
+    queryId: 'openalex:historical-validity',
+  });
+  assert.equal(candidate, null);
+  const relevant = buildCandidate({
+    sourceType: 'RESEARCH_INDEX',
+    sourceUrl: 'https://example.org/temporal-validity-study',
+    title: 'Historical validity of agent memory',
+    excerpt:
+      'The study evaluates whether agents preserve historical context without treating a past state as current.',
+    discoveredAt: '2026-10-09T18:32:21.694Z',
+    queryId: 'openalex:historical-validity',
+  });
+  assert.ok(relevant);
 });
 
 test('a firsthand report can remain a reproducible lead without inventing a source URL', () => {

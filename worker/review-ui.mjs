@@ -24,6 +24,7 @@ export const reviewHtml = `<!doctype html>
     <nav class="tabs" aria-label="Secciones de revisión">
       <button class="tab active" type="button" data-tab="proposals" aria-current="page">01 / Nuevos candidatos <span id="proposal-count">—</span></button>
       <button class="tab" type="button" data-tab="candidates">02 / Por decidir <span id="candidate-count">—</span></button>
+      <button class="tab" type="button" data-tab="retests">03 / Revisiones vencidas <span id="retest-count">—</span></button>
     </nav>
     <section id="proposals" class="panel" aria-label="Propuestas pendientes">
       <div class="section-heading"><h2>Por incorporar</h2><p>Los candidatos se ven sin fusionar ni desplegar nada. Cada lote requiere validación antes de incorporarse.</p></div>
@@ -32,6 +33,11 @@ export const reviewHtml = `<!doctype html>
     <section id="candidates" class="panel hidden" aria-label="Hallazgos pendientes">
       <div class="section-heading"><h2>Por decidir</h2><p>Estos leads ya fueron incorporados, pero todavía no son evidencia aceptada.</p></div>
       <div id="candidate-list" class="candidate-list"></div>
+    </section>
+    <section id="retests" class="panel hidden" aria-label="Observaciones que requieren revisión">
+      <div class="section-heading"><h2>Revisiones vencidas</h2><p>El vencimiento no cambia un resultado ni ejecuta una prueba. Cada caso conserva su modelo y superficie exactos.</p></div>
+      <p id="retest-date" class="mini"></p>
+      <div id="retest-list" class="candidate-list"></div>
     </section>
     <section class="publication" aria-label="Estado de publicación"><h2>Publicación</h2><p id="publication-status">Consultando los despliegues automáticos…</p></section>
     <div class="method-note"><span>REVIEW BOUNDARY ↗</span><p>Los cambios aprobados pasan por validación y quedan registrados. Si una comprobación falla, no se publica nada.</p></div>
@@ -53,6 +59,7 @@ export const reviewCss = `
  .desk-status{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:-16px 0 20px;font:12px var(--mono)}.desk-status button{border:0;border-bottom:1px solid var(--ink);background:transparent;color:var(--ink);padding:6px 0;font:inherit}.desk-status button:hover{background:var(--pink)}
  .review-flow{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);font:12px var(--mono);margin-bottom:24px}.review-flow span{padding:10px 8px 10px 0}.review-flow span:not(:last-child){border-right:1px solid var(--line);padding-left:8px}
  .proposal-stage,.candidate-stage{display:inline-block;background:var(--pink);color:var(--ink);padding:5px 8px;font:11px var(--mono)}.proposal-preview{display:block;font:14px/1.25 var(--sans);margin:6px 0 10px}.publication{border-top:1px solid var(--ink);margin-top:60px;padding-top:18px}.publication h2{font-size:28px;letter-spacing:-.04em;margin:0 0 12px}.publication p{font:13px/1.5 var(--mono);margin:0}.publication a:hover{background:var(--pink)}
+ .retest-card{border-top:5px solid var(--pink)}.retest-card h3{overflow-wrap:anywhere}.retest-scope{font:13px/1.4 var(--mono);margin:8px 0}.retest-reason{border-top:1px solid var(--line);padding-top:12px}
  @media(max-width:550px){.review-flow{grid-template-columns:repeat(2,1fr)}.desk-status{align-items:start;flex-direction:column}}
 `;
 
@@ -64,8 +71,8 @@ function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.cla
 function notice(message,tone=''){const node=q('#notice');node.textContent=message;node.className='notice '+tone}
 function safeLink(value){try{const url=new URL(value);return url.protocol==='https:'?url.href:null}catch{return null}}
 async function api(path,options){const response=await fetch(path,{credentials:'same-origin',...options});let body;try{body=await response.json()}catch{throw new Error('Respuesta inesperada del servidor')}if(!response.ok)throw new Error(body.error||'Error de conexión');return body}
-function niceError(error){const map={PROPOSAL_NOT_READY:'La propuesta todavía no está lista para integrar.',VALIDATION_NOT_PASSED:'Falta una validación exitosa. No se integró nada.',VALIDATION_ALREADY_RUNNING:'Ya hay una validación en curso.',PROPOSAL_CHANGED:'La propuesta cambió. Recargá el detalle antes de decidir.',DECISION_ALREADY_PENDING:'Ya hay una decisión pendiente; publicala o cerrala antes de crear otra.',RESEARCH_DECISION_REQUIRES_RESEARCH_RESULT:'La opción de investigación solo corresponde a resultados de investigación.',REVIEW_WRITES_DISABLED:'La bandeja está en modo de lectura hasta activar el acceso de escritura.',GITHUB_APP_NOT_CONFIGURED:'Falta configurar la conexión privada con GitHub.',GITHUB_APP_AUTH_FAILED:'No se pudo autenticar la conexión privada con GitHub.'};return map[error.message]||error.message}
-function activeTab(name){for(const button of document.querySelectorAll('.tab')){const active=button.dataset.tab===name;button.classList.toggle('active',active);active?button.setAttribute('aria-current','page'):button.removeAttribute('aria-current')}q('#proposals').classList.toggle('hidden',name!=='proposals');q('#candidates').classList.toggle('hidden',name!=='candidates')}
+function niceError(error){const map={PROPOSAL_NOT_READY:'GitHub todavía bloquea la integración. Revisá los controles de la propuesta.',GITHUB_CONFLICT:'GitHub rechazó la integración; actualizá el estado y revisá sus controles.',VALIDATION_NOT_PASSED:'Falta una validación exitosa. No se integró nada.',VALIDATION_ALREADY_RUNNING:'Ya hay una validación en curso.',PROPOSAL_CHANGED:'La propuesta cambió. Recargá el detalle antes de decidir.',DECISION_ALREADY_PENDING:'Ya hay una decisión pendiente; publicala o cerrala antes de crear otra.',RESEARCH_DECISION_REQUIRES_RESEARCH_RESULT:'La opción de investigación solo corresponde a resultados de investigación.',REVIEW_WRITES_DISABLED:'La bandeja está en modo de lectura hasta activar el acceso de escritura.',GITHUB_APP_NOT_CONFIGURED:'Falta configurar la conexión privada con GitHub.',GITHUB_APP_AUTH_FAILED:'No se pudo autenticar la conexión privada con GitHub.'};return map[error.message]||error.message}
+function activeTab(name){for(const button of document.querySelectorAll('.tab')){const active=button.dataset.tab===name;button.classList.toggle('active',active);active?button.setAttribute('aria-current','page'):button.removeAttribute('aria-current')}for(const panel of ['proposals','candidates','retests'])q('#'+panel).classList.toggle('hidden',name!==panel)}
 async function loadInbox(){
   const result=await api('/api/inbox');state.items=result.items;q('#proposal-count').textContent=String(result.items.length);
   const list=q('#proposal-list');list.replaceChildren();
@@ -154,6 +161,8 @@ async function selectProposal(number){
     const validation=data.validation.state;
     const status=el('p','validation-status',validation==='passed'?'VALIDACIÓN APROBADA':validation==='running'?'VALIDACIÓN EN CURSO':validation==='failed'?'VALIDACIÓN FALLIDA':'VALIDACIÓN PENDIENTE');
     detail.append(status);
+    const mergeStatus=data.mergeable===false?'CONFLICTO DE ARCHIVOS':data.mergeableState==='unstable'?'GITHUB: CONTROLES SIN APROBAR':data.mergeableState==='clean'?'GITHUB: LISTO PARA INTEGRAR':'GITHUB: ESTADO PENDIENTE';
+    detail.append(el('p','mini',mergeStatus));
     const actions=el('div','actions');
     const validate=el('button','action secondary',validation==='failed'?'Reintentar validación':'Validar propuesta');
     validate.type='button';
@@ -164,7 +173,7 @@ async function selectProposal(number){
     refresh.addEventListener('click',()=>selectProposal(number));
     const accept=el('button','action',data.kind==='leads'?'Incorporar leads':data.kind==='decision'?'Publicar decisión':'Aprobar cambio');
     accept.type='button';
-    accept.disabled=!state.writeEnabled||validation!=='passed';
+    accept.disabled=!state.writeEnabled||validation!=='passed'||data.mergeable!==true||data.mergeableState!=='clean';
     accept.addEventListener('click',()=>{
       const what=data.kind==='leads'?'incorporar estos leads (sin aceptarlos como evidencia)':data.kind==='decision'?'publicar esta decisión':'aprobar este cambio de catálogo';
       askInPage(detail,'¿Confirmás '+what+'? La propuesta y su validación deben seguir sin cambios.','Confirmar publicación',()=>act('/api/pulls/'+number+'/merge',{headSha:data.headSha},true));
@@ -238,6 +247,19 @@ async function loadCandidates(){
     list.append(card);
   }
 }
+async function loadRetests(){
+  const result=await api('/api/retests');
+  q('#retest-count').textContent=String(result.items.length);
+  q('#retest-date').textContent=result.evaluatedOn?'FRESCURA EVALUADA / '+result.evaluatedOn:'SIN REVISIONES VENCIDAS';
+  const list=q('#retest-list');list.replaceChildren();
+  if(!result.items.length){list.append(el('div','empty','No hay observaciones que requieran revisión por vencimiento.'));return}
+  for(const item of result.items){
+    const card=el('article','candidate retest-card');
+    card.append(el('span','candidate-stage','RETEST REQUIRED'),el('p','mini',item.id),el('h3','',item.model),el('p','retest-scope',item.scope),el('p','mini','PRUEBA · '+item.probe+' / '+item.applicability),el('p','retest-reason',item.reason));
+    addSourceLink(card,result.issueUrl,'ABRIR RECORDATORIO ↗');
+    list.append(card);
+  }
+}
 async function loadPublication(){
   const panel=q('#publication-status');panel.replaceChildren();
   try{
@@ -259,7 +281,7 @@ async function refreshDesk(manual=false){
   if(reviewInProgress()){if(manual)notice('Hay una revisión en curso. Guardá o descartá el texto antes de actualizar.');return}
   state.refreshing=true;
   try{
-    await Promise.all([loadInbox(),loadCandidates(),loadPublication()]);
+    await Promise.all([loadInbox(),loadCandidates(),loadRetests(),loadPublication()]);
     q('#sync-status').textContent='SINCRONIZADO · '+new Date().toLocaleTimeString('es-AR');
     if(manual)notice('Bandeja actualizada.','success');
     return true;
