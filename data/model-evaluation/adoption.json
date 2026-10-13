@@ -343,6 +343,91 @@
       }
     },
     {
+      "model_id": "model-discovered-1de9ab9ffbd3b35989f7",
+      "vendor_id": "vendor-google",
+      "api_model_id": "gemini-4-argon",
+      "originating_discovery_event_id": "discovery-f3647e4ea7b44b5b97250179",
+      "assessed_on": "2026-10-13",
+      "api_availability": {
+        "state": "UNKNOWN",
+        "reasons": [
+          "PUBLIC_SOURCE_IDENTITY_ONLY"
+        ],
+        "source_ids": [
+          "discovery-google-docs"
+        ]
+      },
+      "testability_state": "REVIEW_REQUIRED",
+      "testability_reasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "probes": [
+        {
+          "probe_id": "probe-temporal-anchor",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-elapsed",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-revalidation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-state-reconciliation",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        },
+        {
+          "probe_id": "probe-historical-validity",
+          "methodology_version_id": null,
+          "endpoint": null,
+          "evaluator_version": null,
+          "testability": "NOT_API_TESTABLE",
+          "state": "REVIEW_REQUIRED",
+          "reasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ]
+        }
+      ],
+      "execution_state": "NOT_RUN",
+      "queue": {
+        "state": "NOT_QUEUED",
+        "reasons": [
+          "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+        ],
+        "execution_authorized": false
+      }
+    },
+    {
       "model_id": "model-discovered-1e9a4f1a438a4bfd5fd7",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5-nano",
@@ -3236,12 +3321,12 @@
       "model_id": "model-discovered-8d6b0f1b6faadb07b615",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4o-mini",
-      "originating_discovery_event_id": "discovery-986be8be1a7c890aabaadb2d",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-757ce7eadb6285391194758d",
+      "assessed_on": "2026-10-13",
       "api_availability": {
-        "state": "UNKNOWN",
+        "state": "UNAVAILABLE",
         "reasons": [
-          "PUBLIC_SOURCE_IDENTITY_ONLY"
+          "MODEL_LIFECYCLE_BLOCKED"
         ],
         "source_ids": [
           "discovery-openai-docs"
@@ -4086,12 +4171,12 @@
       "model_id": "model-discovered-b9257ac7a2c8eaca2b5a",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4.1-mini",
-      "originating_discovery_event_id": "discovery-62fc0cb4c18d77590b77e83c",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-93e9d5e93e59accc794a7922",
+      "assessed_on": "2026-10-13",
       "api_availability": {
-        "state": "UNKNOWN",
+        "state": "UNAVAILABLE",
         "reasons": [
-          "PUBLIC_SOURCE_IDENTITY_ONLY"
+          "MODEL_LIFECYCLE_BLOCKED"
         ],
         "source_ids": [
           "discovery-openai-docs"
@@ -4851,12 +4936,12 @@
       "model_id": "model-discovered-dcc1382081671253d9b5",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4o",
-      "originating_discovery_event_id": "discovery-45a99129f39c0f6a78a701c9",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-74213896521d5d7d7b0fd274",
+      "assessed_on": "2026-10-13",
       "api_availability": {
-        "state": "UNKNOWN",
+        "state": "UNAVAILABLE",
         "reasons": [
-          "PUBLIC_SOURCE_IDENTITY_ONLY"
+          "MODEL_LIFECYCLE_BLOCKED"
         ],
         "source_ids": [
           "discovery-openai-docs"
@@ -5191,12 +5276,12 @@
       "model_id": "model-discovered-e7ad5bd7e714b6fbe0c3",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-4.1",
-      "originating_discovery_event_id": "discovery-1cb3f7ac57cecfe4bb6cb5d4",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-f8747b53c31fbc450c287a65",
+      "assessed_on": "2026-10-13",
       "api_availability": {
-        "state": "UNKNOWN",
+        "state": "UNAVAILABLE",
         "reasons": [
-          "PUBLIC_SOURCE_IDENTITY_ONLY"
+          "MODEL_LIFECYCLE_BLOCKED"
         ],
         "source_ids": [
           "discovery-openai-docs"

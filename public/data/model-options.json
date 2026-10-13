@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-10-07",
+  "catalogCheckedThrough": "2026-10-13",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -187,6 +187,11 @@
           "id": "model-discovered-13f5d8898f66c01922e3",
           "name": "Gemini 3.8 Live Extended Thinking",
           "apiModelId": "gemini-3.8-live-extended-thinking"
+        },
+        {
+          "id": "model-discovered-1de9ab9ffbd3b35989f7",
+          "name": "Gemini 4 Argon",
+          "apiModelId": "gemini-4-argon"
         },
         {
           "id": "model-discovered-e4cad8ba5d5bc779408a",
