@@ -228,7 +228,7 @@ test('editorial figure and product note use the full section grid', async () => 
   assert.match(editorialCss, /\.wide-figure\s*\{[^}]*align-items:\s*start;/);
   assert.match(referenceCss, /\.separation-note\s*\{[^}]*width:\s*100%;[^}]*max-width:\s*none;[^}]*text-align:\s*left;/);
   assert.match(clock, /clockSide\s*\*=\s*-1/);
-  assert.match(clock, /clockSide\s*\*\s*randomBetween\(0\.5, 0\.62\)/);
+  assert.match(clock, /clockSide\s*\*\s*randomBetween\(0\.82, 1\.02\)/);
 });
 
 test('the changelog preserves its mixed-case display title in export checks', async () => {
@@ -278,4 +278,15 @@ test('the 3D title object does not replace the interactive state-drift illustrat
   assert.match(clock, /visible && !document\.hidden && !reducedMotion\.matches \? tick : null/);
   assert.match(clock, /stage\.addEventListener\('blur', onBlur\)/);
   assert.match(clock, /stage\.removeEventListener\('blur', onBlur\)/);
+});
+
+test('the clock has a visible independent side turn without an unnecessary render loop', async () => {
+  const clock = await read('components/temporal-clock-hero.tsx');
+  assert.match(clock, /clockSide \*= -1/);
+  assert.match(clock, /clockSide \* randomBetween\(0\.82, 1\.02\)/);
+  assert.match(clock, /clock\.rotation\.set\(0\.09, -0\.42, -0\.22\)/);
+  assert.match(clock, /time - lastFrame < 28/);
+  assert.match(clock, /Math\.min\(\(time - \(lastFrame \|\| time\)\) \/ 33, 33\)/);
+  assert.match(clock, /setPixelRatio\(Math\.min\(window\.devicePixelRatio \|\| 1, 1\.5\)\)/);
+  assert.match(clock, /visible && !document\.hidden && !reducedMotion\.matches \? tick : null/);
 });
