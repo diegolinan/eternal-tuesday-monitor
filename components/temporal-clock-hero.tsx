@@ -205,14 +205,14 @@ export function TemporalClockHero() {
         clock.add(pin);
 
         frame.rotation.set(-0.19, 0.35, 0.025);
-        clock.rotation.set(0.09, -0.28, -0.22);
+        clock.rotation.set(0.09, -0.42, -0.22);
         let frameTarget = { x: -0.19, y: 0.35, z: 0.025 };
-        let clockTarget = { x: 0.09, y: -0.28 };
+        let clockTarget = { x: 0.09, y: -0.42 };
         let clockRollSpeed = 0.0015;
         let clockRollTarget = 0.0015;
         let clockSide = -1;
         let nextFrameDrift = performance.now() + 2400;
-        let nextClockDrift = performance.now() + 3600;
+        let nextClockDrift = performance.now() + 1800;
         let resumeDrift = 0;
         let dragX = 0;
         let dragY = 0;
@@ -237,7 +237,8 @@ export function TemporalClockHero() {
           min + Math.random() * (max - min);
         const tick = (time: number) => {
           if (time - lastFrame < 28) return;
-          const step = Math.min((time - (lastFrame || time)) / 33, 2);
+          // Preserve the intended drift speed if a background tab is throttled.
+          const step = Math.min((time - (lastFrame || time)) / 33, 33);
           lastFrame = time;
           if (!dragging && time >= resumeDrift && time >= nextFrameDrift) {
             frameTarget = {
@@ -248,11 +249,12 @@ export function TemporalClockHero() {
             nextFrameDrift = time + randomBetween(8500, 15500);
           }
           if (!dragging && time >= resumeDrift && time >= nextClockDrift) {
-            // Alternate visible side profiles while the frame follows its own drift.
+            // Clear, alternating side profiles make the dial's motion legible
+            // independently of the more gently drifting world frame.
             clockSide *= -1;
             clockTarget = {
               x: randomBetween(-0.28, 0.28),
-              y: clockSide * randomBetween(0.5, 0.62),
+              y: clockSide * randomBetween(0.82, 1.02),
             };
             clockRollTarget =
               (Math.random() > 0.5 ? 1 : -1) * randomBetween(0.0012, 0.002);
@@ -376,7 +378,7 @@ export function TemporalClockHero() {
         const onMotionChange = () => {
           if (reducedMotion.matches) {
             frame.rotation.set(-0.19, 0.35, 0.025);
-            clock.rotation.set(0.09, -0.28, -0.22);
+            clock.rotation.set(0.09, -0.42, -0.22);
             assembly.rotation.set(0, 0, 0);
           }
           syncLoop();
