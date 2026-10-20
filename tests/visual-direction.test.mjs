@@ -290,3 +290,40 @@ test('the clock has a visible independent side turn without an unnecessary rende
   assert.match(clock, /setPixelRatio\(Math\.min\(window\.devicePixelRatio \|\| 1, 1\.5\)\)/);
   assert.match(clock, /visible && !document\.hidden && !reducedMotion\.matches \? tick : null/);
 });
+
+test('the rotating frame has breathing room inside the clock stage', async () => {
+  const [clock, css] = await Promise.all([
+    read('components/temporal-clock-hero.tsx'),
+    read('app/temporal-clock-hero.css'),
+  ]);
+  assert.match(clock, /camera\.position\.set\(0, 0, 12\.4\)/);
+  assert.match(clock, /frame\.scale\.setScalar\(0\.88\)/);
+  assert.match(css, /aspect-ratio:\s*1\.14/);
+
+  const THREE = await import('three');
+  const camera = new THREE.PerspectiveCamera(35, 1.14, 0.1, 30);
+  camera.position.set(0, 0, 12.4);
+  camera.updateProjectionMatrix();
+  camera.updateMatrixWorld();
+  const frame = new THREE.Group();
+  frame.scale.setScalar(0.88);
+  for (const x of [-0.3, -0.19, 0.2]) {
+    for (const y of [-0.42, 0, 0.42]) {
+      for (const z of [-0.08, 0, 0.08]) {
+        frame.rotation.set(x, y, z);
+        frame.updateMatrixWorld(true);
+        for (const cx of [-2.35, 2.35]) {
+          for (const cy of [-2.35, 2.35]) {
+            for (const cz of [-2.35, 2.35]) {
+              const point = new THREE.Vector3(cx, cy, cz)
+                .applyMatrix4(frame.matrixWorld)
+                .project(camera);
+              assert.ok(Math.abs(point.x) < 0.9, `horizontal edge ${point.x.toFixed(3)} at ${x}, ${y}, ${z}`);
+              assert.ok(Math.abs(point.y) < 0.9, `vertical edge ${point.y.toFixed(3)} at ${x}, ${y}, ${z}`);
+            }
+          }
+        }
+      }
+    }
+  }
+});
