@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { normalizeUrl } from './core.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 
@@ -16,9 +17,9 @@ export function isEvidenceProposal(pull, repository) {
   );
 }
 
-export function candidateIdsFromPatch(patch) {
+export function candidateRecordsFromPatch(patch) {
   if (typeof patch !== 'string') throw new Error('MISSING_CANDIDATE_PATCH');
-  const ids = [];
+  const records = [];
   for (const line of patch.split('\n')) {
     if (!line.startsWith('+{')) continue;
     let record;
@@ -29,12 +30,31 @@ export function candidateIdsFromPatch(patch) {
     }
     if (!/^evcand-[a-f0-9]{24}$/.test(record.id ?? ''))
       throw new Error('INVALID_CANDIDATE_ID');
-    ids.push(record.id);
+    if (record.source_url != null && typeof record.source_url !== 'string')
+      throw new Error('INVALID_CANDIDATE_SOURCE_URL');
+    records.push({
+      id: record.id,
+      source_url: record.source_url ? normalizeUrl(record.source_url) : null,
+    });
   }
-  return ids;
+  return records;
 }
 
-export async function pendingProposalIds({ repository, token, fetchImpl = fetch }) {
+export function candidateIdsFromPatch(patch) {
+  return candidateRecordsFromPatch(patch).map((record) => record.id);
+}
+
+export function excludePendingCandidates(candidates, existingIds, pending) {
+  const excludedIds = new Set([...existingIds, ...pending.ids]);
+  const excludedUrls = new Set(pending.urls);
+  return candidates.filter(
+    (candidate) =>
+      !excludedIds.has(candidate.id) &&
+      (!candidate.source_url || !excludedUrls.has(normalizeUrl(candidate.source_url))),
+  );
+}
+
+export async function pendingProposalCandidates({ repository, token, fetchImpl = fetch }) {
   if (!/^[\w.-]+\/[\w.-]+$/.test(repository ?? '') || !token)
     throw new Error('GITHUB_ACCESS_NOT_CONFIGURED');
   const request = async (route) => {
@@ -60,24 +80,35 @@ export async function pendingProposalIds({ repository, token, fetchImpl = fetch 
   };
   const pulls = await listPages('/pulls?state=open');
   const ids = new Set();
+  const urls = new Set();
   for (const pull of pulls.filter((item) => isEvidenceProposal(item, repository))) {
     const files = await listPages(`/pulls/${pull.number}/files`);
     const candidateFile = files.find(
       (file) => file.filename === 'data/evidence-discovery/candidates.jsonl',
     );
     if (!candidateFile) throw new Error('MISSING_CANDIDATE_FILE');
-    for (const id of candidateIdsFromPatch(candidateFile.patch)) ids.add(id);
+    for (const candidate of candidateRecordsFromPatch(candidateFile.patch)) {
+      ids.add(candidate.id);
+      if (candidate.source_url) urls.add(candidate.source_url);
+    }
   }
-  return [...ids].sort((left, right) => left.localeCompare(right));
+  return {
+    ids: [...ids].sort((left, right) => left.localeCompare(right)),
+    urls: [...urls].sort((left, right) => left.localeCompare(right)),
+  };
+}
+
+export async function pendingProposalIds(options) {
+  return (await pendingProposalCandidates(options)).ids;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const ids = await pendingProposalIds({
+  const pending = await pendingProposalCandidates({
     repository: process.env.GITHUB_REPOSITORY,
     token: process.env.GITHUB_TOKEN,
   });
-  const destination = path.join(root, '.evidence-discovery', 'pending-pr-ids.json');
+  const destination = path.join(root, '.evidence-discovery', 'pending-pr-candidates.json');
   await mkdir(path.dirname(destination), { recursive: true });
-  await writeFile(destination, JSON.stringify(ids) + '\n');
-  console.log(`Excluded ${ids.length} candidate IDs already awaiting review.`);
+  await writeFile(destination, JSON.stringify(pending) + '\n');
+  console.log(`Excluded ${pending.ids.length} candidate IDs and ${pending.urls.length} sources already awaiting review.`);
 }
