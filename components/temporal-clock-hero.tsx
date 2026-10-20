@@ -44,7 +44,7 @@ export function TemporalClockHero() {
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(PINK);
         const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 30);
-        camera.position.set(0, 0, 11.2);
+        camera.position.set(0, 0, 12.4);
 
         const renderer = new THREE.WebGLRenderer({
           antialias: true,
@@ -74,6 +74,9 @@ export function TemporalClockHero() {
         const clock = new THREE.Group();
         scene.add(assembly);
         assembly.add(frame, clock);
+        // Keep the world frame inside the stage during its independent drift;
+        // the dial stays centered as the visual anchor.
+        frame.scale.setScalar(0.88);
         clock.position.z = 0.22;
 
         const rod = (
