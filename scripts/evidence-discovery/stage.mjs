@@ -1,6 +1,8 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { normalizeUrl } from './core.mjs';
+import { excludePendingCandidates } from './pending-proposals.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const lines = async (file) =>
@@ -11,11 +13,11 @@ const [existing, proposed] = await Promise.all([
   lines('data/evidence-discovery/candidates.jsonl'),
   lines('.evidence-discovery/candidates.jsonl'),
 ]);
-let pendingIds = [];
+let pending = { ids: [], urls: [] };
 try {
-  pendingIds = JSON.parse(
+  pending = JSON.parse(
     await readFile(
-      path.join(root, '.evidence-discovery/pending-pr-ids.json'),
+      path.join(root, '.evidence-discovery/pending-pr-candidates.json'),
       'utf8',
     ),
   );
@@ -23,17 +25,19 @@ try {
   if (error.code !== 'ENOENT') throw error;
 }
 if (
-  !Array.isArray(pendingIds) ||
-  pendingIds.some((id) => !/^evcand-[a-f0-9]{24}$/.test(id))
+  !pending ||
+  !Array.isArray(pending.ids) ||
+  pending.ids.some((id) => !/^evcand-[a-f0-9]{24}$/.test(id)) ||
+  !Array.isArray(pending.urls) ||
+  pending.urls.some((url) => typeof url !== 'string' || normalizeUrl(url) !== url)
 )
-  throw new Error('INVALID_PENDING_CANDIDATE_IDS');
-const existingIds = new Set([
-  ...existing.map((line) => JSON.parse(line).id),
-  ...pendingIds,
-]);
-const additions = proposed.filter(
-  (line) => !existingIds.has(JSON.parse(line).id),
-);
+  throw new Error('INVALID_PENDING_CANDIDATES');
+const existingIds = new Set(existing.map((line) => JSON.parse(line).id));
+const additions = excludePendingCandidates(
+  proposed.map((line) => ({ line, ...JSON.parse(line) })),
+  existingIds,
+  pending,
+).map((candidate) => candidate.line);
 if (additions.length)
   await writeFile(
     path.join(root, 'data/evidence-discovery/candidates.jsonl'),

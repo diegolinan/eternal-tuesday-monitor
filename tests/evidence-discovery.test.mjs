@@ -15,7 +15,10 @@ import {
 } from '../scripts/evidence-discovery/review.mjs';
 import {
   candidateIdsFromPatch,
+  candidateRecordsFromPatch,
+  excludePendingCandidates,
   isEvidenceProposal,
+  pendingProposalCandidates,
   pendingProposalIds,
 } from '../scripts/evidence-discovery/pending-proposals.mjs';
 import { buildPublicEvidenceStatus } from '../scripts/evidence-discovery/public-status.mjs';
@@ -27,7 +30,7 @@ import intakeWorker, {
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 
-test('pending evidence proposals suppress repeated candidate IDs', async () => {
+test('pending evidence proposals suppress repeated IDs and sources across policy versions', async () => {
   const repository = 'diegolinan/eternal-tuesday-monitor';
   const id = `evcand-${'a'.repeat(24)}`;
   const pull = {
@@ -46,8 +49,10 @@ test('pending evidence proposals suppress repeated candidate IDs', async () => {
     isEvidenceProposal({ ...pull, user: { login: 'other' } }, repository),
     false,
   );
-  const patch = `@@ -1,0 +2,1 @@\n+${JSON.stringify({ id })}`;
+  const sourceUrl = 'https://github.com/anthropics/claude-code/issues/89350';
+  const patch = `@@ -1,0 +2,1 @@\n+${JSON.stringify({ id, source_url: sourceUrl })}`;
   assert.deepEqual(candidateIdsFromPatch(patch), [id]);
+  assert.deepEqual(candidateRecordsFromPatch(patch), [{ id, source_url: sourceUrl }]);
   await assert.rejects(
     async () => candidateIdsFromPatch(),
     /MISSING_CANDIDATE_PATCH/,
@@ -69,6 +74,29 @@ test('pending evidence proposals suppress repeated candidate IDs', async () => {
   });
   assert.deepEqual(ids, [id]);
   assert.equal(requested.length, 2);
+  const pending = await pendingProposalCandidates({
+    repository,
+    token: 'test-token',
+    fetchImpl: async (url) => ({
+      ok: true,
+      json: async () =>
+        url.includes('/pulls/42/files')
+          ? [{ filename: 'data/evidence-discovery/candidates.jsonl', patch }]
+          : [pull],
+    }),
+  });
+  assert.deepEqual(pending, { ids: [id], urls: [sourceUrl] });
+  assert.deepEqual(
+    excludePendingCandidates(
+      [
+        { id: `evcand-${'b'.repeat(24)}`, source_url: sourceUrl },
+        { id: `evcand-${'c'.repeat(24)}`, source_url: 'https://example.com/new' },
+      ],
+      new Set(),
+      pending,
+    ),
+    [{ id: `evcand-${'c'.repeat(24)}`, source_url: 'https://example.com/new' }],
+  );
 });
 
 test('known historical records exercise every Monitor probe, including Fable', async () => {
