@@ -2452,6 +2452,60 @@
       ]
     },
     {
+      "id": "model-discovered-60e719e8b504ff263317",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6.1 Terra",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-6.1-terra",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-10-26",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-10-26",
+          "sha256": "a2e5e9e982cbefd3288cb4fe92d6d82786e25871a4cfd98a76d7a6982f83ee2f",
+          "fetched_at": "2026-10-26T18:52:20.006Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "4d14db7bff409cd16f473073daa9101c523b16fb",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/a2e5e9e982cbefd3288cb4fe92d6d82786e25871a4cfd98a76d7a6982f83ee2f.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+          "checked_on": "2026-10-26",
+          "sha256": "0aa37a726d3e5b4fa39667e3fc9f79ff0a6791eca522656e7c041a175c18afd1",
+          "fetched_at": "2026-10-26T18:52:20.610Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "4d14db7bff409cd16f473073daa9101c523b16fb",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/0aa37a726d3e5b4fa39667e3fc9f79ff0a6791eca522656e7c041a175c18afd1.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-65081ca13f2211836fb7",
       "vendor_id": "vendor-xai",
       "name": "Grok Imagine Video 1.5",
