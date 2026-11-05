@@ -27,6 +27,7 @@ import { Chronoscope } from '@/components/chronoscope';
 import { TemporalClockHero } from '@/components/temporal-clock-hero';
 import { ScrollRevealImage } from '@/components/scroll-reveal-image';
 import { SignalEphemera } from '@/components/signal-ephemera';
+import { DailySignal } from '@/components/daily-signal';
 import { TemporalInterlude } from '@/components/temporal-interlude';
 import { Permalink } from '@/components/share-links';
 import monitorSnapshot from '@/public/data/monitor.json';
@@ -1537,7 +1538,7 @@ export default function Home() {
                 That is the desired operating condition.
               </p>
             </div>
-            <SignalEphemera />
+            <DailySignal />
           </div>
         </div>
       </section>
