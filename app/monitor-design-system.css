@@ -1031,7 +1031,19 @@ body {
 }
 .daily-signal {
   margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  height: auto;
+  min-height: 150px;
+  max-width: 100%;
+  text-align: left;
+  cursor: default;
   user-select: text;
+}
+.daily-signal:focus-visible {
+  outline: 1px solid var(--pink);
+  outline-offset: 6px;
 }
 .daily-signal-hash {
   display: block;
@@ -1040,6 +1052,16 @@ body {
   font: inherit;
   line-height: 1.5;
   letter-spacing: 0;
+}
+.daily-signal[data-phase='revealing'] .daily-signal-hash,
+.daily-signal[data-phase='quote'] .daily-signal-hash {
+  width: 28ch;
+  max-width: 100%;
+  white-space: pre-wrap;
+}
+.daily-signal > .daily-signal-author {
+  margin-top: 8px;
+  white-space: normal;
 }
 .probe-illustration {
   position: relative;
@@ -1358,7 +1380,8 @@ body:has(.why-section) .site-colophon {
   .editorial-tail .signal-ephemera {
     justify-self: start;
     font-size: 10px;
-    height: 140px;
+    height: auto;
+    min-height: 140px;
   }
   .colophon-top,
   .colophon-author {
