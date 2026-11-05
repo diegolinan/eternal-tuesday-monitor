@@ -275,7 +275,7 @@ export async function getReviewPull(env, number) {
     repoPath(env, `/pulls/${number}/files?per_page=100`),
   );
   if (!allowedReviewFiles(type, files)) throw new Error('UNEXPECTED_PR_FILES');
-  const validation = await reviewValidation(env, pr);
+  const validation = await reviewValidation(env, pr, main.commit.sha);
   let additions = [];
   if (type.kind === 'leads' || type.kind === 'decision') {
     const ledger =
@@ -311,7 +311,7 @@ export async function getReviewPull(env, number) {
   };
 }
 
-async function reviewValidation(env, pr) {
+async function reviewValidation(env, pr, baseSha) {
   const result = await githubApi(
     env,
     repoPath(
@@ -319,7 +319,7 @@ async function reviewValidation(env, pr) {
       '/actions/workflows/validate-review-proposal.yml/runs?branch=main&event=workflow_dispatch&per_page=100',
     ),
   );
-  const title = `review-${pr.number}-${pr.head.sha}-${pr.base.sha}`;
+  const title = `review-${pr.number}-${pr.head.sha}-${baseSha}`;
   const run = result.workflow_runs?.find(
     (item) => item.display_title === title,
   );
