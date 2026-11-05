@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import {
   classifyReviewPull,
   allowedReviewFiles,
+  getReviewPull,
 } from '../worker/review-github.mjs';
 import reviewWorker from '../worker/review.mjs';
 import { reviewHtml, reviewCss, reviewJs } from '../worker/review-ui.mjs';
@@ -35,6 +36,72 @@ const proposal = (overrides = {}) => ({
   user: { login: 'github-actions[bot]' },
   labels: [{ name: 'review-required' }, { name: 'evidence-candidate' }],
   ...overrides,
+});
+
+test('proposal validation follows current main and rejects stale base or head results', async () => {
+  const repo = 'diegolinan/eternal-tuesday-monitor';
+  const oldBase = 'a'.repeat(40);
+  const head = 'b'.repeat(40);
+  let mainSha = 'c'.repeat(40);
+  let runs = [];
+  const key = await crypto.subtle.generateKey(
+    { name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' },
+    true,
+    ['sign', 'verify'],
+  );
+  const githubEnv = {
+    GITHUB_REPOSITORY: repo,
+    GITHUB_APP_ID: 'inbox-regression-test',
+    GITHUB_APP_INSTALLATION_ID: '123',
+    GITHUB_APP_PRIVATE_KEY_PKCS8: Buffer.from(await crypto.subtle.exportKey('pkcs8', key.privateKey)).toString('base64'),
+  };
+  const originalFetch = globalThis.fetch;
+  const workflow = (base, state = 'success', revision = head) => ({
+    id: 42,
+    display_title: `review-108-${revision}-${base}`,
+    status: state === 'running' ? 'in_progress' : 'completed',
+    conclusion: state === 'running' ? null : state,
+    html_url: 'https://github.com/example/run/42',
+  });
+  try {
+    globalThis.fetch = async (input, options = {}) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      assert.ok(!options.method || options.method === 'GET' || url.pathname.endsWith('/access_tokens'));
+      if (url.pathname === '/app/installations/123/access_tokens')
+        return Response.json({ token: 'test-installation-token', expires_at: new Date(Date.now() + 3600000).toISOString() });
+      if (url.pathname.endsWith('/pulls/108'))
+        return Response.json(proposal({
+          number: 108,
+          base: { ref: 'main', sha: oldBase, repo: { full_name: repo } },
+          head: { ref: 'automation/evidence-candidates-123', sha: head, repo: { full_name: repo } },
+          changed_files: 1,
+        }));
+      if (url.pathname.endsWith('/branches/main'))
+        return Response.json({ commit: { sha: mainSha } });
+      if (url.pathname.endsWith('/pulls/108/files'))
+        return Response.json([{ filename: 'data/evidence-discovery/candidates.jsonl', status: 'modified' }]);
+      if (url.pathname.endsWith('/validate-review-proposal.yml/runs'))
+        return Response.json({ workflow_runs: runs });
+      if (url.pathname.endsWith('/contents/data/evidence-discovery/candidates.jsonl'))
+        return Response.json({ encoding: 'base64', content: Buffer.from('{"id":"existing"}\n').toString('base64') });
+      throw new Error(`Unexpected GitHub request: ${url.pathname}`);
+    };
+    runs = [workflow(oldBase)];
+    assert.equal((await getReviewPull(githubEnv, 108)).validation.state, 'not_run');
+    runs = [workflow(mainSha, 'running')];
+    assert.equal((await getReviewPull(githubEnv, 108)).validation.state, 'running');
+    runs = [workflow(mainSha)];
+    const current = await getReviewPull(githubEnv, 108);
+    assert.equal(current.baseSha, mainSha);
+    assert.equal(current.validation.state, 'passed');
+    runs = [workflow(mainSha, 'success', 'd'.repeat(40))];
+    assert.equal((await getReviewPull(githubEnv, 108)).validation.state, 'not_run');
+    runs = [workflow(mainSha)];
+    mainSha = 'e'.repeat(40);
+    assert.equal((await getReviewPull(githubEnv, 108)).validation.state, 'not_run');
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test('only expected automation pull requests enter the private review queue', () => {
