@@ -9,6 +9,7 @@ export function DailySignal() {
   const [text, setText] = useState(signal.sha256);
   const frame = useRef(0);
   const running = useRef(false);
+  const started = useRef(false);
   const finish = () => {
     cancelAnimationFrame(frame.current);
     running.current = false;
@@ -31,7 +32,8 @@ export function DailySignal() {
   }, []);
 
   const reveal = () => {
-    if (running.current) return;
+    if (started.current) return;
+    started.current = true;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       finish();
       return;
@@ -68,17 +70,17 @@ export function DailySignal() {
       className="signal-ephemera daily-signal"
       data-phase={phase}
       onClick={reveal}
-      aria-disabled={phase === 'revealing'}
+      aria-disabled={phase !== 'hash'}
       aria-label={
         phase === 'hash'
           ? `Reveal the daily quote, ${signal.edition} UTC`
           : phase === 'revealing'
             ? 'Revealing the daily quote'
-            : 'Replay the daily quote reveal'
+            : 'Daily quote revealed'
       }
     >
       <span className="signal-packet-label" aria-hidden="true">
-        [ seq / Δ · {phase === 'quote' ? 'quote' : 'sha-256'} ]
+        [ seq / Δ ]
       </span>
       <code className="daily-signal-hash" aria-hidden="true">
         {text}

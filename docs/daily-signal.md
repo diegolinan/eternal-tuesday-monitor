@@ -23,7 +23,8 @@ snapshot; all visitors and reloads see the same edition.
 
 Clicking the widget (or pressing Enter/Space when focused) scrambles its
 characters and progressively reveals the saved quote, followed by its author.
-The cursor stays at its default arrow. Clicking again replays the reveal.
+The visible label stays `[ seq / Δ ]` and the cursor stays at its default arrow.
+The reveal runs once per page load; further clicks or key presses do nothing.
 The animation stops on completion, unmount, or tab hiding. Reduced-motion
 preferences reveal the quote immediately; screen readers receive the final
 phrase rather than the changing random characters. This reveals the stored
