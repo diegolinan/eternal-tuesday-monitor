@@ -1,6 +1,7 @@
 /*
- * Direct translation of the user-supplied TypeSafe CSS, not an approximation.
- * Source: JEV-reference/typesafe-site/index.html.
+ * Eternal Tuesday Monitor design system.
+ * Typography adapted from the supplied visual references; provenance is
+ * documented in assets/monitor/jev/README.md.
  * H1: preset 1gz3e0j; H2: 1dwu49g; body: ecyven / 2di2uo;
  * labels: LisaTerminal inline rules. Source CSS values retained below.
  * Framer custom-property plumbing is replaced with ordinary CSS properties.
@@ -51,8 +52,8 @@
   --petroleum: #1e1e1e;
   --plum: var(--pink);
   --link: #245cff;
-  --ts-h1-size: 150px;
-  --ts-h2-size: 64px;
+  --etm-h1-size: 150px;
+  --etm-h2-size: 64px;
   --hairline: 1px solid #1e1e1e40;
 }
 html,
@@ -74,7 +75,7 @@ body {
 .clockkeepers-hero h1,
 .contribute-hero h1 {
   font-family: var(--font-display);
-  font-size: var(--ts-h1-size);
+  font-size: var(--etm-h1-size);
   font-style: normal;
   font-weight: 500;
   font-variation-settings: normal;
@@ -99,7 +100,7 @@ body {
 .latest-movements h2,
 .model-overview h2 {
   font-family: var(--font-display);
-  font-size: var(--ts-h2-size);
+  font-size: var(--etm-h2-size);
   font-weight: 500;
   font-variation-settings: normal;
   line-height: 90%;
@@ -770,19 +771,19 @@ body {
 }
 @media (max-width: 1439px) and (min-width: 1200px) {
   :root {
-    --ts-h1-size: 140px;
+    --etm-h1-size: 140px;
   }
 }
 @media (max-width: 1199px) and (min-width: 810px) {
   :root {
-    --ts-h1-size: 94px;
-    --ts-h2-size: 41px;
+    --etm-h1-size: 94px;
+    --etm-h2-size: 41px;
   }
 }
 @media (max-width: 809px) {
   :root {
-    --ts-h1-size: 54px;
-    --ts-h2-size: 33px;
+    --etm-h1-size: 54px;
+    --etm-h2-size: 33px;
   }
   .hero {
     display: grid;

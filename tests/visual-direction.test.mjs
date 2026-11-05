@@ -10,7 +10,7 @@ test('secondary-page improvements preserve independent signals and early availab
     read('app/changelog/page.tsx'),
     read('components/responsibility-map.tsx'),
     read('components/model-signal-key.tsx'),
-    read('app/typesafe-reference.css'),
+    read('app/monitor-design-system.css'),
   ]);
   assert.equal((form.match(/className="form-unavailable"/g) ?? []).length, 1);
   assert.ok(
@@ -40,7 +40,7 @@ test('secondary pages use one colophon, aligned card rows, and a solid notice', 
   ]) {
     assert.doesNotMatch(await read(path), /<footer/);
   }
-  const css = await read('app/typesafe-reference.css');
+  const css = await read('app/monitor-design-system.css');
   assert.match(
     css,
     /\.clockkeeper-grid \.clockkeeper-card\s*\{[^}]*grid-template-rows: subgrid/,
@@ -58,7 +58,7 @@ test('secondary pages use one colophon, aligned card rows, and a solid notice', 
 
 test('visual corrections keep gutters purposeful and footer colors consistent', async () => {
   const [css, page] = await Promise.all([
-    read('app/typesafe-reference.css'),
+    read('app/monitor-design-system.css'),
     read('app/page.tsx'),
   ]);
   assert.match(css, /\.hero h1\.hero-masthead\s*\{[^}]*text-align: left/);
@@ -85,7 +85,7 @@ test('visual corrections keep gutters purposeful and footer colors consistent', 
 });
 
 test('dossiers scroll, consent stays unboxed, and status text stays dark', async () => {
-  const css = await read('app/typesafe-reference.css');
+  const css = await read('app/monitor-design-system.css');
   assert.match(
     css,
     /\.record-dialog\[data-slot='dialog-content'\][\s\S]*?overflow-y: auto/,
@@ -102,7 +102,7 @@ test('decorative signals are non-semantic and author links use the supplied dest
   const [ephemera, layout, css] = await Promise.all([
     read('components/signal-ephemera.tsx'),
     read('app/layout.tsx'),
-    read('app/typesafe-reference.css'),
+    read('app/monitor-design-system.css'),
   ]);
   assert.match(ephemera, /aria-hidden="true"/);
   assert.doesNotMatch(ephemera, /Math\.random|fetch\(|setInterval/);
@@ -122,7 +122,7 @@ test('the closing colophon is singular and the interlude is bounded and illustra
     read('app/page.tsx'),
     read('app/layout.tsx'),
     read('components/temporal-interlude.tsx'),
-    read('app/typesafe-reference.css'),
+    read('app/monitor-design-system.css'),
   ]);
   assert.doesNotMatch(page, /<footer/);
   assert.equal((layout.match(/<footer/g) || []).length, 1);
@@ -142,15 +142,15 @@ test('the closing colophon is singular and the interlude is bounded and illustra
   );
 });
 
-test('the active reference layer keeps the supplied TypeSafe typography metrics', async () => {
+test('the Monitor design system keeps the approved typography metrics', async () => {
   const [layout, css] = await Promise.all([
     read('app/layout.tsx'),
-    read('app/typesafe-reference.css'),
+    read('app/monitor-design-system.css'),
   ]);
-  assert.match(layout, /import '\.\/typesafe-reference\.css'/);
+  assert.match(layout, /import '\.\/monitor-design-system\.css'/);
   assert.doesNotMatch(layout, /import '\.\/ephemera-final\.css'/);
   for (const size of [150, 140, 94, 54])
-    assert.ok(css.includes(`--ts-h1-size: ${size}px`));
+    assert.ok(css.includes(`--etm-h1-size: ${size}px`));
   assert.match(css, /line-height: 80%/);
   assert.match(css, /letter-spacing: 0em/);
   assert.match(css, /-webkit-text-stroke: 1\.2px #1e1e1edb/);
@@ -192,7 +192,7 @@ test('five conceptual probe plates are added without replacing the two retained 
 });
 
 test('history stays open and type changes by role, not alternating headlines', async () => {
-  const css = await read('app/typesafe-reference.css');
+  const css = await read('app/monitor-design-system.css');
   assert.match(
     css,
     /\.timeline-track::before\s*\{\s*content: none;\s*display: none;/,
@@ -222,7 +222,7 @@ test('history stays open and type changes by role, not alternating headlines', a
 test('editorial figure and product note use the full section grid', async () => {
   const [editorialCss, referenceCss, clock] = await Promise.all([
     read('app/jev-system.css'),
-    read('app/typesafe-reference.css'),
+    read('app/monitor-design-system.css'),
     read('components/temporal-clock-hero.tsx'),
   ]);
   assert.match(editorialCss, /\.wide-figure\s*\{[^}]*align-items:\s*start;/);
