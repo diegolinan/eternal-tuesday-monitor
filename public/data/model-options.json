@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-10-26",
+  "catalogCheckedThrough": "2026-11-05",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -530,6 +530,11 @@
           "apiModelId": "gpt-6-sol"
         },
         {
+          "id": "model-discovered-4319632508e1adccabaa",
+          "name": "GPT-6-Cyber",
+          "apiModelId": "gpt-6-cyber"
+        },
+        {
           "id": "model-discovered-3a9d9aadba682a8cf86a",
           "name": "GPT-6.1 Sol",
           "apiModelId": "gpt-6.1-sol"
@@ -583,6 +588,16 @@
           "id": "model-discovered-a768321108810b45db76",
           "name": "GPT-Image-2.5 Sunburst",
           "apiModelId": "gpt-image-2.5-sunburst"
+        },
+        {
+          "id": "model-discovered-b396cdd0d693b4967492",
+          "name": "GPT-Image-2.6 Flare",
+          "apiModelId": "gpt-image-2.6-flare"
+        },
+        {
+          "id": "model-discovered-9625deba508dde9aafb1",
+          "name": "GPT-Image-2.6 Sunburst",
+          "apiModelId": "gpt-image-2.6-sunburst"
         },
         {
           "id": "model-discovered-7fc4e230104dfc645df6",

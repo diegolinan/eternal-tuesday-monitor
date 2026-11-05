@@ -4,7 +4,7 @@
   "releaseId": "release-2026-09-09",
   "dataCutoff": "2026-09-09",
   "publishedOn": "2026-09-09",
-  "freshnessEvaluatedOn": "2026-11-04",
+  "freshnessEvaluatedOn": "2026-11-05",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
@@ -36,7 +36,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -71,7 +71,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -106,7 +106,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -140,7 +140,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol",
@@ -174,7 +174,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -208,7 +208,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -244,7 +244,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -280,7 +280,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -316,7 +316,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -352,7 +352,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -388,7 +388,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -424,7 +424,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -460,7 +460,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -494,7 +494,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 60,
+      "evidenceAgeDays": 61,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
@@ -528,7 +528,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 56,
+      "evidenceAgeDays": 57,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -572,7 +572,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 56,
+      "evidenceAgeDays": 57,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -616,7 +616,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 56,
+      "evidenceAgeDays": 57,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -636,6 +636,354 @@
     }
   ],
   "models": [
+    {
+      "id": "model-discovered-4319632508e1adccabaa",
+      "vendorId": "vendor-openai",
+      "vendor": "OpenAI",
+      "name": "GPT-6-Cyber",
+      "apiModelId": "gpt-6-cyber",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "DISCOVERED_RELEVANT",
+      "relevanceReviewedOn": "2026-11-05",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-11-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "EVALUATION_PENDING",
+      "testabilityState": "REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "PUBLIC_SOURCE_IDENTITY_ONLY"
+      ],
+      "adoptionAssessedOn": "2026-11-05",
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [
+        "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+      ],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "REVIEW_REQUIRED",
+          "eligibilityReasons": [
+            "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
+          ],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-6-cyber"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": true
+    },
+    {
+      "id": "model-discovered-b396cdd0d693b4967492",
+      "vendorId": "vendor-openai",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-2.6 Flare",
+      "apiModelId": "gpt-image-2.6-flare",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "CATALOG_ONLY",
+      "relevanceReviewedOn": "2026-11-05",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-11-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "MODEL_NOT_IN_ADOPTION_SCOPE"
+      ],
+      "adoptionAssessedOn": null,
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": false
+    },
+    {
+      "id": "model-discovered-9625deba508dde9aafb1",
+      "vendorId": "vendor-openai",
+      "vendor": "OpenAI",
+      "name": "GPT-Image-2.6 Sunburst",
+      "apiModelId": "gpt-image-2.6-sunburst",
+      "releaseState": "DISCOVERED",
+      "relevanceState": "CATALOG_ONLY",
+      "relevanceReviewedOn": "2026-11-05",
+      "apiState": "API_UNKNOWN",
+      "accountAccess": "UNKNOWN",
+      "accountCheckedOn": null,
+      "discoveredOn": "2026-11-05",
+      "releasedOn": null,
+      "firstTestedOn": null,
+      "lastTestedOn": null,
+      "lifecycleState": "DISCOVERED",
+      "testabilityState": "UNKNOWN_REVIEW_REQUIRED",
+      "evaluationReasons": [
+        "API_UNKNOWN",
+        "ACCOUNT_ACCESS_NOT_CONFIRMED",
+        "ACCOUNT_ACCESS_CHECK_STALE",
+        "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+      ],
+      "apiAvailabilityState": "UNKNOWN",
+      "apiAvailabilityReasons": [
+        "MODEL_NOT_IN_ADOPTION_SCOPE"
+      ],
+      "adoptionAssessedOn": null,
+      "queueState": "NOT_QUEUED",
+      "queueReasons": [],
+      "executionState": "NOT_RUN",
+      "probeCoverage": [
+        {
+          "id": "probe-temporal-anchor",
+          "name": "TEMPORAL ANCHOR",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-elapsed",
+          "name": "ELAPSED",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-revalidation",
+          "name": "REVALIDATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-state-reconciliation",
+          "name": "STATE RECONCILIATION",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        },
+        {
+          "id": "probe-historical-validity",
+          "name": "HISTORICAL VALIDITY",
+          "state": "NOT_TESTED",
+          "eligibilityState": "NOT_IN_SCOPE",
+          "eligibilityReasons": [],
+          "methodologyVersionId": null,
+          "testability": "NOT_API_TESTABLE",
+          "empiricalResult": null,
+          "evidenceClass": null,
+          "verifiedOn": null,
+          "limitations": [],
+          "requestCount": 0
+        }
+      ],
+      "surfaces": [],
+      "observationContexts": [],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/all",
+        "https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst"
+      ],
+      "reviewReasons": [],
+      "defaultProminence": false
+    },
     {
       "id": "model-discovered-60e719e8b504ff263317",
       "vendorId": "vendor-openai",

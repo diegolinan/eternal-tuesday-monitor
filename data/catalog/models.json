@@ -1516,6 +1516,60 @@
       ]
     },
     {
+      "id": "model-discovered-4319632508e1adccabaa",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6-Cyber",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-6-cyber",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-11-05",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-11-05",
+          "sha256": "0d50fdca69c97a75f8d03437a51351b355a292db99c2a8f1e272cde66ba8e8ca",
+          "fetched_at": "2026-11-05T20:17:48.378Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "f78b75b473eb034256eeeb3bb8bd9ae567604896",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/0d50fdca69c97a75f8d03437a51351b355a292db99c2a8f1e272cde66ba8e8ca.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6-cyber",
+          "checked_on": "2026-11-05",
+          "sha256": "9444ec32ebd2129c3c61c46d1958350d09b5be1f3cf26262f2693ccd3589037a",
+          "fetched_at": "2026-11-05T20:17:54.026Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "f78b75b473eb034256eeeb3bb8bd9ae567604896",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/9444ec32ebd2129c3c61c46d1958350d09b5be1f3cf26262f2693ccd3589037a.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-436161bb8ac5f5490821",
       "vendor_id": "vendor-openai",
       "name": "GPT-4o Mini Audio",
@@ -3890,6 +3944,60 @@
       ]
     },
     {
+      "id": "model-discovered-9625deba508dde9aafb1",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-2.6 Sunburst",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-image-2.6-sunburst",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-11-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-11-05",
+          "sha256": "0d50fdca69c97a75f8d03437a51351b355a292db99c2a8f1e272cde66ba8e8ca",
+          "fetched_at": "2026-11-05T20:17:48.378Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "f78b75b473eb034256eeeb3bb8bd9ae567604896",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/0d50fdca69c97a75f8d03437a51351b355a292db99c2a8f1e272cde66ba8e8ca.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst",
+          "checked_on": "2026-11-05",
+          "sha256": "1e9bfe05b6f0fe19b3ff46e3001361051264e11284f39d35e2cf67808605d528",
+          "fetched_at": "2026-11-05T20:17:50.114Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "f78b75b473eb034256eeeb3bb8bd9ae567604896",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/1e9bfe05b6f0fe19b3ff46e3001361051264e11284f39d35e2cf67808605d528.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-96b3d6a8812d1bff8280",
       "vendor_id": "vendor-openai",
       "name": "GPT-5.1-Codex",
@@ -4384,6 +4492,60 @@
           "checked_from_commit": "5edc238e711d2aababf677c3c41cb49c98c42ef6",
           "raw_snapshot_artifact": "official-model-discovery-sources",
           "raw_snapshot_path": "discovery-openai-docs/b48d4577fa42fffb5d6ecb965207555fa8c7f5462504a7c08a8c334cfc928491.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-b396cdd0d693b4967492",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Image-2.6 Flare",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-image-2.6-flare",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-11-05",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-11-05",
+          "sha256": "0d50fdca69c97a75f8d03437a51351b355a292db99c2a8f1e272cde66ba8e8ca",
+          "fetched_at": "2026-11-05T20:17:48.378Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "f78b75b473eb034256eeeb3bb8bd9ae567604896",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/0d50fdca69c97a75f8d03437a51351b355a292db99c2a8f1e272cde66ba8e8ca.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
+          "checked_on": "2026-11-05",
+          "sha256": "7711a76477158e3400a69e09c40590310cb7e4af1fe5861df5e55bc08d05afb4",
+          "fetched_at": "2026-11-05T20:17:50.403Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "f78b75b473eb034256eeeb3bb8bd9ae567604896",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/7711a76477158e3400a69e09c40590310cb7e4af1fe5861df5e55bc08d05afb4.html.gz",
           "raw_snapshot_retention_days": 90
         }
       ]
