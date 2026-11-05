@@ -7,6 +7,7 @@ import {
   buildCandidate,
   dedupeCandidates,
   inferIdentityIds,
+  knownCandidateExclusions,
   normalizeUrl,
 } from '../scripts/evidence-discovery/core.mjs';
 import {
@@ -29,6 +30,42 @@ import intakeWorker, {
 } from '../worker/intake.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
+
+test('incorporated source URLs suppress rediscovery across policies and staging', () => {
+  const input = {
+    sourceType: 'PUBLIC_ISSUE',
+    sourceUrl: 'https://example.com/known?utm_source=first',
+    title: 'Agent reports wrong current date',
+    excerpt: 'The agent reports the wrong current date.',
+    discoveredAt: '2026-09-06T12:00:00.000Z',
+    queryId: 'test',
+  };
+  const prior = buildCandidate(input);
+  const incoming = buildCandidate({ ...input, screeningPolicyVersion: 'ETM-EVIDENCE-9.9' });
+  assert.notEqual(incoming.id, prior.id);
+  const known = knownCandidateExclusions([prior]);
+  assert.deepEqual(dedupeCandidates([incoming], known.ids, known.urls), []);
+  assert.deepEqual(excludePendingCandidates([incoming], known.ids, { ids: [], urls: [] }, known.urls), []);
+
+  const decisions = [{ decision: 'RETRACTED_PIPELINE_DEFECT', candidate_batch_generated_at: prior.discovered_at }];
+  const retracted = knownCandidateExclusions([prior], decisions);
+  assert.deepEqual(dedupeCandidates([incoming], retracted.ids, retracted.urls), [incoming]);
+  assert.deepEqual(dedupeCandidates([prior], retracted.ids, retracted.urls), []);
+  const active = { ...incoming, discovered_at: '2026-09-07T12:00:00.000Z' };
+  const mixed = knownCandidateExclusions([prior, active], decisions);
+  assert.ok(mixed.urls.has(prior.source_url));
+
+  const official = { ...prior, source_type: 'OFFICIAL_SOURCE' };
+  const officialKnown = knownCandidateExclusions([official]);
+  assert.deepEqual(dedupeCandidates([incoming], officialKnown.ids, officialKnown.urls), [incoming]);
+});
+
+test('one batch keeps one normalized source but preserves independent firsthand reports', () => {
+  const one = { id: 'one', source_url: 'https://example.com/report?utm_source=x#part' };
+  const two = { id: 'two', source_url: 'https://EXAMPLE.com/report/' };
+  const firsthand = [{ id: 'three', source_url: null }, { id: 'four', source_url: null }];
+  assert.deepEqual(dedupeCandidates([one, two, ...firsthand]).map((r) => r.id).sort((a, b) => a.localeCompare(b)), ['four', 'one', 'three']);
+});
 
 test('pending evidence proposals suppress repeated IDs and sources across policy versions', async () => {
   const repository = 'diegolinan/eternal-tuesday-monitor';

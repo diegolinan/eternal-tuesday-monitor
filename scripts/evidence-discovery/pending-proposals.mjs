@@ -44,9 +44,9 @@ export function candidateIdsFromPatch(patch) {
   return candidateRecordsFromPatch(patch).map((record) => record.id);
 }
 
-export function excludePendingCandidates(candidates, existingIds, pending) {
+export function excludePendingCandidates(candidates, existingIds, pending, existingUrls = new Set()) {
   const excludedIds = new Set([...existingIds, ...pending.ids]);
-  const excludedUrls = new Set(pending.urls);
+  const excludedUrls = new Set([...existingUrls, ...pending.urls].map(normalizeUrl));
   return candidates.filter(
     (candidate) =>
       !excludedIds.has(candidate.id) &&

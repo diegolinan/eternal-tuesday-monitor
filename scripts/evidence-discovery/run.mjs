@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { document, main, tags, text } from '../discovery/html.mjs';
-import { buildCandidate, dedupeCandidates, inferIdentityIds } from './core.mjs';
+import { buildCandidate, dedupeCandidates, inferIdentityIds, knownCandidateExclusions, normalizeUrl } from './core.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const readJson = async (file) =>
@@ -38,6 +38,7 @@ const [
   surfacesFile,
   acceptedSources,
   priorCandidates,
+  priorDecisions,
 ] = await Promise.all([
   readJson('config/evidence-discovery.json'),
   readJson('config/model-discovery.json'),
@@ -48,6 +49,7 @@ const [
   readJson('data/catalog/surfaces.json'),
   readJson('data/sources/sources.json'),
   readLines('data/evidence-discovery/candidates.jsonl'),
+  readLines('data/evidence-discovery/decisions.jsonl'),
 ]);
 const vendorTerms = vendorsFile.vendors
   .filter((v) => v.id !== 'vendor-independent-research')
@@ -396,14 +398,15 @@ await publicIssues();
 await research();
 await generalWeb();
 
-const excludedIds = new Set(priorCandidates.map((item) => item.id));
+const known = knownCandidateExclusions(priorCandidates, priorDecisions);
 const excludedUrls = new Set(
   [
+    ...known.urls,
     ...acceptedSources.sources.map((item) => item.url),
     ...(config.reviewed_exclusions ?? []).map((item) => item.source_url),
-  ].filter(Boolean),
+  ].filter(Boolean).map(normalizeUrl),
 );
-const novel = dedupeCandidates(candidates, excludedIds, excludedUrls);
+const novel = dedupeCandidates(candidates, known.ids, excludedUrls);
 const unavailable = channels.filter(
   (item) => item.state === 'UNAVAILABLE',
 ).length;

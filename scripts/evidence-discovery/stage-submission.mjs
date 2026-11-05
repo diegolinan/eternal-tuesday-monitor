@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { buildCandidate, dedupeCandidates } from './core.mjs';
+import { buildCandidate, dedupeCandidates, knownCandidateExclusions } from './core.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const bidiAndZeroWidth = /[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/gu;
@@ -184,9 +184,13 @@ if (!candidate) throw new Error('CANDIDATE_NOT_CREATED');
 const ledgerPath = path.join(root, 'data/evidence-discovery/candidates.jsonl');
 const raw = await readFile(ledgerPath, 'utf8');
 const existing = raw.split(/\r?\n/).filter(Boolean).map(JSON.parse);
+const decisions = (await readFile(path.join(root, 'data/evidence-discovery/decisions.jsonl'), 'utf8'))
+  .split(/\r?\n/).filter(Boolean).map(JSON.parse);
+const known = knownCandidateExclusions(existing, decisions);
 const additions = dedupeCandidates(
   [candidate],
-  new Set(existing.map((item) => item.id)),
+  known.ids,
+  known.urls,
 );
 let alreadyOpen = false;
 if (

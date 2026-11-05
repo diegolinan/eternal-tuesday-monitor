@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { normalizeUrl } from './core.mjs';
+import { dedupeCandidates, knownCandidateExclusions, normalizeUrl } from './core.mjs';
 import { excludePendingCandidates } from './pending-proposals.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
@@ -9,9 +9,10 @@ const lines = async (file) =>
   (await readFile(path.join(root, file), 'utf8'))
     .split(/\r?\n/)
     .filter(Boolean);
-const [existing, proposed] = await Promise.all([
+const [existing, proposed, decisions] = await Promise.all([
   lines('data/evidence-discovery/candidates.jsonl'),
   lines('.evidence-discovery/candidates.jsonl'),
+  lines('data/evidence-discovery/decisions.jsonl'),
 ]);
 let pending = { ids: [], urls: [] };
 try {
@@ -32,11 +33,14 @@ if (
   pending.urls.some((url) => typeof url !== 'string' || normalizeUrl(url) !== url)
 )
   throw new Error('INVALID_PENDING_CANDIDATES');
-const existingIds = new Set(existing.map((line) => JSON.parse(line).id));
-const additions = excludePendingCandidates(
-  proposed.map((line) => ({ line, ...JSON.parse(line) })),
-  existingIds,
-  pending,
+const known = knownCandidateExclusions(existing.map(JSON.parse), decisions.map(JSON.parse));
+const additions = dedupeCandidates(
+  excludePendingCandidates(
+    proposed.map((line) => ({ line, ...JSON.parse(line) })),
+    known.ids,
+    pending,
+    known.urls,
+  ),
 ).map((candidate) => candidate.line);
 if (additions.length)
   await writeFile(
