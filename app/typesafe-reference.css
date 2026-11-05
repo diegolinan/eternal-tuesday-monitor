@@ -1029,6 +1029,7 @@ body {
   color: var(--pink);
 }
 .daily-signal {
+  margin: 0;
   user-select: text;
 }
 .daily-signal-hash {
