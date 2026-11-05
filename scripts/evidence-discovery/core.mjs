@@ -355,17 +355,40 @@ export function buildCandidate(input) {
   };
 }
 
+export function knownCandidateExclusions(candidates, decisions = []) {
+  const retracted = new Set(
+    decisions
+      .filter((decision) => decision.decision === 'RETRACTED_PIPELINE_DEFECT')
+      .map((decision) => decision.candidate_batch_generated_at),
+  );
+  return {
+    ids: new Set(candidates.map((candidate) => candidate.id)),
+    urls: new Set(
+      candidates
+        .filter((candidate) =>
+          candidate.source_url &&
+          candidate.source_type !== 'OFFICIAL_SOURCE' &&
+          !retracted.has(candidate.discovered_at),
+        )
+        .map((candidate) => normalizeUrl(candidate.source_url)),
+    ),
+  };
+}
+
 export function dedupeCandidates(
   candidates,
   excludedIds = new Set(),
   excludedUrls = new Set(),
 ) {
   const seen = new Set(excludedIds);
+  const seenUrls = new Set([...excludedUrls].map(normalizeUrl));
   const result = [];
   for (const candidate of candidates.filter(Boolean)) {
-    if (seen.has(candidate.id) || excludedUrls.has(candidate.source_url))
+    const url = candidate.source_url ? normalizeUrl(candidate.source_url) : null;
+    if (seen.has(candidate.id) || (url && seenUrls.has(url)))
       continue;
     seen.add(candidate.id);
+    if (url) seenUrls.add(url);
     result.push(candidate);
   }
   return result.sort((left, right) => left.id.localeCompare(right.id));
