@@ -21,6 +21,14 @@ we do not independently verify it.
 date, and digest so anyone can reproduce it. The browser uses the built
 snapshot; all visitors and reloads see the same edition.
 
+Clicking the widget (or pressing Enter/Space when focused) scrambles its
+characters and progressively reveals the saved quote, followed by its author.
+The cursor stays at its default arrow. Clicking again replays the reveal.
+The animation stops on completion, unmount, or tab hiding. Reduced-motion
+preferences reveal the quote immediately; screen readers receive the final
+phrase rather than the changing random characters. This reveals the stored
+text, rather than reversing SHA-256.
+
 The existing daily discovery workflow updates this file before validation and
 includes it in its automatic commit. Successful scheduled runs publish the new
 edition through the existing deployment workflows. GitHub's schedule runs at
