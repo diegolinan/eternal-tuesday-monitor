@@ -15,7 +15,7 @@ if (!['github-pages', 'vercel'].includes(target))
   throw new Error('--target must be github-pages or vercel');
 
 const basePath = target === 'github-pages' ? '/eternal-tuesday-monitor' : '';
-const canonicalUrl = 'https://eternal-tuesday-monitor.vercel.app/';
+const canonicalUrl = 'https://eternal.diegolinan.me/';
 const openAIPrototypeHost = 'chatgpt.site';
 const failures = [];
 
