@@ -77,7 +77,7 @@ test('lossless delivery copies are smaller and retain reserved image geometry', 
 });
 
 test('motion preference and high-contrast focus are retained', async () => {
-  const css = await read('app/typesafe-reference.css');
+  const css = await read('app/monitor-design-system.css');
   assert.match(css, /Two-tone focus/);
   assert.match(css, /outline: 2px solid #1e1e1e !important/);
   assert.match(css, /box-shadow: 0 0 0 4px #fefefe !important/);

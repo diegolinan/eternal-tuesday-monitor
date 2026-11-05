@@ -4,7 +4,7 @@ Local redesign, October 2, 2026. Data, evidence policy, forms and automation beh
 
 ## Reference material
 
-The user-provided TypeSafe marketing and console archives, screenshots and additional references were copied from D:/Downloads/JEV into the sibling JEV-reference folder outside the repository. Reference sources remain intact. Die Grotesk C Regular/Medium and LisaTerminal Paper 2X3Y Medium font files came from that supplied marketing archive; they are self-hosted in app/fonts. Confirm redistribution rights before publishing these reference fonts.
+The user-provided marketing and console reference archives, screenshots and additional references were copied from D:/Downloads/JEV into the sibling JEV-reference folder outside the repository. Reference sources remain intact. Die Grotesk C Regular/Medium and LisaTerminal Paper 2X3Y Medium font files came from that supplied marketing archive; they are self-hosted in app/fonts. Confirm redistribution rights before publishing these reference fonts.
 
 The final direction uses the source pink #f386a1, duck yellow #f6df60 and a single slightly brighter cyan #09bdb2 against white and black ink, open rules, square controls and technical halftone collages. Typography changes by role: Die Grotesk C Medium for editorial headlines and Regular for reading; LisaTerminal for instrument captions, dates, section labels and window chrome; the console's Inter and Space Mono for operational interfaces and code/data. Equivalent editorial headlines do not alternate font families. Confirm redistribution rights for supplied fonts before publishing. Reference graphics are not presented as Monitor evidence.
 
@@ -24,7 +24,7 @@ All five revision-2 illustrations are 1536 x 1024. Original PNGs are retained in
 
 The prior temporal-field.png and sampling-field.png assets are preserved but no longer used on the live pages.
 
-Reference images used for visual guidance were the supplied TypeSafe files ha3DZDAEywp8YIOB6HHG4ehgPw.png and pvRPymJ0yRv5SHXNA3yDzieCZJk.webp.
+Reference images used for visual guidance were the supplied reference files ha3DZDAEywp8YIOB6HHG4ehgPw.png and pvRPymJ0yRv5SHXNA3yDzieCZJk.webp.
 
 ### Prompt direction: temporal-field
 
@@ -36,7 +36,7 @@ Create an original abstract editorial graphic about “five measurements of the 
 
 ## Implementation
 
-app/typesafe-reference.css is the final visual layer. It maps the supplied marketing CSS presets to Monitor selectors: 1gz3e0j (H1: 150/140/94/54px, 80% line-height, 0 tracking, 1.2px stroke), 1dwu49g (H2: 64/41/33px, 90%, 0, .5px stroke), ecyven/2di2uo (body: 17/22px, 120%, .05em, .5px stroke), and the original LisaTerminal label rules. The earlier ephemera-final.css is no longer imported. Essential labels and titles remain live accessible text. Images are not used for operational state. Motion honors reduced-motion preferences. The existing countdown remains directly below the hero and continues to use the browser timezone.
+app/monitor-design-system.css is the final visual layer. It maps the supplied marketing CSS presets to Monitor selectors: 1gz3e0j (H1: 150/140/94/54px, 80% line-height, 0 tracking, 1.2px stroke), 1dwu49g (H2: 64/41/33px, 90%, 0, .5px stroke), ecyven/2di2uo (body: 17/22px, 120%, .05em, .5px stroke), and the original LisaTerminal label rules. The earlier ephemera-final.css is no longer imported. Essential labels and titles remain live accessible text. Images are not used for operational state. Motion honors reduced-motion preferences. The existing countdown remains directly below the hero and continues to use the browser timezone.
 
 The hero is a code-native interactive SVG, not a generated bitmap or prerecorded video. Its finite, user-started sequence, time slider and revalidation control illustrate state drift without fetching or implying model results. Playback stops when the tab or illustration is hidden. The favicon uses two offset square tracks and a yellow interruption rather than the retired clock.
 
