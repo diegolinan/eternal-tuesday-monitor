@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
+import { validateSignal } from './update-daily-signal.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, 'dist/client');
@@ -22,6 +23,17 @@ const failures = [];
 const fail = (message) => failures.push(message);
 const read = async (relativePath) =>
   readFile(path.join(output, relativePath), 'utf8');
+
+try {
+  const signal = validateSignal(
+    JSON.parse(await read('data/daily-signal.json')),
+  );
+  const html = await read('index.html');
+  if (!html.includes(signal.sha256) || !html.includes(signal.edition))
+    fail('daily signal snapshot differs from the rendered homepage');
+} catch (error) {
+  fail(`invalid daily signal artifact: ${error.message}`);
+}
 
 async function requireFile(relativePath) {
   try {

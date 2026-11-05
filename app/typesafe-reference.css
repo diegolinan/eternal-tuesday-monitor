@@ -1028,6 +1028,18 @@ body {
   margin-top: 12px;
   color: var(--pink);
 }
+.daily-signal {
+  margin: 0;
+  user-select: text;
+}
+.daily-signal-hash {
+  display: block;
+  width: 16ch;
+  overflow-wrap: anywhere;
+  font: inherit;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
 .probe-illustration {
   position: relative;
 }

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "edition": "2026-11-05",
+  "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
+  "quote": {
+    "id": "iUfi8hroM95v",
+    "text": "The more you care, the stronger you can be.",
+    "author": "Jim Rohn"
+  },
+  "sha256": "c449950bfc16c08bed65af74ca8310b17b6b60662247eb5ebd645586a5d054e4"
+}
