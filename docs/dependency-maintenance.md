@@ -1,4 +1,4 @@
-﻿# Dependency security maintenance
+# Dependency security maintenance
 
 Keep the Vite, Vinext, React, React DOM, React Server DOM and RSC plugin versions
 compatible. Vinext 1.4.3 requires the React 19.3.1 family and RSC plugin 0.5.37
@@ -8,7 +8,7 @@ or newer; do not update one of these in isolation.
 
 - `sharp` 0.35.5 retains the existing patched image dependency.
 - `undici` 7.30.2 replaces vulnerable 7.x copies without moving to a new major.
-- `fflate@<0.7.5` resolves to 0.7.5. Satori 0.33.5 pins 0.7.3, affected by
+- `satori` overrides its nested `fflate` copies to 0.7.5. Satori 0.33.5 pins 0.7.3, affected by
   [GHSA-px8p-9vwx-vf98](https://github.com/advisories/GHSA-px8p-9vwx-vf98).
   This override leaves the separate 0.8.3 copy intact. Remove it when the upstream
   dependency no longer pins an affected version, then rerun audit and builds.
@@ -26,6 +26,8 @@ retain its license. The component generator can be invoked explicitly when
 needed; it is not required to build the published site.
 
 ## Verification
+
+GitHub Actions uses Node 22 and npm 10. When updating the lockfile from a machine with npm 11, verify it with `npx --yes npm@10.9.9 ci` before publishing.
 
 Use `npm ci`, `npm audit`, `npm test`, `npm run lint`, `npm run intake:types`,
 and `npx tsc --noEmit`. Build and validate both public targets using

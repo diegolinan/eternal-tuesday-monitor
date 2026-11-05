@@ -97,7 +97,9 @@
   "overrides": {
     "sharp": "0.35.5",
     "undici": "7.30.2",
-    "fflate@<0.7.5": "0.7.5"
+    "satori": {
+      "fflate": "0.7.5"
+    }
   },
   "type": "module"
 }
