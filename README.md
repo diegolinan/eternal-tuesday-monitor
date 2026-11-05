@@ -1,16 +1,16 @@
 # The Eternal Tuesday Monitor
 
-[![Open Monitor](https://img.shields.io/badge/monitor-open-006F75?style=flat-square&labelColor=1E1E1E)](https://eternal-tuesday-monitor.vercel.app/)
+[![Open Monitor](https://img.shields.io/badge/monitor-open-006F75?style=flat-square&labelColor=1E1E1E)](https://eternal.diegolinan.me/)
 [![Validate](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/validate.yml)
 [![Source watch](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/discover-models.yml/badge.svg?branch=main)](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/discover-models.yml)
 [![Pages fallback](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/diegolinan/eternal-tuesday-monitor/actions/workflows/pages.yml)
 [![Documentation](https://img.shields.io/badge/docs-read-806400?style=flat-square&labelColor=1E1E1E)](docs/operations.md)
 
-[![Data release](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.publishedOn&label=data%20release&color=AD2D5B&style=flat-square&labelColor=1E1E1E)](data/releases/)
-[![Evidence through](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.dataCutoff&label=evidence%20through&color=806400&style=flat-square&labelColor=1E1E1E)](data/releases/)
-[![Method](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.methodologyVersion&label=method&color=006F75&style=flat-square&labelColor=1E1E1E)](data/methodologies/)
-[![Observations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal-tuesday-monitor.vercel.app%2Fdata%2Fmonitor.json&query=%24.observations.length&label=observations&color=AD2D5B&style=flat-square&labelColor=1E1E1E)](data/observations/observations.jsonl)
-[![Contribute](https://img.shields.io/badge/evidence-contribute-AD2D5B?style=flat-square&labelColor=1E1E1E)](https://eternal-tuesday-monitor.vercel.app/contribute/)
+[![Data release](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal.diegolinan.me%2Fdata%2Fmonitor.json&query=%24.publishedOn&label=data%20release&color=AD2D5B&style=flat-square&labelColor=1E1E1E)](data/releases/)
+[![Evidence through](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal.diegolinan.me%2Fdata%2Fmonitor.json&query=%24.dataCutoff&label=evidence%20through&color=806400&style=flat-square&labelColor=1E1E1E)](data/releases/)
+[![Method](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal.diegolinan.me%2Fdata%2Fmonitor.json&query=%24.methodologyVersion&label=method&color=006F75&style=flat-square&labelColor=1E1E1E)](data/methodologies/)
+[![Observations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feternal.diegolinan.me%2Fdata%2Fmonitor.json&query=%24.observations.length&label=observations&color=AD2D5B&style=flat-square&labelColor=1E1E1E)](data/observations/observations.jsonl)
+[![Contribute](https://img.shields.io/badge/evidence-contribute-AD2D5B?style=flat-square&labelColor=1E1E1E)](https://eternal.diegolinan.me/contribute/)
 
 The dated release and evidence cutoff describe the published dataset, not the age of the site deployment. The method and observation badges also read the live public projection; workflow badges report GitHub Actions status.
 
@@ -161,7 +161,7 @@ The files under `data/`, `content/`, and `assets/` are authoritative. `public/da
 
 The canonical public production site is:
 
-<https://eternal-tuesday-monitor.vercel.app/>
+<https://eternal.diegolinan.me/>
 
 The repository preserves two separate build targets:
 
@@ -256,7 +256,7 @@ The daily discovery workflow searches three explicitly separated channels: chang
 
 The public `/contribute/` form follows the same boundary. It uses a deterministic compact projection of the versioned vendor/model catalog, with separate choices for a listed model, an unlisted model, and an honestly unknown exact model. Firsthand reports require expected behavior, actual behavior, and reproduction steps. The contributor reviews the complete lead before sending and receives a non-secret receipt identifier when it is queued.
 
-A small Cloudflare Worker validates and size-limits the payload, normalizes public HTTPS source URLs, removes tracking parameters and unsafe Unicode controls, requires a single-use Turnstile token for an explicitly approved public hostname and form action, and checks duplicate candidates before dispatch. The allowlist contains the canonical Vercel origin and the parallel GitHub Pages fallback; arbitrary preview deployment hostnames remain rejected. Abuse controls combine a per-visitor rate limit, a global rate limit, explicit hourly/daily downstream budgets, and an `INTAKE_OPEN` kill switch. Budget and deduplication checks fail closed: when their state cannot be established, no submission is dispatched. Operational logs contain only anonymous outcomes, reason classes, and accepted receipt IDs; they never contain source text or network addresses.
+A small Cloudflare Worker validates and size-limits the payload, normalizes public HTTPS source URLs, removes tracking parameters and unsafe Unicode controls, requires a single-use Turnstile token for an explicitly approved public hostname and form action, and checks duplicate candidates before dispatch. The allowlist contains the custom production origin, the previous Vercel origin and the parallel GitHub Pages fallback; arbitrary preview deployment hostnames remain rejected. Abuse controls combine a per-visitor rate limit, a global rate limit, explicit hourly/daily downstream budgets, and an `INTAKE_OPEN` kill switch. Budget and deduplication checks fail closed: when their state cannot be established, no submission is dispatched. Operational logs contain only anonymous outcomes, reason classes, and accepted receipt IDs; they never contain source text or network addresses.
 
 Accepted submissions enter the internal state `NEEDS_REVIEW`. Each receipt opens its own disposable review branch and pull request, with an explicit checklist for source accessibility, date, exact identity, evidence scope, disclosure, duplication, and methodology. The contributor first chooses whether the lead is a public source or a firsthand observation: a source URL is required only for the former and is optional for the latter. No public submission can auto-merge, auto-promote evidence, infer a product surface, or create a PASS or FAIL. No email address, account, file upload, or automatic URL fetch is requested; optional name and affiliation are retained only after explicit consent.
 

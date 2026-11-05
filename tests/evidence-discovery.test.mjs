@@ -703,7 +703,7 @@ test('public intake requires the canonical Turnstile hostname and action', async
       if (url.includes('siteverify'))
         return Response.json({
           success: true,
-          hostname: 'diegolinan.github.io',
+          hostname: 'eternal.diegolinan.me',
           action: 'evidence_submission',
         });
       if (url.includes('/actions/workflows/'))
@@ -720,7 +720,7 @@ test('public intake requires the canonical Turnstile hostname and action', async
       new Request('https://intake.example/', {
         method: 'POST',
         headers: {
-          Origin: 'https://diegolinan.github.io',
+          Origin: 'https://eternal.diegolinan.me',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
@@ -745,7 +745,7 @@ test('public intake requires the canonical Turnstile hostname and action', async
       new Request('https://intake.example/', {
         method: 'POST',
         headers: {
-          Origin: 'https://diegolinan.github.io',
+          Origin: 'https://eternal.diegolinan.me',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
@@ -857,6 +857,7 @@ test('public intake exposes status only to approved deployment origins', async (
   for (const origin of [
     'https://diegolinan.github.io',
     'https://eternal-tuesday-monitor.vercel.app',
+    'https://eternal.diegolinan.me',
   ]) {
     const response = await intakeWorker.fetch(
       new Request('https://intake.example/status', {

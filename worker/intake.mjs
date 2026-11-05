@@ -1,6 +1,7 @@
 import { normalizePublicSourceUrl } from '../lib/public-source-url.mjs';
 
 const allowedOrigins = new Map([
+  ['https://eternal.diegolinan.me', 'eternal.diegolinan.me'],
   ['https://diegolinan.github.io', 'diegolinan.github.io'],
   [
     'https://eternal-tuesday-monitor.vercel.app',
