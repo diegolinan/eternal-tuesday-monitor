@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 
 const INK = '#1e1e1e';
-const PINK = '#f386a1';
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(max, Math.max(min, value));
@@ -41,8 +40,11 @@ export function TemporalClockHero() {
         const reducedMotion = window.matchMedia(
           '(prefers-reduced-motion: reduce)',
         );
+        const pink = new THREE.Color(
+          getComputedStyle(stage).getPropertyValue('--pink').trim(),
+        );
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(PINK);
+        scene.background = pink;
         const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 30);
         camera.position.set(0, 0, 12.4);
 
@@ -68,7 +70,7 @@ export function TemporalClockHero() {
         composer.addPass(new OutputPass());
 
         const ink = new THREE.MeshBasicMaterial({ color: INK });
-        const face = new THREE.MeshBasicMaterial({ color: PINK });
+        const face = new THREE.MeshBasicMaterial({ color: pink });
         const assembly = new THREE.Group();
         const frame = new THREE.Group();
         const clock = new THREE.Group();
