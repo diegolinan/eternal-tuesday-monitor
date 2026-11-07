@@ -38,12 +38,12 @@
   --paper-deep: #dedede;
   --ink: #1e1e1e;
   --ink-soft: #1e1e1edb;
-  --pink: #f386a1;
+  --pink: #f17192;
   /* Sampled from the user's MON paper reference; one yellow for all UI. */
-  --yellow: #fee857;
+  --yellow: #fdea55;
   --acid: var(--yellow);
   --mustard: var(--acid);
-  --cyan: #00c8d0;
+  --cyan: #00c7d1;
   --teal: var(--cyan);
   --mint: var(--cyan);
   --sky: var(--cyan);

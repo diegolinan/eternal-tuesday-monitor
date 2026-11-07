@@ -154,9 +154,9 @@ test('the Monitor design system keeps the approved typography metrics', async ()
   assert.match(css, /line-height: 80%/);
   assert.match(css, /letter-spacing: 0em/);
   assert.match(css, /-webkit-text-stroke: 1\.2px #1e1e1edb/);
-  assert.match(css, /--yellow: #fee857/);
+  assert.match(css, /--yellow: #fdea55/);
   assert.match(css, /--acid: var\(--yellow\)/);
-  assert.match(css, /--cyan: #00c8d0/);
+  assert.match(css, /--cyan: #00c7d1/);
 });
 
 test('five conceptual probe plates are added without replacing the two retained collages', async () => {
