@@ -176,8 +176,8 @@
       "model_id": "model-discovered-0ec90986ddf2d16fa90e",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.4",
-      "originating_discovery_event_id": "discovery-84c3ae1764d3c763b9b9bbfc",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-dbd52b9af4e75aba83cb4ed5",
+      "assessed_on": "2026-11-07",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -2896,8 +2896,8 @@
       "model_id": "model-discovered-7ae0b7ff37a648b21f2e",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.5",
-      "originating_discovery_event_id": "discovery-c3abf0f14095a5dd0f6813fe",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-f24a3c0d5a94ac92a013af0d",
+      "assessed_on": "2026-11-07",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -3236,8 +3236,8 @@
       "model_id": "model-discovered-88b38a0be53dd343689c",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-terra",
-      "originating_discovery_event_id": "discovery-8fd1bdd43e7720e7a3a8be10",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-7c4ef4fc995a42c84cf0ad6f",
+      "assessed_on": "2026-11-07",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -4001,8 +4001,8 @@
       "model_id": "model-discovered-aa82e1844a4aa3932879",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-cyber",
-      "originating_discovery_event_id": "discovery-d2eff11ea309a76b4ec89d2d",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-ad3871d9075197737972811b",
+      "assessed_on": "2026-11-07",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5276,8 +5276,8 @@
       "model_id": "model-discovered-e65fdbebbfed99349ec2",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-luna",
-      "originating_discovery_event_id": "discovery-0b9d4651acddb38769d2780d",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-bd620f5be9470907f6f7bec1",
+      "assessed_on": "2026-11-07",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -5361,8 +5361,8 @@
       "model_id": "model-discovered-e7386b22a080146fd592",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-6-sol",
-      "originating_discovery_event_id": "discovery-eaf39439a75c4100bf4ea87a",
-      "assessed_on": "2026-09-23",
+      "originating_discovery_event_id": "discovery-e54378f64ac95f885221cb38",
+      "assessed_on": "2026-11-07",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [
@@ -6211,8 +6211,8 @@
       "model_id": "model-gpt-5-6-sol",
       "vendor_id": "vendor-openai",
       "api_model_id": "gpt-5.6-sol",
-      "originating_discovery_event_id": "discovery-cb16843270c542005e521e70",
-      "assessed_on": "2026-09-06",
+      "originating_discovery_event_id": "discovery-a419225ee640d39ecb00d8e1",
+      "assessed_on": "2026-11-07",
       "api_availability": {
         "state": "UNKNOWN",
         "reasons": [

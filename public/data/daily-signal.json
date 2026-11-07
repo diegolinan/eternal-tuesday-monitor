@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-06",
+  "edition": "2026-11-07",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "URRx9XD8Lgg",
-    "text": "First-rate people hire first-rate people; second-rate people hire third-rate people.",
-    "author": "Leo Rosten"
+    "id": "oRZY1bcuOo",
+    "text": "Avoid having your ego so close to your position that when your position falls, your ego goes with it.",
+    "author": "Colin Powell"
   },
-  "sha256": "d648a1342f36f7367d0018212d219fdc482981ecbbde72ef4a41442826ac9a83"
+  "sha256": "f54672f9146721c07f0848fe19e55b8f62e25ba6869fbeda4699d5d60e35c0fb"
 }

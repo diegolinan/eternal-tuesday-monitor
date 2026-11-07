@@ -4,7 +4,7 @@
   "releaseId": "release-2026-09-09",
   "dataCutoff": "2026-09-09",
   "publishedOn": "2026-09-09",
-  "freshnessEvaluatedOn": "2026-11-06",
+  "freshnessEvaluatedOn": "2026-11-07",
   "freshnessPolicyVersion": "freshness-policy-1-0",
   "modelEvaluationPolicyVersion": "model-evaluation-adoption-v1",
   "methodologyVersion": "ETM-1.0",
@@ -36,7 +36,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -71,7 +71,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -106,7 +106,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 60,
       "stateHistory": [],
       "methodologyVersion": "SOURCE REVIEW 1",
@@ -140,7 +140,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 180,
       "stateHistory": [],
       "methodologyVersion": "TicToc published protocol",
@@ -174,7 +174,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -208,7 +208,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -244,7 +244,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 90,
       "stateHistory": [],
       "methodologyVersion": "DOCUMENT REVIEW",
@@ -280,7 +280,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -316,7 +316,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -352,7 +352,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -388,7 +388,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -424,7 +424,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -460,7 +460,7 @@
         "AGE_THRESHOLD_EXCEEDED"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 64,
+      "evidenceAgeDays": 65,
       "maxEvidenceAgeDays": 30,
       "stateHistory": [],
       "methodologyVersion": "EVIDENCE SEARCH CUTOFF",
@@ -494,7 +494,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 62,
+      "evidenceAgeDays": 63,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CODEX-CLI-TEMPORAL-ANCHOR-1",
@@ -528,7 +528,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 58,
+      "evidenceAgeDays": 59,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -572,7 +572,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 58,
+      "evidenceAgeDays": 59,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -616,7 +616,7 @@
         "WITHIN_POLICY_WINDOW"
       ],
       "sourceAvailability": "UNKNOWN",
-      "evidenceAgeDays": 58,
+      "evidenceAgeDays": 59,
       "maxEvidenceAgeDays": 120,
       "stateHistory": [],
       "methodologyVersion": "CLAUDE-CODE-TERMINAL-STALE-READINESS-1",
@@ -2074,7 +2074,7 @@
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-23",
+      "adoptionAssessedOn": "2026-11-07",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -12346,7 +12346,7 @@
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-11-07",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -12834,7 +12834,7 @@
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-11-07",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -13078,7 +13078,7 @@
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-11-07",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -13200,7 +13200,7 @@
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-11-07",
       "queueState": "ALREADY_TESTED",
       "queueReasons": [
         "FRESHNESS_POLICY_CONTROLS_RETEST"
@@ -13339,7 +13339,7 @@
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-11-07",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
@@ -13480,7 +13480,7 @@
       "apiAvailabilityReasons": [
         "PUBLIC_SOURCE_IDENTITY_ONLY"
       ],
-      "adoptionAssessedOn": "2026-09-06",
+      "adoptionAssessedOn": "2026-11-07",
       "queueState": "NOT_QUEUED",
       "queueReasons": [
         "BEHAVIORAL_SCOPE_AND_METHOD_REQUIRE_REVIEW"
