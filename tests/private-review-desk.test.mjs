@@ -242,7 +242,7 @@ test('private page is served without exposing credentials and client script pars
 
 test('review design uses the public tokens and bundles shared fonts without Static Assets', async () => {
   const publicCss = await readFile(new URL('../app/monitor-design-system.css', import.meta.url), 'utf8');
-  for (const [name, value] of [['pink', '#f386a1'], ['cyan', '#00c8d0'], ['yellow', '#fee857']]) {
+  for (const [name, value] of [['pink', '#f17192'], ['cyan', '#00c7d1'], ['yellow', '#fdea55']]) {
     assert.match(publicCss, new RegExp(`--${name}:\\s*${value}`));
     assert.match(reviewCss, new RegExp(`--${name}:${value}`));
   }
