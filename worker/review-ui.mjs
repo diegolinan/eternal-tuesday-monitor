@@ -47,7 +47,7 @@ export const reviewHtml = `<!doctype html>
 </html>`;
 
 export const reviewCss = `
-:root{--ink:#1e1e1e;--pink:#f386a1;--cyan:#00c8d0;--yellow:#fee857;--paper:#fefefe;--line:#bfbfbf;--mono:'LisaTerminal Paper 2X3Y Medium','Courier New',monospace;--sans:'Die Grotesk C Regular',Arial,Helvetica,sans-serif;--display:'Die Grotesk C Medium',Arial,Helvetica,sans-serif}
+:root{--ink:#1e1e1e;--pink:#f17192;--cyan:#00c7d1;--yellow:#fdea55;--paper:#fefefe;--line:#bfbfbf;--mono:'LisaTerminal Paper 2X3Y Medium','Courier New',monospace;--sans:'Die Grotesk C Regular',Arial,Helvetica,sans-serif;--display:'Die Grotesk C Medium',Arial,Helvetica,sans-serif}
 @font-face{font-family:'Die Grotesk C Regular';src:url('/die-grotesk-regular.woff2') format('woff2');font-display:swap}
 @font-face{font-family:'Die Grotesk C Medium';src:url('/die-grotesk-medium.woff2') format('woff2');font-display:swap}
 @font-face{font-family:'LisaTerminal Paper 2X3Y Medium';src:url('/lisa-terminal.woff2') format('woff2');font-display:swap}
