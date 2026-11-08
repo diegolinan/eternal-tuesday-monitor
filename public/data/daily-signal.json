@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-07",
+  "edition": "2026-11-08",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "oRZY1bcuOo",
-    "text": "Avoid having your ego so close to your position that when your position falls, your ego goes with it.",
-    "author": "Colin Powell"
+    "id": "dO8CMrZCBgBw",
+    "text": "Chance is always powerful. Let your hook be always cast; in the pool where you least expect it, there will be a fish.",
+    "author": "Ovid"
   },
-  "sha256": "f54672f9146721c07f0848fe19e55b8f62e25ba6869fbeda4699d5d60e35c0fb"
+  "sha256": "3af17b4af3e4d4a3d5b9fbcc10314e786b410beaae4d9e4cdedbb696ca4c523e"
 }
