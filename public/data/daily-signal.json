@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-08",
+  "edition": "2026-11-09",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "dO8CMrZCBgBw",
-    "text": "Chance is always powerful. Let your hook be always cast; in the pool where you least expect it, there will be a fish.",
-    "author": "Ovid"
+    "id": "bhseVu9PSh1I",
+    "text": "Accept the things to which fate binds you and love the people with whom fate brings you together but do so with all your heart.",
+    "author": "Marcus Aurelius"
   },
-  "sha256": "3af17b4af3e4d4a3d5b9fbcc10314e786b410beaae4d9e4cdedbb696ca4c523e"
+  "sha256": "80379ea127083539ab2bca85f35fac0be370133d8e22289c7aa79b6e08de5d00"
 }
