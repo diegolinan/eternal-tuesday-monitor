@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-09",
+  "edition": "2026-11-10",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "bhseVu9PSh1I",
-    "text": "Accept the things to which fate binds you and love the people with whom fate brings you together but do so with all your heart.",
-    "author": "Marcus Aurelius"
+    "id": "VCPz7eYRbDs9",
+    "text": "No act of kindness, no matter how small, is ever wasted.",
+    "author": "Aesop"
   },
-  "sha256": "80379ea127083539ab2bca85f35fac0be370133d8e22289c7aa79b6e08de5d00"
+  "sha256": "54157577a79f32867cc6015a04e5342348d91110623811d91392bfb178c15824"
 }
