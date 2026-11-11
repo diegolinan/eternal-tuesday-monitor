@@ -3,6 +3,35 @@
   "generatedAt": "2026-11-11T19:53:05.001Z",
   "models": [
     {
+      "id": "model-discovered-69a0cb872a47c7383063",
+      "sourceCheck": {
+        "state": "IDENTITY_CHANGED",
+        "checkedAt": "2026-11-11T19:53:02.247Z",
+        "checkedSources": 1,
+        "expectedSources": 1
+      },
+      "eligibilityCheck": {
+        "state": "UNKNOWN_REVIEW_REQUIRED",
+        "checkedAt": "2026-11-11T19:53:05.001Z",
+        "stateChangedOn": null,
+        "reasons": [
+          "API_UNKNOWN",
+          "ACCOUNT_ACCESS_NOT_CONFIRMED",
+          "ACCOUNT_ACCESS_CHECK_STALE",
+          "NO_APPROVED_EXECUTABLE_METHODOLOGY"
+        ]
+      },
+      "behavioralEvaluation": {
+        "state": "NEVER_RUN",
+        "lastAttemptAt": null,
+        "lastEvidenceAt": null,
+        "lastEvidenceOn": null,
+        "attemptedProbes": 0,
+        "evidenceProbes": 0,
+        "totalProbes": 5
+      }
+    },
+    {
       "id": "model-discovered-4319632508e1adccabaa",
       "sourceCheck": {
         "state": "CHECKED_NO_CHANGE",
