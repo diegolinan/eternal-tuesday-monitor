@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-10",
+  "edition": "2026-11-11",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "VCPz7eYRbDs9",
-    "text": "No act of kindness, no matter how small, is ever wasted.",
-    "author": "Aesop"
+    "id": "fwMKi2Q0Pk",
+    "text": "You can't put a limit on anything. The more you dream, the farther you get.",
+    "author": "Michael Phelps"
   },
-  "sha256": "54157577a79f32867cc6015a04e5342348d91110623811d91392bfb178c15824"
+  "sha256": "6e60c0375652c442c75d432fabd6259c6cf9416952a27b915255bad741d554a0"
 }
