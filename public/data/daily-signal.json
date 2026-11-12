@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-11",
+  "edition": "2026-11-12",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "fwMKi2Q0Pk",
-    "text": "You can't put a limit on anything. The more you dream, the farther you get.",
-    "author": "Michael Phelps"
+    "id": "rcf0sSXGr9yk",
+    "text": "If we learn to open our hearts, anyone, including the people who drive us crazy, can be our teacher.",
+    "author": "Pema Chödrön"
   },
-  "sha256": "6e60c0375652c442c75d432fabd6259c6cf9416952a27b915255bad741d554a0"
+  "sha256": "1d91cc92134ab6e2040ccf7fede9fa2cc8546235a52f8a86f2160a61b13ec40d"
 }
