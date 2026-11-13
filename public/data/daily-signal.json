@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-12",
+  "edition": "2026-11-13",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "rcf0sSXGr9yk",
-    "text": "If we learn to open our hearts, anyone, including the people who drive us crazy, can be our teacher.",
-    "author": "Pema Chödrön"
+    "id": "cfZn_tJRV_",
+    "text": "Discipline is the bridge between goals and accomplishment.",
+    "author": "Jim Rohn"
   },
-  "sha256": "1d91cc92134ab6e2040ccf7fede9fa2cc8546235a52f8a86f2160a61b13ec40d"
+  "sha256": "8ba372f8a7f594eda3d0ba0c7a9bb0e79c530620267a2f26081e8ff71183e178"
 }
