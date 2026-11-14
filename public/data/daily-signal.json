@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-13",
+  "edition": "2026-11-14",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "cfZn_tJRV_",
-    "text": "Discipline is the bridge between goals and accomplishment.",
-    "author": "Jim Rohn"
+    "id": "y2PmdIlS5U6_",
+    "text": "What do we live for, if it is not to make life less difficult for each other?",
+    "author": "George Eliot"
   },
-  "sha256": "8ba372f8a7f594eda3d0ba0c7a9bb0e79c530620267a2f26081e8ff71183e178"
+  "sha256": "4a9733d93f241eaec3c32752a5e751912190c95b818232a3fb45e88d32bf8fc5"
 }
