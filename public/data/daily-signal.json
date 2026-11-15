@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-14",
+  "edition": "2026-11-15",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "y2PmdIlS5U6_",
-    "text": "What do we live for, if it is not to make life less difficult for each other?",
-    "author": "George Eliot"
+    "id": "HLWTqbNPyE",
+    "text": "Wisdom alone is the science of other sciences.",
+    "author": "Plato"
   },
-  "sha256": "4a9733d93f241eaec3c32752a5e751912190c95b818232a3fb45e88d32bf8fc5"
+  "sha256": "7a8bab749894ec3092acba6b1f201d25f4ed9521195e42b939fa86ad14e74149"
 }
