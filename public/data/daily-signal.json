@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-15",
+  "edition": "2026-11-16",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "HLWTqbNPyE",
-    "text": "Wisdom alone is the science of other sciences.",
-    "author": "Plato"
+    "id": "QGYxfoed_tdc",
+    "text": "You can only grow if you're willing to feel awkward and uncomfortable when you try something new.",
+    "author": "Brian Tracy"
   },
-  "sha256": "7a8bab749894ec3092acba6b1f201d25f4ed9521195e42b939fa86ad14e74149"
+  "sha256": "86343a76bdba571d5eafacb530711888c9c72d15c7bc5acf7a3e8f6fb2384ff5"
 }
