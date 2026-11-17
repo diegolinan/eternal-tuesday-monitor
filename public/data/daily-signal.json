@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-16",
+  "edition": "2026-11-17",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "QGYxfoed_tdc",
-    "text": "You can only grow if you're willing to feel awkward and uncomfortable when you try something new.",
-    "author": "Brian Tracy"
+    "id": "R1DmP1kYtW",
+    "text": "Reflect on your present blessings, of which every man has many; not on your past misfortunes, of which all men have some.",
+    "author": "Charles Dickens"
   },
-  "sha256": "86343a76bdba571d5eafacb530711888c9c72d15c7bc5acf7a3e8f6fb2384ff5"
+  "sha256": "cad63fbc5eb650940544a4742c2966d0bea2d214dabeda256fac34bd938bae47"
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-11-10",
+  "catalogCheckedThrough": "2026-11-17",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -543,6 +543,16 @@
           "id": "model-discovered-60e719e8b504ff263317",
           "name": "GPT-6.1 Terra",
           "apiModelId": "gpt-6.1-terra"
+        },
+        {
+          "id": "model-discovered-6da6fc40491d8151f8f7",
+          "name": "GPT-6.2 Astra",
+          "apiModelId": "gpt-6.2-astra"
+        },
+        {
+          "id": "model-discovered-0bce11a7cb8d8694e874",
+          "name": "GPT-6.2 Sol",
+          "apiModelId": "gpt-6.2-sol"
         },
         {
           "id": "model-discovered-a7b8efc666342264a603",

@@ -148,6 +148,60 @@
       ]
     },
     {
+      "id": "model-discovered-0bce11a7cb8d8694e874",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6.2 Sol",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-6.2-sol",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-11-17",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-11-17",
+          "sha256": "c0829b7262920cbacc209bca67cddd51a51a332bca0e5f73aa5a03e65f390e97",
+          "fetched_at": "2026-11-17T21:20:55.266Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "ab3e07d3e37f8614bb33086e62fd483b8e5add12",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/c0829b7262920cbacc209bca67cddd51a51a332bca0e5f73aa5a03e65f390e97.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
+          "checked_on": "2026-11-17",
+          "sha256": "ea380c2eeaf175b6799d1fe1dd56cc5cb247c6bfa04aa603b037eeb6ad56319e",
+          "fetched_at": "2026-11-17T21:20:55.590Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "ab3e07d3e37f8614bb33086e62fd483b8e5add12",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/ea380c2eeaf175b6799d1fe1dd56cc5cb247c6bfa04aa603b037eeb6ad56319e.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-0e29cdb1a9068369cdfd",
       "vendor_id": "vendor-openai",
       "name": "GPT-Realtime-1.5",
@@ -2809,6 +2863,60 @@
           "checked_from_commit": "27169901f5584a4816a131c09720689f9660773c",
           "raw_snapshot_artifact": "official-model-discovery-sources",
           "raw_snapshot_path": "discovery-openai-docs/d13b3e2d1ca1f104daeec9cb7de87d8fbe1bd29e5927bde67e3bde906ac702e4.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
+      "id": "model-discovered-6da6fc40491d8151f8f7",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-6.2 Astra",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-6.2-astra",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "DISCOVERED_RELEVANT",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-11-17",
+        "reason": "The reviewed policy tracks OpenAI general-purpose, reasoning and coding model families.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "openai-general-or-agentic"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-11-17",
+          "sha256": "c0829b7262920cbacc209bca67cddd51a51a332bca0e5f73aa5a03e65f390e97",
+          "fetched_at": "2026-11-17T21:20:55.266Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "ab3e07d3e37f8614bb33086e62fd483b8e5add12",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/c0829b7262920cbacc209bca67cddd51a51a332bca0e5f73aa5a03e65f390e97.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
+          "checked_on": "2026-11-17",
+          "sha256": "7837de4ccc8fb088c9f72edebe3fd5d0fe540fdf3cecd5e1a4d1adbeeb3f64a3",
+          "fetched_at": "2026-11-17T21:20:55.450Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "ab3e07d3e37f8614bb33086e62fd483b8e5add12",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/7837de4ccc8fb088c9f72edebe3fd5d0fe540fdf3cecd5e1a4d1adbeeb3f64a3.html.gz",
           "raw_snapshot_retention_days": 90
         }
       ]
