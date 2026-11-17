@@ -8,6 +8,11 @@
       "name": "Anthropic",
       "models": [
         {
+          "id": "model-discovered-69a0cb872a47c7383063",
+          "name": "Claude Fable 5.2",
+          "apiModelId": "claude-fable-5-2"
+        },
+        {
           "id": "model-discovered-58ae42fa2da27922842c",
           "name": "Claude Haiku 4.5",
           "apiModelId": "claude-haiku-4-5-20251001"
