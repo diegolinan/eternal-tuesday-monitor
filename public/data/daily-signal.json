@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-17",
+  "edition": "2026-11-18",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "R1DmP1kYtW",
-    "text": "Reflect on your present blessings, of which every man has many; not on your past misfortunes, of which all men have some.",
-    "author": "Charles Dickens"
+    "id": "N67L3cotzJn6",
+    "text": "The first duty of a human being is to assume the right functional relationship to society - more briefly, to find your real job, and do it.",
+    "author": "Charlotte Perkins Gilman"
   },
-  "sha256": "cad63fbc5eb650940544a4742c2966d0bea2d214dabeda256fac34bd938bae47"
+  "sha256": "64276934401b608e3303d217e8c12abd350ad75150a1ce3383cf9f2017666451"
 }
