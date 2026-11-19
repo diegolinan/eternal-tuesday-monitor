@@ -5043,6 +5043,60 @@
       ]
     },
     {
+      "id": "model-discovered-bf6633ec0c95458490bf",
+      "vendor_id": "vendor-openai",
+      "name": "GPT-Live-1.1",
+      "identity_status": "named",
+      "catalog_status": "ACCEPTED_DISCOVERY",
+      "api_model_id": "gpt-live-1.1",
+      "aliases": [],
+      "release_state": "DISCOVERED",
+      "relevance_state": "CATALOG_ONLY",
+      "relevance_review": {
+        "status": "POLICY_CLASSIFIED",
+        "reviewed_on": "2026-11-19",
+        "reason": "A structured identifier marks a specialized modality or harness outside the Monitor's current temporal/state focus.",
+        "policy_id": "official-model-relevance-v1",
+        "rule_id": "specialized-modality-catalog-only"
+      },
+      "supersedes_model_id": null,
+      "supersession_review": null,
+      "discovery_provenance": [
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "checked_on": "2026-11-19",
+          "sha256": "f707ceb2d681d453bf08eb0338b3a3b40daa91daf694e46077c6764911a77d94",
+          "fetched_at": "2026-11-19T20:59:32.862Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "3c4f03b67df3ef2bfc0cf4b52e7ccedb37c88b71",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/f707ceb2d681d453bf08eb0338b3a3b40daa91daf694e46077c6764911a77d94.html.gz",
+          "raw_snapshot_retention_days": 90
+        },
+        {
+          "source_id": "discovery-openai-docs",
+          "url": "https://developers.openai.com/api/docs/models/gpt-live-1.1",
+          "checked_on": "2026-11-19",
+          "sha256": "d72463078f977957b7c85ada72ec7922c6fdb5cb8df42b7196dda5e1cc3d930f",
+          "fetched_at": "2026-11-19T20:59:34.426Z",
+          "etag": null,
+          "last_modified": null,
+          "adapter": "openai-docs",
+          "adapter_version": "1",
+          "parser_version": "5",
+          "checked_from_commit": "3c4f03b67df3ef2bfc0cf4b52e7ccedb37c88b71",
+          "raw_snapshot_artifact": "official-model-discovery-sources",
+          "raw_snapshot_path": "discovery-openai-docs/d72463078f977957b7c85ada72ec7922c6fdb5cb8df42b7196dda5e1cc3d930f.html.gz",
+          "raw_snapshot_retention_days": 90
+        }
+      ]
+    },
+    {
       "id": "model-discovered-c0466cbac6d887384649",
       "vendor_id": "vendor-openai",
       "name": "o1-pro",

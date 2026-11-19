@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "catalogSchemaVersion": "2.0.0",
-  "catalogCheckedThrough": "2026-11-17",
+  "catalogCheckedThrough": "2026-11-19",
   "vendors": [
     {
       "id": "vendor-anthropic",
@@ -613,6 +613,11 @@
           "id": "model-discovered-7fc4e230104dfc645df6",
           "name": "GPT-Live 1",
           "apiModelId": "gpt-live-1"
+        },
+        {
+          "id": "model-discovered-bf6633ec0c95458490bf",
+          "name": "GPT-Live-1.1",
+          "apiModelId": "gpt-live-1.1"
         },
         {
           "id": "model-discovered-ecfe55f8a422ccdff7ed",

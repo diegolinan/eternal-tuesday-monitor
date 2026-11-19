@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-18",
+  "edition": "2026-11-19",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "N67L3cotzJn6",
-    "text": "The first duty of a human being is to assume the right functional relationship to society - more briefly, to find your real job, and do it.",
-    "author": "Charlotte Perkins Gilman"
+    "id": "kZm2ikxIlVrg",
+    "text": "How far that little candle throws its beams! So shines a good deed in a naughty world.",
+    "author": "William Shakespeare"
   },
-  "sha256": "64276934401b608e3303d217e8c12abd350ad75150a1ce3383cf9f2017666451"
+  "sha256": "34ef3cdd7a643468d73130b57686aa859fee2622874336699100f3bc42fd7f54"
 }
