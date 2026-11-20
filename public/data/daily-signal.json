@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-19",
+  "edition": "2026-11-20",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "kZm2ikxIlVrg",
-    "text": "How far that little candle throws its beams! So shines a good deed in a naughty world.",
-    "author": "William Shakespeare"
+    "id": "iCcQwfTUU3",
+    "text": "Laws alone can not secure freedom of expression; in order that every man present his views without penalty there must be spirit of tolerance in the entire population.",
+    "author": "Albert Einstein"
   },
-  "sha256": "34ef3cdd7a643468d73130b57686aa859fee2622874336699100f3bc42fd7f54"
+  "sha256": "031448326cb130569516e83386cb02d1ecdcfc35fa7f293baa139f547ea5e0df"
 }
