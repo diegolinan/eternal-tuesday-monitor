@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-21",
+  "edition": "2026-11-22",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "Dqqwo96Tximg",
-    "text": "A man may fulfil the object of his existence by asking a question he cannot answer and attempting a task he cannot achieve.",
-    "author": "Oliver Wendell Holmes Jr."
+    "id": "v-sEMgK7nl",
+    "text": "Technology is teaching us to be human again.",
+    "author": "Simon Mainwaring"
   },
-  "sha256": "717436cffad0c3bab9cc7b1b705fd8f7338690b10a9d4a69cca3f92555d465ec"
+  "sha256": "26298c1bde9406802d29b4ca1aef7845fe13877c6db4ef39c68d01189f735aa6"
 }
