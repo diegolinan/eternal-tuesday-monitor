@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-22",
+  "edition": "2026-11-24",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "v-sEMgK7nl",
-    "text": "Technology is teaching us to be human again.",
-    "author": "Simon Mainwaring"
+    "id": "x4gbVTU0f3TW",
+    "text": "The only limit to your impact is your imagination and commitment.",
+    "author": "Tony Robbins"
   },
-  "sha256": "26298c1bde9406802d29b4ca1aef7845fe13877c6db4ef39c68d01189f735aa6"
+  "sha256": "991aa242872074e99417f1a738c2469aa35ef993363e3bc168601460637287b1"
 }
