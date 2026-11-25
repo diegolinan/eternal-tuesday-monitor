@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-24",
+  "edition": "2026-11-25",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "x4gbVTU0f3TW",
-    "text": "The only limit to your impact is your imagination and commitment.",
-    "author": "Tony Robbins"
+    "id": "S_61PHNDnbZ",
+    "text": "Wisdom is the supreme part of happiness.",
+    "author": "Sophocles"
   },
-  "sha256": "991aa242872074e99417f1a738c2469aa35ef993363e3bc168601460637287b1"
+  "sha256": "4c968009805a4582200da397396ee58f79112d55044cf8289e21a2caf8a19e26"
 }
