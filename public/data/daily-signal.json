@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "edition": "2026-11-26",
+  "edition": "2026-11-27",
   "source": "https://raw.githubusercontent.com/quotable-io/data/20037e8161167d25e971d2dcfe1ee0398eb8eb89/data/quotes.json",
   "quote": {
-    "id": "ijc0sPlYFd",
-    "text": "The doctor of the future will give no medicine, but will interest her or his patients in the care of the human frame, in a proper diet, and in the cause and prevention of disease.",
-    "author": "Thomas Edison"
+    "id": "zq6jeZHNas",
+    "text": "Technology presumes there's just one right way to do things and there never is.",
+    "author": "Robert M. Pirsig"
   },
-  "sha256": "31ff96e21b528f89664001c0c86a062513afc7c549f20ad44baf706f7881e71f"
+  "sha256": "0e0121bc06ddc2f31cb93b67bfacc811d0200d775cf8fc6dbbb7b58bcf188d61"
 }
